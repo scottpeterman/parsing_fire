@@ -1,0 +1,11 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_vrp_display_mac-address
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="destination_address_destination_port_type_vlan_id">
+b8d6-f6ff-7390 {{VLAN_ID | re("\\d+")}}/-/-  {{DESTINATION_PORT}}  {{TYPE | ORPHRASE}}
+{{DESTINATION_ADDRESS | ORPHRASE}} 10/-/-  XGE0/0/1  dynamic
+</group>

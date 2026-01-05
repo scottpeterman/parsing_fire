@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_interface
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 9
+# Match ratio: 1.50
+
+<group name="link_status_duplex_bandwidth">
+        Full-D{{LINK_STATUS | ORPHRASE}}lex({{DUPLEX}}), Auto-Speed({{BANDWIDTH | ORPHRASE}})
+</group>
+<group name="interface_interface_zone_link_status_protocol_status">
+Interface {{INTERFACE}} "{{INTERFACE_ZONE}}", is {{LINK_STATUS | ORPHRASE}}, line protocol is {{PROTOCOL_STATUS | ORPHRASE}}
+</group>

@@ -1,0 +1,40 @@
+{
+  "command": "cisco_ios_show_port-security_interface_interface",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"aging_time_aging_type_config_mac_addrs_last_src_mac_addr_vlan\">\nPort Security  : {{PORT_SECURITY | ORPHRASE}}\nPort Status  : {{PORT_STATUS | ORPHRASE}}\nViolation Mode  : {{VIOLATION_MODE | ORPHRASE}}\nAging Time  : {{AGING_TIME | ORPHRASE}}\nAging Type  : {{AGING_TYPE | ORPHRASE}}\nLast Source Address:Vlan  : {{LAST_SRC_MAC_ADDR_VLAN | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT_SECURITY": "Disabled",
+      "PORT_STATUS": "Secure-down",
+      "VIOLATION_MODE": "Shutdown",
+      "AGING_TIME": "1440 mins",
+      "AGING_TYPE": "Absolute",
+      "SS_ADDR_AGING": "Disabled",
+      "MAX_MAC_ADDRS": "1",
+      "TOTAL_MAC_ADDRS": "0",
+      "CONFIG_MAC_ADDRS": "0",
+      "STICKY_MAC_ADDRS": "0",
+      "LAST_SRC_MAC_ADDR_VLAN": "0000.0000.0000:0",
+      "VIOLATION_COUNT": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "aging_time_aging_type_config_mac_addrs_last_src_mac_addr_vlan": {
+        "LAST_SRC_MAC_ADDR_VLAN": "0000.0000.0000:0",
+        "AGING_TYPE": "Absolute",
+        "AGING_TIME": "1440 mins",
+        "VIOLATION_MODE": "Shutdown",
+        "PORT_STATUS": "Secure-down",
+        "PORT_SECURITY": "Disabled"
+      }
+    }
+  ],
+  "cli_content": "Port Security              : Disabled\nPort Status                : Secure-down\nViolation Mode             : Shutdown\nAging Time                 : 1440 mins\nAging Type                 : Absolute\nSecureStatic Address Aging : Disabled\nMaximum MAC Addresses      : 1\nTotal MAC Addresses        : 0\nConfigured MAC Addresses   : 0\nSticky MAC Addresses       : 0\nLast Source Address:Vlan   : 0000.0000.0000:0\nSecurity Violation Count   : 0\n",
+  "textfsm_template": "Value PORT_SECURITY (\\w+)\nValue PORT_STATUS (\\S+)\nValue VIOLATION_MODE ([Pp]rotect|[Rr]estrict|[Ss]hutdown)\nValue AGING_TIME (\\d{1,4}\\smins)\nValue AGING_TYPE ([Aa]bsolute|[Ii]nactivity)\nValue SS_ADDR_AGING (\\w+)\nValue MAX_MAC_ADDRS (\\d+)\nValue TOTAL_MAC_ADDRS (\\d+)\nValue CONFIG_MAC_ADDRS (\\d+)\nValue STICKY_MAC_ADDRS (\\d+)\nValue LAST_SRC_MAC_ADDR_VLAN (\\w.+:\\d+)\nValue VIOLATION_COUNT (\\d+)\n\nStart\n  ^Port Security\\s+:\\s+${PORT_SECURITY}\n  ^Port Status\\s+:\\s+${PORT_STATUS}\n  ^Violation Mode\\s+:\\s+${VIOLATION_MODE}\n  ^Aging Time\\s+:\\s+${AGING_TIME}\n  ^Aging Type\\s+:\\s+${AGING_TYPE}\n  ^SecureStatic Address Aging\\s+:\\s+${SS_ADDR_AGING}\n  ^Maximum MAC Addresses\\s+:\\s+${MAX_MAC_ADDRS}\n  ^Total MAC Addresses\\s+:\\s+${TOTAL_MAC_ADDRS}\n  ^Configured MAC Addresses\\s+:\\s+${CONFIG_MAC_ADDRS}\n  ^Sticky MAC Addresses\\s+:\\s+${STICKY_MAC_ADDRS}\n  ^Last Source Address:Vlan\\s+:\\s+${LAST_SRC_MAC_ADDR_VLAN}\n  ^Security Violation Count\\s+:\\s+${VIOLATION_COUNT}\n  ^\\s*$$\n  ^. -> Error\n"
+}

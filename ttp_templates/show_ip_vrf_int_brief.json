@@ -1,0 +1,74 @@
+{
+  "command": "show ip vrf int brief",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.8,
+  "textfsm_rows": 5,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"interface_vrf_ip_address_state\">\n{{INTERFACE}} {{VRF}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATE | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "GigabitEthernet1",
+      "VRF": "VRF1",
+      "IP_ADDRESS": "192.168.1.1",
+      "STATE": "up"
+    },
+    {
+      "INTERFACE": "GigabitEthernet2",
+      "VRF": "VRF2",
+      "IP_ADDRESS": "192.168.2.1",
+      "STATE": "up"
+    },
+    {
+      "INTERFACE": "GigabitEthernet3",
+      "VRF": "VRF3",
+      "IP_ADDRESS": "unassigned",
+      "STATE": "down"
+    },
+    {
+      "INTERFACE": "Loopback0",
+      "VRF": "VRF1",
+      "IP_ADDRESS": "10.0.0.1",
+      "STATE": "up"
+    },
+    {
+      "INTERFACE": "Vlan10",
+      "VRF": "VRF4",
+      "IP_ADDRESS": "172.16.0.1",
+      "STATE": "up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_vrf_ip_address_state": [
+        {
+          "INTERFACE": "GigabitEthernet1",
+          "VRF": "VRF1",
+          "IP_ADDRESS": "192.168.1.1",
+          "STATE": "up"
+        },
+        {
+          "INTERFACE": "GigabitEthernet2",
+          "VRF": "VRF2",
+          "IP_ADDRESS": "192.168.2.1",
+          "STATE": "up"
+        },
+        {
+          "INTERFACE": "Loopback0",
+          "VRF": "VRF1",
+          "IP_ADDRESS": "10.0.0.1",
+          "STATE": "up"
+        },
+        {
+          "INTERFACE": "Vlan10",
+          "VRF": "VRF4",
+          "IP_ADDRESS": "172.16.0.1",
+          "STATE": "up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              VRF      IP-Address      State    \nGigabitEthernet1       VRF1     192.168.1.1     up      \nGigabitEthernet2       VRF2     192.168.2.1     up      \nGigabitEthernet3       VRF3     unassigned      down    \nLoopback0              VRF1     10.0.0.1        up      \nVlan10                 VRF4     172.16.0.1      up      \n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue VRF (\\S+)\nValue IP_ADDRESS (\\S+)\nValue STATE (\\S+)\n\nStart\n  ^\\s*Interface\\s+VRF\\s+IP-Address\\s+State\\s*$$\n  ^\\s*${INTERFACE}\\s+${VRF}\\s+${IP_ADDRESS}\\s+${STATE}\\s*$$ -> Record"
+}

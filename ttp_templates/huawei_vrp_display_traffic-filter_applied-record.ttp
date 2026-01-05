@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_vrp_display_traffic-filter_applied-record
+# Source: ntc
+# TextFSM rows: 8
+# TTP rows: 3
+# Match ratio: 0.38
+
+<group name="instance_type">
+{{INSTANCE_TYPE | ORPHRASE}}                   Direction  AppliedRecord       
+<group name="acl_name_direction_instance">
+{{INSTANCE}} {{DIRECTION}} acl name {{ACL_NAME | ORPHRASE}}
+</group>
+</group>

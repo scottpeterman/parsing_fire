@@ -1,0 +1,76 @@
+{
+  "command": "cisco_asa_show_ospf_neighbor",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.75,
+  "textfsm_rows": 4,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"neighbor_id_priority_state_dead_time_ip_address_interface\">\n{{NEIGHBOR_ID}} {{PRIORITY}} {{STATE | ORPHRASE}} {{DEAD_TIME}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR_ID": "10.10.100.9",
+      "PRIORITY": "0",
+      "STATE": "FULL/  -",
+      "DEAD_TIME": "0:00:07",
+      "IP_ADDRESS": "10.255.100.9",
+      "INTERFACE": "Outside"
+    },
+    {
+      "NEIGHBOR_ID": "192.168.100.3",
+      "PRIORITY": "1",
+      "STATE": "FULL/DR",
+      "DEAD_TIME": "0:00:30",
+      "IP_ADDRESS": "192.168.100.3",
+      "INTERFACE": "Transit"
+    },
+    {
+      "NEIGHBOR_ID": "10.25.1.18",
+      "PRIORITY": "1",
+      "STATE": "FULL/BDR",
+      "DEAD_TIME": "0:00:07",
+      "IP_ADDRESS": "10.253.1.18",
+      "INTERFACE": "Inside"
+    },
+    {
+      "NEIGHBOR_ID": "10.25.1.19",
+      "PRIORITY": "1",
+      "STATE": "FULL/DROTHER",
+      "DEAD_TIME": "0:00:07",
+      "IP_ADDRESS": "10.253.1.19",
+      "INTERFACE": "Inside"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neighbor_id_priority_state_dead_time_ip_address_interface": [
+        {
+          "NEIGHBOR_ID": "192.168.100.3",
+          "PRIORITY": "1",
+          "STATE": "FULL/DR",
+          "DEAD_TIME": "0:00:30",
+          "IP_ADDRESS": "192.168.100.3",
+          "INTERFACE": "Transit"
+        },
+        {
+          "NEIGHBOR_ID": "10.25.1.18",
+          "PRIORITY": "1",
+          "STATE": "FULL/BDR",
+          "DEAD_TIME": "0:00:07",
+          "IP_ADDRESS": "10.253.1.18",
+          "INTERFACE": "Inside"
+        },
+        {
+          "NEIGHBOR_ID": "10.25.1.19",
+          "PRIORITY": "1",
+          "STATE": "FULL/DROTHER",
+          "DEAD_TIME": "0:00:07",
+          "IP_ADDRESS": "10.253.1.19",
+          "INTERFACE": "Inside"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Neighbor ID     Pri   State           Dead Time   Address         Interface\n10.10.100.9       0   FULL/  -        0:00:07    10.255.100.9    Outside\n192.168.100.3     1   FULL/DR         0:00:30    192.168.100.3   Transit\n10.25.1.18        1   FULL/BDR        0:00:07    10.253.1.18     Inside\n10.25.1.19        1   FULL/DROTHER    0:00:07    10.253.1.19     Inside\n",
+  "textfsm_template": "Value NEIGHBOR_ID (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue PRIORITY (\\S+)\nValue STATE (\\S+\\/\\s+\\-|\\S+)\nValue DEAD_TIME (\\d+:\\d+:\\d+)\nValue IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue INTERFACE (\\S+)\n\nStart\n  ^Neighbor\\s+ID\\s+Pri\\s+State\\s+Dead\\s+Time\\s+Address\\s+Interface\\s*$$\n  ^${NEIGHBOR_ID}\\s+${PRIORITY}\\s+${STATE}\\s+${DEAD_TIME}\\s+${IP_ADDRESS}\\s+${INTERFACE} -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

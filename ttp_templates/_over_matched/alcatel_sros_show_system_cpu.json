@@ -1,0 +1,621 @@
+{
+  "command": "alcatel_sros_show_system_cpu",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.02,
+  "textfsm_rows": 50,
+  "ttp_rows": 51,
+  "ttp_template": "<group name=\"name_cpu_time_cpu_usage_capacity_usage\">\n{{NAME | ORPHRASE}} {{CPU_TIME}} {{CPU_USAGE | ORPHRASE}} {{CAPACITY_USAGE}}\n</group>\n<group name=\"name_cpu_time_cpu_usage\">\n{{NAME | ORPHRASE}} {{CPU_TIME}} {{CPU_USAGE | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "BFD",
+      "CPU_TIME": "189",
+      "CPU_USAGE": "0.01%",
+      "CAPACITY_USAGE": "0.01%"
+    },
+    {
+      "NAME": "BGP",
+      "CPU_TIME": "20",
+      "CPU_USAGE": "~0.00%",
+      "CAPACITY_USAGE": "~0.00%"
+    },
+    {
+      "NAME": "BGP PE-CE",
+      "CPU_TIME": "0",
+      "CPU_USAGE": "0.00%",
+      "CAPACITY_USAGE": "0.00%"
+    },
+    {
+      "NAME": "BIER",
+      "CPU_TIME": "0",
+      "CPU_USAGE": "0.00%",
+      "CAPACITY_USAGE": "0.00%"
+    },
+    {
+      "NAME": "CFLOWD",
+      "CPU_TIME": "48",
+      "CPU_USAGE": "~0.00%",
+      "CAPACITY_USAGE": "~0.00%"
+    },
+    {
+      "NAME": "Cards & Ports",
+      "CPU_TIME": "2,311",
+      "CPU_USAGE": "0.23%",
+      "CAPACITY_USAGE": "0.10%"
+    },
+    {
+      "NAME": "DHCP Server",
+      "CPU_TIME": "11",
+      "CPU_USAGE": "~0.00%",
+      "CAPACITY_USAGE": "~0.00%"
+    },
+    {
+      "NAME": "ETH-CFM",
+      "CPU_TIME": "244",
+      "CPU_USAGE": "0.02%",
+      "CAPACITY_USAGE": "0.02%"
+    },
+    {
+      "NAME": "HQoS Algorithm",
+      "CPU_TIME": "102",
+      "CPU_USAGE": "0.01%",
+      "CAPACITY_USAGE": "0.01%"
+    },
+    {
+      "NAME": "HQoS Statistics",
+      "CPU_TIME": "653",
+      "CPU_USAGE": "0.06%",
+      "CAPACITY_USAGE": "0.06%"
+    },
+    {
+      "NAME": "ICC",
+      "CPU_TIME": "524",
+      "CPU_USAGE": "0.05%",
+      "CAPACITY_USAGE": "0.03%"
+    },
+    {
+      "NAME": "IGMP/MLD",
+      "CPU_TIME": "78",
+      "CPU_USAGE": "~0.00%",
+      "CAPACITY_USAGE": "~0.00%"
+    },
+    {
+      "NAME": "IMSI Db Appl",
+      "CPU_TIME": "128",
+      "CPU_USAGE": "0.01%",
+      "CAPACITY_USAGE": "0.01%"
+    },
+    {
+      "NAME": "IOM",
+      "CPU_TIME": "37,866",
+      "CPU_USAGE": "3.78%",
+      "CAPACITY_USAGE": "2.15%"
+    },
+    {
+      "NAME": "IP Stack",
+      "CPU_TIME": "3,554",
+      "CPU_USAGE": "0.35%",
+      "CAPACITY_USAGE": "0.22%"
+    },
+    {
+      "NAME": "IS-IS",
+      "CPU_TIME": "298",
+      "CPU_USAGE": "0.02%",
+      "CAPACITY_USAGE": "0.01%"
+    },
+    {
+      "NAME": "ISA",
+      "CPU_TIME": "1,093",
+      "CPU_USAGE": "0.10%",
+      "CAPACITY_USAGE": "0.03%"
+    },
+    {
+      "NAME": "LDP",
+      "CPU_TIME": "433",
+      "CPU_USAGE": "0.04%",
+      "CAPACITY_USAGE": "0.02%"
+    },
+    {
+      "NAME": "Logging",
+      "CPU_TIME": "15",
+      "CPU_USAGE": "~0.00%",
+      "CAPACITY_USAGE": "~0.00%"
+    },
+    {
+      "NAME": "MBUF",
+      "CPU_TIME": "0",
+      "CPU_USAGE": "0.00%",
+      "CAPACITY_USAGE": "0.00%"
+    },
+    {
+      "NAME": "MCS",
+      "CPU_TIME": "83",
+      "CPU_USAGE": "~0.00%",
+      "CAPACITY_USAGE": "~0.00%"
+    },
+    {
+      "NAME": "MPLS/RSVP",
+      "CPU_TIME": "1,230",
+      "CPU_USAGE": "0.12%",
+      "CAPACITY_USAGE": "0.05%"
+    },
+    {
+      "NAME": "MSCP",
+      "CPU_TIME": "0",
+      "CPU_USAGE": "0.00%",
+      "CAPACITY_USAGE": "0.00%"
+    },
+    {
+      "NAME": "MSDP",
+      "CPU_TIME": "0",
+      "CPU_USAGE": "0.00%",
+      "CAPACITY_USAGE": "0.00%"
+    },
+    {
+      "NAME": "Management",
+      "CPU_TIME": "25,404",
+      "CPU_USAGE": "2.53%",
+      "CAPACITY_USAGE": "1.84%"
+    },
+    {
+      "NAME": "OAM",
+      "CPU_TIME": "1,759",
+      "CPU_USAGE": "0.17%",
+      "CAPACITY_USAGE": "0.05%"
+    },
+    {
+      "NAME": "OSPF",
+      "CPU_TIME": "815",
+      "CPU_USAGE": "0.08%",
+      "CAPACITY_USAGE": "0.02%"
+    },
+    {
+      "NAME": "OpenFlow",
+      "CPU_TIME": "30",
+      "CPU_USAGE": "~0.00%",
+      "CAPACITY_USAGE": "~0.00%"
+    },
+    {
+      "NAME": "PIM/L2Mcast",
+      "CPU_TIME": "0",
+      "CPU_USAGE": "0.00%",
+      "CAPACITY_USAGE": "0.00%"
+    },
+    {
+      "NAME": "PKI",
+      "CPU_TIME": "24",
+      "CPU_USAGE": "~0.00%",
+      "CAPACITY_USAGE": "~0.00%"
+    },
+    {
+      "NAME": "PTP",
+      "CPU_TIME": "8",
+      "CPU_USAGE": "~0.00%",
+      "CAPACITY_USAGE": "~0.00%"
+    },
+    {
+      "NAME": "RIP",
+      "CPU_TIME": "0",
+      "CPU_USAGE": "0.00%",
+      "CAPACITY_USAGE": "0.00%"
+    },
+    {
+      "NAME": "RTM/Policies",
+      "CPU_TIME": "0",
+      "CPU_USAGE": "0.00%",
+      "CAPACITY_USAGE": "0.00%"
+    },
+    {
+      "NAME": "Redundancy",
+      "CPU_TIME": "0",
+      "CPU_USAGE": "0.00%",
+      "CAPACITY_USAGE": "0.00%"
+    },
+    {
+      "NAME": "SIM",
+      "CPU_TIME": "4,086",
+      "CPU_USAGE": "0.40%",
+      "CAPACITY_USAGE": "0.39%"
+    },
+    {
+      "NAME": "SNMP Daemon",
+      "CPU_TIME": "0",
+      "CPU_USAGE": "0.00%",
+      "CAPACITY_USAGE": "0.00%"
+    },
+    {
+      "NAME": "Security",
+      "CPU_TIME": "0",
+      "CPU_USAGE": "0.00%",
+      "CAPACITY_USAGE": "0.00%"
+    },
+    {
+      "NAME": "Services",
+      "CPU_TIME": "1,246",
+      "CPU_USAGE": "0.12%",
+      "CAPACITY_USAGE": "0.04%"
+    },
+    {
+      "NAME": "Stats",
+      "CPU_TIME": "0",
+      "CPU_USAGE": "0.00%",
+      "CAPACITY_USAGE": "0.00%"
+    },
+    {
+      "NAME": "Stats-Extended",
+      "CPU_TIME": "0",
+      "CPU_USAGE": "0.00%",
+      "CAPACITY_USAGE": "0.00%"
+    },
+    {
+      "NAME": "Subscriber Mgmt",
+      "CPU_TIME": "834",
+      "CPU_USAGE": "0.08%",
+      "CAPACITY_USAGE": "0.01%"
+    },
+    {
+      "NAME": "System",
+      "CPU_TIME": "52,774",
+      "CPU_USAGE": "5.27%",
+      "CAPACITY_USAGE": "2.63%"
+    },
+    {
+      "NAME": "Traffic Eng",
+      "CPU_TIME": "0",
+      "CPU_USAGE": "0.00%",
+      "CAPACITY_USAGE": "0.00%"
+    },
+    {
+      "NAME": "Tree Sid",
+      "CPU_TIME": "0",
+      "CPU_USAGE": "0.00%",
+      "CAPACITY_USAGE": "0.00%"
+    },
+    {
+      "NAME": "VRRP",
+      "CPU_TIME": "227",
+      "CPU_USAGE": "0.02%",
+      "CAPACITY_USAGE": "0.01%"
+    },
+    {
+      "NAME": "WEB Redirect",
+      "CPU_TIME": "107",
+      "CPU_USAGE": "0.01%",
+      "CAPACITY_USAGE": "~0.00%"
+    },
+    {
+      "NAME": "Total",
+      "CPU_TIME": "1,001,337",
+      "CPU_USAGE": "100.00%"
+    },
+    {
+      "NAME": "Idle",
+      "CPU_TIME": "865,143",
+      "CPU_USAGE": "86.39%"
+    },
+    {
+      "NAME": "Usage",
+      "CPU_TIME": "136,194",
+      "CPU_USAGE": "13.60%"
+    },
+    {
+      "NAME": "Busiest Core Utilization",
+      "CPU_TIME": "136,194",
+      "CPU_USAGE": "13.60%"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name_cpu_time_cpu_usage_capacity_usage": [
+        {
+          "NAME": "CPU",
+          "CPU_TIME": "Utilization",
+          "CPU_USAGE": "(Sample period: 1",
+          "CAPACITY_USAGE": "second)"
+        },
+        {
+          "NAME": "BFD",
+          "CPU_TIME": "189",
+          "CPU_USAGE": "0.01%",
+          "CAPACITY_USAGE": "0.01%"
+        },
+        {
+          "NAME": "BGP",
+          "CPU_TIME": "20",
+          "CPU_USAGE": "~0.00%",
+          "CAPACITY_USAGE": "~0.00%"
+        },
+        {
+          "NAME": "BGP PE-CE",
+          "CPU_TIME": "0",
+          "CPU_USAGE": "0.00%",
+          "CAPACITY_USAGE": "0.00%"
+        },
+        {
+          "NAME": "BIER",
+          "CPU_TIME": "0",
+          "CPU_USAGE": "0.00%",
+          "CAPACITY_USAGE": "0.00%"
+        },
+        {
+          "NAME": "CFLOWD",
+          "CPU_TIME": "48",
+          "CPU_USAGE": "~0.00%",
+          "CAPACITY_USAGE": "~0.00%"
+        },
+        {
+          "NAME": "Cards & Ports",
+          "CPU_TIME": "2,311",
+          "CPU_USAGE": "0.23%",
+          "CAPACITY_USAGE": "0.10%"
+        },
+        {
+          "NAME": "DHCP Server",
+          "CPU_TIME": "11",
+          "CPU_USAGE": "~0.00%",
+          "CAPACITY_USAGE": "~0.00%"
+        },
+        {
+          "NAME": "ETH-CFM",
+          "CPU_TIME": "244",
+          "CPU_USAGE": "0.02%",
+          "CAPACITY_USAGE": "0.02%"
+        },
+        {
+          "NAME": "HQoS Algorithm",
+          "CPU_TIME": "102",
+          "CPU_USAGE": "0.01%",
+          "CAPACITY_USAGE": "0.01%"
+        },
+        {
+          "NAME": "HQoS Statistics",
+          "CPU_TIME": "653",
+          "CPU_USAGE": "0.06%",
+          "CAPACITY_USAGE": "0.06%"
+        },
+        {
+          "NAME": "ICC",
+          "CPU_TIME": "524",
+          "CPU_USAGE": "0.05%",
+          "CAPACITY_USAGE": "0.03%"
+        },
+        {
+          "NAME": "IGMP/MLD",
+          "CPU_TIME": "78",
+          "CPU_USAGE": "~0.00%",
+          "CAPACITY_USAGE": "~0.00%"
+        },
+        {
+          "NAME": "IMSI Db Appl",
+          "CPU_TIME": "128",
+          "CPU_USAGE": "0.01%",
+          "CAPACITY_USAGE": "0.01%"
+        },
+        {
+          "NAME": "IOM",
+          "CPU_TIME": "37,866",
+          "CPU_USAGE": "3.78%",
+          "CAPACITY_USAGE": "2.15%"
+        },
+        {
+          "NAME": "IP Stack",
+          "CPU_TIME": "3,554",
+          "CPU_USAGE": "0.35%",
+          "CAPACITY_USAGE": "0.22%"
+        },
+        {
+          "NAME": "IS-IS",
+          "CPU_TIME": "298",
+          "CPU_USAGE": "0.02%",
+          "CAPACITY_USAGE": "0.01%"
+        },
+        {
+          "NAME": "ISA",
+          "CPU_TIME": "1,093",
+          "CPU_USAGE": "0.10%",
+          "CAPACITY_USAGE": "0.03%"
+        },
+        {
+          "NAME": "LDP",
+          "CPU_TIME": "433",
+          "CPU_USAGE": "0.04%",
+          "CAPACITY_USAGE": "0.02%"
+        },
+        {
+          "NAME": "Logging",
+          "CPU_TIME": "15",
+          "CPU_USAGE": "~0.00%",
+          "CAPACITY_USAGE": "~0.00%"
+        },
+        {
+          "NAME": "MBUF",
+          "CPU_TIME": "0",
+          "CPU_USAGE": "0.00%",
+          "CAPACITY_USAGE": "0.00%"
+        },
+        {
+          "NAME": "MCS",
+          "CPU_TIME": "83",
+          "CPU_USAGE": "~0.00%",
+          "CAPACITY_USAGE": "~0.00%"
+        },
+        {
+          "NAME": "MPLS/RSVP",
+          "CPU_TIME": "1,230",
+          "CPU_USAGE": "0.12%",
+          "CAPACITY_USAGE": "0.05%"
+        },
+        {
+          "NAME": "MSCP",
+          "CPU_TIME": "0",
+          "CPU_USAGE": "0.00%",
+          "CAPACITY_USAGE": "0.00%"
+        },
+        {
+          "NAME": "MSDP",
+          "CPU_TIME": "0",
+          "CPU_USAGE": "0.00%",
+          "CAPACITY_USAGE": "0.00%"
+        },
+        {
+          "NAME": "Management",
+          "CPU_TIME": "25,404",
+          "CPU_USAGE": "2.53%",
+          "CAPACITY_USAGE": "1.84%"
+        },
+        {
+          "NAME": "OAM",
+          "CPU_TIME": "1,759",
+          "CPU_USAGE": "0.17%",
+          "CAPACITY_USAGE": "0.05%"
+        },
+        {
+          "NAME": "OSPF",
+          "CPU_TIME": "815",
+          "CPU_USAGE": "0.08%",
+          "CAPACITY_USAGE": "0.02%"
+        },
+        {
+          "NAME": "OpenFlow",
+          "CPU_TIME": "30",
+          "CPU_USAGE": "~0.00%",
+          "CAPACITY_USAGE": "~0.00%"
+        },
+        {
+          "NAME": "PIM/L2Mcast",
+          "CPU_TIME": "0",
+          "CPU_USAGE": "0.00%",
+          "CAPACITY_USAGE": "0.00%"
+        },
+        {
+          "NAME": "PKI",
+          "CPU_TIME": "24",
+          "CPU_USAGE": "~0.00%",
+          "CAPACITY_USAGE": "~0.00%"
+        },
+        {
+          "NAME": "PTP",
+          "CPU_TIME": "8",
+          "CPU_USAGE": "~0.00%",
+          "CAPACITY_USAGE": "~0.00%"
+        },
+        {
+          "NAME": "RIP",
+          "CPU_TIME": "0",
+          "CPU_USAGE": "0.00%",
+          "CAPACITY_USAGE": "0.00%"
+        },
+        {
+          "NAME": "RTM/Policies",
+          "CPU_TIME": "0",
+          "CPU_USAGE": "0.00%",
+          "CAPACITY_USAGE": "0.00%"
+        },
+        {
+          "NAME": "Redundancy",
+          "CPU_TIME": "0",
+          "CPU_USAGE": "0.00%",
+          "CAPACITY_USAGE": "0.00%"
+        },
+        {
+          "NAME": "SIM",
+          "CPU_TIME": "4,086",
+          "CPU_USAGE": "0.40%",
+          "CAPACITY_USAGE": "0.39%"
+        },
+        {
+          "NAME": "SNMP Daemon",
+          "CPU_TIME": "0",
+          "CPU_USAGE": "0.00%",
+          "CAPACITY_USAGE": "0.00%"
+        },
+        {
+          "NAME": "Security",
+          "CPU_TIME": "0",
+          "CPU_USAGE": "0.00%",
+          "CAPACITY_USAGE": "0.00%"
+        },
+        {
+          "NAME": "Services",
+          "CPU_TIME": "1,246",
+          "CPU_USAGE": "0.12%",
+          "CAPACITY_USAGE": "0.04%"
+        },
+        {
+          "NAME": "Stats",
+          "CPU_TIME": "0",
+          "CPU_USAGE": "0.00%",
+          "CAPACITY_USAGE": "0.00%"
+        },
+        {
+          "NAME": "Stats-Extended",
+          "CPU_TIME": "0",
+          "CPU_USAGE": "0.00%",
+          "CAPACITY_USAGE": "0.00%"
+        },
+        {
+          "NAME": "Subscriber Mgmt",
+          "CPU_TIME": "834",
+          "CPU_USAGE": "0.08%",
+          "CAPACITY_USAGE": "0.01%"
+        },
+        {
+          "NAME": "System",
+          "CPU_TIME": "52,774",
+          "CPU_USAGE": "5.27%",
+          "CAPACITY_USAGE": "2.63%"
+        },
+        {
+          "NAME": "Traffic Eng",
+          "CPU_TIME": "0",
+          "CPU_USAGE": "0.00%",
+          "CAPACITY_USAGE": "0.00%"
+        },
+        {
+          "NAME": "Tree Sid",
+          "CPU_TIME": "0",
+          "CPU_USAGE": "0.00%",
+          "CAPACITY_USAGE": "0.00%"
+        },
+        {
+          "NAME": "VRRP",
+          "CPU_TIME": "227",
+          "CPU_USAGE": "0.02%",
+          "CAPACITY_USAGE": "0.01%"
+        },
+        {
+          "NAME": "WEB Redirect",
+          "CPU_TIME": "107",
+          "CPU_USAGE": "0.01%",
+          "CAPACITY_USAGE": "~0.00%"
+        },
+        {
+          "NAME": "Busiest Core",
+          "CPU_TIME": "Utilization",
+          "CPU_USAGE": "136,194",
+          "CAPACITY_USAGE": "13.60%"
+        }
+      ],
+      "name_cpu_time_cpu_usage": [
+        {
+          "NAME": "CPU",
+          "CPU_TIME": "Utilization",
+          "CPU_USAGE": "(Sample period: 1 second)"
+        },
+        {
+          "NAME": "Total",
+          "CPU_TIME": "1,001,337",
+          "CPU_USAGE": "100.00%"
+        },
+        {
+          "NAME": "Busiest Core Utilization",
+          "CPU_TIME": "136,194",
+          "CPU_USAGE": "13.60%"
+        }
+      ]
+    }
+  ],
+  "cli_content": "===============================================================================\nCPU Utilization (Sample period: 1 second)\n===============================================================================\nName                                   CPU Time       CPU Usage        Capacity\n                                         (uSec)                           Usage\n-------------------------------------------------------------------------------\nBFD                                         189           0.01%           0.01%\nBGP                                          20          ~0.00%          ~0.00%\nBGP PE-CE                                     0           0.00%           0.00%\nBIER                                          0           0.00%           0.00%\nCFLOWD                                       48          ~0.00%          ~0.00%\nCards & Ports                             2,311           0.23%           0.10%\nDHCP Server                                  11          ~0.00%          ~0.00%\nETH-CFM                                     244           0.02%           0.02%\nHQoS Algorithm                              102           0.01%           0.01%\nHQoS Statistics                             653           0.06%           0.06%\nICC                                         524           0.05%           0.03%\nIGMP/MLD                                     78          ~0.00%          ~0.00%\nIMSI Db Appl                                128           0.01%           0.01%\nIOM                                      37,866           3.78%           2.15%\nIP Stack                                  3,554           0.35%           0.22%\nIS-IS                                       298           0.02%           0.01%\nISA                                       1,093           0.10%           0.03%\nLDP                                         433           0.04%           0.02%\nLogging                                      15          ~0.00%          ~0.00%\nMBUF                                          0           0.00%           0.00%\nMCS                                          83          ~0.00%          ~0.00%\nMPLS/RSVP                                 1,230           0.12%           0.05%\nMSCP                                          0           0.00%           0.00%\nMSDP                                          0           0.00%           0.00%\nManagement                               25,404           2.53%           1.84%\nOAM                                       1,759           0.17%           0.05%\nOSPF                                        815           0.08%           0.02%\nOpenFlow                                     30          ~0.00%          ~0.00%\nPIM/L2Mcast                                   0           0.00%           0.00%\nPKI                                          24          ~0.00%          ~0.00%\nPTP                                           8          ~0.00%          ~0.00%\nRIP                                           0           0.00%           0.00%\nRTM/Policies                                  0           0.00%           0.00%\nRedundancy                                    0           0.00%           0.00%\nSIM                                       4,086           0.40%           0.39%\nSNMP Daemon                                   0           0.00%           0.00%\nSecurity                                      0           0.00%           0.00%\nServices                                  1,246           0.12%           0.04%\nStats                                         0           0.00%           0.00%\nStats-Extended                                0           0.00%           0.00%\nSubscriber Mgmt                             834           0.08%           0.01%\nSystem                                   52,774           5.27%           2.63%\nTraffic Eng                                   0           0.00%           0.00%\nTree Sid                                      0           0.00%           0.00%\nVRRP                                        227           0.02%           0.01%\nWEB Redirect                                107           0.01%          ~0.00%\n-------------------------------------------------------------------------------\nTotal                                 1,001,337         100.00%                \n   Idle                                 865,143          86.39%                \n   Usage                                136,194          13.60%                \nBusiest Core Utilization                136,194          13.60%                \n===============================================================================\n",
+  "textfsm_template": "Value NAME (\\S.*?)\nValue CPU_TIME (\\S+)\nValue CPU_USAGE (\\S+)\nValue CAPACITY_USAGE (\\S+)\n\nStart\n  ^=+\n  ^CPU\\sUtil.+\n  ^Name\\s+CPU\\s+Time\\s+CPU\\s+Usage\\s+Capacity\\s*$$\n  ^\\s+\\(uSec\\)\\s+Usage\n  ^--.+ -> Resources\n  ^\\s*$$\n  ^. -> Error\n\nResources\n  ^${NAME}\\s{4,}${CPU_TIME}\\s+${CPU_USAGE}\\s+${CAPACITY_USAGE}\\s*$$ -> Record\n  ^--.+ -> Total\n  ^\\s*$$\n  ^. -> Error\n\nTotal\n  ^${NAME}\\s{4,}${CPU_TIME}\\s+${CPU_USAGE}\\s+  -> Record\n  ^\\s+${NAME}\\s{4,}${CPU_TIME}\\s+${CPU_USAGE}\\s+  -> Record\n  ^=+ -> Done\n  ^. -> Error\n\nDone\n"
+}

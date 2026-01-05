@@ -1,0 +1,80 @@
+{
+  "command": "show platform fex all",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.5,
+  "textfsm_rows": 4,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"fex_state_model_serial\">\n{{FEX}} {{STATE | ORPHRASE}} {{MODEL}} {{SERIAL | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FEX": "101",
+      "STATE": "Online",
+      "MODEL": "N2K-C2232",
+      "SERIAL": "FOC1234R1AB"
+    },
+    {
+      "FEX": "102",
+      "STATE": "Online",
+      "MODEL": "N2K-C2232",
+      "SERIAL": "FOC1234R1BC"
+    },
+    {
+      "FEX": "103",
+      "STATE": "Off",
+      "MODEL": "N2K-C2232",
+      "SERIAL": "FOC1234R1CD"
+    },
+    {
+      "FEX": "104",
+      "STATE": "Online",
+      "MODEL": "N2K-C2248",
+      "SERIAL": "FOC1234R2EF"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "fex_state_model_serial": [
+        {
+          "FEX": "FEX",
+          "STATE": "FEX",
+          "MODEL": "FEX",
+          "SERIAL": "FEX"
+        },
+        {
+          "FEX": "Number",
+          "STATE": "State",
+          "MODEL": "Model",
+          "SERIAL": "Serial"
+        },
+        {
+          "FEX": "101",
+          "STATE": "Online",
+          "MODEL": "N2K-C2232",
+          "SERIAL": "FOC1234R1AB"
+        },
+        {
+          "FEX": "102",
+          "STATE": "Online",
+          "MODEL": "N2K-C2232",
+          "SERIAL": "FOC1234R1BC"
+        },
+        {
+          "FEX": "103",
+          "STATE": "Off",
+          "MODEL": "N2K-C2232",
+          "SERIAL": "FOC1234R1CD"
+        },
+        {
+          "FEX": "104",
+          "STATE": "Online",
+          "MODEL": "N2K-C2248",
+          "SERIAL": "FOC1234R2EF"
+        }
+      ]
+    }
+  ],
+  "cli_content": "FEX         FEX       FEX        FEX\nNumber      State     Model      Serial\n---------------------------------------------------\n101         Online    N2K-C2232  FOC1234R1AB\n102         Online    N2K-C2232  FOC1234R1BC\n103         Off       N2K-C2232  FOC1234R1CD\n104         Online    N2K-C2248  FOC1234R2EF\n",
+  "textfsm_template": "Value FEX (\\d+)\nValue STATE (\\w+)\nValue MODEL (\\S+)\nValue SERIAL (\\S+)\n\nStart\n  ^\\s*FEX\\s+FEX\\s+FEX\\s+FEX\\s*$$\n  ^\\s*Number\\s+State\\s+Model\\s+Serial\\s*$$\n  ^\\s*---------------------------------------------------\\s*$$\n  ^\\s*${FEX}\\s+${STATE}\\s+${MODEL}\\s+${SERIAL}\\s*$$ -> Record"
+}

@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_ip_interface_vrf_all
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 2
+# Match ratio: 2.00
+
+<group name="vrf">
+IP Interface Status for VRF "{{VRF | ORPHRASE}}"
+<group name="interface_link_proto">
+{{INTERFACE}}, Interface status: {{PROTO}}/{{LINK}}/{{STATUS | ORPHRASE}}, iod: 60,
+</group>
+</group>

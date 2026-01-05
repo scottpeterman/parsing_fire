@@ -1,0 +1,70 @@
+{
+  "command": "show alert counters summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"alert_count_last_occurrence\">\n{{ALERT}} {{COUNT | re(\"\\\\d+\")}} {{LAST_OCCURRENCE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ALERT": "LinkDown",
+      "COUNT": "5",
+      "LAST_OCCURRENCE": "2023-10-14 10:15:30"
+    },
+    {
+      "ALERT": "HighCPU",
+      "COUNT": "12",
+      "LAST_OCCURRENCE": "2023-10-14 09:58:45"
+    },
+    {
+      "ALERT": "TemperatureFault",
+      "COUNT": "3",
+      "LAST_OCCURRENCE": "2023-10-13 14:22:09"
+    },
+    {
+      "ALERT": "PowerSupplyFail",
+      "COUNT": "0",
+      "LAST_OCCURRENCE": "N/A"
+    },
+    {
+      "ALERT": "FanFailure",
+      "COUNT": "7",
+      "LAST_OCCURRENCE": "2023-10-13 17:45:22"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "alert_count_last_occurrence": [
+        {
+          "ALERT": "LinkDown",
+          "COUNT": "5",
+          "LAST_OCCURRENCE": "2023-10-14 10:15:30"
+        },
+        {
+          "ALERT": "HighCPU",
+          "COUNT": "12",
+          "LAST_OCCURRENCE": "2023-10-14 09:58:45"
+        },
+        {
+          "ALERT": "TemperatureFault",
+          "COUNT": "3",
+          "LAST_OCCURRENCE": "2023-10-13 14:22:09"
+        },
+        {
+          "ALERT": "PowerSupplyFail",
+          "COUNT": "0",
+          "LAST_OCCURRENCE": "N/A"
+        },
+        {
+          "ALERT": "FanFailure",
+          "COUNT": "7",
+          "LAST_OCCURRENCE": "2023-10-13 17:45:22"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Alert             Count         Last Occurrence\n------------------------------------------------\nLinkDown          5             2023-10-14 10:15:30\nHighCPU           12            2023-10-14 09:58:45\nTemperatureFault  3             2023-10-13 14:22:09\nPowerSupplyFail   0             N/A\nFanFailure        7             2023-10-13 17:45:22\n",
+  "textfsm_template": "Value ALERT (\\S+)\nValue COUNT (\\d+)\nValue LAST_OCCURRENCE (\\S+ \\d{2}:\\d{2}:\\d{2}|N/A)\n\nStart\n  ^Alert\\s+Count\\s+Last Occurrence\\s*$$\n  ^-+\\s*$$\n  ^${ALERT}\\s+${COUNT}\\s+${LAST_OCCURRENCE}\\s*$$ -> Record"
+}

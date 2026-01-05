@@ -1,0 +1,18 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_redundancy_summary
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="avg_mgmt_gw_latency_avg_redundancy_peer_latency_bulksync_status_local_state">
+Redundancy Mode = {{REDUNDANCY_MODE | ORPHRASE}} 
+Local State = {{LOCAL_STATE | ORPHRASE}} 
+Peer State = {{PEER_STATE | ORPHRASE}} 
+Unit = {{UNIT | ORPHRASE}}
+Unit ID = {{UNIT_ID | ORPHRASE}}
+Redundancy Port  = {{REDUNDANCY_PORT | ORPHRASE}}
+BulkSync Status = {{BULKSYNC_STATUS | ORPHRASE}}
+Average Redundancy Peer Reachability Latency = {{AVG_REDUNDANCY_PEER_LATENCY | ORPHRASE}} Micro Seconds
+Average Management Gateway Reachability Latency = {{AVG_MGMT_GW_LATENCY | ORPHRASE}} Micro Seconds
+</group>

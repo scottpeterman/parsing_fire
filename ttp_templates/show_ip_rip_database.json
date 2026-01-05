@@ -1,0 +1,102 @@
+{
+  "command": "show ip rip database",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"code_network_nexthop_metric\">\n{{CODE}} {{NETWORK | ORPHRASE}} {{NEXTHOP}} {{METRIC}} \n</group>\n<group name=\"code_network_nexthop_metric_local_pref_weight\">\n{{CODE}} {{NETWORK}} {{NEXTHOP}} {{METRIC}} {{LOCAL_PREF}} {{WEIGHT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CODE": "C",
+      "NETWORK": "10.0.0.0/8",
+      "NEXTHOP": "0.0.0.0",
+      "METRIC": "1"
+    },
+    {
+      "CODE": "R",
+      "NETWORK": "172.16.0.0/16",
+      "NEXTHOP": "10.1.1.2",
+      "METRIC": "2"
+    },
+    {
+      "CODE": "S",
+      "NETWORK": "192.168.1.0/24",
+      "NEXTHOP": "0.0.0.0",
+      "METRIC": "0"
+    },
+    {
+      "CODE": "O",
+      "NETWORK": "203.0.113.0/24",
+      "NEXTHOP": "10.2.2.2",
+      "METRIC": "20",
+      "LOCAL_PREF": "200",
+      "WEIGHT": "100"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "code_network_nexthop_metric": [
+        {
+          "CODE": "IP",
+          "NETWORK": "Route Table for",
+          "NEXTHOP": "Process",
+          "METRIC": "Routes"
+        },
+        {
+          "CODE": "Codes:",
+          "NETWORK": "R - RIP-derived, O - OSPF-derived, C - connected, S - static, i - IS-IS-derived, B - BGP-derived, E - EIGRP, H - HSLS-derived, L - LDP-derived, D - static default, S - summary (component route), K",
+          "NEXTHOP": "-",
+          "METRIC": "kernel-derived"
+        },
+        {
+          "CODE": "C",
+          "NETWORK": "10.0.0.0/8",
+          "NEXTHOP": "0.0.0.0",
+          "METRIC": "1"
+        },
+        {
+          "CODE": "R",
+          "NETWORK": "172.16.0.0/16",
+          "NEXTHOP": "10.1.1.2",
+          "METRIC": "2"
+        },
+        {
+          "CODE": "S",
+          "NETWORK": "192.168.1.0/24",
+          "NEXTHOP": "0.0.0.0",
+          "METRIC": "0"
+        }
+      ],
+      "code_network_nexthop_metric_local_pref_weight": [
+        {
+          "CODE": "IP",
+          "NETWORK": "Route",
+          "NEXTHOP": "Table",
+          "METRIC": "for",
+          "LOCAL_PREF": "Process",
+          "WEIGHT": "Routes"
+        },
+        {
+          "CODE": "Codes:",
+          "NETWORK": "R",
+          "NEXTHOP": "-",
+          "METRIC": "RIP-derived,",
+          "LOCAL_PREF": "O",
+          "WEIGHT": "- OSPF-derived, C - connected, S - static, i - IS-IS-derived, B - BGP-derived, E - EIGRP, H - HSLS-derived, L - LDP-derived, D - static default, S - summary (component route), K - kernel-derived"
+        },
+        {
+          "CODE": "O",
+          "NETWORK": "203.0.113.0/24",
+          "NEXTHOP": "10.2.2.2",
+          "METRIC": "20",
+          "LOCAL_PREF": "200",
+          "WEIGHT": "100"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IP Route Table for Process Routes\n\nCodes: R - RIP-derived, O - OSPF-derived, C - connected, S - static, i - IS-IS-derived, B - BGP-derived, E - EIGRP, H - HSLS-derived, L - LDP-derived, D - static default, S - summary (component route), K - kernel-derived\n\n    Network          Next Hop        Metric    LocPrf     Weight    Path\nC   10.0.0.0/8       0.0.0.0         1                          \nR   172.16.0.0/16    10.1.1.2        2                            \nS   192.168.1.0/24   0.0.0.0         0                          \nO   203.0.113.0/24   10.2.2.2        20           200         100\n",
+  "textfsm_template": "Value CODE (\\S+)\nValue NETWORK (\\d+\\.\\d+\\.\\d+\\.\\d+\\/\\d+)\nValue NEXTHOP (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue METRIC (\\d+)\nValue LOCAL_PREF (\\d*)\nValue WEIGHT (\\d*)\n\nStart\n  ^\\s*(${CODE})\\s+${NETWORK}\\s+${NEXTHOP}\\s+${METRIC}\\s+${LOCAL_PREF}?\\s+${WEIGHT}?\\s*$$ -> Record"
+}

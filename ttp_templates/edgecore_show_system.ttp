@@ -1,0 +1,22 @@
+# TTP Template auto-generated from TextFSM
+# Original command: edgecore_show_system
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="address_auth_enabled_auth_login_contact">
+System Description: {{DESCRIPTION | ORPHRASE}}
+System OID String: {{OID | ORPHRASE}}
+ System Up Time:  {{UPTIME | ORPHRASE}}
+ System Name:  {{HOSTNAME | ORPHRASE}}
+ System Location:  {{LOCATION | ORPHRASE}}
+ System Contact:  {{CONTACT | ORPHRASE}}
+ MAC Address (Unit1):  {{ADDRESS | ORPHRASE}}
+ Web Server:  {{SERVER_STATUS | ORPHRASE}}
+ Web Server Port:  {{SERVER_PORT | ORPHRASE}}
+ Web Secure Server Port:  {{SECURE_SERVER_PORT | ORPHRASE}}
+ Telnet Server Port:  {{TELNET_SERVER_PORT | ORPHRASE}}
+ Authentication Login:  {{AUTH_LOGIN | ORPHRASE}}
+ Jumbo Frame:  {{JUMBO_FRAME_STATUS | ORPHRASE}}
+</group>

@@ -1,0 +1,108 @@
+{
+  "command": "show adjacencies",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.2,
+  "textfsm_rows": 5,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"neighbor_age_link_state_mtu_protocol\">\n{{NEIGHBOR}} {{AGE}} {{LINK}} {{STATE | ORPHRASE}} {{MTU}} {{PROTOCOL | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR": "172.16.0.1",
+      "AGE": "60",
+      "LINK": "Gi0/1",
+      "STATE": "P",
+      "MTU": "1500",
+      "PROTOCOL": "ARP"
+    },
+    {
+      "NEIGHBOR": "192.168.0.22",
+      "AGE": "120",
+      "LINK": "Gi0/2",
+      "STATE": "P",
+      "MTU": "1500",
+      "PROTOCOL": "ARP"
+    },
+    {
+      "NEIGHBOR": "10.0.0.15",
+      "AGE": "300",
+      "LINK": "Gi0/3",
+      "STATE": "P",
+      "MTU": "1500",
+      "PROTOCOL": "ARP"
+    },
+    {
+      "NEIGHBOR": "203.0.113.5",
+      "AGE": "45",
+      "LINK": "Gi0/4",
+      "STATE": "P",
+      "MTU": "1500",
+      "PROTOCOL": "IPv6"
+    },
+    {
+      "NEIGHBOR": "2001:0db8:85a3::8a2e:370:7334",
+      "AGE": "70",
+      "LINK": "Gi0/5",
+      "STATE": "P",
+      "MTU": "1500",
+      "PROTOCOL": "IPv6"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neighbor_age_link_state_mtu_protocol": [
+        {
+          "NEIGHBOR": "Neighbor",
+          "AGE": "Age(sec)",
+          "LINK": "Link",
+          "STATE": "S",
+          "MTU": "MTU",
+          "PROTOCOL": "Protocol"
+        },
+        {
+          "NEIGHBOR": "172.16.0.1",
+          "AGE": "60",
+          "LINK": "Gi0/1",
+          "STATE": "P",
+          "MTU": "1500",
+          "PROTOCOL": "ARP"
+        },
+        {
+          "NEIGHBOR": "192.168.0.22",
+          "AGE": "120",
+          "LINK": "Gi0/2",
+          "STATE": "P",
+          "MTU": "1500",
+          "PROTOCOL": "ARP"
+        },
+        {
+          "NEIGHBOR": "10.0.0.15",
+          "AGE": "300",
+          "LINK": "Gi0/3",
+          "STATE": "P",
+          "MTU": "1500",
+          "PROTOCOL": "ARP"
+        },
+        {
+          "NEIGHBOR": "203.0.113.5",
+          "AGE": "45",
+          "LINK": "Gi0/4",
+          "STATE": "P",
+          "MTU": "1500",
+          "PROTOCOL": "IPv6"
+        },
+        {
+          "NEIGHBOR": "2001:0db8:85a3::8a2e:370:7334",
+          "AGE": "70",
+          "LINK": "Gi0/5",
+          "STATE": "P",
+          "MTU": "1500",
+          "PROTOCOL": "IPv6"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Neighbor                Age(sec)  Link  S  MTU      Protocol\n172.16.0.1              60        Gi0/1 P  1500     ARP\n192.168.0.22            120       Gi0/2 P  1500     ARP\n10.0.0.15               300       Gi0/3 P  1500     ARP\n203.0.113.5             45        Gi0/4 P  1500     IPv6\n2001:0db8:85a3::8a2e:370:7334 70 Gi0/5 P  1500     IPv6\n",
+  "textfsm_template": "Value NEIGHBOR (\\S+)\nValue AGE (\\d+)\nValue LINK (\\S+)\nValue STATE (\\S)\nValue MTU (\\d+)\nValue PROTOCOL (\\S+)\n\nStart\n  ^\\s*Neighbor\\s+Age\\(sec\\)\\s+Link\\s+S\\s+MTU\\s+Protocol\\s*$$\n  ^\\s*${NEIGHBOR}\\s+${AGE}\\s+${LINK}\\s+${STATE}\\s+${MTU}\\s+${PROTOCOL}\\s*$$ -> Record"
+}

@@ -1,0 +1,71 @@
+{
+  "command": "show logical-system interfaces",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.75,
+  "textfsm_rows": 4,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"interface_ip_address_admin_link_protocol\">\n  {{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{ADMIN}} {{LINK}} {{PROTOCOL | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOGICAL_SYSTEM": "LSYSTEM1",
+      "INTERFACE": "ge-0/0/0.0",
+      "IP_ADDRESS": "192.168.0.1",
+      "ADMIN": "up",
+      "LINK": "up",
+      "PROTOCOL": "inet"
+    },
+    {
+      "INTERFACE": "ge-0/0/1.0",
+      "IP_ADDRESS": "192.168.1.1",
+      "ADMIN": "down",
+      "LINK": "down",
+      "PROTOCOL": "inet"
+    },
+    {
+      "LOGICAL_SYSTEM": "LSYSTEM2",
+      "INTERFACE": "ge-0/0/2.0",
+      "IP_ADDRESS": "10.0.0.1",
+      "ADMIN": "up",
+      "LINK": "down",
+      "PROTOCOL": "inet"
+    },
+    {
+      "INTERFACE": "ge-0/0/3.0",
+      "IP_ADDRESS": "unassigned",
+      "ADMIN": "up",
+      "LINK": "up",
+      "PROTOCOL": "inet"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_admin_link_protocol": [
+        {
+          "INTERFACE": "ge-0/0/0.0",
+          "IP_ADDRESS": "192.168.0.1",
+          "ADMIN": "up",
+          "LINK": "up",
+          "PROTOCOL": "inet"
+        },
+        {
+          "INTERFACE": "ge-0/0/1.0",
+          "IP_ADDRESS": "192.168.1.1",
+          "ADMIN": "down",
+          "LINK": "down",
+          "PROTOCOL": "inet"
+        },
+        {
+          "INTERFACE": "ge-0/0/2.0",
+          "IP_ADDRESS": "10.0.0.1",
+          "ADMIN": "up",
+          "LINK": "down",
+          "PROTOCOL": "inet"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface               IP-Address        Admin    Link Protocol\nLSYSTEM1\n  ge-0/0/0.0            192.168.0.1       up       up   inet    \n  ge-0/0/1.0            192.168.1.1       down     down inet    \nLSYSTEM2\n  ge-0/0/2.0            10.0.0.1          up       down inet    \n  ge-0/0/3.0            unassigned        up       up   inet   \n",
+  "textfsm_template": "Value LOGICAL_SYSTEM (\\S+)\nValue INTERFACE (\\S+)\nValue IP_ADDRESS (\\S+)\nValue ADMIN (\\S+)\nValue LINK (\\S+)\nValue PROTOCOL (\\S+)\n\nStart\n  ^\\s*Interface\\s+IP-Address\\s+Admin\\s+Link\\s+Protocol\\s*$$\n  ^\\s*${LOGICAL_SYSTEM}\\s*$$ -> LogicalSystem\n  ^\\s*${INTERFACE}\\s+${IP_ADDRESS}\\s+${ADMIN}\\s+${LINK}\\s+${PROTOCOL}\\s*$$ -> Record\n\nLogicalSystem\n  ^\\s*${LOGICAL_SYSTEM}\\s*$$\n  ^\\s*${INTERFACE}\\s+${IP_ADDRESS}\\s+${ADMIN}\\s+${LINK}\\s+${PROTOCOL}\\s*$$ -> Record\n"
+}

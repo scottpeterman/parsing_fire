@@ -1,0 +1,11 @@
+# TTP Template - FAILED VALIDATION
+# Original command: cisco_s300_show_vlan
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="created_by_vlan_name_interfaces">
+ {{VLAN_I{{CREATED_BY | ORPHRASE}} | re("\\d+")}} {{VLAN_NAME | re("\\d+")}} {{INTERFACES}} D
+</group>
+<group name="vlan_id_vlan_name_created_by">
+ {{VLAN_ID | re("\\d+")}} {{VLAN_NAME | re("\\d+")}} {{INTERFACE{{CREATED_BY | ORPHRASE}}}} S
+</group>

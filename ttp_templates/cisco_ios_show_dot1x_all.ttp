@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_dot1x_all
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 3
+# Match ratio: 1.50
+
+<group name="critical_eapol_critical_recovery_delay_dot1xversion">
+Sysauthcontrol             {{SYSAUTHCONTROL | ORPHRASE}}
+<group name="servertimeout_supptimeout_txperiod">
+ServerTimeout = {{SERVERTIMEOUT | ORPHRASE}}
+</group>
+</group>

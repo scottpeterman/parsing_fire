@@ -1,0 +1,34 @@
+{
+  "command": "huawei_vrp_display_startup",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"backup_system_software_for_next_startup\">\n  Backup system software for next startup: {{BACKUP_SYSTEM_SOFTWARE_FOR_NEXT_STARTUP | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "STARTUP_SYSTEM_SOFTWARE": "flash:/AR610-V300R021C00SPC200.cc",
+      "NEXT_STARTUP_SYSTEM_SOFTWARE": "flash:/AR610-V300R021C00SPC200.cc",
+      "BACKUP_SYSTEM_SOFTWARE_FOR_NEXT_STARTUP": "null",
+      "STARTUP_SAVED_CONFIGURATION_FILE": "flash:/vrpcfg.zip",
+      "NEXT_STARTUP_SAVED_CONFIGURATION_FILE": "flash:/vrpcfg2.zip",
+      "STARTUP_LICENSE_FILE": "null",
+      "NEXT_STARTUP_LICENSE_FILE": "null",
+      "STARTUP_PATCH_PACKAGE": "flash:/AR610_V300R021SPH180.pat",
+      "NEXT_STARTUP_PATCH_PACKAGE": "flash:/AR610_V300R021SPH180.pat",
+      "STARTUP_VOICE_FILES": "null",
+      "NEXT_STARTUP_VOICE_FILES": "null"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "backup_system_software_for_next_startup": {
+        "BACKUP_SYSTEM_SOFTWARE_FOR_NEXT_STARTUP": "null"
+      }
+    }
+  ],
+  "cli_content": "MainBoard: \n  Startup system software:                   flash:/AR610-V300R021C00SPC200.cc\n  Next startup system software:              flash:/AR610-V300R021C00SPC200.cc\n  Backup system software for next startup:   null\n  Startup saved-configuration file:          flash:/vrpcfg.zip\n  Next startup saved-configuration file:     flash:/vrpcfg2.zip\n  Startup license file:                      null\n  Next startup license file:                 null\n  Startup patch package:                     flash:/AR610_V300R021SPH180.pat\n  Next startup patch package:                flash:/AR610_V300R021SPH180.pat\n  Startup voice-files:                       null\n  Next startup voice-files:                  null\n",
+  "textfsm_template": "Value STARTUP_SYSTEM_SOFTWARE (.+)\nValue NEXT_STARTUP_SYSTEM_SOFTWARE (.+)\nValue BACKUP_SYSTEM_SOFTWARE_FOR_NEXT_STARTUP (.+)\nValue STARTUP_SAVED_CONFIGURATION_FILE (.+)\nValue NEXT_STARTUP_SAVED_CONFIGURATION_FILE (.+)\nValue STARTUP_LICENSE_FILE (.+)\nValue NEXT_STARTUP_LICENSE_FILE (.+)\nValue STARTUP_PATCH_PACKAGE (.+)\nValue NEXT_STARTUP_PATCH_PACKAGE (.+)\nValue STARTUP_VOICE_FILES (.+)\nValue NEXT_STARTUP_VOICE_FILES (.+)\n\nStart\n  ^\\S+.*:\\s*$$ -> Continue.Record\n  ^\\S+.*:\\s*$$\n  ^\\s+Startup\\ssystem\\ssoftware:\\s+${STARTUP_SYSTEM_SOFTWARE}\\s*$$\\s*$$\n  ^\\s+Next\\sstartup\\s+system\\s+software:\\s+${NEXT_STARTUP_SYSTEM_SOFTWARE}\\s*$$\n  ^\\s+Backup\\s+system\\s+software\\s+for\\s+next\\sstartup:\\s+${BACKUP_SYSTEM_SOFTWARE_FOR_NEXT_STARTUP}\\s*$$\n  ^\\s+Startup\\s+saved-configuration\\s+file:\\s+${STARTUP_SAVED_CONFIGURATION_FILE}\\s*$$\n  ^\\s+Next\\sstartup\\s+saved-configuration\\s+file:\\s+${NEXT_STARTUP_SAVED_CONFIGURATION_FILE}\\s*$$\n  ^\\s+Startup\\s+license\\s+file:\\s+${STARTUP_LICENSE_FILE}\\s*$$\n  ^\\s+Next\\sstartup\\s+license\\s+file:\\s+${NEXT_STARTUP_LICENSE_FILE}\\s*$$\n  ^\\s+Startup\\s+patch\\s+package:\\s+${STARTUP_PATCH_PACKAGE}\\s*$$\n  ^\\s+Next\\sstartup\\s+patch\\s+package:\\s+${NEXT_STARTUP_PATCH_PACKAGE}\\s*$$\n  ^\\s+Startup\\s+voice-files:\\s+${STARTUP_VOICE_FILES}\\s*$$\n  ^\\s+Next\\sstartup\\s+voice-files:\\s+${NEXT_STARTUP_VOICE_FILES}\\s*$$\n  ^. -> Error\n"
+}

@@ -1,0 +1,50 @@
+{
+  "command": "cisco_nxos_show_configuration_session_summary",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"session_name_session_owner_creation_time\">\n{{SESSION_NAME}} {{SESSION_OWNER}} {{CREATION_TIME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SESSION_NAME": "ACL-SESSION1",
+      "SESSION_OWNER": "ntc",
+      "CREATION_TIME": "02:37:14 UTC Oct 28 2017"
+    },
+    {
+      "SESSION_NAME": "ACL-SESS22",
+      "SESSION_OWNER": "ntc",
+      "CREATION_TIME": "02:37:55 UTC Oct 28 2017"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "session_name_session_owner_creation_time": [
+        {
+          "SESSION_NAME": "Session",
+          "SESSION_OWNER": "Manager",
+          "CREATION_TIME": "Database:"
+        },
+        {
+          "SESSION_NAME": "ACL-SESSION1",
+          "SESSION_OWNER": "ntc",
+          "CREATION_TIME": "02:37:14 UTC Oct 28 2017"
+        },
+        {
+          "SESSION_NAME": "ACL-SESS22",
+          "SESSION_OWNER": "ntc",
+          "CREATION_TIME": "02:37:55 UTC Oct 28 2017"
+        },
+        {
+          "SESSION_NAME": "Number",
+          "SESSION_OWNER": "of",
+          "CREATION_TIME": "active configuration sessions = 2"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Session Manager Database:\n--------------------------------------------------------------------\nName                    Session Owner           Creation Time\n--------------------------------------------------------------------\nACL-SESSION1            ntc                     02:37:14 UTC Oct 28 2017\nACL-SESS22              ntc                     02:37:55 UTC Oct 28 2017\n\nNumber of active configuration sessions = 2\n\n",
+  "textfsm_template": "Value SESSION_NAME (\\S+)\nValue SESSION_OWNER (\\S+)\nValue CREATION_TIME (\\S+\\s\\S+\\s\\S+\\s\\S+\\s\\S+)\n\nStart\n  ^Name -> Session\n\nSession\n  ^Number\n  ^${SESSION_NAME}\\s+${SESSION_OWNER}\\s+${CREATION_TIME} -> Record\n\n"
+}

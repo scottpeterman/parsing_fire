@@ -1,0 +1,80 @@
+{
+  "command": "show alarm counters all",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"alarm_type_raised_cleared_active\">\n{{ALARM_TYPE}} {{RAISED}} {{CLEARED}} {{ACTIVE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ALARM_TYPE": "Critical",
+      "RAISED": "5",
+      "CLEARED": "2",
+      "ACTIVE": "3"
+    },
+    {
+      "ALARM_TYPE": "Major",
+      "RAISED": "10",
+      "CLEARED": "5",
+      "ACTIVE": "5"
+    },
+    {
+      "ALARM_TYPE": "Minor",
+      "RAISED": "20",
+      "CLEARED": "10",
+      "ACTIVE": "10"
+    },
+    {
+      "ALARM_TYPE": "Warning",
+      "RAISED": "15",
+      "CLEARED": "10",
+      "ACTIVE": "5"
+    },
+    {
+      "ALARM_TYPE": "Info",
+      "RAISED": "25",
+      "CLEARED": "20",
+      "ACTIVE": "5"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "alarm_type_raised_cleared_active": [
+        {
+          "ALARM_TYPE": "Critical",
+          "RAISED": "5",
+          "CLEARED": "2",
+          "ACTIVE": "3"
+        },
+        {
+          "ALARM_TYPE": "Major",
+          "RAISED": "10",
+          "CLEARED": "5",
+          "ACTIVE": "5"
+        },
+        {
+          "ALARM_TYPE": "Minor",
+          "RAISED": "20",
+          "CLEARED": "10",
+          "ACTIVE": "10"
+        },
+        {
+          "ALARM_TYPE": "Warning",
+          "RAISED": "15",
+          "CLEARED": "10",
+          "ACTIVE": "5"
+        },
+        {
+          "ALARM_TYPE": "Info",
+          "RAISED": "25",
+          "CLEARED": "20",
+          "ACTIVE": "5"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Alarm Type                  Raised      Cleared     Active      \n-------------------------------------------------------------\nCritical                    5           2           3\nMajor                       10          5           5\nMinor                       20          10          10\nWarning                     15          10          5\nInfo                        25          20          5\n",
+  "textfsm_template": "Value ALARM_TYPE (\\S+)\nValue RAISED (\\d+)\nValue CLEARED (\\d+)\nValue ACTIVE (\\d+)\n\nStart\n  ^\\s*Alarm\\s+Type\\s+Raised\\s+Cleared\\s+Active\\s*$$\n  ^-+\\s*$$\n  ^\\s*${ALARM_TYPE}\\s+${RAISED}\\s+${CLEARED}\\s+${ACTIVE}\\s*$$ -> Record"
+}

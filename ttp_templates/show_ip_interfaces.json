@@ -1,0 +1,76 @@
+{
+  "command": "show ip interfaces",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.75,
+  "textfsm_rows": 4,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"interface_ip_address_ok_method_status_protocol\">\n{{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{OK}} {{METHOD}} {{STATUS | ORPHRASE}} {{PROTOCOL}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Et0/0",
+      "IP_ADDRESS": "192.168.1.1",
+      "OK": "YES",
+      "METHOD": "NVRAM",
+      "STATUS": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "INTERFACE": "Et0/1",
+      "IP_ADDRESS": "192.168.2.1",
+      "OK": "YES",
+      "METHOD": "manual",
+      "STATUS": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "INTERFACE": "Et0/2",
+      "IP_ADDRESS": "unassigned",
+      "OK": "YES",
+      "METHOD": "unset",
+      "STATUS": "administratively down",
+      "PROTOCOL": "down"
+    },
+    {
+      "INTERFACE": "Et0/3",
+      "IP_ADDRESS": "10.0.0.1",
+      "OK": "YES",
+      "METHOD": "manual",
+      "STATUS": "up",
+      "PROTOCOL": "up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_ok_method_status_protocol": [
+        {
+          "INTERFACE": "Et0/0",
+          "IP_ADDRESS": "192.168.1.1",
+          "OK": "YES",
+          "METHOD": "NVRAM",
+          "STATUS": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "INTERFACE": "Et0/1",
+          "IP_ADDRESS": "192.168.2.1",
+          "OK": "YES",
+          "METHOD": "manual",
+          "STATUS": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "INTERFACE": "Et0/3",
+          "IP_ADDRESS": "10.0.0.1",
+          "OK": "YES",
+          "METHOD": "manual",
+          "STATUS": "up",
+          "PROTOCOL": "up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              IP-Address      OK? Method Status                Protocol\nEt0/0                  192.168.1.1     YES NVRAM  up                    up\nEt0/1                  192.168.2.1     YES manual up                    up\nEt0/2                  unassigned      YES unset  administratively down down\nEt0/3                  10.0.0.1        YES manual up                    up\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue IP_ADDRESS (\\S+)\nValue OK (\\S+)\nValue METHOD (\\S+)\nValue STATUS (administratively down|up|down)\nValue PROTOCOL (\\S+)\n\nStart\n  ^Interface\\s+IP-Address\\s+OK\\?\\s+Method\\s+Status\\s+Protocol\\s*$$\n  ^${INTERFACE}\\s+${IP_ADDRESS}\\s+${OK}\\s+${METHOD}\\s+${STATUS}\\s+${PROTOCOL}\\s*$$ -> Record"
+}

@@ -1,0 +1,68 @@
+{
+  "command": "fortinet_get_system_arp",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"ip_address_age_mac_address_interface\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{AGE}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP_ADDRESS": "192.168.1.4",
+      "AGE": "0",
+      "MAC_ADDRESS": "b0:a8:6e:01:61:81",
+      "INTERFACE": "lan"
+    },
+    {
+      "IP_ADDRESS": "192.168.1.110",
+      "AGE": "0",
+      "MAC_ADDRESS": "3c:9b:d6:66:52:ab",
+      "INTERFACE": "lan"
+    },
+    {
+      "IP_ADDRESS": "192.168.1.111",
+      "AGE": "0",
+      "MAC_ADDRESS": "18:64:72:c9:02:d2",
+      "INTERFACE": "lan"
+    },
+    {
+      "IP_ADDRESS": "192.168.1.114",
+      "AGE": "4",
+      "MAC_ADDRESS": "40:cb:c0:ce:81:85",
+      "INTERFACE": "lan"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_address_age_mac_address_interface": [
+        {
+          "IP_ADDRESS": "192.168.1.4",
+          "AGE": "0",
+          "MAC_ADDRESS": "b0:a8:6e:01:61:81",
+          "INTERFACE": "lan"
+        },
+        {
+          "IP_ADDRESS": "192.168.1.110",
+          "AGE": "0",
+          "MAC_ADDRESS": "3c:9b:d6:66:52:ab",
+          "INTERFACE": "lan"
+        },
+        {
+          "IP_ADDRESS": "192.168.1.111",
+          "AGE": "0",
+          "MAC_ADDRESS": "18:64:72:c9:02:d2",
+          "INTERFACE": "lan"
+        },
+        {
+          "IP_ADDRESS": "192.168.1.114",
+          "AGE": "4",
+          "MAC_ADDRESS": "40:cb:c0:ce:81:85",
+          "INTERFACE": "lan"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Address           Age(min)   Hardware Addr      Interface\n192.168.1.4       0          b0:a8:6e:01:61:81 lan\n192.168.1.110     0          3c:9b:d6:66:52:ab lan\n192.168.1.111     0          18:64:72:c9:02:d2 lan\n192.168.1.114     4          40:cb:c0:ce:81:85 lan\n",
+  "textfsm_template": "Value IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue AGE (\\d+)\nValue MAC_ADDRESS (\\S+)\nValue INTERFACE (.*)\n\nStart\n  ^${IP_ADDRESS}\\s+${AGE}\\s+${MAC_ADDRESS}\\s+${INTERFACE} -> Record\n  ^Address\\s+Age(min)\\s+Hardware\\s+Addr\\s+Interface\\s*$$\n  ^\\s*\n  ^. -> Error\n"
+}

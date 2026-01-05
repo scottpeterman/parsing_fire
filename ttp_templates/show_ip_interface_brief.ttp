@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip interface brief
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 6
+# Match ratio: 1.20
+
+<group name="interface_ip_address_ok_method_status_protocol">
+{{INTERFACE}} {{IP_ADDRESS}} {{OK}} {{METHOD}} {{STATUS | ORPHRASE}} {{PROTOCOL}}
+</group>

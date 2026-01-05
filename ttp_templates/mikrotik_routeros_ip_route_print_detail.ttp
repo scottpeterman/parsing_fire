@@ -1,0 +1,22 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_ip_route_print_detail
+# Source: ntc
+# TextFSM rows: 7
+# TTP rows: 2
+# Match ratio: 0.29
+
+<group name="number_active_dynamic_protocol_network_mask_gateway_gateway_status_distance">
+ {{NUMBER}} {{ACTIVE}}{{DYNAMIC}}{{PROTOCOL}} dst-address={{NETWORK}}/{{MASK}} gateway={{GATEWAY}} gateway-status={{GATEWAY_STATUS | ORPHRASE}} distance={{DISTANCE}} scope=30 target-scope=10 vrf-interface=lte1
+</group>
+<group name="number_protocol_dynamic_network_mask_pref_src_gateway_gateway_status_distance">
+ {{NUMBER}} {{A{{PROTOCOL}}TIVE}}{{DYNAMIC}}C dst-address={{NETWORK}}/{{MASK}} pref-src={{PREF_SRC}} gateway={{GATEWAY}} gateway-status={{GATEWAY_STATUS | ORPHRASE}} distance={{DISTANCE}} scope=10
+</group>
+<group name="number_active_protocol_network_mask_gateway_gateway_status_distance">
+ {{NUMBER}} {{ACTIVE}} {{PROTOCOL}} dst-address={{NETWORK}}/{{MASK}} gateway={{GATEWAY}} gateway-status={{GATEWAY_STATUS | ORPHRASE}} distance={{DISTANCE}} scope=30 target-scope=10
+</group>
+<group name="discard_packet_active_protocol_network_mask_distance">
+ {{NUM{{DISCARD_PACKET}}ER}} {{ACTIVE}} {{PROTOCOL}}B dst-address={{NETWORK}}/{{MASK}} type=blackhole distance={{DISTANCE | ORPHRASE}} routing-mark=Free_Wi-Fi
+</group>
+<group name="number_active_protocol_network_mask_gateway_gateway_status_check_gateway_distance">
+ {{NUMBER}} {{ACTIVE}} {{PROTOCOL}} dst-address={{NETWORK}}/{{MASK}} gateway={{GATEWAY}} gateway-status={{GATEWAY_STATUS | ORPHRASE}} check-gateway={{CHECK_GATEWAY | ORPHRASE}} distance={{DISTANCE}} scope=30 target-scope=10
+</group>

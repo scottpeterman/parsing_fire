@@ -1,0 +1,83 @@
+{
+  "command": "show pim neighbor",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"interface_neighbor_uptime_expires_mode\">\n{{INTERFACE}} {{NEIGHBOR}} {{UPTIME | ORPHRASE}} {{EXPIRES}} {{MODE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Ethernet0",
+      "NEIGHBOR": "192.0.2.1",
+      "UPTIME": "03:50:20",
+      "EXPIRES": "01:20:10",
+      "MODE": "DR"
+    },
+    {
+      "INTERFACE": "Ethernet1",
+      "NEIGHBOR": "192.0.2.2",
+      "UPTIME": "01:05:50",
+      "EXPIRES": "00:25:30",
+      "MODE": "DR"
+    },
+    {
+      "INTERFACE": "Ethernet2",
+      "NEIGHBOR": "192.0.2.3",
+      "UPTIME": "02:02:10",
+      "EXPIRES": "00:55:30",
+      "MODE": "DR"
+    },
+    {
+      "INTERFACE": "Ethernet3",
+      "NEIGHBOR": "192.0.2.4",
+      "UPTIME": "00:12:30",
+      "EXPIRES": "00:02:10",
+      "MODE": "DR"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_neighbor_uptime_expires_mode": [
+        {
+          "INTERFACE": "Interface",
+          "NEIGHBOR": "Neighbor",
+          "UPTIME": "Uptime",
+          "EXPIRES": "Expires",
+          "MODE": "Mode"
+        },
+        {
+          "INTERFACE": "Ethernet0",
+          "NEIGHBOR": "192.0.2.1",
+          "UPTIME": "03:50:20",
+          "EXPIRES": "01:20:10",
+          "MODE": "DR"
+        },
+        {
+          "INTERFACE": "Ethernet1",
+          "NEIGHBOR": "192.0.2.2",
+          "UPTIME": "01:05:50",
+          "EXPIRES": "00:25:30",
+          "MODE": "DR"
+        },
+        {
+          "INTERFACE": "Ethernet2",
+          "NEIGHBOR": "192.0.2.3",
+          "UPTIME": "02:02:10",
+          "EXPIRES": "00:55:30",
+          "MODE": "DR"
+        },
+        {
+          "INTERFACE": "Ethernet3",
+          "NEIGHBOR": "192.0.2.4",
+          "UPTIME": "00:12:30",
+          "EXPIRES": "00:02:10",
+          "MODE": "DR"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              Neighbor      Uptime    Expires   Mode\nEthernet0              192.0.2.1     03:50:20  01:20:10  DR\nEthernet1              192.0.2.2     01:05:50  00:25:30  DR\nEthernet2              192.0.2.3     02:02:10  00:55:30  DR\nEthernet3              192.0.2.4     00:12:30  00:02:10  DR\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue NEIGHBOR (\\S+)\nValue UPTIME (\\d+:\\d+:\\d+)\nValue EXPIRES (\\d+:\\d+:\\d+)\nValue MODE (\\S+)\n\nStart\n  ^\\s*Interface\\s+Neighbor\\s+Uptime\\s+Expires\\s+Mode\\s*$$\n  ^\\s*${INTERFACE}\\s+${NEIGHBOR}\\s+${UPTIME}\\s+${EXPIRES}\\s+${MODE}\\s*$$ -> Record"
+}

@@ -1,0 +1,98 @@
+{
+  "command": "arista_eos_show_pim_ipv4_neighbor",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"vrf\">\nPIM Neighbor Table for {{VRF | ORPHRASE}} VRF\n<group name=\"expires_interface_mode\">\n{{NEIGHBOR}} {{INTERFACE}} {{UPTIME | ORPHRASE}} {{EXPIRES}} {{MODE}} {{TRANSPORT | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VRF": "default",
+      "NEIGHBOR": "192.0.2.2",
+      "INTERFACE": "Ethernet20/1",
+      "UPTIME": "02:26:03",
+      "EXPIRES": "00:00:16",
+      "MODE": "sparse",
+      "TRANSPORT": "datagram"
+    },
+    {
+      "VRF": "default",
+      "NEIGHBOR": "192.0.2.4",
+      "INTERFACE": "Port-Channel1.10",
+      "UPTIME": "02:25:25",
+      "EXPIRES": "00:01:25",
+      "MODE": "sparse",
+      "TRANSPORT": "datagram"
+    },
+    {
+      "VRF": "default",
+      "NEIGHBOR": "192.0.2.6",
+      "INTERFACE": "Vlan100",
+      "UPTIME": "02:04:47",
+      "EXPIRES": "00:01:32",
+      "MODE": "sparse",
+      "TRANSPORT": "datagram"
+    },
+    {
+      "VRF": "default",
+      "NEIGHBOR": "192.0.2.8",
+      "INTERFACE": "Vlan200",
+      "UPTIME": "02:04:47",
+      "EXPIRES": "00:01:35",
+      "MODE": "sparse",
+      "TRANSPORT": "datagram"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vrf": {
+        "expires_interface_mode": [
+          {
+            "NEIGHBOR": "PIM",
+            "INTERFACE": "Neighbor",
+            "UPTIME": "Table",
+            "EXPIRES": "for",
+            "MODE": "default",
+            "TRANSPORT": "VRF"
+          },
+          {
+            "NEIGHBOR": "192.0.2.2",
+            "INTERFACE": "Ethernet20/1",
+            "UPTIME": "02:26:03",
+            "EXPIRES": "00:00:16",
+            "MODE": "sparse",
+            "TRANSPORT": "datagram"
+          },
+          {
+            "NEIGHBOR": "192.0.2.4",
+            "INTERFACE": "Port-Channel1.10",
+            "UPTIME": "02:25:25",
+            "EXPIRES": "00:01:25",
+            "MODE": "sparse",
+            "TRANSPORT": "datagram"
+          },
+          {
+            "NEIGHBOR": "192.0.2.6",
+            "INTERFACE": "Vlan100",
+            "UPTIME": "02:04:47",
+            "EXPIRES": "00:01:32",
+            "MODE": "sparse",
+            "TRANSPORT": "datagram"
+          },
+          {
+            "NEIGHBOR": "192.0.2.8",
+            "INTERFACE": "Vlan200",
+            "UPTIME": "02:04:47",
+            "EXPIRES": "00:01:35",
+            "MODE": "sparse",
+            "TRANSPORT": "datagram"
+          }
+        ]
+      }
+    }
+  ],
+  "cli_content": "PIM Neighbor Table for default VRF\nNeighbor Address  Interface             Uptime    Expires   Mode    Transport\n192.0.2.2         Ethernet20/1          02:26:03  00:00:16  sparse  datagram\n192.0.2.4         Port-Channel1.10      02:25:25  00:01:25  sparse  datagram\n192.0.2.6         Vlan100               02:04:47  00:01:32  sparse  datagram\n192.0.2.8         Vlan200               02:04:47  00:01:35  sparse  datagram",
+  "textfsm_template": "Value Filldown VRF (\\S+)\nValue Required NEIGHBOR (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue INTERFACE ([\\w\\./-]+)\nValue UPTIME (\\S+)\nValue EXPIRES (\\S+)\nValue MODE (\\S+)\nValue TRANSPORT (\\S+)\n\nStart\n  ^\\s*PIM Neighbor Table for ${VRF} VRF\\s*$$\n  ^\\s*Neighbor Address\\s+Interface\\s+Uptime\\s+Expires\\s+Mode\\s+Transport\\s*$$\n  ^\\s*${NEIGHBOR}\\s+${INTERFACE}\\s+${UPTIME}\\s+${EXPIRES}\\s+${MODE}\\s+${TRANSPORT}\\s*$$ -> Record\n  ^%\\s\n  ^. -> Error\n\nEOF\n"
+}

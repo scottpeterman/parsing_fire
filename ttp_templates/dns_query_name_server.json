@@ -1,0 +1,28 @@
+{
+  "command": "dns query name server",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"name_server_server_address\">\nServer:  {{SERVER | ORPHRASE}}\nName:  {{NAME | ORPHRASE}}\nAddress: {{SERVER_ADDRESS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SERVER": "192.168.0.1",
+      "SERVER_ADDRESS": "2606:2800:220:1:248:1893:25c8:1946",
+      "NAME": "example.com"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name_server_server_address": {
+        "SERVER_ADDRESS": "192.168.0.1#53",
+        "NAME": "example.com",
+        "SERVER": "192.168.0.1"
+      }
+    }
+  ],
+  "cli_content": "Server:  192.168.0.1\nAddress: 192.168.0.1#53\n\nNon-authoritative answer:\nName:    example.com\nAddress: 93.184.216.34\nName:    example.com\nAddress: 2606:2800:220:1:248:1893:25c8:1946\n",
+  "textfsm_template": "Value SERVER (\\S+)\nValue SERVER_ADDRESS (\\S+)\nValue NAME (\\S+)\nValue IPV4_ADDRESS (\\S+)\nValue IPV6_ADDRESS (\\S+)\n\nStart\n  ^Server:\\s+${SERVER}\\s*$$\n  ^Address:\\s+${SERVER_ADDRESS}\\s*$$\n  ^Non-authoritative\\s+answer:\\s*$$\n  ^Name:\\s+${NAME}\\s*$$\n  ^Address:\\s+${IPV4_ADDRESS}\\s*$$ -> Record\n  ^Name:\\s+${NAME}\\s*$$\n  ^Address:\\s+${IPV6_ADDRESS}\\s*$$ -> Record"
+}

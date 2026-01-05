@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show fan detail
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="fan_id_speed_status">
+{{FAN_ID}} {{SPEED}} {{STATUS | ORPHRASE}}
+</group>

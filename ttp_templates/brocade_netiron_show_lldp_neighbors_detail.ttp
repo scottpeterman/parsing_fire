@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: brocade_netiron_show_lldp_neighbors_detail
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 10
+# Match ratio: 2.00
+
+<group name="neighbor_port_id_holdtime">
+  Neighbor: {{NEIGHBOR_PORT_ID}}, TTL {{HOLDTIME | ORPHRASE}} seconds
+</group>
+<group name="local_interface">
+Local port: {{LOCAL_INTERFACE | ORPHRASE}}
+</group>

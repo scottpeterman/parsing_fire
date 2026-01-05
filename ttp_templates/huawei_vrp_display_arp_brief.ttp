@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_vrp_display_arp_brief
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="ip_address_mac_address_type_interface">
+{{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{TYPE | ORPHRASE}} {{INTERFACE | ORPHRASE}} 
+</group>
+<group name="ip_address_mac_address_expire_type_interface_vlan_id">
+{{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{EXPIRE}} {{TYPE | ORPHRASE}} {{INTERFACE}} {{VLAN_ID | ORPHRASE}} 
+</group>

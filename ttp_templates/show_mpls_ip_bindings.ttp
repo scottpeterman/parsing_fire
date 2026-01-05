@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show mpls ip bindings
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="label_protocol_nexthop_interface_receiver">
+{{LABEL}} {{PROTOCOL}} {{NEXTHOP}} {{INTERFACE}} {{RECEIVER | ORPHRASE}}
+</group>

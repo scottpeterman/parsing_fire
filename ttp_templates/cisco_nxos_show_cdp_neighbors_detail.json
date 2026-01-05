@@ -1,0 +1,143 @@
+{
+  "command": "cisco_nxos_show_cdp_neighbors_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 4.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 20,
+  "ttp_template": "<group name=\"mgmt_address\">\n    IPv4 Address: {{MGMT_ADDRESS | ORPHRASE}}\n</group>\n<group name=\"chassis_id\">\nDevice ID:{{CHASSIS_ID | ORPHRASE}}\n</group>\n<group name=\"platform_capabilities\">\nPlatform: {{PLATFORM | ORPHRASE}}, Capabilities: {{CAPABILITIES | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CHASSIS_ID": "PERIMETER",
+      "MGMT_ADDRESS": "10.1.100.1",
+      "PLATFORM": "cisco WS-C3750-48TS",
+      "NEIGHBOR_INTERFACE": "FastEthernet1/0/32",
+      "LOCAL_INTERFACE": "mgmt0",
+      "NEIGHBOR_DESCRIPTION": "Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(44)SE2, RELEASE SOFTWARE (fc2)",
+      "INTERFACE_IP": "10.1.100.1",
+      "CAPABILITIES": "Router Switch IGMP Filtering"
+    },
+    {
+      "CHASSIS_ID": "dc-lf03(SAL19069XXX)",
+      "NEIGHBOR_NAME": "dc-lf03",
+      "MGMT_ADDRESS": "10.1.100.226",
+      "PLATFORM": "N9K-C9372TX",
+      "NEIGHBOR_INTERFACE": "Ethernet1/1",
+      "LOCAL_INTERFACE": "Ethernet1/1",
+      "NEIGHBOR_DESCRIPTION": "Cisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I5(1)",
+      "INTERFACE_IP": "10.1.100.226",
+      "CAPABILITIES": "Router Switch IGMP Filtering Supports-STP-Dispute"
+    },
+    {
+      "CHASSIS_ID": "dc-lf03(SAL1906XXXX)",
+      "NEIGHBOR_NAME": "dc-lf03",
+      "MGMT_ADDRESS": "10.1.100.226",
+      "PLATFORM": "N9K-C9372TX",
+      "NEIGHBOR_INTERFACE": "Ethernet1/3",
+      "LOCAL_INTERFACE": "Ethernet1/3",
+      "NEIGHBOR_DESCRIPTION": "Cisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I5(1)",
+      "INTERFACE_IP": "10.1.100.226",
+      "CAPABILITIES": "Router Switch IGMP Filtering Supports-STP-Dispute"
+    },
+    {
+      "CHASSIS_ID": "dc-sp01(SAL19069XXX)",
+      "NEIGHBOR_NAME": "dc-sp01",
+      "MGMT_ADDRESS": "10.1.100.222",
+      "PLATFORM": "N9K-C9372TX",
+      "NEIGHBOR_INTERFACE": "Ethernet1/52",
+      "LOCAL_INTERFACE": "Ethernet1/49",
+      "NEIGHBOR_DESCRIPTION": "Cisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I2(2d)",
+      "INTERFACE_IP": "10.1.1.1",
+      "CAPABILITIES": "Router Switch IGMP Filtering Supports-STP-Dispute"
+    },
+    {
+      "CHASSIS_ID": "dc-sp02(SAL19069XXX)",
+      "NEIGHBOR_NAME": "dc-sp02",
+      "MGMT_ADDRESS": "10.1.100.223",
+      "PLATFORM": "N9K-C9372TX",
+      "NEIGHBOR_INTERFACE": "Ethernet1/52",
+      "LOCAL_INTERFACE": "Ethernet1/50",
+      "NEIGHBOR_DESCRIPTION": "Cisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I2(2d)",
+      "INTERFACE_IP": "10.1.1.9",
+      "CAPABILITIES": "Router Switch IGMP Filtering Supports-STP-Dispute"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "mgmt_address": [
+        {
+          "MGMT_ADDRESS": "10.1.100.1"
+        },
+        {
+          "MGMT_ADDRESS": "10.1.100.1"
+        },
+        {
+          "MGMT_ADDRESS": "10.1.100.226"
+        },
+        {
+          "MGMT_ADDRESS": "10.1.100.226"
+        },
+        {
+          "MGMT_ADDRESS": "10.1.100.226"
+        },
+        {
+          "MGMT_ADDRESS": "10.1.100.226"
+        },
+        {
+          "MGMT_ADDRESS": "10.1.1.1"
+        },
+        {
+          "MGMT_ADDRESS": "10.1.100.222"
+        },
+        {
+          "MGMT_ADDRESS": "10.1.1.9"
+        },
+        {
+          "MGMT_ADDRESS": "10.1.100.223"
+        }
+      ],
+      "chassis_id": [
+        {
+          "CHASSIS_ID": "PERIMETER"
+        },
+        {
+          "CHASSIS_ID": "dc-lf03(SAL19069XXX)"
+        },
+        {
+          "CHASSIS_ID": "dc-lf03(SAL1906XXXX)"
+        },
+        {
+          "CHASSIS_ID": "dc-sp01(SAL19069XXX)"
+        },
+        {
+          "CHASSIS_ID": "dc-sp02(SAL19069XXX)"
+        }
+      ],
+      "platform_capabilities": [
+        {
+          "PLATFORM": "cisco WS-C3750-48TS",
+          "CAPABILITIES": "Router Switch IGMP Filtering"
+        },
+        {
+          "PLATFORM": "N9K-C9372TX",
+          "CAPABILITIES": "Router Switch IGMP Filtering Supports-STP-Dispute"
+        },
+        {
+          "PLATFORM": "N9K-C9372TX",
+          "CAPABILITIES": "Router Switch IGMP Filtering Supports-STP-Dispute"
+        },
+        {
+          "PLATFORM": "N9K-C9372TX",
+          "CAPABILITIES": "Router Switch IGMP Filtering Supports-STP-Dispute"
+        },
+        {
+          "PLATFORM": "N9K-C9372TX",
+          "CAPABILITIES": "Router Switch IGMP Filtering Supports-STP-Dispute"
+        }
+      ]
+    }
+  ],
+  "cli_content": "----------------------------------------\nDevice ID:PERIMETER\nVTP Management Domain Name: null\n\nInterface address(es):\n    IPv4 Address: 10.1.100.1\nPlatform: cisco WS-C3750-48TS, Capabilities: Router Switch IGMP Filtering\nInterface: mgmt0, Port ID (outgoing port): FastEthernet1/0/32\nHoldtime: 134 sec\n\nVersion:\nCisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(44)SE2, RELEASE SOFTWARE (fc2)\nCopyright (c) 1986-2008 by Cisco Systems, Inc.\nCompiled Thu 01-May-08 15:42 by antonino\n\nAdvertisement Version: 2\n\nNative VLAN: 100\nDuplex: full\nMgmt address(es):\n    IPv4 Address: 10.1.100.1\n----------------------------------------\nDevice ID:dc-lf03(SAL19069XXX)\nSystem Name: dc-lf03\n\nInterface address(es):\n    IPv4 Address: 10.1.100.226\nPlatform: N9K-C9372TX, Capabilities: Router Switch IGMP Filtering Supports-STP-Dispute\nInterface: Ethernet1/1, Port ID (outgoing port): Ethernet1/1\nHoldtime: 157 sec\n\nVersion:\nCisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I5(1)\n\nAdvertisement Version: 2\n\nNative VLAN: 1\nDuplex: full\n\nMTU: 1500\nPhysical Location: snmplocation\nMgmt address(es):\n    IPv4 Address: 10.1.100.226\n----------------------------------------\nDevice ID:dc-lf03(SAL1906XXXX)\nSystem Name: dc-lf03\n\nInterface address(es):\n    IPv4 Address: 10.1.100.226\nPlatform: N9K-C9372TX, Capabilities: Router Switch IGMP Filtering Supports-STP-Dispute\nInterface: Ethernet1/3, Port ID (outgoing port): Ethernet1/3\nHoldtime: 157 sec\n\nVersion:\nCisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I5(1)\n\nAdvertisement Version: 2\n\nNative VLAN: 1\nDuplex: full\n\nMTU: 1500\nPhysical Location: snmplocation\nMgmt address(es):\n    IPv4 Address: 10.1.100.226\n----------------------------------------\nDevice ID:dc-sp01(SAL19069XXX)\nSystem Name: dc-sp01\n\nInterface address(es):\n    IPv4 Address: 10.1.1.1\nPlatform: N9K-C9372TX, Capabilities: Router Switch IGMP Filtering Supports-STP-Dispute\nInterface: Ethernet1/49, Port ID (outgoing port): Ethernet1/52\nHoldtime: 166 sec\n\nVersion:\nCisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I2(2d)\n\nAdvertisement Version: 2\n\nNative VLAN: 1\nDuplex: full\n\nMTU: 1500\nPhysical Location: NY-DC\nMgmt address(es):\n    IPv4 Address: 10.1.100.222\n----------------------------------------\nDevice ID:dc-sp02(SAL19069XXX)\nSystem Name: dc-sp02\n\nInterface address(es):\n    IPv4 Address: 10.1.1.9\nPlatform: N9K-C9372TX, Capabilities: Router Switch IGMP Filtering Supports-STP-Dispute\nInterface: Ethernet1/50, Port ID (outgoing port): Ethernet1/52\nHoldtime: 166 sec\n\nVersion:\nCisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I2(2d)\n\nAdvertisement Version: 2\n\nNative VLAN: 1\nDuplex: full\n\nMTU: 1500\nPhysical Location: NY-DC\nMgmt address(es):\n    IPv4 Address: 10.1.100.223\n",
+  "textfsm_template": "Value Required CHASSIS_ID (.*)\nValue NEIGHBOR_NAME (.*)\nValue MGMT_ADDRESS (.*)\nValue PLATFORM (.*)\nValue NEIGHBOR_INTERFACE (.*)\nValue LOCAL_INTERFACE (.*)\nValue NEIGHBOR_DESCRIPTION (.*)\nValue INTERFACE_IP (.*)\nValue CAPABILITIES (.*[^\\s])\n\nStart\n  ^Device ID -> Continue.Record\n  ^Device ID:${CHASSIS_ID}\n  ^System Name: ${NEIGHBOR_NAME}\n  ^Interface address\\(es\\):\\s*(^[1-9]\\d*|$$) -> GetInterfaceIP\n  ^Mgmt address\\(es\\): -> GetIP\n  ^Platform: ${PLATFORM}, Capabilities: ${CAPABILITIES}\\s*$$\n  ^Interface: ${LOCAL_INTERFACE}, Port ID \\(outgoing port\\): ${NEIGHBOR_INTERFACE}\n  ^Version: -> GetVersion\n\nGetIP\n  ^.*IP.+Address: ${MGMT_ADDRESS} -> Start\n\nGetInterfaceIP\n  ^.*IP.+Address: ${INTERFACE_IP} -> Start\n\nGetVersion\n  ^${NEIGHBOR_DESCRIPTION} -> Start\n"
+}

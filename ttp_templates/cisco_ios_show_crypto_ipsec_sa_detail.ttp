@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_crypto_ipsec_sa_detail
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 6
+# Match ratio: 1.50
+
+<group name="action_crypto_map_tag_current_outbound_spi_dec">
+interface: {{INTERFACE | ORPHRASE}}
+<group name="sa_conn_id_sa_crypto_map_sa_flow_id">
+        conn id: {{SA_CONN_ID | re("\\d+")}}, flow_id: {{SA_FLOW_ID | ORPHRASE}}, sibling_flags {{SA_SIBLING_FLAGS}}, crypto map: {{SA_CRYPTO_MAP | ORPHRASE}}
+</group>
+</group>

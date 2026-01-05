@@ -1,0 +1,152 @@
+{
+  "command": "cisco_ios_show_mac-address-table",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.29411764705882354,
+  "textfsm_rows": 17,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"vlan_id_destination_address_type_destination_port\">\n {{VLAN_ID}} {{DESTINATION_ADDRESS}} {{TYPE}} {{DESTINATION_PORT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DESTINATION_ADDRESS": "0100.0ccc.cccc",
+      "TYPE": "STATIC",
+      "VLAN_ID": "All",
+      "DESTINATION_PORT": "CPU"
+    },
+    {
+      "DESTINATION_ADDRESS": "0100.0ccc.cccd",
+      "TYPE": "STATIC",
+      "VLAN_ID": "All",
+      "DESTINATION_PORT": "CPU"
+    },
+    {
+      "DESTINATION_ADDRESS": "0100.0ccc.ccce",
+      "TYPE": "STATIC",
+      "VLAN_ID": "All",
+      "DESTINATION_PORT": "CPU"
+    },
+    {
+      "DESTINATION_ADDRESS": "0180.c200.0000",
+      "TYPE": "STATIC",
+      "VLAN_ID": "All",
+      "DESTINATION_PORT": "CPU"
+    },
+    {
+      "DESTINATION_ADDRESS": "0180.c200.0001",
+      "TYPE": "STATIC",
+      "VLAN_ID": "All",
+      "DESTINATION_PORT": "CPU"
+    },
+    {
+      "DESTINATION_ADDRESS": "30a3.30a3.a1c3",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "1",
+      "DESTINATION_PORT": "Po1"
+    },
+    {
+      "DESTINATION_ADDRESS": "30a3.30a3.a1c4",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "1",
+      "DESTINATION_PORT": "Po1"
+    },
+    {
+      "DESTINATION_ADDRESS": "30a3.30a3.a1c5",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "1",
+      "DESTINATION_PORT": "Po1"
+    },
+    {
+      "DESTINATION_ADDRESS": "30a3.30a3.a1c6",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "1",
+      "DESTINATION_PORT": "Po1"
+    },
+    {
+      "DESTINATION_ADDRESS": "30a3.30a3.a1c7",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "1",
+      "DESTINATION_PORT": "Te1/1/3"
+    },
+    {
+      "DESTINATION_ADDRESS": "30a3.30a3.a1c8",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "99",
+      "DESTINATION_PORT": "Te1/1/3"
+    },
+    {
+      "DESTINATION_ADDRESS": "30a3.30a3.a1c9",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "99",
+      "DESTINATION_PORT": "Te1/1/3"
+    },
+    {
+      "DESTINATION_ADDRESS": "30a3.30a3.a1ca",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "99",
+      "DESTINATION_PORT": "Te1/1/3"
+    },
+    {
+      "DESTINATION_ADDRESS": "30a3.30a3.a1cb",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "99",
+      "DESTINATION_PORT": "Te1/1/3"
+    },
+    {
+      "DESTINATION_ADDRESS": "30a3.30a3.a1cc",
+      "TYPE": "STATIC",
+      "VLAN_ID": "99",
+      "DESTINATION_PORT": "Vl99"
+    },
+    {
+      "DESTINATION_ADDRESS": "30a3.30a3.a1cd",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "99",
+      "DESTINATION_PORT": "Po6"
+    },
+    {
+      "DESTINATION_ADDRESS": "30a3.30a3.a1cd",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "2000",
+      "DESTINATION_PORT": "Po6"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_id_destination_address_type_destination_port": [
+        {
+          "VLAN_ID": "All",
+          "DESTINATION_ADDRESS": "0100.0ccc.cccc",
+          "TYPE": "STATIC",
+          "DESTINATION_PORT": "CPU"
+        },
+        {
+          "VLAN_ID": "All",
+          "DESTINATION_ADDRESS": "0100.0ccc.cccd",
+          "TYPE": "STATIC",
+          "DESTINATION_PORT": "CPU"
+        },
+        {
+          "VLAN_ID": "All",
+          "DESTINATION_ADDRESS": "0100.0ccc.ccce",
+          "TYPE": "STATIC",
+          "DESTINATION_PORT": "CPU"
+        },
+        {
+          "VLAN_ID": "All",
+          "DESTINATION_ADDRESS": "0180.c200.0000",
+          "TYPE": "STATIC",
+          "DESTINATION_PORT": "CPU"
+        },
+        {
+          "VLAN_ID": "All",
+          "DESTINATION_ADDRESS": "0180.c200.0001",
+          "TYPE": "STATIC",
+          "DESTINATION_PORT": "CPU"
+        }
+      ]
+    }
+  ],
+  "cli_content": "          Mac Address Table\n-------------------------------------------\n\nVlan    Mac Address       Type        Ports\n----    -----------       --------    -----\n All    0100.0ccc.cccc    STATIC      CPU\n All    0100.0ccc.cccd    STATIC      CPU\n All    0100.0ccc.ccce    STATIC      CPU\n All    0180.c200.0000    STATIC      CPU\n All    0180.c200.0001    STATIC      CPU\n   1    30a3.30a3.a1c3    DYNAMIC     Po1\n   1    30a3.30a3.a1c4    DYNAMIC     Po1\n   1    30a3.30a3.a1c5    DYNAMIC     Po1\n   1    30a3.30a3.a1c6    DYNAMIC     Po1\n   1    30a3.30a3.a1c7    DYNAMIC     Te1/1/3\n  99    30a3.30a3.a1c8    DYNAMIC     Te1/1/3\n  99    30a3.30a3.a1c9    DYNAMIC     Te1/1/3\n  99    30a3.30a3.a1ca    DYNAMIC     Te1/1/3\n  99    30a3.30a3.a1cb    DYNAMIC     Te1/1/3\n  99    30a3.30a3.a1cc    STATIC      Vl99\n  99    30a3.30a3.a1cd    DYNAMIC     Po6\n2000    30a3.30a3.a1cd    DYNAMIC     Po6\n",
+  "textfsm_template": "Value DESTINATION_ADDRESS ([0-9a-fA-F]{4}\\.[0-9a-fA-F]{4}\\.[0-9a-fA-F]{4})\nValue TYPE (\\S+)\nValue VLAN_ID (\\S+)\nValue List DESTINATION_PORT ([^,\\s]+)\n\nStart\n  ^Destination\\s+Address\\s+Address\\s+Type\\s+VLAN\\s+Destination\\s+Port -> TYPE1\n  ^\\s+vlan\\s+mac address\\s+type\\s+learn\\s+age\\s+ports -> TYPE2\n  ^\\s+vlan\\s+mac address\\s+type\\s+protocols\\s+port -> TYPE3\n  ^Vlan\\s+Mac Address\\s+Type\\s+Ports -> TYPE4\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n\nTYPE1\n  ^${DESTINATION_ADDRESS}\\s+${TYPE}\\s+${VLAN_ID}\\s+${DESTINATION_PORT}$$ -> Record\n  ^-+\\s+-+\n  ^Displaying\\s+entries\n  ^Destination\\s+Address\\s+Address\\s+Type\\s+VLAN\\s+Destination\\s+Port\n  ^\\s*$$\n  ^Multicast\\s+Entries -> End\n  ^. -> Error\n\nTYPE2\n  # Order of the group in brackets here matters\n  ^\\s*(\\*\\s+[R,S,D]|\\*|[R,S,D]|\\s)\\s*(\\d+|-+|[Nn]/[Aa]) -> Continue.Record\n  # using 20 spaces should ensure that lines only match destination port flowing to next line\n  ^\\s{20}\\s+${DESTINATION_PORT}(\\s+|,\\s*)\\S -> Continue\n  ^\\s{20}\\s+${DESTINATION_PORT},*\\s*$$\n  ^\\s{20}\\s+[^,\\s]+(\\s+|,\\s*)${DESTINATION_PORT}(\\s+|,\\s*)\\S -> Continue\n  ^\\s{20}\\s+[^,\\s]+(\\s+|,\\s*)${DESTINATION_PORT},*\\s*$$\n  ^\\s{20}\\s+([^,\\s]+(\\s+|,\\s*)){2}${DESTINATION_PORT}(\\s+|,\\s*)\\S -> Continue\n  ^\\s{20}\\s+([^,\\s]+(\\s+|,\\s*)){2}${DESTINATION_PORT},*\\s*$$\n  ^\\s{20}\\s+([^,\\s]+(\\s+|,\\s*)){3}${DESTINATION_PORT}(\\s+|,\\s*)\\S -> Continue\n  ^\\s{20}\\s+([^,\\s]+(\\s+|,\\s*)){3}${DESTINATION_PORT},*\\s*$$\n  ^\\s{20}\\s+([^,\\s]+(\\s+|,\\s*)){4}${DESTINATION_PORT}(\\s+|,\\s*)\\S -> Continue\n  ^\\s{20}\\s+([^,\\s]+(\\s+|,\\s*)){4}${DESTINATION_PORT},*\\s*$$\n  ^\\s{20}\\s+([^,\\s]+(\\s+|,\\s*)){5}${DESTINATION_PORT}(\\s+|,\\s*)\\S -> Continue\n  ^\\s{20}\\s+([^,\\s]+(\\s+|,\\s*)){5}${DESTINATION_PORT},*\\s*$$\n  ^\\s*(\\*\\s+[R,S,D]|\\*|[R,S,D]|\\s)\\s*${VLAN_ID}\\s+${DESTINATION_ADDRESS}\\s+${TYPE}\\s+\\S+\\s+\\S+\\s*$$\n  ^\\s*(\\*\\s+[R,S,D]|\\*|[R,S,D]|\\s)\\s*${VLAN_ID}\\s+${DESTINATION_ADDRESS}\\s+${TYPE}\\s+\\S+\\s+\\S+\\s+${DESTINATION_PORT}(\\s+|,\\s*)\\S -> Continue\n  ^\\s*(\\*\\s+[R,S,D]|\\*|[R,S,D]|\\s)\\s*${VLAN_ID}\\s+${DESTINATION_ADDRESS}\\s+${TYPE}\\s+\\S+\\s+\\S+\\s+${DESTINATION_PORT},*\\s*$$\n  ^\\s*(\\*\\s+[R,S,D]|\\*|[R,S,D]|\\s)\\s*${VLAN_ID}\\s+${DESTINATION_ADDRESS}\\s+${TYPE}\\s+\\S+\\s+\\S+\\s+[^,\\s]+(\\s+|,\\s*)${DESTINATION_PORT}(\\s+|,\\s*)\\S -> Continue\n  ^\\s*(\\*\\s+[R,S,D]|\\*|[R,S,D]|\\s)\\s*${VLAN_ID}\\s+${DESTINATION_ADDRESS}\\s+${TYPE}\\s+\\S+\\s+\\S+\\s+[^,\\s]+?(\\s+|,\\s*)${DESTINATION_PORT},*\\s*$$\n  ^\\s*(\\*\\s+[R,S,D]|\\*|[R,S,D]|\\s)\\s*${VLAN_ID}\\s+${DESTINATION_ADDRESS}\\s+${TYPE}\\s+\\S+\\s+\\S+\\s+([^,\\s]+(\\s+|,\\s*)){2}${DESTINATION_PORT}(\\s+|,\\s*)\\S -> Continue\n  ^\\s*(\\*\\s+[R,S,D]|\\*|[R,S,D]|\\s)\\s*${VLAN_ID}\\s+${DESTINATION_ADDRESS}\\s+${TYPE}\\s+\\S+\\s+\\S+\\s+([^,\\s]+(\\s+|,\\s*)){2}${DESTINATION_PORT},*\\s*$$\n  ^\\s*(\\*\\s+[R,S,D]|\\*|[R,S,D]|\\s)\\s*${VLAN_ID}\\s+${DESTINATION_ADDRESS}\\s+${TYPE}\\s+\\S+\\s+\\S+\\s+([^,\\s]+(\\s+|,\\s*)){3}${DESTINATION_PORT}(\\s+|,\\s*)\\S -> Continue\n  ^\\s*(\\*\\s+[R,S,D]|\\*|[R,S,D]|\\s)\\s*${VLAN_ID}\\s+${DESTINATION_ADDRESS}\\s+${TYPE}\\s+\\S+\\s+\\S+\\s+([^,\\s]+(\\s+|,\\s*)){3}${DESTINATION_PORT},*\\s*$$\n  ^\\s*(\\*\\s+[R,S,D]|\\*|[R,S,D]|\\s)\\s*${VLAN_ID}\\s+${DESTINATION_ADDRESS}\\s+${TYPE}\\s+\\S+\\s+\\S+\\s+([^,\\s]+(\\s+|,\\s*)){4}${DESTINATION_PORT}(\\s+|,\\s*)\\S -> Continue\n  ^\\s*(\\*\\s+[R,S,D]|\\*|[R,S,D]|\\s)\\s*${VLAN_ID}\\s+${DESTINATION_ADDRESS}\\s+${TYPE}\\s+\\S+\\s+\\S+\\s+([^,\\s]+(\\s+|,\\s*)){4}${DESTINATION_PORT},*\\s*$$\n  ^\\s*(\\*\\s+[R,S,D]|\\*|[R,S,D]|\\s)\\s*${VLAN_ID}\\s+${DESTINATION_ADDRESS}\\s+${TYPE}\\s+\\S+\\s+\\S+\\s+([^,\\s]+(\\s+|,\\s*)){5}${DESTINATION_PORT}(\\s+|,\\s*)\\S -> Continue\n  ^\\s*(\\*\\s+[R,S,D]|\\*|[R,S,D]|\\s)\\s*${VLAN_ID}\\s+${DESTINATION_ADDRESS}\\s+${TYPE}\\s+\\S+\\s+\\S+\\s+([^,\\s]+(\\s+|,\\s*)){5}${DESTINATION_PORT},*\\s*$$\n  ^-+\\+-+\n  ^Displaying\\s+entries\n  ^\\s+vlan\\s+mac address\\s+type\\s+learn\\s+age\\s+ports\n  ^\\s*$$\n  ^Multicast\\s+Entries -> End\n  ^. -> Error\n\nTYPE3\n  ^\\s*${VLAN_ID}\\s+${DESTINATION_ADDRESS}\\s+${TYPE}\\s+\\S+\\s+${DESTINATION_PORT}(?:\\s|$$) -> Record\n  ^-+\\+-+\n  ^Displaying\\s+entries\n  ^\\s+vlan\\s+mac address\\s+type\\s+protocols\\s+port\n  ^\\s*$$\n  ^Multicast\\s+Entries -> End\n  ^. -> Error\n\nTYPE4\n  ^\\s*${VLAN_ID}\\s+${DESTINATION_ADDRESS}\\s+${TYPE}\\s+${DESTINATION_PORT}(?:\\s|$$) -> Record\n  ^-+\\s+-+\n  ^Displaying\\s+entries\n  ^Vlan\\s+Mac Address\\s+Type\\s+Ports\n  ^\\s*$$\n  ^Total\\s+Mac\\s+Addresses\n  ^MultiCast\\s+Entries -> End\n  ^. -> Error\n"
+}

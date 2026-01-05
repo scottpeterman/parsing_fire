@@ -1,0 +1,101 @@
+{
+  "command": "show interfaces transceiver detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"interface_name_media_type_connector_type_rx_power_tx_power_current\">\n{{INTERFACE}} {{NAME}} {{MEDIA_TYPE}} {{CONNECTOR_TYPE}} {{RX_POWER | ORPHRASE}} {{TX_POWER | ORPHRASE}} {{CURRENT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Eth1/1",
+      "NAME": "SR",
+      "MEDIA_TYPE": "Fiber",
+      "CONNECTOR_TYPE": "LC",
+      "RX_POWER": "-2.0 dBm",
+      "TX_POWER": "-3.5 dBm",
+      "CURRENT": "120 mA"
+    },
+    {
+      "INTERFACE": "Eth1/2",
+      "NAME": "LR",
+      "MEDIA_TYPE": "Fiber",
+      "CONNECTOR_TYPE": "LC",
+      "RX_POWER": "-1.2 dBm",
+      "TX_POWER": "-4.0 dBm",
+      "CURRENT": "130 mA"
+    },
+    {
+      "INTERFACE": "Eth1/3",
+      "NAME": "SR",
+      "MEDIA_TYPE": "Fiber",
+      "CONNECTOR_TYPE": "LC",
+      "RX_POWER": "-2.5 dBm",
+      "TX_POWER": "-3.8 dBm",
+      "CURRENT": "125 mA"
+    },
+    {
+      "INTERFACE": "Eth1/4",
+      "NAME": "LR",
+      "MEDIA_TYPE": "Fiber",
+      "CONNECTOR_TYPE": "LC",
+      "RX_POWER": "-1.0 dBm",
+      "TX_POWER": "-4.2 dBm",
+      "CURRENT": "140 mA"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_name_media_type_connector_type_rx_power_tx_power_current": [
+        {
+          "INTERFACE": "---------",
+          "NAME": "------",
+          "MEDIA_TYPE": "----------",
+          "CONNECTOR_TYPE": "--------------",
+          "RX_POWER": "----------",
+          "TX_POWER": "----------",
+          "CURRENT": "-------"
+        },
+        {
+          "INTERFACE": "Eth1/1",
+          "NAME": "SR",
+          "MEDIA_TYPE": "Fiber",
+          "CONNECTOR_TYPE": "LC",
+          "RX_POWER": "-2.0 dBm",
+          "TX_POWER": "-3.5 dBm",
+          "CURRENT": "120 mA"
+        },
+        {
+          "INTERFACE": "Eth1/2",
+          "NAME": "LR",
+          "MEDIA_TYPE": "Fiber",
+          "CONNECTOR_TYPE": "LC",
+          "RX_POWER": "-1.2 dBm",
+          "TX_POWER": "-4.0 dBm",
+          "CURRENT": "130 mA"
+        },
+        {
+          "INTERFACE": "Eth1/3",
+          "NAME": "SR",
+          "MEDIA_TYPE": "Fiber",
+          "CONNECTOR_TYPE": "LC",
+          "RX_POWER": "-2.5 dBm",
+          "TX_POWER": "-3.8 dBm",
+          "CURRENT": "125 mA"
+        },
+        {
+          "INTERFACE": "Eth1/4",
+          "NAME": "LR",
+          "MEDIA_TYPE": "Fiber",
+          "CONNECTOR_TYPE": "LC",
+          "RX_POWER": "-1.0 dBm",
+          "TX_POWER": "-4.2 dBm",
+          "CURRENT": "140 mA"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface  Name    Media Type  Connector Type  Rx Power     Tx Power     Current\n---------  ------  ----------  --------------  ----------   ----------   -------\nEth1/1     SR      Fiber       LC              -2.0 dBm     -3.5 dBm     120 mA\nEth1/2     LR      Fiber       LC              -1.2 dBm     -4.0 dBm     130 mA\nEth1/3     SR      Fiber       LC              -2.5 dBm     -3.8 dBm     125 mA\nEth1/4     LR      Fiber       LC              -1.0 dBm     -4.2 dBm     140 mA\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue NAME (\\S+)\nValue MEDIA_TYPE (\\S+)\nValue CONNECTOR_TYPE (\\S+)\nValue RX_POWER (\\S+ dBm)\nValue TX_POWER (\\S+ dBm)\nValue CURRENT (\\S+ mA)\n\nStart\n  ^\\s*Interface\\s+Name\\s+Media Type\\s+Connector Type\\s+Rx Power\\s+Tx Power\\s+Current\\s*$$\n  ^\\s*${INTERFACE}\\s+${NAME}\\s+${MEDIA_TYPE}\\s+${CONNECTOR_TYPE}\\s+${RX_POWER}\\s+${TX_POWER}\\s+${CURRENT}\\s*$$ -> Record"
+}

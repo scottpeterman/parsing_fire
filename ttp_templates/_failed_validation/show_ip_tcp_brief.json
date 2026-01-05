@@ -1,0 +1,53 @@
+{
+  "command": "show ip tcp brief",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 6,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"tcb_local_address_foreign_address_state\">\n{{TCB}} {{LOCAL_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{FOREIGN_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATE | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "TCB": "00007F081B7680D8",
+      "LOCAL_ADDRESS": "127.0.0.1.23",
+      "FOREIGN_ADDRESS": "127.0.0.1.58772",
+      "STATE": "ESTAB"
+    },
+    {
+      "TCB": "00007F081B7699B8",
+      "LOCAL_ADDRESS": "192.168.1.1.443",
+      "FOREIGN_ADDRESS": "192.168.1.100.59231",
+      "STATE": "ESTAB"
+    },
+    {
+      "TCB": "00007F081B76A298",
+      "LOCAL_ADDRESS": "10.0.0.1.80",
+      "FOREIGN_ADDRESS": "10.0.0.2.49152",
+      "STATE": "LISTEN"
+    },
+    {
+      "TCB": "00007F081B76A4C8",
+      "LOCAL_ADDRESS": "10.0.0.1.22",
+      "FOREIGN_ADDRESS": "10.0.0.2.53421",
+      "STATE": "ESTAB"
+    },
+    {
+      "TCB": "00007F081B76ADA8",
+      "LOCAL_ADDRESS": "10.0.0.1.80",
+      "FOREIGN_ADDRESS": "10.0.0.3.53000",
+      "STATE": "LISTEN"
+    },
+    {
+      "TCB": "00007F081B76C5E8",
+      "LOCAL_ADDRESS": "192.168.2.1.80",
+      "FOREIGN_ADDRESS": "192.168.2.55.50023",
+      "STATE": "ESTAB"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "TCB         Local Address       Foreign Address    (state)\n00007F081B7680D8 127.0.0.1.23        127.0.0.1.58772     ESTAB\n00007F081B7699B8 192.168.1.1.443     192.168.1.100.59231 ESTAB\n00007F081B76A298 10.0.0.1.80         10.0.0.2.49152      LISTEN\n00007F081B76A4C8 10.0.0.1.22         10.0.0.2.53421      ESTAB\n00007F081B76ADA8 10.0.0.1.80         10.0.0.3.53000      LISTEN\n00007F081B76C5E8 192.168.2.1.80      192.168.2.55.50023  ESTAB\n",
+  "textfsm_template": "Value TCB (\\S+)\nValue LOCAL_ADDRESS (\\S+\\.\\d+)\nValue FOREIGN_ADDRESS (\\S+\\.\\d+)\nValue STATE (\\S+)\n\nStart\n  ^\\s*TCB\\s+Local Address\\s+Foreign Address\\s+\\(state\\)\\s*$$\n  ^\\s*${TCB}\\s+${LOCAL_ADDRESS}\\s+${FOREIGN_ADDRESS}\\s+${STATE}\\s*$$ -> Record"
+}

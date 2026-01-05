@@ -1,0 +1,53 @@
+{
+  "command": "cisco_nvfis_show_running-config_snmp_user",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"auth_key_auth_protocol_priv_key_priv_protocol\">\n user-version  {{VERSION | ORPHRASE}}\n auth-protocol {{AUTH_PROTOCOL | ORPHRASE}}\n priv-protocol {{PRIV_PROTOCOL | ORPHRASE}}\nsnmp user {{USERNAME | ORPHRASE}}\n user-group  {{USER_GROUP | ORPHRASE}}\n auth-key  {{AUTH_KEY | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "USERNAME": "orwell",
+      "VERSION": "3",
+      "USER_GROUP": "ReadWrite",
+      "AUTH_PROTOCOL": "sha",
+      "PRIV_PROTOCOL": "aes",
+      "AUTH_KEY": "b5:2d:00:d5:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff",
+      "PRIV_KEY": "b5:2d:00:d5:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff"
+    },
+    {
+      "USERNAME": "SNMP_User",
+      "VERSION": "3",
+      "USER_GROUP": "ReadOnly",
+      "AUTH_PROTOCOL": "sha",
+      "PRIV_PROTOCOL": "aes",
+      "AUTH_KEY": "47:79:91:5d:bf:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff",
+      "PRIV_KEY": "47:79:91:5d:bf:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "auth_key_auth_protocol_priv_key_priv_protocol": [
+        {
+          "USERNAME": "SNMP_User",
+          "AUTH_KEY": "b5:2d:00:d5:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff",
+          "PRIV_PROTOCOL": "aes",
+          "AUTH_PROTOCOL": "sha",
+          "USER_GROUP": "ReadWrite",
+          "VERSION": "3"
+        },
+        {
+          "AUTH_KEY": "47:79:91:5d:bf:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff",
+          "PRIV_PROTOCOL": "aes",
+          "AUTH_PROTOCOL": "sha",
+          "USER_GROUP": "ReadOnly",
+          "VERSION": "3"
+        }
+      ]
+    }
+  ],
+  "cli_content": "snmp user orwell\n user-version  3\n user-group    ReadWrite\n auth-protocol sha\n priv-protocol aes\n auth-key      b5:2d:00:d5:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff\n priv-key      b5:2d:00:d5:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff\n!\nsnmp user SNMP_User\n user-version  3\n user-group    ReadOnly\n auth-protocol sha\n priv-protocol aes\n auth-key      47:79:91:5d:bf:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff\n priv-key      47:79:91:5d:bf:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff\n!",
+  "textfsm_template": "Value USERNAME ([-\\w]+)\nValue VERSION (\\d+)\nValue USER_GROUP (\\w+)\nValue AUTH_PROTOCOL (\\w+)\nValue PRIV_PROTOCOL (\\w+)\nValue AUTH_KEY ([0-9A-f:]+)\nValue PRIV_KEY ([0-9A-f:]+)\n\n\nStart\n  ^snmp\\suser\\s${USERNAME}\n  ^\\suser-version\\s+${VERSION}\n  ^\\suser-group\\s+${USER_GROUP}\n  ^\\sauth-protocol\\s+${AUTH_PROTOCOL}\n  ^\\spriv-protocol\\s+${PRIV_PROTOCOL}\n  ^\\sauth-key\\s+${AUTH_KEY}\n  ^\\spriv-key\\s+${PRIV_KEY} -> Record\n\nEOF"
+}

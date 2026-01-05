@@ -1,0 +1,57 @@
+{
+  "command": "show interfaces detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"description_enabled_interface_ip_address\">\n  MAC address: 00:1c:73:42:68:77, MTU: {{MTU | ORPHRASE}}\n  IP address: 192.168.1.1, Subnet mask: {{SUBNET_MASK | ORPHRASE}}\nInterface: {{INTERFACE}}, {{ENABLED}}, Physical link is {{PHY_STATUS | ORPHRASE}}\n  Description: {{DESCRIPTION | ORPHRASE}}\n  MAC address: {{MAC_ADDRESS | ORPHRASE}}, MTU: 1500\n  IP address: {{IP_ADDRESS | ORPHRASE}}, Subnet mask: 255.255.255.0\n  Last link down at: {{LAST_CHANGE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Ethernet0/0",
+      "ENABLED": "Enabled",
+      "PHY_STATUS": "up",
+      "DESCRIPTION": "Uplink to Core",
+      "MAC_ADDRESS": "00:1c:73:42:68:77",
+      "MTU": "1500",
+      "IP_ADDRESS": "192.168.1.1",
+      "SUBNET_MASK": "255.255.255.0",
+      "OPER_STATUS": "up",
+      "LAST_CHANGE": "2023-01-15 12:34:56"
+    },
+    {
+      "INTERFACE": "Ethernet0/1",
+      "ENABLED": "Disabled",
+      "PHY_STATUS": "down",
+      "DESCRIPTION": "Downlink to AP",
+      "MAC_ADDRESS": "00:1c:73:42:68:78",
+      "MTU": "1500",
+      "IP_ADDRESS": "192.168.2.1",
+      "SUBNET_MASK": "255.255.255.0",
+      "OPER_STATUS": "down",
+      "LAST_CHANGE": "2023-01-10 11:20:33"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "description_enabled_interface_ip_address": [
+        {
+          "DESCRIPTION": "Downlink to AP",
+          "INTERFACE": "Ethernet0/1",
+          "ENABLED": "Disabled",
+          "PHY_STATUS": "down",
+          "SUBNET_MASK": "255.255.255.0",
+          "MTU": "1500"
+        },
+        {
+          "LAST_CHANGE": "2023-01-10 11:20:33",
+          "SUBNET_MASK": "255.255.255.0",
+          "MTU": "1500"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface: Ethernet0/0, Enabled, Physical link is up\n  Description: Uplink to Core\n  MAC address: 00:1c:73:42:68:77, MTU: 1500\n  IP address: 192.168.1.1, Subnet mask: 255.255.255.0\n  Operational status: up\n  Last link up at: 2023-01-15 12:34:56\n\nInterface: Ethernet0/1, Disabled, Physical link is down\n  Description: Downlink to AP\n  MAC address: 00:1c:73:42:68:78, MTU: 1500\n  IP address: 192.168.2.1, Subnet mask: 255.255.255.0\n  Operational status: down\n  Last link down at: 2023-01-10 11:20:33\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue ENABLED (Enabled|Disabled)\nValue PHY_STATUS (up|down)\nValue DESCRIPTION (.+)\nValue MAC_ADDRESS (\\S+)\nValue MTU (\\d+)\nValue IP_ADDRESS (\\S+)\nValue SUBNET_MASK (\\S+)\nValue OPER_STATUS (up|down)\nValue LAST_CHANGE (.+)\n\nStart\n  ^Interface: ${INTERFACE}, ${ENABLED}, Physical link is ${PHY_STATUS}$$\n  ^\\s+Description: ${DESCRIPTION}$$\n  ^\\s+MAC address: ${MAC_ADDRESS}, MTU: ${MTU}$$\n  ^\\s+IP address: ${IP_ADDRESS}, Subnet mask: ${SUBNET_MASK}$$\n  ^\\s+Operational status: ${OPER_STATUS}$$\n  ^\\s+Last (link|change) (up|down) at: ${LAST_CHANGE}$$ -> Record"
+}

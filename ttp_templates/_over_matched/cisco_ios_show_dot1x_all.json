@@ -1,0 +1,69 @@
+{
+  "command": "cisco_ios_show_dot1x_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"critical_eapol_critical_recovery_delay_dot1xversion\">\nSysauthcontrol             {{SYSAUTHCONTROL | ORPHRASE}}\n<group name=\"servertimeout_supptimeout_txperiod\">\nServerTimeout = {{SERVERTIMEOUT | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SYSAUTHCONTROL": "Disabled",
+      "DOT1XVERSION": "2",
+      "CRITICAL_RECOVERY_DELAY": "100",
+      "CRITICAL_EAPOL": "Disabled",
+      "INTERFACE": "Ethernet1/0",
+      "PAE": "AUTHENTICATOR",
+      "PORTCONTROL": "AUTO",
+      "CONTROLDIRECTION": "Both",
+      "HOSTMODE": "SINGLE_HOST",
+      "REAUTHENTICATION": "Disabled",
+      "QUIETPERIOD": "60",
+      "SERVERTIMEOUT": "30",
+      "SUPPTIMEOUT": "30",
+      "REAUTHPERIOD": "3600",
+      "REAUTHMAX": "2",
+      "MASREQ": "2",
+      "TXPERIOD": "30",
+      "RATELIMITPERIOD": "0"
+    },
+    {
+      "SYSAUTHCONTROL": "Disabled",
+      "DOT1XVERSION": "2",
+      "CRITICAL_RECOVERY_DELAY": "100",
+      "CRITICAL_EAPOL": "Disabled",
+      "INTERFACE": "Ethernet1/2",
+      "PAE": "AUTHENTICATOR",
+      "PORTCONTROL": "AUTO",
+      "CONTROLDIRECTION": "Both",
+      "HOSTMODE": "SINGLE_HOST",
+      "REAUTHENTICATION": "Disabled",
+      "QUIETPERIOD": "60",
+      "SERVERTIMEOUT": "30",
+      "SUPPTIMEOUT": "30",
+      "REAUTHPERIOD": "3600",
+      "REAUTHMAX": "2",
+      "MASREQ": "2",
+      "TXPERIOD": "30",
+      "RATELIMITPERIOD": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "critical_eapol_critical_recovery_delay_dot1xversion": {
+        "SYSAUTHCONTROL": "Disabled",
+        "servertimeout_supptimeout_txperiod": [
+          {
+            "SERVERTIMEOUT": "30"
+          },
+          {
+            "SERVERTIMEOUT": "30"
+          }
+        ]
+      }
+    }
+  ],
+  "cli_content": "Sysauthcontrol             Disabled\nDot1x Protocol Version            2\nCritical Recovery Delay         100\nCritical EAPOL             Disabled\n\nDot1x Info for Ethernet1/0\n-----------------------------------\nPAE                       = AUTHENTICATOR\nPortControl               = AUTO\nControlDirection          = Both\nHostMode                  = SINGLE_HOST\nReAuthentication          = Disabled\nQuietPeriod               = 60\nServerTimeout             = 30\nSuppTimeout               = 30\nReAuthPeriod              = 3600 (Locally configured)\nReAuthMax                 = 2\nMaxReq                    = 2\nTxPeriod                  = 30\nRateLimitPeriod           = 0\n\nDot1x Info for Ethernet1/2\n-----------------------------------\n\nPAE                       = AUTHENTICATOR\nPortControl               = AUTO\nControlDirection          = Both\nHostMode                  = SINGLE_HOST\nReAuthentication          = Disabled\nQuietPeriod               = 60\nServerTimeout             = 30\nSuppTimeout               = 30\nReAuthPeriod              = 3600 (Locally configured)\nReAuthMax                 = 2\nMaxReq                    = 2\nTxPeriod                  = 30\nRateLimitPeriod           = 0\n",
+  "textfsm_template": "Value Filldown SYSAUTHCONTROL (\\w+)\nValue Filldown DOT1XVERSION (\\d)\nValue Filldown CRITICAL_RECOVERY_DELAY (\\d+)\nValue Filldown CRITICAL_EAPOL (\\w+)\nValue Required INTERFACE (\\S+)\nValue PAE (\\w+)\nValue PORTCONTROL (\\w+)\nValue CONTROLDIRECTION (\\w+)\nValue HOSTMODE (\\w+)\nValue REAUTHENTICATION (\\w+)\nValue QUIETPERIOD (\\d+)\nValue SERVERTIMEOUT (\\d+)\nValue SUPPTIMEOUT (\\d+)\nValue REAUTHPERIOD (\\d+)\nValue REAUTHMAX (\\d+)\nValue MASREQ (\\d+)\nValue TXPERIOD (\\d+)\nValue RATELIMITPERIOD (\\d+)\n\nStart\n  ^Sysauthcontrol\\s+${SYSAUTHCONTROL}\n  ^Dot1x Protocol Version\\s+${DOT1XVERSION}\n  ^Critical Recovery Delay\\s+${CRITICAL_RECOVERY_DELAY}\n  ^Critical EAPOL\\s+${CRITICAL_EAPOL}\n  ^$$ -> Interfaces\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n\nInterfaces\n  ^Dot1x Info for\\s -> Continue.Record\n  ^Dot1x Info for\\s${INTERFACE}\n  ^PAE\\s+=\\s${PAE}\n  ^PortControl\\s+=\\s${PORTCONTROL}\n  ^ControlDirection\\s+=\\s${CONTROLDIRECTION}\n  ^HostMode\\s+=\\s${HOSTMODE}\n  ^ReAuthentication\\s+=\\s${REAUTHENTICATION}\n  ^QuietPeriod\\s+=\\s${QUIETPERIOD}\n  ^ServerTimeout\\s+=\\s${SERVERTIMEOUT}\n  ^SuppTimeout\\s+=\\s${SUPPTIMEOUT}\n  ^ReAuthPeriod\\s+=\\s${REAUTHPERIOD}\n  ^ReAuthMax\\s+=\\s${REAUTHMAX}\n  ^MaxReq\\s+=\\s${MASREQ}\n  ^TxPeriod\\s+=\\s${TXPERIOD}\n  ^RateLimitPeriod\\s+=\\s+${RATELIMITPERIOD}\n  ^-+\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

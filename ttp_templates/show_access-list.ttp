@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show access-list
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="seq_action_protocol_src_src_wild_dst_dst_wild_details">
+    {{SEQ}} {{ACTION}} {{PROTOCOL}} {{SRC}} {{SRC_WILD}} {{DST}} {{DST_WILD}} {{DETAILS | ORPHRASE}}
+</group>

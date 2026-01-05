@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: aruba_os_show_ip_interface_brief
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 3
+# Match ratio: 0.75
+
+<group name="interface_ip_address_netmask_admin_protocol">
+{{INTERFACE | ORPHRASE}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} / {{NETMASK}} {{ADMIN | ORPHRASE}} {{PROTOCOL}} 
+</group>

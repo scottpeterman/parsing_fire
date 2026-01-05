@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show high-availability state
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="failover_active_last_failover_date_last_failover_reason_last_failover_time">
+Device Priority  : {{PRIORITY | ORPHRASE}}
+Failover {{STATE | ORPHRASE}}  : {{FAILOVER_ACTIVE | ORPHRASE}}
+Peer State  : {{PEER_STATE | ORPHRASE}}
+Last Failover  : {{LAST_FAILOVER_DATE | re("[\\d\\.\\(\\)A-Za-z]+")}} {{LAST_FAILOVER_TIME | ORPHRASE}}
+Last Failover Reason  : {{LAST_FAILOVER_REASON | ORPHRASE}}
+Uptime (days)  : {{UPTIME_DAYS | ORPHRASE}}
+</group>

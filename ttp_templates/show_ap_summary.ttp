@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ap summary
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="ap_name_ap_model_ip_address_status_clients_uptime">
+{{AP_NAME}} {{AP_MODEL}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATUS | ORPHRASE}} {{CLIENTS}} {{UPTIME | ORPHRASE}}
+</group>

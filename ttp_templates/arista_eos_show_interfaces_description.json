@@ -1,0 +1,262 @@
+{
+  "command": "arista_eos_show_interfaces_description",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.05,
+  "textfsm_rows": 20,
+  "ttp_rows": 21,
+  "ttp_template": "<group name=\"port_status_protocol_description\">\n{{PORT}} {{STATUS | ORPHRASE}} {{PROTOCOL}} {{DESCRIPTION | ORPHRASE}}\n</group>\n<group name=\"port_status_protocol\">\n{{PORT}} {{STATUS | ORPHRASE}} {{PROTOCOL | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "Et1",
+      "STATUS": "admin down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+    },
+    {
+      "PORT": "Et2",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+    },
+    {
+      "PORT": "Et3",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+    },
+    {
+      "PORT": "Et4",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+    },
+    {
+      "PORT": "Et5",
+      "STATUS": "admin down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+    },
+    {
+      "PORT": "Et6",
+      "STATUS": "admin down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+    },
+    {
+      "PORT": "Et7",
+      "STATUS": "admin down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+    },
+    {
+      "PORT": "Et8",
+      "STATUS": "admin down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+    },
+    {
+      "PORT": "Et9",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+    },
+    {
+      "PORT": "Et9.999",
+      "STATUS": "down",
+      "PROTOCOL": "lowerlayerdown"
+    },
+    {
+      "PORT": "Et10",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+    },
+    {
+      "PORT": "Et11",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+    },
+    {
+      "PORT": "Et12",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+    },
+    {
+      "PORT": "Et13",
+      "STATUS": "down",
+      "PROTOCOL": "notpresent",
+      "DESCRIPTION": "This IS a TesT DeScrIption"
+    },
+    {
+      "PORT": "Et14",
+      "STATUS": "down",
+      "PROTOCOL": "notpresent"
+    },
+    {
+      "PORT": "Ma1",
+      "STATUS": "down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "Management"
+    },
+    {
+      "PORT": "Po1",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "MLAG peer link"
+    },
+    {
+      "PORT": "Po101",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "ServerRAD"
+    },
+    {
+      "PORT": "Tu8",
+      "STATUS": "down",
+      "PROTOCOL": "unknown"
+    },
+    {
+      "PORT": "Vl4094",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "MLAG local int"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_status_protocol_description": [
+        {
+          "PORT": "Interface",
+          "STATUS": "Status",
+          "PROTOCOL": "Protocol",
+          "DESCRIPTION": "Description"
+        },
+        {
+          "PORT": "Et1",
+          "STATUS": "admin down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+        },
+        {
+          "PORT": "Et2",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+        },
+        {
+          "PORT": "Et3",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+        },
+        {
+          "PORT": "Et4",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+        },
+        {
+          "PORT": "Et5",
+          "STATUS": "admin down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+        },
+        {
+          "PORT": "Et6",
+          "STATUS": "admin down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+        },
+        {
+          "PORT": "Et7",
+          "STATUS": "admin down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+        },
+        {
+          "PORT": "Et8",
+          "STATUS": "admin down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+        },
+        {
+          "PORT": "Et9",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+        },
+        {
+          "PORT": "Et10",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+        },
+        {
+          "PORT": "Et11",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+        },
+        {
+          "PORT": "Et12",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "ThiS iS a TeSt DeScriPtiON"
+        },
+        {
+          "PORT": "Et13",
+          "STATUS": "down",
+          "PROTOCOL": "notpresent",
+          "DESCRIPTION": "This IS a TesT DeScrIption"
+        },
+        {
+          "PORT": "Ma1",
+          "STATUS": "down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "Management"
+        },
+        {
+          "PORT": "Po1",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "MLAG peer link"
+        },
+        {
+          "PORT": "Po101",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "ServerRAD"
+        },
+        {
+          "PORT": "Vl4094",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "MLAG local int"
+        }
+      ],
+      "port_status_protocol": [
+        {
+          "PORT": "Et9.999",
+          "STATUS": "down",
+          "PROTOCOL": "lowerlayerdown"
+        },
+        {
+          "PORT": "Et14",
+          "STATUS": "down",
+          "PROTOCOL": "notpresent"
+        },
+        {
+          "PORT": "Tu8",
+          "STATUS": "down",
+          "PROTOCOL": "unknown"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface                      Status         Protocol           Description\nEt1                            admin down     down               ThiS iS a TeSt DeScriPtiON\nEt2                            up             up                 ThiS iS a TeSt DeScriPtiON\nEt3                            up             up                 ThiS iS a TeSt DeScriPtiON\nEt4                            up             up                 ThiS iS a TeSt DeScriPtiON\nEt5                            admin down     down               ThiS iS a TeSt DeScriPtiON\nEt6                            admin down     down               ThiS iS a TeSt DeScriPtiON\nEt7                            admin down     down               ThiS iS a TeSt DeScriPtiON\nEt8                            admin down     down               ThiS iS a TeSt DeScriPtiON\nEt9                            up             up                 ThiS iS a TeSt DeScriPtiON\nEt9.999                        down           lowerlayerdown\nEt10                           up             up                 ThiS iS a TeSt DeScriPtiON\nEt11                           up             up                 ThiS iS a TeSt DeScriPtiON\nEt12                           up             up                 ThiS iS a TeSt DeScriPtiON\nEt13                           down           notpresent         This IS a TesT DeScrIption\nEt14                           down           notpresent\nMa1                            down           down               Management\nPo1                            up             up                 MLAG peer link\nPo101                          up             up                 ServerRAD\nTu8                            down           unknown\nVl4094                         up             up                 MLAG local int\n",
+  "textfsm_template": "Value PORT (\\S+)\nValue STATUS (up|down|admin\\s+down)\nValue PROTOCOL (up|down|lowerlayerdown|notpresent|unknown)\nValue DESCRIPTION (\\S.*?)\n\nStart\n  ^Interface\\s+Status\\s+Protocol\\s+Description\\s*$$ -> Begin\n  ^\\s*$$\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^. -> Error\n\nBegin\n  ^${PORT}\\s+${STATUS}\\s+${PROTOCOL}(?:\\s+${DESCRIPTION})?\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

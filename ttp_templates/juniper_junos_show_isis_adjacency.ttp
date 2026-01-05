@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: juniper_junos_show_isis_adjacency
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 7
+# Match ratio: 1.40
+
+<group name="interface_system_id_type_state_hold_time_snpa">
+{{INTERFACE}} {{SYSTEM_ID}} {{TYPE}} {{STATE | ORPHRASE}} {{HOLD_TIME}} {{SNPA | ORPHRASE}}
+</group>
+<group name="interface_system_id_type_state_hold_time">
+{{INTERFACE}} {{SYSTEM_ID}} {{TYPE}} {{STATE | ORPHRASE}} {{HOLD_TIME | ORPHRASE}}
+</group>

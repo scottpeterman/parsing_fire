@@ -1,0 +1,19 @@
+# TTP Template - FAILED VALIDATION
+# Original command: cisco_ios_show_redundancy
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="active_boot_directory_active_boot_file_active_config_register_active_slot">
+  Available system uptime = {{SYSTEM_UPTIME_WEEKS | ORPHRASE}} weeks, {{SYSTEM_UPTIME_DAYS | ORPHRASE}} days, {{SYSTEM_UPTIME_HOURS | ORPHRASE}} hours, {{SYSTEM_UPTIME_MINUTES | ORPHRASE}} minutes
+Switchovers system experienced = {{SWITCHOVERS | ORPHRASE}}
+  Last switchover reason = {{LAST_SWITCHOVER_REASON | ORPHRASE}}
+  Hardware Mode = {{HARDWARE_MODE | ORPHRASE}}
+  Configured Redundancy Mode = {{CONFIGURED_REDUNDANCY_MODE | ORPHRASE}}
+  Maintenance Mode = {{MAINTENANCE_MODE | ORPHRASE}}
+  Communications = {{COMMUNICATION_STATUS | ORPHRASE}}
+  Active Location = slot {{ACTIVE_SLOT | ORPHRASE}}
+  Current Software state = {{ACTIVE_SOFTWARE_STATE | ORPHRASE}}
+  BOOT = {{ACTIVE_BOOT_DIRECTORY}}:{{ACTIVE_BOOT_FILE | ORPHRASE}}
+  Configuration register = {{ACTIVE_CONFIG_REGISTER | ORPHRASE}}
+Peer (slot: unavailable) information is not available because it is in '{{STANDBY_STATUS | ORPHRASE}}' state
+</group>

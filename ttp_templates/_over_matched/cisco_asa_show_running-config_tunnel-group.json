@@ -1,0 +1,108 @@
+{
+  "command": "cisco_asa_show_running-config_tunnel-group",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"authentication_svr_authorization_intfc_authorization_grp_authentication_pri_grp_sec_authentication_use_pri_user\">\n {{AUTHENTICATION_SVR}}-authentication-server-group ({{AUTHORIZATION_INTFC}}) {{AUTHORIZATION_GRP}} {{AUTHENTICATION_PRI_GRP}} {{SEC_AUTHENTICATION_USE_PRI_USER | ORPHRASE}}\n</group>\n<group name=\"name_type\">\ntunnel-group {{NAME}} type {{TYPE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "tun01",
+      "TYPE": "remote-access",
+      "DHCP_SELECTION": "link-selection, subnet-selection",
+      "DHCP_SERVER": "10.10.10.10, 10.10.10.11, 10.10.10.12",
+      "AUTHORIZATION": "required",
+      "AUTHORIZATION_INTFC": "outside",
+      "AUTHORIZATION_GRP": "aaa",
+      "ACCOUNTING_GRP": "aaa",
+      "IPV4_POOL_INTFC": "vpn",
+      "IPV4_POOL_NAME": "vpn_pool",
+      "AUTHENTICATION_INTFC": "outside",
+      "AUTHENTICATION_PRI_GRP": "LOCAL",
+      "AUTHENTICATION_SVR": "secondary",
+      "AUTHENTICATED_USER": "secondary",
+      "GROUP_POLICY": "default_gpol",
+      "IPV6_POOL_INTFC": "outside",
+      "IPV6_POOL_NAME": "v6pool",
+      "NAT_INTFC": "outside",
+      "SCEP_ENROLL": "enable",
+      "SEC_AUTHENTICATION_GRP_INTFC": "outside",
+      "SEC_AUTHENTICATION_PRI_GRP": "aaa",
+      "SEC_AUTHENTICATION_SEC_GRP": "LOCAL",
+      "SEC_AUTHENTICATION_USE_PRI_USER": "use-primary-username",
+      "SEC_CERT_CODES": "C CN",
+      "SEC_CERT_FALLBACK": "cert",
+      "PRI_CERT_CODES": "C CN",
+      "STRIP_GRP": "strip-group",
+      "STRIP_REALM": "strip-realm",
+      "IKEV1_PSK": "*****",
+      "CHAIN": "chain",
+      "CLIENT_OS": "Win9X, WinNT, Windows, mac, linux, vpn3002",
+      "UPDATE_URL": "https://blah, https://blah, https://blah, https://blah, https://blah, tftp://blah",
+      "REVS": "1,3, 1,3, 1,3, 5,9, 3,5, 13,15",
+      "IKEV1_USER_AUTH_INTFC": "outside",
+      "IKEV1_USER_AUTH_TYPE": "hybrid",
+      "IKEV2_LOCAL_AUTH_CERT": "cert",
+      "IKEV2_REMOTE_AUTH_TYPE": "certificate, eap query-identity, pre-shared-key *****",
+      "PEER_ID_VALIDATE": "nocheck",
+      "RADIUS_WITH_EXPIRY": "radius-with-expiry",
+      "PPP_AUTH_TYPE": "pap, ms-chap-v2, eap-proxy",
+      "WEBVPN_AUTH": "aaa certificate",
+      "WEBVPN_CUSTOM": "DfltCustomization",
+      "DNS_GRP": "dnsgrp",
+      "WEBVPN_GRP_ALIAS": "grpalias, aj",
+      "WEBVPN_GRP_ALIAS_STATE": "enable, disable",
+      "WEBVPN_GRP_URL": "https://blah",
+      "WEBVPN_GRP_URL_STATE": "enable",
+      "NBNS_SVR": "10.10.10.10, 10.1.1.1",
+      "NBNS_MASTER": "master",
+      "NBNS_TIMEOUT": "20, 2",
+      "NBNS_RETRY": "8, 2",
+      "OVERRIDE_SVC_DOWNLOAD": "override-svc-download",
+      "PRI_PREFILL_USER_TYPE": "clientless, ssl-client hide",
+      "SEC_PREFILL_USER_TYPE": "clientless hide, ssl-client",
+      "PROXY_AUTH": "sdi",
+      "RADIUS_REJECT_MSG": "radius-reject-message",
+      "WITHOUT_CSD": "anyconnect"
+    },
+    {
+      "NAME": "10.15.20.25",
+      "TYPE": "ipsec-l2l",
+      "IKEV1_PSK": "*****"
+    },
+    {
+      "NAME": "10.20.30.40",
+      "TYPE": "ipsec-l2l",
+      "IKEV1_PSK": "*****"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "authentication_svr_authorization_intfc_authorization_grp_authentication_pri_grp_sec_authentication_use_pri_user": {
+        "AUTHENTICATION_SVR": "secondary",
+        "AUTHORIZATION_INTFC": "outside",
+        "AUTHORIZATION_GRP": "aaa",
+        "AUTHENTICATION_PRI_GRP": "LOCAL",
+        "SEC_AUTHENTICATION_USE_PRI_USER": "use-primary-username"
+      },
+      "name_type": [
+        {
+          "NAME": "tun01",
+          "TYPE": "remote-access"
+        },
+        {
+          "NAME": "10.15.20.25",
+          "TYPE": "ipsec-l2l"
+        },
+        {
+          "NAME": "10.20.30.40",
+          "TYPE": "ipsec-l2l"
+        }
+      ]
+    }
+  ],
+  "cli_content": "tunnel-group tun01 type remote-access\ntunnel-group tun01 general-attributes\n dhcp-server 10.10.10.10\n dhcp-server link-selection 10.10.10.11\n dhcp-server subnet-selection 10.10.10.12\n authorization-required\n authorization-server-group (outside) aaa\n accounting-server-group aaa\n address-pool (vpn) vpn_pool\n authentication-server-group (outside) LOCAL\n authentication-attr-from-server secondary\n authenticated-session-username secondary\n default-group-policy default_gpol\n ipv6-address-pool (outside) v6pool\n nat-assigned-to-public-ip outside \n scep-enrollment enable \n secondary-authentication-server-group (outside) aaa LOCAL use-primary-username\n secondary-username-from-certificate C CN no-certificate-fallback cert\n username-from-certificate C CN\n strip-group\n strip-realm\ntunnel-group tun01 webvpn-attributes\n authentication aaa certificate\n customization DfltCustomization\n dns-group dnsgrp\n group-alias grpalias enable\n group-alias aj disable\n group-url https://blah enable\n nbns-server 10.10.10.10 master timeout 20 retry 8\n nbns-server 10.1.1.1 timeout 2 retry 2\n override-svc-download\n pre-fill-username clientless\n pre-fill-username ssl-client hide\n proxy-auth sdi\n radius-reject-message\n saml identity-provider idp\n secondary pre-fill-username clientless hide\n secondary pre-fill-username ssl-client\n without-csd anyconnect \ntunnel-group tun01 ipsec-attributes\n ikev1 pre-shared-key *****\n chain\n ikev1 client-update type Win9X url https://blah rev-nums 1,3\n ikev1 client-update type WinNT url https://blah rev-nums 1,3\n ikev1 client-update type Windows url https://blah rev-nums 1,3\n ikev1 client-update type mac url https://blah rev-nums 5,9\n ikev1 client-update type linux url https://blah rev-nums 3,5\n ikev1 client-update type vpn3002 url tftp://blah rev-nums 13,15\n ikev1 trust-point trust_point\n ikev1 user-authentication (outside) hybrid\n ikev2 local-authentication certificate cert\n ikev2 local-authentication pre-shared-key\n ikev2 remote-authentication certificate\n ikev2 remote-authentication eap query-identity\n ikev2 remote-authentication pre-shared-key *****\n peer-id-validate nocheck\n radius-with-expiry\ntunnel-group tun01 ppp-attributes\n authentication pap\n authentication ms-chap-v2\n authentication eap-proxy\ntunnel-group 10.15.20.25 type ipsec-l2l\ntunnel-group 10.15.20.25 ipsec-attributes\n ikev1 pre-shared-key *****\ntunnel-group 10.20.30.40 type ipsec-l2l\ntunnel-group 10.20.30.40 ipsec-attributes\n ikev1 pre-shared-key *****\n",
+  "textfsm_template": "Value Required NAME (\\S+|\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue Required TYPE (\\S+)\nValue List DHCP_SELECTION ([linksubet\\-co]+)\nValue List DHCP_SERVER (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue AUTHORIZATION (\\S+)\nValue AUTHORIZATION_INTFC (\\S+)\nValue AUTHORIZATION_GRP (\\S+)\nValue ACCOUNTING_GRP (\\S+)\nValue IPV4_POOL_INTFC (\\S+)\nValue IPV4_POOL_NAME (\\S+)\nValue AUTHENTICATION_INTFC (\\S+)\nValue AUTHENTICATION_PRI_GRP (\\S+)\nValue AUTHENTICATION_SEC_GRP (\\S+)\nValue AUTHENTICATION_SVR (\\S+)\nValue AUTHENTICATED_USER (\\S+)\nValue GROUP_POLICY (\\S+)\nValue IPV6_POOL_INTFC (\\S+)\nValue IPV6_POOL_NAME (\\S+)\nValue NAT_INTFC (\\S+)\nValue SCEP_ENROLL (\\S+)\nValue SEC_AUTHENTICATION_GRP_INTFC (\\S+)\nValue SEC_AUTHENTICATION_PRI_GRP (\\S+)\nValue SEC_AUTHENTICATION_SEC_GRP (\\S+)\nValue SEC_AUTHENTICATION_USE_PRI_USER (\\S+)\nValue SEC_CERT_CODES (\\S+\\s+\\S+|\\S+)\nValue SEC_CERT_FALLBACK (\\S+)\nValue PRI_CERT_CODES (\\S+\\s+\\S+|\\S+)\nValue PRI_CERT_FALLBACK (\\S+)\nValue STRIP_GRP (strip\\-group)\nValue STRIP_REALM (strip\\-realm)\nValue IKEV1_PSK (\\*+)\nValue CHAIN (chain)\nValue List CLIENT_OS (\\S+)\nValue List UPDATE_URL (\\S+)\nValue List REVS ((\\d+,){0,10}\\d+)\nValue TRUST_POINT (\\S+)\nValue List IKEV1_USER_AUTH_INTFC (\\S+)\nValue List IKEV1_USER_AUTH_TYPE (\\S+)\nValue IKEV2_LOCAL_AUTH_CERT (\\S+)\nValue List IKEV2_REMOTE_AUTH_TYPE (\\S+\\s+\\S+|\\S+)\nValue PEER_ID_VALIDATE (\\S+)\nValue RADIUS_WITH_EXPIRY (radius\\-with\\-expiry)\nValue List PPP_AUTH_TYPE (pap|ms-chap-v2|eap-proxy)\nValue WEBVPN_AUTH (\\S+\\s+\\S+|\\S+)\nValue WEBVPN_CUSTOM (\\S+)\nValue DNS_GRP (\\S+)\nValue List WEBVPN_GRP_ALIAS (\\S+)\nValue List WEBVPN_GRP_ALIAS_STATE (enable|disable)\nValue List WEBVPN_GRP_URL (\\S+)\nValue List WEBVPN_GRP_URL_STATE (enable|disable)\nValue List NBNS_SVR (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue List NBNS_MASTER (master)\nValue List NBNS_TIMEOUT (\\d+)\nValue List NBNS_RETRY (\\d+)\nValue OVERRIDE_SVC_DOWNLOAD (override\\-svc\\-download)\nValue List PRI_PREFILL_USER_TYPE (\\S+\\s+\\S+|\\S+)\nValue List SEC_PREFILL_USER_TYPE (\\S+\\s+\\S+|\\S+)\nValue PROXY_AUTH (\\S+)\nValue RADIUS_REJECT_MSG (radius\\-reject\\-message)\nValue SAML_ID_PROVIDER (\\S+)\nValue WITHOUT_CSD (\\S+\\s+\\S+|\\S+)\n\nStart\n  ^tunnel\\-group\\s+(\\S+|\\d+\\.\\d+\\.\\d+\\.\\d+)\\s+type -> Continue.Record\n  ^tunnel\\-group\\s+${NAME}\\s+type\\s+${TYPE}\\s*\n  # GENERAL ATTRIBUTES\n  ^\\s+dhcp\\-server(\\s+){0,1}(${DHCP_SELECTION}{0,1})\\s+${DHCP_SERVER}\\s*\n  ^\\s+authorization\\-server\\-group(\\s+\\(${AUTHORIZATION_INTFC}\\)){0,1}\\s+${AUTHORIZATION_GRP}\\s*\n  ^\\s+authorization\\-${AUTHORIZATION}\\s*\n  ^\\s+accounting\\-server\\-group\\s+${ACCOUNTING_GRP}\\s*\n  ^\\s+address\\-pool(\\s+\\(${IPV4_POOL_INTFC}\\)){0,1}\\s+${IPV4_POOL_NAME}\\s*\n  ^\\s+authentication\\-server\\-group(\\s+\\(${AUTHENTICATION_INTFC}\\)){0,1}\\s+${AUTHENTICATION_PRI_GRP}(\\s+${AUTHENTICATION_SEC_GRP}){0,1}\\s*\n  ^\\s+authentication\\-attr\\-from\\-server\\s+${AUTHENTICATION_SVR}\\s*\n  ^\\s+authenticated\\-session\\-username\\s+${AUTHENTICATED_USER}\\s*\n  ^\\s+default\\-group\\-policy\\s+${GROUP_POLICY}\\s*\n  ^\\s+ipv6\\-address\\-pool(\\s+\\(${IPV6_POOL_INTFC}\\)){0,1}\\s+${IPV6_POOL_NAME}\\s*\n  ^\\s+nat\\-assigned\\-to\\-public\\-ip\\s+${NAT_INTFC}\\s*\n  ^\\s+scep\\-enrollment\\s+${SCEP_ENROLL}\\s*\n  ^\\s+secondary\\-authentication\\-server\\-group(\\s+\\(${SEC_AUTHENTICATION_GRP_INTFC}\\)){0,1}\\s+${SEC_AUTHENTICATION_PRI_GRP}(\\s+${SEC_AUTHENTICATION_SEC_GRP}){0,1}(\\s+${SEC_AUTHENTICATION_USE_PRI_USER}){0,1}\\s*\n  ^\\s+secondary\\-username\\-from\\-certificate\\s+${SEC_CERT_CODES}(\\s+no-certificate-fallback\\s+${SEC_CERT_FALLBACK}){0,1}\\s*\n  ^\\s+username\\-from\\-certificate\\s+${PRI_CERT_CODES}(\\s+no-certificate-fallback\\s+${PRI_CERT_FALLBACK}){0,1}\\s*\n  ^\\s+${STRIP_GRP}\\s*\n  ^\\s+${STRIP_REALM}\\s*\n  # PPP ATTRIBUTES\n  ^\\s+authentication\\s+${PPP_AUTH_TYPE}\\s*\n  # IPSEC ATTRIBUTES\n  ^\\s+ikev1\\s+pre\\-shared\\-key\\s+${IKEV1_PSK}\\s*\n  ^\\s+${CHAIN}\\s*\n  ^\\s+ikev1\\s+client\\-update\\s+type\\s+${CLIENT_OS}\\s+url\\s+${UPDATE_URL}\\s+rev\\-nums\\s+${REVS}\\s*\n  ^\\s+ikev1\\s+trust\\-point\\s+${TRUST_POINT}\\s+\n  ^\\s+ikev1\\s+user\\-authentication(\\s+\\(${IKEV1_USER_AUTH_INTFC}\\)){0,1}\\s+${IKEV1_USER_AUTH_TYPE}\\s*\n  ^\\s+ikev2\\s+local\\-authentication\\s+certificate\\s+${IKEV2_LOCAL_AUTH_CERT}\\s*\n  ^\\s+ikev2\\s+remote\\-authentication\\s+${IKEV2_REMOTE_AUTH_TYPE}\\s*\n  ^\\s+peer\\-id\\-validate\\s+${PEER_ID_VALIDATE}\\s*\n  ^\\s+${RADIUS_WITH_EXPIRY}\\s*\n  # WEBVPN ATTRIBUTES\n  ^\\s+authentication\\s+${WEBVPN_AUTH}\\s*\n  ^\\s+customization\\s+${WEBVPN_CUSTOM}\\s*\n  ^\\s+dns\\-group\\s+${DNS_GRP}\\s*\n  ^\\s+group\\-alias\\s+${WEBVPN_GRP_ALIAS}\\s+${WEBVPN_GRP_ALIAS_STATE}\\s*\n  ^\\s+group\\-url\\s+${WEBVPN_GRP_URL}\\s+${WEBVPN_GRP_URL_STATE}\\s*\n  ^\\s+nbns\\-server\\s+${NBNS_SVR}(\\s+${NBNS_MASTER}){0,1}\\s+timeout\\s+${NBNS_TIMEOUT}\\s+retry\\s+${NBNS_RETRY}\\s*\n  ^\\s+${OVERRIDE_SVC_DOWNLOAD}\\s*\n  ^\\s+pre\\-fill\\-username\\s+${PRI_PREFILL_USER_TYPE}\\s*\n  ^\\s+proxy\\-auth\\s+${PROXY_AUTH}\\s*\n  ^\\s+${RADIUS_REJECT_MSG}\\s*\n  ^\\s+saml\\s+identity\\-provider${SAML_ID_PROVIDER}\\s*\n  ^\\s+secondary\\s+pre\\-fill\\-username\\s+${SEC_PREFILL_USER_TYPE}\\S*\n  ^\\s+without\\-csd\\s+${WITHOUT_CSD}\\s*\n"
+}

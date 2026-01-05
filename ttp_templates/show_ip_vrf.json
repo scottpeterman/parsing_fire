@@ -1,0 +1,50 @@
+{
+  "command": "show ip vrf",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"name_default_rd_interfaces\">\n   {{NAME}} {{DEFAULT_RD}} {{INTERFACES | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "default",
+      "DEFAULT_RD": "none",
+      "INTERFACES": "Gi0/0, Gi0/1"
+    },
+    {
+      "NAME": "management",
+      "DEFAULT_RD": "10:1",
+      "INTERFACES": "Mgmt0"
+    },
+    {
+      "NAME": "VRF1",
+      "DEFAULT_RD": "100:1",
+      "INTERFACES": "Gi0/2, Gi0/3"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name_default_rd_interfaces": [
+        {
+          "NAME": "default",
+          "DEFAULT_RD": "none",
+          "INTERFACES": "Gi0/0, Gi0/1"
+        },
+        {
+          "NAME": "management",
+          "DEFAULT_RD": "10:1",
+          "INTERFACES": "Mgmt0"
+        },
+        {
+          "NAME": "VRF1",
+          "DEFAULT_RD": "100:1",
+          "INTERFACES": "Gi0/2, Gi0/3"
+        }
+      ]
+    }
+  ],
+  "cli_content": "   Name                             Default RD            Interfaces\n   default                          none                  Gi0/0, Gi0/1\n   management                       10:1                  Mgmt0\n   VRF1                             100:1                 Gi0/2, Gi0/3\n",
+  "textfsm_template": "Value NAME (\\S+)\nValue DEFAULT_RD (\\S+)\nValue INTERFACES (.*)\n\nStart\n  ^\\s*Name\\s+Default RD\\s+Interfaces\\s*$$\n  ^\\s*${NAME}\\s+${DEFAULT_RD}\\s+${INTERFACES}\\s*$$ -> Record"
+}

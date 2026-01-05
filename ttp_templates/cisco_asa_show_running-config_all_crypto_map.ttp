@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_running-config_all_crypto_map
+# Source: ntc
+# TextFSM rows: 11
+# TTP rows: 12
+# Match ratio: 1.09
+
+<group name="map_seq_matched_address">
+crypto map {{MAP}} {{SEQ}} match address {{MATCHED_ADDRESS | ORPHRASE}}
+</group>
+<group name="map_seq_sa_kb_sa_sec">
+crypto map {{MAP}} {{SEQ}} set security-association lifetime kilobytes {{SA_KB}} seconds {{SA_SEC | ORPHRASE}}
+</group>
+<group name="map_seq_isakmp_dynamic">
+crypto map {{MAP}} {{SEQ}} ipsec-isakmp dynamic {{ISAKMP_DYNAMIC | ORPHRASE}}
+</group>

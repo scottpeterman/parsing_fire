@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show logical-system interfaces
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 3
+# Match ratio: 0.75
+
+<group name="interface_ip_address_admin_link_protocol">
+  {{INTERFACE}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{ADMIN}} {{LINK}} {{PROTOCOL | ORPHRASE}} 
+</group>

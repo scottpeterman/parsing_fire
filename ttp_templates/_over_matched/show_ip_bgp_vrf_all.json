@@ -1,0 +1,33 @@
+{
+  "command": "show ip bgp vrf all",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"router_id_local_as\">\nRouter identifier {{ROUTER_ID}}, local AS number {{LOCAL_AS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TABLE": "BLUE",
+      "ROUTER_ID": "10.2.1.1",
+      "LOCAL_AS": "65002"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "router_id_local_as": [
+        {
+          "ROUTER_ID": "10.1.1.1",
+          "LOCAL_AS": "65001"
+        },
+        {
+          "ROUTER_ID": "10.2.1.1",
+          "LOCAL_AS": "65002"
+        }
+      ]
+    }
+  ],
+  "cli_content": "BGP routing table information for VRF RED\nRouter identifier 10.1.1.1, local AS number 65001\nBGP table version is 5, main routing table version 5\nStatus codes: s suppressed, d damped, h history, * valid, > best, i internal, S Stale, R Removed\nOrigin codes: i - IGP, e - EGP, ? - incomplete\nNetwork          Next Hop            Metric LocPrf Weight Path\n*> 10.1.1.0/24       192.168.1.2             0             0 65002 ?\n*  10.1.2.0/24       192.168.1.3             0             0 65002 ?\n*>                  192.168.1.4             0             0 65003 ?\n*> 10.2.0.0/16       192.168.1.2             0             0 65002 i\n\nBGP routing table information for VRF BLUE\nRouter identifier 10.2.1.1, local AS number 65002\nBGP table version is 7, main routing table version 7\nStatus codes: s suppressed, d damped, h history, * valid, > best, i internal, S Stale, R Removed\nOrigin codes: i - IGP, e - EGP, ? - incomplete\nNetwork          Next Hop            Metric LocPrf Weight Path\n*> 20.1.1.0/24       192.168.2.2             0             0 65003 ?\n*  20.1.2.0/24       192.168.2.3             0             0 65003 ?\n*>                  192.168.2.4             0             0 65004 ?\n*  20.2.0.0/16       192.168.2.5             0             0 65005 i\n*>                  192.168.2.6             0             0 65006 i\n",
+  "textfsm_template": "Value TABLE (\\S+)\nValue ROUTER_ID (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue LOCAL_AS (\\d+)\nValue NETWORK (\\d+\\.\\d+\\.\\d+\\.\\d+/\\d+)\nValue NEXT_HOP (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue METRIC (\\d+)\nValue LOC_PREF (\\d+)\nValue WEIGHT (\\d+)\nValue PATH (\\S+)\n\nStart\n  ^BGP routing table information for VRF\\s+${TABLE} -> NextTable\n\nNextTable\n  ^Router identifier\\s+${ROUTER_ID}, local AS number\\s+${LOCAL_AS}\n  ^BGP table version is\\s+\\d+, main routing table version\\s+\\d+\n  ^Status codes:\n  ^Origin codes:\n  ^Network\\s+Next Hop\\s+Metric\\s+LocPrf\\s+Weight\\s+Path\n  ^${NETWORK}\\s+${NEXT_HOP}\\s+${METRIC}\\s+${LOC_PREF}\\s+${WEIGHT}\\s+${PATH}\\s*$$ -> Record\n  ^\\s*$$ -> Start"
+}

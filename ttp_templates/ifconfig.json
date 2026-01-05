@@ -1,0 +1,80 @@
+{
+  "command": "ifconfig",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"interface_scope_hwaddr\">\n{{INTERFACE}} {{SCOPE}} encap:Ethernet HWaddr {{HWADDR | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "eth0",
+      "HWADDR": "00:0c:29:1d:36:38",
+      "INET_ADDR": "192.168.0.100",
+      "BCAST": "192.168.0.255",
+      "MASK": "255.255.255.0",
+      "INET6_ADDR": "fe80::20c:29ff:fe1d:3638/64",
+      "SCOPE": "Link",
+      "MTU": "1500",
+      "METRIC": "1",
+      "RX_PACKETS": "4603",
+      "RX_ERRORS": "0",
+      "RX_DROPPED": "0",
+      "RX_OVERRUNS": "0",
+      "RX_FRAME": "0",
+      "TX_PACKETS": "4202",
+      "TX_ERRORS": "0",
+      "TX_DROPPED": "0",
+      "TX_OVERRUNS": "0",
+      "TX_CARRIER": "0",
+      "COLLISIONS": "0",
+      "TXQUEUELEN": "1000",
+      "RX_BYTES": "6437388",
+      "TX_BYTES": "508938"
+    },
+    {
+      "INTERFACE": "eth1",
+      "HWADDR": "00:0c:29:1d:36:42",
+      "INET_ADDR": "10.0.0.10",
+      "BCAST": "10.0.0.255",
+      "MASK": "255.255.255.0",
+      "INET6_ADDR": "fe80::20c:29ff:fe1d:3642/64",
+      "SCOPE": "Link",
+      "MTU": "1500",
+      "METRIC": "1",
+      "RX_PACKETS": "505",
+      "RX_ERRORS": "0",
+      "RX_DROPPED": "0",
+      "RX_OVERRUNS": "0",
+      "RX_FRAME": "0",
+      "TX_PACKETS": "522",
+      "TX_ERRORS": "0",
+      "TX_DROPPED": "0",
+      "TX_OVERRUNS": "0",
+      "TX_CARRIER": "0",
+      "COLLISIONS": "0",
+      "TXQUEUELEN": "1000",
+      "RX_BYTES": "76420",
+      "TX_BYTES": "58356"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_scope_hwaddr": [
+        {
+          "INTERFACE": "eth0",
+          "SCOPE": "Link",
+          "HWADDR": "00:0c:29:1d:36:38"
+        },
+        {
+          "INTERFACE": "eth1",
+          "SCOPE": "Link",
+          "HWADDR": "00:0c:29:1d:36:42"
+        }
+      ]
+    }
+  ],
+  "cli_content": "eth0    Link encap:Ethernet  HWaddr 00:0c:29:1d:36:38  \n        inet addr:192.168.0.100  Bcast:192.168.0.255  Mask:255.255.255.0\n        inet6 addr: fe80::20c:29ff:fe1d:3638/64 Scope:Link\n        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1\n        RX packets:4603 errors:0 dropped:0 overruns:0 frame:0\n        TX packets:4202 errors:0 dropped:0 overruns:0 carrier:0\n        collisions:0 txqueuelen:1000 \n        RX bytes:6437388 (6.4 MB)  TX bytes:508938 (508.9 KB)\n\neth1    Link encap:Ethernet  HWaddr 00:0c:29:1d:36:42  \n        inet addr:10.0.0.10  Bcast:10.0.0.255  Mask:255.255.255.0\n        inet6 addr: fe80::20c:29ff:fe1d:3642/64 Scope:Link\n        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1\n        RX packets:505 errors:0 dropped:0 overruns:0 frame:0\n        TX packets:522 errors:0 dropped:0 overruns:0 carrier:0\n        collisions:0 txqueuelen:1000 \n        RX bytes:76420 (76.4 KB)  TX bytes:58356 (58.3 KB)\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue HWADDR ([0-9a-f:]{17})\nValue INET_ADDR (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue BCAST (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue MASK (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue INET6_ADDR ([0-9a-f:]+/[0-9]+)\nValue SCOPE (\\S+)\nValue MTU (\\d+)\nValue METRIC (\\d+)\nValue RX_PACKETS (\\d+)\nValue RX_ERRORS (\\d+)\nValue RX_DROPPED (\\d+)\nValue RX_OVERRUNS (\\d+)\nValue RX_FRAME (\\d+)\nValue TX_PACKETS (\\d+)\nValue TX_ERRORS (\\d+)\nValue TX_DROPPED (\\d+)\nValue TX_OVERRUNS (\\d+)\nValue TX_CARRIER (\\d+)\nValue COLLISIONS (\\d+)\nValue TXQUEUELEN (\\d+)\nValue RX_BYTES (\\d+)\nValue TX_BYTES (\\d+)\n\nStart\n  ^${INTERFACE}\\s+Link\\s+encap:Ethernet\\s+HWaddr\\s+${HWADDR}\\s*$$\n  ^\\s+inet\\s+addr:${INET_ADDR}\\s+Bcast:${BCAST}\\s+Mask:${MASK}\\s*$$\n  ^\\s+inet6\\s+addr:\\s*${INET6_ADDR}\\s+Scope:${SCOPE}\\s*$$\n  ^\\s+.*\\s+MTU:${MTU}\\s+Metric:${METRIC}\\s*$$\n  ^\\s+RX\\s+packets:${RX_PACKETS}\\s+errors:${RX_ERRORS}\\s+dropped:${RX_DROPPED}\\s+overruns:${RX_OVERRUNS}\\s+frame:${RX_FRAME}\\s*$$\n  ^\\s+TX\\s+packets:${TX_PACKETS}\\s+errors:${TX_ERRORS}\\s+dropped:${TX_DROPPED}\\s+overruns:${TX_OVERRUNS}\\s+carrier:${TX_CARRIER}\\s*$$\n  ^\\s+collisions:${COLLISIONS}\\s+txqueuelen:${TXQUEUELEN}\\s*$$\n  ^\\s+RX\\s+bytes:${RX_BYTES}\\s+\\(.*\\)\\s+TX\\s+bytes:${TX_BYTES}\\s+\\(.*\\)\\s*$$ -> Record"
+}

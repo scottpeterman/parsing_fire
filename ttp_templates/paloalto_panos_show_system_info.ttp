@@ -1,0 +1,23 @@
+# TTP Template auto-generated from TextFSM
+# Original command: paloalto_panos_show_system_info
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="family_gateway_hostname_ip_address">
+hostname: {{HOSTNAME | ORPHRASE}}
+ip-address: {{IP_ADDRESS | ORPHRASE}}
+netmask: {{NETMASK | ORPHRASE}}
+default-gateway: {{GATEWAY | ORPHRASE}}
+ipv6-address: {{SERIAL | ORPHRASE}}
+mac-address: {{MAC_ADDRESS | ORPHRASE}}
+uptime: {{UPTIME | ORPHRASE}}
+family: {{FAMILY | ORPHRASE}}
+model: {{MODEL | ORPHRASE}}
+vm-license: {{VM_LICENSE | ORPHRASE}}
+vm-mode: {{VM_MODE | ORPHRASE}}
+sw-version: {{OS | ORPHRASE}}
+vpn-disable-mode: {{VPN_DISABLE_MODE | ORPHRASE}}
+operational-mode: {{OPERATIONAL_MODE | ORPHRASE}}
+</group>

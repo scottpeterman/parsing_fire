@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip route
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 3
+# Match ratio: 0.75
+
+<group name="network_mask_interface">
+C {{NETWORK}}/{{MASK}} is directly connected, {{INTERFACE | ORPHRASE}}
+</group>
+<group name="network_mask_ad_cost_nexthop">
+S {{NETWORK}}/{{MASK}} [{{AD}}/{{COST}}] via {{NEXTHOP | ORPHRASE}}
+</group>
+<group name="network_mask_ad_cost_nexthop_time_interface">
+O {{NETWORK}}/{{MASK}} [{{AD}}/{{COST}}] via {{NEXTHOP}}, {{TIME}}, {{INTERFACE | ORPHRASE}}
+</group>

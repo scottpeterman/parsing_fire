@@ -1,0 +1,116 @@
+{
+  "command": "cisco_nxos_show_vrf",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 8,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"name_id_state_reason\">\n{{NAME}} {{ID | re(\"\\\\d+\")}} {{STATE | ORPHRASE}} {{REASON | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "VPC_KEEPALIVE",
+      "ID": "3",
+      "STATE": "Up",
+      "REASON": "--"
+    },
+    {
+      "NAME": "default",
+      "ID": "1",
+      "STATE": "Up",
+      "REASON": "--"
+    },
+    {
+      "NAME": "VRF1",
+      "ID": "4",
+      "STATE": "Up",
+      "REASON": "--"
+    },
+    {
+      "NAME": "VRF2",
+      "ID": "7",
+      "STATE": "Up",
+      "REASON": "--"
+    },
+    {
+      "NAME": "VRF-NAME-3",
+      "ID": "8",
+      "STATE": "Up",
+      "REASON": "--"
+    },
+    {
+      "NAME": "VRF_NAME_4",
+      "ID": "5",
+      "STATE": "Up",
+      "REASON": "--"
+    },
+    {
+      "NAME": "VRFNAME5",
+      "ID": "6",
+      "STATE": "Up",
+      "REASON": "--"
+    },
+    {
+      "NAME": "management",
+      "ID": "2",
+      "STATE": "Up",
+      "REASON": "--"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name_id_state_reason": [
+        {
+          "NAME": "VPC_KEEPALIVE",
+          "ID": "3",
+          "STATE": "Up",
+          "REASON": "--"
+        },
+        {
+          "NAME": "default",
+          "ID": "1",
+          "STATE": "Up",
+          "REASON": "--"
+        },
+        {
+          "NAME": "VRF1",
+          "ID": "4",
+          "STATE": "Up",
+          "REASON": "--"
+        },
+        {
+          "NAME": "VRF2",
+          "ID": "7",
+          "STATE": "Up",
+          "REASON": "--"
+        },
+        {
+          "NAME": "VRF-NAME-3",
+          "ID": "8",
+          "STATE": "Up",
+          "REASON": "--"
+        },
+        {
+          "NAME": "VRF_NAME_4",
+          "ID": "5",
+          "STATE": "Up",
+          "REASON": "--"
+        },
+        {
+          "NAME": "VRFNAME5",
+          "ID": "6",
+          "STATE": "Up",
+          "REASON": "--"
+        },
+        {
+          "NAME": "management",
+          "ID": "2",
+          "STATE": "Up",
+          "REASON": "--"
+        }
+      ]
+    }
+  ],
+  "cli_content": "VRF-Name                           VRF-ID State   Reason\nVPC_KEEPALIVE                           3 Up      --\ndefault                                 1 Up      --\nVRF1                                    4 Up      --\nVRF2                                    7 Up      --\nVRF-NAME-3                              8 Up      --\nVRF_NAME_4                              5 Up      --\nVRFNAME5                                6 Up      --\nmanagement                              2 Up      --",
+  "textfsm_template": "Value Required NAME (\\S+)\nValue Required ID (\\S+)\nValue Required STATE (\\S+)\nValue Required REASON (\\S+)\n\nStart\n  ^VRF-Name\\s+VRF-ID\\s+State\\s+Reason -> Start_record\n\nStart_record\n  ^${NAME}\\s+${ID}\\s+${STATE}\\s+${REASON} -> Record\n  ^\\s+$$\n  ^$$\n  ^.* -> Error \"LINE NOT FOUND\"\n"
+}

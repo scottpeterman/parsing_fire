@@ -1,0 +1,71 @@
+{
+  "command": "fortinet_get_hardware_nic_nic-name",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"admin_autonego_setting_board_current_hwaddr\">\nDescription  :{{DESCRIPTION | ORPHRASE}}\nDriver Name  :{{DRIVER_NAME | ORPHRASE}}\nBoard  :{{BOARD | ORPHRASE}}\nlif id  :{{LIF_ID | ORPHRASE}}\nlif oid  :{{LIF_OID | ORPHRASE}}\nCurrent_HWaddr  {{CURRENT_HWADDR | ORPHRASE}}\nAdmin  :{{ADMIN | ORPHRASE}}\nnetdev status  :{{NETDEV_STATUS | ORPHRASE}}\nspeed_setting  :{{SPEED_SETTING | ORPHRASE}}\nDuplex  :{{DUPLEX | ORPHRASE}}\nlink_status  :{{LINK_STATUS | ORPHRASE}}\nRx Pkts  :{{RX_PACKETS | ORPHRASE}}\nRx Bytes  :{{RX_BYTES | ORPHRASE}}\nTx Pkts  :{{TX_PACKETS | ORPHRASE}}\nTx Bytes  :{{TX_BYTES | ORPHRASE}}\nHost Rx Pkts  :{{HOST_RX_PACKETS | ORPHRASE}}\nHost Rx Bytes  :{{HOST_RX_BYTES | ORPHRASE}}\nHost Tx Pkts  :{{HOST_TX_PACKETS | ORPHRASE}}\nHost Tx Bytes  :{{HOST_TX_BYTES | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DESCRIPTION": "FortiASIC NP6XLITE Adapter",
+      "DRIVER_NAME": "FortiASIC NP6XLITE Driver",
+      "BOARD": "40F",
+      "LIF_ID": "7",
+      "LIF_OID": "71",
+      "NETDEV_OID": "71",
+      "CURRENT_HWADDR": "12:34:56:78:90:ab",
+      "PERMANENT_HWADDR": "12:34:56:78:90:ab",
+      "ADMIN": "up",
+      "NETDEV_STATUS": "N/A",
+      "AUTONEGO_SETTING": "1",
+      "LINK_SETTING": "0",
+      "SPEED_SETTING": "1000",
+      "DUPLEX_SETTING": "1",
+      "SPEED": "100",
+      "DUPLEX": "Full",
+      "LINK_STATUS": "Up",
+      "RX_PACKETS": "645878",
+      "RX_BYTES": "62442497",
+      "TX_PACKETS": "1025883",
+      "TX_BYTES": "76984876",
+      "HOST_RX_PACKETS": "1395584",
+      "HOST_RX_BYTES": "87501251",
+      "HOST_TX_PACKETS": "933331",
+      "HOST_TX_BYTES": "69433499",
+      "HOST_TX_DROPPED": "0",
+      "FRAGTXCREATE": "0",
+      "FRAGTXOK": "0",
+      "FRAGTXDROP": "0",
+      "MEMBER_PORTS": "[00]: a, [01]: lan1, [02]: lan2"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "admin_autonego_setting_board_current_hwaddr": {
+        "HOST_TX_BYTES": "69433499",
+        "HOST_TX_PACKETS": "933331",
+        "HOST_RX_BYTES": "87501251",
+        "HOST_RX_PACKETS": "1395584",
+        "TX_BYTES": "76984876",
+        "TX_PACKETS": "1025883",
+        "RX_BYTES": "62442497",
+        "RX_PACKETS": "645878",
+        "LINK_STATUS": "Up",
+        "DUPLEX": "Full",
+        "SPEED_SETTING": "1000",
+        "NETDEV_STATUS": "N/A",
+        "ADMIN": "up",
+        "CURRENT_HWADDR": "12:34:56:78:90:ab",
+        "LIF_OID": "71",
+        "LIF_ID": "7",
+        "BOARD": "40F",
+        "DRIVER_NAME": "FortiASIC NP6XLITE Driver",
+        "DESCRIPTION": "FortiASIC NP6XLITE Adapter"
+      }
+    }
+  ],
+  "cli_content": "Description     :FortiASIC NP6XLITE Adapter\nDriver Name     :FortiASIC NP6XLITE Driver\nBoard           :40F\nlif id          :7\nlif oid         :71\nnetdev oid      :71\nCurrent_HWaddr   12:34:56:78:90:ab\nPermanent_HWaddr 12:34:56:78:90:ab\n========== Link Status ==========\nAdmin           :up\nnetdev status   :N/A\nautonego_setting:1\nlink_setting    :0\nspeed_setting   :1000\nduplex_setting  :1\nSpeed           :100\nDuplex          :Full\nlink_status     :Up\n============ Counters ===========\nRx Pkts         :645878\nRx Bytes        :62442497\nTx Pkts         :1025883\nTx Bytes        :76984876\nHost Rx Pkts    :1395584\nHost Rx Bytes   :87501251\nHost Tx Pkts    :933331\nHost Tx Bytes   :69433499\nHost Tx dropped :0\nFragTxCreate    :0\nFragTxOk        :0\nFragTxDrop      :0\nMember Ports    :\n                [00]: a\n                [01]: lan1\n                [02]: lan2\n",
+  "textfsm_template": "Value DESCRIPTION (.+)\nValue DRIVER_NAME (.+)\nValue BOARD (\\w+)\nValue LIF_ID (\\d+)\nValue LIF_OID (\\d+)\nValue NETDEV_OID (\\d+)\nValue CURRENT_HWADDR ([a-zA-Z0-9]{2}(:[a-zA-Z0-9]{2}){5})\nValue PERMANENT_HWADDR ([a-zA-Z0-9]{2}(:[a-zA-Z0-9]{2}){5})\nValue ADMIN (\\S+)\nValue NETDEV_STATUS (\\S+)\nValue AUTONEGO_SETTING (\\d+)\nValue LINK_SETTING (\\d+)\nValue SPEED_SETTING (\\d+)\nValue DUPLEX_SETTING (\\d+)\nValue SPEED (\\d+)\nValue DUPLEX (\\S+)\nValue LINK_STATUS (\\S+)\nValue RX_PACKETS (\\d+)\nValue RX_BYTES (\\d+)\nValue TX_PACKETS (\\d+)\nValue TX_BYTES (\\d+)\nValue HOST_RX_PACKETS (\\d+)\nValue HOST_RX_BYTES (\\d+)\nValue HOST_TX_PACKETS (\\d+)\nValue HOST_TX_BYTES (\\d+)\nValue HOST_TX_DROPPED (\\d+)\nValue FRAGTXCREATE (\\d+)\nValue FRAGTXOK (\\d+)\nValue FRAGTXDROP (\\d+)\nValue List MEMBER_PORTS (\\[\\d+\\]:\\s+\\S+)\n\nStart\n  ^Description\\s*:${DESCRIPTION}\\s*$$\n  ^Driver\\s+Name\\s*:${DRIVER_NAME}\\s*$$\n  ^Board\\s*:${BOARD}\\s*$$\n  ^lif\\s+id\\s*:${LIF_ID}\\s*$$\n  ^lif\\s+oid\\s*:${LIF_OID}\\s*$$\n  ^netdev\\s+oid\\s*:${NETDEV_OID}\\s*$$\n  ^Current_HWaddr\\s*${CURRENT_HWADDR}\\s*$$\n  ^Permanent_HWaddr\\s*${PERMANENT_HWADDR}\\s*$$\n  ^=+\\s+Link\\s+Status\\s+=+ -> LinkStatus\n  ^=+\\s+Counters\\s+=+ -> Counters\n  ^\\s*$$\n  ^. -> Error\n\nLinkStatus\n  ^Admin\\s*:${ADMIN}\\s*$$\n  ^netdev\\s+status\\s*:${NETDEV_STATUS}\\s*$$\n  ^autonego_setting\\s*:${AUTONEGO_SETTING}\\s*$$\n  ^link_setting\\s*:${LINK_SETTING}\\s*$$\n  ^speed_setting\\s*:${SPEED_SETTING}\\s*$$\n  ^duplex_setting\\s*:${DUPLEX_SETTING}\\s*$$\n  ^Speed\\s*:${SPEED}\\s*$$\n  ^Duplex\\s*:${DUPLEX}\\s*$$\n  ^link_status\\s*:${LINK_STATUS}\\s*$$ -> Start\n  ^\\s*$$\n  ^. -> Error\n\nCounters\n  ^Rx\\s+Pkts\\s*:${RX_PACKETS}\\s*$$\n  ^Rx\\s+Bytes\\s*:${RX_BYTES}\\s*$$\n  ^Tx\\s+Pkts\\s*:${TX_PACKETS}\\s*$$\n  ^Tx\\s+Bytes\\s*:${TX_BYTES}\\s*$$\n  ^Host\\s+Rx\\s+Pkts\\s*:${HOST_RX_PACKETS}\\s*$$\n  ^Host\\s+Rx\\s+Bytes\\s*:${HOST_RX_BYTES}\\s*$$\n  ^Host\\s+Tx\\s+Pkts\\s*:${HOST_TX_PACKETS}\\s*$$\n  ^Host\\s+Tx\\s+Bytes\\s*:${HOST_TX_BYTES}\\s*$$\n  ^Host\\s+Tx\\s+dropped\\s*:${HOST_TX_DROPPED}\\s*$$\n  ^FragTxCreate\\s*:${FRAGTXCREATE}\\s*$$\n  ^FragTxOk\\s*:${FRAGTXOK}\\s*$$\n  ^FragTxDrop\\s*:${FRAGTXDROP}\\s*$$\n  # No 'Member Ports' parsing\n  ^Member\\s+Ports\\s*\\:\\s*$$\n  ^\\s*${MEMBER_PORTS}\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

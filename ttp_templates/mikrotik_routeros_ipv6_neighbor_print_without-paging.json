@@ -1,0 +1,76 @@
+{
+  "command": "mikrotik_routeros_ipv6_neighbor_print_without-paging",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"index_ipv6_address_interface_mac_address_status\">\n {{INDEX}} address={{IPV6_ADDRESS}} interface={{INTERFACE}} mac-address={{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} status=\"{{STATUS | ORPHRASE}}\" \n</group>\n<group name=\"index_flags_ipv6_address_interface_mac_address_status\">\n {{INDEX}} {{FLAGS}} address={{IPV6_ADDRESS}} interface={{INTERFACE}} mac-address={{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} status=\"{{STATUS | ORPHRASE}}\" \n</group>\n<group name=\"index_ipv6_address_interface_status\">\n {{INDEX}} address={{IPV6_ADDRESS}} interface={{INTERFACE}} status=\"{{STATUS | ORPHRASE}}\"\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INDEX": "0",
+      "IPV6_ADDRESS": "ff02::5",
+      "INTERFACE": "main",
+      "MAC_ADDRESS": "33:33:00:00:00:05",
+      "STATUS": "noarp"
+    },
+    {
+      "INDEX": "1",
+      "IPV6_ADDRESS": "ff02::1",
+      "INTERFACE": "main",
+      "MAC_ADDRESS": "33:33:00:00:00:01",
+      "STATUS": "noarp"
+    },
+    {
+      "INDEX": "2",
+      "FLAGS": "R",
+      "IPV6_ADDRESS": "fe80::d7:4cff:fec1:2e32",
+      "INTERFACE": "main",
+      "MAC_ADDRESS": "00:0C:42:28:79:45",
+      "STATUS": "stale"
+    },
+    {
+      "INDEX": "3",
+      "IPV6_ADDRESS": "2a05:c100:1d::351c",
+      "INTERFACE": "bridge-lan",
+      "STATUS": "failed"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "index_ipv6_address_interface_mac_address_status": [
+        {
+          "INDEX": "0",
+          "IPV6_ADDRESS": "ff02::5",
+          "INTERFACE": "main",
+          "MAC_ADDRESS": "33:33:00:00:00:05",
+          "STATUS": "noarp"
+        },
+        {
+          "INDEX": "1",
+          "IPV6_ADDRESS": "ff02::1",
+          "INTERFACE": "main",
+          "MAC_ADDRESS": "33:33:00:00:00:01",
+          "STATUS": "noarp"
+        }
+      ],
+      "index_flags_ipv6_address_interface_mac_address_status": {
+        "INDEX": "2",
+        "FLAGS": "R",
+        "IPV6_ADDRESS": "fe80::d7:4cff:fec1:2e32",
+        "INTERFACE": "main",
+        "MAC_ADDRESS": "00:0C:42:28:79:45",
+        "STATUS": "stale"
+      },
+      "index_ipv6_address_interface_status": {
+        "INDEX": "3",
+        "IPV6_ADDRESS": "2a05:c100:1d::351c",
+        "INTERFACE": "bridge-lan",
+        "STATUS": "failed"
+      }
+    }
+  ],
+  "cli_content": "Flags: R - router \n 0   address=ff02::5 interface=main mac-address=33:33:00:00:00:05 status=\"noarp\" \n\n 1   address=ff02::1 interface=main mac-address=33:33:00:00:00:01 status=\"noarp\" \n\n 2 R address=fe80::d7:4cff:fec1:2e32 interface=main mac-address=00:0C:42:28:79:45 status=\"stale\" \n\n 3   address=2a05:c100:1d::351c interface=bridge-lan status=\"failed\"\n",
+  "textfsm_template": "Value Key INDEX (\\d+)\nValue FLAGS ([R]+)\nValue IPV6_ADDRESS (\\S+)\nValue INTERFACE (\\S+)\nValue MAC_ADDRESS ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5})\nValue STATUS (noarp|incomplete|stale|reachable|delay|probe|failed)\n\nStart\n  ^Flags:.*$$ -> NeighborsTable\n\nNeighborsTable\n  ^\\s*${INDEX}\\s*(${FLAGS}\\s+)?address=${IPV6_ADDRESS}\\s+interface=${INTERFACE}\\s+(mac-address=${MAC_ADDRESS}\\s+)?status=\"${STATUS}\"\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

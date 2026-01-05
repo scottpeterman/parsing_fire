@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: avaya_ers_show_mlt
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="id_name_mode_bpdu_status_lacp_key">
+{{ID | re("\\d+")}} {{NAME | ORPHRASE}} {{ACTIVE_MEM{{MODE}}ERS}} {{BPDU}} B {{STATUS | ORPHRASE}} {{LACP_KEY | ORPHRASE}}
+</group>

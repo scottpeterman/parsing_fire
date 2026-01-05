@@ -1,0 +1,43 @@
+{
+  "command": "paloalto_panos_show_high-availability_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"sw_version\">\n      Software Version: {{SW_VERSION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "GROUP": "1",
+      "MODE": "Active-Passive",
+      "STATE": "active",
+      "HA1_LINK_STATE": "Up",
+      "HA1_LINK_SETTING": "1Gb/s-full",
+      "HA2_LINK_STATE": "Up",
+      "HA2_LINK_SETTING": "1Gb/s-full",
+      "PRIORITY": "50",
+      "PREEMPTIVE": "yes",
+      "SW_VERSION": "Match",
+      "APP_CONTENT_COMPATIBILITY": "Match",
+      "ANTI_VIRUS_COMPATIBILITY": "Match",
+      "THREAT_CONTENT_COMPATIBILITY": "Match",
+      "VPN_CLIENT_SW_COMPATIBILITY": "Match",
+      "GLOBAL_PROTECT_CLIENT_SW_COMPATIBILITY": "Match",
+      "STATE_SYNC": "Complete",
+      "LINK_MONITORING_ENABLED": "yes",
+      "PATH_MONITORING_ENABLED": "yes",
+      "CONFIG_SYNC": "yes",
+      "RUNNING_CONFIGURATION": "synchronized"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "sw_version": {
+        "SW_VERSION": "Match"
+      }
+    }
+  ],
+  "cli_content": "Group 1: \n  Mode: Active-Passive\n  Local Information:\n    Version: 1\n    Mode: Active-Passive\n    State: active (last 45 days)\n    Device Information:\n      Model: PA-5020\n      Management IPv4 Address: 10.10.186.197/24\n      Management IPv6 Address: \n      Jumbo-Frames disabled; MTU 1500\n    HA1 Control Links Joint Configuration:\n      Link Monitor Interval: 3000 ms\n      Encryption Enabled: no\n    HA1 Control Link Information:\n      IP Address: 10.1.1.1/30\n      MAC Address: 00:90:0b:33:3d:53\n      Interface: dedicated-ha1\n      Link State: Up; Setting: 1Gb/s-full\n      Key Imported : no\n    HA2 Data Link Information:\n      IP Address: 10.2.2.1/30\n      MAC Address: 58:49:3b:1e:69:16\n      Interface: dedicated-ha2\n      Link State: Up; Setting: 1Gb/s-full\n    Election Option Information:\n      Priority: 50\n      Preemptive: yes\n      Promotion Hold Interval: 2000 ms\n      Hello Message Interval: 8000 ms\n      Heartbeat Ping Interval: 1000 ms\n      Max # of Flaps: 3\n      Preemption Hold Interval: 1 min\n      Monitor Fail Hold Up Interval: 0 ms\n      Addon Master Hold Up Interval: 500 ms\n    Active-Passive Mode:\n      Passive Link State: auto\n      Monitor Fail Hold Down Interval: 1 min\n    Version Information:\n      Build Release: 6.1.10\n      URL Database: 4773\n      Application Content: 580-3287\n      Anti-Virus: 1858-2337\n      Threat Content: 580-3287\n      VPN Client Software: Not Installed\n      Global Protect Client Software: Not Installed\n    Version Compatibility:\n      Software Version: Match\n      Application Content Compatibility: Match\n      Anti-Virus Compatibility: Match\n      Threat Content Compatibility: Match\n      VPN Client Software Compatibility: Match\n      Global Protect Client Software Compatibility: Match\n    State Synchronization: Complete; type: ethernet\n  Peer Information:\n    Connection status: up\n    Version: 1\n    Mode: Active-Passive\n    State: passive (last 45 days)\n    Device Information:\n      Model: PA-5020\n      Management IPv4 Address: 10.10.186.198/24\n      Management IPv6 Address: \n      Jumbo-Frames disabled; MTU 1500\n    HA1 Control Link Information:\n      IP Address: 10.1.1.2\n      MAC Address: 00:90:0b:33:44:53\n      Connection up; Primary HA1 link\n    HA2 Data Link Information:\n      IP Address: 10.2.2.2\n      MAC Address: 58:49:3b:1e:55:16\n    Election Option Information:\n      Priority: 100\n      Preemptive: yes\n    Version Information:\n      Build Release: 6.1.10\n      URL Database: 4773\n      Application Content: 580-3287\n      Anti-Virus: 1858-2337\n      Threat Content: 580-3287\n      VPN Client Software: Not Installed\n      Global Protect Client Software: Not Installed\n  Initial Monitor Hold inactive; Allow Network/Links to Settle:\n    Link and path monitoring failures honored\n  Link Monitoring Information:\n    Enabled: yes\n    Failure condition: any\n    Group Link:\n      Enabled: yes\n      Failure condition: any\n      Interface ethernet1/1: up\n      Interface ethernet1/2: up\n      Interface ethernet1/3: up\n      Interface ethernet1/4: up\n      Interface ethernet1/5: up\n      Interface ethernet1/6: up\n      Interface ethernet1/7: up\n      Interface ethernet1/8: up\n  Path Monitoring Information:\n    Enabled: yes\n    Failure condition: any\n    Virtual-Wire Groups:\n      No Virtual-Wire path monitoring groups\n    VLAN Groups:\n      No VLAN path monitoring groups\n    Virtual-Router Groups:\n      No Virtual-Router path monitoring groups\n  Configuration Synchronization:\n    Enabled: yes\n    Running Configuration: synchronized\n\n",
+  "textfsm_template": "Value Filldown GROUP (\\d+)\nValue Required MODE (\\S+)\nValue STATE (\\S+)\nValue HA1_LINK_STATE (\\S+)\nValue HA1_LINK_SETTING (\\S+)\nValue HA2_LINK_STATE (\\S+)\nValue HA2_LINK_SETTING (\\S+)\nValue PRIORITY (\\d+)\nValue PREEMPTIVE (\\w+)\nValue SW_VERSION (\\S+)\nValue APP_CONTENT_COMPATIBILITY (\\w+)\nValue ANTI_VIRUS_COMPATIBILITY (\\w+)\nValue THREAT_CONTENT_COMPATIBILITY (\\w+)\nValue VPN_CLIENT_SW_COMPATIBILITY (\\w+)\nValue GLOBAL_PROTECT_CLIENT_SW_COMPATIBILITY (\\w+)\nValue STATE_SYNC (\\S+)\nValue LINK_MONITORING_ENABLED (\\w+)\nValue PATH_MONITORING_ENABLED (\\w+)\nValue CONFIG_SYNC (\\w+)\nValue RUNNING_CONFIGURATION (\\w+)\n\nStart\n  ^Group\\s+${GROUP}:\n  ^\\s+Mode:\\s+${MODE}\n  ^\\s+State:\\s+${STATE}\n  ^\\s+Peer\\s+Information: -> Continue\n  ^\\s+HA1\\sControl\\sLinks\\sJoint\\sConfiguration: -> HA1\n  ^\\s+HA2.* -> HA2\n  ^\\s+Priority:\\s+${PRIORITY}\n  ^\\s+Preemptive:\\s+${PREEMPTIVE}\n  ^\\s+Software\\sVersion:\\s+${SW_VERSION}\n  ^\\s+Application\\sContent\\sCompatibility:\\s+${APP_CONTENT_COMPATIBILITY}\n  ^\\s+Anti-Virus\\sCompatibility:\\s+${ANTI_VIRUS_COMPATIBILITY}\n  ^\\s+Threat\\sContent\\sCompatibility:\\s+${THREAT_CONTENT_COMPATIBILITY}\n  ^\\s+VPN\\sClient\\sSoftware\\sCompatibility:\\s+${VPN_CLIENT_SW_COMPATIBILITY}\n  ^\\s+Global\\sProtect\\sClient\\sSoftware\\sCompatibility:\\s+${GLOBAL_PROTECT_CLIENT_SW_COMPATIBILITY}\n  ^\\s+State\\sSynchronization:\\s${STATE_SYNC};\n  ^\\s+Peer\\sInformation: -> Peer\n  ^\\s+Link\\sMonitoring\\sInformation: -> Link\n  ^\\s+Path\\s+Monitoring\\s+Information: -> Path\n  ^\\s+Configuration\\s+Synchronization: -> Sync\n\nHA1\n  ^\\s+Link\\sState:\\s${HA1_LINK_STATE};\\s+Setting:\\s+${HA1_LINK_SETTING} -> Start\n\nHA2\n  ^\\s+Link\\s+State:\\s+${HA2_LINK_STATE};\\s+Setting:\\s+${HA2_LINK_SETTING} -> Start\n\nPeer\n  ^\\s+Initial Monitor.* -> Start\n\nLink\n  ^\\s+Enabled:\\s+${LINK_MONITORING_ENABLED} -> Start\n\nPath\n  ^\\s+Enabled:\\s+${PATH_MONITORING_ENABLED} -> Start\n\nSync\n  ^\\s+Enabled:\\s+${CONFIG_SYNC} \n  ^\\s+Running\\sConfiguration:\\s+${RUNNING_CONFIGURATION} -> Record\n"
+}

@@ -1,0 +1,22 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_ip_route_print_terse_without-paging
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 3
+# Match ratio: 0.60
+
+<group name="index_flags_destination_address_destination_address_subnet_gateway_gateway_status_distance_scope_target_scope_vrf_interface">
+ {{INDEX}} {{FLAGS | ORPHRASE}} dst-address={{DESTINATION_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{DESTINATION_ADDRESS_SUBNET}} gateway={{GATEWAY}} gateway-status={{GATEWAY_STATUS | ORPHRASE}} distance={{DISTANCE}} scope={{SCOPE}} target-scope={{TARGET_SCOPE | ORPHRASE}} vrf-interface={{VRF_INTERFACE}}
+</group>
+<group name="index_flags_destination_address_destination_address_subnet_pref_src_gateway_gateway_status_distance_scope">
+ {{INDEX}} {{FLAGS | ORPHRASE}} dst-address={{DESTINATION_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{DESTINATION_ADDRESS_SUBNET}} pref-src={{PREF_SRC}} gateway={{GATEWAY}} gateway-status={{GATEWAY_STATUS | ORPHRASE}} distance={{DISTANCE}} scope={{SCOPE}}
+</group>
+<group name="index_flags_comment_destination_address_destination_address_subnet_gateway_gateway_status_distance_scope_target_scope_routing_mark">
+ {{INDEX}} {{FLAGS | ORPHRASE}} comment={{COMMENT | ORPHRASE}} dst-address={{DESTINATION_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{DESTINATION_ADDRESS_SUBNET}} gateway={{GATEWAY}} gateway-status={{GATEWAY_STATUS | ORPHRASE}} distance={{DISTANCE}} scope={{SCOPE}} target-scope={{TARGET_SCOPE}} routing-mark={{ROUTING_MARK | ORPHRASE}}
+</group>
+<group name="index_flags_destination_address_destination_address_subnet_gateway_gateway_status_distance_scope_target_scope_routing_mark">
+ {{INDEX}} {{FLAGS | ORPHRASE}} dst-address={{DESTINATION_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{DESTINATION_ADDRESS_SUBNET}} gateway={{GATEWAY}} gateway-status={{GATEWAY_STATUS | ORPHRASE}} distance={{DISTANCE}} scope={{SCOPE}} target-scope={{TARGET_SCOPE}} routing-mark={{ROUTING_MARK | ORPHRASE}}
+</group>
+<group name="index_flags_destination_address_destination_address_subnet_type_distance_routing_mark">
+ {{INDEX}} {{FLAGS | ORPHRASE}} dst-address={{DESTINATION_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{DESTINATION_ADDRESS_SUBNET}} type={{TYPE}} distance={{DISTANCE}} routing-mark={{ROUTING_MARK | ORPHRASE}}
+</group>

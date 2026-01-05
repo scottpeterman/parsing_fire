@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_routing_bgp_peer_print_status
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="bgp_neighbor_neighbor_as">
+ 0 name="peer1" instance=default remote-address={{BGP_NEIGHBOR}} remote-as={{NEIGHBOR_AS | ORPHRASE}} tcp-md5-key="" nexthop-choice=default multihop=no route-reflect=no hold-time=3m
+</group>

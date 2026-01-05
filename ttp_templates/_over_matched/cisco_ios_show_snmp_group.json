@@ -1,0 +1,183 @@
+{
+  "command": "cisco_ios_show_snmp_group",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 3.0,
+  "textfsm_rows": 7,
+  "ttp_rows": 21,
+  "ttp_template": "<group name=\"groupname_security_model\">\ngroupname: {{GROUPNAME}} security model:{{SECURITY_MODEL | ORPHRASE}} \n</group>\n<group name=\"contextname_storage_type\">\ncontextname: {{CONTEXTNAME | ORPHRASE}} storage-type: {{STORAGE_TYPE | ORPHRASE}}\n</group>\n<group name=\"readview_writeview\">\nreadview : {{READVIEW}} writeview: {{WRITEVIEW | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "GROUPNAME": "GROUP1",
+      "SECURITY_MODEL": "v3 priv",
+      "CONTEXTNAME": "<no context specified>",
+      "STORAGE_TYPE": "nonvolatile",
+      "READVIEW": "g1readview",
+      "WRITEVIEW": "<no writeview specified>",
+      "NOTIFYVIEW": "g1notifyview",
+      "ROW_STATUS": "active",
+      "ACCESS_LIST": "snmp-acl-name"
+    },
+    {
+      "GROUPNAME": "ILMI",
+      "SECURITY_MODEL": "v1",
+      "CONTEXTNAME": "<no context specified>",
+      "STORAGE_TYPE": "permanent",
+      "READVIEW": "*ilmi",
+      "WRITEVIEW": "*ilmi",
+      "NOTIFYVIEW": "<no notifyview specified>",
+      "ROW_STATUS": "active"
+    },
+    {
+      "GROUPNAME": "ILMI",
+      "SECURITY_MODEL": "v2c",
+      "CONTEXTNAME": "<no context specified>",
+      "STORAGE_TYPE": "permanent",
+      "READVIEW": "*ilmi",
+      "WRITEVIEW": "*ilmi",
+      "NOTIFYVIEW": "<no notifyview specified>",
+      "ROW_STATUS": "active"
+    },
+    {
+      "GROUPNAME": "GROUP2",
+      "SECURITY_MODEL": "v1",
+      "CONTEXTNAME": "<no context specified>",
+      "STORAGE_TYPE": "nonvolatile",
+      "READVIEW": "v1default",
+      "WRITEVIEW": "<no writeview specified>",
+      "NOTIFYVIEW": "<no notifyview specified>",
+      "ROW_STATUS": "active",
+      "ACCESS_LIST": "snmp-acl-name"
+    },
+    {
+      "GROUPNAME": "GROUP2",
+      "SECURITY_MODEL": "v2c",
+      "CONTEXTNAME": "<no context specified>",
+      "STORAGE_TYPE": "nonvolatile",
+      "READVIEW": "v1default",
+      "WRITEVIEW": "<no writeview specified>",
+      "NOTIFYVIEW": "<no notifyview specified>",
+      "ROW_STATUS": "active",
+      "ACCESS_LIST": "snmp-acl-name"
+    },
+    {
+      "GROUPNAME": "GROUP3",
+      "SECURITY_MODEL": "v1",
+      "CONTEXTNAME": "<no context specified>",
+      "STORAGE_TYPE": "nonvolatile",
+      "READVIEW": "v1default",
+      "WRITEVIEW": "<no writeview specified>",
+      "NOTIFYVIEW": "<no notifyview specified>",
+      "ROW_STATUS": "active",
+      "ACCESS_LIST": "snmp-acl-name"
+    },
+    {
+      "GROUPNAME": "GROUP3",
+      "SECURITY_MODEL": "v2c",
+      "CONTEXTNAME": "<no context specified>",
+      "STORAGE_TYPE": "nonvolatile",
+      "READVIEW": "v1default",
+      "WRITEVIEW": "<no writeview specified>",
+      "NOTIFYVIEW": "<no notifyview specified>",
+      "ROW_STATUS": "active",
+      "ACCESS_LIST": "snmp-acl-name"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "groupname_security_model": [
+        {
+          "GROUPNAME": "GROUP1",
+          "SECURITY_MODEL": "v3 priv"
+        },
+        {
+          "GROUPNAME": "ILMI",
+          "SECURITY_MODEL": "v1"
+        },
+        {
+          "GROUPNAME": "ILMI",
+          "SECURITY_MODEL": "v2c"
+        },
+        {
+          "GROUPNAME": "GROUP2",
+          "SECURITY_MODEL": "v1"
+        },
+        {
+          "GROUPNAME": "GROUP2",
+          "SECURITY_MODEL": "v2c"
+        },
+        {
+          "GROUPNAME": "GROUP3",
+          "SECURITY_MODEL": "v1"
+        },
+        {
+          "GROUPNAME": "GROUP3",
+          "SECURITY_MODEL": "v2c"
+        }
+      ],
+      "contextname_storage_type": [
+        {
+          "CONTEXTNAME": "<no context specified>",
+          "STORAGE_TYPE": "nonvolatile"
+        },
+        {
+          "CONTEXTNAME": "<no context specified>",
+          "STORAGE_TYPE": "permanent"
+        },
+        {
+          "CONTEXTNAME": "<no context specified>",
+          "STORAGE_TYPE": "permanent"
+        },
+        {
+          "CONTEXTNAME": "<no context specified>",
+          "STORAGE_TYPE": "nonvolatile"
+        },
+        {
+          "CONTEXTNAME": "<no context specified>",
+          "STORAGE_TYPE": "nonvolatile"
+        },
+        {
+          "CONTEXTNAME": "<no context specified>",
+          "STORAGE_TYPE": "nonvolatile"
+        },
+        {
+          "CONTEXTNAME": "<no context specified>",
+          "STORAGE_TYPE": "nonvolatile"
+        }
+      ],
+      "readview_writeview": [
+        {
+          "READVIEW": "g1readview",
+          "WRITEVIEW": "<no writeview specified>"
+        },
+        {
+          "READVIEW": "*ilmi",
+          "WRITEVIEW": "*ilmi"
+        },
+        {
+          "READVIEW": "*ilmi",
+          "WRITEVIEW": "*ilmi"
+        },
+        {
+          "READVIEW": "v1default",
+          "WRITEVIEW": "<no writeview specified>"
+        },
+        {
+          "READVIEW": "v1default",
+          "WRITEVIEW": "<no writeview specified>"
+        },
+        {
+          "READVIEW": "v1default",
+          "WRITEVIEW": "<no writeview specified>"
+        },
+        {
+          "READVIEW": "v1default",
+          "WRITEVIEW": "<no writeview specified>"
+        }
+      ]
+    }
+  ],
+  "cli_content": "groupname: GROUP1                           security model:v3 priv \ncontextname: <no context specified>         storage-type: nonvolatile\nreadview : g1readview                       writeview: <no writeview specified>        \nnotifyview: g1notifyview                     \nrow status: active      access-list: snmp-acl-name\n\ngroupname: ILMI                             security model:v1 \ncontextname: <no context specified>         storage-type: permanent\nreadview : *ilmi                            writeview: *ilmi                           \nnotifyview: <no notifyview specified>       \nrow status: active\n\ngroupname: ILMI                             security model:v2c \ncontextname: <no context specified>         storage-type: permanent\nreadview : *ilmi                            writeview: *ilmi                           \nnotifyview: <no notifyview specified>       \nrow status: active\n\ngroupname: GROUP2                           security model:v1 \ncontextname: <no context specified>         storage-type: nonvolatile\nreadview : v1default                        writeview: <no writeview specified>        \nnotifyview: <no notifyview specified>       \nrow status: active      access-list: snmp-acl-name\n\ngroupname: GROUP2                           security model:v2c \ncontextname: <no context specified>         storage-type: nonvolatile\nreadview : v1default                        writeview: <no writeview specified>        \nnotifyview: <no notifyview specified>       \nrow status: active      access-list: snmp-acl-name\n\ngroupname: GROUP3                           security model:v1 \ncontextname: <no context specified>         storage-type: nonvolatile\nreadview : v1default                        writeview: <no writeview specified>        \nnotifyview: <no notifyview specified>       \nrow status: active      access-list: snmp-acl-name\n\ngroupname: GROUP3                           security model:v2c \ncontextname: <no context specified>         storage-type: nonvolatile\nreadview : v1default                        writeview: <no writeview specified>        \nnotifyview: <no notifyview specified>       \nrow status: active      access-list: snmp-acl-name",
+  "textfsm_template": "Value Required GROUPNAME (\\S+)\nValue SECURITY_MODEL ([\\s\\S]+?)\nValue CONTEXTNAME ([\\s\\S]+?)\nValue STORAGE_TYPE (\\S+)\nValue READVIEW ([\\s\\S]+?)\nValue WRITEVIEW ([\\s\\S]+?)\nValue NOTIFYVIEW ([\\s\\S]+?)\nValue ROW_STATUS ([\\s\\S]+?)\nValue ACCESS_LIST (\\S+)\n\nStart\n  ^\\s*groupname:\\s*\\S+\\s+security\\s+model:\\s*[\\s\\S]+\\s*$$ -> Continue.Record\n  ^\\s*groupname:\\s*${GROUPNAME}\\s+security\\s+model:\\s*${SECURITY_MODEL}\\s*$$\n  ^\\s*contextname:\\s+${CONTEXTNAME}\\s+storage-type:\\s+${STORAGE_TYPE}\\s*$$\n  ^\\s*readview\\s*:\\s+${READVIEW}\\s+writeview:\\s+${WRITEVIEW}\\s*$$\n  ^\\s*notifyview:\\s+${NOTIFYVIEW}\\s*$$\n  ^\\s*row\\s+status:\\s+${ROW_STATUS}(?:\\s+access-list:\\s+${ACCESS_LIST})*\\s*$$\n  ^\\s*$$\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^. -> Error\n"
+}

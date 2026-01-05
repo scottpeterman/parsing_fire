@@ -1,0 +1,83 @@
+{
+  "command": "show ipv4 forwarding-adjacency",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"destination_time_since_source_nexthop_output_interface_protocol\">\n{{DESTINATION}} {{TIME_SINCE}} {{SOURCE_NEXTHOP}} {{OUTPUT_INTERFACE}} {{PROTOCOL | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DESTINATION": "10.1.1.0/24",
+      "TIME_SINCE": "1d:02h:10m",
+      "SOURCE_NEXTHOP": "192.168.1.1",
+      "OUTPUT_INTERFACE": "GigabitEthernet0/0",
+      "PROTOCOL": "Direct"
+    },
+    {
+      "DESTINATION": "10.2.2.0/24",
+      "TIME_SINCE": "2d:15h:09m",
+      "SOURCE_NEXTHOP": "192.168.2.2",
+      "OUTPUT_INTERFACE": "GigabitEthernet0/1",
+      "PROTOCOL": "OSPF"
+    },
+    {
+      "DESTINATION": "10.3.3.0/24",
+      "TIME_SINCE": "1d:05h:30m",
+      "SOURCE_NEXTHOP": "192.168.3.3",
+      "OUTPUT_INTERFACE": "GigabitEthernet0/2",
+      "PROTOCOL": "BGP"
+    },
+    {
+      "DESTINATION": "10.4.4.0/24",
+      "TIME_SINCE": "03h:12m",
+      "SOURCE_NEXTHOP": "192.168.4.4",
+      "OUTPUT_INTERFACE": "GigabitEthernet0/3",
+      "PROTOCOL": "EIGRP"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "destination_time_since_source_nexthop_output_interface_protocol": [
+        {
+          "DESTINATION": "Destination",
+          "TIME_SINCE": "Time-Since",
+          "SOURCE_NEXTHOP": "Source-Nexthop",
+          "OUTPUT_INTERFACE": "Output-Intf",
+          "PROTOCOL": "Protocol"
+        },
+        {
+          "DESTINATION": "10.1.1.0/24",
+          "TIME_SINCE": "1d:02h:10m",
+          "SOURCE_NEXTHOP": "192.168.1.1",
+          "OUTPUT_INTERFACE": "GigabitEthernet0/0",
+          "PROTOCOL": "Direct"
+        },
+        {
+          "DESTINATION": "10.2.2.0/24",
+          "TIME_SINCE": "2d:15h:09m",
+          "SOURCE_NEXTHOP": "192.168.2.2",
+          "OUTPUT_INTERFACE": "GigabitEthernet0/1",
+          "PROTOCOL": "OSPF"
+        },
+        {
+          "DESTINATION": "10.3.3.0/24",
+          "TIME_SINCE": "1d:05h:30m",
+          "SOURCE_NEXTHOP": "192.168.3.3",
+          "OUTPUT_INTERFACE": "GigabitEthernet0/2",
+          "PROTOCOL": "BGP"
+        },
+        {
+          "DESTINATION": "10.4.4.0/24",
+          "TIME_SINCE": "03h:12m",
+          "SOURCE_NEXTHOP": "192.168.4.4",
+          "OUTPUT_INTERFACE": "GigabitEthernet0/3",
+          "PROTOCOL": "EIGRP"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Destination     Time-Since  Source-Nexthop   Output-Intf           Protocol\n10.1.1.0/24     1d:02h:10m  192.168.1.1      GigabitEthernet0/0    Direct\n10.2.2.0/24     2d:15h:09m  192.168.2.2      GigabitEthernet0/1    OSPF\n10.3.3.0/24     1d:05h:30m  192.168.3.3      GigabitEthernet0/2    BGP\n10.4.4.0/24     03h:12m     192.168.4.4      GigabitEthernet0/3    EIGRP\n",
+  "textfsm_template": "Value DESTINATION (\\S+)\nValue TIME_SINCE (\\S+)\nValue SOURCE_NEXTHOP (\\S+)\nValue OUTPUT_INTERFACE (\\S+)\nValue PROTOCOL (\\S+)\n\nStart\n  ^Destination\\s+Time-Since\\s+Source-Nexthop\\s+Output-Intf\\s+Protocol\\s*$$\n  ^${DESTINATION}\\s+${TIME_SINCE}\\s+${SOURCE_NEXTHOP}\\s+${OUTPUT_INTERFACE}\\s+${PROTOCOL}\\s*$$ -> Record"
+}

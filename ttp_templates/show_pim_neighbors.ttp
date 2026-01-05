@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show pim neighbors
+# Source: chatgpt
+# TextFSM rows: 8
+# TTP rows: 1
+# Match ratio: 0.12
+
+<group name="interface_neighbor_timeout_mode">
+{{INTERFACE}} {{NEIGHBOR}} {{TIMEOUT | ORPHRASE}}{{MODE}}
+</group>

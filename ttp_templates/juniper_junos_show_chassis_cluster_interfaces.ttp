@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: juniper_junos_show_chassis_cluster_interfaces
+# Source: ntc
+# TextFSM rows: 10
+# TTP rows: 11
+# Match ratio: 1.10
+
+<group name="control_link_status_fabric_link_status_link_type">
+{{LINK_TYPE}} link status: {{CONTROL_LINK_STATUS | ORPHRASE}}
+<group name="index_interface_security">
+{{INDEX}} {{INTERFACE}} {{STATUS | ORPHRASE}} {{SECURITY | ORPHRASE}}
+</group>
+</group>

@@ -1,0 +1,17 @@
+# TTP Template auto-generated from TextFSM
+# Original command: crypto pki certificates
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="cert_usage_issuer_status_subject_name">
+  Status: {{STATUS | ORPHRASE}}
+  Certificate Usage: {{CERT_USAGE | ORPHRASE}}
+  cn={{ISSUER | ORPHRASE}}
+  Name: {{SUBJECT_NAME | ORPHRASE}}
+  Org Unit: {{SUBJECT_ORG_UNIT | ORPHRASE}}
+  Began: {{VALIDITY_BEGIN | ORPHRASE}}
+  Expires: {{VALIDITY_EXPIRES | ORPHRASE}}
+  {{TRUSTPOINTS | ORPHRASE}}
+</group>

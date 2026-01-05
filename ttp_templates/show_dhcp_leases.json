@@ -1,0 +1,80 @@
+{
+  "command": "show dhcp leases",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"ip_address_mac_address_lease_expiry_time_client_name\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{LEASE_EXPIRY_TIME | ORPHRASE}} {{CLIENT_NAME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP_ADDRESS": "192.168.1.100",
+      "MAC_ADDRESS": "00:0A:95:9D:68:16",
+      "LEASE_EXPIRY_TIME": "2023-10-12 14:22:35",
+      "CLIENT_NAME": "client-1"
+    },
+    {
+      "IP_ADDRESS": "192.168.1.101",
+      "MAC_ADDRESS": "00:0B:85:3C:11:22",
+      "LEASE_EXPIRY_TIME": "2023-10-12 15:18:52",
+      "CLIENT_NAME": "client-2"
+    },
+    {
+      "IP_ADDRESS": "192.168.1.102",
+      "MAC_ADDRESS": "00:1C:23:4D:12:34",
+      "LEASE_EXPIRY_TIME": "2023-10-12 16:25:41",
+      "CLIENT_NAME": "client-3"
+    },
+    {
+      "IP_ADDRESS": "192.168.1.103",
+      "MAC_ADDRESS": "00:2D:55:5E:23:45",
+      "LEASE_EXPIRY_TIME": "2023-10-12 17:35:22",
+      "CLIENT_NAME": "client-4"
+    },
+    {
+      "IP_ADDRESS": "192.168.1.104",
+      "MAC_ADDRESS": "00:3E:77:6F:34:56",
+      "LEASE_EXPIRY_TIME": "2023-10-12 18:40:01",
+      "CLIENT_NAME": "client-5"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_address_mac_address_lease_expiry_time_client_name": [
+        {
+          "IP_ADDRESS": "192.168.1.100",
+          "MAC_ADDRESS": "00:0A:95:9D:68:16",
+          "LEASE_EXPIRY_TIME": "2023-10-12 14:22:35",
+          "CLIENT_NAME": "client-1"
+        },
+        {
+          "IP_ADDRESS": "192.168.1.101",
+          "MAC_ADDRESS": "00:0B:85:3C:11:22",
+          "LEASE_EXPIRY_TIME": "2023-10-12 15:18:52",
+          "CLIENT_NAME": "client-2"
+        },
+        {
+          "IP_ADDRESS": "192.168.1.102",
+          "MAC_ADDRESS": "00:1C:23:4D:12:34",
+          "LEASE_EXPIRY_TIME": "2023-10-12 16:25:41",
+          "CLIENT_NAME": "client-3"
+        },
+        {
+          "IP_ADDRESS": "192.168.1.103",
+          "MAC_ADDRESS": "00:2D:55:5E:23:45",
+          "LEASE_EXPIRY_TIME": "2023-10-12 17:35:22",
+          "CLIENT_NAME": "client-4"
+        },
+        {
+          "IP_ADDRESS": "192.168.1.104",
+          "MAC_ADDRESS": "00:3E:77:6F:34:56",
+          "LEASE_EXPIRY_TIME": "2023-10-12 18:40:01",
+          "CLIENT_NAME": "client-5"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IP Address       MAC Address       Lease Expiry Time     Client Name\n192.168.1.100    00:0A:95:9D:68:16 2023-10-12 14:22:35   client-1\n192.168.1.101    00:0B:85:3C:11:22 2023-10-12 15:18:52   client-2\n192.168.1.102    00:1C:23:4D:12:34 2023-10-12 16:25:41   client-3\n192.168.1.103    00:2D:55:5E:23:45 2023-10-12 17:35:22   client-4\n192.168.1.104    00:3E:77:6F:34:56 2023-10-12 18:40:01   client-5\n",
+  "textfsm_template": "Value IP_ADDRESS (\\S+)\nValue MAC_ADDRESS (\\S+)\nValue LEASE_EXPIRY_TIME (\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2})\nValue CLIENT_NAME (\\S+)\n\nStart\n  ^\\s*IP Address\\s+MAC Address\\s+Lease Expiry Time\\s+Client Name\\s*$$\n  ^\\s*${IP_ADDRESS}\\s+${MAC_ADDRESS}\\s+${LEASE_EXPIRY_TIME}\\s+${CLIENT_NAME}\\s*$$ -> Record\n"
+}

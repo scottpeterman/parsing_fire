@@ -1,0 +1,503 @@
+{
+  "command": "huawei_smartax_display_ont_info_summary_ont",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 23,
+  "ttp_rows": 46,
+  "ttp_template": "<group name=\"ont_id_run_state_last_uptime_last_downtime_last_downcause\">\n  {{ONT_ID | re(\"\\\\d+\")}} {{RUN_STATE | ORPHRASE}} {{LAST_UPTIME | ORPHRASE}} {{LAST_DOWNTIME | ORPHRASE}} {{LAST_DOWNCAUSE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ONT_ID": "0",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "1",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "2",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "3",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "4",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "5",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "6",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "7",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "8",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "9",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "10",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "11",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "12",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "13",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "14",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "15",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "16",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "17",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "18",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "19",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "20",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "21",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    },
+    {
+      "ONT_ID": "22",
+      "RUN_STATE": "online",
+      "LAST_UPTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNTIME": "2000-01-01 00:00:00",
+      "LAST_DOWNCAUSE": "LOSi/LOBi"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ont_id_run_state_last_uptime_last_downtime_last_downcause": [
+        {
+          "ONT_ID": "0",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "1",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "2",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "3",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "4",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "5",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "6",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "7",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "8",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "9",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "10",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "11",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "12",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "13",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "14",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "15",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "16",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "17",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "18",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "19",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "20",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "21",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "22",
+          "RUN_STATE": "online",
+          "LAST_UPTIME": "2000-01-01",
+          "LAST_DOWNTIME": "00:00:00",
+          "LAST_DOWNCAUSE": "2000-01-01 00:00:00 LOSi/LOBi"
+        },
+        {
+          "ONT_ID": "0",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "1",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "2",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "3",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "4",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "5",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "6",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "7",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "8",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "9",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "10",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "11",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "12",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "13",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "14",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "15",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "16",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "17",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "18",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "19",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "20",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "21",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        },
+        {
+          "ONT_ID": "22",
+          "RUN_STATE": "1234567890ABCDEF AB1234C5",
+          "LAST_UPTIME": "100",
+          "LAST_DOWNTIME": "-10.12/2.03",
+          "LAST_DOWNCAUSE": "AB12"
+        }
+      ]
+    }
+  ],
+  "cli_content": "  ------------------------------------------------------------------------------\n  In port 0/1/0, the total of ONTs are: 23, online: 23\n  ------------------------------------------------------------------------------\n  ONT  Run     Last                Last                Last\n  ID   State   UpTime              DownTime            DownCause\n  ------------------------------------------------------------------------------\n  0    online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  1    online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  2    online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  3    online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  4    online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  5    online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  6    online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  7    online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  8    online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  9    online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  10   online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  11   online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  12   online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  13   online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  14   online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  15   online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  16   online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  17   online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  18   online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  19   online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  20   online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  21   online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  22   online  2000-01-01 00:00:00 2000-01-01 00:00:00 LOSi/LOBi\n  ------------------------------------------------------------------------------\n  ONT        SN        Type          Distance Rx/Tx power  Description\n  ID                                    (m)      (dBm)\n  ------------------------------------------------------------------------------\n  0   1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  1   1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  2   1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  3   1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  4   1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  5   1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  6   1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  7   1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  8   1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  9   1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  10  1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  11  1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  12  1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  13  1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  14  1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  15  1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  16  1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  17  1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  18  1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  19  1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  20  1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  21  1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  22  1234567890ABCDEF AB1234C5         100   -10.12/2.03  AB12\n  ------------------------------------------------------------------------------",
+  "textfsm_template": "Value Key ONT_ID (\\d+)\nValue RUN_STATE (\\w+)\nValue LAST_UPTIME (\\S+\\s*\\S+)\nValue LAST_DOWNTIME (\\S+\\s*\\S+)\nValue LAST_DOWNCAUSE (\\S+)\n\nStart\n  ^\\s+-\n  ^\\s+ONT\\s+Run\\s+Last\\s+Last\\s+Last\n  ^\\s+ID\\s+State\\s+UpTime\\s+DownTime\\s+DownCause -> ONTs\n\nONTs\n  ^\\s+${ONT_ID}\\s+${RUN_STATE}\\s+${LAST_UPTIME}\\s+${LAST_DOWNTIME}\\s+${LAST_DOWNCAUSE} -> Record\n  ^\\s+-\n  ^\\s+ONT\\s+SN\\s+Type\\s+Distance\\s+Rx\\/Tx\\s+power\\s+Description\n  ^\\s+ID\\s+\\(m\\)\\s+\\(dBm\\) -> EOF\n  ^. -> Error\n"
+}

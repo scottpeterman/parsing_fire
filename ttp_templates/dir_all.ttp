@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: dir /all
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="position_type_size_date_name">
+    {{POSITION}} {{TYPE}} {{SIZE}} {{DATE | ORPHRASE}} {{NAME | ORPHRASE}}
+</group>

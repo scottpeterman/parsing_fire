@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_viptela_show_arp
+# Source: ntc
+# TextFSM rows: 7
+# TTP rows: 7
+# Match ratio: 1.00
+
+<group name="vpn_name_ip_address_mac_address_state_idle_timer_uptime">
+{{VPN}} {{NAME}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{STATE | ORPHRASE}} {{IDLE_TIMER}} {{UPTIME | ORPHRASE}}
+</group>
+<group name="vpn_name_ip_address_mac_address_state_uptime">
+{{VPN}} {{NAME}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MAC_ADDRESS | re("[0{{IDLE_TIMER | re(".*\\w.*")}}9a-fA-F:.-]+")}} {{STATE | ORPHRASE}} - {{UPTIME | ORPHRASE}}
+</group>

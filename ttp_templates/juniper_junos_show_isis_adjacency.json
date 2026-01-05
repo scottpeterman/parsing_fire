@@ -1,0 +1,115 @@
+{
+  "command": "juniper_junos_show_isis_adjacency",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.4,
+  "textfsm_rows": 5,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"interface_system_id_type_state_hold_time_snpa\">\n{{INTERFACE}} {{SYSTEM_ID}} {{TYPE}} {{STATE | ORPHRASE}} {{HOLD_TIME}} {{SNPA | ORPHRASE}}\n</group>\n<group name=\"interface_system_id_type_state_hold_time\">\n{{INTERFACE}} {{SYSTEM_ID}} {{TYPE}} {{STATE | ORPHRASE}} {{HOLD_TIME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "ge-0/0/2.0",
+      "SYSTEM_ID": "CSR2",
+      "TYPE": "1",
+      "STATE": "Up",
+      "HOLD_TIME": "22",
+      "SNPA": "50:0:0:2:0:1"
+    },
+    {
+      "INTERFACE": "ge-0/0/2.0",
+      "SYSTEM_ID": "CSR2",
+      "TYPE": "2",
+      "STATE": "Up",
+      "HOLD_TIME": "25",
+      "SNPA": "50:0:0:2:0:1"
+    },
+    {
+      "INTERFACE": "ge-0/0/2.0",
+      "SYSTEM_ID": "XRv3",
+      "TYPE": "1",
+      "STATE": "Up",
+      "HOLD_TIME": "8",
+      "SNPA": "50:0:0:3:0:2"
+    },
+    {
+      "INTERFACE": "ge-0/0/2.0",
+      "SYSTEM_ID": "XRv3",
+      "TYPE": "2",
+      "STATE": "Up",
+      "HOLD_TIME": "8",
+      "SNPA": "50:0:0:3:0:2"
+    },
+    {
+      "INTERFACE": "ge-0/0/3.0",
+      "SYSTEM_ID": "XRv3",
+      "TYPE": "3",
+      "STATE": "Up",
+      "HOLD_TIME": "25"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_system_id_type_state_hold_time_snpa": [
+        {
+          "INTERFACE": "Interface",
+          "SYSTEM_ID": "System",
+          "TYPE": "L",
+          "STATE": "State",
+          "HOLD_TIME": "Hold",
+          "SNPA": "(secs) SNPA"
+        },
+        {
+          "INTERFACE": "ge-0/0/2.0",
+          "SYSTEM_ID": "CSR2",
+          "TYPE": "1",
+          "STATE": "Up",
+          "HOLD_TIME": "22",
+          "SNPA": "50:0:0:2:0:1"
+        },
+        {
+          "INTERFACE": "ge-0/0/2.0",
+          "SYSTEM_ID": "CSR2",
+          "TYPE": "2",
+          "STATE": "Up",
+          "HOLD_TIME": "25",
+          "SNPA": "50:0:0:2:0:1"
+        },
+        {
+          "INTERFACE": "ge-0/0/2.0",
+          "SYSTEM_ID": "XRv3",
+          "TYPE": "1",
+          "STATE": "Up",
+          "HOLD_TIME": "8",
+          "SNPA": "50:0:0:3:0:2"
+        },
+        {
+          "INTERFACE": "ge-0/0/2.0",
+          "SYSTEM_ID": "XRv3",
+          "TYPE": "2",
+          "STATE": "Up",
+          "HOLD_TIME": "8",
+          "SNPA": "50:0:0:3:0:2"
+        }
+      ],
+      "interface_system_id_type_state_hold_time": [
+        {
+          "INTERFACE": "Interface",
+          "SYSTEM_ID": "System",
+          "TYPE": "L",
+          "STATE": "State",
+          "HOLD_TIME": "Hold (secs) SNPA"
+        },
+        {
+          "INTERFACE": "ge-0/0/3.0",
+          "SYSTEM_ID": "XRv3",
+          "TYPE": "3",
+          "STATE": "Up",
+          "HOLD_TIME": "25"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface             System         L State        Hold (secs) SNPA\nge-0/0/2.0            CSR2           1  Up                   22  50:0:0:2:0:1\nge-0/0/2.0            CSR2           2  Up                   25  50:0:0:2:0:1\nge-0/0/2.0            XRv3           1  Up                    8  50:0:0:3:0:2\nge-0/0/2.0            XRv3           2  Up                    8  50:0:0:3:0:2\nge-0/0/3.0            XRv3           3  Up                   25\n\n{master:0}\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue SYSTEM_ID ((\\d+.\\d+.\\d+)|\\S+)\nValue TYPE (\\d)\nValue STATE (\\S+)\nValue HOLD_TIME (\\d+)\nValue SNPA ((\\S+)?)\n\nStart\n  ^${INTERFACE}\\s+${SYSTEM_ID}\\s+${TYPE}\\s+${STATE}\\s+${HOLD_TIME}(\\s+)?${SNPA} -> Record\n  ^\\s*$$\n  ^{master:\\d+}\n"
+}

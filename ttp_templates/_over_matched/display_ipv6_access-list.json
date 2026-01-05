@@ -1,0 +1,102 @@
+{
+  "command": "display ipv6 access-list",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.5,
+  "textfsm_rows": 4,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"rule_num_action_protocol_src_address_dst_address_sequence\">\n  Rule {{RULE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ADDRESS | ORPHRASE}} {{DST_ADDRESS}} sequence {{SEQUENCE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ACL_NAME": "ACLOUT",
+      "RULE_NUM": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "icmpv6",
+      "SRC_ADDRESS": "any",
+      "DST_ADDRESS": "any",
+      "SEQUENCE": "10"
+    },
+    {
+      "RULE_NUM": "30",
+      "ACTION": "deny",
+      "PROTOCOL": "ipv6",
+      "SRC_ADDRESS": "2001:0db8:1::/64",
+      "DST_ADDRESS": "any",
+      "SEQUENCE": "30"
+    },
+    {
+      "RULE_NUM": "40",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SRC_ADDRESS": "2001:0db8:2::/48",
+      "DST_ADDRESS": "any",
+      "SEQUENCE": "40"
+    },
+    {
+      "ACL_NAME": "ACLIN",
+      "RULE_NUM": "20",
+      "ACTION": "permit",
+      "PROTOCOL": "ipv6",
+      "SRC_ADDRESS": "any",
+      "DST_ADDRESS": "any",
+      "SEQUENCE": "15"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "rule_num_action_protocol_src_address_dst_address_sequence": [
+        {
+          "RULE_NUM": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "icmpv6",
+          "SRC_ADDRESS": "any",
+          "DST_ADDRESS": "any",
+          "SEQUENCE": "10"
+        },
+        {
+          "RULE_NUM": "20",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ADDRESS": "host 2001:0db8::1 gt 1234 host 2001:0db8::2 lt",
+          "DST_ADDRESS": "2345",
+          "SEQUENCE": "20"
+        },
+        {
+          "RULE_NUM": "30",
+          "ACTION": "deny",
+          "PROTOCOL": "ipv6",
+          "SRC_ADDRESS": "2001:0db8:1::/64",
+          "DST_ADDRESS": "any",
+          "SEQUENCE": "30"
+        },
+        {
+          "RULE_NUM": "40",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_ADDRESS": "2001:0db8:2::/48 eq 53",
+          "DST_ADDRESS": "any",
+          "SEQUENCE": "40"
+        },
+        {
+          "RULE_NUM": "10",
+          "ACTION": "deny",
+          "PROTOCOL": "tcp",
+          "SRC_ADDRESS": "any any",
+          "DST_ADDRESS": "log-input",
+          "SEQUENCE": "5"
+        },
+        {
+          "RULE_NUM": "20",
+          "ACTION": "permit",
+          "PROTOCOL": "ipv6",
+          "SRC_ADDRESS": "any",
+          "DST_ADDRESS": "any",
+          "SEQUENCE": "15"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IPv6 ACL: ACLOUT\n  Rule 10 permit icmpv6 any any sequence 10\n  Rule 20 permit tcp host 2001:0db8::1 gt 1234 host 2001:0db8::2 lt 2345 sequence 20\n  Rule 30 deny ipv6 2001:0db8:1::/64 any sequence 30\n  Rule 40 permit udp 2001:0db8:2::/48 eq 53 any sequence 40\n\nIPv6 ACL: ACLIN\n  Rule 10 deny tcp any any log-input sequence 5\n  Rule 20 permit ipv6 any any sequence 15\n",
+  "textfsm_template": "Value ACL_NAME (\\S+)\nValue RULE_NUM (\\d+)\nValue ACTION (\\S+)\nValue PROTOCOL (\\S+)\nValue SRC_ADDRESS (\\S+)\nValue SRC_PORT (\\S+|\\S+\\s\\S+)\nValue DST_ADDRESS (\\S+)\nValue DST_PORT (\\S+|\\S+\\s\\S+)\nValue SEQUENCE (\\d+)\n\nStart\n  ^\\s*IPv6\\sACL:\\s${ACL_NAME}\\s*$$\n  ^\\s*Rule\\s${RULE_NUM}\\s${ACTION}\\s${PROTOCOL}\\s${SRC_ADDRESS}(\\s(gt|eq|lt)\\s\\S+)?\\s${DST_ADDRESS}(\\s(gt|eq|lt)\\s\\S+)?\\ssequence\\s${SEQUENCE}\\s*$$ -> Record"
+}

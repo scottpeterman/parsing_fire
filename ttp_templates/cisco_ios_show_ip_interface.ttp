@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_interface
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="interface_link_status_protocol_status">
+{{INTERFACE}} is {{LINK_STATUS | ORPHRASE}}, line protocol is {{PROTOCOL_STATUS | ORPHRASE}}
+</group>

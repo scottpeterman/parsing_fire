@@ -1,0 +1,322 @@
+{
+  "command": "arista_eos_show_environment_temperature",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.375,
+  "textfsm_rows": 16,
+  "ttp_rows": 22,
+  "ttp_template": "<group name=\"module\">\n{{MODULE | ORPHRASE}}:\n<group name=\"alert_limit_critical_limit_current_value\">\n{{SENSOR}} {{DESCRIPTION | ORPHRASE}} {{CURRENT_VALUE}} ({{SETPOINT}}) 63.8 {{ALERT_LIMIT}} {{CRITICAL_LIMIT | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SENSOR": "1",
+      "DESCRIPTION": "Digital Temperature Sensor on cpu0",
+      "CURRENT_VALUE": "36.0",
+      "SETPOINT": "65",
+      "ALERT_LIMIT": "95",
+      "CRITICAL_LIMIT": "105",
+      "MODULE": "Supervisor 1"
+    },
+    {
+      "SENSOR": "2",
+      "DESCRIPTION": "Digital Temperature Sensor on cpu1",
+      "CURRENT_VALUE": "36.0",
+      "SETPOINT": "65",
+      "ALERT_LIMIT": "95",
+      "CRITICAL_LIMIT": "105",
+      "MODULE": "Supervisor 1"
+    },
+    {
+      "SENSOR": "3",
+      "DESCRIPTION": "Digital Temperature Sensor on cpu2",
+      "CURRENT_VALUE": "36.0",
+      "SETPOINT": "65",
+      "ALERT_LIMIT": "95",
+      "CRITICAL_LIMIT": "105",
+      "MODULE": "Supervisor 1"
+    },
+    {
+      "SENSOR": "6",
+      "DESCRIPTION": "Outlet sensor",
+      "CURRENT_VALUE": "50.8",
+      "SETPOINT": "85",
+      "ALERT_LIMIT": "95",
+      "CRITICAL_LIMIT": "105",
+      "MODULE": "Linecard 3"
+    },
+    {
+      "SENSOR": "7",
+      "DESCRIPTION": "Inlet sensor",
+      "CURRENT_VALUE": "59.2",
+      "SETPOINT": "75",
+      "ALERT_LIMIT": "90",
+      "CRITICAL_LIMIT": "100",
+      "MODULE": "Linecard 3"
+    },
+    {
+      "SENSOR": "8",
+      "DESCRIPTION": "Board sensor",
+      "CURRENT_VALUE": "62.0",
+      "SETPOINT": "95",
+      "ALERT_LIMIT": "105",
+      "CRITICAL_LIMIT": "110",
+      "MODULE": "Linecard 3"
+    },
+    {
+      "SENSOR": "5",
+      "DESCRIPTION": "Outlet sensor",
+      "CURRENT_VALUE": "41.2",
+      "SETPOINT": "80",
+      "ALERT_LIMIT": "90",
+      "CRITICAL_LIMIT": "100",
+      "MODULE": "Linecard 4"
+    },
+    {
+      "SENSOR": "6",
+      "DESCRIPTION": "Inlet sensor",
+      "CURRENT_VALUE": "43.8",
+      "SETPOINT": "65",
+      "ALERT_LIMIT": "75",
+      "CRITICAL_LIMIT": "85",
+      "MODULE": "Linecard 4"
+    },
+    {
+      "SENSOR": "7",
+      "DESCRIPTION": "Board sensor",
+      "CURRENT_VALUE": "49.0",
+      "SETPOINT": "85",
+      "ALERT_LIMIT": "95",
+      "CRITICAL_LIMIT": "105",
+      "MODULE": "Linecard 4"
+    },
+    {
+      "SENSOR": "9",
+      "DESCRIPTION": "Board sensor",
+      "CURRENT_VALUE": "45.0",
+      "SETPOINT": "85",
+      "ALERT_LIMIT": "95",
+      "CRITICAL_LIMIT": "105",
+      "MODULE": "Linecard 4"
+    },
+    {
+      "SENSOR": "5",
+      "DESCRIPTION": "Outlet sensor",
+      "CURRENT_VALUE": "39.5",
+      "SETPOINT": "80",
+      "ALERT_LIMIT": "90",
+      "CRITICAL_LIMIT": "100",
+      "MODULE": "Linecard 5"
+    },
+    {
+      "SENSOR": "6",
+      "DESCRIPTION": "Inlet sensor",
+      "CURRENT_VALUE": "39.0",
+      "SETPOINT": "65",
+      "ALERT_LIMIT": "75",
+      "CRITICAL_LIMIT": "85",
+      "MODULE": "Linecard 5"
+    },
+    {
+      "SENSOR": "1",
+      "DESCRIPTION": "Outlet sensor",
+      "CURRENT_VALUE": "32.5",
+      "SETPOINT": "80",
+      "ALERT_LIMIT": "90",
+      "CRITICAL_LIMIT": "100",
+      "MODULE": "Linecard 6"
+    },
+    {
+      "SENSOR": "2",
+      "DESCRIPTION": "Inlet sensor",
+      "CURRENT_VALUE": "29.2",
+      "SETPOINT": "65",
+      "ALERT_LIMIT": "70",
+      "CRITICAL_LIMIT": "85",
+      "MODULE": "Linecard 6"
+    },
+    {
+      "SENSOR": "13",
+      "DESCRIPTION": "ADT (Fan controller) 1",
+      "CURRENT_VALUE": "32.8",
+      "SETPOINT": "85",
+      "ALERT_LIMIT": "95",
+      "CRITICAL_LIMIT": "105",
+      "MODULE": "Fabric 1"
+    },
+    {
+      "SENSOR": "14",
+      "DESCRIPTION": "Fan side sensor",
+      "CURRENT_VALUE": "32.0",
+      "SETPOINT": "85",
+      "ALERT_LIMIT": "95",
+      "CRITICAL_LIMIT": "105",
+      "MODULE": "Fabric 1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "module": [
+        {
+          "MODULE": "Supervisor 1",
+          "alert_limit_critical_limit_current_value": [
+            {
+              "SENSOR": "1",
+              "DESCRIPTION": "Digital Temperature Sensor on cpu0",
+              "CURRENT_VALUE": "36.0",
+              "SETPOINT": "65",
+              "ALERT_LIMIT": "95",
+              "CRITICAL_LIMIT": "105"
+            },
+            {
+              "SENSOR": "2",
+              "DESCRIPTION": "Digital Temperature Sensor on cpu1",
+              "CURRENT_VALUE": "36.0",
+              "SETPOINT": "65",
+              "ALERT_LIMIT": "95",
+              "CRITICAL_LIMIT": "105"
+            },
+            {
+              "SENSOR": "3",
+              "DESCRIPTION": "Digital Temperature Sensor on cpu2",
+              "CURRENT_VALUE": "36.0",
+              "SETPOINT": "65",
+              "ALERT_LIMIT": "95",
+              "CRITICAL_LIMIT": "105"
+            }
+          ]
+        },
+        {
+          "MODULE": "Linecard 3",
+          "alert_limit_critical_limit_current_value": [
+            {
+              "SENSOR": "6",
+              "DESCRIPTION": "Outlet sensor",
+              "CURRENT_VALUE": "50.8",
+              "SETPOINT": "85",
+              "ALERT_LIMIT": "95",
+              "CRITICAL_LIMIT": "105"
+            },
+            {
+              "SENSOR": "7",
+              "DESCRIPTION": "Inlet sensor",
+              "CURRENT_VALUE": "59.2",
+              "SETPOINT": "75",
+              "ALERT_LIMIT": "90",
+              "CRITICAL_LIMIT": "100"
+            },
+            {
+              "SENSOR": "8",
+              "DESCRIPTION": "Board sensor",
+              "CURRENT_VALUE": "62.0",
+              "SETPOINT": "95",
+              "ALERT_LIMIT": "105",
+              "CRITICAL_LIMIT": "110"
+            }
+          ]
+        },
+        {
+          "MODULE": "Linecard 4",
+          "alert_limit_critical_limit_current_value": [
+            {
+              "SENSOR": "5",
+              "DESCRIPTION": "Outlet sensor",
+              "CURRENT_VALUE": "41.2",
+              "SETPOINT": "80",
+              "ALERT_LIMIT": "90",
+              "CRITICAL_LIMIT": "100"
+            },
+            {
+              "SENSOR": "6",
+              "DESCRIPTION": "Inlet sensor",
+              "CURRENT_VALUE": "43.8",
+              "SETPOINT": "65",
+              "ALERT_LIMIT": "75",
+              "CRITICAL_LIMIT": "85"
+            },
+            {
+              "SENSOR": "7",
+              "DESCRIPTION": "Board sensor",
+              "CURRENT_VALUE": "49.0",
+              "SETPOINT": "85",
+              "ALERT_LIMIT": "95",
+              "CRITICAL_LIMIT": "105"
+            },
+            {
+              "SENSOR": "9",
+              "DESCRIPTION": "Board sensor",
+              "CURRENT_VALUE": "45.0",
+              "SETPOINT": "85",
+              "ALERT_LIMIT": "95",
+              "CRITICAL_LIMIT": "105"
+            }
+          ]
+        },
+        {
+          "MODULE": "Linecard 5",
+          "alert_limit_critical_limit_current_value": [
+            {
+              "SENSOR": "5",
+              "DESCRIPTION": "Outlet sensor",
+              "CURRENT_VALUE": "39.5",
+              "SETPOINT": "80",
+              "ALERT_LIMIT": "90",
+              "CRITICAL_LIMIT": "100"
+            },
+            {
+              "SENSOR": "6",
+              "DESCRIPTION": "Inlet sensor",
+              "CURRENT_VALUE": "39.0",
+              "SETPOINT": "65",
+              "ALERT_LIMIT": "75",
+              "CRITICAL_LIMIT": "85"
+            }
+          ]
+        },
+        {
+          "MODULE": "Linecard 6",
+          "alert_limit_critical_limit_current_value": [
+            {
+              "SENSOR": "1",
+              "DESCRIPTION": "Outlet sensor",
+              "CURRENT_VALUE": "32.5",
+              "SETPOINT": "80",
+              "ALERT_LIMIT": "90",
+              "CRITICAL_LIMIT": "100"
+            },
+            {
+              "SENSOR": "2",
+              "DESCRIPTION": "Inlet sensor",
+              "CURRENT_VALUE": "29.2",
+              "SETPOINT": "65",
+              "ALERT_LIMIT": "70",
+              "CRITICAL_LIMIT": "85"
+            }
+          ]
+        },
+        {
+          "MODULE": "Fabric 1",
+          "alert_limit_critical_limit_current_value": [
+            {
+              "SENSOR": "13",
+              "DESCRIPTION": "ADT (Fan controller) 1",
+              "CURRENT_VALUE": "32.8",
+              "SETPOINT": "85",
+              "ALERT_LIMIT": "95",
+              "CRITICAL_LIMIT": "105"
+            },
+            {
+              "SENSOR": "14",
+              "DESCRIPTION": "Fan side sensor",
+              "CURRENT_VALUE": "32.0",
+              "SETPOINT": "85",
+              "ALERT_LIMIT": "95",
+              "CRITICAL_LIMIT": "105"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "cli_content": "System temperature status is: Ok\n\nSupervisor 1:\n                                                                 Alert  Critical\n                                               Temp    Setpoint  Limit     Limit\nSensor  Description                             (C)         (C)    (C)       (C)\n------- ----------------------------------- ------- ----------- ------ ---------\n1       Digital Temperature Sensor on cpu0     36.0   (65) 63.8     95       105\n2       Digital Temperature Sensor on cpu1     36.0   (65) 63.8     95       105\n3       Digital Temperature Sensor on cpu2     36.0   (65) 63.8     95       105\n\nLinecard 3:\n                                                                 Alert  Critical\n                                               Temp    Setpoint  Limit     Limit\nSensor  Description                             (C)         (C)    (C)       (C)\n------- ----------------------------------- ------- ----------- ------ ---------\n6       Outlet sensor                          50.8   (85) 83.8     95       105\n7       Inlet sensor                           59.2   (75) 73.8     90       100\n8       Board sensor                           62.0   (95) 93.8    105       110\n\nLinecard 4:\n                                                                 Alert  Critical\n                                               Temp    Setpoint  Limit     Limit\nSensor  Description                             (C)         (C)    (C)       (C)\n------- ----------------------------------- ------- ----------- ------ ---------\n5       Outlet sensor                          41.2   (80) 78.8     90       100\n6       Inlet sensor                           43.8   (65) 63.8     75        85\n7       Board sensor                           49.0   (85) 83.8     95       105\n9       Board sensor                           45.0   (85) 83.8     95       105\n\nLinecard 5:\n                                                                 Alert  Critical\n                                               Temp    Setpoint  Limit     Limit\nSensor  Description                             (C)         (C)    (C)       (C)\n------- ----------------------------------- ------- ----------- ------ ---------\n5       Outlet sensor                          39.5   (80) 78.8     90       100\n6       Inlet sensor                           39.0   (65) 63.8     75        85\n\nLinecard 6:\n                                                                 Alert  Critical\n                                               Temp    Setpoint  Limit     Limit\nSensor  Description                             (C)         (C)    (C)       (C)\n------- ----------------------------------- ------- ----------- ------ ---------\n1       Outlet sensor                          32.5   (80) 78.8     90       100\n2       Inlet sensor                           29.2   (65) 63.8     70        85\n\nFabric 1:\n                                                                 Alert  Critical\n                                               Temp    Setpoint  Limit     Limit\nSensor  Description                             (C)         (C)    (C)       (C)\n------- ----------------------------------- ------- ----------- ------ ---------\n13      ADT (Fan controller) 1                 32.8   (85) 83.8     95       105\n14      Fan side sensor                        32.0   (85) 83.8     95       105",
+  "textfsm_template": "Value Required SENSOR (\\S+)\nValue DESCRIPTION ((\\s|\\S)+?)\nValue CURRENT_VALUE (\\S+)\nValue SETPOINT (\\S+)\nValue ALERT_LIMIT (\\S+)\nValue CRITICAL_LIMIT (\\S+)\nValue Filldown MODULE (\\S+\\s\\d+)\n\nStart\n  ^System\\stemperature\\sstatus\\sis\n  ^\\s+Alert\\s+Critical\n  ^\\s+Temp\\s+Setpoint\\s+\n  ^Sensor\\s+Description\\s+\\(C\\)\\s+\n  ^-+\\s+-+\\s+-+\\s+-+\\s+-+\\s+-+\n  ^${MODULE}:\n  ^${SENSOR}\\s+${DESCRIPTION}\\s+${CURRENT_VALUE}\\s+\\(${SETPOINT}\\)\\s+\\S+\\s+${ALERT_LIMIT}\\s+${CRITICAL_LIMIT} -> Record\n  ^\\s+$$\n  ^$$\n  ^.* -> Error \"LINE NOT FOUND\""
+}

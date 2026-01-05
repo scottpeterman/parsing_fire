@@ -1,0 +1,14 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show crypto ipsec sa brief
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="cryptomap_encryption_hash_interface">
+  Crypto Map: {{CRYPTOMAP | ORPHRASE}}
+  Local  Addr: {{SABUNDLE | ORPHRASE}}92.168.0.1
+  Security Protocol: {{PROTOCOL | ORPHRASE}}
+Interface: {{INTERFACE | ORPHRASE}}
+  Local  Addr: {{LOCAL_ADDR | ORPHRASE}}
+  Remote Addr: {{REMOTE_ADDR | ORPHRASE}}
+  Encryption: {{ENCRYPTION}}, Hash: {{HASH | ORPHRASE}}
+</group>

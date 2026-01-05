@@ -1,0 +1,69 @@
+{
+  "command": "show interfaces fa",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.75,
+  "textfsm_rows": 4,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"interface_ip_address_ok_method_status\">\n{{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{OK}} {{METHOD}} {{STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Fa0/0",
+      "IP_ADDRESS": "192.168.1.1",
+      "OK": "YES",
+      "METHOD": "manual",
+      "STATUS": "up"
+    },
+    {
+      "INTERFACE": "Fa0/1",
+      "IP_ADDRESS": "192.168.2.1",
+      "OK": "YES",
+      "METHOD": "manual",
+      "STATUS": "down"
+    },
+    {
+      "INTERFACE": "Fa0/2",
+      "IP_ADDRESS": "unassigned",
+      "OK": "YES",
+      "METHOD": "unset",
+      "STATUS": "administratively down"
+    },
+    {
+      "INTERFACE": "Fa0/3",
+      "IP_ADDRESS": "10.0.0.1",
+      "OK": "YES",
+      "METHOD": "manual",
+      "STATUS": "up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_ok_method_status": [
+        {
+          "INTERFACE": "Fa0/0",
+          "IP_ADDRESS": "192.168.1.1",
+          "OK": "YES",
+          "METHOD": "manual",
+          "STATUS": "up"
+        },
+        {
+          "INTERFACE": "Fa0/1",
+          "IP_ADDRESS": "192.168.2.1",
+          "OK": "YES",
+          "METHOD": "manual",
+          "STATUS": "down"
+        },
+        {
+          "INTERFACE": "Fa0/3",
+          "IP_ADDRESS": "10.0.0.1",
+          "OK": "YES",
+          "METHOD": "manual",
+          "STATUS": "up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              IP-Address      OK? Method Status\nFa0/0                  192.168.1.1     YES manual up\nFa0/1                  192.168.2.1     YES manual down\nFa0/2                  unassigned      YES unset  administratively down\nFa0/3                  10.0.0.1        YES manual up\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue IP_ADDRESS (\\S+)\nValue OK (\\S+)\nValue METHOD (\\S+)\nValue STATUS (administratively down|up|down)\n\nStart\n  ^\\s*Interface\\s+IP-Address\\s+OK\\?\\s+Method\\s+Status\\s*$$\n  ^\\s*${INTERFACE}\\s+${IP_ADDRESS}\\s+${OK}\\s+${METHOD}\\s+${STATUS}\\s*$$ -> Record"
+}

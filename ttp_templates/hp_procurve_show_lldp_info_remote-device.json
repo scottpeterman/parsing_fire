@@ -1,0 +1,192 @@
+{
+  "command": "hp_procurve_show_lldp_info_remote-device",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.5,
+  "textfsm_rows": 8,
+  "ttp_rows": 20,
+  "ttp_template": "<group name=\"local_interface_chassis_id_neighbor_interface_neighbor_description_neighbor_name\">\n  {{LOCAL_INTERFACE}} | {{CHASSIS_ID}} {{NEIGHBOR_INTERFACE | ORPHRASE}} {{NEIGHBOR_DESCRIPTION}} {{NEIGHBOR_NAME | ORPHRASE}}\n</group>\n<group name=\"local_interface_chassis_id_neighbor_interface\">\n  {{LOCAL_INTERFACE}} | {{CHASSIS_ID}} {{NEIGHBOR_INTERFACE | ORPHRASE}} \n</group>\n<group name=\"local_interface_chassis_id_neighbor_interface_neighbor_name\">\n  {{LOCAL_INTERFACE}} | {{CHASSIS_ID}} {{NEIGHBOR_INTERFACE | ORPHRASE}} {{NEIGHBOR_NAME | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOCAL_INTERFACE": "1",
+      "CHASSIS_ID": "3821c7-c1cd00",
+      "NEIGHBOR_INTERFACE": "1",
+      "NEIGHBOR_DESCRIPTION": "1",
+      "NEIGHBOR_NAME": "65432p-swi006-g..."
+    },
+    {
+      "LOCAL_INTERFACE": "3",
+      "CHASSIS_ID": "3ce1a1-2218f0",
+      "NEIGHBOR_INTERFACE": "3c e1 a1 22 18 f0"
+    },
+    {
+      "LOCAL_INTERFACE": "7",
+      "CHASSIS_ID": "bcf310-1f8b40",
+      "NEIGHBOR_INTERFACE": "mgt0",
+      "NEIGHBOR_NAME": "AH-cust-AP21"
+    },
+    {
+      "LOCAL_INTERFACE": "25",
+      "CHASSIS_ID": "d8cb8a-6d303c",
+      "NEIGHBOR_INTERFACE": "d8 cb 8a 6d 30 3c"
+    },
+    {
+      "LOCAL_INTERFACE": "29",
+      "CHASSIS_ID": "484d7e-e66c42",
+      "NEIGHBOR_INTERFACE": "48 4d 7e e6 6c 42"
+    },
+    {
+      "LOCAL_INTERFACE": "36",
+      "CHASSIS_ID": "603197-7aa548",
+      "NEIGHBOR_INTERFACE": "1",
+      "NEIGHBOR_DESCRIPTION": "UPLINK",
+      "NEIGHBOR_NAME": "NAP203"
+    },
+    {
+      "LOCAL_INTERFACE": "37",
+      "CHASSIS_ID": "b00cd1-359a98",
+      "NEIGHBOR_INTERFACE": "b0 0c d1 35 9a 98"
+    },
+    {
+      "LOCAL_INTERFACE": "42",
+      "CHASSIS_ID": "d8cb8a-894644",
+      "NEIGHBOR_INTERFACE": "d8 cb 8a 89 46 44"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "local_interface_chassis_id_neighbor_interface_neighbor_description_neighbor_name": [
+        {
+          "LOCAL_INTERFACE": "LocalPort",
+          "CHASSIS_ID": "ChassisId",
+          "NEIGHBOR_INTERFACE": "PortId",
+          "NEIGHBOR_DESCRIPTION": "PortDescr",
+          "NEIGHBOR_NAME": "SysName"
+        },
+        {
+          "LOCAL_INTERFACE": "1",
+          "CHASSIS_ID": "3821c7-c1cd00",
+          "NEIGHBOR_INTERFACE": "1",
+          "NEIGHBOR_DESCRIPTION": "1",
+          "NEIGHBOR_NAME": "65432p-swi006-g..."
+        },
+        {
+          "LOCAL_INTERFACE": "3",
+          "CHASSIS_ID": "3ce1a1-2218f0",
+          "NEIGHBOR_INTERFACE": "3c",
+          "NEIGHBOR_DESCRIPTION": "e1",
+          "NEIGHBOR_NAME": "a1 22 18 f0"
+        },
+        {
+          "LOCAL_INTERFACE": "25",
+          "CHASSIS_ID": "d8cb8a-6d303c",
+          "NEIGHBOR_INTERFACE": "d8",
+          "NEIGHBOR_DESCRIPTION": "cb",
+          "NEIGHBOR_NAME": "8a 6d 30 3c"
+        },
+        {
+          "LOCAL_INTERFACE": "29",
+          "CHASSIS_ID": "484d7e-e66c42",
+          "NEIGHBOR_INTERFACE": "48",
+          "NEIGHBOR_DESCRIPTION": "4d",
+          "NEIGHBOR_NAME": "7e e6 6c 42"
+        },
+        {
+          "LOCAL_INTERFACE": "36",
+          "CHASSIS_ID": "603197-7aa548",
+          "NEIGHBOR_INTERFACE": "1",
+          "NEIGHBOR_DESCRIPTION": "UPLINK",
+          "NEIGHBOR_NAME": "NAP203"
+        },
+        {
+          "LOCAL_INTERFACE": "37",
+          "CHASSIS_ID": "b00cd1-359a98",
+          "NEIGHBOR_INTERFACE": "b0",
+          "NEIGHBOR_DESCRIPTION": "0c",
+          "NEIGHBOR_NAME": "d1 35 9a 98"
+        },
+        {
+          "LOCAL_INTERFACE": "42",
+          "CHASSIS_ID": "d8cb8a-894644",
+          "NEIGHBOR_INTERFACE": "d8",
+          "NEIGHBOR_DESCRIPTION": "cb",
+          "NEIGHBOR_NAME": "8a 89 46 44"
+        }
+      ],
+      "local_interface_chassis_id_neighbor_interface": [
+        {
+          "LOCAL_INTERFACE": "3",
+          "CHASSIS_ID": "3ce1a1-2218f0",
+          "NEIGHBOR_INTERFACE": "3c e1 a1 22 18 f0"
+        },
+        {
+          "LOCAL_INTERFACE": "25",
+          "CHASSIS_ID": "d8cb8a-6d303c",
+          "NEIGHBOR_INTERFACE": "d8 cb 8a 6d 30 3c"
+        },
+        {
+          "LOCAL_INTERFACE": "29",
+          "CHASSIS_ID": "484d7e-e66c42",
+          "NEIGHBOR_INTERFACE": "48 4d 7e e6 6c 42"
+        },
+        {
+          "LOCAL_INTERFACE": "37",
+          "CHASSIS_ID": "b00cd1-359a98",
+          "NEIGHBOR_INTERFACE": "b0 0c d1 35 9a 98"
+        },
+        {
+          "LOCAL_INTERFACE": "42",
+          "CHASSIS_ID": "d8cb8a-894644",
+          "NEIGHBOR_INTERFACE": "d8 cb 8a 89 46 44"
+        }
+      ],
+      "local_interface_chassis_id_neighbor_interface_neighbor_name": [
+        {
+          "LOCAL_INTERFACE": "LocalPort",
+          "CHASSIS_ID": "ChassisId",
+          "NEIGHBOR_INTERFACE": "PortId",
+          "NEIGHBOR_NAME": "PortDescr SysName"
+        },
+        {
+          "LOCAL_INTERFACE": "3",
+          "CHASSIS_ID": "3ce1a1-2218f0",
+          "NEIGHBOR_INTERFACE": "3c",
+          "NEIGHBOR_NAME": "e1 a1 22 18 f0"
+        },
+        {
+          "LOCAL_INTERFACE": "7",
+          "CHASSIS_ID": "bcf310-1f8b40",
+          "NEIGHBOR_INTERFACE": "mgt0",
+          "NEIGHBOR_NAME": "AH-cust-AP21"
+        },
+        {
+          "LOCAL_INTERFACE": "25",
+          "CHASSIS_ID": "d8cb8a-6d303c",
+          "NEIGHBOR_INTERFACE": "d8",
+          "NEIGHBOR_NAME": "cb 8a 6d 30 3c"
+        },
+        {
+          "LOCAL_INTERFACE": "29",
+          "CHASSIS_ID": "484d7e-e66c42",
+          "NEIGHBOR_INTERFACE": "48",
+          "NEIGHBOR_NAME": "4d 7e e6 6c 42"
+        },
+        {
+          "LOCAL_INTERFACE": "37",
+          "CHASSIS_ID": "b00cd1-359a98",
+          "NEIGHBOR_INTERFACE": "b0",
+          "NEIGHBOR_NAME": "0c d1 35 9a 98"
+        },
+        {
+          "LOCAL_INTERFACE": "42",
+          "CHASSIS_ID": "d8cb8a-894644",
+          "NEIGHBOR_INTERFACE": "d8",
+          "NEIGHBOR_NAME": "cb 8a 89 46 44"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\n LLDP Remote Devices Information\n\n  LocalPort | ChassisId          PortId             PortDescr SysName           \n  --------- + ------------------ ------------------ --------- ------------------\n  1         | 3821c7-c1cd00      1                  1         65432p-swi006-g...\n  3         | 3ce1a1-2218f0      3c e1 a1 22 18 f0                              \n  7         | bcf310-1f8b40      mgt0                         AH-cust-AP21      \n  25        | d8cb8a-6d303c      d8 cb 8a 6d 30 3c                              \n  29        | 484d7e-e66c42      48 4d 7e e6 6c 42                              \n  36        | 603197-7aa548      1                  UPLINK    NAP203            \n  37        | b00cd1-359a98      b0 0c d1 35 9a 98                              \n  42        | d8cb8a-894644      d8 cb 8a 89 46 44                              \n \n",
+  "textfsm_template": "Value Required LOCAL_INTERFACE (\\S+)\nValue CHASSIS_ID ((?:[a-z0-9]{2}\\s){5}[a-z0-9]{2}|\\S+)\nValue NEIGHBOR_INTERFACE ((?:[a-z0-9]{2}\\s){5}[a-z0-9]{2}|\\S+)\nValue NEIGHBOR_DESCRIPTION (\\S+|.*?)\nValue NEIGHBOR_NAME (\\S+)\n\nStart\n  ^\\s*LLDP\\sRemote\\sDevices\\sInformation\\s*$$\n  ^\\s+LocalPort\\s|\\sChassisId.*$$\n  ^\\s+-.* -> LLDP\n  ^\\s*$$\n  ^. -> Error\n\nLLDP\n  ^\\s+${LOCAL_INTERFACE}\\s+\\|\\s${CHASSIS_ID}\\s+${NEIGHBOR_INTERFACE}\\s*$$ -> Record\n  ^\\s+${LOCAL_INTERFACE}\\s+\\|\\s${CHASSIS_ID}\\s+${NEIGHBOR_INTERFACE}\\s+${NEIGHBOR_NAME}\\s*$$ -> Record\n  ^\\s+${LOCAL_INTERFACE}\\s+\\|\\s${CHASSIS_ID}\\s+${NEIGHBOR_INTERFACE}\\s+${NEIGHBOR_DESCRIPTION}\\s+${NEIGHBOR_NAME}\\s*$$ -> Record\n  ^\\S+\\#\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

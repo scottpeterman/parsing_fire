@@ -1,0 +1,155 @@
+{
+  "command": "show bgp ipv4 unicast",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.5,
+  "textfsm_rows": 6,
+  "ttp_rows": 9,
+  "ttp_template": "<group name=\"status_network_next_hop_metric_loc_prf_weight_path\">\n{{STATUS | ORPHRASE}} {{NETWORK}} {{NEXT_HOP}} {{METRIC}} {{LOC_PRF}} {{WEIGHT}} {{PATH | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "STATUS": "*>",
+      "NETWORK": "10.0.0.0/8",
+      "NEXT_HOP": "192.168.2.1",
+      "METRIC": "0",
+      "LOC_PRF": "100",
+      "WEIGHT": "200",
+      "PATH": "i"
+    },
+    {
+      "STATUS": "r>",
+      "NETWORK": "10.10.10.0/24",
+      "NEXT_HOP": "192.168.2.2",
+      "METRIC": "0",
+      "LOC_PRF": "100",
+      "WEIGHT": "300",
+      "PATH": "i"
+    },
+    {
+      "STATUS": "*>",
+      "NETWORK": "20.20.20.0/24",
+      "NEXT_HOP": "192.168.3.1",
+      "METRIC": "0",
+      "LOC_PRF": "100",
+      "WEIGHT": "400",
+      "PATH": "i"
+    },
+    {
+      "STATUS": "*",
+      "NETWORK": "30.0.0.0/8",
+      "NEXT_HOP": "192.168.4.1",
+      "METRIC": "0",
+      "LOC_PRF": "100",
+      "WEIGHT": "500",
+      "PATH": "?"
+    },
+    {
+      "STATUS": "*>",
+      "NETWORK": "40.40.40.0/24",
+      "NEXT_HOP": "192.168.5.1",
+      "METRIC": "1000",
+      "LOC_PRF": "0",
+      "WEIGHT": "100",
+      "PATH": "600 i"
+    },
+    {
+      "STATUS": "*",
+      "NETWORK": "60.60.60.0/24",
+      "NEXT_HOP": "192.168.7.1",
+      "METRIC": "0",
+      "LOC_PRF": "100",
+      "WEIGHT": "800",
+      "PATH": "?"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "status_network_next_hop_metric_loc_prf_weight_path": [
+        {
+          "STATUS": "BGP",
+          "NETWORK": "table",
+          "NEXT_HOP": "version",
+          "METRIC": "is",
+          "LOC_PRF": "129,",
+          "WEIGHT": "local",
+          "PATH": "router ID is 192.168.1.1"
+        },
+        {
+          "STATUS": "Status",
+          "NETWORK": "codes:",
+          "NEXT_HOP": "s",
+          "METRIC": "suppressed,",
+          "LOC_PRF": "d",
+          "WEIGHT": "damped,",
+          "PATH": "h history, * valid, > best, i - internal,"
+        },
+        {
+          "STATUS": "Origin",
+          "NETWORK": "codes:",
+          "NEXT_HOP": "i",
+          "METRIC": "-",
+          "LOC_PRF": "IGP,",
+          "WEIGHT": "e",
+          "PATH": "- EGP, ? - incomplete"
+        },
+        {
+          "STATUS": "*>",
+          "NETWORK": "10.0.0.0/8",
+          "NEXT_HOP": "192.168.2.1",
+          "METRIC": "0",
+          "LOC_PRF": "100",
+          "WEIGHT": "200",
+          "PATH": "i"
+        },
+        {
+          "STATUS": "r>",
+          "NETWORK": "10.10.10.0/24",
+          "NEXT_HOP": "192.168.2.2",
+          "METRIC": "0",
+          "LOC_PRF": "100",
+          "WEIGHT": "300",
+          "PATH": "i"
+        },
+        {
+          "STATUS": "*>",
+          "NETWORK": "20.20.20.0/24",
+          "NEXT_HOP": "192.168.3.1",
+          "METRIC": "0",
+          "LOC_PRF": "100",
+          "WEIGHT": "400",
+          "PATH": "i"
+        },
+        {
+          "STATUS": "*",
+          "NETWORK": "30.0.0.0/8",
+          "NEXT_HOP": "192.168.4.1",
+          "METRIC": "0",
+          "LOC_PRF": "100",
+          "WEIGHT": "500",
+          "PATH": "?"
+        },
+        {
+          "STATUS": "*>",
+          "NETWORK": "40.40.40.0/24",
+          "NEXT_HOP": "192.168.5.1",
+          "METRIC": "1000",
+          "LOC_PRF": "0",
+          "WEIGHT": "100",
+          "PATH": "600 i"
+        },
+        {
+          "STATUS": "*",
+          "NETWORK": "60.60.60.0/24",
+          "NEXT_HOP": "192.168.7.1",
+          "METRIC": "0",
+          "LOC_PRF": "100",
+          "WEIGHT": "800",
+          "PATH": "?"
+        }
+      ]
+    }
+  ],
+  "cli_content": "BGP table version is 129, local router ID is 192.168.1.1\nStatus codes: s suppressed, d damped, h history, * valid, > best, i - internal,\n              r RIB-failure, S Stale, m multipath, b backup-path, f RT-Filter,\n              x best-external, a additional-path, c RIB-compressed,\n              t secondary path numbers\nOrigin codes: i - IGP, e - EGP, ? - incomplete\n\n   Network          Next Hop            Metric LocPrf Weight Path\n*> 10.0.0.0/8       192.168.2.1                             0 100 200 i\nr> 10.10.10.0/24    192.168.2.2                             0 100 300 i\n*> 20.20.20.0/24    192.168.3.1                             0 100 400 i\n*  30.0.0.0/8       192.168.4.1                             0 100 500 ?\n*> 40.40.40.0/24    192.168.5.1             1000            0 100 600 i\n   50.50.50.0/24    192.168.6.1                             0 100 700 e\n*  60.60.60.0/24    192.168.7.1                             0 100 800 ?\n   70.70.70.0/24    192.168.8.1                             0 100 900 ?\n",
+  "textfsm_template": "Value STATUS (\\S+)\nValue NETWORK (\\S+)\nValue NEXT_HOP (\\S+)\nValue METRIC (\\S+)\nValue LOC_PRF (\\S+)\nValue WEIGHT (\\d+)\nValue PATH (.*)\n\nStart\n  ^\\s*Status\\s+codes: -> Next\n  ^Origin\\s+codes: -> Next\n  ^\\s*Network\\s+Next Hop\\s+Metric\\s+LocPrf\\s+Weight\\s+Path\\s*$$\n  ^\\s*${STATUS}\\s+${NETWORK}\\s+${NEXT_HOP}\\s+${METRIC}\\s+${LOC_PRF}\\s+${WEIGHT}\\s+${PATH}\\s*$$ -> Record"
+}

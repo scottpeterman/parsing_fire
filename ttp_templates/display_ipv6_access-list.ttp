@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: display ipv6 access-list
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 6
+# Match ratio: 1.50
+
+<group name="rule_num_action_protocol_src_address_dst_address_sequence">
+  Rule {{RULE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ADDRESS | ORPHRASE}} {{DST_ADDRESS}} sequence {{SEQUENCE}}
+</group>

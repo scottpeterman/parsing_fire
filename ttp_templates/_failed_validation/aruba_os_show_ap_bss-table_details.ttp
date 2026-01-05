@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: aruba_os_show_ap_bss-table_details
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="bss_ess_fm_ip_address_band_channel_type_cur_cl_ap_name_in_t_tot_t_mtu_acl_state_acl_flags_active_clients_standby_clients_datazone">
+{{BSS}} {{ESS | ORPHR{{CLUSTER}}SE}} {{POR{{FM}}}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{BAND}} {{CHANNEL}} {{TYPE}} {{CUR_CL}} {{AP_NAME}} {{IN_T}} {{TOT_T}} {{MTU}} {{ACL_STATE | ORPHRASE}} {{ACL}} T {{FLAGS}} A {{ACTIVE_CLIENTS}} {{STANDBY_CLIENTS}} {{DATAZONE | ORPHRASE}}
+</group>

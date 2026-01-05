@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show dns dynamic status
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="dns_updates_interval_server_status">
+DNS Dynamic Updates: {{DNS_UPDATES | ORPHRASE}}
+ Server: {{SERVER | ORPHRASE}}
+  Zone: {{ZONE | ORPHRASE}}
+  Status: {{STATUS | ORPHRASE}}
+DNS Dynamic Updates Interval: {{INTERVAL | ORPHRASE}}
+</group>

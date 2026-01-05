@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nvfis_show_running-config_snmp_host
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="hostname_ip_address_port_securitylevel">
+snmp host {{HOSTNAME | ORPHRASE}}
+ host-port  {{PORT | ORPHRASE}}
+ host-ip-address  {{IP_ADDRESS | ORPHRASE}}
+ host-security-level {{SECURITYLEVEL | ORPHRASE}}
+ host-user-name  {{USERNAME | ORPHRASE}}
+</group>

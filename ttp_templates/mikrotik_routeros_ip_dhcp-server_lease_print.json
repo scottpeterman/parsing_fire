@@ -1,0 +1,61 @@
+{
+  "command": "mikrotik_routeros_ip_dhcp-server_lease_print",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"number_address_server_status_last_seen\">\n {{NUMBER}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{SERVER | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{STATUS | ORPHRASE}} {{LAST_SEEN | ORPHRASE}}\n</group>\n<group name=\"number_flags_address_host_name_server_status_last_seen\">\n {{NUMBER}} {{FLAGS}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{HOST_NAME | re(\"\\\\S+\")}} {{SERVER | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{STATUS | ORPHRASE}} {{LAST_SEEN | ORPHRASE}}\n</group>\n<group name=\"number_address_mac_address_server_status_last_seen\">\n {{NUMBER}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{SERVER | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{STATUS | ORPHRASE}} {{LAST_SEEN | ORPHRASE}}\n</group>\n<group name=\"number_flags_address_mac_address_host_name_server_status_last_seen\">\n {{NUMBER}} {{FLAGS}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{HOST_NAME | re(\"\\\\S+\")}} {{SERVER | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{STATUS | ORPHRASE}} {{LAST_SEEN | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NUMBER": "0",
+      "ADDRESS": "192.168.60.254",
+      "SERVER": "*1",
+      "STATUS": "bound",
+      "LAST_SEEN": "35w13h13m15s"
+    },
+    {
+      "NUMBER": "1",
+      "FLAGS": "X",
+      "ADDRESS": "192.168.61.254",
+      "HOST_NAME": "MikroTik",
+      "SERVER": "DHCPv4_Server",
+      "STATUS": "waiting",
+      "LAST_SEEN": "never"
+    },
+    {
+      "NUMBER": "1",
+      "ADDRESS": "192.168.62.254",
+      "MAC_ADDRESS": "12:34:56:78:90:AA",
+      "SERVER": "DHCPv4_Server",
+      "STATUS": "waiting",
+      "LAST_SEEN": "never"
+    },
+    {
+      "NUMBER": "2",
+      "FLAGS": "D",
+      "ADDRESS": "192.168.88.254",
+      "MAC_ADDRESS": "12:34:56:78:90:AB",
+      "HOST_NAME": "MikroTik",
+      "SERVER": "DHCPv4_Server",
+      "STATUS": "waiting",
+      "LAST_SEEN": "never"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "number_flags_address_host_name_server_status_last_seen": {
+        "NUMBER": "2",
+        "FLAGS": "D",
+        "ADDRESS": "192.168.88.254",
+        "HOST_NAME": "12:34:56:78:90:AB",
+        "SERVER": "MikroTik",
+        "STATUS": "DHCPv4_Server",
+        "LAST_SEEN": "waiting never"
+      }
+    }
+  ],
+  "cli_content": "Flags: X - disabled, R - radius, D - dynamic, B - blocked\n #   ADDRESS          MAC-ADDRESS        HOST-NAME  SERVER         RATE-LIMIT  STATUS  LAST-SEEN\n 0   192.168.60.254                                 *1                         bound   35w13h13m15s\n 1 X 192.168.61.254                      MikroTik   DHCPv4_Server              waiting never\n 1   192.168.62.254   12:34:56:78:90:AA             DHCPv4_Server              waiting never\n 2 D 192.168.88.254   12:34:56:78:90:AB  MikroTik   DHCPv4_Server              waiting never\n",
+  "textfsm_template": "Value NUMBER (\\d+)\nValue FLAGS ([XRDB]+)\nValue ADDRESS (\\S+)\nValue MAC_ADDRESS ((?:[0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2})\nValue HOST_NAME (\\S+)\nValue SERVER (\\S+)\nValue RATE_LIMIT (\\S+)\nValue STATUS (\\S+)\nValue LAST_SEEN (\\S+)\n\nStart\n  ^\\s*#\\s+ADDRESS\\s+MAC-ADDRESS\\s+HOST-NAME\\s+SERVER\\s+RATE-LIMIT\\s+STATUS\\s+LAST-SEEN\\s*$$ -> EntriesTable\n\nEntriesTable\n  # Impossible to separate HOST-NAME and SERVER? Have the same regex, can be empty,\n  # are next to each other -> use '...print terse...' version of the command\n  ^\\s*${NUMBER}(?:\\s+${FLAGS})?\\s+${ADDRESS}(?:\\s+${MAC_ADDRESS})?(?:\\s+${HOST_NAME})?\\s+${SERVER}(?:\\s+${RATE_LIMIT})?\\s+${STATUS}\\s+${LAST_SEEN}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

@@ -1,0 +1,19 @@
+# TTP Template auto-generated from TextFSM
+# Original command: dell_force10_show_vlan
+# Source: ntc
+# TextFSM rows: 7
+# TTP rows: 7
+# Match ratio: 1.00
+
+<group name="vlan_id_status_ports_u_te">
+* {{VLAN_ID | re("\\d+")}} {{STATUS | ORPHRASE}} U Te {{PORTS_U_TE | ORPHRASE}}
+</group>
+<group name="vlan_id_status_vlan_name">
+    {{VLAN_ID | re("\\d+")}} {{STATUS | ORPHRASE}} {{VLAN_NAME | ORPHRASE}} 
+</group>
+<group name="vlan_id_status_vlan_name_ports_t_te">
+    {{VLAN_ID | re("\\d+")}} {{STATUS | ORPHRASE}} {{VLAN_NAME | ORPHRASE}} T Te {{PORTS_T_TE | ORPHRASE}}
+</group>
+<group name="vlan_id_status_vlan_name_ports_u_te">
+    {{VLAN_ID | re("\\d+")}} {{STATUS | ORPHRASE}} {{VLAN_NAME | ORPHRASE}} U Te {{PORTS_U_TE | ORPHRASE}}
+</group>

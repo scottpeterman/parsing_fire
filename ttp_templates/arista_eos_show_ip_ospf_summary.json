@@ -1,0 +1,89 @@
+{
+  "command": "arista_eos_show_ip_ospf_summary",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"instance_router_id_vrf\">\nOSPF instance {{INSTANCE}} with ID {{ROUTER_ID}}, VRF {{VRF | ORPHRASE}}, ASBR\n<group name=\"area_asbr_lsas_interfaces\">\n{{AREA}} {{TYPE}} {{INTERFACES}} {{NEIGHBORS}} ({{NEIGHBORS_FULL}} ) {{ROUTER_LSAS | ORPHRASE}} {{NETWORK_LSAS}} {{SUMMARY_LSAS}} {{ASBR_LSAS}} {{NSSA_LSAS}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INSTANCE": "1",
+      "ROUTER_ID": "65.87.229.70",
+      "VRF": "default",
+      "AREA": "0.0.0.10",
+      "TYPE": "normal",
+      "INTERFACES": "6",
+      "NEIGHBORS": "2",
+      "NEIGHBORS_FULL": "2",
+      "ROUTER_LSAS": "3",
+      "NETWORK_LSAS": "0",
+      "SUMMARY_LSAS": "0",
+      "ASBR_LSAS": "0",
+      "NSSA_LSAS": "0"
+    },
+    {
+      "INSTANCE": "2",
+      "ROUTER_ID": "192.168.28.193",
+      "VRF": "mgmtVrf",
+      "AREA": "0.0.0.0",
+      "TYPE": "normal",
+      "INTERFACES": "2",
+      "NEIGHBORS": "2",
+      "NEIGHBORS_FULL": "2",
+      "ROUTER_LSAS": "113",
+      "NETWORK_LSAS": "92",
+      "SUMMARY_LSAS": "0",
+      "ASBR_LSAS": "0",
+      "NSSA_LSAS": "0"
+    },
+    {
+      "INSTANCE": "2",
+      "ROUTER_ID": "192.168.28.193",
+      "VRF": "mgmtVrf"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "instance_router_id_vrf": [
+        {
+          "INSTANCE": "1",
+          "ROUTER_ID": "65.87.229.70",
+          "VRF": "default",
+          "area_asbr_lsas_interfaces": {
+            "AREA": "0.0.0.10",
+            "TYPE": "normal",
+            "INTERFACES": "6",
+            "NEIGHBORS": "2",
+            "NEIGHBORS_FULL": "2",
+            "ROUTER_LSAS": "3",
+            "NETWORK_LSAS": "0",
+            "SUMMARY_LSAS": "0",
+            "ASBR_LSAS": "0",
+            "NSSA_LSAS": "0"
+          }
+        },
+        {
+          "INSTANCE": "2",
+          "ROUTER_ID": "192.168.28.193",
+          "VRF": "mgmtVrf",
+          "area_asbr_lsas_interfaces": {
+            "AREA": "0.0.0.0",
+            "TYPE": "normal",
+            "INTERFACES": "2",
+            "NEIGHBORS": "2",
+            "NEIGHBORS_FULL": "2",
+            "ROUTER_LSAS": "113",
+            "NETWORK_LSAS": "92",
+            "SUMMARY_LSAS": "0",
+            "ASBR_LSAS": "0",
+            "NSSA_LSAS": "0"
+          }
+        }
+      ]
+    }
+  ],
+  "cli_content": "OSPF instance 1 with ID 65.87.229.70, VRF default, ASBR\nTime since last SPF: 14 s\nMax LSAs: 12000, Total LSAs: 6\nType-5 Ext LSAs: 3\nID               Type   Intf   Nbrs (full) RTR LSA NW LSA  SUM LSA ASBR LSA TYPE-7 LSA\n0.0.0.10         normal 6      2    (2   ) 3       0       0       0       0\n\nOSPF instance 2 with ID 192.168.28.193, VRF mgmtVrf, ASBR\nTime since last SPF: 1673 s\nMax LSAs: 12000, Total LSAs: 357\nType-5 Ext LSAs: 152\nID               Type   Intf   Nbrs (full) RTR LSA NW LSA  SUM LSA ASBR LSA TYPE-7 LSA\n0.0.0.0          normal 2      2    (2   ) 113     92      0       0       0",
+  "textfsm_template": "Value Filldown INSTANCE (\\d+)\nValue Filldown ROUTER_ID (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue Filldown VRF (\\S+)\nValue AREA (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue TYPE (\\S+)\nValue INTERFACES (\\d+)\nValue NEIGHBORS (\\d+)\nValue NEIGHBORS_FULL (\\d+)\nValue ROUTER_LSAS (\\d+)\nValue NETWORK_LSAS (\\d+)\nValue SUMMARY_LSAS (\\d+)\nValue ASBR_LSAS (\\d+)\nValue NSSA_LSAS (\\d+)\n\nStart\n  ^OSPF instance ${INSTANCE} with ID ${ROUTER_ID}, VRF ${VRF},.*$$\n  ^Time since.*$$\n  ^Max LSAs.*$$\n  ^Type-5.*$$\n  ^ID\\s+Type\\s+Intf\\s+Nbrs\\s+\\(full\\)\\s+RTR LSA\\s+NW LSA\\s+SUM LSA\\s+ASBR LSA\\s+TYPE-7 LSA\\s*$$\n  ^${AREA}\\s+${TYPE}\\s+${INTERFACES}\\s+${NEIGHBORS}\\s+\\(${NEIGHBORS_FULL}\\s*\\)\\s+${ROUTER_LSAS}\\s+${NETWORK_LSAS}\\s+${SUMMARY_LSAS}\\s+${ASBR_LSAS}\\s+${NSSA_LSAS}\\s*$$ -> Record"
+}

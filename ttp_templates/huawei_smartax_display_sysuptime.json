@@ -1,0 +1,30 @@
+{
+  "command": "huawei_smartax_display_sysuptime",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"day_hour_minute_second\">\n  System up time: {{DAY}} day {{HOUR}} hour {{MINUTE}} minute {{SECOND | ORPHRASE}} second\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DAY": "11",
+      "HOUR": "22",
+      "MINUTE": "5",
+      "SECOND": "17"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "day_hour_minute_second": {
+        "DAY": "11",
+        "HOUR": "22",
+        "MINUTE": "5",
+        "SECOND": "17"
+      }
+    }
+  ],
+  "cli_content": "  System up time: 11 day 22 hour 5 minute 17 second",
+  "textfsm_template": "Value DAY (\\d+)\nValue HOUR (\\d+)\nValue MINUTE (\\d+)\nValue SECOND (\\d+)\n\nStart\n  ^\\s+System\\s+up\\s+time:\\s+${DAY}\\s+day\\s+${HOUR}\\s+hour\\s+${MINUTE}\\s+minute\\s+${SECOND}\\s+\n  ^\\s*$$ -> EOF\n  ^. -> Error"
+}

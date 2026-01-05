@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ipv6 route
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="type_network_interface">
+{{TYPE}} {{NETWORK}} is directly connected, {{INTERFACE | ORPHRASE}}
+</group>
+<group name="type_network_cost_next_hop_time_interface">
+{{TYPE}} {{NETWORK}} [{{COST}}] via {{NEXT_HOP}}, {{TIME}}, {{INTERFACE | ORPHRASE}}
+</group>

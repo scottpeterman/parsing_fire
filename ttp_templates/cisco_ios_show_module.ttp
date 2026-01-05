@@ -1,0 +1,11 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_module
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="model_module_port_serial">
+ 1  {{PORT | re("\\d+")}}  {{MODEL | ORPHRASE}}  3YEEQEY{{MODULE | re("\\d+")}}MND  dc8c.5322.19c6  V01  16.12.6  
+ 2  28  C9200L-24T-4G-E  {{SERIAL | ORPHRASE}}  dc8c.aaa0.1b77  V01  16.12.6  
+</group>

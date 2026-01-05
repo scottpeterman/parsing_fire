@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: hp_comware_display_arp
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="type_mac_address_vlan_id_interface_aging">
+{{IP_A{{TYPE | ORPHRASE}}DRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{VLAN_ID}} {{INTERFACE}} {{AGING}} D
+</group>

@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip cef adjacency detail
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 6
+# Match ratio: 2.00
+
+<group name="nexthop_interface">
+  nexthop {{NEXTHOP}} {{INTERFACE | ORPHRASE}}
+</group>
+<group name="prefix_epoch_sharing">
+{{PREFIX}}, epoch {{EPOCH}}, per-{{SHARING | ORPHRASE}}
+</group>

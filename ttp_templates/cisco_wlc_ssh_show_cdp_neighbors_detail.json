@@ -1,0 +1,59 @@
+{
+  "command": "cisco_wlc_ssh_show_cdp_neighbors_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"platform_capabilities\">\nPlatform: {{PLATFORM | ORPHRASE}}, Capabilities: {{CAPABILITIES | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CHASSIS_ID": "AAA.pizza.com(FXS1828Q2JH)",
+      "MGMT_ADDRESS": "1.2.3.4",
+      "PLATFORM": "N77-C7706",
+      "NEIGHBOR_INTERFACE": "Ethernet1/15",
+      "LOCAL_INTERFACE": "GigabitEthernet0/0/2",
+      "NEIGHBOR_DESCRIPTION": "Cisco Nexus Operating System (NX-OS) Software, Version 6.2(10)",
+      "CAPABILITIES": "Router Switch IGMP"
+    },
+    {
+      "CHASSIS_ID": "BBB.beer.com",
+      "MGMT_ADDRESS": "172.5.6.7",
+      "PLATFORM": "cisco WS-C3750G-12S",
+      "NEIGHBOR_INTERFACE": "GigabitEthernet1/0/11",
+      "LOCAL_INTERFACE": "GigabitEthernet0/0/7",
+      "NEIGHBOR_DESCRIPTION": "Cisco IOS Software, C3750 Software (C3750-IPSERVICESK9-M), Version 12.2(55)SE11, RELEASE SOFTWARE (fc3) Technical Support: http://www.cisco.com/techsupport Copyright (c) 1986-2016 by Cisco Systems, Inc. Compiled Wed 17-Aug-16 13:28 by prod_rel_team",
+      "CAPABILITIES": "Router Switch IGMP"
+    },
+    {
+      "CHASSIS_ID": "CCC.cake.com",
+      "MGMT_ADDRESS": "172.9.10.11",
+      "PLATFORM": "cisco WS-C3750G-12S",
+      "NEIGHBOR_INTERFACE": "GigabitEthernet1/0/1",
+      "LOCAL_INTERFACE": "GigabitEthernet0/0/8",
+      "NEIGHBOR_DESCRIPTION": "Cisco IOS Software, C3750 Software (C3750-IPSERVICESK9-M), Version 12.2(55)SE11, RELEASE SOFTWARE (fc3) Technical Support: http://www.cisco.com/techsupport Copyright (c) 1986-2016 by Cisco Systems, Inc. Compiled Wed 17-Aug-16 13:28 by prod_rel_team",
+      "CAPABILITIES": "Router Switch IGMP"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "platform_capabilities": [
+        {
+          "PLATFORM": "N77-C7706",
+          "CAPABILITIES": "Router Switch IGMP"
+        },
+        {
+          "PLATFORM": "cisco WS-C3750G-12S",
+          "CAPABILITIES": "Router Switch IGMP"
+        },
+        {
+          "PLATFORM": "cisco WS-C3750G-12S",
+          "CAPABILITIES": "Router Switch IGMP"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\n-------------------------\nDevice ID: AAA.pizza.com(FXS1828Q2JH)\nEntry address(es):\n  IP address: 1.2.3.4\nPlatform: N77-C7706,  Capabilities: Router Switch IGMP\nInterface: GigabitEthernet0/0/2,  Port ID (outgoing port): Ethernet1/15\nHoldtime : 127 sec\n\nVersion :\nCisco Nexus Operating System (NX-OS) Software, Version 6.2(10)\n\nAdvertisement version: 2\nDuplex: Full\n\n-------------------------\nDevice ID: BBB.beer.com\nEntry address(es):\n  IP address: 172.5.6.7\nPlatform: cisco WS-C3750G-12S,  Capabilities: Router Switch IGMP\nInterface: GigabitEthernet0/0/7,  Port ID (outgoing port): GigabitEthernet1/0/11\nHoldtime : 162 sec\n\n\nVersion :\nCisco IOS Software, C3750 Software (C3750-IPSERVICESK9-M), Version 12.2(55)SE11, RELEASE SOFTWARE (fc3) Technical Support: http://www.cisco.com/techsupport Copyright (c) 1986-2016 by Cisco Systems, Inc. Compiled Wed 17-Aug-16 13:28 by prod_rel_team\n\nAdvertisement version: 2\nDuplex: Full\n\n-------------------------\nDevice ID: CCC.cake.com\nEntry address(es):\n  IP address: 172.9.10.11\nPlatform: cisco WS-C3750G-12S,  Capabilities: Router Switch IGMP\nInterface: GigabitEthernet0/0/8,  Port ID (outgoing port): GigabitEthernet1/0/1\nHoldtime : 162 sec\n\nVersion :\nCisco IOS Software, C3750 Software (C3750-IPSERVICESK9-M), Version 12.2(55)SE11, RELEASE SOFTWARE (fc3) Technical Support: http://www.cisco.com/techsupport Copyright (c) 1986-2016 by Cisco Systems, Inc. Compiled Wed 17-Aug-16 13:28 by prod_rel_team\n\nAdvertisement version: 2\nDuplex: Full\n\n",
+  "textfsm_template": "Value Required CHASSIS_ID (\\S+)\nValue MGMT_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+|\\w+\\.\\w+\\.\\w+)\nValue PLATFORM (.*)\nValue NEIGHBOR_INTERFACE (.*)\nValue LOCAL_INTERFACE (.*)\nValue NEIGHBOR_DESCRIPTION (.*$)\nValue CAPABILITIES (.*)\n\nStart\n  ^Device ID: ${CHASSIS_ID}\n  ^Entry address\\(es\\)\\s*:\\s* -> ParseIP\n  ^Platform\\s*:\\s*${PLATFORM}\\s*,\\s*Capabilities\\s*:\\s*${CAPABILITIES}\n  ^Interface: ${LOCAL_INTERFACE},  Port ID \\(outgoing port\\): ${NEIGHBOR_INTERFACE}\n  ^Version : -> GetVersion\n\nParseIP\n  ^.*IP address: ${MGMT_ADDRESS} -> Start\n  ^Platform\\s*:\\s*${PLATFORM}\\s*,\\s*Capabilities\\s*:\\s*${CAPABILITIES} -> Start\n  ^.* -> Start\n\nGetVersion\n  ^${NEIGHBOR_DESCRIPTION} -> Record Start\n"
+}

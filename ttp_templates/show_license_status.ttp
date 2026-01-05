@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show license status
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="license_name_status_expiry_date_count">
+{{LICENSE_NAME | ORPHRASE}} {{STATUS | ORPHRASE}} {{EXPIRY_DATE}} {{COUNT | ORPHRASE}}
+</group>

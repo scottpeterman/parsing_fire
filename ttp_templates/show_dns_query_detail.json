@@ -1,0 +1,36 @@
+{
+  "command": "show dns query detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"answer_ip_answer_ttl_dns_query_retries\">\nDNS Query  : {{DNS_QUERY | ORPHRASE}}\nTransport  : {{TRANSPORT | ORPHRASE}}\nTimeout  : {{TIMEOUT | ORPHRASE}}\nRetries  : {{RETRIES | ORPHRASE}}\nServer IP  : {{SERVER_IP | ORPHRASE}}\nStatus  : {{STATUS | ORPHRASE}}\n  TTL  : {{ANSWER_TTL | ORPHRASE}}\n  IP  : {{ANSWER_IP | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DNS_QUERY": "example.com",
+      "TRANSPORT": "UDP",
+      "TIMEOUT": "5",
+      "RETRIES": "3",
+      "SERVER_IP": "8.8.8.8",
+      "STATUS": "Success",
+      "ANSWER_IP": "93.184.216.34",
+      "ANSWER_TTL": "3599"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "answer_ip_answer_ttl_dns_query_retries": {
+        "STATUS": "Success",
+        "SERVER_IP": "8.8.8.8",
+        "RETRIES": "3",
+        "TIMEOUT": "5",
+        "TRANSPORT": "UDP",
+        "DNS_QUERY": "example.com"
+      }
+    }
+  ],
+  "cli_content": "DNS Query  : example.com\nTransport  : UDP\nTimeout    : 5\nRetries    : 3\nServer IP  : 8.8.8.8\nStatus     : Success\nAnswers    : \n  - A Record : \n      IP      : 93.184.216.34\n      TTL     : 3599\n  - A Record : \n      IP      : 93.184.216.35\n      TTL     : 3599\n",
+  "textfsm_template": "Value DNS_QUERY (\\S+)\nValue TRANSPORT (\\S+)\nValue TIMEOUT (\\d+)\nValue RETRIES (\\d+)\nValue SERVER_IP (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue STATUS (\\S+)\nValue ANSWER_TYPE (\\S+)\nValue ANSWER_IP (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue ANSWER_TTL (\\d+)\n\nStart\n  ^DNS\\s+Query\\s+:\\s+${DNS_QUERY}\\s*$$\n  ^Transport\\s+:\\s+${TRANSPORT}\\s*$$\n  ^Timeout\\s+:\\s+${TIMEOUT}\\s*$$\n  ^Retries\\s+:\\s+${RETRIES}\\s*$$\n  ^Server\\s+IP\\s+:\\s+${SERVER_IP}\\s*$$\n  ^Status\\s+:\\s+${STATUS}\\s*$$\n  ^Answers\\s+:\\s*$$\n  ^\\s+-\\s+${ANSWER_TYPE}\\s+:\\s*$$\n  ^\\s+IP\\s+:\\s+${ANSWER_IP}\\s*$$\n  ^\\s+TTL\\s+:\\s+${ANSWER_TTL}\\s*$$ -> Record"
+}

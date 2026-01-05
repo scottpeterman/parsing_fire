@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_mobility_anchor
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="wlan_id_ip_address_status_priority">
+ {{WLAN_ID | re("\\d+")}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATUS | ORPHRASE}} {{PRIORITY | ORPHRASE}} 
+</group>
+<group name="wlan_id_ip_address_status">
+ {{WLAN_ID | re("\\d+")}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATUS | ORPHRASE}}
+</group>

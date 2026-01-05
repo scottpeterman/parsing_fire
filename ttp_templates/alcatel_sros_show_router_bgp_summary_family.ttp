@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: alcatel_sros_show_router_bgp_summary_family
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 10
+# Match ratio: 1.67
+
+<group name="as_pktrcvd_pktsent_inq_outq_up_down_rcv_act_sent">
+               {{AS}} {{PKTRCVD}} {{PKTSENT}} {{INQ}} {{OUTQ}} {{UP_DOWN | ORPHRASE}} {{RCV}}/{{ACT}}/{{SENT}}
+</group>
+<group name="as_pktrcvd_pktsent_inq_outq_up_down_state">
+               {{AS}} {{PKTRCVD}} {{PKTSENT}} {{INQ}} {{OUTQ}} {{UP_DOWN}} {{STATE | ORPHRASE}}
+</group>

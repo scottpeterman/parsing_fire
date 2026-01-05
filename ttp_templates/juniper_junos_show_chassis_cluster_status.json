@@ -1,0 +1,68 @@
+{
+  "command": "juniper_junos_show_chassis_cluster_status",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"redundancy_group_id_cluster_id\">\nRedundancy group: {{REDUNDANCY_GROUP_ID | re(\"\\\\d+\")}} , Failover count: {{CLUSTER_ID | ORPHRASE}}\n</group>\n<group name=\"cluster_id\">\nCluster ID: {{CLUSTER_ID | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CLUSTER_ID": "1",
+      "REDUNDANCY_GROUP_ID": "0",
+      "FAILOVER_COUNT": "1",
+      "NODE": "node0, node1",
+      "PRIORITY": "100, 0",
+      "STATUS": "primary, lost",
+      "PREEMPT": "no, n/a",
+      "MANUAL": "no, n/a",
+      "MONITOR_FAILURES": "None, n/a"
+    },
+    {
+      "CLUSTER_ID": "1",
+      "REDUNDANCY_GROUP_ID": "1",
+      "FAILOVER_COUNT": "1",
+      "NODE": "node0, node1",
+      "PRIORITY": "0, 0",
+      "STATUS": "primary, lost",
+      "PREEMPT": "no, n/a",
+      "MANUAL": "no, n/a",
+      "MONITOR_FAILURES": "CS, n/a"
+    },
+    {
+      "CLUSTER_ID": "1",
+      "REDUNDANCY_GROUP_ID": "3",
+      "FAILOVER_COUNT": "1",
+      "NODE": "node0, node1",
+      "PRIORITY": "0, 0",
+      "STATUS": "primary, lost",
+      "PREEMPT": "no, n/a",
+      "MANUAL": "no, n/a",
+      "MONITOR_FAILURES": "CS, n/a"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "redundancy_group_id_cluster_id": [
+        {
+          "REDUNDANCY_GROUP_ID": "0",
+          "CLUSTER_ID": "1"
+        },
+        {
+          "REDUNDANCY_GROUP_ID": "1",
+          "CLUSTER_ID": "1"
+        },
+        {
+          "REDUNDANCY_GROUP_ID": "3",
+          "CLUSTER_ID": "1"
+        }
+      ],
+      "cluster_id": {
+        "CLUSTER_ID": "1"
+      }
+    }
+  ],
+  "cli_content": "Monitor Failure codes:\nCS  Cold Sync monitoring        FL  Fabric Connection monitoring\nGR  GRES monitoring             HW  Hardware monitoring\nIF  Interface monitoring        IP  IP monitoring\nLB  Loopback monitoring         MB  Mbuf monitoring\nNH  Nexthop monitoring          NP  NPC monitoring\nSP  SPU monitoring              SM  Schedule monitoring\n\nCluster ID: 1\nNode   Priority Status         Preempt Manual   Monitor-failures\n\nRedundancy group: 0 , Failover count: 1\nnode0  100      primary        no      no       None\nnode1  0        lost           n/a     n/a      n/a\n\nRedundancy group: 1 , Failover count: 1\nnode0  0        primary        no      no       CS\nnode1  0        lost           n/a     n/a      n/a\n\nRedundancy group: 3 , Failover count: 1\nnode0  0        primary        no      no       CS\nnode1  0        lost           n/a     n/a      n/a\n",
+  "textfsm_template": "Value Filldown CLUSTER_ID (\\d+)\nValue REDUNDANCY_GROUP_ID (\\d+)\nValue FAILOVER_COUNT (\\d+)\nValue List NODE (\\S+)\nValue List PRIORITY (\\d+)\nValue List STATUS (\\S+)\nValue List PREEMPT (\\S+)\nValue List MANUAL (\\S+)\nValue List MONITOR_FAILURES (\\S+)\n\nStart\n  ^[Mm]onitor\\s+[Ff]ailure\\s+[Cc]odes:\\s*$$\n  ^\\S{1,3}\\s+\n  ^\\s*$$\n  ^Cluster\\s+ID:\\s+${CLUSTER_ID}\\s*$$\n  ^Node\\s+Priority\\s+Status\\s+Preempt\\s+Manual\\s+Monitor-failures\\s*$$\n  ^Redundancy\\s+group:\\s+${REDUNDANCY_GROUP_ID}\\s*,\\s*Failover\\s+count:\\s+${FAILOVER_COUNT}\\s*$$ -> RedGroup\n  ^. -> Error\n\nRedGroup\n  ^${NODE}\\s+${PRIORITY}\\s+${STATUS}\\s+${PREEMPT}\\s+${MANUAL}\\s+${MONITOR_FAILURES}\\s*$$\n  ^Redundancy\\s+group -> Continue.Record\n  ^Redundancy\\s+group:\\s+${REDUNDANCY_GROUP_ID}\\s*,\\s*Failover\\s+count:\\s+${FAILOVER_COUNT}\\s*$$\n  ^. -> Error\n"
+}

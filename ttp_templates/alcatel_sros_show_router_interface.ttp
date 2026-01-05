@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: alcatel_sros_show_router_interface
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 7
+# Match ratio: 1.17
+
+<group name="interface_admin_state_oper_state_v4_oper_state_v6_mode_port_sap_id">
+{{INTERFACE}} {{ADMIN_STATE | ORPHRASE}} {{OPER_STATE_V4 | ORPHRASE}}/{{OPER_STATE_V6 | ORPHRASE}} {{MODE}} {{PORT_SAP_ID | ORPHRASE}}
+</group>

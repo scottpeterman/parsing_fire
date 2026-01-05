@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show etherchannel summary
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 1
+# Match ratio: 0.33
+
+<group name="group_port_channel_protocol_ports">
+{{GROUP}} {{PORT_CHANNEL}} {{PROTOCOL}} {{PORTS | ORPHRASE}}
+</group>

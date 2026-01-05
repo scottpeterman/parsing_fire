@@ -1,0 +1,62 @@
+{
+  "command": "show bfd neighbors",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"neigh_addr_ld_rd_holdown_state_interface\">\n{{NEIGH_ADDR | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{LD_RD}} {{HOLDOWN}} {{STATE | ORPHRASE}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGH_ADDR": "10.0.0.2",
+      "LD_RD": "100/200",
+      "HOLDOWN": "100(3)",
+      "STATE": "Up",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "NEIGH_ADDR": "192.168.0.1",
+      "LD_RD": "101/201",
+      "HOLDOWN": "150(3)",
+      "STATE": "Up",
+      "INTERFACE": "Ethernet1/2"
+    },
+    {
+      "NEIGH_ADDR": "172.16.0.1",
+      "LD_RD": "102/202",
+      "HOLDOWN": "250(3)",
+      "STATE": "Down",
+      "INTERFACE": "Ethernet1/3"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neigh_addr_ld_rd_holdown_state_interface": [
+        {
+          "NEIGH_ADDR": "10.0.0.2",
+          "LD_RD": "100/200",
+          "HOLDOWN": "100(3)",
+          "STATE": "Up",
+          "INTERFACE": "Ethernet1/1"
+        },
+        {
+          "NEIGH_ADDR": "192.168.0.1",
+          "LD_RD": "101/201",
+          "HOLDOWN": "150(3)",
+          "STATE": "Up",
+          "INTERFACE": "Ethernet1/2"
+        },
+        {
+          "NEIGH_ADDR": "172.16.0.1",
+          "LD_RD": "102/202",
+          "HOLDOWN": "250(3)",
+          "STATE": "Down",
+          "INTERFACE": "Ethernet1/3"
+        }
+      ]
+    }
+  ],
+  "cli_content": "NeighAddr                 LD/RD           Holdown(mult)         State             Int\n10.0.0.2                  100/200         100(3)                Up                Ethernet1/1\n192.168.0.1               101/201         150(3)                Up                Ethernet1/2\n172.16.0.1                102/202         250(3)                Down              Ethernet1/3\n",
+  "textfsm_template": "Value NEIGH_ADDR (\\S+)\nValue LD_RD (\\d+/\\d+)\nValue HOLDOWN (\\d+\\(\\d+\\))\nValue STATE (\\S+)\nValue INTERFACE (\\S+)\n\nStart\n  ^\\s*NeighAddr\\s+LD/RD\\s+Holdown\\(mult\\)\\s+State\\s+Int\\s*$$\n  ^\\s*${NEIGH_ADDR}\\s+${LD_RD}\\s+${HOLDOWN}\\s+${STATE}\\s+${INTERFACE}\\s*$$ -> Record"
+}

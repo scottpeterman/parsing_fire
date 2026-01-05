@@ -1,0 +1,45 @@
+{
+  "command": "huawei_smartax_display_ont_autofind",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 2,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"fsp_number_ont_autofind_time_ont_customized_info\">\n  F/S/P  : {{FSP | ORPHRASE}}\n  Ont SN  : 4857544311E70E9A ({{VENDOR_ID | ORPHRASE}}-11E70E9A)\n  Password  : {{PASSWORD | ORPHRASE}}\n  Ont EquipmentID  : {{NUMBER | ORPHRASE}}45H\n  Ont Customized Info : {{ONT_CUSTOMIZED_INFO | ORPHRASE}}\n  Ont MAC  : {{ONT_MAC | ORPHRASE}}\n  Ont Equipment SN  : {{ONT_EQUIPMENT_SERIAL_NUMBER | ORPHRASE}}\n  Ont autofind time  : {{ONT_AUTOFIND_TIME | ORPHRASE}}\n  Ont SN  : {{SERIAL_NUMBER | ORPHRASE}}\n  Ont Version  : {{ONT_VERSION | ORPHRASE}}\n  Ont SoftwareVersion : {{ONT_SOFTWARE_VERSION | ORPHRASE}}\n  Ont EquipmentID  : {{ONT_EQUIPMENT_ID | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "NUMBER": "1",
+      "FSP": "0/1/0",
+      "SERIAL_NUMBER": "4857544311E70E9A (HWTC-11E70E9A)",
+      "PASSWORD": "0x00000000000000000000",
+      "VENDOR_ID": "HWTC",
+      "ONT_VERSION": "494.B",
+      "ONT_SOFTWARE_VERSION": "V3R015C10S150",
+      "ONT_EQUIPMENT_ID": "245H",
+      "ONT_CUSTOMIZED_INFO": "EUCOMMONEBG4",
+      "ONT_MAC": "1234-ABCD-1234",
+      "ONT_EQUIPMENT_SERIAL_NUMBER": "123456789ABCDEFGHIJK",
+      "ONT_AUTOFIND_TIME": "2000-01-01 00:00:00+00:00"
+    },
+    {
+      "NUMBER": "2",
+      "FSP": "0/1/0",
+      "SERIAL_NUMBER": "48575443DE135E2D (HWTC-DE135E2D)",
+      "PASSWORD": "0x00000000000000000000",
+      "VENDOR_ID": "HWTC",
+      "ONT_VERSION": "2B2.A",
+      "ONT_SOFTWARE_VERSION": "V3R012C00S103",
+      "ONT_EQUIPMENT_ID": "010H",
+      "ONT_CUSTOMIZED_INFO": "EUCOMMONEBG4",
+      "ONT_MAC": "1234-ABCD-1234",
+      "ONT_EQUIPMENT_SERIAL_NUMBER": "123456789ABCDEFGHIJK",
+      "ONT_AUTOFIND_TIME": "2000-01-01 00:00:00+00:00"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "   ----------------------------------------------------------------------------\n   Number              : 1\n   F/S/P               : 0/1/0\n   Ont SN              : 4857544311E70E9A (HWTC-11E70E9A)\n   Password            : 0x00000000000000000000\n   Loid                :\n   Checkcode           :\n   VendorID            : HWTC\n   Ont Version         : 494.B\n   Ont SoftwareVersion : V3R015C10S150\n   Ont EquipmentID     : 245H\n   Ont Customized Info : EUCOMMONEBG4\n   Ont MAC             : 1234-ABCD-1234\n   Ont Equipment SN    : 123456789ABCDEFGHIJK\n   Ont autofind time   : 2000-01-01 00:00:00+00:00\n   Multi channel       : -\n   ----------------------------------------------------------------------------\n   Number              : 2\n   F/S/P               : 0/1/0\n   Ont SN              : 48575443DE135E2D (HWTC-DE135E2D)\n   Password            : 0x00000000000000000000\n   Loid                :\n   Checkcode           :\n   VendorID            : HWTC\n   Ont Version         : 2B2.A\n   Ont SoftwareVersion : V3R012C00S103\n   Ont EquipmentID     : 010H\n   Ont Customized Info : EUCOMMONEBG4\n   Ont MAC             : 1234-ABCD-1234\n   Ont Equipment SN    : 123456789ABCDEFGHIJK\n   Ont autofind time   : 2000-01-01 00:00:00+00:00\n   Multi channel       : -\n   ----------------------------------------------------------------------------",
+  "textfsm_template": "Value NUMBER (\\d+)\nValue FSP (\\d+\\/\\d+\\/\\d+)\nValue SERIAL_NUMBER (\\w+\\s*\\(.*\\))\nValue PASSWORD (\\S+)\nValue LOID (\\S*)\nValue CHECKCODE (\\S*)\nValue VENDOR_ID (\\w+)\nValue ONT_VERSION (\\S+)\nValue ONT_SOFTWARE_VERSION (\\S+)\nValue ONT_EQUIPMENT_ID (\\S+)\nValue ONT_CUSTOMIZED_INFO (\\S+)\nValue ONT_MAC (\\S+)\nValue ONT_EQUIPMENT_SERIAL_NUMBER (\\S+)\nValue ONT_AUTOFIND_TIME (\\S+\\s*\\S+)\nValue MULTI_CHANNEL (\\w*)\n\nStart\n  ^\\s*Number\\s+:\\s+${NUMBER}\n  ^\\s*F\\/S\\/P\\s+:\\s+${FSP}\n  ^\\s*Ont\\s+SN\\s+:\\s+${SERIAL_NUMBER}\n  ^\\s*Password\\s+:\\s+${PASSWORD}\n  ^\\s*Loid\\s+:\\s+${LOID}\n  ^\\s*Checkcode\\s+:\\s+${CHECKCODE}\n  ^\\s*VendorID\\s+:\\s+${VENDOR_ID}\n  ^\\s*Ont\\s+Version\\s+:\\s+${ONT_VERSION}\n  ^\\s*Ont\\s+SoftwareVersion\\s+:\\s+${ONT_SOFTWARE_VERSION}\n  ^\\s*Ont\\s+EquipmentID\\s+:\\s+${ONT_EQUIPMENT_ID}\n  ^\\s*Ont\\s+Customized\\s+Info\\s+:\\s+${ONT_CUSTOMIZED_INFO}\n  ^\\s*Ont\\s+MAC\\s+:\\s+${ONT_MAC}\n  ^\\s*Ont\\s+Equipment\\s+SN\\s+:\\s+${ONT_EQUIPMENT_SERIAL_NUMBER}\n  ^\\s*Ont\\s+autofind\\s+time\\s+:\\s+${ONT_AUTOFIND_TIME}\n  ^\\s*Multi\\s+channel\\s+:\\s+${MULTI_CHANNEL} -> Record\n  ^\\s*\n  ^. -> Error"
+}

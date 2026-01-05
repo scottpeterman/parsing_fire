@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: ps ax
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="pid_tty_stat_time_command">
+    {{PID | re("\\d+")}} {{TTY | re(".*\\w.*")}} {{STAT}} {{TIME}} {{COMMAND | ORPHRASE}}
+</group>

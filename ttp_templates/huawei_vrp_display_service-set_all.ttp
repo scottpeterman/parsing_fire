@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_vrp_display_service-set_all
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="id_name_ssid">
+  {{ID | re("\\d+")}} {{NAME | ORPHRASE}} {{SSID}} 
+</group>

@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_pim_ipv4_neighbor
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="vrf">
+PIM Neighbor Table for {{VRF | ORPHRASE}} VRF
+<group name="expires_interface_mode">
+{{NEIGHBOR}} {{INTERFACE}} {{UPTIME | ORPHRASE}} {{EXPIRES}} {{MODE}} {{TRANSPORT | ORPHRASE}}
+</group>
+</group>

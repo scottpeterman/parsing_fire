@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_ip_arp_print_terse_without-paging
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="index_flags_address_mac_address_interface_published">
+ {{INDEX}} {{FLAGS}} address={{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} mac-address={{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} interface={{INTERFACE}} published={{PUBLISHED | ORPHRASE}}
+</group>
+<group name="index_address_mac_address_interface_published">
+ {{INDEX}} address={{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} mac-address={{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} interface={{INTERFACE}} published={{PUBLISHED | ORPHRASE}}
+</group>

@@ -1,0 +1,12 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ipv6 interface
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 2
+# Match ratio: 2.00
+
+<group name="interface_link_local_address_mtu">
+  MTU is {{MTU | ORPHRASE}} bytes
+{{INTERFACE | ORPHRASE}} [down/down]
+  IPv6 is enabled, link-local address is {{LINK_LOCAL_ADDRESS | ORPHRASE}} [down]
+</group>

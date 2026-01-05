@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_mac_security_mka_counters
+# Source: ntc
+# TextFSM rows: 12
+# TTP rows: 12
+# Match ratio: 1.00
+
+<group name="interface_rx_success_rx_failure_tx_success_tx_failure">
+{{INTERFACE}} {{RX_SUCCESS | ORPHRASE}} {{RX_FAILURE}} {{TX_SUCCESS}} {{TX_FAILURE}} 
+</group>

@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: edgecore_show_vlan
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="ports_status_type_vlan_id">
+Type:  {{TYPE | ORPHRASE}}
+Status:  {{STATUS | ORPHRASE}}
+Name:  {{VLAN_NAME | ORPHRASE}}
+VLAN ID:  {{VLAN_ID | ORPHRASE}}
+</group>

@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: arista_eos_show_ip_interface_brief
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="interface_ip_address_status_protocol_mtu">
+{{INTERFACE}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATUS | ORPHRASE}} {{PROTOCOL}} {{MTU | ORPHRASE}}
+</group>

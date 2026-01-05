@@ -1,0 +1,111 @@
+{
+  "command": "cisco_ios_show_interface_transceiver",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 9,
+  "ttp_template": "<group name=\"interface_temperature_voltage_tx_pwr_rx_pwr\">\n{{INTERFACE}} {{TEMPERATURE}} {{VOLTAGE}} {{TX_PWR}} {{RX_PWR | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Te1/49",
+      "TEMPERATURE": "23.1",
+      "VOLTAGE": "3.29",
+      "TX_PWR": "-2.2",
+      "RX_PWR": "-3.0"
+    },
+    {
+      "INTERFACE": "Te1/50",
+      "TEMPERATURE": "23.4",
+      "VOLTAGE": "3.31",
+      "TX_PWR": "-2.2",
+      "RX_PWR": "-2.6"
+    },
+    {
+      "INTERFACE": "Te1/51",
+      "TEMPERATURE": "21.5",
+      "VOLTAGE": "3.29",
+      "TX_PWR": "-2.2",
+      "RX_PWR": "-2.1"
+    },
+    {
+      "INTERFACE": "Te1/52",
+      "TEMPERATURE": "23.5",
+      "VOLTAGE": "3.29",
+      "TX_PWR": "-2.4",
+      "RX_PWR": "-2.8"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_temperature_voltage_tx_pwr_rx_pwr": [
+        {
+          "INTERFACE": "If",
+          "TEMPERATURE": "device",
+          "VOLTAGE": "is",
+          "TX_PWR": "externally",
+          "RX_PWR": "calibrated, only calibrated values are printed."
+        },
+        {
+          "INTERFACE": "NA",
+          "TEMPERATURE": "or",
+          "VOLTAGE": "N/A:",
+          "TX_PWR": "not",
+          "RX_PWR": "applicable, Tx: transmit, Rx: receive."
+        },
+        {
+          "INTERFACE": "mA:",
+          "TEMPERATURE": "milliamperes,",
+          "VOLTAGE": "dBm:",
+          "TX_PWR": "decibels",
+          "RX_PWR": "(milliwatts)."
+        },
+        {
+          "INTERFACE": "Port",
+          "TEMPERATURE": "(Celsius)",
+          "VOLTAGE": "(Volts)",
+          "TX_PWR": "(dBm)",
+          "RX_PWR": "(dBm)"
+        },
+        {
+          "INTERFACE": "---------",
+          "TEMPERATURE": "-----------",
+          "VOLTAGE": "-------",
+          "TX_PWR": "--------",
+          "RX_PWR": "--------"
+        },
+        {
+          "INTERFACE": "Te1/49",
+          "TEMPERATURE": "23.1",
+          "VOLTAGE": "3.29",
+          "TX_PWR": "-2.2",
+          "RX_PWR": "-3.0"
+        },
+        {
+          "INTERFACE": "Te1/50",
+          "TEMPERATURE": "23.4",
+          "VOLTAGE": "3.31",
+          "TX_PWR": "-2.2",
+          "RX_PWR": "-2.6"
+        },
+        {
+          "INTERFACE": "Te1/51",
+          "TEMPERATURE": "21.5",
+          "VOLTAGE": "3.29",
+          "TX_PWR": "-2.2",
+          "RX_PWR": "-2.1"
+        },
+        {
+          "INTERFACE": "Te1/52",
+          "TEMPERATURE": "23.5",
+          "VOLTAGE": "3.29",
+          "TX_PWR": "-2.4",
+          "RX_PWR": "-2.8"
+        }
+      ]
+    }
+  ],
+  "cli_content": "If device is externally calibrated, only calibrated values are printed.\n++ : high alarm, +  : high warning, -  : low warning, -- : low alarm.\nNA or N/A: not applicable, Tx: transmit, Rx: receive.\nmA: milliamperes, dBm: decibels (milliwatts).\n\n                                 Optical   Optical\n           Temperature  Voltage  Tx Power  Rx Power\nPort       (Celsius)    (Volts)  (dBm)     (dBm)\n---------  -----------  -------  --------  --------\nTe1/49       23.1       3.29      -2.2      -3.0   \nTe1/50       23.4       3.31      -2.2      -2.6   \nTe1/51       21.5       3.29      -2.2      -2.1   \nTe1/52       23.5       3.29      -2.4      -2.8  \n",
+  "textfsm_template": "Value INTERFACE (\\w+\\d+\\/\\S+)\nValue TEMPERATURE (\\d+.\\d+)\nValue VOLTAGE (\\d+.\\d+)\nValue TX_PWR (\\S+)\nValue RX_PWR (\\S+)\n\nStart\n  ^${INTERFACE}\\s+${TEMPERATURE}\\s+${VOLTAGE}\\s+${TX_PWR}\\s+${RX_PWR}\\s+ -> Record\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n"
+}

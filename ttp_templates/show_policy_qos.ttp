@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show policy qos
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 10
+# Match ratio: 2.00
+
+<group name="bandwidth">
+   Bandwidth {{BANDWIDTH | ORPHRASE}} kbps
+</group>
+<group name="queue_limit">
+   Queue-limit {{QUEUE_LIMIT | ORPHRASE}}
+</group>

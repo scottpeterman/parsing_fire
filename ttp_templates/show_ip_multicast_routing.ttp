@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip multicast routing
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="interface_ip_address_group_protocol_source">
+{{INTERFACE}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{GROUP}} {{PROTOCOL}} {{SOURCE | ORPHRASE}} 
+</group>

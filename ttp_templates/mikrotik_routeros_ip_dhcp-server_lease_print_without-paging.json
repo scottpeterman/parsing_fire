@@ -1,0 +1,41 @@
+{
+  "command": "mikrotik_routeros_ip_dhcp-server_lease_print_without-paging",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"flags_index_ip_address_last_seen\">\nFlags: {{FLAGS | ORPHRASE}} - disabled, R - radius, D - dynamic, B - blocked \n{{INDEX | ORPHRASE}}7:20:06 echo: system,error,critical login failure for user admin from 65.160.140.13 via ssh\n 0  {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}}  {{STATUS | ORPHRASE}} {{LAST_SEEN | ORPHRASE}}  \n 1 X {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}  {{RATE_LIMIT | ORPHRASE}}  waiting never  \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INDEX": "0",
+      "MAC_ADDRESS": "AF:D6:C8:F2:36:16",
+      "STATUS": "waiting",
+      "LAST_SEEN": "never"
+    },
+    {
+      "INDEX": "1",
+      "FLAGS": "X",
+      "IP_ADDRESS": "192.168.1.56",
+      "RATE_LIMIT": "15",
+      "STATUS": "waiting",
+      "LAST_SEEN": "never"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "flags_index_ip_address_last_seen": {
+        "IP_ADDRESS": "192.168.1.56",
+        "RATE_LIMIT": "15",
+        "MAC_ADDRESS": "AF:D6:C8:F2:36:16",
+        "STATUS": "waiting",
+        "LAST_SEEN": "never",
+        "INDEX": "1",
+        "FLAGS": "X"
+      }
+    }
+  ],
+  "cli_content": "Flags: X - disabled, R - radius, D - dynamic, B - blocked \n #   ADDRESS                                 MAC-ADDRESS       HOST-NAME                     SERVER                     RATE-LIMIT                     STATUS  LAST-SEEN                               \n17:20:06 echo: system,error,critical login failure for user admin from 65.160.140.13 via ssh\n 0                                           AF:D6:C8:F2:36:16                                                                                         waiting never                                   \n 1 X 192.168.1.56                                                                                                       15                             waiting never                                   \n",
+  "textfsm_template": "Value Key INDEX (\\d+)\nValue FLAGS ([XRDB]+)\nValue IP_ADDRESS ([\\w.:]+)\nValue MAC_ADDRESS (([0-9a-fA-F]{2}[:]){5}([0-9a-fA-F]{2}))\nValue HOSTNAME (\\S+)\nValue SERVER (\\w+?)\nValue RATE_LIMIT (\\d+)\nValue STATUS (waiting|testing|authorizing|busy|offered|bound)\nValue LAST_SEEN (\\w+)\n\nStart\n  ^\\s*#\\s+ADDRESS\\s+MAC-ADDRESS\\s+HOST-NAME\\s+SERVER\\s+RATE-LIMIT\\s+STATUS\\s+LAST-SEEN\\s+$$ -> EntriesTable\n\nEntriesTable\n  ^\\s*${INDEX}\\s+(${RATE_LIMIT})?\\s+(${STATUS})?\\s+(${LAST_SEEN})?\\s*$$ -> Record\n  ^\\s*${INDEX}\\s(${FLAGS})?\\s{,4}${IP_ADDRESS}\\s+(${RATE_LIMIT})?\\s+${STATUS}\\s+${LAST_SEEN}\\s*$$ -> Record\n  ^\\s*${INDEX}\\s(${FLAGS})?\\s{,4}(${IP_ADDRESS})?\\s+${MAC_ADDRESS}\\s+(${RATE_LIMIT})?\\s+${STATUS}\\s+${LAST_SEEN}\\s*$$ -> Record\n  ^\\s*${INDEX}\\s(${FLAGS})?\\s{,4}(${IP_ADDRESS})?\\s+(${MAC_ADDRESS}|\\s{17})\\s(${HOSTNAME})?\\s+(${SERVER})?\\s+(${RATE_LIMIT})?\\s+${STATUS}\\s+${LAST_SEEN}\\s*$$ -> Record\n  ^\\s*(?:\\d{2}:){2}\\d{2}\\s+echo:\\s*.*$$ -> Next\n  ^. -> Error\n"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show adjacency ato
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="destination_type_next_hop_age_interface_state">
+{{DESTINATION}} {{TYPE}} {{NEXT_HOP}} {{AGE}} {{INTERFACE}} {{STATE | ORPHRASE}}
+</group>

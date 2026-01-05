@@ -1,0 +1,45 @@
+{
+  "command": "brocade_fastiron_show_span",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"mastervlan_rootbridgeid_rootpathcost_rootport_priorityhex_bridgemaxage_bridgehello_vlan_bridgefwddly_lasttopochange_bridgeaddress\">\n   {{mastervlan | re(\"\\\\d+\")}} {{rootbridgeid}} {{rootpathcost}} {{rootport}} {{priorityhex}} {{bridgemaxage | re(\"\\\\d+\")}} {{bridgehello | re(\"\\\\d+\")}} {{vlan | re(\"\\\\d+\")}} {{bridgefwddly | re(\"\\\\d+\")}} {{lasttopochange | ORPHRASE}} {{bridgeaddress}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "mastervlan": "1",
+      "vlan": "1",
+      "rootbridgeid": "8000cc4e2415015e",
+      "rootpathcost": "0",
+      "rootport": "Root",
+      "priorityhex": "8000",
+      "bridgemaxage": "20",
+      "bridgehello": "2",
+      "holdtime": "1",
+      "bridgefwddly": "15",
+      "lasttopochange": "265591169",
+      "bridgeaddress": "cc4e2415015e"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "mastervlan_rootbridgeid_rootpathcost_rootport_priorityhex_bridgemaxage_bridgehello_vlan_bridgefwddly_lasttopochange_bridgeaddress": {
+        "mastervlan": "1",
+        "rootbridgeid": "8000cc4e2415015e",
+        "rootpathcost": "0",
+        "rootport": "Root",
+        "priorityhex": "8000",
+        "bridgemaxage": "20",
+        "bridgehello": "2",
+        "vlan": "1",
+        "bridgefwddly": "15",
+        "lasttopochange": "265591169",
+        "bridgeaddress": "cc4e2415015e"
+      }
+    }
+  ],
+  "cli_content": "\nSTP instance owned by VLAN 1\n\nGlobal STP (IEEE 802.1D) Parameters:\n\nVLAN Root             Root Root   Prio Max He- Ho- Fwd Last    Chg Bridge      \n ID   ID              Cost Port   rity Age llo ld  dly Chang   cnt Address     \n                                  Hex  sec sec sec sec sec                     \n   1 8000cc4e2415015e 0    Root   8000 20  2   1   15  265591169   cc4e2415015e\n\nPort STP Parameters:\n\nPort   Prio Path  State       Fwd    Design  Designated       Designated       \nNum    rity Cost              Trans  Cost    Root             Bridge           \n       Hex                                                                     \n1/1/1  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/1/9  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/1/10 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/1/11 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/1/12 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/1/13 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/1/14 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/1/15 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/1/16 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/1/17 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/1/18 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/1/19 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/1/20 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/1/21 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/1/22 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/1/23 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/3/3  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/3/4  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/3/5  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/3/6  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/3/7  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n1/3/8  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/3  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/4  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/5  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/6  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/7  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/8  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/9  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/10 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/11 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/12 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/13 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/14 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/15 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/16 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/17 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/18 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/19 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/20 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/21 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/22 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/23 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/1/24 80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/3/3  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/3/4  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/3/5  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/3/6  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/3/7  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n2/3/8  80   0     DISABLED    0      0       0000000000000000 0000000000000000 \n\nSpanning-tree is not configured on port-vlan 385\n\nSpanning-tree is not configured on port-vlan 10\n                                                                  \nSpanning-tree is not configured on port-vlan 94\n\nSpanning-tree is not configured on port-vlan 144\n\nSpanning-tree is not configured on port-vlan 145\n\nSpanning-tree is not configured on port-vlan 146\n\nSpanning-tree is not configured on port-vlan 149\n\nSpanning-tree is not configured on port-vlan 151\n\nSpanning-tree is not configured on port-vlan 152\n\nSpanning-tree is not configured on port-vlan 154\n\n",
+  "textfsm_template": "Value Filldown mastervlan (\\d+)\nValue Required vlan (\\d+)\nValue rootbridgeid ([0-9a-f]+)\nValue rootpathcost (\\d+)\nValue rootport ([0-9a-zA-Z]+)\nValue priorityhex ([0-9a-f]+)\nValue bridgemaxage (\\d+)\nValue bridgehello (\\d+)\nValue holdtime (\\d+)\nValue bridgefwddly (\\d+)\nValue lasttopochange (\\d+)\nValue topochangecount (\\d+)\nValue bridgeaddress ([0-9a-f]+)\nValue portstates (\\d+)\n\nStart\n  ^STP instance owned by VLAN ${mastervlan}\n  ^\\s+${vlan}\\s+${rootbridgeid}\\s+${rootpathcost}\\s+${rootport}\\s+${priorityhex}\\s+${bridgemaxage}\\s+${bridgehello}\\s+${holdtime}\\s+${bridgefwddly}\\s+${lasttopochange}\\s+${bridgeaddress} -> Continue\n  ^\\s+${vlan}\\s+${rootbridgeid}\\s+${rootpathcost}\\s+${rootport}\\s+${priorityhex}\\s+${bridgemaxage}\\s+${bridgehello}\\s+${holdtime}\\s+${bridgefwddly}\\s+${lasttopochange}\\s+${topochangecount}\\s+${bridgeaddress} -> Next.Record"
+}

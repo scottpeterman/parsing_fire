@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show interfaces ethernet
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="port_description_vlan_duplex_speed_type">
+{{PORT}} {{DESCRIPTION | ORPHRASE}} {{VLAN | re("\\d+")}} {{DUPLEX}} {{SPEED}} {{TYPE | ORPHRASE}}
+</group>
+<group name="port_vlan_duplex_speed_type">
+{{PORT}} {{VLAN | re("\\d+")}} {{DUPLEX}} {{SPEED}} {{TYPE | ORPHRASE}}
+</group>

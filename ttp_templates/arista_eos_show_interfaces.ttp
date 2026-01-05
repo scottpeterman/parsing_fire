@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_interfaces
+# Source: ntc
+# TextFSM rows: 7
+# TTP rows: 16
+# Match ratio: 2.29
+
+<group name="interface_link_status_protocol_status">
+{{INTERFACE}} is {{LINK_STATUS | ORPHRASE}}, line protocol is {{PROTOCOL_STATUS | ORPHRASE}}
+</group>
+<group name="hardware_type_link_status_change_link_status_protocol_status">
+{{HARDWARE_TYPE}}{{LINK_STATUS_CHANGE | ORPHRASE}} is {{LINK_STATUS | ORPHRASE}}, line protocol is {{PROTOCOL_STATUS | ORPHRASE}}
+</group>

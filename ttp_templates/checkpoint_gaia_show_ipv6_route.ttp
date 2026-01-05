@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: checkpoint_gaia_show_ipv6_route
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="protocol_network_prefix_length_interface">
+{{PROTOCOL}} {{NETWORK}}/{{PREFIX_LENGTH}} is directly connected, {{INTERFACE | ORPHRASE}}
+</group>
+<group name="protocol_network_prefix_length_nexthopip_interface">
+{{PROTOCOL}} {{NETWORK}}/{{PREFIX_LENGTH}} via {{NEXTHOPIP}}, {{INTERFACE | ORPHRASE}}, cost 0, age 4237508
+</group>

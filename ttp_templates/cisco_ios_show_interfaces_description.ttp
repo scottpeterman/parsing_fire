@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_interfaces_description
+# Source: ntc
+# TextFSM rows: 15
+# TTP rows: 18
+# Match ratio: 1.20
+
+<group name="port_status_protocol">
+{{PORT}} {{STATUS | ORPHRASE}} {{PROTOCOL}}
+</group>
+<group name="port_status_protocol_description">
+{{PORT}} {{STATUS | ORPHRASE}} {{PROTOCOL}} {{DESCRIPTION | ORPHRASE}}
+</group>

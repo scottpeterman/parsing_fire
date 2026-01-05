@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_vrrp_all
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 7
+# Match ratio: 1.40
+
+<group name="state_master_ip_address_priority">
+  {{STATE | ORPHRASE}} Router is {{MASTER_IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} (local), priority is {{PRIORITY | ORPHRASE}} 
+</group>
+<group name="master_ip_address_master_priority">
+  Master Router is {{MASTER_IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}, priority is {{MASTER_PRIORITY | ORPHRASE}} 
+</group>
+<group name="track_status_master_down_interval_track_obj">
+  Master {{TRACK_STATUS | ORPHRASE}} interval is {{MASTER_DOWN_INTERVAL}} sec (expires in {{TRACK_OBJ | ORPHRASE}}.738 sec)
+</group>

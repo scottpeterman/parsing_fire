@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: brocade_netiron_show_interfaces
+# Source: ntc
+# TextFSM rows: 9
+# TTP rows: 11
+# Match ratio: 1.22
+
+<group name="openflowindex_dropprecedencelevel_hardwaretype_stprootguard">
+{{openflowindex}}{{dropprecedencelevel}}{{hardwaretype | ORPHRASE}}3/6 is {{stprootguard | ORPHRASE}}, line protocol is down 
+</group>
+<group name="interface_intstate_protostate">
+{{interface}} is {{intstate | ORPHRASE}}, line protocol is {{protostate | ORPHRASE}} 
+</group>

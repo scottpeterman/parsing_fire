@@ -1,0 +1,229 @@
+{
+  "command": "juniper_junos_show_chassis_hardware",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.75,
+  "textfsm_rows": 12,
+  "ttp_rows": 9,
+  "ttp_template": "<group name=\"cpu_description_cpu_part_cpu_serial_number\">\nRouting Engine {{FPC_NUMBER}}          {{FPC_PART | ORPHRASE}}      {{FPC_SERIAL_NUMBER | re(\"\\\\w+\")}}           RE-S-16{{PIC_NUMBER}}0x8\n<group name=\"xcvr_description_xcvr_number_xcvr_part\">\n    Xcvr {{XCVR_NUMBER}} {{XCVR_VERSION | ORPHRASE}} {{XCVR_PART}} {{XCVR_SERIAL_NUMBER | re(\"\\\\w+\")}} {{XCVR_DESCRIPTION | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "RE_NUMBER": "0",
+      "RE_PART": "BUILTIN",
+      "RE_SERIAL_NUMBER": "BUILTIN",
+      "RE_DESCRIPTION": "RE-S-1600x8"
+    },
+    {
+      "CB_NUMBER": "0",
+      "CB_VERSION": "REV 35",
+      "CB_PART": "750-000000",
+      "CB_SERIAL_NUMBER": "ABCD0000",
+      "CB_DESCRIPTION": "JNP204 [MX204]"
+    },
+    {
+      "FPC_NUMBER": "0",
+      "FPC_PART": "BUILTIN",
+      "FPC_SERIAL_NUMBER": "BUILTIN",
+      "FPC_DESCRIPTION": "MPC",
+      "PIC_NUMBER": "0",
+      "PIC_PART": "BUILTIN",
+      "PIC_SERIAL_NUMBER": "BUILTIN",
+      "PIC_DESCRIPTION": "4XQSFP28 PIC",
+      "XCVR_NUMBER": "0",
+      "XCVR_VERSION": "REV 02",
+      "XCVR_PART": "740-000000",
+      "XCVR_SERIAL_NUMBER": "XXXXXXX100P",
+      "XCVR_DESCRIPTION": "QSFP+-4X10G-LR"
+    },
+    {
+      "FPC_NUMBER": "0",
+      "FPC_PART": "BUILTIN",
+      "FPC_SERIAL_NUMBER": "BUILTIN",
+      "FPC_DESCRIPTION": "MPC",
+      "PIC_NUMBER": "0",
+      "PIC_PART": "BUILTIN",
+      "PIC_SERIAL_NUMBER": "BUILTIN",
+      "PIC_DESCRIPTION": "4XQSFP28 PIC",
+      "XCVR_NUMBER": "1",
+      "XCVR_VERSION": "REV 02",
+      "XCVR_PART": "740-000000",
+      "XCVR_SERIAL_NUMBER": "XXXXXXX0090",
+      "XCVR_DESCRIPTION": "QSFP+-4X10G-LR"
+    },
+    {
+      "FPC_NUMBER": "0",
+      "FPC_PART": "BUILTIN",
+      "FPC_SERIAL_NUMBER": "BUILTIN",
+      "FPC_DESCRIPTION": "MPC",
+      "PIC_NUMBER": "0",
+      "PIC_PART": "BUILTIN",
+      "PIC_SERIAL_NUMBER": "BUILTIN",
+      "PIC_DESCRIPTION": "4XQSFP28 PIC",
+      "XCVR_NUMBER": "2",
+      "XCVR_VERSION": "REV 01",
+      "XCVR_PART": "740-000000",
+      "XCVR_SERIAL_NUMBER": "XXXXXXX5",
+      "XCVR_DESCRIPTION": "QSFP+-4X10G-SR"
+    },
+    {
+      "FPC_NUMBER": "0",
+      "FPC_PART": "BUILTIN",
+      "FPC_SERIAL_NUMBER": "BUILTIN",
+      "FPC_DESCRIPTION": "MPC",
+      "PIC_NUMBER": "1",
+      "PIC_PART": "BUILTIN",
+      "PIC_SERIAL_NUMBER": "BUILTIN",
+      "PIC_DESCRIPTION": "8XSFPP PIC",
+      "XCVR_NUMBER": "0",
+      "XCVR_VERSION": "REV",
+      "XCVR_PART": "740-000000",
+      "XCVR_SERIAL_NUMBER": "XXXXX00000",
+      "XCVR_DESCRIPTION": "SFP+-10G-LR"
+    },
+    {
+      "FPC_NUMBER": "0",
+      "FPC_PART": "BUILTIN",
+      "FPC_SERIAL_NUMBER": "BUILTIN",
+      "FPC_DESCRIPTION": "MPC",
+      "PIC_NUMBER": "1",
+      "PIC_PART": "BUILTIN",
+      "PIC_SERIAL_NUMBER": "BUILTIN",
+      "PIC_DESCRIPTION": "8XSFPP PIC",
+      "XCVR_NUMBER": "1",
+      "XCVR_VERSION": "REV",
+      "XCVR_PART": "740-000000",
+      "XCVR_SERIAL_NUMBER": "XXXXX00000",
+      "XCVR_DESCRIPTION": "SFP+-10G-LR"
+    },
+    {
+      "FPC_NUMBER": "0",
+      "FPC_PART": "BUILTIN",
+      "FPC_SERIAL_NUMBER": "BUILTIN",
+      "FPC_DESCRIPTION": "MPC",
+      "PIC_NUMBER": "1",
+      "PIC_PART": "BUILTIN",
+      "PIC_SERIAL_NUMBER": "BUILTIN",
+      "PIC_DESCRIPTION": "8XSFPP PIC",
+      "XCVR_NUMBER": "2",
+      "XCVR_VERSION": "REV 01",
+      "XCVR_PART": "740-000000",
+      "XCVR_SERIAL_NUMBER": "XXXXX00000",
+      "XCVR_DESCRIPTION": "SFP+-10G-LR"
+    },
+    {
+      "FPC_NUMBER": "0",
+      "FPC_PART": "BUILTIN",
+      "FPC_SERIAL_NUMBER": "BUILTIN",
+      "FPC_DESCRIPTION": "MPC",
+      "PIC_NUMBER": "1",
+      "PIC_PART": "BUILTIN",
+      "PIC_SERIAL_NUMBER": "BUILTIN",
+      "PIC_DESCRIPTION": "8XSFPP PIC",
+      "XCVR_NUMBER": "3",
+      "XCVR_VERSION": "REV 01",
+      "XCVR_PART": "740-000000",
+      "XCVR_SERIAL_NUMBER": "XXXXX00000",
+      "XCVR_DESCRIPTION": "SFP+-10G-LR"
+    },
+    {
+      "FPC_NUMBER": "0",
+      "FPC_PART": "BUILTIN",
+      "FPC_SERIAL_NUMBER": "BUILTIN",
+      "FPC_DESCRIPTION": "MPC",
+      "PIC_NUMBER": "1",
+      "PIC_PART": "BUILTIN",
+      "PIC_SERIAL_NUMBER": "BUILTIN",
+      "PIC_DESCRIPTION": "8XSFPP PIC",
+      "XCVR_NUMBER": "5",
+      "XCVR_VERSION": "REV 01",
+      "XCVR_PART": "740-000000",
+      "XCVR_SERIAL_NUMBER": "XXXXX0000010",
+      "XCVR_DESCRIPTION": "SFP+-10G-SR"
+    },
+    {
+      "PS_NUMBER": "0",
+      "PS_VERSION": "REV 04",
+      "PS_PART": "740-000000",
+      "PS_SERIAL_NUMBER": "XXXXX000003",
+      "PS_DESCRIPTION": "AC AFO 650W PSU"
+    },
+    {
+      "PS_NUMBER": "1",
+      "PS_VERSION": "REV 04",
+      "PS_PART": "740-000000",
+      "PS_SERIAL_NUMBER": "XXXXX000004",
+      "PS_DESCRIPTION": "AC AFO 650W PSU"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "cpu_description_cpu_part_cpu_serial_number": {
+        "FPC_NUMBER": "0",
+        "FPC_PART": "BUILTIN",
+        "FPC_SERIAL_NUMBER": "BUILTIN",
+        "PIC_NUMBER": "0",
+        "xcvr_description_xcvr_number_xcvr_part": [
+          {
+            "XCVR_NUMBER": "0",
+            "XCVR_VERSION": "REV 02",
+            "XCVR_PART": "740-000000",
+            "XCVR_SERIAL_NUMBER": "XXXXXXX100P",
+            "XCVR_DESCRIPTION": "QSFP+-4X10G-LR"
+          },
+          {
+            "XCVR_NUMBER": "1",
+            "XCVR_VERSION": "REV 02",
+            "XCVR_PART": "740-000000",
+            "XCVR_SERIAL_NUMBER": "XXXXXXX0090",
+            "XCVR_DESCRIPTION": "QSFP+-4X10G-LR"
+          },
+          {
+            "XCVR_NUMBER": "2",
+            "XCVR_VERSION": "REV 01",
+            "XCVR_PART": "740-000000",
+            "XCVR_SERIAL_NUMBER": "XXXXXXX5",
+            "XCVR_DESCRIPTION": "QSFP+-4X10G-SR"
+          },
+          {
+            "XCVR_NUMBER": "0",
+            "XCVR_VERSION": "REV",
+            "XCVR_PART": "740-000000",
+            "XCVR_SERIAL_NUMBER": "XXXXX00000",
+            "XCVR_DESCRIPTION": "SFP+-10G-LR"
+          },
+          {
+            "XCVR_NUMBER": "1",
+            "XCVR_VERSION": "REV",
+            "XCVR_PART": "740-000000",
+            "XCVR_SERIAL_NUMBER": "XXXXX00000",
+            "XCVR_DESCRIPTION": "SFP+-10G-LR"
+          },
+          {
+            "XCVR_NUMBER": "2",
+            "XCVR_VERSION": "REV 01",
+            "XCVR_PART": "740-000000",
+            "XCVR_SERIAL_NUMBER": "XXXXX00000",
+            "XCVR_DESCRIPTION": "SFP+-10G-LR"
+          },
+          {
+            "XCVR_NUMBER": "3",
+            "XCVR_VERSION": "REV 01",
+            "XCVR_PART": "740-000000",
+            "XCVR_SERIAL_NUMBER": "XXXXX00000",
+            "XCVR_DESCRIPTION": "SFP+-10G-LR"
+          },
+          {
+            "XCVR_NUMBER": "5",
+            "XCVR_VERSION": "REV 01",
+            "XCVR_PART": "740-000000",
+            "XCVR_SERIAL_NUMBER": "XXXXX0000010",
+            "XCVR_DESCRIPTION": "SFP+-10G-SR"
+          }
+        ]
+      }
+    }
+  ],
+  "cli_content": "Hardware inventory:\nItem             Version  Part number  Serial number     Description\nChassis                                A0000             JNP204 [MX204]\nRouting Engine 0          BUILTIN      BUILTIN           RE-S-1600x8\nCB 0             REV 35   750-000000   ABCD0000          JNP204 [MX204]\nFPC 0                     BUILTIN      BUILTIN           MPC\n  PIC 0                   BUILTIN      BUILTIN           4XQSFP28 PIC\n    Xcvr 0       REV 02   740-000000   XXXXXXX100P       QSFP+-4X10G-LR\n    Xcvr 1       REV 02   740-000000   XXXXXXX0090       QSFP+-4X10G-LR\n    Xcvr 2       REV 01   740-000000   XXXXXXX5          QSFP+-4X10G-SR\n  PIC 1                   BUILTIN      BUILTIN           8XSFPP PIC\n    Xcvr 0       REV      740-000000   XXXXX00000        SFP+-10G-LR\n    Xcvr 1       REV      740-000000   XXXXX00000        SFP+-10G-LR\n    Xcvr 2       REV 01   740-000000   XXXXX00000        SFP+-10G-LR\n    Xcvr 3       REV 01   740-000000   XXXXX00000        SFP+-10G-LR\n    Xcvr 5       REV 01   740-000000   XXXXX0000010      SFP+-10G-SR\nPEM 0            REV 04   740-000000   XXXXX000003       AC AFO 650W PSU\nPEM 1            REV 04   740-000000   XXXXX000004       AC AFO 650W PSU\nFan Tray 0                                               Fan Tray, Front to Back Airflow - AFO\nFan Tray 1                                               Fan Tray, Front to Back Airflow - AFO\nFan Tray 2                                               Fan Tray, Front to Back Airflow - AFO\n",
+  "textfsm_template": "Value CHASSIS_SERIAL_NUMBER (\\w+)\nValue CHASSIS_DESCRIPTION (.*)\nValue MID_VERSION ([RrEeVv]+\\s+\\d+|]|[RrEeVv]+|)\nValue MID_PART (\\S+)\nValue MID_SERIAL_NUMBER (\\w+)\nValue MID_DESCRIPTION (.*)\nValue FPM_VERSION ([RrEeVv]+\\s+\\d+|]|[RrEeVv]+|)\nValue FPM_PART (\\S+)\nValue FPM_SERIAL_NUMBER (\\w+)\nValue FPM_DESCRIPTION (.*)\nValue PS_NUMBER (\\d+|)\nValue PS_VERSION ([RrEeVv]+\\s+\\d+|]|[RrEeVv]+|)\nValue PS_PART (\\S+)\nValue PS_SERIAL_NUMBER (\\w+)\nValue PS_DESCRIPTION (.*)\nValue RE_NUMBER (\\d+|)\nValue RE_VERSION ([RrEeVv]+\\s+\\d+|]|[RrEeVv]+|)\nValue RE_PART (\\S+)\nValue RE_SERIAL_NUMBER (\\w+)\nValue RE_DESCRIPTION (.*)\nValue TFEB_NUMBER (\\d+|)\nValue TFEB_VERSION ([RrEeVv]+\\s+\\d+|]|[RrEeVv]+|)\nValue TFEB_PART (\\S+)\nValue TFEB_SERIAL_NUMBER (\\w+)\nValue TFEB_DESCRIPTION (.*)\nValue QXM_NUMBER (\\d+|)\nValue QXM_VERSION ([RrEeVv]+\\s+\\d+|]|[RrEeVv]+|)\nValue QXM_PART (\\S+)\nValue QXM_SERIAL_NUMBER (\\w+)\nValue QXM_DESCRIPTION (.*)\nValue AFEB_NUMBER (\\d+|)\nValue AFEB_VERSION ([RrEeVv]+\\s+\\d+|]|[RrEeVv]+|)\nValue AFEB_PART (\\S+)\nValue AFEB_SERIAL_NUMBER (\\w+)\nValue AFEB_DESCRIPTION (.*)\nValue CB_NUMBER (\\d+|)\nValue CB_VERSION ([RrEeVv]+\\s+\\d+|]|[RrEeVv]+|)\nValue CB_PART (\\S+)\nValue CB_SERIAL_NUMBER (\\w+)\nValue CB_DESCRIPTION (.*)\nValue Filldown FPC_NUMBER (\\d+|)\nValue Filldown FPC_VERSION ([RrEeVv]+\\s+\\d+|]|[RrEeVv]+|)\nValue Filldown FPC_PART (\\S+)\nValue Filldown FPC_SERIAL_NUMBER (\\w+)\nValue Filldown FPC_DESCRIPTION (.*)\nValue Filldown CPU_VERSION ([RrEeVv]+\\s+\\d+|]|[RrEeVv]+|)\nValue Filldown CPU_PART (\\S+)\nValue Filldown CPU_SERIAL_NUMBER (\\w+)\nValue Filldown CPU_DESCRIPTION (.*)\nValue Filldown MIC_NUMBER (\\d+|)\nValue Filldown MIC_VERSION ([RrEeVv]+\\s+\\d+|]|[RrEeVv]+|)\nValue Filldown MIC_PART (\\S+)\nValue Filldown MIC_SERIAL_NUMBER (\\w+)\nValue Filldown MIC_DESCRIPTION (.*)\nValue Filldown PIC_NUMBER (\\d+|)\nValue Filldown PIC_VERSION ([RrEeVv]+\\s+\\d+|]|[RrEeVv]+|)\nValue Filldown PIC_PART (\\S+)\nValue Filldown PIC_SERIAL_NUMBER (\\w+)\nValue Filldown PIC_DESCRIPTION (.*)\nValue XCVR_NUMBER (\\d+|)\nValue XCVR_VERSION ([RrEeVv]+\\s+\\d+|]|[RrEeVv]+|)\nValue XCVR_PART (\\S+)\nValue XCVR_SERIAL_NUMBER (\\S+)\nValue XCVR_DESCRIPTION (.*)\nValue FAN_NUMBER (\\d+|)\nValue FAN_VERSION ([RrEeVv]+\\s+\\d+|)\nValue FAN_PART (\\w+-\\w+|BUILTIN)\nValue FAN_SERIAL_NUMBER (\\w+)\nValue FAN_DESCRIPTION (.*)\n\nStart\n  ^Hardware.*\n  ^Item\\s+Version\\s+Part\\s+number\\s+Serial\\s+number\\s+Description\\s*$$\n  ^Chassis.*\\s+${CHASSIS_SERIAL_NUMBER}\\s+${CHASSIS_DESCRIPTION}$$ -> Record\n  ^\\s*Midplane\\s+${MID_VERSION}\\s+${MID_PART}\\s+${MID_SERIAL_NUMBER}\\s+${MID_DESCRIPTION}$$ -> Record\n  ^\\s*FPM\\sBoard\\s+${FPM_VERSION}\\s+${FPM_PART}\\s+${FPM_SERIAL_NUMBER}\\s+${FPM_DESCRIPTION}$$ -> Record\n  ^\\s*Routing\\s+Engine\\s+${RE_NUMBER}\\s+${RE_VERSION}\\s+${RE_PART}\\s+${RE_SERIAL_NUMBER}\\s+${RE_DESCRIPTION}$$ -> Record\n  ^\\s*TFEB\\s+${TFEB_NUMBER}\\s+${TFEB_VERSION}\\s+${TFEB_PART}\\s+${TFEB_SERIAL_NUMBER}\\s+${TFEB_DESCRIPTION}$$ -> Continue\n  ^\\s*QXM\\s+${QXM_NUMBER}\\s+${QXM_VERSION}\\s+${QXM_PART}\\s+${QXM_SERIAL_NUMBER}\\s+${QXM_DESCRIPTION}$$ -> Record\n  ^\\s*AFEB\\s+${AFEB_NUMBER}\\s+${AFEB_VERSION}\\s+${AFEB_PART}\\s+${AFEB_SERIAL_NUMBER}\\s+${AFEB_DESCRIPTION}$$ -> Record\n  ^\\s*CB\\s+${CB_NUMBER}\\s+${CB_VERSION}\\s+${CB_PART}\\s+${CB_SERIAL_NUMBER}\\s+${CB_DESCRIPTION}$$ -> Record\n  ^\\s*FPC\\s+${FPC_NUMBER}\\s+${FPC_VERSION}\\s+${FPC_PART}\\s+${FPC_SERIAL_NUMBER}\\s+${FPC_DESCRIPTION}$$\n  ^\\s*CPU\\s+${CPU_VERSION}\\s+${CPU_PART}\\s+${CPU_SERIAL_NUMBER}\\s+${CPU_DESCRIPTION}$$\n  ^\\s*MIC\\s+${MIC_NUMBER}\\s+${MIC_VERSION}\\s+${MIC_PART}\\s+${MIC_SERIAL_NUMBER}\\s+${MIC_DESCRIPTION}$$\n  ^\\s*PIC\\s+${PIC_NUMBER}\\s+${PIC_VERSION}\\s+${PIC_PART}\\s+${PIC_SERIAL_NUMBER}\\s+${PIC_DESCRIPTION}$$\n  ^\\s*Xcvr\\s+${XCVR_NUMBER}\\s+(?:${XCVR_VERSION}\\s+)?${XCVR_PART}\\s+${XCVR_SERIAL_NUMBER}\\s+${XCVR_DESCRIPTION} -> Record\n  ^\\s*(PEM|Power\\s+Supply) -> Continue.Clearall\n  ^\\s*(PEM|Power\\s+Supply)\\s+${PS_NUMBER}\\s+${PS_VERSION}\\s+${PS_PART}\\s+${PS_SERIAL_NUMBER}\\s+${PS_DESCRIPTION}$$ -> Record\n  ^\\s*(Fan|Fan\\sTray) -> Continue.Clearall\n  ^\\s*(Fan|Fan\\sTray)\\s+${FAN_NUMBER}\\s+${FAN_VERSION}\\s+${FAN_PART}\\s+${FAN_SERIAL_NUMBER}\\s+${FAN_DESCRIPTION}$$ -> Record\n  ^\\s*(Fan|Fan\\sTray)\\s+${FAN_NUMBER}\\s+${FAN_DESCRIPTION}$$ -> Record\n  ^\\s*(Pseudo|AFEB|TFEB|CPU|QXM|Fan\\s+Tray).*\n  ^{master:\\d+}\n  ^\\s*$$ \n  ^. -> Error\n\nEOF\n"
+}

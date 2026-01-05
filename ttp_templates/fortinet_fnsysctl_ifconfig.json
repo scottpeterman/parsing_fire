@@ -1,0 +1,408 @@
+{
+  "command": "fortinet_fnsysctl_ifconfig",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.3636363636363638,
+  "textfsm_rows": 11,
+  "ttp_rows": 26,
+  "ttp_template": "<group name=\"multicast_mtu_metric\">\n        {{MULTICAST | ORPHRASE}} MTU:{{MTU | ORPHRASE}} Metric:{{METRIC}}\n</group>\n<group name=\"nic_link_encap_hardware_address\">\n{{NIC}} Link encap:{{LINK_ENCAP | ORPHRASE}} HWaddr {{HARDWARE_ADDRESS | ORPHRASE}}\n</group>\n<group name=\"ip_address_bcast_mask\">\n        inet addr:{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} Bcast:{{BCAST}} Mask:{{MASK | ORPHRASE}}\n</group>\n<group name=\"nic_link_encap\">\n{{NIC}} Link encap:{{LINK_ENCAP | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NIC": "nturbo_rx",
+      "LINK_ENCAP": "Ethernet",
+      "MULTICAST": "UP BROADCAST MULTICAST",
+      "MTU": "1500",
+      "METRIC": "1",
+      "RX_PACKETS": "0",
+      "RX_ERRORS": "0",
+      "RX_DROPPED": "0",
+      "RX_OVERRUNS": "0",
+      "RX_FRAME": "0",
+      "TX_PACKETS": "0",
+      "TX_ERRORS": "0",
+      "TX_DROPPED": "0",
+      "TX_OVERRUNS": "0",
+      "TX_CARRIER": "0",
+      "COLLISIONS": "0",
+      "TX_QUEUE_LEN": "1000",
+      "RX_BYTES": "0",
+      "TX_BYTES": "0"
+    },
+    {
+      "NIC": "wan",
+      "LINK_ENCAP": "Ethernet",
+      "HARDWARE_ADDRESS": "12:34:56:78:90:AA",
+      "IP_ADDRESS": "1.2.3.4",
+      "BCAST": "1.2.3.5",
+      "MASK": "255.255.255.252",
+      "MULTICAST": "UP BROADCAST RUNNING MULTICAST",
+      "MTU": "1500",
+      "METRIC": "1",
+      "RX_PACKETS": "7513822",
+      "RX_ERRORS": "0",
+      "RX_DROPPED": "0",
+      "RX_OVERRUNS": "0",
+      "RX_FRAME": "0",
+      "TX_PACKETS": "12533342",
+      "TX_ERRORS": "0",
+      "TX_DROPPED": "0",
+      "TX_OVERRUNS": "0",
+      "TX_CARRIER": "0",
+      "COLLISIONS": "0",
+      "TX_QUEUE_LEN": "1000",
+      "RX_BYTES": "1116754241",
+      "TX_BYTES": "2218288063"
+    },
+    {
+      "NIC": "lan1",
+      "LINK_ENCAP": "Ethernet",
+      "HARDWARE_ADDRESS": "12:34:56:78:90:AB",
+      "MULTICAST": "UP BROADCAST RUNNING MULTICAST",
+      "MTU": "1500",
+      "METRIC": "1",
+      "RX_PACKETS": "3336406",
+      "RX_ERRORS": "0",
+      "RX_DROPPED": "0",
+      "RX_OVERRUNS": "0",
+      "RX_FRAME": "0",
+      "TX_PACKETS": "3382703",
+      "TX_ERRORS": "0",
+      "TX_DROPPED": "0",
+      "TX_OVERRUNS": "0",
+      "TX_CARRIER": "0",
+      "COLLISIONS": "0",
+      "TX_QUEUE_LEN": "1000",
+      "RX_BYTES": "258477533",
+      "TX_BYTES": "365165072"
+    },
+    {
+      "NIC": "ssl.root",
+      "LINK_ENCAP": "Unknown",
+      "MULTICAST": "UP POINTOPOINT RUNNING NOARP MULTICAST",
+      "MTU": "1500",
+      "METRIC": "1",
+      "RX_PACKETS": "0",
+      "RX_ERRORS": "0",
+      "RX_DROPPED": "0",
+      "RX_OVERRUNS": "0",
+      "RX_FRAME": "0",
+      "TX_PACKETS": "0",
+      "TX_ERRORS": "0",
+      "TX_DROPPED": "2",
+      "TX_OVERRUNS": "0",
+      "TX_CARRIER": "0",
+      "COLLISIONS": "0",
+      "TX_QUEUE_LEN": "0",
+      "RX_BYTES": "0",
+      "TX_BYTES": "0"
+    },
+    {
+      "NIC": "Loopback772",
+      "LINK_ENCAP": "Unknown",
+      "IP_ADDRESS": "127.0.0.1",
+      "BCAST": "0.0.0.0",
+      "MASK": "255.0.0.0",
+      "MULTICAST": "UP BROADCAST LOOPBACK RUNNING NOARP MULTICAST",
+      "MTU": "1500",
+      "METRIC": "1",
+      "RX_PACKETS": "0",
+      "RX_ERRORS": "0",
+      "RX_DROPPED": "0",
+      "RX_OVERRUNS": "0",
+      "RX_FRAME": "0",
+      "TX_PACKETS": "2",
+      "TX_ERRORS": "0",
+      "TX_DROPPED": "0",
+      "TX_OVERRUNS": "0",
+      "TX_CARRIER": "0",
+      "COLLISIONS": "0",
+      "TX_QUEUE_LEN": "0",
+      "RX_BYTES": "0",
+      "TX_BYTES": "152"
+    },
+    {
+      "NIC": "lan",
+      "LINK_ENCAP": "Ethernet",
+      "HARDWARE_ADDRESS": "12:34:56:78:90:AC",
+      "IP_ADDRESS": "10.152.1.230",
+      "BCAST": "10.152.1.231",
+      "MASK": "255.255.255.252",
+      "MULTICAST": "UP BROADCAST RUNNING MULTICAST",
+      "MTU": "1500",
+      "METRIC": "1",
+      "RX_PACKETS": "1695331",
+      "RX_ERRORS": "0",
+      "RX_DROPPED": "0",
+      "RX_OVERRUNS": "0",
+      "RX_FRAME": "0",
+      "TX_PACKETS": "2829487",
+      "TX_ERRORS": "0",
+      "TX_DROPPED": "0",
+      "TX_OVERRUNS": "0",
+      "TX_CARRIER": "0",
+      "COLLISIONS": "0",
+      "TX_QUEUE_LEN": "1000",
+      "RX_BYTES": "154509025",
+      "TX_BYTES": "320990192"
+    },
+    {
+      "NIC": "Tu-Hub01-Main",
+      "LINK_ENCAP": "Unknown",
+      "IP_ADDRESS": "10.149.0.69",
+      "MASK": "255.255.0.0",
+      "MULTICAST": "UP POINTOPOINT RUNNING NOARP MULTICAST",
+      "MTU": "1438",
+      "METRIC": "1",
+      "RX_PACKETS": "2669",
+      "RX_ERRORS": "0",
+      "RX_DROPPED": "0",
+      "RX_OVERRUNS": "0",
+      "RX_FRAME": "0",
+      "TX_PACKETS": "64643",
+      "TX_ERRORS": "0",
+      "TX_DROPPED": "0",
+      "TX_OVERRUNS": "0",
+      "TX_CARRIER": "0",
+      "COLLISIONS": "0",
+      "TX_QUEUE_LEN": "0",
+      "RX_BYTES": "919078",
+      "TX_BYTES": "5464602"
+    },
+    {
+      "NIC": "Tu-Rsnnc-Main",
+      "LINK_ENCAP": "Unknown",
+      "HARDWARE_ADDRESS": "12:34:56:78:90:AD",
+      "IP_ADDRESS": "192.168.64.10",
+      "MASK": "255.255.255.252",
+      "LINK_LOCAL6": "fe80::200:aaaa:5f4f:54f4",
+      "LINK_LOCAL6_PREFIXLEN": "64",
+      "MULTICAST": "UP POINTOPOINT RUNNING NOARP MULTICAST",
+      "MTU": "1476",
+      "METRIC": "1",
+      "RX_PACKETS": "121755",
+      "RX_ERRORS": "0",
+      "RX_DROPPED": "0",
+      "RX_OVERRUNS": "0",
+      "RX_FRAME": "0",
+      "TX_PACKETS": "1",
+      "TX_ERRORS": "0",
+      "TX_DROPPED": "0",
+      "TX_OVERRUNS": "0",
+      "TX_CARRIER": "0",
+      "COLLISIONS": "0",
+      "TX_QUEUE_LEN": "0",
+      "RX_BYTES": "8018365",
+      "TX_BYTES": "84"
+    },
+    {
+      "NIC": "Vlan1",
+      "LINK_ENCAP": "Ethernet",
+      "HARDWARE_ADDRESS": "12:34:56:78:90:AE",
+      "IP_ADDRESS": "10.100.105.1",
+      "BCAST": "10.100.105.31",
+      "MASK": "255.255.255.224",
+      "MULTICAST": "UP BROADCAST RUNNING MULTICAST",
+      "MTU": "1500",
+      "METRIC": "1",
+      "RX_PACKETS": "69882",
+      "RX_ERRORS": "0",
+      "RX_DROPPED": "0",
+      "RX_OVERRUNS": "0",
+      "RX_FRAME": "0",
+      "TX_PACKETS": "65",
+      "TX_ERRORS": "0",
+      "TX_DROPPED": "0",
+      "TX_OVERRUNS": "0",
+      "TX_CARRIER": "0",
+      "COLLISIONS": "0",
+      "TX_QUEUE_LEN": "0",
+      "RX_BYTES": "10988958",
+      "TX_BYTES": "3128"
+    },
+    {
+      "NIC": "port_ha",
+      "LINK_ENCAP": "Ethernet",
+      "HARDWARE_ADDRESS": "12:34:56:78:90:AF",
+      "MULTICAST": "UP BROADCAST MULTICAST",
+      "MTU": "1496",
+      "METRIC": "1",
+      "RX_PACKETS": "0",
+      "RX_ERRORS": "0",
+      "RX_DROPPED": "0",
+      "RX_OVERRUNS": "0",
+      "RX_FRAME": "0",
+      "TX_PACKETS": "0",
+      "TX_ERRORS": "0",
+      "TX_DROPPED": "1",
+      "TX_OVERRUNS": "0",
+      "TX_CARRIER": "0",
+      "COLLISIONS": "0",
+      "TX_QUEUE_LEN": "1000",
+      "RX_BYTES": "0",
+      "TX_BYTES": "0"
+    },
+    {
+      "NIC": "vsys_fgfm",
+      "LINK_ENCAP": "Local Loopback",
+      "IP_ADDRESS": "127.0.0.1",
+      "MASK": "255.0.0.0",
+      "MULTICAST": "UP LOOPBACK RUNNING",
+      "MTU": "16436",
+      "METRIC": "1",
+      "RX_PACKETS": "0",
+      "RX_ERRORS": "0",
+      "RX_DROPPED": "0",
+      "RX_OVERRUNS": "0",
+      "RX_FRAME": "0",
+      "TX_PACKETS": "0",
+      "TX_ERRORS": "0",
+      "TX_DROPPED": "0",
+      "TX_OVERRUNS": "0",
+      "TX_CARRIER": "0",
+      "COLLISIONS": "0",
+      "TX_QUEUE_LEN": "0",
+      "RX_BYTES": "0",
+      "TX_BYTES": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "multicast_mtu_metric": [
+        {
+          "MULTICAST": "UP BROADCAST MULTICAST",
+          "MTU": "1500",
+          "METRIC": "1"
+        },
+        {
+          "MULTICAST": "UP BROADCAST RUNNING MULTICAST",
+          "MTU": "1500",
+          "METRIC": "1"
+        },
+        {
+          "MULTICAST": "UP BROADCAST RUNNING MULTICAST",
+          "MTU": "1500",
+          "METRIC": "1"
+        },
+        {
+          "MULTICAST": "UP POINTOPOINT RUNNING NOARP MULTICAST",
+          "MTU": "1500",
+          "METRIC": "1"
+        },
+        {
+          "MULTICAST": "UP BROADCAST LOOPBACK RUNNING NOARP MULTICAST",
+          "MTU": "1500",
+          "METRIC": "1"
+        },
+        {
+          "MULTICAST": "UP BROADCAST RUNNING MULTICAST",
+          "MTU": "1500",
+          "METRIC": "1"
+        },
+        {
+          "MULTICAST": "UP POINTOPOINT RUNNING NOARP MULTICAST",
+          "MTU": "1438",
+          "METRIC": "1"
+        },
+        {
+          "MULTICAST": "UP POINTOPOINT RUNNING NOARP MULTICAST",
+          "MTU": "1476",
+          "METRIC": "1"
+        },
+        {
+          "MULTICAST": "UP BROADCAST RUNNING MULTICAST",
+          "MTU": "1500",
+          "METRIC": "1"
+        },
+        {
+          "MULTICAST": "UP BROADCAST MULTICAST",
+          "MTU": "1496",
+          "METRIC": "1"
+        },
+        {
+          "MULTICAST": "UP LOOPBACK RUNNING",
+          "MTU": "16436",
+          "METRIC": "1"
+        }
+      ],
+      "nic_link_encap_hardware_address": [
+        {
+          "NIC": "wan",
+          "LINK_ENCAP": "Ethernet",
+          "HARDWARE_ADDRESS": "12:34:56:78:90:AA"
+        },
+        {
+          "NIC": "lan1",
+          "LINK_ENCAP": "Ethernet",
+          "HARDWARE_ADDRESS": "12:34:56:78:90:AB"
+        },
+        {
+          "NIC": "lan",
+          "LINK_ENCAP": "Ethernet",
+          "HARDWARE_ADDRESS": "12:34:56:78:90:AC"
+        },
+        {
+          "NIC": "Tu-Rsnnc-Main",
+          "LINK_ENCAP": "Unknown",
+          "HARDWARE_ADDRESS": "12:34:56:78:90:AD"
+        },
+        {
+          "NIC": "Vlan1",
+          "LINK_ENCAP": "Ethernet",
+          "HARDWARE_ADDRESS": "12:34:56:78:90:AE"
+        },
+        {
+          "NIC": "port_ha",
+          "LINK_ENCAP": "Ethernet",
+          "HARDWARE_ADDRESS": "12:34:56:78:90:AF"
+        }
+      ],
+      "ip_address_bcast_mask": [
+        {
+          "IP_ADDRESS": "1.2.3.4",
+          "BCAST": "1.2.3.5",
+          "MASK": "255.255.255.252"
+        },
+        {
+          "IP_ADDRESS": "127.0.0.1",
+          "BCAST": "0.0.0.0",
+          "MASK": "255.0.0.0"
+        },
+        {
+          "IP_ADDRESS": "10.152.1.230",
+          "BCAST": "10.152.1.231",
+          "MASK": "255.255.255.252"
+        },
+        {
+          "IP_ADDRESS": "10.100.105.1",
+          "BCAST": "10.100.105.31",
+          "MASK": "255.255.255.224"
+        }
+      ],
+      "nic_link_encap": [
+        {
+          "NIC": "nturbo_rx",
+          "LINK_ENCAP": "Ethernet"
+        },
+        {
+          "NIC": "ssl.root",
+          "LINK_ENCAP": "Unknown"
+        },
+        {
+          "NIC": "Loopback772",
+          "LINK_ENCAP": "Unknown"
+        },
+        {
+          "NIC": "Tu-Hub01-Main",
+          "LINK_ENCAP": "Unknown"
+        },
+        {
+          "NIC": "vsys_fgfm",
+          "LINK_ENCAP": "Local Loopback"
+        }
+      ]
+    }
+  ],
+  "cli_content": "nturbo_rx       Link encap:Ethernet\n        UP BROADCAST MULTICAST  MTU:1500  Metric:1\n        RX packets:0 errors:0 dropped:0 overruns:0 frame:0\n        TX packets:0 errors:0 dropped:0 overruns:0 carrier:0\n        collisions:0 txqueuelen:1000\n        RX bytes:0 (0  Bytes)  TX bytes:0 (0  Bytes)\n\nwan     Link encap:Ethernet  HWaddr 12:34:56:78:90:AA\n        inet addr:1.2.3.4  Bcast:1.2.3.5  Mask:255.255.255.252\n        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1\n        RX packets:7513822 errors:0 dropped:0 overruns:0 frame:0\n        TX packets:12533342 errors:0 dropped:0 overruns:0 carrier:0\n        collisions:0 txqueuelen:1000\n        RX bytes:1116754241 (1.0 GB)  TX bytes:2218288063 (2.1 GB)\n\nlan1    Link encap:Ethernet  HWaddr 12:34:56:78:90:AB\n        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1\n        RX packets:3336406 errors:0 dropped:0 overruns:0 frame:0\n        TX packets:3382703 errors:0 dropped:0 overruns:0 carrier:0\n        collisions:0 txqueuelen:1000\n        RX bytes:258477533 (246.5 MB)  TX bytes:365165072 (348.2 MB)\n\nssl.root        Link encap:Unknown\n        UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1500  Metric:1\n        RX packets:0 errors:0 dropped:0 overruns:0 frame:0\n        TX packets:0 errors:0 dropped:2 overruns:0 carrier:0\n        collisions:0 txqueuelen:0\n        RX bytes:0 (0  Bytes)  TX bytes:0 (0  Bytes)\n\nLoopback772     Link encap:Unknown\n        inet addr:127.0.0.1  Bcast:0.0.0.0  Mask:255.0.0.0\n        UP BROADCAST LOOPBACK RUNNING NOARP MULTICAST  MTU:1500  Metric:1\n        RX packets:0 errors:0 dropped:0 overruns:0 frame:0\n        TX packets:2 errors:0 dropped:0 overruns:0 carrier:0\n        collisions:0 txqueuelen:0\n        RX bytes:0 (0  Bytes)  TX bytes:152 (152  Bytes)\n\nlan     Link encap:Ethernet  HWaddr 12:34:56:78:90:AC\n        inet addr:10.152.1.230  Bcast:10.152.1.231  Mask:255.255.255.252\n        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1\n        RX packets:1695331 errors:0 dropped:0 overruns:0 frame:0\n        TX packets:2829487 errors:0 dropped:0 overruns:0 carrier:0\n        collisions:0 txqueuelen:1000\n        RX bytes:154509025 (147.4 MB)  TX bytes:320990192 (306.1 MB)\n\nTu-Hub01-Main   Link encap:Unknown\n        inet addr:10.149.0.69  Mask:255.255.0.0\n        UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1438  Metric:1\n        RX packets:2669 errors:0 dropped:0 overruns:0 frame:0\n        TX packets:64643 errors:0 dropped:0 overruns:0 carrier:0\n        collisions:0 txqueuelen:0\n        RX bytes:919078 (897.5 KB)  TX bytes:5464602 (5.2 MB)\n\nTu-Rsnnc-Main   Link encap:Unknown  HWaddr 12:34:56:78:90:AD\n        inet addr:192.168.64.10  Mask:255.255.255.252\n        link-local6: fe80::200:aaaa:5f4f:54f4 prefixlen 64\n        UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1476  Metric:1\n        RX packets:121755 errors:0 dropped:0 overruns:0 frame:0\n        TX packets:1 errors:0 dropped:0 overruns:0 carrier:0\n        collisions:0 txqueuelen:0\n        RX bytes:8018365 (7.6 MB)  TX bytes:84 (84  Bytes)\n\nVlan1   Link encap:Ethernet  HWaddr 12:34:56:78:90:AE\n        inet addr:10.100.105.1  Bcast:10.100.105.31  Mask:255.255.255.224\n        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1\n        RX packets:69882 errors:0 dropped:0 overruns:0 frame:0\n        TX packets:65 errors:0 dropped:0 overruns:0 carrier:0\n        collisions:0 txqueuelen:0\n        RX bytes:10988958 (10.5 MB)  TX bytes:3128 (3.1 KB)\n\nport_ha Link encap:Ethernet  HWaddr 12:34:56:78:90:AF\n        UP BROADCAST MULTICAST  MTU:1496  Metric:1\n        RX packets:0 errors:0 dropped:0 overruns:0 frame:0\n        TX packets:0 errors:0 dropped:1 overruns:0 carrier:0\n        collisions:0 txqueuelen:1000\n        RX bytes:0 (0  Bytes)  TX bytes:0 (0  Bytes)\n\nvsys_fgfm       Link encap:Local Loopback\n        inet addr:127.0.0.1  Mask:255.0.0.0\n        UP LOOPBACK RUNNING  MTU:16436  Metric:1\n        RX packets:0 errors:0 dropped:0 overruns:0 frame:0\n        TX packets:0 errors:0 dropped:0 overruns:0 carrier:0\n        collisions:0 txqueuelen:0\n        RX bytes:0 (0  Bytes)  TX bytes:0 (0  Bytes)\n",
+  "textfsm_template": "Value NIC (.*?)\nValue LINK_ENCAP (.*?)\nValue HARDWARE_ADDRESS ([a-zA-Z0-9]{2}(:[a-zA-Z0-9]{2}){5})\nValue IP_ADDRESS (\\S+)\nValue BCAST (\\S+)\nValue MASK (\\S+)\nValue LINK_LOCAL6 (\\S+)\nValue LINK_LOCAL6_PREFIXLEN (\\d+)\nValue MULTICAST (.*(?<!\\s))\nValue MTU (\\d+)\nValue METRIC (\\d+)\nValue RX_PACKETS (\\d+)\nValue RX_ERRORS (\\d+)\nValue RX_DROPPED (\\d+)\nValue RX_OVERRUNS (\\d+)\nValue RX_FRAME (\\d+)\nValue TX_PACKETS (\\d+)\nValue TX_ERRORS (\\d+)\nValue TX_DROPPED (\\d+)\nValue TX_OVERRUNS (\\d+)\nValue TX_CARRIER (\\d+)\nValue COLLISIONS (\\d+)\nValue TX_QUEUE_LEN (\\d+)\nValue RX_BYTES (\\d+)\nValue TX_BYTES (\\d+)\n\nStart\n  ^\\s*${NIC}\\s+Link\\s+encap:${LINK_ENCAP}(?:\\s+HWaddr\\s+${HARDWARE_ADDRESS})?\\s*$$\n  ^\\s*inet\\s+addr:${IP_ADDRESS}(?:\\s+Bcast:${BCAST})?\\s+Mask:${MASK}\\s*$$\n  ^\\s*link-local6:\\s+${LINK_LOCAL6}\\s+prefixlen\\s+${LINK_LOCAL6_PREFIXLEN}\\s*$$\n  ^\\s*${MULTICAST}\\s+MTU:${MTU}\\s+Metric:${METRIC}\\s*$$\n  ^\\s*RX\\s+packets:${RX_PACKETS}\\s+errors:${RX_ERRORS}\\s+dropped:${RX_DROPPED}\\s+overruns:${RX_OVERRUNS}\\s+frame:${RX_FRAME}\\s*$$\n  ^\\s*TX\\s+packets:${TX_PACKETS}\\s+errors:${TX_ERRORS}\\s+dropped:${TX_DROPPED}\\s+overruns:${TX_OVERRUNS}\\s+carrier:${TX_CARRIER}\\s*$$\n  ^\\s*collisions:${COLLISIONS}\\s+txqueuelen:${TX_QUEUE_LEN}\\s*$$\n  ^\\s*RX\\s+bytes:${RX_BYTES}\\s+\\(.*\\)\\s+TX\\s+bytes:${TX_BYTES}\\s+\\(.*\\)\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

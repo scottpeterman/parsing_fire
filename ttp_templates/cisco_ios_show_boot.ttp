@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_boot
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="allow_dev_key_auto_upgrade_boot_path_buffer_size">
+BOOT path-list  : {{BOOT_PATH | ORPHRASE}}
+Config file  : {{CONFIG_FILE | ORPHRASE}}
+Private Config file : {{PRIV_CONFIG_FILE | ORPHRASE}}
+Enable Break  : {{ENABLE_BREAK | ORPHRASE}}
+Manual Boot  : {{MANUAL_BOOT | ORPHRASE}}
+  buffer size:  {{BUFFER_SIZE | ORPHRASE}}
+  via DHCP:  {{CONFIG_DOWNLOAD_DHCP | ORPHRASE}} (next boot: {{CONFIG_DOWNLOAD_DHCP_NEXT_BOOT}}
+</group>

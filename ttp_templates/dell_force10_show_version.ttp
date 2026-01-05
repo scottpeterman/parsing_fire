@@ -1,0 +1,12 @@
+# TTP Template auto-generated from TextFSM
+# Original command: dell_force10_show_version
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="device_type_os_version_uptime">
+Dell Application Software Version:  {{OS_VERSION | ORPHRASE}}
+Dell Networking OS uptime is {{UPTIME | ORPHRASE}}
+System Type: {{DEVICE_TYPE | ORPHRASE}}
+</group>

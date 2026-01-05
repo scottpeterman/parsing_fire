@@ -1,0 +1,111 @@
+{
+  "command": "cisco_nxos_show_ipv6_interface_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 7,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"interface_ipv6_address_status_proto\">\n{{INTERFACE}} {{IPV6_ADDRESS}} {{STATUS | ORPHRASE}}/{{PROTO}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Vlan44",
+      "IPV6_ADDRESS": "2a01:3333:1:44::2",
+      "LINKIPADDR": "fe80::333:4444:5555:8888",
+      "STATUS": "up/up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "Vlan45",
+      "IPV6_ADDRESS": "2a01:3333:1:51::2",
+      "LINKIPADDR": "fe80::333:4444:5555:8888",
+      "STATUS": "up/up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "Vlan46",
+      "IPV6_ADDRESS": "2a01:3333:1:52::2",
+      "LINKIPADDR": "fe80::333:4444:5555:8888",
+      "STATUS": "up/up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "Vlan47",
+      "IPV6_ADDRESS": "2a01:3333:1:53::2",
+      "LINKIPADDR": "fe80::333:4444:5555:8888",
+      "STATUS": "up/up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "Vlan48",
+      "IPV6_ADDRESS": "2a01:3333:1:60::2",
+      "LINKIPADDR": "fe80::333:4444:5555:8888",
+      "STATUS": "up/up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "Vlan49",
+      "IPV6_ADDRESS": "2a01:3333:1:79::2",
+      "LINKIPADDR": "fe80::333:4444:5555:8888",
+      "STATUS": "up/up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "Vlan50",
+      "IPV6_ADDRESS": "2a01:3333:1:80::2",
+      "LINKIPADDR": "fe80::333:4444:5555:8888",
+      "STATUS": "up/up",
+      "PROTO": "up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ipv6_address_status_proto": [
+        {
+          "INTERFACE": "Vlan44",
+          "IPV6_ADDRESS": "2a01:3333:1:44::2",
+          "STATUS": "up/up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "Vlan45",
+          "IPV6_ADDRESS": "2a01:3333:1:51::2",
+          "STATUS": "up/up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "Vlan46",
+          "IPV6_ADDRESS": "2a01:3333:1:52::2",
+          "STATUS": "up/up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "Vlan47",
+          "IPV6_ADDRESS": "2a01:3333:1:53::2",
+          "STATUS": "up/up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "Vlan48",
+          "IPV6_ADDRESS": "2a01:3333:1:60::2",
+          "STATUS": "up/up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "Vlan49",
+          "IPV6_ADDRESS": "2a01:3333:1:79::2",
+          "STATUS": "up/up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "Vlan50",
+          "IPV6_ADDRESS": "2a01:3333:1:80::2",
+          "STATUS": "up/up",
+          "PROTO": "up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IPv6 Interface Status for VRF \"default\"(1)\nInterface        IPv6 Address/Link-local Address           Interface Status\n                                                           prot/link/admin\nVlan44           2a01:3333:1:44::2                         up/up/up\n                 fe80::333:4444:5555:8888\nVlan45           2a01:3333:1:51::2                         up/up/up\n                 fe80::333:4444:5555:8888\nVlan46           2a01:3333:1:52::2                         up/up/up\n                 fe80::333:4444:5555:8888\nVlan47           2a01:3333:1:53::2                         up/up/up\n                 fe80::333:4444:5555:8888\nVlan48           2a01:3333:1:60::2                         up/up/up\n                 fe80::333:4444:5555:8888\nVlan49           2a01:3333:1:79::2                         up/up/up\n                 fe80::333:4444:5555:8888\nVlan50           2a01:3333:1:80::2                         up/up/up\n                 fe80::333:4444:5555:8888\n",
+  "textfsm_template": "Value Required INTERFACE (\\S+)\nValue Required IPV6_ADDRESS ([a-zA-Z0-9:/]+)\nValue LINKIPADDR ([a-zA-Z0-9:/]+)\nValue STATUS (\\S+/\\S+)\nValue PROTO (\\S+)\n\nStart\n  ^${INTERFACE}\\s+${IPV6_ADDRESS}\\s+${STATUS}/${PROTO}\n  ^\\s+${LINKIPADDR} -> Record\n\n"
+}

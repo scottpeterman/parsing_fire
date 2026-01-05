@@ -1,0 +1,17 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ha state
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="active_time_device_priority_failover_reason_failover_state">
+High Availability Version: {{VERSION | ORPHRASE}}
+Device Priority: {{DEVICE_PRIORITY | ORPHRASE}}
+Failover State: {{FAILOVER_STATE | ORPHRASE}}
+Peer Device Priority: {{PEER_DEVICE_PRIORITY | ORPHRASE}}
+Active Time: {{ACTIVE_TIME | ORPHRASE}}
+Standby Ready Time: {{STANDBY_READY_TIME | ORPHRASE}}
+Last Failover Event: {{LAST_FAILOVER_EVENT | ORPHRASE}}
+Failover Reason: {{FAILOVER_REASON | ORPHRASE}}
+</group>

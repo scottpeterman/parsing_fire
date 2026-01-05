@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_eigrp_neighbors
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 4
+# Match ratio: 2.00
+
+<group name="q_cnt_ip_address_interface_hold_uptime_srtt_rto_seq_num">
+{{Q_CNT}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{INTERFACE}} {{HOLD}} {{UPTIME | ORPHRASE}} {{SRTT}} {{RTO}} 0 {{SEQ_NUM | ORPHRASE}}
+</group>
+<group name="as_ip_address_interface_hold_uptime_srtt_rto_q_cnt_seq_num">
+{{AS}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{INTERFACE}} {{HOLD}} {{UPTIME | ORPHRASE}} {{SRTT}} {{RTO | ORPHRASE}} {{Q_CNT}} {{SEQ_NUM}}
+</group>

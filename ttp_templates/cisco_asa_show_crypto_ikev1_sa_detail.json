@@ -1,0 +1,164 @@
+{
+  "command": "cisco_asa_show_crypto_ikev1_sa_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"sequence_peer_type_dir_rekey_state_encryption_hash_authentication_lifetime\">\n{{SEQUENCE}} {{PEER}} {{TYPE}} {{DIR}} {{REKEY}} {{STATE | ORPHRASE}} {{ENCRYPTION}} {{HASH}} {{AUTHENTICATION}} {{LIFETIME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SEQUENCE": "1",
+      "PEER": "209.165.200.225",
+      "TYPE": "User",
+      "DIR": "Resp",
+      "REKEY": "No",
+      "STATE": "AM_Active",
+      "ENCRYPTION": "3des",
+      "HASH": "SHA",
+      "AUTHENTICATION": "preshrd",
+      "LIFETIME": "86400"
+    },
+    {
+      "SEQUENCE": "2",
+      "PEER": "209.165.200.226",
+      "TYPE": "User",
+      "DIR": "Resp",
+      "REKEY": "No",
+      "STATE": "AM_ACTIVE",
+      "ENCRYPTION": "3des",
+      "HASH": "SHA",
+      "AUTHENTICATION": "preshrd",
+      "LIFETIME": "86400"
+    },
+    {
+      "SEQUENCE": "3",
+      "PEER": "209.165.200.227",
+      "TYPE": "User",
+      "DIR": "Resp",
+      "REKEY": "No",
+      "STATE": "AM_ACTIVE",
+      "ENCRYPTION": "3des",
+      "HASH": "SHA",
+      "AUTHENTICATION": "preshrd",
+      "LIFETIME": "86400"
+    },
+    {
+      "SEQUENCE": "4",
+      "PEER": "209.165.200.228",
+      "TYPE": "User",
+      "DIR": "Resp",
+      "REKEY": "No",
+      "STATE": "AM_ACTIVE",
+      "ENCRYPTION": "3des",
+      "HASH": "SHA",
+      "AUTHENTICATION": "preshrd",
+      "LIFETIME": "86400"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "sequence_peer_type_dir_rekey_state_encryption_hash_authentication_lifetime": [
+        {
+          "SEQUENCE": "IKE",
+          "PEER": "Peer",
+          "TYPE": "Type",
+          "DIR": "Dir",
+          "REKEY": "Rky",
+          "STATE": "State",
+          "ENCRYPTION": "Encrypt",
+          "HASH": "Hash",
+          "AUTHENTICATION": "Auth",
+          "LIFETIME": "Lifetime"
+        },
+        {
+          "SEQUENCE": "1",
+          "PEER": "209.165.200.225",
+          "TYPE": "User",
+          "DIR": "Resp",
+          "REKEY": "No",
+          "STATE": "AM_Active",
+          "ENCRYPTION": "3des",
+          "HASH": "SHA",
+          "AUTHENTICATION": "preshrd",
+          "LIFETIME": "86400"
+        },
+        {
+          "SEQUENCE": "IKE",
+          "PEER": "Peer",
+          "TYPE": "Type",
+          "DIR": "Dir",
+          "REKEY": "Rky",
+          "STATE": "State",
+          "ENCRYPTION": "Encrypt",
+          "HASH": "Hash",
+          "AUTHENTICATION": "Auth",
+          "LIFETIME": "Lifetime"
+        },
+        {
+          "SEQUENCE": "2",
+          "PEER": "209.165.200.226",
+          "TYPE": "User",
+          "DIR": "Resp",
+          "REKEY": "No",
+          "STATE": "AM_ACTIVE",
+          "ENCRYPTION": "3des",
+          "HASH": "SHA",
+          "AUTHENTICATION": "preshrd",
+          "LIFETIME": "86400"
+        },
+        {
+          "SEQUENCE": "IKE",
+          "PEER": "Peer",
+          "TYPE": "Type",
+          "DIR": "Dir",
+          "REKEY": "Rky",
+          "STATE": "State",
+          "ENCRYPTION": "Encrypt",
+          "HASH": "Hash",
+          "AUTHENTICATION": "Auth",
+          "LIFETIME": "Lifetime"
+        },
+        {
+          "SEQUENCE": "3",
+          "PEER": "209.165.200.227",
+          "TYPE": "User",
+          "DIR": "Resp",
+          "REKEY": "No",
+          "STATE": "AM_ACTIVE",
+          "ENCRYPTION": "3des",
+          "HASH": "SHA",
+          "AUTHENTICATION": "preshrd",
+          "LIFETIME": "86400"
+        },
+        {
+          "SEQUENCE": "IKE",
+          "PEER": "Peer",
+          "TYPE": "Type",
+          "DIR": "Dir",
+          "REKEY": "Rky",
+          "STATE": "State",
+          "ENCRYPTION": "Encrypt",
+          "HASH": "Hash",
+          "AUTHENTICATION": "Auth",
+          "LIFETIME": "Lifetime"
+        },
+        {
+          "SEQUENCE": "4",
+          "PEER": "209.165.200.228",
+          "TYPE": "User",
+          "DIR": "Resp",
+          "REKEY": "No",
+          "STATE": "AM_ACTIVE",
+          "ENCRYPTION": "3des",
+          "HASH": "SHA",
+          "AUTHENTICATION": "preshrd",
+          "LIFETIME": "86400"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IKE Peer      Type  Dir   Rky  State      Encrypt Hash  Auth    Lifetime\n1 209.165.200.225 User  Resp  No   AM_Active  3des    SHA   preshrd 86400\nIKE Peer      Type  Dir   Rky  State      Encrypt Hash  Auth    Lifetime\n2 209.165.200.226 User  Resp  No   AM_ACTIVE  3des    SHA   preshrd 86400\nIKE Peer      Type  Dir   Rky  State      Encrypt Hash  Auth    Lifetime\n3 209.165.200.227 User  Resp  No   AM_ACTIVE  3des    SHA   preshrd 86400\nIKE Peer      Type  Dir   Rky  State      Encrypt Hash  Auth    Lifetime\n4 209.165.200.228 User  Resp  No   AM_ACTIVE  3des    SHA   preshrd 86400",
+  "textfsm_template": "Value SEQUENCE (\\d+)\nValue PEER (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue TYPE (\\w+)\nValue DIR (\\w+)\nValue REKEY (Yes|No)\nValue STATE (\\S+)\nValue ENCRYPTION (\\w+)\nValue HASH (\\w+)\nValue AUTHENTICATION (\\w+)\nValue LIFETIME (\\d+)\n\nStart\n  ^IKE\\s+Peer\\s+Type\\s+Dir\\s+Rky\\s+State\\s+Encrypt\\s+Hash\\s+Auth\\s+Lifetime\\s*\n  ^${SEQUENCE}\\s+${PEER}\\s+${TYPE}\\s+${DIR}\\s+${REKEY}\\s+${STATE}\\s+${ENCRYPTION}\\s+${HASH}\\s+${AUTHENTICATION}\\s+${LIFETIME}\\s* -> Record\n"
+}

@@ -1,0 +1,86 @@
+{
+  "command": "show interface description",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.2,
+  "textfsm_rows": 5,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"interface_description_status_protocol\">\n{{INTERFACE}} {{DESCRIPTION | ORPHRASE}} {{STATUS | ORPHRASE}} {{PROTOCOL}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "GigabitEthernet1/0/1",
+      "DESCRIPTION": "Uplink to Switch B",
+      "STATUS": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/0/2",
+      "DESCRIPTION": "Backup link",
+      "STATUS": "administratively down",
+      "PROTOCOL": "down"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/0/3",
+      "DESCRIPTION": "Link to Server A",
+      "STATUS": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/0/4",
+      "DESCRIPTION": "Link to Server B",
+      "STATUS": "down",
+      "PROTOCOL": "down"
+    },
+    {
+      "INTERFACE": "Loopback0",
+      "DESCRIPTION": "Management IP",
+      "STATUS": "up",
+      "PROTOCOL": "up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_description_status_protocol": [
+        {
+          "INTERFACE": "Interface",
+          "DESCRIPTION": "Description",
+          "STATUS": "Status",
+          "PROTOCOL": "Protocol"
+        },
+        {
+          "INTERFACE": "GigabitEthernet1/0/1",
+          "DESCRIPTION": "Uplink to Switch B",
+          "STATUS": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "INTERFACE": "GigabitEthernet1/0/2",
+          "DESCRIPTION": "Backup link",
+          "STATUS": "administratively down",
+          "PROTOCOL": "down"
+        },
+        {
+          "INTERFACE": "GigabitEthernet1/0/3",
+          "DESCRIPTION": "Link to Server A",
+          "STATUS": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "INTERFACE": "GigabitEthernet1/0/4",
+          "DESCRIPTION": "Link to Server B",
+          "STATUS": "down",
+          "PROTOCOL": "down"
+        },
+        {
+          "INTERFACE": "Loopback0",
+          "DESCRIPTION": "Management IP",
+          "STATUS": "up",
+          "PROTOCOL": "up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              Description           Status             Protocol\nGigabitEthernet1/0/1   Uplink to Switch B    up                 up\nGigabitEthernet1/0/2   Backup link           administratively down down\nGigabitEthernet1/0/3   Link to Server A      up                 up\nGigabitEthernet1/0/4   Link to Server B      down               down\nLoopback0              Management IP         up                 up\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue DESCRIPTION (.+?)\nValue STATUS (administratively down|up|down)\nValue PROTOCOL (up|down)\n\nStart\n  ^\\s*Interface\\s+Description\\s+Status\\s+Protocol\\s*$$\n  ^\\s*${INTERFACE}\\s+${DESCRIPTION}\\s+${STATUS}\\s+${PROTOCOL}\\s*$$ -> Record"
+}

@@ -1,0 +1,100 @@
+{
+  "command": "cisco_nxos_show_interface_status",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.2857142857142857,
+  "textfsm_rows": 7,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"port_name_status_vlan_id_duplex_speed_type\">\n{{PORT}} {{NAME | re(\".*\\\\w.*\")}} {{STATUS | ORPHRASE}} {{VLAN_ID}} {{DUPLEX}} {{SPEED}} {{TYPE | ORPHRASE}}\n</group>\n<group name=\"port_name_status_vlan_id_duplex_speed\">\n{{PORT}} {{NAME | re(\".*\\\\w.*\")}} {{STATUS | ORPHRASE}} {{VLAN_ID | re(\"\\\\d+\")}} {{DUPLEX}} {{SPEED | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "Eth1/1",
+      "NAME": "--",
+      "STATUS": "connected",
+      "VLAN_ID": "trunk",
+      "DUPLEX": "full",
+      "SPEED": "10G",
+      "TYPE": "10Gbase-SR"
+    },
+    {
+      "PORT": "Eth1/3",
+      "NAME": "--",
+      "STATUS": "connected",
+      "VLAN_ID": "trunk",
+      "DUPLEX": "full",
+      "SPEED": "10G",
+      "TYPE": "10Gbase-LR"
+    },
+    {
+      "PORT": "Eth1/5",
+      "NAME": "--",
+      "STATUS": "connected",
+      "VLAN_ID": "trunk",
+      "DUPLEX": "full",
+      "SPEED": "10G",
+      "TYPE": "SFP-H10GB-C"
+    },
+    {
+      "PORT": "Eth1/7",
+      "NAME": "--",
+      "STATUS": "connected",
+      "VLAN_ID": "1",
+      "DUPLEX": "full",
+      "SPEED": "10G",
+      "TYPE": "Fabric Exte"
+    },
+    {
+      "PORT": "Eth1/35",
+      "NAME": "--",
+      "STATUS": "sfpAbsent",
+      "VLAN_ID": "1",
+      "DUPLEX": "full",
+      "SPEED": "10G",
+      "TYPE": "--"
+    },
+    {
+      "PORT": "Eth101/1/1",
+      "NAME": "--",
+      "STATUS": "connected",
+      "VLAN_ID": "101",
+      "DUPLEX": "full",
+      "SPEED": "1000",
+      "TYPE": "10/100/1000"
+    },
+    {
+      "PORT": "Eth105/1/1",
+      "NAME": "--",
+      "STATUS": "notconnec",
+      "VLAN_ID": "101",
+      "DUPLEX": "full",
+      "SPEED": "1000"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_name_status_vlan_id_duplex_speed_type": [
+        {
+          "PORT": "Port",
+          "NAME": "Name              ",
+          "STATUS": "Status",
+          "VLAN_ID": "Vlan",
+          "DUPLEX": "Duplex",
+          "SPEED": "Speed",
+          "TYPE": "Type"
+        },
+        {
+          "PORT": "Eth1/7",
+          "NAME": "--                 connected",
+          "STATUS": "1",
+          "VLAN_ID": "full",
+          "DUPLEX": "10G",
+          "SPEED": "Fabric",
+          "TYPE": "Exte"
+        }
+      ]
+    }
+  ],
+  "cli_content": "--------------------------------------------------------------------------------\nPort          Name               Status    Vlan      Duplex  Speed   Type\n--------------------------------------------------------------------------------\nEth1/1        --                 connected trunk     full    10G     10Gbase-SR\nEth1/3        --                 connected trunk     full    10G     10Gbase-LR\nEth1/5        --                 connected trunk     full    10G     SFP-H10GB-C\nEth1/7        --                 connected 1         full    10G     Fabric Exte\nEth1/35       --                 sfpAbsent 1         full    10G     --\nEth101/1/1    --                 connected 101       full    1000    10/100/1000\nEth105/1/1    --                 notconnec 101       full    1000\n",
+  "textfsm_template": "Value PORT (\\S+)\nValue NAME (.*?)\nValue STATUS (\\S+)\nValue VLAN_ID (\\d+|routed|trunk|f-path|--)\nValue DUPLEX (\\S+)\nValue SPEED (\\S+)\nValue TYPE (\\S+(\\s\\S+)*)\n\nStart\n  ^${PORT}\\s+${NAME}\\s+${STATUS}\\s+${VLAN_ID}\\s+${DUPLEX}\\s+${SPEED}(?:\\s+${TYPE})?\\s*$$ -> Record\n  ^[Pp]ort\\s+[Nn]ame\\s+[Ss]tatus\\s+[Vv]lan\\s+[Dd]uplex\\s+[Ss]peed\\s+[Tt]ype\\s*$$\n  ^-+\n  ^\\s*$$\n  ^. -> Error\n"
+}

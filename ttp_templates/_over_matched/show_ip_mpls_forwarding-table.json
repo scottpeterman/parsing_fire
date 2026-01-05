@@ -1,0 +1,100 @@
+{
+  "command": "show ip mpls forwarding-table",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.5,
+  "textfsm_rows": 4,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"local_outgoing_label_prefix_bytes_labels_outgoing_interface\">\n{{LOCAL}} {{OUTGOING_LABEL}} {{PREFIX}} {{BYTES}} {{LABELS | ORPHRASE}} {{OUTGOING_INTERFACE | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOCAL": "20",
+      "OUTGOING_LABEL": "21",
+      "PREFIX": "10.0.2.0/24",
+      "BYTES": "2345678",
+      "LABELS": "Untagged",
+      "OUTGOING_INTERFACE": "Ethernet0/1"
+    },
+    {
+      "LOCAL": "22",
+      "OUTGOING_LABEL": "32",
+      "PREFIX": "10.0.3.0/24",
+      "BYTES": "3456789",
+      "LABELS": "102",
+      "OUTGOING_INTERFACE": "Ethernet0/2"
+    },
+    {
+      "LOCAL": "23",
+      "OUTGOING_LABEL": "Aggregate",
+      "PREFIX": "10.0.4.0/24",
+      "BYTES": "4567890",
+      "LABELS": "No Label",
+      "OUTGOING_INTERFACE": "Aggregate"
+    },
+    {
+      "LOCAL": "24",
+      "OUTGOING_LABEL": "19",
+      "PREFIX": "10.0.5.0/24",
+      "BYTES": "5678901",
+      "LABELS": "103",
+      "OUTGOING_INTERFACE": "Ethernet0/3"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "local_outgoing_label_prefix_bytes_labels_outgoing_interface": [
+        {
+          "LOCAL": "Local",
+          "OUTGOING_LABEL": "Outgoing",
+          "PREFIX": "Prefix",
+          "BYTES": "Bytes",
+          "LABELS": "Label",
+          "OUTGOING_INTERFACE": "Outgoing Interface"
+        },
+        {
+          "LOCAL": "19",
+          "OUTGOING_LABEL": "Pop",
+          "PREFIX": "Label",
+          "BYTES": "10.0.1.0/24",
+          "LABELS": "1234567",
+          "OUTGOING_INTERFACE": "No Label Ethernet0/0"
+        },
+        {
+          "LOCAL": "20",
+          "OUTGOING_LABEL": "21",
+          "PREFIX": "10.0.2.0/24",
+          "BYTES": "2345678",
+          "LABELS": "Untagged",
+          "OUTGOING_INTERFACE": "Ethernet0/1"
+        },
+        {
+          "LOCAL": "22",
+          "OUTGOING_LABEL": "32",
+          "PREFIX": "10.0.3.0/24",
+          "BYTES": "3456789",
+          "LABELS": "102",
+          "OUTGOING_INTERFACE": "Ethernet0/2"
+        },
+        {
+          "LOCAL": "23",
+          "OUTGOING_LABEL": "Aggregate",
+          "PREFIX": "10.0.4.0/24",
+          "BYTES": "4567890",
+          "LABELS": "No",
+          "OUTGOING_INTERFACE": "Label Aggregate"
+        },
+        {
+          "LOCAL": "24",
+          "OUTGOING_LABEL": "19",
+          "PREFIX": "10.0.5.0/24",
+          "BYTES": "5678901",
+          "LABELS": "103",
+          "OUTGOING_INTERFACE": "Ethernet0/3"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Local      Outgoing   Prefix           Bytes     Label   Outgoing Interface    \n19         Pop Label  10.0.1.0/24      1234567   No Label Ethernet0/0           \n20         21         10.0.2.0/24      2345678   Untagged Ethernet0/1           \n22         32         10.0.3.0/24      3456789   102      Ethernet0/2           \n23         Aggregate  10.0.4.0/24      4567890   No Label Aggregate            \n24         19         10.0.5.0/24      5678901   103      Ethernet0/3           \n",
+  "textfsm_template": "Value LOCAL (\\d+)\nValue OUTGOING_LABEL (\\S+)\nValue PREFIX (\\d+\\.\\d+\\.\\d+\\.\\d+\\/\\d+)\nValue BYTES (\\d+)\nValue LABELS (No Label|Untagged|\\d+)\nValue OUTGOING_INTERFACE (\\S+)\n\nStart\n  ^\\s*Local\\s+Outgoing\\s+Prefix\\s+Bytes\\s+Label\\s+Out\\s --> Next.Record\n  ^\\s*${LOCAL}\\s+${OUTGOING_LABEL}\\s+${PREFIX}\\s+${BYTES}\\s+${LABELS}\\s+${OUTGOING_INTERFACE}\\s*$$ -> Record"
+}

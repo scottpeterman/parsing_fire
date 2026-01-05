@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: display interface brief
+# Source: chatgpt
+# TextFSM rows: 6
+# TTP rows: 7
+# Match ratio: 1.17
+
+<group name="interface_physical_protocol_description">
+{{INTERFACE}} {{PHYSICAL}} {{PROTOCOL}} {{DESCRIPTION | ORPHRASE}}
+</group>

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show bfd neighbor detail
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="neighaddr_ld_rd_rh_rs_state_interval_multiplier">
+   {{NEIGHADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{LD_RD}} {{RH_RS}} {{STATE | ORPHRASE}} {{INTERVAL | ORPHRASE}} {{MULTIPLIER}} 
+</group>

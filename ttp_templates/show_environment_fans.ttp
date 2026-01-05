@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show environment fans
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="fan_model_status_speed_direction">
+{{FAN_MODEL | ORPHRASE}} {{STATUS | ORPHRASE}} {{SPEED}} {{DIRECTION | ORPHRASE}}
+</group>

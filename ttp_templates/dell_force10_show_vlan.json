@@ -1,0 +1,106 @@
+{
+  "command": "dell_force10_show_vlan",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 7,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"vlan_id_status_ports_u_te\">\n* {{VLAN_ID | re(\"\\\\d+\")}} {{STATUS | ORPHRASE}} U Te {{PORTS_U_TE | ORPHRASE}}\n</group>\n<group name=\"vlan_id_status_vlan_name\">\n    {{VLAN_ID | re(\"\\\\d+\")}} {{STATUS | ORPHRASE}} {{VLAN_NAME | ORPHRASE}} \n</group>\n<group name=\"vlan_id_status_vlan_name_ports_t_te\">\n    {{VLAN_ID | re(\"\\\\d+\")}} {{STATUS | ORPHRASE}} {{VLAN_NAME | ORPHRASE}} T Te {{PORTS_T_TE | ORPHRASE}}\n</group>\n<group name=\"vlan_id_status_vlan_name_ports_u_te\">\n    {{VLAN_ID | re(\"\\\\d+\")}} {{STATUS | ORPHRASE}} {{VLAN_NAME | ORPHRASE}} U Te {{PORTS_U_TE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN_ID": "1",
+      "STATUS": "Inactive",
+      "PORTS_U_TE": "0/42-43",
+      "PORTS_U_FO": "0/48,56,60"
+    },
+    {
+      "VLAN_ID": "12",
+      "STATUS": "Inactive",
+      "PORTS_U_TE": "0/0-9,45-47"
+    },
+    {
+      "VLAN_ID": "13",
+      "STATUS": "Inactive",
+      "VLAN_NAME": "myvlan13"
+    },
+    {
+      "VLAN_ID": "100",
+      "STATUS": "Inactive",
+      "VLAN_NAME": "pixelrebel is awesome",
+      "PORTS_U_TE": "0/40-41,44",
+      "PORTS_T_TE": "0/30",
+      "PORTS_U_FO": "0/52"
+    },
+    {
+      "VLAN_ID": "330",
+      "STATUS": "Inactive",
+      "VLAN_NAME": "tagged example",
+      "PORTS_U_TE": "0/31-34,38-39",
+      "PORTS_T_TE": "0/30,35-37"
+    },
+    {
+      "VLAN_ID": "351",
+      "STATUS": "Inactive",
+      "VLAN_NAME": "dev 351 vlan",
+      "PORTS_U_TE": "0/10-19"
+    },
+    {
+      "VLAN_ID": "380",
+      "STATUS": "Active",
+      "VLAN_NAME": "dev-VLAN 380",
+      "PORTS_U_TE": "0/20-29"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_id_status_ports_u_te": {
+        "VLAN_ID": "1",
+        "STATUS": "Inactive",
+        "PORTS_U_TE": "0/42-43"
+      },
+      "vlan_id_status_vlan_name": [
+        {
+          "VLAN_ID": "12",
+          "STATUS": "Inactive",
+          "VLAN_NAME": "U Te 0/0-9,45-47"
+        },
+        {
+          "VLAN_ID": "13",
+          "STATUS": "Inactive",
+          "VLAN_NAME": "myvlan13"
+        }
+      ],
+      "vlan_id_status_vlan_name_ports_t_te": [
+        {
+          "VLAN_ID": "100",
+          "STATUS": "Inactive",
+          "VLAN_NAME": "pixelrebel is awesome",
+          "PORTS_T_TE": "0/30"
+        },
+        {
+          "VLAN_ID": "330",
+          "STATUS": "Inactive",
+          "VLAN_NAME": "tagged example",
+          "PORTS_T_TE": "0/30,35-37"
+        }
+      ],
+      "vlan_id_status_vlan_name_ports_u_te": [
+        {
+          "VLAN_ID": "351",
+          "STATUS": "Inactive",
+          "VLAN_NAME": "dev 351 vlan",
+          "PORTS_U_TE": "0/10-19"
+        },
+        {
+          "VLAN_ID": "380",
+          "STATUS": "Active",
+          "VLAN_NAME": "dev-VLAN 380",
+          "PORTS_U_TE": "0/20-29"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nCodes: * - Default VLAN, G - GVRP VLANs, P - Primary, C - Community, I - Isolated\nQ: U - Untagged, T - Tagged\n   x - Dot1x untagged, X - Dot1x tagged\n   G - GVRP tagged, M - Vlan-stack, H - Hyperpull tagged\n\n    NUM    Status    Description                     Q Ports\n*   1      Inactive                                  U Te 0/42-43\n                                                     U Fo 0/48,56,60\n    12     Inactive                                  U Te 0/0-9,45-47\n    13     Inactive  myvlan13                        \n    14     Inactive                                  \n    100    Inactive  pixelrebel is awesome           T Te 0/30\n                                                     U Te 0/40-41,44\n                                                     U Fo 0/52\n    200    Inactive                                  \n    330    Inactive  tagged example                  T Te 0/30,35-37\n                                                     U Te 0/31-34,38-39\n    351    Inactive  dev 351 vlan                    U Te 0/10-19\n    380    Active    dev-VLAN 380                    U Te 0/20-29\n",
+  "textfsm_template": "Value Required VLAN_ID (\\d+)\n# Name is really the description and it currently only supports a single word (no spaces)\nValue Required STATUS (\\w+)\nValue VLAN_NAME ([^TU][^\\s]\\S+(\\s\\S+)*)\nValue PORTS_U_GI (\\S+)\nValue PORTS_T_GI (\\S+)\nValue PORTS_U_TE (\\S+)\nValue PORTS_T_TE (\\S+)\nValue PORTS_U_FO (\\S+)\nValue PORTS_T_FO (\\S+)\nValue PORTS_U_MA (\\S+)\nValue PORTS_T_MA (\\S+)\n\nStart\n  ^(\\*)?\\s+\\d+.* -> Continue.Record\n  ^(\\*)?\\s+${VLAN_ID}\\s+${STATUS}(\\s+${VLAN_NAME})?(\\s+(U Gi ${PORTS_U_GI}|T Gi ${PORTS_T_GI}|U Ma ${PORTS_U_MA}|T Ma ${PORTS_T_MA}|U Te ${PORTS_U_TE}|T Te ${PORTS_T_TE}|U Fo ${PORTS_U_FO}|T Fo ${PORTS_T_FO}))?\n  ^\\s+U Gi ${PORTS_U_GI}\n  ^\\s+T Gi ${PORTS_T_GI}\n  ^\\s+U Ma ${PORTS_U_MA}\n  ^\\s+T Ma ${PORTS_T_MA}\n  ^\\s+U Te ${PORTS_U_TE}\n  ^\\s+T Te ${PORTS_T_TE}\n  ^\\s+U Fo ${PORTS_U_FO}\n  ^\\s+T Fo ${PORTS_T_FO}\n"
+}

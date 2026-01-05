@@ -1,0 +1,76 @@
+{
+  "command": "paloalto_panos_show_arp_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.75,
+  "textfsm_rows": 4,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"interface_ip_address_mac_address_port_status_ttl\">\n{{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{PORT}} {{STATUS | ORPHRASE}} {{TTL | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "ethernet1/1",
+      "IP_ADDRESS": "172.25.1.254",
+      "MAC_ADDRESS": "08:30:6b:26:43:30",
+      "PORT": "ethernet1/1",
+      "STATUS": "c",
+      "TTL": "627"
+    },
+    {
+      "INTERFACE": "vlan.1",
+      "IP_ADDRESS": "172.25.2.195",
+      "MAC_ADDRESS": "00:50:00:00:07:00",
+      "PORT": "ethernet1/2.110",
+      "STATUS": "c",
+      "TTL": "1012"
+    },
+    {
+      "INTERFACE": "vlan.1",
+      "IP_ADDRESS": "172.25.2.196",
+      "MAC_ADDRESS": "00:50:00:00:08:00",
+      "PORT": "ethernet1/2.111",
+      "STATUS": "c",
+      "TTL": "1016"
+    },
+    {
+      "INTERFACE": "vlan.1",
+      "IP_ADDRESS": "172.25.2.197",
+      "MAC_ADDRESS": "incomplete",
+      "PORT": "ethernet1/2.111",
+      "STATUS": "c",
+      "TTL": "1016"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_mac_address_port_status_ttl": [
+        {
+          "INTERFACE": "ethernet1/1",
+          "IP_ADDRESS": "172.25.1.254",
+          "MAC_ADDRESS": "08:30:6b:26:43:30",
+          "PORT": "ethernet1/1",
+          "STATUS": "c",
+          "TTL": "627"
+        },
+        {
+          "INTERFACE": "vlan.1",
+          "IP_ADDRESS": "172.25.2.195",
+          "MAC_ADDRESS": "00:50:00:00:07:00",
+          "PORT": "ethernet1/2.110",
+          "STATUS": "c",
+          "TTL": "1012"
+        },
+        {
+          "INTERFACE": "vlan.1",
+          "IP_ADDRESS": "172.25.2.196",
+          "MAC_ADDRESS": "00:50:00:00:08:00",
+          "PORT": "ethernet1/2.111",
+          "STATUS": "c",
+          "TTL": "1016"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nmaximum of entries supported :      1500\ndefault timeout:                    1800 seconds\ntotal ARP entries in table :        5\ntotal ARP entries shown :           5\nstatus: s - static, c - complete, e - expiring, i - incomplete\n\ninterface         ip address      hw address        port              status   ttl\n--------------------------------------------------------------------------------\nethernet1/1       172.25.1.254    08:30:6b:26:43:30 ethernet1/1         c      627\nvlan.1            172.25.2.195    00:50:00:00:07:00 ethernet1/2.110     c      1012\nvlan.1            172.25.2.196    00:50:00:00:08:00 ethernet1/2.111     c      1016\nvlan.1            172.25.2.197    (incomplete)      ethernet1/2.111     c      1016\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue IP_ADDRESS (\\S+)\nValue MAC_ADDRESS ([0-9A-Fa-f:]+|incomplete)\nValue PORT (\\S+)\nValue STATUS (\\S+)\nValue TTL (\\d+)\n\nStart\n  ^interface\\s+ip address\\s+hw address\\s+port\\s+status\\s+ttl -> Start_record\n\nStart_record\n  ^\\s*---\n  ^${INTERFACE}\\s+${IP_ADDRESS}\\s+\\(*${MAC_ADDRESS}\\)*\\s+${PORT}\\s+${STATUS}\\s+${TTL} -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

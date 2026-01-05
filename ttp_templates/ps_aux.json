@@ -1,0 +1,135 @@
+{
+  "command": "ps aux",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.125,
+  "textfsm_rows": 8,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"user_pid_cpu_mem_vsz_rss_tty_stat_start_time_command\">\n{{USER}} {{PID | re(\"\\\\d+\")}} {{CPU}} {{MEM}} {{VSZ}} {{RSS}} {{TTY | re(\".*\\\\w.*\")}} {{STAT}} {{START}} {{TIME}} {{COMMAND | ORPHRASE}}\n</group>\n<group name=\"stat_pid_cpu_mem_vsz_rss_tty_start_time_command\">\n{{U{{STAT}}ER}} {{PID | re(\"\\\\d+\")}} {{CPU}} {{MEM}} {{VSZ}} {{RSS}} {{TTY | re(\".*\\\\w.*\")}} S {{START}} {{TIME}} {{COMMAND | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "USER": "root",
+      "PID": "1",
+      "CPU": "0.0",
+      "MEM": "0.1",
+      "VSZ": "33832",
+      "RSS": "2860",
+      "TTY": "?",
+      "STAT": "Ss",
+      "START": "2021",
+      "TIME": "0:05",
+      "COMMAND": "/sbin/init"
+    },
+    {
+      "USER": "root",
+      "PID": "2",
+      "CPU": "0.0",
+      "MEM": "0.0",
+      "VSZ": "0",
+      "RSS": "0",
+      "TTY": "?",
+      "STAT": "S",
+      "START": "2021",
+      "TIME": "0:01",
+      "COMMAND": "[kthreadd]"
+    },
+    {
+      "USER": "root",
+      "PID": "3",
+      "CPU": "0.0",
+      "MEM": "0.0",
+      "VSZ": "0",
+      "RSS": "0",
+      "TTY": "?",
+      "STAT": "I<",
+      "START": "2021",
+      "TIME": "0:00",
+      "COMMAND": "[rcu_gp]"
+    },
+    {
+      "USER": "root",
+      "PID": "4",
+      "CPU": "0.0",
+      "MEM": "0.0",
+      "VSZ": "0",
+      "RSS": "0",
+      "TTY": "?",
+      "STAT": "I<",
+      "START": "2021",
+      "TIME": "0:00",
+      "COMMAND": "[rcu_par_gp]"
+    },
+    {
+      "USER": "root",
+      "PID": "697",
+      "CPU": "0.1",
+      "MEM": "0.4",
+      "VSZ": "100236",
+      "RSS": "11764",
+      "TTY": "?",
+      "STAT": "Ss",
+      "START": "2021",
+      "TIME": "0:37",
+      "COMMAND": "/lib/systemd/systemd-journald"
+    },
+    {
+      "USER": "root",
+      "PID": "714",
+      "CPU": "0.0",
+      "MEM": "0.1",
+      "VSZ": "30240",
+      "RSS": "2948",
+      "TTY": "?",
+      "STAT": "Ss",
+      "START": "2021",
+      "TIME": "0:12",
+      "COMMAND": "/lib/systemd/systemd-udevd"
+    },
+    {
+      "USER": "root",
+      "PID": "1115",
+      "CPU": "0.0",
+      "MEM": "0.2",
+      "VSZ": "44964",
+      "RSS": "6224",
+      "TTY": "?",
+      "STAT": "Ss",
+      "START": "2021",
+      "TIME": "0:20",
+      "COMMAND": "/usr/sbin/rsyslogd -n"
+    },
+    {
+      "USER": "root",
+      "PID": "1312",
+      "CPU": "0.0",
+      "MEM": "0.1",
+      "VSZ": "30048",
+      "RSS": "3104",
+      "TTY": "?",
+      "STAT": "Ss",
+      "START": "2021",
+      "TIME": "0:09",
+      "COMMAND": "/usr/lib/accountsservice/accounts-daemon"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "user_pid_cpu_mem_vsz_rss_tty_stat_start_time_command": {
+        "USER": "root",
+        "PID": "1115",
+        "CPU": "0.0",
+        "MEM": "0.2",
+        "VSZ": "44964",
+        "RSS": "6224",
+        "TTY": "?        Ss  ",
+        "STAT": "2021",
+        "START": "0:20",
+        "TIME": "/usr/sbin/rsyslogd",
+        "COMMAND": "-n"
+      }
+    }
+  ],
+  "cli_content": "USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND\nroot         1  0.0  0.1  33832  2860 ?        Ss   2021   0:05 /sbin/init\nroot         2  0.0  0.0      0     0 ?        S    2021   0:01 [kthreadd]\nroot         3  0.0  0.0      0     0 ?        I<   2021   0:00 [rcu_gp]\nroot         4  0.0  0.0      0     0 ?        I<   2021   0:00 [rcu_par_gp]\nroot       697  0.1  0.4 100236 11764 ?        Ss   2021   0:37 /lib/systemd/systemd-journald\nroot       714  0.0  0.1  30240  2948 ?        Ss   2021   0:12 /lib/systemd/systemd-udevd\nroot      1115  0.0  0.2  44964  6224 ?        Ss   2021   0:20 /usr/sbin/rsyslogd -n\nroot      1312  0.0  0.1  30048  3104 ?        Ss   2021   0:09 /usr/lib/accountsservice/accounts-daemon\n",
+  "textfsm_template": "Value USER (\\S+)\nValue PID (\\d+)\nValue CPU (\\d+\\.\\d+)\nValue MEM (\\d+\\.\\d+)\nValue VSZ (\\d+)\nValue RSS (\\d+)\nValue TTY (\\S+)\nValue STAT (\\S+)\nValue START (\\d+|\\?|<|\\[\\])\nValue TIME (\\d+\\:\\d+)\nValue COMMAND (.+)\n\nStart\n  ^\\s*${USER}\\s+${PID}\\s+${CPU}\\s+${MEM}\\s+${VSZ}\\s+${RSS}\\s+${TTY}\\s+${STAT}\\s+${START}\\s+${TIME}\\s+${COMMAND} -> Record"
+}

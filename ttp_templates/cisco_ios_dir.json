@@ -1,0 +1,178 @@
+{
+  "command": "cisco_ios_dir",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 12,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"file_system\">\nDirectory of {{FILE_SYSTEM | ORPHRASE}}\n<group name=\"date_time_id_name\">\n   {{ID | re(\"\\\\d+\")}} {{PERMISSIONS | ORPHRASE}} {{SIZE}} {{DATE_TIME | ORPHRASE}} {{NAME | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FILE_SYSTEM": "bootflash:/",
+      "ID": "11",
+      "PERMISSIONS": "drwx",
+      "SIZE": "16384",
+      "TOTAL_SIZE": "7835619328",
+      "TOTAL_FREE": "6612774912",
+      "DATE_TIME": "Mar 2 2015 08:46:31 +00:00",
+      "NAME": "lost+found"
+    },
+    {
+      "FILE_SYSTEM": "bootflash:/",
+      "ID": "681409",
+      "PERMISSIONS": "drwx",
+      "SIZE": "4096",
+      "TOTAL_SIZE": "7835619328",
+      "TOTAL_FREE": "6612774912",
+      "DATE_TIME": "Mar 2 2015 08:47:35 +00:00",
+      "NAME": ".super.iso.dir"
+    },
+    {
+      "FILE_SYSTEM": "bootflash:/",
+      "ID": "12",
+      "PERMISSIONS": "-rw-",
+      "SIZE": "46",
+      "TOTAL_SIZE": "7835619328",
+      "TOTAL_FREE": "6612774912",
+      "DATE_TIME": "Apr 22 2016 12:36:24 +00:00",
+      "NAME": ".CsrLxc_LastInstall"
+    },
+    {
+      "FILE_SYSTEM": "bootflash:/",
+      "ID": "13",
+      "PERMISSIONS": "-rw-",
+      "SIZE": "84",
+      "TOTAL_SIZE": "7835619328",
+      "TOTAL_FREE": "6612774912",
+      "DATE_TIME": "Mar 2 2015 08:50:43 +00:00",
+      "NAME": "virtual-instance.conf"
+    },
+    {
+      "FILE_SYSTEM": "bootflash:/",
+      "ID": "876097",
+      "PERMISSIONS": "drwx",
+      "SIZE": "4096",
+      "TOTAL_SIZE": "7835619328",
+      "TOTAL_FREE": "6612774912",
+      "DATE_TIME": "Mar 2 2015 08:49:40 +00:00",
+      "NAME": "core"
+    },
+    {
+      "FILE_SYSTEM": "bootflash:/",
+      "ID": "15",
+      "PERMISSIONS": "-rw-",
+      "SIZE": "161136640",
+      "TOTAL_SIZE": "7835619328",
+      "TOTAL_FREE": "6612774912",
+      "DATE_TIME": "Mar 2 2015 08:47:34 +00:00",
+      "NAME": "iosxe-remote-mgmt.03.14.01.S.155-1.S1-std.ova"
+    },
+    {
+      "FILE_SYSTEM": "bootflash:/",
+      "ID": "519172",
+      "PERMISSIONS": "-rw-",
+      "SIZE": "250578048",
+      "TOTAL_SIZE": "7835619328",
+      "TOTAL_FREE": "6612774912",
+      "DATE_TIME": "Mar 2 2015 08:48:31 +00:00",
+      "NAME": "csr1000v-mono-universalk9.03.14.01.S.155-1.S1-std.SPA.pkg"
+    },
+    {
+      "FILE_SYSTEM": "bootflash:/",
+      "ID": "519170",
+      "PERMISSIONS": "-rw-",
+      "SIZE": "4892",
+      "TOTAL_SIZE": "7835619328",
+      "TOTAL_FREE": "6612774912",
+      "DATE_TIME": "Mar 2 2015 08:48:30 +00:00",
+      "NAME": "csr1000v-packages-universalk9.03.14.01.S.155-1.S1-std.conf"
+    },
+    {
+      "FILE_SYSTEM": "bootflash:/",
+      "ID": "519171",
+      "PERMISSIONS": "-rw  -",
+      "SIZE": "5681",
+      "TOTAL_SIZE": "7835619328",
+      "TOTAL_FREE": "6612774912",
+      "DATE_TIME": "Mar 2 2015 08:48:31 +00:00",
+      "NAME": "packages.conf"
+    },
+    {
+      "FILE_SYSTEM": "bootflash:/",
+      "ID": "827425",
+      "PERMISSIONS": "drwx",
+      "SIZE": "4096",
+      "TOTAL_SIZE": "7835619328",
+      "TOTAL_FREE": "6612774912",
+      "DATE_TIME": "Mar 2 2015 08:49:40 +00:00",
+      "NAME": ".prst_sync"
+    },
+    {
+      "FILE_SYSTEM": "bootflash:/",
+      "ID": "730081",
+      "PERMISSIONS": "drwx",
+      "SIZE": "4096",
+      "TOTAL_SIZE": "7835619328",
+      "TOTAL_FREE": "6612774912",
+      "DATE_TIME": "Mar 2 2015 08:49:43 +00:00",
+      "NAME": ".rollback_timer"
+    },
+    {
+      "FILE_SYSTEM": "bootflash:/",
+      "ID": "16",
+      "PERMISSIONS": "-rw-",
+      "SIZE": "0",
+      "TOTAL_SIZE": "7835619328",
+      "TOTAL_FREE": "6612774912",
+      "DATE_TIME": "Mar 2 2015 08:49:46 +00:00",
+      "NAME": "tracelogs.394"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "file_system": {
+        "FILE_SYSTEM": "bootflash:/",
+        "date_time_id_name": [
+          {
+            "ID": "11",
+            "PERMISSIONS": "drwx",
+            "SIZE": "16384",
+            "DATE_TIME": "Mar 2 2015 08:46:31 +00:00",
+            "NAME": "lost+found"
+          },
+          {
+            "ID": "12",
+            "PERMISSIONS": "-rw-",
+            "SIZE": "46",
+            "DATE_TIME": "Apr 22 2016 12:36:24 +00:00",
+            "NAME": ".CsrLxc_LastInstall"
+          },
+          {
+            "ID": "13",
+            "PERMISSIONS": "-rw-",
+            "SIZE": "84",
+            "DATE_TIME": "Mar 2 2015 08:50:43 +00:00",
+            "NAME": "virtual-instance.conf"
+          },
+          {
+            "ID": "15",
+            "PERMISSIONS": "-rw-",
+            "SIZE": "161136640",
+            "DATE_TIME": "Mar 2 2015 08:47:34 +00:00",
+            "NAME": "iosxe-remote-mgmt.03.14.01.S.155-1.S1-std.ova"
+          },
+          {
+            "ID": "16",
+            "PERMISSIONS": "-rw-",
+            "SIZE": "0",
+            "DATE_TIME": "Mar 2 2015 08:49:46 +00:00",
+            "NAME": "tracelogs.394"
+          }
+        ]
+      }
+    }
+  ],
+  "cli_content": "Directory of bootflash:/\n\n   11  drwx            16384   Mar 2 2015 08:46:31 +00:00  lost+found\n681409  drwx             4096   Mar 2 2015 08:47:35 +00:00  .super.iso.dir\n   12  -rw-               46  Apr 22 2016 12:36:24 +00:00  .CsrLxc_LastInstall\n   13  -rw-               84   Mar 2 2015 08:50:43 +00:00  virtual-instance.conf\n876097  drwx             4096   Mar 2 2015 08:49:40 +00:00  core\n   15  -rw-        161136640   Mar 2 2015 08:47:34 +00:00  iosxe-remote-mgmt.03.14.01.S.155-1.S1-std.ova\n519172  -rw-        250578048   Mar 2 2015 08:48:31 +00:00  csr1000v-mono-universalk9.03.14.01.S.155-1.S1-std.SPA.pkg\n519170  -rw-             4892   Mar 2 2015 08:48:30 +00:00  csr1000v-packages-universalk9.03.14.01.S.155-1.S1-std.conf\n519171  -rw  -             5681   Mar 2 2015 08:48:31 +00:00  packages.conf\n827425  drwx             4096   Mar 2 2015 08:49:40 +00:00  .prst_sync\n730081  drwx             4096   Mar 2 2015 08:49:43 +00:00  .rollback_timer\n   16  -rw-                0   Mar 2 2015 08:49:46 +00:00  tracelogs.394\n\n7835619328 bytes total (6612774912 bytes free)",
+  "textfsm_template": "Value Filldown FILE_SYSTEM (\\S+)\nValue ID (\\d+)\nValue PERMISSIONS (.+?)\nValue SIZE (\\d+)\nValue Fillup TOTAL_SIZE (\\d+)\nValue Fillup TOTAL_FREE (\\d+)\nValue DATE_TIME (.+?)\nValue NAME (\\S+)\n\nStart\n  ^\\s*${ID}\\s+${PERMISSIONS}\\s+${SIZE}\\s+${DATE_TIME}\\s+${NAME}\\s*$$ -> Record\n  ^Directory of\\s+${FILE_SYSTEM}\n  ^${TOTAL_SIZE}\\s+\\S+\\s+\\S+\\s\\(${TOTAL_FREE} bytes free\\)\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n\nEOF\n"
+}

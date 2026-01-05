@@ -1,0 +1,22 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_interfaces
+# Source: ntc
+# TextFSM rows: 56
+# TTP rows: 236
+# Match ratio: 4.21
+
+<group name="hardware_type_mac_address_bia">
+  Hardware is {{HARDWARE_TYPE | ORPHRASE}}, address is {{MAC_ADDRESS | ORPHRASE}} (bia {{BIA}})
+</group>
+<group name="mtu_bandwidth_delay">
+  MTU {{MTU}} bytes, BW {{BANDWIDTH | ORPHRASE}}, DLY {{DELAY | ORPHRASE}},
+</group>
+<group name="duplex_speed_media_type">
+  {{DUPLEX}}, {{SPEED}}, media type is {{MEDIA_TYPE | ORPHRASE}}
+</group>
+<group name="input_rate_output_rate_input_pps_output_pps_input_packets_output_packets_last_input_last_output">
+  Last input {{INPUT_RATE}}{{OUTPUT_RATE}}:{{INPUT_PPS}}{{OUTPUT_PPS}}:{{INPUT_PACKETS}}{{OUTPUT_PACKETS}}, output {{LAST_INPUT | ORPHRASE}}, output hang {{LAST_OUTPUT}}
+</group>
+<group name="interface_link_status_protocol_status">
+{{INTERFACE}} is {{LINK_STATUS | ORPHRASE}}, line protocol is {{PROTOCOL_STATUS | ORPHRASE}}
+</group>

@@ -1,0 +1,66 @@
+{
+  "command": "cisco_ios_show_ip_http_server_status",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"access_class_active_session_modules_auth_method_auth_retry\">\nHTTP server status: {{SERVER_STATUS | ORPHRASE}}\nHTTP server port: {{SERVER_PORT | ORPHRASE}}\nHTTP server authentication method: {{AUTH_METHOD | ORPHRASE}}\nHTTP server digest algorithm: {{SERVER_DIGEST | ORPHRASE}}\nHTTP server IPv4 access class: {{IPV4_ACCESS_CLASS | ORPHRASE}}\nHTTP File Upload status: {{FILE_UPLOAD_STATUS | ORPHRASE}}\nMaximum number of concurrent server connections allowed: {{CONCURRENT_CONNECTIONS_ALLOWED | ORPHRASE}}\nMaximum number of secondary server connections allowed: {{SECONDARY_CONNECTIONS_ALLOWED | ORPHRASE}}\nServer idle time-out: {{SERVER_IDLE_TIMEOUT | ORPHRASE}}\nServer session idle time-out: {{SERVER_SESSION_TIMEOUT | ORPHRASE}}\nMaximum number of requests allowed on a connection: {{MAX_REQUESTS_PER_CONNECTION | ORPHRASE}}\nServer linger time : {{SERVER_LINGER_TIME | ORPHRASE}}\nHTTP server active session modules: {{ACTIVE_SESSION_MODULES | ORPHRASE}}\nHTTP secure server capability: {{SECURE_SERVER_CAPABILITY | ORPHRASE}}\nHTTP secure server port: {{SECURE_SERVER_PORT | ORPHRASE}}\nHTTP secure server ECDHE curve: {{SECURE_ECDHE_CURVE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SERVER_STATUS": "Enabled",
+      "SERVER_PORT": "80",
+      "AUTH_METHOD": "local",
+      "AUTH_RETRY": "0",
+      "TIME_WINDOW": "0",
+      "SERVER_DIGEST": "md5",
+      "ACCESS_CLASS": "0",
+      "IPV4_ACCESS_CLASS": "None",
+      "IPV6_ACCESS_CLASS": "None",
+      "FILE_UPLOAD_STATUS": "Disabled",
+      "CONCURRENT_CONNECTIONS_ALLOWED": "300",
+      "SECONDARY_CONNECTIONS_ALLOWED": "50",
+      "SERVER_IDLE_TIMEOUT": "180 seconds",
+      "SERVER_LIFE_TIMEOUT": "180 seconds",
+      "SERVER_SESSION_TIMEOUT": "600 seconds",
+      "MAX_REQUESTS_PER_CONNECTION": "25",
+      "SERVER_LINGER_TIME": "60 seconds",
+      "ACTIVE_SESSION_MODULES": "ALL",
+      "SECURE_SERVER_CAPABILITY": "Present",
+      "SECURE_SERVER_STATUS": "Enabled",
+      "SECURE_SERVER_PORT": "443",
+      "SECURE_CIPHERSUITE": "rsa-aes-cbc-sha2, rsa-aes-gcm-sha2, dhe-aes-cbc-sha2, dhe-aes-gcm-sha2, ecdhe-rsa-aes-cbc-sha2, ecdhe-rsa-aes-gcm-sha2, ecdhe-ecdsa-aes-gcm-sha2",
+      "TLS_VERSIONS": "TLSv1.2, TLSv1.1",
+      "SECURE_CLIENT_AUTH": "Disabled",
+      "SECURE_PIV_AUTHN": "Disabled",
+      "SECURE_PIV_AUTHZ": "Disabled",
+      "SECURE_ECDHE_CURVE": "secp256r1",
+      "SECURE_ACTIVE_SESSION_MODULES": "ALL"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "access_class_active_session_modules_auth_method_auth_retry": {
+        "SECURE_ECDHE_CURVE": "secp256r1",
+        "SECURE_SERVER_PORT": "443",
+        "SECURE_SERVER_CAPABILITY": "Present",
+        "ACTIVE_SESSION_MODULES": "ALL",
+        "SERVER_LINGER_TIME": "60 seconds",
+        "MAX_REQUESTS_PER_CONNECTION": "25",
+        "SERVER_SESSION_TIMEOUT": "600 seconds",
+        "SERVER_IDLE_TIMEOUT": "180 seconds",
+        "SECONDARY_CONNECTIONS_ALLOWED": "50",
+        "CONCURRENT_CONNECTIONS_ALLOWED": "300",
+        "FILE_UPLOAD_STATUS": "Disabled",
+        "IPV4_ACCESS_CLASS": "None",
+        "SERVER_DIGEST": "md5",
+        "AUTH_METHOD": "local",
+        "SERVER_PORT": "80",
+        "SERVER_STATUS": "Enabled"
+      }
+    }
+  ],
+  "cli_content": "HTTP server status: Enabled\nHTTP server port: 80\nHTTP server active supplementary listener ports: 21111  \nHTTP server authentication method: local\nHTTP server auth-retry 0 time-window 0\nHTTP server digest algorithm: md5\nHTTP server access class: 0\nHTTP server IPv4 access class: None\nHTTP server IPv6 access class: None\nHTTP server base path: \nHTTP File Upload status: Disabled\nHTTP server upload path: \nHTTP server help root: \nMaximum number of concurrent server connections allowed: 300\nMaximum number of secondary server connections allowed: 50\nServer idle time-out: 180 seconds\nServer life time-out: 180 seconds\nServer session idle time-out: 600 seconds\nMaximum number of requests allowed on a connection: 25\nServer linger time : 60 seconds\nHTTP server active session modules: ALL\nHTTP secure server capability: Present\nHTTP secure server status: Enabled\nHTTP secure server port: 443\nHTTP secure server ciphersuite:  rsa-aes-cbc-sha2 rsa-aes-gcm-sha2\n        dhe-aes-cbc-sha2 dhe-aes-gcm-sha2 ecdhe-rsa-aes-cbc-sha2\n        ecdhe-rsa-aes-gcm-sha2 ecdhe-ecdsa-aes-gcm-sha2\nHTTP secure server TLS version:  TLSv1.2 TLSv1.1\nHTTP secure server client authentication: Disabled\nHTTP secure server PIV authentication: Disabled\nHTTP secure server PIV authorization only: Disabled\nHTTP secure server trustpoint: TP-self-signed-4212509801\nHTTP secure server peer validation trustpoint: \nHTTP secure server ECDHE curve: secp256r1\nHTTP secure server active session modules: ALL\n",
+  "textfsm_template": "Value SERVER_STATUS (\\S+)\nValue SERVER_PORT (\\d+)\nValue AUTH_METHOD (\\S+)\nValue AUTH_RETRY (\\d+)\nValue TIME_WINDOW (\\d+)\nValue SERVER_DIGEST (\\S+)\nValue ACCESS_CLASS (\\S+)\nValue IPV4_ACCESS_CLASS (\\S+)\nValue IPV6_ACCESS_CLASS (\\S+)\nValue FILE_UPLOAD_STATUS (\\S+)\nValue CONCURRENT_CONNECTIONS_ALLOWED (\\d+)\nValue SECONDARY_CONNECTIONS_ALLOWED (\\d+)\nValue SERVER_IDLE_TIMEOUT (.*)\nValue SERVER_LIFE_TIMEOUT (.*)\nValue SERVER_SESSION_TIMEOUT (.*)\nValue MAX_REQUESTS_PER_CONNECTION (\\d+)\nValue SERVER_LINGER_TIME (.*)\nValue ACTIVE_SESSION_MODULES (\\S+)\nValue SECURE_SERVER_CAPABILITY (\\S+)\nValue SECURE_SERVER_STATUS (\\S+)\nValue SECURE_SERVER_PORT (\\d+)\nValue List SECURE_CIPHERSUITE (\\S+)\nValue List TLS_VERSIONS (\\S+)\nValue SECURE_CLIENT_AUTH (\\S+)\nValue SECURE_PIV_AUTHN (\\S+)\nValue SECURE_PIV_AUTHZ (\\S+)\nValue SECURE_ECDHE_CURVE (\\S+)\nValue SECURE_ACTIVE_SESSION_MODULES (.+)\n\n\t\t\t\t  \nStart\n  ^HTTP\\s+server\\s+status:\\s+${SERVER_STATUS}\n  ^HTTP\\s+server\\s+port:\\s+${SERVER_PORT}\n  ^HTTP\\s+server\\s+active\\s+supplementary\\s+listener\\s+ports:\n  ^HTTP\\s+server\\s+authentication\\s+method:\\s+${AUTH_METHOD}\n  ^HTTP\\s+server\\s+auth-retry\\s+${AUTH_RETRY}\\s+time-window\\s+${TIME_WINDOW}\n  ^HTTP\\s+server\\s+digest\\s+algorithm:\\s+${SERVER_DIGEST}\n  ^HTTP\\s+server\\s+access\\s+class:\\s+${ACCESS_CLASS}\n  ^HTTP\\s+server\\s+IPv4\\s+access\\s+class:\\s+${IPV4_ACCESS_CLASS}\n  ^HTTP\\s+server\\s+IPv6\\s+access\\s+class:\\s+${IPV6_ACCESS_CLASS}\n  ^HTTP\\s+server\\s+base\\s+path:\n  ^HTTP\\s+File\\s+Upload\\s+status:\\s+${FILE_UPLOAD_STATUS}\n  ^HTTP\\s+server\\s+upload\\s+path:\n  ^HTTP\\s+server\\s+help\\s+root:\n  ^Maximum\\s+number\\s+of\\s+concurrent\\s+server\\s+connections\\s+allowed:\\s+${CONCURRENT_CONNECTIONS_ALLOWED}\n  ^Maximum\\s+number\\s+of\\s+secondary\\s+server\\s+connections\\s+allowed:\\s+${SECONDARY_CONNECTIONS_ALLOWED}\n  ^Server\\s+idle\\s+time-out:\\s+${SERVER_IDLE_TIMEOUT}\n  ^Server\\s+life\\s+time-out:\\s+${SERVER_LIFE_TIMEOUT}\n  ^Server\\s+session\\s+idle\\s+time-out:\\s+${SERVER_SESSION_TIMEOUT}\n  ^Maximum\\s+number\\s+of\\s+requests\\s+allowed\\s+on\\s+a\\s+connection:\\s+${MAX_REQUESTS_PER_CONNECTION}\n  ^Server\\s+linger\\s+time\\s+:\\s+${SERVER_LINGER_TIME}\n  ^HTTP\\s+server\\s+active\\s+session\\s+modules:\\s+${ACTIVE_SESSION_MODULES}\n  ^HTTP\\s+secure\\s+server\\s+capability:\\s+${SECURE_SERVER_CAPABILITY}\n  ^HTTP\\s+secure\\s+server\\s+status:\\s+${SECURE_SERVER_STATUS}\n  ^HTTP\\s+secure\\s+server\\s+port:\\s+${SECURE_SERVER_PORT}\n  ^HTTP\\s+secure\\s+server\\s+ciphersuite:\\s+${SECURE_CIPHERSUITE}\\s*$$\n  ^HTTP\\s+secure\\s+server\\s+ciphersuite:\\s+${SECURE_CIPHERSUITE} -> Continue\n  ^HTTP\\s+secure\\s+server\\s+ciphersuite:\\s+(?:\\S+\\s+)${SECURE_CIPHERSUITE}\\s*$$\n  ^HTTP\\s+secure\\s+server\\s+ciphersuite:\\s+(?:\\S+\\s+)${SECURE_CIPHERSUITE} -> Continue\n  ^HTTP\\s+secure\\s+server\\s+ciphersuite:\\s+(?:\\S+\\s+){2}${SECURE_CIPHERSUITE}\\s*$$\n  ^HTTP\\s+secure\\s+server\\s+ciphersuite:\\s+(?:\\S+\\s+){2}${SECURE_CIPHERSUITE} -> Continue\n  ^HTTP\\s+secure\\s+server\\s+ciphersuite:\\s+(?:\\S+\\s+){3}${SECURE_CIPHERSUITE}\\s*$$\n  ^HTTP\\s+secure\\s+server\\s+ciphersuite:\\s+(?:\\S+\\s+){3}${SECURE_CIPHERSUITE} -> Continue\n  ^\\s+${SECURE_CIPHERSUITE}\\s*$$\n  ^\\s+${SECURE_CIPHERSUITE} -> Continue\n  ^\\s+(?:\\S+\\s+)${SECURE_CIPHERSUITE}\\s*$$\n  ^\\s+(?:\\S+\\s+)${SECURE_CIPHERSUITE} -> Continue\n  ^\\s+(?:\\S+\\s+){2}${SECURE_CIPHERSUITE}\\s*$$\n  ^\\s+(?:\\S+\\s+){2}${SECURE_CIPHERSUITE} -> Continue\n  ^\\s+(?:\\S+\\s+){3}${SECURE_CIPHERSUITE}\\s*$$\n  ^\\s+(?:\\S+\\s+){3}${SECURE_CIPHERSUITE} -> Continue\n  ^\\s+(?:\\S+\\s+){4}${SECURE_CIPHERSUITE}\\s*$$\n  ^\\s+(?:\\S+\\s+){4}${SECURE_CIPHERSUITE} -> Continue\n  ^\\s+(?:\\S+\\s+){5}${SECURE_CIPHERSUITE}\\s*$$\n  ^\\s+(?:\\S+\\s+){5}${SECURE_CIPHERSUITE} -> Continue\n  ^HTTP\\s+secure\\s+server\\s+TLS\\s+version:\\s+${TLS_VERSIONS} -> Continue\n  ^HTTP\\s+secure\\s+server\\s+TLS\\s+version:\\s+(?:\\S+\\s+)${TLS_VERSIONS}\n  ^HTTP\\s+secure\\s+server\\s+client\\s+authentication:\\s+${SECURE_CLIENT_AUTH}\n  ^HTTP\\s+secure\\s+server\\s+PIV\\s+authentication:\\s+${SECURE_PIV_AUTHN}\n  ^HTTP\\s+secure\\s+server\\s+PIV\\s+authorization\\s+only:\\s+${SECURE_PIV_AUTHZ}\n  ^HTTP\\s+secure\\s+server\\s+trustpoint:\n  ^HTTP\\s+secure\\s+server\\s+peer\\s+validation\\s+trustpoint:\n  ^HTTP\\s+secure\\s+server\\s+ECDHE\\s+curve:\\s+${SECURE_ECDHE_CURVE}\n  ^HTTP\\s+secure\\s+server\\s+active\\s+session\\s+modules:\\s+${SECURE_ACTIVE_SESSION_MODULES}\n  ^\\s*$$\n  ^. -> Error\n"
+}

@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show logging settings
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="buffered_logging_buffer_size_logging_facility_logging_level">
+Logging level: {{LOGGING_LEVEL | ORPHRASE}}
+Logging facility: {{LOGGING_FACILITY | ORPHRASE}}
+Logging source interface: {{LOGGING_SOURCE_INTERFACE | ORPHRASE}}
+Logging trap level: {{LOGGING_TRAP_LEVEL | ORPHRASE}}
+Buffered logging: {{BUFFERED_LOGGING}} (size {{BUFFER_SIZE | ORPHRASE}})
+  {{SERVER_IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} ({{SERVER_PORT_PROTOCOL | ORPHRASE}})
+</group>

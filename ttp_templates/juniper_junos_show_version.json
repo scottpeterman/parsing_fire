@@ -1,0 +1,59 @@
+{
+  "command": "juniper_junos_show_version",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"online_documentation\">\nJUNOS Online Documentation [{{ONLINE_DOCUMENTATION}}]\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "HOSTNAME": "lab",
+      "MODEL": "mx240",
+      "JUNOS_VERSION": "13.3R1.4",
+      "BASE_OS_BOOT": "13.3R1.4",
+      "BASE_OS_SOFTWARE_SUITE": "13.3R1.4",
+      "KERNEL_SOFTWARE_SUITE": "13.3R1.4",
+      "CRYPTO_SOFTWARE_SUITE": "13.3R1.4",
+      "PACKET_FORWARDING_ENGINE_SUPPORT_M_T_EX_COMMON": "13.3R1.4",
+      "PACKET_FORWARDING_ENGINE_SUPPORT_MX_COMMON": "13.3R1.4",
+      "ONLINE_DOCUMENTATION": "113.3R1.4",
+      "SERVICES_AACL_CONTAINER_PACKAGE": "13.3R1.4",
+      "SERVICES_APPLICATION_LEVEL_GATEWAYS": "13.3R1.4",
+      "APPID_SERVICES": "13.3R1.4",
+      "BORDER_GATEWAY_FUNCTION_PACKAGE": "13.3R1.4",
+      "SERVICES_CAPTIVE_PORTAL_CONTENT_DELIVERY_PACKAGE": "13.3R1.4",
+      "SERVICES_HTTP_CONTENT_MANAGEMENT_PACKAGE": "13.3R1.4",
+      "IDP_SERVICES": "13.3R1.4",
+      "SERVICES_JFLOW_CONTAINER_PACKAGE": "13.3R1.4",
+      "SERVICES_LL_PDF_CONTAINER_PACKAGE": "13.3R1.4",
+      "SERVICES_MOBILENEXT_SOFTWARE_PACKAGE": "13.3R1.4",
+      "SERVICES_MOBILE_SUBSCRIBER_SERVICE_PACKAGE": "13.3R1.4",
+      "SERVICES_NAT": "13.3R1.4",
+      "SERVICES_PTSP_CONTAINER_PACKAGE": "13.3R1.4",
+      "SERVICES_RPM": "13.3R1.4",
+      "SERVICES_STATEFUL_FIREWALL": "13.3R1.4",
+      "VOICE_SERVICES_CONTAINER_PACKAGE": "13.3R1.4",
+      "SERVICES_CRYPTO": "13.3R1.4",
+      "SERVICES_SSL": "13.3R1.4",
+      "SERVICES_IPSEC": "13.3R1.4",
+      "PLATFORM_SOFTWARE_SUITE": "13.3R1.4",
+      "RUNTIME_SOFTWARE_SUITE": "13.3R1.4",
+      "ROUTING_SOFTWARE_SUITE": "13.3R1.4",
+      "PY_BASE_I386": "13.3R1.4",
+      "LAB_PACKAGE": "7.0",
+      "SERIAL_NUMBER": "qfsn-0123456789",
+      "QFABRIC_SYSTEM_ID": "f158527a-f99e-11e0-9fbd-00e081c57cda"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "online_documentation": {
+        "ONLINE_DOCUMENTATION": "113.3R1.4"
+      }
+    }
+  ],
+  "cli_content": "fpc0:\n-------------------------------------------------------------------------\nHostname: lab\nModel: mx240\nJunos: 13.3R1.4\nJUNOS Base OS boot [13.3R1.4]\nJUNOS Base OS Software Suite [13.3R1.4]\nJUNOS Kernel Software Suite [13.3R1.4]\nJUNOS Crypto Software Suite [13.3R1.4]\nJUNOS Packet Forwarding Engine Support (M/T/EX Common) [13.3R1.4]\nJUNOS Packet Forwarding Engine Support (MX Common) [13.3R1.4]\nJUNOS Online Documentation [113.3R1.4]\nJUNOS Services AACL Container package [13.3R1.4]\nJUNOS Services Application Level Gateways [13.3R1.4]\nJUNOS AppId Services [13.3R1.4]\nJUNOS Border Gateway Function package [13.3R1.4]\nJUNOS Services Captive Portal and Content Delivery Container package [13.3R1.4]\nJUNOS Services HTTP Content Management package [13.3R1.4]\nJUNOS IDP Services [13.3R1.4]\nJUNOS Services Jflow Container package [13.3R1.4]\nJUNOS Services LL-PDF Container package [13.3R1.4]\nJUNOS Services MobileNext Software package [13.3R1.4]\nJUNOS Services Mobile Subscriber Service Container package [13.3R1.4]\nJUNOS Services NAT [13.3R1.4]\nJUNOS Services PTSP Container package [13.3R1.4]\nJUNOS Services RPM [13.3R1.4]\nJUNOS Services Stateful Firewall [13.3R1.4]\nJUNOS Voice Services Container package [13.3R1.4]\nJUNOS Services Crypto [13.3R1.4]\nJUNOS Services SSL [13.3R1.4]\nJUNOS Services IPSec [13.3R1.4]\nJUNOS platform Software Suite [13.3R1.4]\nJUNOS Runtime Software Suite [13.3R1.4]\nJUNOS Routing Software Suite [13.3R1.4]\nJUNOS py-base-i386 [13.3R1.4]\nlabpkg [7.0]\nSerial Number: qfsn-0123456789\nQFabric System ID: f158527a-f99e-11e0-9fbd-00e081c57cda\n\n{master:0}\n",
+  "textfsm_template": "Value Required HOSTNAME (\\S+)\nValue MODEL (\\S+)\nValue JUNOS_VERSION ([\\S\\s]*)\nValue BASE_OS_BOOT (\\S+)\nValue BASE_OS_SOFTWARE_SUITE (\\S+)\nValue KERNEL_SOFTWARE_SUITE (\\S+)\nValue CRYPTO_SOFTWARE_SUITE (\\S+)\nValue PACKET_FORWARDING_ENGINE_SUPPORT_M_T_EX_COMMON (\\S+)\nValue PACKET_FORWARDING_ENGINE_SUPPORT_MX_COMMON (\\S+)\nValue FIPS_MODE_UTILITIES (\\S+)\nValue ONLINE_DOCUMENTATION (\\S+)\nValue SERVICES_AACL_CONTAINER_PACKAGE (\\S+)\nValue SERVICES_APPLICATION_LEVEL_GATEWAYS (\\S+)\nValue APPID_SERVICES (\\S+)\nValue BORDER_GATEWAY_FUNCTION_PACKAGE (\\S+)\nValue SERVICES_CAPTIVE_PORTAL_CONTENT_DELIVERY_PACKAGE (\\S+)\nValue SERVICES_HTTP_CONTENT_MANAGEMENT_PACKAGE (\\S+)\nValue IDP_SERVICES (\\S+)\nValue SERVICES_JFLOW_CONTAINER_PACKAGE (\\S+)\nValue SERVICES_LL_PDF_CONTAINER_PACKAGE (\\S+)\nValue SERVICES_MOBILENEXT_SOFTWARE_PACKAGE (\\S+)\nValue SERVICES_MOBILE_SUBSCRIBER_SERVICE_PACKAGE (\\S+)\nValue SERVICES_NAT (\\S+)\nValue SERVICES_PTSP_CONTAINER_PACKAGE (\\S+)\nValue SERVICES_RPM (\\S+)\nValue SERVICES_STATEFUL_FIREWALL (\\S+)\nValue VOICE_SERVICES_CONTAINER_PACKAGE (\\S+)\nValue SERVICES_CRYPTO (\\S+)\nValue SERVICES_SSL (\\S+)\nValue SERVICES_IPSEC (\\S+)\nValue PLATFORM_SOFTWARE_SUITE (\\S+)\nValue RUNTIME_SOFTWARE_SUITE (\\S+)\nValue ROUTING_SOFTWARE_SUITE (\\S+)\nValue PY_BASE_I386 (\\S+)\nValue LAB_PACKAGE (\\S+)\nValue SERIAL_NUMBER (\\S+)\nValue QFABRIC_SYSTEM_ID (\\S+)\nValue List OTHER_DEVICE_PROPERTIES ([^\\[]*)\nValue List OTHER_PROPERTIES_VERSIONS (\\S+)\nValue REDIS_VERSION (\\S+)\n\nStart\n  ^Hostname:\\s+${HOSTNAME}\n  ^Model:\\s+${MODEL}\n  ^Junos:\\s+${JUNOS_VERSION}\n  ^JUNOS\\s+EX\\s*Software\\s+Suite\\s+\\[${JUNOS_VERSION}\\]\n  ^JUNOS\\s+Base\\s+OS\\s+boot\\s+\\[${BASE_OS_BOOT}\\]\n  ^JUNOS\\s+Base\\s+OS\\s+Software\\s+Suite\\s+\\[${BASE_OS_SOFTWARE_SUITE}\\]\n  ^JUNOS\\s+Kernel\\s+Software\\s+Suite\\s+\\[${KERNEL_SOFTWARE_SUITE}\\]\n  ^JUNOS\\s+Crypto\\s+Software\\s+Suite\\s+\\[${CRYPTO_SOFTWARE_SUITE}\\]\n  ^JUNOS\\s+Packet\\s+Forwarding\\s+Engine\\s+Support\\s+\\(M/T/EX\\s+Common\\)\\s+\\[${PACKET_FORWARDING_ENGINE_SUPPORT_M_T_EX_COMMON}\\]\n  ^JUNOS\\s+Packet\\s+Forwarding\\s+Engine\\s+Support\\s+\\(MX\\s+Common\\)\\s+\\[${PACKET_FORWARDING_ENGINE_SUPPORT_MX_COMMON}\\]\n  ^JUNOS\\s+FIPS\\s+mode\\s+utilities\\s+\\[${FIPS_MODE_UTILITIES}\\]\n  ^JUNOS\\s+Online\\s+Documentation\\s+\\[${ONLINE_DOCUMENTATION}\\]\n  ^JUNOS\\s+Services\\s+AACL\\s+Container\\s+package\\s+\\[${SERVICES_AACL_CONTAINER_PACKAGE}\\]\n  ^JUNOS\\s+Services\\s+Application\\s+Level\\s+Gateways\\s+\\[${SERVICES_APPLICATION_LEVEL_GATEWAYS}\\]\n  ^JUNOS\\s+AppId\\s+Services\\s+\\[${APPID_SERVICES}\\]\n  ^JUNOS\\s+Border\\s+Gateway\\s+Function\\s+package\\s+\\[${BORDER_GATEWAY_FUNCTION_PACKAGE}\\]\n  ^JUNOS\\s+Services\\s+Captive\\s+Portal\\s+and\\s+Content\\s+Delivery\\s+Container\\s+package\\s+\\[${SERVICES_CAPTIVE_PORTAL_CONTENT_DELIVERY_PACKAGE}\\]\n  ^JUNOS\\s+Services\\s+HTTP\\s+Content\\s+Management\\s+package\\s+\\[${SERVICES_HTTP_CONTENT_MANAGEMENT_PACKAGE}\\]\n  ^JUNOS\\s+IDP\\s+Services\\s+\\[${IDP_SERVICES}\\]\n  ^JUNOS\\s+Services\\s+Jflow\\s+Container\\s+package\\s+\\[${SERVICES_JFLOW_CONTAINER_PACKAGE}\\]\n  ^JUNOS\\s+Services\\s+LL-PDF\\s+Container\\s+package\\s+\\[${SERVICES_LL_PDF_CONTAINER_PACKAGE}\\]\n  ^JUNOS\\s+Services\\s+MobileNext\\s+Software\\s+package\\s+\\[${SERVICES_MOBILENEXT_SOFTWARE_PACKAGE}\\]\n  ^JUNOS\\s+Services\\s+Mobile\\s+Subscriber\\s+Service\\s+Container\\s+package\\s+\\[${SERVICES_MOBILE_SUBSCRIBER_SERVICE_PACKAGE}\\]\n  ^JUNOS\\s+Services\\s+NAT\\s+\\[${SERVICES_NAT}\\]\n  ^JUNOS\\s+Services\\s+PTSP\\s+Container\\s+package\\s+\\[${SERVICES_PTSP_CONTAINER_PACKAGE}\\]\n  ^JUNOS\\s+Services\\s+RPM\\s+\\[${SERVICES_RPM}\\]\n  ^JUNOS\\s+Services\\s+Stateful\\s+Firewall\\s+\\[${SERVICES_STATEFUL_FIREWALL}\\]\n  ^JUNOS\\s+Voice\\s+Services\\s+Container\\s+package\\s+\\[${VOICE_SERVICES_CONTAINER_PACKAGE}\\]\n  ^JUNOS\\s+Services\\s+Crypto\\s+\\[${SERVICES_CRYPTO}\\]\n  ^JUNOS\\s+Services\\s+SSL\\s+\\[${SERVICES_SSL}\\]\n  ^JUNOS\\s+Services\\s+IPSec\\s+\\[${SERVICES_IPSEC}\\]\n  ^JUNOS\\s+platform\\s+Software\\s+Suite\\s+\\[${PLATFORM_SOFTWARE_SUITE}\\]\n  ^JUNOS\\s+Runtime\\s+Software\\s+Suite\\s+\\[${RUNTIME_SOFTWARE_SUITE}\\]\n  ^JUNOS\\s+Routing\\s+Software\\s+Suite\\s+\\[${ROUTING_SOFTWARE_SUITE}\\]\n  ^JUNOS\\s+py-base-i386\\s+\\[${PY_BASE_I386}\\]\n  ^labpkg\\s+\\[${LAB_PACKAGE}\\]\n  ^Serial\\s+Number:\\s+${SERIAL_NUMBER}\n  ^QFabric\\s+System\\s+ID:\\s+${QFABRIC_SYSTEM_ID}\n  ^[Jj][Uu][Nn][Oo][Ss]\\s+${OTHER_DEVICE_PROPERTIES}\\[${OTHER_PROPERTIES_VERSIONS}\\]\n  ^Redis\\s+\\[${REDIS_VERSION}\\]\n  ^fpc\\d+\n  ^node\\d+\n  ^-----\n  ^{master:\\d+}\n  ^{primary:\\S+}\n  ^\\s*$$\n  ^."
+}

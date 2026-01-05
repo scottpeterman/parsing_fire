@@ -1,0 +1,30 @@
+{
+  "command": "show alarm summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"critical_major_minor_warning\">\nCritical  : {{CRITICAL | ORPHRASE}}\nMajor  : {{MAJOR | ORPHRASE}}\nMinor  : {{MINOR | ORPHRASE}}\nWarning  : {{WARNING | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CRITICAL": "3",
+      "MAJOR": "5",
+      "MINOR": "7",
+      "WARNING": "2"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "critical_major_minor_warning": {
+        "WARNING": "2",
+        "MINOR": "7",
+        "MAJOR": "5",
+        "CRITICAL": "3"
+      }
+    }
+  ],
+  "cli_content": "Critical  : 3\nMajor     : 5\nMinor     : 7\nWarning   : 2\n",
+  "textfsm_template": "Value CRITICAL (\\d+)\nValue MAJOR (\\d+)\nValue MINOR (\\d+)\nValue WARNING (\\d+)\n\nStart\n  ^Critical\\s*:\\s*${CRITICAL}\\s*$$\n  ^Major\\s*:\\s*${MAJOR}\\s*$$\n  ^Minor\\s*:\\s*${MINOR}\\s*$$\n  ^Warning\\s*:\\s*${WARNING}\\s*$$ -> Record"
+}

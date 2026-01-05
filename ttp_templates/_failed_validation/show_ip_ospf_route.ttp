@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show ip ospf route
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="type_next_hop_metric_area">
+{{NETW{{TYPE | ORPHRASE}}RK}} {{NEXT_HOP}} {{METRIC}} O {{AREA}} 
+</group>

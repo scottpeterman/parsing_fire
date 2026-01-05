@@ -1,0 +1,60 @@
+{
+  "command": "show environment temperature",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"component_temp_state\">\n{{COMPONENT | ORPHRASE}} {{TEMP}} {{STATE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "COMPONENT": "PSU 1 Primary Inlet",
+      "TEMP": "25",
+      "STATE": "Ok"
+    },
+    {
+      "COMPONENT": "PSU 2 Primary Inlet",
+      "TEMP": "27",
+      "STATE": "Ok"
+    },
+    {
+      "COMPONENT": "Module 1 ASICS 1",
+      "TEMP": "45",
+      "STATE": "Ok"
+    },
+    {
+      "COMPONENT": "Module 2 CPU",
+      "TEMP": "55",
+      "STATE": "Warning"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "component_temp_state": [
+        {
+          "COMPONENT": "PSU 1 Primary Inlet",
+          "TEMP": "25",
+          "STATE": "Ok"
+        },
+        {
+          "COMPONENT": "PSU 2 Primary Inlet",
+          "TEMP": "27",
+          "STATE": "Ok"
+        },
+        {
+          "COMPONENT": "Module 1 ASICS 1",
+          "TEMP": "45",
+          "STATE": "Ok"
+        },
+        {
+          "COMPONENT": "Module 2 CPU",
+          "TEMP": "55",
+          "STATE": "Warning"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Temperature            Temp (C)   State      \n--------------------------------------------\nPSU 1 Primary Inlet    25         Ok\nPSU 2 Primary Inlet    27         Ok\nModule 1 ASICS 1       45         Ok\nModule 2 CPU           55         Warning\n",
+  "textfsm_template": "Value COMPONENT (\\S+(\\s+\\S+)*)\nValue TEMP (\\d+)\nValue STATE (\\S+)\n\nStart\n  ^\\s*Temperature\\s+Temp \\(C\\)\\s+State\\s*$$\n  ^\\s*[-]+\\s*$$\n  ^\\s*${COMPONENT}\\s+${TEMP}\\s+${STATE}\\s*$$ -> Record\n"
+}

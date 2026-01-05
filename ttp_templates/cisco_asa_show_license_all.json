@@ -1,0 +1,65 @@
+{
+  "command": "cisco_asa_show_license_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"auth_date_auth_deadline_auth_last_communication_auth_last_communication_date\">\nSmart Licensing is {{SMART_STATUS | ORPHRASE}}\n  Status: {{REGISTRATION_STATUS | ORPHRASE}}\n  Smart Account: {{SMART_ACCOUNT | ORPHRASE}}\n  Virtual Account: {{VIRTUAL_ACCOUNT | ORPHRASE}}\n  Export-Controlled Functionality: {{EXPORT_CONTROLLED | ORPHRASE}}\n  Initial Registration: {{REGISTRATION_INITIAL_STATUS | ORPHRASE}} on {{REGISTRATION_INITIAL_DATE | ORPHRASE}}\n  Last Renewal Attempt: {{REGISTRATION_LAST_RENEWAL | ORPHRASE}}\n  Next Renewal Attempt: {{REGISTRATION_NEXT_RENEWAL_DATE | ORPHRASE}}\n  Registration Expires: {{REGISTRATION_EXPIRATION_DATE | ORPHRASE}}\n  Status: {{AUTH_STATUS | ORPHRASE}} on {{AUTH_DATE | ORPHRASE}}\n  Last Communication Attempt: {{AUTH_LAST_COMMUNICATION | ORPHRASE}} on Dec 03 16:43:56 2018 UTC\n  Next Communication Attempt: {{AUTH_NEXT_COMMUNICATION_DATE | ORPHRASE}}\n  Communication Deadline: {{AUTH_DEADLINE | ORPHRASE}}\n{{LICENSE | ORPHRASE}} ({{LICENSE_PID | ORPHRASE}}):\n  Version: {{LICENSE_VERSION | ORPHRASE}}\nUDI: PID:ASAv,SN:{{SN | ORPHRASE}}\nSmart Agent for Licensing: {{SMART_AGENT_VERSION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SMART_STATUS": "ENABLED",
+      "REGISTRATION_STATUS": "REGISTERED",
+      "SMART_ACCOUNT": "COMPANY LLC",
+      "VIRTUAL_ACCOUNT": "Company LLC",
+      "EXPORT_CONTROLLED": "Allowed",
+      "REGISTRATION_INITIAL_STATUS": "SUCCEEDED",
+      "REGISTRATION_INITIAL_DATE": "Dec 03 16:43:48 2018 UTC",
+      "REGISTRATION_LAST_RENEWAL": "None",
+      "REGISTRATION_NEXT_RENEWAL_DATE": "Jun 01 16:43:47 2019 UTC",
+      "REGISTRATION_EXPIRATION_DATE": "Dec 03 16:37:44 2019 UTC",
+      "AUTH_STATUS": "AUTHORIZED",
+      "AUTH_DATE": "Dec 03 16:43:56 2018 UTC",
+      "AUTH_LAST_COMMUNICATION": "SUCCESS",
+      "AUTH_LAST_COMMUNICATION_DATE": "Dec 03 16:43:56 2018 UTC",
+      "AUTH_NEXT_COMMUNICATION_DATE": "Jan 02 16:43:55 2019 UTC",
+      "AUTH_DEADLINE": "Mar 03 16:37:54 2019 UTC",
+      "LICENSE": "ASAv5 Standard - 100M",
+      "LICENSE_PID": "ASAv-STD-100M",
+      "LICENSE_DESCRIPTION": "ASAv5 Standard - 100M",
+      "LICENSE_COUNT": "1",
+      "LICENSE_VERSION": "1.0",
+      "LICENSE_STATUS": "AUTHORIZED",
+      "PID": "ASAv",
+      "SN": "9A6PGB43PJC",
+      "SMART_AGENT_VERSION": "1.6.14_rel/129"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "auth_date_auth_deadline_auth_last_communication_auth_last_communication_date": {
+        "SMART_AGENT_VERSION": "1.6.14_rel/129",
+        "SN": "9A6PGB43PJC",
+        "REGISTRATION_STATUS": "REGISTERED",
+        "LICENSE_VERSION": "1.0",
+        "LICENSE": "ASAv5 Standard - 100M",
+        "LICENSE_PID": "ASAv-STD-100M",
+        "AUTH_DEADLINE": "Mar 03 16:37:54 2019 UTC",
+        "AUTH_NEXT_COMMUNICATION_DATE": "Jan 02 16:43:55 2019 UTC",
+        "AUTH_LAST_COMMUNICATION": "SUCCESS",
+        "REGISTRATION_EXPIRATION_DATE": "Dec 03 16:37:44 2019 UTC",
+        "REGISTRATION_NEXT_RENEWAL_DATE": "Jun 01 16:43:47 2019 UTC",
+        "REGISTRATION_LAST_RENEWAL": "None",
+        "REGISTRATION_INITIAL_STATUS": "SUCCEEDED",
+        "REGISTRATION_INITIAL_DATE": "Dec 03 16:43:48 2018 UTC",
+        "EXPORT_CONTROLLED": "Allowed",
+        "VIRTUAL_ACCOUNT": "Company LLC",
+        "SMART_ACCOUNT": "COMPANY LLC",
+        "SMART_STATUS": "ENABLED"
+      }
+    }
+  ],
+  "cli_content": "\nSmart Licensing Status\n======================\n\nSmart Licensing is ENABLED\n\nRegistration:\n  Status: REGISTERED\n  Smart Account: COMPANY LLC\n  Virtual Account: Company LLC\n  Export-Controlled Functionality: Allowed\n  Initial Registration: SUCCEEDED on Dec 03 16:43:48 2018 UTC\n  Last Renewal Attempt: None\n  Next Renewal Attempt: Jun 01 16:43:47 2019 UTC\n  Registration Expires: Dec 03 16:37:44 2019 UTC\n\nLicense Authorization: \n  Status: AUTHORIZED on Dec 03 16:43:56 2018 UTC\n  Last Communication Attempt: SUCCESS on Dec 03 16:43:56 2018 UTC\n  Next Communication Attempt: Jan 02 16:43:55 2019 UTC\n  Communication Deadline: Mar 03 16:37:54 2019 UTC\n\nLicense Usage\n==============\n\nASAv5 Standard - 100M (ASAv-STD-100M):\n  Description: ASAv5 Standard - 100M\n  Count: 1\n  Version: 1.0\n  Status: AUTHORIZED\n\nProduct Information\n===================\nUDI: PID:ASAv,SN:9A6PGB43PJC\n\nAgent Version\n=============\nSmart Agent for Licensing: 1.6.14_rel/129\n",
+  "textfsm_template": "Value SMART_STATUS (.+?)\nValue REGISTRATION_STATUS (.+?)\nValue SMART_ACCOUNT (.+?)\nValue VIRTUAL_ACCOUNT (.+?)\nValue EXPORT_CONTROLLED (.+?)\nValue REGISTRATION_INITIAL_STATUS (.+?)\nValue REGISTRATION_INITIAL_DATE (.+?)\nValue REGISTRATION_LAST_RENEWAL (.+?)\nValue REGISTRATION_LAST_RENEWAL_DATE (.+?)\nValue REGISTRATION_LAST_RENEWAL_ERROR (.+?)\nValue REGISTRATION_NEXT_RENEWAL_DATE (.+?)\nValue REGISTRATION_EXPIRATION_DATE (.+?)\nValue AUTH_STATUS (.+?)\nValue AUTH_DATE (.+?)\nValue EVAL_REMAINING (.+?)\nValue AUTH_LAST_COMMUNICATION (.+?)\nValue AUTH_LAST_COMMUNICATION_DATE (.+?)\nValue AUTH_FAIL_ERROR (.+?)\nValue AUTH_NEXT_COMMUNICATION_DATE (.+?)\nValue AUTH_DEADLINE (.+?)\nValue LICENSE (\\S.*?)\nValue LICENSE_PID (\\S+?)\nValue LICENSE_DESCRIPTION (.+?)\nValue LICENSE_COUNT (\\d+)\nValue LICENSE_VERSION (\\S+)\nValue LICENSE_STATUS (.+?)\nValue LICENSE_EXPORT_STATUS (.+?)\nValue PID (.+?)\nValue SN (.+?)\nValue SMART_AGENT_VERSION (.+?)\nValue UTILITY_STATUS (.+?)\nValue PRIVACY_SENDING_HOSTNAME (.+?)\nValue PRIVACY_CALLHOME_HOSTNAME_PRIVACY (.+?)\nValue PRIVACY_SMART_LICENSING_HOSTNAME_PRIVACY (.+?)\nValue PRIVACY_VERSION_PRIVACY (.+?)\nValue TRANSPORT_TYPE (.+?)\nValue LICENSE_RESERVATION (.+?)\n\nStart\n  ^\\s*$$\n  ^Smart\\s+Licensing\\s+Status\n  ^Smart\\s+Licensing\\s+is\\s+${SMART_STATUS}\\s*$$\n  ^Registration:\\s*$$ -> REGISTRATION\n  ^License\\s+Authorization:\\s*$$ -> AUTHORIZATION\n  ^License\\s+Usage\\s*$$ -> LICENSE_USAGE\n  ^Product\\s+Information\\s*$$ -> PRODUCT_INFORMATION\n  ^Agent\\s+Version\\s*$$ -> AGENT_VERSION\n  ^Utility:\\s*$$ -> UTILITY\n  ^Data\\s+Privacy:\\s*$$ -> PRIVACY\n  ^Transport:\\s*$$ -> TRANSPORT\n  ^No\\s+licenses\\s+in\\s+use\\s*$$\n  ^=+\\s*$$\n  ^. -> Error\n\nREGISTRATION\n  ^\\s*$$\n  ^\\s+Status:\\s+${REGISTRATION_STATUS}\\s*$$\n  ^\\s+Smart\\s+Account:\\s+${SMART_ACCOUNT}\\s*$$\n  ^\\s+Virtual\\s+Account:\\s+${VIRTUAL_ACCOUNT}\\s*$$\n  ^\\s+Export-Controlled\\s+Functionality:\\s+${EXPORT_CONTROLLED}\\s*$$\n  ^\\s+Initial\\s+Registration:\\s+${REGISTRATION_INITIAL_STATUS}(?:\\s+on\\s+${REGISTRATION_INITIAL_DATE})?\\s*$$\n  ^\\s+Last\\s+Renewal\\s+Attempt:\\s+${REGISTRATION_LAST_RENEWAL}(?:\\s+on\\s+${REGISTRATION_LAST_RENEWAL_DATE})?\\s*$$\n  ^\\s+Failure\\s+reason:\\s+${REGISTRATION_LAST_RENEWAL_ERROR}\\s*$$\n  ^\\s+Next\\s+Renewal\\s+Attempt:\\s+${REGISTRATION_NEXT_RENEWAL_DATE}\\s*$$\n  ^\\s+Registration\\s+Expires:\\s+${REGISTRATION_EXPIRATION_DATE}\\s*$$\n  ^License\\s+Authorization:\\s*$$ -> AUTHORIZATION\n  ^License\\s+Usage\\s*$$ -> LICENSE_USAGE\n  ^Product\\s+Information\\s*$$ -> PRODUCT_INFORMATION\n  ^Agent\\s+Version\\s*$$ -> AGENT_VERSION\n  ^Smart\\s+Licensing\\s+is\\s+${SMART_STATUS}\\s*$$\n  ^Registration:\\s*$$ -> REGISTRATION\n  ^=+\\s*$$\n  ^. -> Error\n\nAUTHORIZATION\n  ^\\s*$$\n  ^\\s+Status:\\s+${AUTH_STATUS}(?:\\s+on\\s+${AUTH_DATE})?\\s*$$\n  ^\\s+Evaluation\\s+Period\\s+Remaining:\\s+${EVAL_REMAINING}\\s*$$\n  ^\\s+Last\\s+Communication\\s+Attempt:\\s+${AUTH_LAST_COMMUNICATION}(?:\\s+on\\s+${AUTH_LAST_COMMUNICATION_DATE})?\\s*$$\n  ^\\s+Failure\\s+reason:\\s+${AUTH_FAIL_ERROR}\\s*$$\n  ^\\s+Next\\s+Communication\\s+Attempt:\\s+${AUTH_NEXT_COMMUNICATION_DATE}\\s*$$\n  ^\\s+Communication\\s+Deadline:\\s+${AUTH_DEADLINE}\\s*$$\n  ^License\\s+Usage\\s*$$ -> LICENSE_USAGE\n  ^Product\\s+Information\\s*$$ -> PRODUCT_INFORMATION\n  ^Agent\\s+Version\\s*$$ -> AGENT_VERSION\n  ^Smart\\s+Licensing\\s+is\\s+${SMART_STATUS}\\s*$$\n  ^Registration:\\s*$$ -> REGISTRATION\n  ^License\\s+Authorization:\\s*$$ -> AUTHORIZATION\n  ^Utility:\\s*$$ -> UTILITY\n  ^Export\\s+Authorization\\s+Key:\\s*$$ -> EXPORT_AUTHORIZATION_KEY\n  ^=+\\s*$$\n  ^. -> Error\n\nLICENSE_USAGE\n  ^\\s*$$\n  ^${LICENSE}?\\s*\\(${LICENSE_PID}\\):\\s*$$\n  ^\\s+Description:(?:\\s+${LICENSE_DESCRIPTION})?\\s*$$\n  ^\\s+Count:\\s+${LICENSE_COUNT}\\s*$$\n  ^\\s+Version:\\s+${LICENSE_VERSION}\\s*$$\n  ^\\s+Status:\\s+${LICENSE_STATUS}\\s*$$\n  ^\\s+Export\\s+status:\\s+${LICENSE_EXPORT_STATUS}\\s*$$\n  ^Product\\s+Information\\s*$$ -> PRODUCT_INFORMATION\n  ^Agent\\s+Version\\s*$$ -> AGENT_VERSION\n  ^Smart\\s+Licensing\\s+is\\s+${SMART_STATUS}\\s*$$\n  ^Registration:\\s*$$ -> REGISTRATION\n  ^License\\s+Authorization:\\s*$$ -> AUTHORIZATION\n  ^License\\s+Usage\\s*$$ -> LICENSE_USAGE\n  ^No\\s+licenses\\s+in\\s+use\\s*$$\n  ^=+\\s*$$\n  ^. -> Error\n\nPRODUCT_INFORMATION\n  ^\\s*$$\n  ^UDI:.*PID:${PID},\\s*SN:${SN}\\s*$$ -> Start\n  ^Agent\\s+Version\\s*$$ -> AGENT_VERSION\n  ^Smart\\s+Licensing\\s+is\\s+${SMART_STATUS}\\s*$$\n  ^Registration:\\s*$$ -> REGISTRATION\n  ^License\\s+Authorization:\\s*$$ -> AUTHORIZATION\n  ^License\\s+Usage\\s*$$ -> LICENSE_USAGE\n  ^Product\\s+Information\\s*$$ -> PRODUCT_INFORMATION\n  ^=+\\s*$$\n  ^. -> Error\n\nAGENT_VERSION\n  ^\\s*$$\n  ^Smart\\s+Agent\\s+for\\s+Licensing:\\s+${SMART_AGENT_VERSION}\\s*$$\n  ^Smart\\s+Licensing\\s+is\\s+${SMART_STATUS}\\s*$$\n  ^Registration:\\s*$$ -> REGISTRATION\n  ^License\\s+Authorization:\\s*$$ -> AUTHORIZATION\n  ^License\\s+Usage\\s*$$ -> LICENSE_USAGE\n  ^Product\\s+Information\\s*$$ -> PRODUCT_INFORMATION\n  ^Agent\\s+Version\\s*$$ -> AGENT_VERSION\n  ^Reservation\\s+Info\\s*$$ -> RESERVATION_INFO\n  ^=+\\s*$$\n  ^. -> Error\n\nRESERVATION_INFO\n  ^\\s*$$\n  ^\\s*License\\s+reservation:\\s+${LICENSE_RESERVATION}\\s*$$\n  ^=+\\s*$$\n  ^. -> Error\n\nUTILITY\n  ^\\s*$$\n  ^\\s+Status:\\s+${UTILITY_STATUS}\\s*$$\n  ^Data\\s+Privacy:\\s*$$ -> PRIVACY\n  ^=+\\s*$$\n  ^. -> Error\n\nPRIVACY\n  ^\\s*$$\n  ^\\s+Sending\\s+Hostname:\\s+${PRIVACY_SENDING_HOSTNAME}\\s*$$\n  ^\\s+Callhome\\s+hostname\\s+privacy:\\s+${PRIVACY_CALLHOME_HOSTNAME_PRIVACY}\\s*$$\n  ^\\s+Smart\\s+Licensing\\s+hostname\\s+privacy:\\s+${PRIVACY_SMART_LICENSING_HOSTNAME_PRIVACY}\\s*$$\n  ^\\s+Version\\s+privacy:\\s+${PRIVACY_VERSION_PRIVACY}\\s*$$\n  ^Transport:\\s*$$ -> TRANSPORT\n  ^=+\\s*$$\n  ^. -> Error\n\nTRANSPORT\n  ^\\s*$$\n  ^\\s+Type:\\s+${TRANSPORT_TYPE}\\s*$$\n  ^License\\s+Usage\\s*$$ -> LICENSE_USAGE\n  ^=+\\s*$$\n  ^. -> Error\n\nEXPORT_AUTHORIZATION_KEY\n  ^\\s*$$\n  ^\\s+Features\\s+Authorized:\\s*$$\n  ^\\s+<none>\\s*$$\n  ^License\\s+Usage\\s*$$ -> LICENSE_USAGE\n  ^Product\\s+Information\\s*$$ -> PRODUCT_INFORMATION\n  ^Agent\\s+Version\\s*$$ -> AGENT_VERSION\n  ^Smart\\s+Licensing\\s+is\\s+${SMART_STATUS}\\s*$$\n  ^Registration:\\s*$$ -> REGISTRATION\n  ^License\\s+Authorization:\\s*$$ -> AUTHORIZATION\n  ^Utility:\\s*$$ -> UTILITY\n  ^=+\\s*$$\n  ^. -> Error\n"
+}

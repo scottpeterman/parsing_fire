@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: brocade_netiron_show_span
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="bridgeid_bridgemaxage_mastervlan_bridgefwddly_holdtime_lasttopochange_topochangecount">
+{{bridgeid}} {{bridgemaxage | re("\\d+")}} {{mastervlan | re("\\d+")}} {{bridgefwddly | re("\\d+")}} {{holdtime}} {{lasttopochange | ORPHRASE}} {{topochangecount | re("\\d+")}} 
+</group>

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_bfd_neighbors
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="our_address_neighbor_address_ld_rd_rh_rs_holddown_state_interface_vrf_type">
+{{OUR_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{NEIGHBOR_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{LD_RD}} {{RH_RS}} {{HOLDDOWN}} {{STATE | ORPHRASE}} {{INTERFACE}} {{VRF}} {{TYPE | ORPHRASE}}
+</group>

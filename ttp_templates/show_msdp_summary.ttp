@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show msdp summary
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 4
+# Match ratio: 1.33
+
+<group name="msdp_peer_state_uptime_rp_ip_address_groups">
+{{MSDP_PEER}} {{STATE | ORPHRASE}} {{UPTIME | ORPHRASE}} {{RP_IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{GROUPS | ORPHRASE}}
+</group>

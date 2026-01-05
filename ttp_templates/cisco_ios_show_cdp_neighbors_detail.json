@@ -1,0 +1,36 @@
+{
+  "command": "cisco_ios_show_cdp_neighbors_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"capabilities_local_interface_mgmt_address_neighbor_description\">\nDevice ID: {{NEIGHBOR_NAME | ORPHRASE}}\n  IP address: {{MGMT_ADDRESS | ORPHRASE}}\nPlatform: {{PLATFORM | ORPHRASE}},  Capabilities: {{CAPABILITIES | ORPHRASE}} \nInterface: {{LOCAL_INTERFACE}},  Port ID (outgoing port): {{NEIGHBOR_INTERFACE | ORPHRASE}}\n{{NEIGHBOR_DESCRIPTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR_NAME": "switchxxxxx",
+      "MGMT_ADDRESS": "1.1.1.1",
+      "PLATFORM": "cisco WS-C3560X-24P",
+      "NEIGHBOR_INTERFACE": "GigabitEthernet0/8",
+      "LOCAL_INTERFACE": "GigabitEthernet0/3",
+      "NEIGHBOR_DESCRIPTION": "Cisco IOS Software, C3560E Software (C3560E-UNIVERSALK9-M), Version 12.2(55)SE10, RELEASE SOFTWARE (fc2)",
+      "CAPABILITIES": "Switch IGMP"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "capabilities_local_interface_mgmt_address_neighbor_description": {
+        "MGMT_ADDRESS": "1.1.1.1",
+        "NEIGHBOR_DESCRIPTION": "Entry address(es):",
+        "LOCAL_INTERFACE": "GigabitEthernet0/3",
+        "NEIGHBOR_INTERFACE": "GigabitEthernet0/8",
+        "PLATFORM": "cisco WS-C3560X-24P",
+        "CAPABILITIES": "Switch IGMP",
+        "NEIGHBOR_NAME": "switchxxxxx"
+      }
+    }
+  ],
+  "cli_content": "Device ID: switchxxxxx\nEntry address(es): \n  IP address: 1.1.1.1\nPlatform: cisco WS-C3560X-24P,  Capabilities: Switch IGMP \nInterface: GigabitEthernet0/3,  Port ID (outgoing port): GigabitEthernet0/8\nHoldtime : 154 sec\n\nVersion :\nCisco IOS Software, C3560E Software (C3560E-UNIVERSALK9-M), Version 12.2(55)SE10, RELEASE SOFTWARE (fc2)\nTechnical Support: http://www.cisco.com/techsupport\nCopyright (c) 1986-2015 by Cisco Systems, Inc.\nCompiled Wed 11-Feb-15 11:28 by prod_rel_team\n\nadvertisement version: 2\nProtocol Hello:  OUI=0x00000C, Protocol ID=0x0112; payload len=27, value=00000000FFFFFFFF010221FF00000000000000C88BC41880FF0000\nVTP Management Domain: ''\nNative VLAN: 1\nDuplex: full\nPower Available TLV:\n\n    Power request id: 0, Power management id: 1, Power available: 0, Power management level: -1\nManagement address(es): \n  IP address: 1.1.1.1\n",
+  "textfsm_template": "Value Required NEIGHBOR_NAME (\\S+)\nValue MGMT_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+|\\w+\\.\\w+\\.\\w+)\nValue PLATFORM (.*)\nValue NEIGHBOR_INTERFACE (.*)\nValue LOCAL_INTERFACE (.*)\nValue NEIGHBOR_DESCRIPTION (.*$)\nValue CAPABILITIES (.+?)\n\nStart\n  ^Device ID: ${NEIGHBOR_NAME}\n  ^Entry address\\(es\\)\\s*:\\s* -> ParseIP\n  ^Platform\\s*:\\s*${PLATFORM}\\s*,\\s*Capabilities\\s*:\\s*${CAPABILITIES}\\s+$$\n  ^Platform\\s*:\\s*${PLATFORM}\\s*,\\s*Capabilities\\s*:\\s*${CAPABILITIES}$$\n  ^Interface: ${LOCAL_INTERFACE},  Port ID \\(outgoing port\\): ${NEIGHBOR_INTERFACE}\n  ^Version : -> GetVersion\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n\nParseIP\n  ^.*IP address: ${MGMT_ADDRESS} -> Start\n  ^Platform\\s*:\\s*${PLATFORM}\\s*,\\s*Capabilities\\s*:\\s*${CAPABILITIES}\\s+$$ -> Start\n  ^Platform\\s*:\\s*${PLATFORM}\\s*,\\s*Capabilities\\s*:\\s*${CAPABILITIES}$$ -> Start\n  ^.* -> Start\n\nGetVersion\n  ^${NEIGHBOR_DESCRIPTION} -> Record Start\n"
+}

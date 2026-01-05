@@ -1,0 +1,68 @@
+{
+  "command": "show ip forwarding-adjacency",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"adjacency_state_ip_address_interface\">\n{{ADJACENCY}} {{STATE | ORPHRASE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ADJACENCY": "192.168.1.1",
+      "STATE": "Up",
+      "IP_ADDRESS": "192.168.1.0",
+      "INTERFACE": "GigabitEthernet0/0"
+    },
+    {
+      "ADJACENCY": "10.0.0.1",
+      "STATE": "Down",
+      "IP_ADDRESS": "10.0.0.0",
+      "INTERFACE": "GigabitEthernet0/1"
+    },
+    {
+      "ADJACENCY": "172.16.0.1",
+      "STATE": "Up",
+      "IP_ADDRESS": "172.16.0.0",
+      "INTERFACE": "GigabitEthernet0/2"
+    },
+    {
+      "ADJACENCY": "192.168.2.2",
+      "STATE": "Init",
+      "IP_ADDRESS": "192.168.2.0",
+      "INTERFACE": "GigabitEthernet0/3"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "adjacency_state_ip_address_interface": [
+        {
+          "ADJACENCY": "192.168.1.1",
+          "STATE": "Up",
+          "IP_ADDRESS": "192.168.1.0",
+          "INTERFACE": "GigabitEthernet0/0"
+        },
+        {
+          "ADJACENCY": "10.0.0.1",
+          "STATE": "Down",
+          "IP_ADDRESS": "10.0.0.0",
+          "INTERFACE": "GigabitEthernet0/1"
+        },
+        {
+          "ADJACENCY": "172.16.0.1",
+          "STATE": "Up",
+          "IP_ADDRESS": "172.16.0.0",
+          "INTERFACE": "GigabitEthernet0/2"
+        },
+        {
+          "ADJACENCY": "192.168.2.2",
+          "STATE": "Init",
+          "IP_ADDRESS": "192.168.2.0",
+          "INTERFACE": "GigabitEthernet0/3"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Adjacency        State     IP Address      Interface\n192.168.1.1      Up        192.168.1.0     GigabitEthernet0/0\n10.0.0.1         Down      10.0.0.0        GigabitEthernet0/1\n172.16.0.1       Up        172.16.0.0      GigabitEthernet0/2\n192.168.2.2      Init      192.168.2.0     GigabitEthernet0/3\n",
+  "textfsm_template": "Value ADJACENCY (\\S+)\nValue STATE (\\S+)\nValue IP_ADDRESS (\\S+)\nValue INTERFACE (\\S+)\n\nStart\n  ^\\s*Adjacency\\s+State\\s+IP\\s+Address\\s+Interface\\s*$$\n  ^\\s*${ADJACENCY}\\s+${STATE}\\s+${IP_ADDRESS}\\s+${INTERFACE}\\s*$$ -> Record"
+}

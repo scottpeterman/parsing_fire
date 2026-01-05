@@ -1,0 +1,84 @@
+{
+  "command": "show disk",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"filesystem_blocks_used_available_use_mounted\">\n{{FILESYSTEM}} {{BLOCKS}} {{USED}} {{AVAILABLE}} {{USE | ORPHRASE}} {{MOUNTED | re(\".*\\\\w.*\")}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FILESYSTEM": "/dev/sda1",
+      "BLOCKS": "10239232",
+      "USED": "6218624",
+      "AVAILABLE": "3520616",
+      "USE": "64%",
+      "MOUNTED": "/"
+    },
+    {
+      "FILESYSTEM": "tmpfs",
+      "BLOCKS": "2048000",
+      "USED": "0",
+      "AVAILABLE": "2048000",
+      "USE": "0%",
+      "MOUNTED": "/dev/shm"
+    },
+    {
+      "FILESYSTEM": "/dev/sdb1",
+      "BLOCKS": "20480000",
+      "USED": "15000000",
+      "AVAILABLE": "4480000",
+      "USE": "78%",
+      "MOUNTED": "/mnt/data"
+    },
+    {
+      "FILESYSTEM": "/dev/sdc1",
+      "BLOCKS": "30720000",
+      "USED": "20000000",
+      "AVAILABLE": "9000000",
+      "USE": "69%",
+      "MOUNTED": "/backup"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "filesystem_blocks_used_available_use_mounted": [
+        {
+          "FILESYSTEM": "Filesystem",
+          "BLOCKS": "1K-blocks",
+          "USED": "Used",
+          "AVAILABLE": "Available",
+          "USE": "Use%",
+          "MOUNTED": "Mounted on"
+        },
+        {
+          "FILESYSTEM": "tmpfs",
+          "BLOCKS": "2048000",
+          "USED": "0",
+          "AVAILABLE": "2048000",
+          "USE": "0%",
+          "MOUNTED": "/dev/shm"
+        },
+        {
+          "FILESYSTEM": "/dev/sdb1",
+          "BLOCKS": "20480000",
+          "USED": "15000000",
+          "AVAILABLE": "4480000",
+          "USE": "78%",
+          "MOUNTED": "/mnt/data"
+        },
+        {
+          "FILESYSTEM": "/dev/sdc1",
+          "BLOCKS": "30720000",
+          "USED": "20000000",
+          "AVAILABLE": "9000000",
+          "USE": "69%",
+          "MOUNTED": "/backup"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Filesystem           1K-blocks      Used Available Use% Mounted on\n/dev/sda1             10239232   6218624   3520616  64% /\ntmpfs                  2048000         0   2048000   0% /dev/shm\n/dev/sdb1             20480000  15000000   4480000  78% /mnt/data\n/dev/sdc1             30720000  20000000   9000000  69% /backup\n",
+  "textfsm_template": "Value FILESYSTEM (\\S+)\nValue BLOCKS (\\d+)\nValue USED (\\d+)\nValue AVAILABLE (\\d+)\nValue USE (\\d+%)\nValue MOUNTED (\\S+)\n\nStart\n  ^\\s*Filesystem\\s+1K-blocks\\s+Used\\s+Available\\s+Use%\\s+Mounted\\son\n  ^\\s*${FILESYSTEM}\\s+${BLOCKS}\\s+${USED}\\s+${AVAILABLE}\\s+${USE}\\s+${MOUNTED}\\s*$$ -> Record"
+}

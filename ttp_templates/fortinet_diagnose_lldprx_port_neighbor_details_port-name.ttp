@@ -1,0 +1,37 @@
+# TTP Template auto-generated from TextFSM
+# Original command: fortinet_diagnose_lldprx_port_neighbor_details_port-name
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="address_1_addr_address_1_addr_interface_number_address_1_addr_interface_type_address_1_addr_interface_type_txt">
+{{ADDRESS_COUNT | re("\\d+")}} port: {{PORT | ORPHRASE}}
+1 port.txt: {{PORT_TXT | ORPHRASE}}
+1 mac: {{MAC_ADDRESS | ORPHRASE}}
+1 chassis.type.txt: {{CHASSIS_TYPE_TXT | ORPHRASE}}
+1 port.id.type.txt: {{PORT_ID_TYPE_TXT | ORPHRASE}}
+1 port.id.len: {{PORT_ID_LEN | ORPHRASE}}
+1 port.id.data: {{PORT_ID_DATA | ORPHRASE}}
+1 ttl: {{TTL | ORPHRASE}}
+1 port.desc.len: {{PORT_DESC_LEN | ORPHRASE}}
+1 port.desc.data: {{PORT_DESC_DATA | ORPHRASE}}
+1 system.name.len: {{SYSTEM_NAME_LEN | ORPHRASE}}
+1 system.name.data: {{SYSTEM_NAME_DATA | ORPHRASE}}
+1 system.desc.len: {{SYSTEM_DESC_LEN | ORPHRASE}}
+1 system.caps.available: {{SYSTEM_CAPS_AVAILABLE | ORPHRASE}}
+1 system.caps.available.txt: {{SYSTEM_CAPS_AVAILABLE_TXT | ORPHRASE}}
+1 address.1.type.txt: {{ADDRESS_1_TYPE_TXT | ORPHRASE}}
+1 address.1.addr: {{ADDRESS_1_ADDR | ORPHRASE}}
+1 address.1.addr.interface.type.txt: {{ADDRESS_1_ADDR_INTERFACE_TYPE_TXT | ORPHRASE}}
+1 address.1.addr.interface.number: {{ADDRESS_1_ADDR_INTERFACE_NUMBER | ORPHRASE}}
+1 vlan.name.1.data: {{VLAN_NAME_1_DATA | ORPHRASE}}
+1 aggregation.status.txt: {{AGGREGATION_STATUS_TXT | ORPHRASE}}
+1 mac_phy.auto.txt: {{MAC_PHY_AUTO_TXT | ORPHRASE}}
+1 mac_phy.pmd: {{MAC_PHY_PMD | ORPHRASE}}
+1 mac_phy.pmd.txt: {{MAC_PHY_PMD_TXT | ORPHRASE}}
+1 mac_phy.mau: {{MAC_PHY_MAU | ORPHRASE}}
+1 mac_phy.mau.txt: {{MAC_PHY_MAU_TXT | ORPHRASE}}
+1 power.status.txt: {{POWER_STATUS_TXT | ORPHRASE}}
+1 max-frame-size: {{MAX_FRAME_SIZE | ORPHRASE}}
+</group>

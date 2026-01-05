@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: alcatel_sros_show_router_mpls_interface
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="interface_port_admin_status_oper_status_v4_oper_status_v6_te_metric">
+{{INTERFACE}} {{PORT}} {{ADMIN_STATUS | ORPHRASE}} {{OPER_STATUS_V4 | ORPHRASE}}/{{OPER_STATUS_V6 | ORPHRASE}} {{TE_METRIC | ORPHRASE}}
+</group>

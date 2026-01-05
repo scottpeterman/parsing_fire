@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: juniper_junos_show_chassis_firmware
+# Source: ntc
+# TextFSM rows: 149
+# TTP rows: 87
+# Match ratio: 0.58
+
+<group name="part_type_version">
+{{PART | ORPHRASE}} {{TYPE}} {{VERSION | ORPHRASE}}
+</group>
+<group name="type_version">
+                         {{TYPE}} Version {{VERSION | ORPHRASE}} by builder on 2015-12-23 18:14:32 UTC
+</group>

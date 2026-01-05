@@ -1,0 +1,68 @@
+{
+  "command": "show alarm log",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"timestamp_id_severity_message\">\n{{TIMESTAMP}} {{ID | re(\"\\\\d+\")}} {{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{MESSAGE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TIMESTAMP": "2023-10-23T12:34:56",
+      "ID": "001",
+      "SEVERITY": "Critical",
+      "MESSAGE": "Link Down on Interface GigabitEthernet0/1"
+    },
+    {
+      "TIMESTAMP": "2023-10-23T12:35:12",
+      "ID": "002",
+      "SEVERITY": "Warning",
+      "MESSAGE": "High CPU utilization detected"
+    },
+    {
+      "TIMESTAMP": "2023-10-23T12:36:01",
+      "ID": "003",
+      "SEVERITY": "Info",
+      "MESSAGE": "Configuration saved successfully"
+    },
+    {
+      "TIMESTAMP": "2023-10-23T12:37:45",
+      "ID": "004",
+      "SEVERITY": "Major",
+      "MESSAGE": "Temperature threshold exceeded"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "timestamp_id_severity_message": [
+        {
+          "TIMESTAMP": "2023-10-23T12:34:56",
+          "ID": "001",
+          "SEVERITY": "Critical",
+          "MESSAGE": "Link Down on Interface GigabitEthernet0/1"
+        },
+        {
+          "TIMESTAMP": "2023-10-23T12:35:12",
+          "ID": "002",
+          "SEVERITY": "Warning",
+          "MESSAGE": "High CPU utilization detected"
+        },
+        {
+          "TIMESTAMP": "2023-10-23T12:36:01",
+          "ID": "003",
+          "SEVERITY": "Info",
+          "MESSAGE": "Configuration saved successfully"
+        },
+        {
+          "TIMESTAMP": "2023-10-23T12:37:45",
+          "ID": "004",
+          "SEVERITY": "Major",
+          "MESSAGE": "Temperature threshold exceeded"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Timestamp           ID       Severity       Message\n2023-10-23T12:34:56 001      Critical       Link Down on Interface GigabitEthernet0/1\n2023-10-23T12:35:12 002      Warning        High CPU utilization detected\n2023-10-23T12:36:01 003      Info           Configuration saved successfully\n2023-10-23T12:37:45 004      Major          Temperature threshold exceeded\n",
+  "textfsm_template": "Value TIMESTAMP (\\S+T\\S+)\nValue ID (\\d+)\nValue SEVERITY (Critical|Major|Warning|Info)\nValue MESSAGE (.+)\n\nStart\n  ^${TIMESTAMP}\\s+${ID}\\s+${SEVERITY}\\s+${MESSAGE}\\s*$$ -> Record"
+}

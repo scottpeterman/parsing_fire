@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: checkpoint_gaia_show_asset_all
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="descr_model_platform_serial">
+Platform: {{PLATFORM | ORPHRASE}}
+Serial Number: {{SERIAL | ORPHRASE}}
+Line card 1 model: {{MODEL | ORPHRASE}}
+Line card 1 type: {{DESCR | ORPHRASE}}
+</group>

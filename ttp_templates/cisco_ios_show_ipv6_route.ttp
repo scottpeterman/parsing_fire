@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ipv6_route
+# Source: ntc
+# TextFSM rows: 8
+# TTP rows: 4
+# Match ratio: 0.50
+
+<group name="protocol_network_distance_metric">
+{{PROTOCOL}} {{NETWORK | ORPHRASE}} [{{DISTANCE}}/{{METRIC}}]
+</group>

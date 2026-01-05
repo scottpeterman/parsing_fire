@@ -1,0 +1,97 @@
+{
+  "command": "show mpls forwarding adjacency",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.2,
+  "textfsm_rows": 5,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"interface_label_nexthop_context_state\">\n{{INTERFACE}} {{LABEL}} {{NEXTHOP}} {{CONTEXT}} {{STATE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Te0/0/0",
+      "LABEL": "3001",
+      "NEXTHOP": "192.168.10.1",
+      "CONTEXT": "global",
+      "STATE": "up"
+    },
+    {
+      "INTERFACE": "Te0/0/1",
+      "LABEL": "3002",
+      "NEXTHOP": "192.168.20.1",
+      "CONTEXT": "global",
+      "STATE": "up"
+    },
+    {
+      "INTERFACE": "Te0/0/2",
+      "LABEL": "3003",
+      "NEXTHOP": "192.168.30.1",
+      "CONTEXT": "global",
+      "STATE": "down"
+    },
+    {
+      "INTERFACE": "Te0/0/3",
+      "LABEL": "3004",
+      "NEXTHOP": "192.168.40.1",
+      "CONTEXT": "vrf1",
+      "STATE": "up"
+    },
+    {
+      "INTERFACE": "Te0/0/4",
+      "LABEL": "3005",
+      "NEXTHOP": "192.168.50.1",
+      "CONTEXT": "vrf1",
+      "STATE": "down"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_label_nexthop_context_state": [
+        {
+          "INTERFACE": "Interface",
+          "LABEL": "Label",
+          "NEXTHOP": "Nexthop",
+          "CONTEXT": "Context",
+          "STATE": "State"
+        },
+        {
+          "INTERFACE": "Te0/0/0",
+          "LABEL": "3001",
+          "NEXTHOP": "192.168.10.1",
+          "CONTEXT": "global",
+          "STATE": "up"
+        },
+        {
+          "INTERFACE": "Te0/0/1",
+          "LABEL": "3002",
+          "NEXTHOP": "192.168.20.1",
+          "CONTEXT": "global",
+          "STATE": "up"
+        },
+        {
+          "INTERFACE": "Te0/0/2",
+          "LABEL": "3003",
+          "NEXTHOP": "192.168.30.1",
+          "CONTEXT": "global",
+          "STATE": "down"
+        },
+        {
+          "INTERFACE": "Te0/0/3",
+          "LABEL": "3004",
+          "NEXTHOP": "192.168.40.1",
+          "CONTEXT": "vrf1",
+          "STATE": "up"
+        },
+        {
+          "INTERFACE": "Te0/0/4",
+          "LABEL": "3005",
+          "NEXTHOP": "192.168.50.1",
+          "CONTEXT": "vrf1",
+          "STATE": "down"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Adjacencies\nInterface       Label       Nexthop           Context   State\n---------------------------------------------------------------\nTe0/0/0         3001        192.168.10.1      global    up\nTe0/0/1         3002        192.168.20.1      global    up\nTe0/0/2         3003        192.168.30.1      global    down\nTe0/0/3         3004        192.168.40.1      vrf1      up\nTe0/0/4         3005        192.168.50.1      vrf1      down\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue LABEL (\\d+)\nValue NEXTHOP (\\S+)\nValue CONTEXT (\\S+)\nValue STATE (up|down)\n\nStart\n  ^\\s*Adjacencies\\s*$$\n  ^\\s*Interface\\s+Label\\s+Nexthop\\s+Context\\s+State\\s*$$\n  ^-+\\s*$$\n  ^\\s*${INTERFACE}\\s+${LABEL}\\s+${NEXTHOP}\\s+${CONTEXT}\\s+${STATE}\\s*$$ -> Record"
+}

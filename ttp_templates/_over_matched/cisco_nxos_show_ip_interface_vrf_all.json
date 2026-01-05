@@ -1,0 +1,53 @@
+{
+  "command": "cisco_nxos_show_ip_interface_vrf_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"vrf\">\nIP Interface Status for VRF \"{{VRF | ORPHRASE}}\"\n<group name=\"interface_link_proto\">\n{{INTERFACE}}, Interface status: {{PROTO}}/{{LINK}}/{{STATUS | ORPHRASE}}, iod: 60,\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VRF": "default",
+      "INTERFACE": "Vlan142",
+      "IP_ADDRESS": "172.16.178.46",
+      "STATUS": "admin-up",
+      "LINK": "link-up",
+      "PROTO": "protocol-up",
+      "SUBNET": "172.16.178.0/24",
+      "ROUTE_PREF": "0",
+      "ROUTE_TAG": "0",
+      "BROADCAST": "255.255.255.255",
+      "MULTICAST_GROUPS": "none",
+      "MTU": "1500",
+      "PROXY_ARP": "disabled",
+      "IP_LOCAL_PROXY_ARP": "disabled",
+      "MULTICAST_ROUTING": "disabled",
+      "ICMP_REDIRECTS": "disabled",
+      "IP_DIRECTED_BROADCAST": "disabled",
+      "ICMP_UNREACHABLES": "disabled",
+      "ICMP_PORT_UNREACHABLES": "enabled",
+      "IP_UNICAST_RPF": "none",
+      "IP_LOAD_SHARING": "none",
+      "WCCP_REDIRECT_OUTBOUND": "disabled",
+      "WCCP_REDIRECT_INBOUND": "disabled",
+      "WCCP_REDIRECT_EXCLUDE": "disabled"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vrf": {
+        "VRF": "default",
+        "interface_link_proto": {
+          "INTERFACE": "Vlan142",
+          "PROTO": "protocol-up",
+          "LINK": "link-up",
+          "STATUS": "admin-up"
+        }
+      }
+    }
+  ],
+  "cli_content": "IP Interface Status for VRF \"default\"\nVlan142, Interface status: protocol-up/link-up/admin-up, iod: 60,\n  IP address: 172.16.178.46, IP subnet: 172.16.178.0/24\n  IP broadcast address: 255.255.255.255\n  IP multicast groups locally joined: none\n  IP MTU: 1500 bytes (using link MTU)\n  IP primary address route-preference: 0, tag: 0\n  IP proxy ARP : disabled\n  IP Local Proxy ARP : disabled\n  IP multicast routing: disabled\n  IP icmp redirects: disabled\n  IP directed-broadcast: disabled\n  IP icmp unreachables (except port): disabled\n  IP icmp port-unreachable: enabled\n  IP unicast reverse path forwarding: none\n  IP load sharing: none\n  ip interface statistics last reset: never\n  IP interface software stats: (sent/received/forwarded/originated/consumed)\n    Unicast packets    : 96473717/83500234/0/96473717/83500234\n    Unicast bytes      : 53381833298/14737844675/0/53381833298/14737844675\n    Multicast packets  : 0/146837057/0/0/0\n    Multicast bytes    : 0/6754517294/0/0/0\n    Broadcast packets  : 0/0/0/0/0\n    Broadcast bytes    : 0/0/0/0/0\n    Labeled packets    : 0/0/0/0/0\n    Labeled bytes      : 0/0/0/0/0\n  WCCP Redirect outbound: disabled\n  WCCP Redirect inbound: disabled\n  WCCP Redirect exclude: disabled",
+  "textfsm_template": "Value Filldown VRF (\\S+)\nValue Required INTERFACE (\\S+)\nValue IP_ADDRESS ([a-zA-Z0-9./]+)\nValue STATUS (\\S+-\\S+)\nValue LINK (\\S+-\\S+)\nValue PROTO (\\S+-\\S+)\nValue SUBNET (\\S+)\nValue ROUTE_PREF (\\d+)\nValue ROUTE_TAG (\\d+)\nValue BROADCAST ([a-zA-Z0-9./]+)\nValue List MULTICAST_GROUPS (\\S+)\nValue MTU (\\d+)\nValue PROXY_ARP (\\S+)\nValue IP_LOCAL_PROXY_ARP (\\S+)\nValue MULTICAST_ROUTING (\\S+)\nValue ICMP_REDIRECTS (\\S+)\nValue IP_DIRECTED_BROADCAST (\\S+)\nValue IP_FORWARDING (\\S+)\nValue ICMP_UNREACHABLES (\\S+)\nValue ICMP_PORT_UNREACHABLES (\\S+)\nValue IP_UNICAST_RPF (\\S+)\nValue IP_LOAD_SHARING (\\S+)\nValue WCCP_REDIRECT_OUTBOUND (\\S+)\nValue WCCP_REDIRECT_INBOUND (\\S+)\nValue WCCP_REDIRECT_EXCLUDE (\\S+)\nValue List SECONDARY_IP_ADDRESS (\\S+)\nValue List SECONDARY_IP_SUBNET (\\S+)\nValue List SECONDARY_ROUTE_PREF (\\d+)\nValue List SECONDARY_ROUTE_TAG (\\d+)\nValue ACL_OUT (\\S+)\nValue UNNUMBERED_PARENT_INTF (\\S+)\nValue List UNNUMBERED_CHILD_INTFS (\\S+)\n\nStart\n  ^IP\\s+Interface\\s+Status\\s+for\\s+VRF -> Continue.Record\n  ^IP\\s+Interface\\s+Status\\s+for\\s+VRF\\s+\"${VRF}\"\n  ^\\S+,\\s+Interface\\s+status: -> Continue.Record\n  ^${INTERFACE},\\s+Interface\\s+status:\\s+${PROTO}\\/${LINK}\\/${STATUS},\\s+iod:\\s+\\d+,\n  ^${INTERFACE},\\s+Interface\\s+status:\\s+${PROTO}/${LINK}/${STATUS}\n  ^\\s+IP\\s+address:\\s+${IP_ADDRESS},\\s+IP\\s+subnet:\\s+${SUBNET}\\s+route-preference:\\s+${ROUTE_PREF},\\s+tag:\\s+${ROUTE_TAG}\n  ^\\s+IP\\s+address:\\s+${SECONDARY_IP_ADDRESS},\\s+IP\\s+subnet:\\s+${SECONDARY_IP_SUBNET}\\s+secondary\\s+route-preference:\\s+${SECONDARY_ROUTE_PREF},\\s+tag:\\s+${SECONDARY_ROUTE_TAG}\n  ^\\s+IP\\s+address:\\s+${IP_ADDRESS},\\s+IP\\s+subnet:\\s+${SUBNET}\n  ^\\s+IP\\s+address: none\n  ^\\s+IP\\s+broadcast\\s+address:\\s+${BROADCAST}\n  ^\\s+IP\\s+multicast\\s+groups\\s+locally\\s+joined:\\s+${MULTICAST_GROUPS}\n  ^\\s+IP\\s+multicast\\s+groups\\s+locally\\s+joined:* -> MULTICAST\n  ^\\s+IP\\s+MTU:\\s+${MTU}\\s+bytes\n  ^\\s+IP\\s+primary\\s+address\\s+route-preference:\\s+${ROUTE_PREF},\\s+tag:\\s+${ROUTE_TAG}\n  ^\\s+IP\\s+proxy\\s+ARP\\s+:\\s+${PROXY_ARP}\n  ^\\s+IP\\s+Local\\s+Proxy\\s+ARP\\s+:\\s+${IP_LOCAL_PROXY_ARP}\n  ^\\s+IP\\s+multicast\\s+routing:\\s+${MULTICAST_ROUTING}\n  ^\\s+IP\\s+icmp\\s+redirects:\\s+${ICMP_REDIRECTS}\n  ^\\s+IP\\s+directed-broadcast:\\s+${IP_DIRECTED_BROADCAST}\n  ^\\s+IP\\s+Forwarding:\\s+${IP_FORWARDING}\n  ^\\s+IP\\s+icmp\\s+unreachables.+:\\s+${ICMP_UNREACHABLES}\n  ^\\s+IP\\s+icmp\\s+port-unreachable:\\s+${ICMP_PORT_UNREACHABLES}\n  ^\\s+IP\\s+unicast\\s+reverse\\s+path\\s+forwarding:\\s+${IP_UNICAST_RPF}\n  ^\\s+IP\\s+load\\s+sharing:\\s+${IP_LOAD_SHARING}\n  ^\\s+(ip|IP)\\s+interface\\s+statistics\\s+last\\s+reset:\n  ^\\s+IP\\s+interface\\s+software\\s+stats:\n  ^\\s+Unicast\\s+packets\\s+:\\s+\\d+\\/\\d+\\/\\d+\\/\\d+\\/\\d+\n  ^\\s+Unicast\\s+bytes\\s+:\\s+\\d+\\/\\d+\\/\\d+\\/\\d+\\/\\d+\n  ^\\s+Multicast\\s+packets\\s+:\\s+\\d+\\/\\d+\\/\\d+\\/\\d+\\/\\d+\n  ^\\s+Multicast\\s+bytes\\s+:\\s+\\d+\\/\\d+\\/\\d+\\/\\d+\\/\\d+\n  ^\\s+Broadcast\\s+packets\\s+:\\s+\\d+\\/\\d+\\/\\d+\\/\\d+\\/\\d+\n  ^\\s+Broadcast\\s+bytes\\s+:\\s+\\d+\\/\\d+\\/\\d+\\/\\d+\\/\\d+\n  ^\\s+Labeled\\s+packets\\s+:\\s+\\d+\\/\\d+\\/\\d+\\/\\d+\\/\\d+\n  ^\\s+Labeled\\s+bytes\\s+:\\s+\\d+\\/\\d+\\/\\d+\\/\\d+\\/\\d+\n  ^\\s+IP\\s+outbound\\s+access\\s+list:\\s+${ACL_OUT}\n  ^\\s+IP\\s+unnumbered\\s+interface\\s+\\(${UNNUMBERED_PARENT_INTF}\\)\n  ^\\s*Unnumbered\\s+interfaces\\s+of -> UNNUMBERED\n  ^\\s+WCCP\\s+Redirect\\s+outbound:\\s+${WCCP_REDIRECT_OUTBOUND}\n  ^\\s+WCCP\\s+Redirect\\s+inbound:\\s+${WCCP_REDIRECT_INBOUND}\n  ^\\s+WCCP\\s+Redirect\\s+exclude:\\s+${WCCP_REDIRECT_EXCLUDE}\n  ^\\s*$$\n  ^. -> Error\n\n\nMULTICAST\n  ^\\s+${MULTICAST_GROUPS}\\s*$$ -> Start\n  ^\\s+(?:\\S+\\s+){0}${MULTICAST_GROUPS} -> Continue\n  ^\\s+(?:\\S+\\s+){1}${MULTICAST_GROUPS} -> Continue\n  ^\\s+(?:\\S+\\s+){2}${MULTICAST_GROUPS} -> Continue\n  ^\\s+(?:\\S+\\s+){3}${MULTICAST_GROUPS} -> Continue\n  ^\\s+(?:\\S+\\s+){4}${MULTICAST_GROUPS} -> Continue\n  ^\\s+(?:\\S+\\s+){5}${MULTICAST_GROUPS} -> Continue\n  ^\\s+(?:\\S+\\s+){6}${MULTICAST_GROUPS} -> Continue\n  ^\\s+(?:\\S+\\s+){7}${MULTICAST_GROUPS} -> Continue\n  ^\\s+(?:\\S+\\s+){8}${MULTICAST_GROUPS} -> Continue\n  ^\\s+(?:\\S+\\s+){9}${MULTICAST_GROUPS} -> Continue\n  ^\\s+(?:\\S+\\s+){10}${MULTICAST_GROUPS} -> Continue\n  ^.* -> Start\n  ^. -> Error\n\nUNNUMBERED\n  ^\\s*${UNNUMBERED_CHILD_INTFS}:\\s*$$ -> Continue\n  ^(?:\\S+\\s+){0}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){1}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){2}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){3}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){4}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){5}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){6}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){7}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){8}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){9}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){10}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){11}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){12}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){13}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){14}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){15}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){16}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){17}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){18}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){19}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^(?:\\S+\\s+){20}${UNNUMBERED_CHILD_INTFS}: -> Continue\n  ^.* -> Start\n  ^. -> Error\n"
+}

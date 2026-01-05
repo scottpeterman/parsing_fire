@@ -1,0 +1,172 @@
+{
+  "command": "cisco_asa_show_asp_table_vpn-context_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.2,
+  "textfsm_rows": 5,
+  "ttp_rows": 11,
+  "ttp_template": "<group name=\"group_bad_pkts_rekey_pkt\">\nSPI = 0xDB{{GROUP}}6{{BAD_PKTS}}8{{REKEY_PKT | ORPHRASE}}C\n</group>\n<group name=\"vpn_ctx\">\nVPN CTX = {{VPN_CTX | ORPHRASE}}\n</group>\n<group name=\"group_bad_pkts_bad_spi_spoof_bad_crypto_rekey_pkt\">\nPeer IP = {{GROUP}}{{BAD_PKTS}}.1{{BAD_SPI}}.2{{SPOOF}}{{BAD_CRYPTO}}.2{{REKEY_PKT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VPN_CTX": "0x01177414",
+      "PEER_IP": "10.10.200.25",
+      "POINTER": "0xCC11B670",
+      "STATE": "UP+DIP",
+      "FLAGS": "DECR+ESP+NATT",
+      "SA": "0x0DA8FA2F",
+      "SPI": "0x4F456306",
+      "GROUP": "1",
+      "PKTS": "8092",
+      "BAD_PKTS": "1",
+      "BAD_SPI": "1",
+      "SPOOF": "1",
+      "BAD_CRYPTO": "1",
+      "REKEY_PKT": "3",
+      "REKEY_CALL": "3",
+      "VPN_FILTER": "<none>"
+    },
+    {
+      "VPN_CTX": "0x0116C1F4",
+      "PEER_IP": "10.10.200.25",
+      "POINTER": "0xCC11A688",
+      "STATE": "UP+DIP",
+      "FLAGS": "ENCR+ESP+NATT",
+      "SA": "0x0DAB083D",
+      "SPI": "0xDB16183C",
+      "GROUP": "1",
+      "PKTS": "7972",
+      "BAD_PKTS": "1",
+      "BAD_SPI": "1",
+      "SPOOF": "1",
+      "BAD_CRYPTO": "1",
+      "REKEY_PKT": "3",
+      "REKEY_CALL": "3",
+      "VPN_FILTER": "<none>"
+    },
+    {
+      "VPN_CTX": "0x01155524",
+      "PEER_IP": "10.11.200.23",
+      "POINTER": "0xCC05C8F0",
+      "STATE": "UP",
+      "FLAGS": "DECR+ESP+PRESERVE",
+      "SA": "0x0DACF9C5",
+      "SPI": "0x0F51782D",
+      "GROUP": "1",
+      "PKTS": "27257",
+      "BAD_PKTS": "0",
+      "BAD_SPI": "0",
+      "SPOOF": "0",
+      "BAD_CRYPTO": "0",
+      "REKEY_PKT": "5",
+      "REKEY_CALL": "5",
+      "VPN_FILTER": "VPN-ACL-1"
+    },
+    {
+      "VPN_CTX": "0x0114BD44",
+      "PEER_IP": "10.11.200.23",
+      "POINTER": "0xC848E250",
+      "STATE": "UP",
+      "FLAGS": "ENCR+ESP+PRESERVE",
+      "SA": "0x0DAE8F1B",
+      "SPI": "0x4ACE6F27",
+      "GROUP": "1",
+      "PKTS": "24194",
+      "BAD_PKTS": "0",
+      "BAD_SPI": "0",
+      "SPOOF": "0",
+      "BAD_CRYPTO": "0",
+      "REKEY_PKT": "5",
+      "REKEY_CALL": "5",
+      "VPN_FILTER": "VPN-ACL-1"
+    },
+    {
+      "VPN_CTX": "0x0114044C",
+      "PEER_IP": "10.12.200.22",
+      "POINTER": "0xCC11C010",
+      "STATE": "UP",
+      "FLAGS": "DECR+ESP+NATT",
+      "SA": "0x0DA50609",
+      "SPI": "0xDEFE481D",
+      "GROUP": "1",
+      "PKTS": "2495",
+      "BAD_PKTS": "0",
+      "BAD_SPI": "0",
+      "SPOOF": "0",
+      "BAD_CRYPTO": "0",
+      "REKEY_PKT": "5",
+      "REKEY_CALL": "5",
+      "VPN_FILTER": "<none>"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "group_bad_pkts_rekey_pkt": {
+        "GROUP": "1",
+        "BAD_PKTS": "1",
+        "REKEY_PKT": "3"
+      },
+      "vpn_ctx": [
+        {
+          "VPN_CTX": "0x01177414"
+        },
+        {
+          "VPN_CTX": "0x0116C1F4"
+        },
+        {
+          "VPN_CTX": "0x01155524"
+        },
+        {
+          "VPN_CTX": "0x0114BD44"
+        },
+        {
+          "VPN_CTX": "0x0114044C"
+        }
+      ],
+      "group_bad_pkts_bad_spi_spoof_bad_crypto_rekey_pkt": [
+        {
+          "GROUP": "1",
+          "BAD_PKTS": "0",
+          "BAD_SPI": "0",
+          "SPOOF": "0",
+          "BAD_CRYPTO": "0",
+          "REKEY_PKT": "5"
+        },
+        {
+          "GROUP": "1",
+          "BAD_PKTS": "0",
+          "BAD_SPI": "0",
+          "SPOOF": "0",
+          "BAD_CRYPTO": "0",
+          "REKEY_PKT": "5"
+        },
+        {
+          "GROUP": "1",
+          "BAD_PKTS": "0",
+          "BAD_SPI": "1",
+          "SPOOF": "0",
+          "BAD_CRYPTO": "0",
+          "REKEY_PKT": "3"
+        },
+        {
+          "GROUP": "1",
+          "BAD_PKTS": "0",
+          "BAD_SPI": "1",
+          "SPOOF": "0",
+          "BAD_CRYPTO": "0",
+          "REKEY_PKT": "3"
+        },
+        {
+          "GROUP": "1",
+          "BAD_PKTS": "0",
+          "BAD_SPI": "2",
+          "SPOOF": "0",
+          "BAD_CRYPTO": "0",
+          "REKEY_PKT": "2"
+        }
+      ]
+    }
+  ],
+  "cli_content": "VPN CTX  = 0x01177414\n\nPeer IP  = 10.10.200.25\nPointer  = 0xCC11B670\nState    = UP+DIP\nFlags    = DECR+ESP+NATT\nSA   = 0x0DA8FA2F\nSPI  = 0x4F456306\nGroup    = 1\nPkts     = 8092\nBad Pkts = 1\nBad SPI  = 1\nSpoof    = 1\nBad Crypto = 1\nRekey Pkt  = 3\nRekey Call = 3\nVPN Filter = <none>\n\nVPN CTX  = 0x0116C1F4\n\nPeer IP  = 10.10.200.25\nPointer  = 0xCC11A688\nState    = UP+DIP\nFlags    = ENCR+ESP+NATT\nSA   = 0x0DAB083D\nSPI  = 0xDB16183C\nGroup    = 1\nPkts     = 7972\nBad Pkts = 1\nBad SPI  = 1\nSpoof    = 1\nBad Crypto = 1\nRekey Pkt  = 3\nRekey Call = 3\nVPN Filter = <none>\n\nVPN CTX  = 0x01155524\n\nPeer IP  = 10.11.200.23\nPointer  = 0xCC05C8F0\nState    = UP\nFlags    = DECR+ESP+PRESERVE\nSA   = 0x0DACF9C5\nSPI  = 0x0F51782D\nGroup    = 1\nPkts     = 27257\nBad Pkts = 0\nBad SPI  = 0\nSpoof    = 0\nBad Crypto = 0\nRekey Pkt  = 5\nRekey Call = 5\nVPN Filter = VPN-ACL-1\n\nVPN CTX  = 0x0114BD44\n\nPeer IP  = 10.11.200.23\nPointer  = 0xC848E250\nState    = UP\nFlags    = ENCR+ESP+PRESERVE\nSA   = 0x0DAE8F1B\nSPI  = 0x4ACE6F27\nGroup    = 1\nPkts     = 24194\nBad Pkts = 0\nBad SPI  = 0\nSpoof    = 0\nBad Crypto = 0\nRekey Pkt  = 5\nRekey Call = 5\nVPN Filter = VPN-ACL-1\n\nVPN CTX  = 0x0114044C\n\nPeer IP  = 10.12.200.22\nPointer  = 0xCC11C010\nState    = UP\nFlags    = DECR+ESP+NATT\nSA   = 0x0DA50609\nSPI  = 0xDEFE481D\nGroup    = 1\nPkts     = 2495\nBad Pkts = 0\nBad SPI  = 0\nSpoof    = 0\nBad Crypto = 0\nRekey Pkt  = 5\nRekey Call = 5\nVPN Filter = <none>\n",
+  "textfsm_template": "Value Required VPN_CTX (\\S+)\nValue PEER_IP (\\S+)\nValue POINTER (\\S+)\nValue STATE (\\S+)\nValue FLAGS (\\S+)\nValue SA (\\S+)\nValue SPI (\\S+)\nValue GROUP (\\d+)\nValue PKTS (\\d+)\nValue BAD_PKTS (\\d+)\nValue BAD_SPI (\\d+)\nValue SPOOF (\\d+)\nValue BAD_CRYPTO (\\d+)\nValue REKEY_PKT (\\d+)\nValue REKEY_CALL (\\d+)\nValue VPN_FILTER (\\S+)\n\nStart\n  ^VPN\\s+CTX -> Continue.Record\n  ^VPN\\s+CTX\\s+=\\s+${VPN_CTX}\n  ^Peer\\s+IP\\s+=\\s+${PEER_IP}\n  ^Pointer\\s+=\\s+${POINTER}\n  ^State\\s+=\\s+${STATE}\n  ^Flags\\s+=\\s+${FLAGS}\n  ^SA\\s+=\\s+${SA}\n  ^SPI\\s+=\\s+${SPI}\n  ^Group\\s+=\\s+${GROUP}\n  ^Pkts\\s+=\\s+${PKTS}\n  ^Bad\\s+Pkts\\s+=\\s+${BAD_PKTS}\n  ^Bad\\s+SPI\\s+=\\s+${BAD_SPI}\n  ^Spoof\\s+=\\s+${SPOOF}\n  ^Bad\\s+Crypto\\s+=\\s+${BAD_CRYPTO}\n  ^Rekey\\s+Pkt\\s+=\\s+${REKEY_PKT}\n  ^Rekey\\s+Call\\s+=\\s+${REKEY_CALL}\n  ^VPN\\s+Filter\\s+=\\s+${VPN_FILTER}\n  ^\\s*\n  ^. -> Error\n"
+}

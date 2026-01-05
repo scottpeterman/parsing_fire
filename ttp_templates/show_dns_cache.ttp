@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show dns cache
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="name_cached_ip_address_ttl">
+{{NAME}} {{CACHED}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{TTL | ORPHRASE}}
+</group>

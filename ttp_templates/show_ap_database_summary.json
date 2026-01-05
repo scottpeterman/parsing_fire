@@ -1,0 +1,84 @@
+{
+  "command": "show ap database summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"ap_name_ip_address_ethernet_mac_radio_mac_status_group_name\">\n{{AP_NAME}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{ETHERNET_MAC | re(\"[0-9a-fA-F:.-]+\")}} {{RADIO_MAC | re(\"[0-9a-fA-F:.-]+\")}} {{STATUS | ORPHRASE}} {{GROUP_NAME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "AP_NAME": "AP1",
+      "IP_ADDRESS": "192.168.0.101",
+      "ETHERNET_MAC": "aa:bb:cc:dd:ee:01",
+      "RADIO_MAC": "aa:bb:cc:dd:ef:01",
+      "STATUS": "connected",
+      "GROUP_NAME": "default"
+    },
+    {
+      "AP_NAME": "AP2",
+      "IP_ADDRESS": "192.168.0.102",
+      "ETHERNET_MAC": "aa:bb:cc:dd:ee:02",
+      "RADIO_MAC": "aa:bb:cc:dd:ef:02",
+      "STATUS": "connected",
+      "GROUP_NAME": "default"
+    },
+    {
+      "AP_NAME": "AP3",
+      "IP_ADDRESS": "192.168.0.103",
+      "ETHERNET_MAC": "aa:bb:cc:dd:ee:03",
+      "RADIO_MAC": "aa:bb:cc:dd:ef:03",
+      "STATUS": "initializing",
+      "GROUP_NAME": "maintenance"
+    },
+    {
+      "AP_NAME": "AP4",
+      "IP_ADDRESS": "192.168.0.104",
+      "ETHERNET_MAC": "aa:bb:cc:dd:ee:04",
+      "RADIO_MAC": "aa:bb:cc:dd:ef:04",
+      "STATUS": "disconnected",
+      "GROUP_NAME": "default"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ap_name_ip_address_ethernet_mac_radio_mac_status_group_name": [
+        {
+          "AP_NAME": "AP1",
+          "IP_ADDRESS": "192.168.0.101",
+          "ETHERNET_MAC": "aa:bb:cc:dd:ee:01",
+          "RADIO_MAC": "aa:bb:cc:dd:ef:01",
+          "STATUS": "connected",
+          "GROUP_NAME": "default"
+        },
+        {
+          "AP_NAME": "AP2",
+          "IP_ADDRESS": "192.168.0.102",
+          "ETHERNET_MAC": "aa:bb:cc:dd:ee:02",
+          "RADIO_MAC": "aa:bb:cc:dd:ef:02",
+          "STATUS": "connected",
+          "GROUP_NAME": "default"
+        },
+        {
+          "AP_NAME": "AP3",
+          "IP_ADDRESS": "192.168.0.103",
+          "ETHERNET_MAC": "aa:bb:cc:dd:ee:03",
+          "RADIO_MAC": "aa:bb:cc:dd:ef:03",
+          "STATUS": "initializing",
+          "GROUP_NAME": "maintenance"
+        },
+        {
+          "AP_NAME": "AP4",
+          "IP_ADDRESS": "192.168.0.104",
+          "ETHERNET_MAC": "aa:bb:cc:dd:ee:04",
+          "RADIO_MAC": "aa:bb:cc:dd:ef:04",
+          "STATUS": "disconnected",
+          "GROUP_NAME": "default"
+        }
+      ]
+    }
+  ],
+  "cli_content": "AP Name                 IP Address      Ethernet MAC       Radio MAC       Status         Group Name\nAP1                     192.168.0.101   aa:bb:cc:dd:ee:01  aa:bb:cc:dd:ef:01 connected      default\nAP2                     192.168.0.102   aa:bb:cc:dd:ee:02  aa:bb:cc:dd:ef:02 connected      default\nAP3                     192.168.0.103   aa:bb:cc:dd:ee:03  aa:bb:cc:dd:ef:03 initializing   maintenance\nAP4                     192.168.0.104   aa:bb:cc:dd:ee:04  aa:bb:cc:dd:ef:04 disconnected   default\n",
+  "textfsm_template": "Value AP_NAME (\\S+)\nValue IP_ADDRESS (\\S+)\nValue ETHERNET_MAC (\\S+)\nValue RADIO_MAC (\\S+)\nValue STATUS (\\S+)\nValue GROUP_NAME (\\S+)\n\nStart\n  ^\\s*AP\\s+Name\\s+IP\\s+Address\\s+Ethernet\\s+MAC\\s+Radio\\s+MAC\\s+Status\\s+Group\\s+Name\\s*$$\n  ^\\s*${AP_NAME}\\s+${IP_ADDRESS}\\s+${ETHERNET_MAC}\\s+${RADIO_MAC}\\s+${STATUS}\\s+${GROUP_NAME}\\s*$$ -> Record"
+}

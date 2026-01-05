@@ -1,0 +1,52 @@
+{
+  "command": "show interface logical",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 3.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"interface_index_snmp_ifindex_primary_ip_admin_status\">\nLogical Interface {{INTERFACE}} ({{INDEX | ORPHRASE}}) ({{SNMP_IFINDEX | ORPHRASE}}) ({{PRIMARY_IP | ORPHRASE}}) ({{ADMIN_STATUS | ORPHRASE}})\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "ge-0/0/1.0",
+      "INDEX": "Index 149",
+      "SNMP_IFINDEX": "SNMP ifIndex 527",
+      "PRIMARY_IP": "Primary IP Address 192.168.1.1",
+      "ADMIN_STATUS": "Admin status down",
+      "INPUT_ERRORS": "0",
+      "INPUT_DROPS": "0",
+      "INPUT_STSECOND": "0",
+      "INPUT_PROTOCOL_DROPS": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_index_snmp_ifindex_primary_ip_admin_status": [
+        {
+          "INTERFACE": "lo0.0",
+          "INDEX": "Index 71",
+          "SNMP_IFINDEX": "SNMP ifIndex 18",
+          "PRIMARY_IP": "Primary IP Address 10.1.1.1",
+          "ADMIN_STATUS": "Admin status up"
+        },
+        {
+          "INTERFACE": "ge-0/0/0.0",
+          "INDEX": "Index 148",
+          "SNMP_IFINDEX": "SNMP ifIndex 526",
+          "PRIMARY_IP": "Primary IP Address unassigned",
+          "ADMIN_STATUS": "Admin status up"
+        },
+        {
+          "INTERFACE": "ge-0/0/1.0",
+          "INDEX": "Index 149",
+          "SNMP_IFINDEX": "SNMP ifIndex 527",
+          "PRIMARY_IP": "Primary IP Address 192.168.1.1",
+          "ADMIN_STATUS": "Admin status down"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Logical Interface lo0.0 (Index 71) (SNMP ifIndex 18) (Primary IP Address 10.1.1.1) (Admin status up)\n  Flags: SNMP-Traps 0x4004000 SNMP-Traps-Base 0x4001c0000\n  Input errors:\n    Errors: 0, Drops: 0, Stsecond: 0, Protocol drops: 0 \n  Output errors:\n    Errors: 0, Drops: 0, Stsecond: 0, Protocol drops: 0\n  \nLogical Interface ge-0/0/0.0 (Index 148) (SNMP ifIndex 526) (Primary IP Address unassigned) (Admin status up)\n  Flags: SNMP-Traps 0x4004000 SNMP-Traps-Base 0x4001c0000\n  Input errors:\n    Errors: 0, Drops: 0, Stsecond: 0, Protocol drops: 0 \n  Output errors:\n    Errors: 0, Drops: 0, Stsecond: 0, Protocol drops: 0\n\nLogical Interface ge-0/0/1.0 (Index 149) (SNMP ifIndex 527) (Primary IP Address 192.168.1.1) (Admin status down)\n  Flags: SNMP-Traps 0x4004000 SNMP-Traps-Base 0x4001c0000\n  Input errors:\n    Errors: 0, Drops: 0, Stsecond: 0, Protocol drops: 0 \n  Output errors:\n    Errors: 0, Drops: 0, Stsecond: 0, Protocol drops: 0\n",
+  "textfsm_template": "Value INTERFACE (\\S+\\.\\d+)\nValue INDEX (Index\\s\\d+)\nValue SNMP_IFINDEX (SNMP ifIndex\\s\\d+)\nValue PRIMARY_IP (Primary IP Address\\s\\S+)\nValue ADMIN_STATUS (Admin status\\s\\S+)\nValue INPUT_ERRORS (\\d+)\nValue INPUT_DROPS (\\d+)\nValue INPUT_STSECOND (\\d+)\nValue INPUT_PROTOCOL_DROPS (\\d+)\nValue OUTPUT_ERRORS (\\d+)\nValue OUTPUT_DROPS (\\d+)\nValue OUTPUT_STSECOND (\\d+)\nValue OUTPUT_PROTOCOL_DROPS (\\d+)\n\nStart\n  ^Logical Interface ${INTERFACE}\\s+\\(${INDEX}\\)\\s+\\(${SNMP_IFINDEX}\\)\\s+\\(${PRIMARY_IP}\\)\\s+\\(${ADMIN_STATUS}\\)\\s*$$\n  ^\\s+Input errors:\\s*$$\n  ^\\s+Errors:\\s+${INPUT_ERRORS},\\s+Drops:\\s+${INPUT_DROPS},\\s+Stsecond:\\s+${INPUT_STSECOND},\\s+Protocol drops:\\s+${INPUT_PROTOCOL_DROPS}\\s*$$\n  ^\\s+Output errors:\\s*$$\n  ^\\s+Errors:\\s+${OUTPUT_ERRORS},\\s+Drops:\\s+${OUTPUT_DROPS},\\s+Stsecond:\\s+${OUTPUT_STSECOND},\\s+Protocol drops:\\s+${OUTPUT_PROTOCOL_DROPS}\\s*$$ -> Record"
+}

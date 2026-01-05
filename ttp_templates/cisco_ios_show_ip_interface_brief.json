@@ -1,0 +1,92 @@
+{
+  "command": "cisco_ios_show_ip_interface_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"interface_ip_address_status_proto\">\n{{INTERFACE}} {{IP_ADDRESS}} YES NVRAM {{STATUS | ORPHRASE}} {{PROTO}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Ethernet0/0",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "Ethernet0/0.11",
+      "IP_ADDRESS": "10.0.1.38",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "Ethernet0/1",
+      "IP_ADDRESS": "1.1.1.1",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "Ethernet0/2",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "administratively down",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "Ethernet0/3",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "administratively down",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "Loopback0",
+      "IP_ADDRESS": "10.0.1.2",
+      "STATUS": "up",
+      "PROTO": "up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_status_proto": [
+        {
+          "INTERFACE": "Ethernet0/0",
+          "IP_ADDRESS": "unassigned",
+          "STATUS": "up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "Ethernet0/0.11",
+          "IP_ADDRESS": "10.0.1.38",
+          "STATUS": "up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "Ethernet0/1",
+          "IP_ADDRESS": "1.1.1.1",
+          "STATUS": "up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "Ethernet0/2",
+          "IP_ADDRESS": "unassigned",
+          "STATUS": "administratively down",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "Ethernet0/3",
+          "IP_ADDRESS": "unassigned",
+          "STATUS": "administratively down",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "Loopback0",
+          "IP_ADDRESS": "10.0.1.2",
+          "STATUS": "up",
+          "PROTO": "up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface                  IP-Address      OK? Method Status                Protocol\nEthernet0/0                unassigned      YES NVRAM  up                    up\nEthernet0/0.11             10.0.1.38       YES NVRAM  up                    up\nEthernet0/1                1.1.1.1         YES NVRAM  up                    up\nEthernet0/2                unassigned      YES NVRAM  administratively down down\nEthernet0/3                unassigned      YES NVRAM  administratively down down\nLoopback0                  10.0.1.2        YES NVRAM  up                    up\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue IP_ADDRESS (\\S+)\nValue STATUS (up|down|administratively down)\nValue PROTO (up|down)\n\nStart\n  ^${INTERFACE}\\s+${IP_ADDRESS}\\s+\\w+\\s+\\w+\\s+${STATUS}\\s+${PROTO} -> Record\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n"
+}

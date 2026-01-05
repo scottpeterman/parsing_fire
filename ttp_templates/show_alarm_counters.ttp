@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show alarm counters
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="alarm_type_active_alarms_cleared_alarms">
+{{ALARM_TYPE}} {{ACTIVE_ALARMS}} {{CLEARED_ALARMS | ORPHRASE}}
+</group>

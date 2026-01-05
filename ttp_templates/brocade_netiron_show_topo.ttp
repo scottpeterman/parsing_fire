@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: brocade_netiron_show_topo
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 18
+# Match ratio: 3.00
+
+<group name="membervlans">
+Member VLAN : {{membervlans | ORPHRASE}} 
+</group>
+<group name="topogroup">
+Topology Group {{topogroup | ORPHRASE}}
+</group>
+<group name="controlports">
+Control Ports : {{controlports | ORPHRASE}} 
+</group>

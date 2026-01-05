@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: ciena_saos_traffic-profiling_standard-profile_show
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="port_id_role_parent_child_cir_eir_cbs_ebs_classifier_a_classifier_b">
+|{{PORT | re("\\d+")}} |{{ID | re("\\d+")}} |{{PROFILE_{{ROLE}}AME}} | N | {{PARENT_CHILD}} | {{CIR}} | {{EIR}} | {{CBS}} | {{EBS}} | {{CLASSIFIER_A}} | {{CLASSIFIER_B | ORPHRASE}} |
+</group>

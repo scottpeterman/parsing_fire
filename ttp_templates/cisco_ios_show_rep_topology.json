@@ -1,0 +1,56 @@
+{
+  "command": "cisco_ios_show_rep_topology",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"switch_interface_edge_role\">\n{{SWITCH}} {{INTERFACE}} {{EDGE}} {{ROLE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SWITCH": "Switch01",
+      "INTERFACE": "Fa0/2",
+      "EDGE": "Pri",
+      "ROLE": "Alt"
+    },
+    {
+      "SWITCH": "Switch02",
+      "INTERFACE": "Fa1/0/23",
+      "EDGE": "Sec",
+      "ROLE": "Open"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "switch_interface_edge_role": [
+        {
+          "SWITCH": "BridgeName",
+          "INTERFACE": "PortName",
+          "EDGE": "Edge",
+          "ROLE": "Role"
+        },
+        {
+          "SWITCH": "----------------",
+          "INTERFACE": "----------",
+          "EDGE": "----",
+          "ROLE": "----"
+        },
+        {
+          "SWITCH": "Switch01",
+          "INTERFACE": "Fa0/2",
+          "EDGE": "Pri",
+          "ROLE": "Alt"
+        },
+        {
+          "SWITCH": "Switch02",
+          "INTERFACE": "Fa1/0/23",
+          "EDGE": "Sec",
+          "ROLE": "Open"
+        }
+      ]
+    }
+  ],
+  "cli_content": "REP Segment 1\nBridgeName       PortName   Edge Role\n---------------- ---------- ---- ----\nSwitch01          Fa0/2      Pri  Alt\nSwitch02          Fa1/0/23   Sec  Open",
+  "textfsm_template": "Value SWITCH (\\S+)\nValue INTERFACE (\\S+)\nValue EDGE (Pri|Sec)\nValue ROLE (Alt|Open)\n\nStart\n  # HEADER CHECK\n  ^REP\\s+Segment\\s+\\d+$$\n  ^BridgeName\\s+PortName\\s+Edge\\s+Role$$\n  ^(-+(\\s+)?)+$$ -> Data\n  ^. -> Error\n\nData\n  # OUTPUT\n  ^${SWITCH}\\s+${INTERFACE}\\s+${EDGE}\\s+${ROLE}$$ -> Record\n  ^\\s*$$\n  ^. -> Error"
+}

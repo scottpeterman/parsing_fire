@@ -1,0 +1,70 @@
+{
+  "command": "show fex detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"description\">\n  Description: {{DESCRIPTION}}\n</group>\n<group name=\"fex_version_switch_version\">\n  FEX version: {{FEX_VERSION | ORPHRASE}} [Switch version: {{SWITCH_VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}}]\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FEX_ID": "101",
+      "DESCRIPTION": "FEX101",
+      "STATE": "Active",
+      "FEX_VERSION": "7.0(3)I4(1)",
+      "SWITCH_VERSION": "7.0(3)I4(1)",
+      "SWITCHPORTS": "Eth1/1/1",
+      "FABRIC_PORTS": "Te1/1/1, Te1/1/2"
+    },
+    {
+      "FEX_ID": "102",
+      "DESCRIPTION": "FEX102",
+      "STATE": "Offline",
+      "FEX_VERSION": "7.0(3)I4(1)",
+      "SWITCH_VERSION": "7.0(3)I4(1)",
+      "SWITCHPORTS": "Eth1/2/1",
+      "FABRIC_PORTS": "Te1/2/1, Te1/2/2"
+    },
+    {
+      "FEX_ID": "103",
+      "DESCRIPTION": "FEX103",
+      "STATE": "Active",
+      "FEX_VERSION": "7.0(3)I4(1)",
+      "SWITCH_VERSION": "7.0(3)I4(1)",
+      "SWITCHPORTS": "Eth1/3/1",
+      "FABRIC_PORTS": "Te1/3/1, Te1/3/2"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "description": [
+        {
+          "DESCRIPTION": "FEX101"
+        },
+        {
+          "DESCRIPTION": "FEX102"
+        },
+        {
+          "DESCRIPTION": "FEX103"
+        }
+      ],
+      "fex_version_switch_version": [
+        {
+          "FEX_VERSION": "7.0(3)I4(1)",
+          "SWITCH_VERSION": "7.0(3)I4(1)"
+        },
+        {
+          "FEX_VERSION": "7.0(3)I4(1)",
+          "SWITCH_VERSION": "7.0(3)I4(1)"
+        },
+        {
+          "FEX_VERSION": "7.0(3)I4(1)",
+          "SWITCH_VERSION": "7.0(3)I4(1)"
+        }
+      ]
+    }
+  ],
+  "cli_content": "FEX: 101\n  Description: FEX101\n  State: Active\n  FEX version: 7.0(3)I4(1) [Switch version: 7.0(3)I4(1)]\n  Switchport[s]: Eth1/1/1\n  Fabric port[s]: Te1/1/1, Te1/1/2\n\nFEX: 102\n  Description: FEX102\n  State: Offline\n  FEX version: 7.0(3)I4(1) [Switch version: 7.0(3)I4(1)]\n  Switchport[s]: Eth1/2/1\n  Fabric port[s]: Te1/2/1, Te1/2/2\n\nFEX: 103\n  Description: FEX103\n  State: Active\n  FEX version: 7.0(3)I4(1) [Switch version: 7.0(3)I4(1)]\n  Switchport[s]: Eth1/3/1\n  Fabric port[s]: Te1/3/1, Te1/3/2\n",
+  "textfsm_template": "Value FEX_ID (\\d+)\nValue DESCRIPTION (\\S+)\nValue STATE (\\S+)\nValue FEX_VERSION (\\S+)\nValue SWITCH_VERSION (\\S+)\nValue SWITCHPORTS (.+)\nValue FABRIC_PORTS (.+)\n\nStart\n  ^FEX:\\s+${FEX_ID}\n  ^\\s+Description:\\s+${DESCRIPTION}\n  ^\\s+State:\\s+${STATE}\n  ^\\s+FEX version:\\s+${FEX_VERSION}\\s+\\[Switch version:\\s+${SWITCH_VERSION}\\]\n  ^\\s+Switchport\\[s\\]:\\s+${SWITCHPORTS}\n  ^\\s+Fabric port\\[s\\]:\\s+${FABRIC_PORTS} -> Record"
+}

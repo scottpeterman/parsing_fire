@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: extreme_exos_show_vlan_description
+# Source: ntc
+# TextFSM rows: 37
+# TTP rows: 37
+# Match ratio: 1.00
+
+<group name="vlan_name_vlan_id_description">
+{{VLAN_NAME}} {{VLAN_ID | re("\\d+")}} {{DESCRIPTION | ORPHRASE}}
+</group>
+<group name="description_vlan_id">
+{{V{{DESCRIPTION | ORPHRASE}}_NAME | ORPHRASE}} {{VLAN_ID | re("\\d+")}} LAN
+</group>

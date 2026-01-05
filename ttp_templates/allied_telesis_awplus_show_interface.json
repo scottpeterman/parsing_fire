@@ -1,0 +1,76 @@
+{
+  "command": "allied_telesis_awplus_show_interface",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"link_status_protocol_status\">\n  Link is {{LINK_STATUS | ORPHRASE}}, administrative state is {{PROTOCOL_STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "port1.0.1",
+      "LINK_STATUS": "UP",
+      "PROTOCOL_STATUS": "UP",
+      "HARDWARE_TYPE": "Ethernet",
+      "MAC_ADDRESS": "001a.eb95.4e20",
+      "MTU": "1500",
+      "DUPLEX": "auto",
+      "SPEED": "auto"
+    },
+    {
+      "INTERFACE": "port1.0.2",
+      "LINK_STATUS": "UP",
+      "PROTOCOL_STATUS": "UP",
+      "HARDWARE_TYPE": "Ethernet",
+      "MAC_ADDRESS": "001a.eb95.4e20",
+      "MTU": "1500",
+      "DUPLEX": "auto",
+      "SPEED": "auto"
+    },
+    {
+      "INTERFACE": "port1.0.3",
+      "LINK_STATUS": "UP",
+      "PROTOCOL_STATUS": "UP",
+      "HARDWARE_TYPE": "Ethernet",
+      "MAC_ADDRESS": "001a.eb95.4e20",
+      "MTU": "1500",
+      "DUPLEX": "auto",
+      "SPEED": "auto"
+    },
+    {
+      "INTERFACE": "vlan2222",
+      "LINK_STATUS": "UP",
+      "PROTOCOL_STATUS": "UP",
+      "HARDWARE_TYPE": "VLAN",
+      "MAC_ADDRESS": "001a.eb95.4e20",
+      "MTU": "1500",
+      "IP_ADDRESS": "20.0.0.1",
+      "PREFIX_LENGTH": "24"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "link_status_protocol_status": [
+        {
+          "LINK_STATUS": "UP",
+          "PROTOCOL_STATUS": "UP"
+        },
+        {
+          "LINK_STATUS": "UP",
+          "PROTOCOL_STATUS": "UP"
+        },
+        {
+          "LINK_STATUS": "UP",
+          "PROTOCOL_STATUS": "UP"
+        },
+        {
+          "LINK_STATUS": "UP",
+          "PROTOCOL_STATUS": "UP"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface port1.0.1\n  Scope: both\n  Link is UP, administrative state is UP\n  Thrash-limiting\n    Status Not Detected, Action none, Timeout 1(s)\n  Hardware is Ethernet, address is 001a.eb95.4e20\n  index 5001 metric 1 mru 1500\n  current duplex full, current speed 1000, current polarity mdi\n  configured duplex auto, configured speed auto, configured polarity auto\n  <UP,BROADCAST,RUNNING,MULTICAST>\n  SNMP link-status traps: Disabled\n    input packets 35457780210, bytes 29356254911026, dropped 0, multicast packets 7082784\n    output packets 61413690728, bytes 62394902353246, multicast packets 9113540874 broadcast packets 5601988788\n  Time since last state change: 49539 days 22:34:06\nInterface port1.0.2\n  Scope: both\n  Link is UP, administrative state is UP\n  Thrash-limiting\n    Status Not Detected, Action none, Timeout 1(s)\n  Hardware is Ethernet, address is 001a.eb95.4e20\n  index 5002 metric 1 mru 1500\n  current duplex full, current speed 1000, current polarity mdi\n  configured duplex auto, configured speed auto, configured polarity auto\n  <UP,BROADCAST,RUNNING,MULTICAST>\n  SNMP link-status traps: Disabled\n    input packets 72759596856, bytes 89425248242431, dropped 0, multicast packets 5826911\n    output packets 62557166490, bytes 52200393594867, multicast packets 9113496890 broadcast packets 5576876122\n  Time since last state change: 49539 days 22:34:06\nInterface port1.0.3\n  Scope: both\n  Link is UP, administrative state is UP\n  Thrash-limiting\n    Status Not Detected, Action none, Timeout 1(s)\n  Hardware is Ethernet, address is 001a.eb95.4e20\n  index 5003 metric 1 mru 1500\n  current duplex full, current speed 1000, current polarity mdix\n  configured duplex auto, configured speed auto, configured polarity auto\n  <UP,BROADCAST,RUNNING,MULTICAST>\n  SNMP link-status traps: Disabled\n    input packets 197371973, bytes 283642833678, dropped 0, multicast packets 0\n    output packets 113228616, bytes 116911193423, multicast packets 702313 broadcast packets 247\n  Time since last state change: 49539 days 22:34:06\nInterface vlan2222\n  Scope: both\n  Link is UP, administrative state is UP\n  Hardware is VLAN, address is 001a.eb95.4e20\n  IPv4 address 20.0.0.1/24 broadcast 20.0.0.255\n  index 2522 metric 1 mtu 1500\n  arp ageing timeout 300\n  <UP,BROADCAST,RUNNING,MULTICAST>\n  SNMP link-status traps: Disabled\n  Bandwidth 1g\n    input packets 0, bytes 0, dropped 0, multicast packets 0\n    output packets 0, bytes 0, multicast packets 0 broadcast packets 0\n  Time since last state change: 49644 days 18:39:24",
+  "textfsm_template": "Value Required INTERFACE (\\S+)\nValue LINK_STATUS (\\w+)\nValue PROTOCOL_STATUS (\\w+)\nValue HARDWARE_TYPE (\\w+)\nValue VRF (\\S+)\nValue MAC_ADDRESS (\\S+)\nValue DESCRIPTION (\\S.*)\nValue MTU (\\d+)\nValue DUPLEX (([Ff]ull|[Aa]uto|[Hh]alf|[Aa]-).*?)\nValue SPEED (\\w+)\nValue IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue PREFIX_LENGTH (\\d+)\n\nStart\n  ^Interface\\s\\S+ -> Continue.Record\n  ^Interface\\s${INTERFACE}\n  ^\\s+Scope:\n  ^\\s+Thrash-limiting\n  ^\\s+Status\\s+Not\\s+Detected\n  ^\\s+Link is ${LINK_STATUS},\\sadministrative state is ${PROTOCOL_STATUS}\n  ^\\s+Hardware is ${HARDWARE_TYPE}, address is ${MAC_ADDRESS}\n  ^\\s+Hardware is ${HARDWARE_TYPE}\n  ^\\s+IPv4\\s+address\\s+${IP_ADDRESS}/${PREFIX_LENGTH}\\s+broadcast\n  ^\\s+Description:\\s${DESCRIPTION}\n  ^\\s+VRF\\s+Binding:\\s+Associated\\s+with\\s+${VRF}\n  ^\\s+VRF\\s+Binding:\\s+Not\\s+bound\n  ^\\s+index\\s+\\d+\\s+metric\\s+\\d+\\s+m[tr]u\\s+${MTU}\n  ^\\s+index\\s+\\d+\\s+metric\n  ^\\s+arp\\s+ageing\\s+timeout\n  ^\\s+Bandwidth\n  ^\\s+input\\s+packets\n  ^\\s+output\\s+packets\n  ^\\s+current\\s+duplex\\s+\n  ^\\s+configured\\s+duplex\\s+${DUPLEX},\\s+configured\\s+speed\\s+${SPEED},\\s+\n  ^\\s+<.*>\n  ^\\s+SNMP\\s+link-status\\s+traps\n  ^\\s+SNMP\\s+mac-change\\s+traps\n  ^\\s+DHCP\\s+subscriber-id\\s+substitution\n  ^\\s+DHCP\\s+subscriber-id\\s+is\n  ^\\s+Unknown\\s+unicast\\s+flooding\\s+blocking\n  ^\\s+Link-status\\s+trap\\s+delay\n  ^\\s+input\\s+packets\n  ^\\s+output\\s+packets\n  ^\\s+input\\s+average\n  ^\\s+output\\s+average\n  ^\\s+input\\s+peak\n  ^\\s+output\\s+peak\n  ^\\s+Router\\s+Advertisement\\s+is\n  ^\\s+Router\\s+Advertisement\\s+default\\s+routes\n  ^\\s+Router\\s+Advertisement\\s+prefix\n  ^\\s+Egress\\s+Rate\\s+Limit\n  ^\\s+Time\\s+since\\s+last\\s+state\\s+change\n  ^. -> Error\n"
+}

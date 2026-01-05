@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_interfaces_switchport
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 6
+# Match ratio: 2.00
+
+<group name="interface">
+Name: {{INTERFACE | ORPHRASE}}
+</group>
+<group name="access_vlan_access_vlan_name">
+  Trunking Native Mode VLAN: {{ACCESS_VLAN | re("\\d+")}} ({{ACCESS_VLAN_NAME | ORPHRASE}})
+</group>

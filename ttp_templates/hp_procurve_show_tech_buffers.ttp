@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_procurve_show_tech_buffers
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 3
+# Match ratio: 3.00
+
+<group name="build_cpu_date_name">
+Product:  {{PRODUCT | ORPHRASE}}
+Name:  {{NAME | ORPHRASE}}
+Date:  {{DATE | ORPHRASE}}
+Build:  {{BUILD | ORPHRASE}}
+Version:  {{VERSION | ORPHRASE}}
+CPU:  {{CPU | ORPHRASE}}
+</group>

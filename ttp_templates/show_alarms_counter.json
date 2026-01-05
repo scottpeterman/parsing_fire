@@ -1,0 +1,70 @@
+{
+  "command": "show alarms counter",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"alarm_id_alarm_name_count\">\n{{ALARM_ID | re(\"\\\\d+\")}} {{ALARM_NAME | ORPHRASE}} {{COUNT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ALARM_ID": "001",
+      "ALARM_NAME": "Power Supply Failure",
+      "COUNT": "3"
+    },
+    {
+      "ALARM_ID": "002",
+      "ALARM_NAME": "High Temperature",
+      "COUNT": "5"
+    },
+    {
+      "ALARM_ID": "003",
+      "ALARM_NAME": "Fan Failure",
+      "COUNT": "2"
+    },
+    {
+      "ALARM_ID": "004",
+      "ALARM_NAME": "Link Down",
+      "COUNT": "12"
+    },
+    {
+      "ALARM_ID": "005",
+      "ALARM_NAME": "Overload",
+      "COUNT": "1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "alarm_id_alarm_name_count": [
+        {
+          "ALARM_ID": "001",
+          "ALARM_NAME": "Power Supply Failure",
+          "COUNT": "3"
+        },
+        {
+          "ALARM_ID": "002",
+          "ALARM_NAME": "High Temperature",
+          "COUNT": "5"
+        },
+        {
+          "ALARM_ID": "003",
+          "ALARM_NAME": "Fan Failure",
+          "COUNT": "2"
+        },
+        {
+          "ALARM_ID": "004",
+          "ALARM_NAME": "Link Down",
+          "COUNT": "12"
+        },
+        {
+          "ALARM_ID": "005",
+          "ALARM_NAME": "Overload",
+          "COUNT": "1"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Alarm ID        Alarm Name                Count\n---------       ---------------           -----\n001             Power Supply Failure         3\n002             High Temperature             5\n003             Fan Failure                  2\n004             Link Down                   12\n005             Overload                     1\n",
+  "textfsm_template": "Value ALARM_ID (\\d+)\nValue ALARM_NAME (.+?)\nValue COUNT (\\d+)\n\nStart\n  ^\\s*Alarm ID\\s+Alarm Name\\s+Count\\s*$$\n  ^---------+\\s+---------------+\\s+-----+\\s*$$\n  ^\\s*${ALARM_ID}\\s+${ALARM_NAME}\\s+${COUNT}\\s*$$ -> Record"
+}

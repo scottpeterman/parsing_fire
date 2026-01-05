@@ -1,0 +1,11 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show ip ospf interface brief
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="interface_pid_area_state_cost_nbrs">
+{{INTERFACE}} {{PID | re("\\d+")}} {{AREA}} {{IP_AD{{STATE | ORPHRASE}}ESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{COST}} DR {{NBRS | ORPHRASE}}
+</group>
+<group name="interface_pid_area_ip_address_cost_state_nbrs">
+{{INTERFACE}} {{PID | re("\\d+")}} {{AREA}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{COST}} {{STATE | ORPHRASE}} {{NBRS | ORPHRASE}}
+</group>

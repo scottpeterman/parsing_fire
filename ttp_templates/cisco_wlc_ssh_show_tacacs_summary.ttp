@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_tacacs_summary
+# Source: ntc
+# TextFSM rows: 9
+# TTP rows: 27
+# Match ratio: 3.00
+
+<group name="index_authentication_addr_port_state_timeout_mgmt_timeout">
+{{INDEX}} {{AUTHENTICATION_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{PORT | re("\\d+")}} {{STATE | ORPHRASE}} {{TIMEOUT}} {{MGMT_TIMEOUT}} 
+</group>
+<group name="index_authorization_addr_port_state_timeout_mgmt_timeout">
+{{INDEX}} {{AUTHORIZATION_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{PORT | re("\\d+")}} {{STATE | ORPHRASE}} {{TIMEOUT}} {{MGMT_TIMEOUT}} 
+</group>
+<group name="index_accounting_addr_port_state_timeout_mgmt_timeout">
+{{INDEX}} {{ACCOUNTING_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{PORT | re("\\d+")}} {{STATE | ORPHRASE}} {{TIMEOUT}} {{MGMT_TIMEOUT}} 
+</group>

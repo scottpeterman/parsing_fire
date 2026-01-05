@@ -1,0 +1,28 @@
+{
+  "command": "cisco_ios_show_hosts_summary",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"default_domain_dynamic_cache_entries_local_cache_entries_name_servers\">\nDefault domain is {{DEFAULT_DOMAIN | ORPHRASE}}\nName servers are {{NAME_SERVERS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DEFAULT_DOMAIN": "test.com",
+      "NAME_SERVERS": "127.0.0.2, 127.0.0.3",
+      "LOCAL_CACHE_ENTRIES": "0",
+      "DYNAMIC_CACHE_ENTRIES": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "default_domain_dynamic_cache_entries_local_cache_entries_name_servers": {
+        "NAME_SERVERS": "127.0.0.2, 127.0.0.3",
+        "DEFAULT_DOMAIN": "test.com"
+      }
+    }
+  ],
+  "cli_content": "Default domain is test.com\nName servers are 127.0.0.2, 127.0.0.3\nLocal cache entries: 0\nDynamic cache entries: 0\n",
+  "textfsm_template": "Value DEFAULT_DOMAIN (\\S+)\nValue NAME_SERVERS (.+)\nValue LOCAL_CACHE_ENTRIES (\\d+)\nValue DYNAMIC_CACHE_ENTRIES (\\d+)\n\nStart\n  ^Default\\s*domain\\s*is\\s*${DEFAULT_DOMAIN}\n  ^Name\\s*servers\\s*are\\s*${NAME_SERVERS}\n  ^Local\\s*cache\\s*entries:\\s*${LOCAL_CACHE_ENTRIES}\n  ^Dynamic\\s*cache\\s*entries:\\s*${DYNAMIC_CACHE_ENTRIES}\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^\\s*$$\n  ^. -> Error\n"
+}

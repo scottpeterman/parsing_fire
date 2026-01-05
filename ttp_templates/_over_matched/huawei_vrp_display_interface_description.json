@@ -1,0 +1,426 @@
+{
+  "command": "huawei_vrp_display_interface_description",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 30,
+  "ttp_rows": 40,
+  "ttp_template": "<group name=\"interface_phy_protocol_description\">\n{{INTERFACE}} {{PHY}} {{PROTOCOL}} {{DESCRIPTION | ORPHRASE}}\n</group>\n<group name=\"interface_phy_protocol\">\n{{INTERFACE}} {{PHY | ORPHRASE}} {{PROTOCOL}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "GE0/0/1",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/2",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/3",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/4",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/5",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/6",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/7",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/8",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/9",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/10",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/11",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/12",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/13",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/14",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/15",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/16",
+      "PHY": "down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/17",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/18",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/19",
+      "PHY": "down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/20",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/21",
+      "PHY": "down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/22",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/23",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/24",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "<C4> work - station 1"
+    },
+    {
+      "INTERFACE": "GE0/0/25",
+      "PHY": "*down",
+      "PROTOCOL": "down"
+    },
+    {
+      "INTERFACE": "GE0/0/26",
+      "PHY": "*down",
+      "PROTOCOL": "down"
+    },
+    {
+      "INTERFACE": "GE0/0/27",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "spine Uplink"
+    },
+    {
+      "INTERFACE": "GE0/0/28",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "spine Uplink 2"
+    },
+    {
+      "INTERFACE": "NULL0",
+      "PHY": "up",
+      "PROTOCOL": "up(s)"
+    },
+    {
+      "INTERFACE": "Vlanif1",
+      "PHY": "up",
+      "PROTOCOL": "up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_phy_protocol_description": [
+        {
+          "INTERFACE": "-down:",
+          "PHY": "link",
+          "PROTOCOL": "flap",
+          "DESCRIPTION": "down"
+        },
+        {
+          "INTERFACE": "Interface",
+          "PHY": "PHY",
+          "PROTOCOL": "Protocol",
+          "DESCRIPTION": "Description"
+        },
+        {
+          "INTERFACE": "GE0/0/1",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/2",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/3",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/4",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/5",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/6",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/7",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/8",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/9",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/10",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/11",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/12",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/13",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/14",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/15",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/16",
+          "PHY": "down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/17",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/18",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/19",
+          "PHY": "down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/20",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/21",
+          "PHY": "down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/22",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/23",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/24",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "<C4> work - station 1"
+        },
+        {
+          "INTERFACE": "GE0/0/27",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "spine Uplink"
+        },
+        {
+          "INTERFACE": "GE0/0/28",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "spine Uplink 2"
+        }
+      ],
+      "interface_phy_protocol": [
+        {
+          "INTERFACE": "*down:",
+          "PHY": "administratively",
+          "PROTOCOL": "down"
+        },
+        {
+          "INTERFACE": "#down:",
+          "PHY": "LBDT",
+          "PROTOCOL": "down"
+        },
+        {
+          "INTERFACE": "-down:",
+          "PHY": "link flap",
+          "PROTOCOL": "down"
+        },
+        {
+          "INTERFACE": "(E):",
+          "PHY": "E-Trunk",
+          "PROTOCOL": "down"
+        },
+        {
+          "INTERFACE": "(b):",
+          "PHY": "BFD",
+          "PROTOCOL": "down"
+        },
+        {
+          "INTERFACE": "(e):",
+          "PHY": "ETHOAM",
+          "PROTOCOL": "down"
+        },
+        {
+          "INTERFACE": "(dl):",
+          "PHY": "DLDP",
+          "PROTOCOL": "down"
+        },
+        {
+          "INTERFACE": "(lb):",
+          "PHY": "LBDT",
+          "PROTOCOL": "block"
+        },
+        {
+          "INTERFACE": "GE0/0/25",
+          "PHY": "*down",
+          "PROTOCOL": "down"
+        },
+        {
+          "INTERFACE": "GE0/0/26",
+          "PHY": "*down",
+          "PROTOCOL": "down"
+        },
+        {
+          "INTERFACE": "NULL0",
+          "PHY": "up",
+          "PROTOCOL": "up(s)"
+        },
+        {
+          "INTERFACE": "Vlanif1",
+          "PHY": "up",
+          "PROTOCOL": "up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "PHY: Physical\n*down: administratively down\n#down: LBDT down\n-down: link flap down\n(l): loopback\n(s): spoofing\n(E): E-Trunk down\n(b): BFD down\n(e): ETHOAM down\n(dl): DLDP down\n(lb): LBDT block\nInterface                     PHY     Protocol Description\nGE0/0/1                       up      up       <C4> work - station 1\nGE0/0/2                       up      up       <C4> work - station 1\nGE0/0/3                       up      up       <C4> work - station 1\nGE0/0/4                       up      up       <C4> work - station 1\nGE0/0/5                       up      up       <C4> work - station 1\nGE0/0/6                       up      up       <C4> work - station 1\nGE0/0/7                       up      up       <C4> work - station 1\nGE0/0/8                       up      up       <C4> work - station 1\nGE0/0/9                       up      up       <C4> work - station 1\nGE0/0/10                      up      up       <C4> work - station 1\nGE0/0/11                      up      up       <C4> work - station 1\nGE0/0/12                      up      up       <C4> work - station 1\nGE0/0/13                      up      up       <C4> work - station 1\nGE0/0/14                      up      up       <C4> work - station 1\nGE0/0/15                      up      up       <C4> work - station 1\nGE0/0/16                      down    down     <C4> work - station 1\nGE0/0/17                      up      up       <C4> work - station 1\nGE0/0/18                      up      up       <C4> work - station 1\nGE0/0/19                      down    down     <C4> work - station 1\nGE0/0/20                      up      up       <C4> work - station 1\nGE0/0/21                      down    down     <C4> work - station 1\nGE0/0/22                      up      up       <C4> work - station 1\nGE0/0/23                      up      up       <C4> work - station 1\nGE0/0/24                      up      up       <C4> work - station 1\nGE0/0/25                      *down   down\nGE0/0/26                      *down   down\nGE0/0/27                      up      up       spine Uplink\nGE0/0/28                      up      up       spine Uplink 2\nNULL0                         up      up(s)\nVlanif1                       up      up",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue PHY (down|\\*down|up|up\\(s\\))\nValue PROTOCOL (down|\\*down|up|up\\(s\\))\nValue DESCRIPTION (\\S+.*?)\n\n\nStart\n  ^Interface\\s+PHY\\s+Protocol\\s+Description\\s*$$ -> Begin\n  ^\\s*$$\n  ^PHY:\\s+Physical\n  ^(?:\\*|\\^|\\#|\\-)down:\n  ^\\(\\w+\\):\\s+\\S+\n  ^. -> Error\n\nBegin\n  ^${INTERFACE}\\s+${PHY}\\s+${PROTOCOL}(?:\\s+${DESCRIPTION})?\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error"
+}

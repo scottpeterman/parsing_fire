@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show alarms all
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="id_severity_state_description">
+{{ID | re("\\d+")}} {{SEVERITY | re("[\\d\\.\\(\\)A-Za-z]+")}} {{STATE | ORPHRASE}} {{DESCRIPTION | ORPHRASE}}
+</group>

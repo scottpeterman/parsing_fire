@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_s300_show_system
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="contact_description_fans_status_hostname">
+System Description:  {{DESCRIPTION | ORPHRASE}}
+System Up Time (days,hour:min:sec):  {{UP_TIME | ORPHRASE}}
+System Contact:  {{CONTACT | ORPHRASE}}
+System Name:  {{HOSTNAME | ORPHRASE}}
+System MAC Address:  {{MAC_ADDRESS | ORPHRASE}}
+System Object ID:  {{OID | ORPHRASE}}
+Fans Status:  {{FANS_STATUS | ORPHRASE}}
+</group>

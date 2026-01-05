@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_rf-profile_summary
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 13
+# Match ratio: 4.33
+
+<group name="profile_band_description_n_only_applied">
+{{PROFILE}} {{BAND | ORPHRASE}} {{DESCRIPTION}} {{N_ONLY}} {{APPLIED | ORPHRASE}} 
+</group>

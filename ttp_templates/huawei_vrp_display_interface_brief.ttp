@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_vrp_display_interface_brief
+# Source: ntc
+# TextFSM rows: 17
+# TTP rows: 18
+# Match ratio: 1.06
+
+<group name="interface_phy_protocol_inuti_oututi_inerrors_outerrors">
+{{INTERFACE}} {{PHY}} {{PROTOCOL}} {{INUTI | ORPHRASE}} {{OUTUTI}} {{INERRORS}} {{OUTERRORS}}
+</group>

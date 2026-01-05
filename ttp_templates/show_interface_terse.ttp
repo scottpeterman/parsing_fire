@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show interface terse
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="interface_admin_link_proto_local">
+{{INTERFACE}} {{ADMIN}} {{LINK}} {{PROTO}} {{LOCAL | ORPHRASE}}
+</group>

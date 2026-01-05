@@ -1,0 +1,100 @@
+{
+  "command": "brocade_fastiron_show_arp",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"protocol_ip_address_age_mac_address_type_port\">\n{{PROTOCOL}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{AGE}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{TYPE}} {{PORT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "10.51.250.70",
+      "AGE": "94",
+      "MAC_ADDRESS": "64f6.9d1e.a4bf",
+      "TYPE": "ARPA",
+      "PORT": "Vlan10"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "10.51.250.120",
+      "AGE": "-",
+      "MAC_ADDRESS": "fc5b.394a.5a7f",
+      "TYPE": "ARPA",
+      "PORT": "Vlan10"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "10.51.250.1",
+      "AGE": "0",
+      "MAC_ADDRESS": "0010.dbff.1002",
+      "TYPE": "ARPA",
+      "PORT": "Vlan10"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "10.51.250.7",
+      "AGE": "81",
+      "MAC_ADDRESS": "046c.9d67.7746",
+      "TYPE": "ARPA",
+      "PORT": "Vlan10"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "10.51.250.8",
+      "AGE": "67",
+      "MAC_ADDRESS": "9c57.ad1e.4b46",
+      "TYPE": "ARPA",
+      "PORT": "Vlan10"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "protocol_ip_address_age_mac_address_type_port": [
+        {
+          "PROTOCOL": "Internet",
+          "IP_ADDRESS": "10.51.250.70",
+          "AGE": "94",
+          "MAC_ADDRESS": "64f6.9d1e.a4bf",
+          "TYPE": "ARPA",
+          "PORT": "Vlan10"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "IP_ADDRESS": "10.51.250.120",
+          "AGE": "-",
+          "MAC_ADDRESS": "fc5b.394a.5a7f",
+          "TYPE": "ARPA",
+          "PORT": "Vlan10"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "IP_ADDRESS": "10.51.250.1",
+          "AGE": "0",
+          "MAC_ADDRESS": "0010.dbff.1002",
+          "TYPE": "ARPA",
+          "PORT": "Vlan10"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "IP_ADDRESS": "10.51.250.7",
+          "AGE": "81",
+          "MAC_ADDRESS": "046c.9d67.7746",
+          "TYPE": "ARPA",
+          "PORT": "Vlan10"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "IP_ADDRESS": "10.51.250.8",
+          "AGE": "67",
+          "MAC_ADDRESS": "9c57.ad1e.4b46",
+          "TYPE": "ARPA",
+          "PORT": "Vlan10"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Protocol  Address          Age (min)  Hardware Addr   Type   Interface\nInternet  10.51.250.70           94   64f6.9d1e.a4bf  ARPA   Vlan10\nInternet  10.51.250.120           -   fc5b.394a.5a7f  ARPA   Vlan10\nInternet  10.51.250.1             0   0010.dbff.1002  ARPA   Vlan10\nInternet  10.51.250.7            81   046c.9d67.7746  ARPA   Vlan10\nInternet  10.51.250.8            67   9c57.ad1e.4b46  ARPA   Vlan10",
+  "textfsm_template": "Value PROTOCOL (\\S+)\nValue Required IP_ADDRESS ([A-Fa-f0-9:\\.]+)\nValue AGE (\\S+)\nValue Required MAC_ADDRESS ([A-Fa-f0-9\\.]{14})\nValue TYPE (\\S+)\nValue Required PORT (\\S+)\n\nStart\n  ^Protocol\\s+Address\\s+Age \\(min\\)\\s+Hardware Addr\\s+Type\\s+Interface\n  ^${PROTOCOL}\\s+${IP_ADDRESS}\\s+${AGE}\\s+${MAC_ADDRESS}\\s+${TYPE}\\s+${PORT} -> Record\n  ^\\s*$$\n  ^. -> Error"
+}

@@ -1,0 +1,106 @@
+{
+  "command": "cisco_asa_show_running-config_crypto_map",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"map_seq_ike_transform\">\ncrypto map {{MAP}} {{SEQ}} set {{IKE}} transform-set {{TRANSFORM | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "MATCHED_ADDRESS": "CMAP_RU16",
+      "MAP": "WAN1_CMAP",
+      "SEQ": "10",
+      "PEER": "1.1.1.1",
+      "IKE": "ikev1",
+      "TRANSFORM": "ESP-AES-256-SHA ESP-AES-192-SHA"
+    },
+    {
+      "MATCHED_ADDRESS": "CMAP_RU11",
+      "MAP": "WAN1_CMAP",
+      "SEQ": "20",
+      "PEER": "1.1.1.2",
+      "IKE": "ikev1",
+      "TRANSFORM": "ESP-AES-256-SHA ESP-AES-192-SHA"
+    },
+    {
+      "MATCHED_ADDRESS": "CMAP_RU12",
+      "MAP": "WAN1_CMAP",
+      "SEQ": "30",
+      "PEER": "1.1.1.3",
+      "IKE": "ikev1",
+      "TRANSFORM": "ESP-AES-256-SHA ESP-AES-192-SHA"
+    },
+    {
+      "MATCHED_ADDRESS": "CMAP_RU17",
+      "MAP": "WAN1_CMAP",
+      "SEQ": "40",
+      "PEER": "1.1.1.4",
+      "IKE": "ikev1",
+      "TRANSFORM": "ESP-AES-256-SHA ESP-AES-192-SHA"
+    },
+    {
+      "MATCHED_ADDRESS": "CMAP_FR1",
+      "MAP": "WAN1_CMAP",
+      "SEQ": "100",
+      "PFS": "group5",
+      "PEER": "1.1.1.8",
+      "IKE": "ikev1",
+      "TRANSFORM": "DES-MD5",
+      "SA": "3600"
+    },
+    {
+      "MATCHED_ADDRESS": "CMAP_RU17",
+      "MAP": "S2S_CMAP",
+      "SEQ": "10",
+      "PEER": "1.1.1.5",
+      "IKE": "ikev1",
+      "TRANSFORM": "ESP-AES-256-SHA ESP-AES-192-SHA"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "map_seq_ike_transform": [
+        {
+          "MAP": "WAN1_CMAP",
+          "SEQ": "10",
+          "IKE": "ikev1",
+          "TRANSFORM": "ESP-AES-256-SHA ESP-AES-192-SHA"
+        },
+        {
+          "MAP": "WAN1_CMAP",
+          "SEQ": "20",
+          "IKE": "ikev1",
+          "TRANSFORM": "ESP-AES-256-SHA ESP-AES-192-SHA"
+        },
+        {
+          "MAP": "WAN1_CMAP",
+          "SEQ": "30",
+          "IKE": "ikev1",
+          "TRANSFORM": "ESP-AES-256-SHA ESP-AES-192-SHA"
+        },
+        {
+          "MAP": "WAN1_CMAP",
+          "SEQ": "40",
+          "IKE": "ikev1",
+          "TRANSFORM": "ESP-AES-256-SHA ESP-AES-192-SHA"
+        },
+        {
+          "MAP": "WAN1_CMAP",
+          "SEQ": "100",
+          "IKE": "ikev1",
+          "TRANSFORM": "DES-MD5"
+        },
+        {
+          "MAP": "S2S_CMAP",
+          "SEQ": "10",
+          "IKE": "ikev1",
+          "TRANSFORM": "ESP-AES-256-SHA ESP-AES-192-SHA"
+        }
+      ]
+    }
+  ],
+  "cli_content": "crypto map WAN1_CMAP 10 match address CMAP_RU16\ncrypto map WAN1_CMAP 10 set peer 1.1.1.1\ncrypto map WAN1_CMAP 10 set ikev1 transform-set ESP-AES-256-SHA ESP-AES-192-SHA\ncrypto map WAN1_CMAP 20 match address CMAP_RU11\ncrypto map WAN1_CMAP 20 set peer 1.1.1.2\ncrypto map WAN1_CMAP 20 set ikev1 transform-set ESP-AES-256-SHA ESP-AES-192-SHA\ncrypto map WAN1_CMAP 30 match address CMAP_RU12\ncrypto map WAN1_CMAP 30 set peer 1.1.1.3\ncrypto map WAN1_CMAP 30 set ikev1 transform-set ESP-AES-256-SHA ESP-AES-192-SHA\ncrypto map WAN1_CMAP 40 match address CMAP_RU17\ncrypto map WAN1_CMAP 40 set peer 1.1.1.4\ncrypto map WAN1_CMAP 40 set ikev1 transform-set ESP-AES-256-SHA ESP-AES-192-SHA\ncrypto map WAN1_CMAP 100 match address CMAP_FR1\ncrypto map WAN1_CMAP 100 set pfs group5\ncrypto map WAN1_CMAP 100 set peer 1.1.1.8\ncrypto map WAN1_CMAP 100 set ikev1 transform-set DES-MD5\ncrypto map WAN1_CMAP 100 set security-association lifetime seconds 3600\ncrypto map WAN1_CMAP 65535 ipsec-isakmp dynamic SYSTEM_DEFAULT_CRYPTO_MAP\ncrypto map WAN1_CMAP interface WAN1\ncrypto map S2S_CMAP 10 match address CMAP_RU17\ncrypto map S2S_CMAP 10 set peer 1.1.1.5\ncrypto map S2S_CMAP 10 set ikev1 transform-set ESP-AES-256-SHA ESP-AES-192-SHA\n",
+  "textfsm_template": "Value MATCHED_ADDRESS (\\S+)\nValue Key MAP (\\S+)\nValue Key SEQ (\\d+)\nValue PFS (group\\d|\\s*)\nValue PEER (\\S+)\nValue IKE (\\S+)\nValue TRANSFORM (\\S+(\\s\\S+)*?)\nValue SA (\\d+)\n#Future# Value Fillup INTERFACE (\\S+)\n\nStart\n  # Value's address , start of block\n  ^crypto\\smap\\s${MAP}\\s${SEQ}\\smatch\\saddress\\s${MATCHED_ADDRESS}\\s*$$ -> ReadBlockLines\n  ^. -> Error\n\nReadBlockLines\n  # Fake start, block \"match address\" to trigger recording of current block\n  ^crypto\\s+map\\s\\S+\\s\\d+\\s+match\\s+address\\s\\S+\\s*$$ -> Continue.Record\n  # Real capture of \"match address\" start of new record\n  ^crypto\\s+map\\s+${MAP}\\s+${SEQ}\\s+match\\s+address\\s+${MATCHED_ADDRESS}\\s*$$\n  #\n  # Read other lines\n  ^crypto\\s+map\\s+${MAP}\\s+${SEQ}\\s+set\\s+pfs\\s+${PFS}\\s*$$\n  ^crypto\\s+map\\s+${MAP}\\s+${SEQ}\\s+set\\s+peer\\s+${PEER}\\s*$$\n  ^crypto\\s+map\\s+${MAP}\\s+${SEQ}\\s+set\\s+${IKE}\\s+transform-set\\s+${TRANSFORM}\\s*$$\n  ^crypto\\s+map\\s+${MAP}\\s+${SEQ}\\s+set\\s+security-association\\s+lifetime\\s+seconds\\s+${SA}\\s*$$\n  #Future# ^crypto\\s+map\\s+${MAP}\\s+interface\\s${INTERFACE}\\s*\n  #\n  # Ignore rest\n  ^crypto\\s+map\\s+\\S+\\s+interface\\s+\\S+\\s*$$\n  ^crypto\\s+map\\s+\\S+\\s+\\d+\\sipsec-isakmp\\s+dynamic\\s+SYSTEM_DEFAULT_CRYPTO_MAP\\s*$$\n  ^. -> Error\n"
+}

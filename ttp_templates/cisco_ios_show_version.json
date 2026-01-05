@@ -1,0 +1,51 @@
+{
+  "command": "cisco_ios_show_version",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"config_register_hardware_hostname_release\">\nCisco IOS Software, C180X Software ({{SOFTWARE_IMAGE}}), Version {{VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}}, RELEASE SOFTWARE ({{RELEASE | ORPHRASE}})\nCopyright (c) 1986-{{UPTIME_WEEKS | ORPHRASE}}06 by Cisco {{ROMMON | ORPHRASE}}s, Inc.\n{{HOSTNAME | re(\"\\\\S+\")}} uptime is {{UPTIME | ORPHRASE}}\nSystem returned to ROM by {{RELOAD_REASON | ORPHRASE}}\nSystem restarted at {{RESTARTED | ORPHRASE}}\nSystem image file is \"flash:{{RUNNING_IMAGE | ORPHRASE}}\"\nCisco {{HARDWARE | ORPHRASE}} (MPC8500) processor (revision 0x400) with 118784K/12288K bytes of memory.\nProcessor board ID {{SERIAL | ORPHRASE}}, with hardware revision 0000\nConfiguration register is {{CONFIG_REGISTER | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SOFTWARE_IMAGE": "C180X-ADVIPSERVICESK9-M",
+      "VERSION": "12.4(6)T2",
+      "RELEASE": "fc1",
+      "ROMMON": "System",
+      "HOSTNAME": "stud-adsl",
+      "UPTIME": "20 weeks, 5 days, 12 hours, 15 minutes",
+      "UPTIME_WEEKS": "20",
+      "UPTIME_DAYS": "5",
+      "UPTIME_HOURS": "12",
+      "UPTIME_MINUTES": "15",
+      "RELOAD_REASON": "Reload Command",
+      "RUNNING_IMAGE": "/c180x-advipservicesk9-mz.124-6.T2.bin",
+      "HARDWARE": "1801",
+      "SERIAL": "FHK102KKKKK",
+      "CONFIG_REGISTER": "0x2102",
+      "RESTARTED": "16:39:55 AEST Wed Jul 20 2022"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "config_register_hardware_hostname_release": {
+        "CONFIG_REGISTER": "0x2102",
+        "SERIAL": "FHK102KKKKK",
+        "HARDWARE": "1801",
+        "RUNNING_IMAGE": "/c180x-advipservicesk9-mz.124-6.T2.bin",
+        "RESTARTED": "16:39:55 AEST Wed Jul 20 2022",
+        "RELOAD_REASON": "Reload Command",
+        "HOSTNAME": "stud-adsl",
+        "UPTIME": "20 weeks, 5 days, 12 hours, 15 minutes",
+        "UPTIME_WEEKS": "200",
+        "ROMMON": "System",
+        "SOFTWARE_IMAGE": "C180X-ADVIPSERVICESK9-M",
+        "VERSION": "12.4(6)T2",
+        "RELEASE": "fc1"
+      }
+    }
+  ],
+  "cli_content": "Cisco IOS Software, C180X Software (C180X-ADVIPSERVICESK9-M), Version 12.4(6)T2, RELEASE SOFTWARE (fc1)\nTechnical Support: http://www.cisco.com/techsupport\nCopyright (c) 1986-2006 by Cisco Systems, Inc.\nCompiled Tue 16-May-06 12:12 by kellythw\n\nROM: System Bootstrap, Version 12.3(8r)YH6, RELEASE SOFTWARE (fc1)\n\nstud-adsl uptime is 20 weeks, 5 days, 12 hours, 15 minutes\nSystem returned to ROM by Reload Command\nSystem restarted at 16:39:55 AEST Wed Jul 20 2022\nSystem image file is \"flash:/c180x-advipservicesk9-mz.124-6.T2.bin\"\n\n\nThis product contains cryptographic features and is subject to United\nStates and local country laws governing import, export, transfer and\nuse. Delivery of Cisco cryptographic products does not imply\nthird-party authority to import, export, distribute or use encryption.\nImporters, exporters, distributors and users are responsible for\ncompliance with U.S. and local country laws. By using this product you\nagree to comply with applicable laws and regulations. If you are unable\nto comply with U.S. and local laws, return this product immediately.\n\nA summary of U.S. laws governing Cisco cryptographic products may be found at:\nhttp://www.cisco.com/wwl/export/crypto/tool/stqrg.html\n\nIf you require further assistance please contact us by sending email to\nexport@cisco.com.\n\nCisco 1801 (MPC8500) processor (revision 0x400) with 118784K/12288K bytes of memory.\nProcessor board ID FHK102KKKKK, with hardware revision 0000\n\n9 FastEthernet interfaces\n1 ISDN Basic Rate interface\n1 ATM interface\n62720K bytes of ATA CompactFlash (Read/Write)\n\nConfiguration register is 0x2102\n",
+  "textfsm_template": "Value SOFTWARE_IMAGE (\\S+)\nValue VERSION (.+?)\nValue RELEASE (\\S+)\nValue ROMMON (\\S+)\nValue HOSTNAME (\\S+)\nValue UPTIME (.+)\nValue UPTIME_YEARS (\\d+)\nValue UPTIME_WEEKS (\\d+)\nValue UPTIME_DAYS (\\d+)\nValue UPTIME_HOURS (\\d+)\nValue UPTIME_MINUTES (\\d+)\nValue RELOAD_REASON (.+?)\nValue RUNNING_IMAGE (\\S+)\nValue List HARDWARE (\\S+|\\S+\\d\\S+)\nValue List SERIAL (\\w+)\nValue CONFIG_REGISTER (\\S+)\nValue List MAC_ADDRESS ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5})\nValue RESTARTED (.+)\n\nStart\n  ^.*Software,*\\s+\\(${SOFTWARE_IMAGE}\\),\\sVersion\\s${VERSION},*\\s+RELEASE.*\\(${RELEASE}\\)\n  ^.*Software,*\\s+\\(${SOFTWARE_IMAGE}\\),\\sVersion\\s${VERSION},\n  ^ROM:\\s+${ROMMON}\n  ^\\s*${HOSTNAME}\\s+uptime\\s+is\\s+${UPTIME} -> Continue\n  ^.*\\s+uptime\\s+is.*\\s+${UPTIME_YEARS}\\syear -> Continue\n  ^.*\\s+uptime\\s+is.*\\s+${UPTIME_WEEKS}\\sweek -> Continue\n  ^.*\\s+uptime\\s+is.*\\s+${UPTIME_DAYS}\\sday -> Continue\n  ^.*\\s+uptime\\s+is.*\\s+${UPTIME_HOURS}\\shour -> Continue\n  ^.*\\s+uptime\\s+is.*\\s+${UPTIME_MINUTES}\\sminute\n  ^[sS]ystem\\s+image\\s+file\\s+is\\s+\"(.*?):${RUNNING_IMAGE}\"\n  ^(?:[lL]ast\\s+reload\\s+reason:|System\\s+returned\\s+to\\s+ROM\\s+by)\\s+${RELOAD_REASON}\\s*$$\n  ^[Pp]rocessor\\s+board\\s+ID\\s+${SERIAL}\n  ^[Cc]isco\\s+${HARDWARE}\\s+\\(.+\\).+\n  ^[Cc]onfiguration\\s+register\\s+is\\s+${CONFIG_REGISTER}\n  ^Base\\s+[Ee]thernet\\s+MAC\\s+[Aa]ddress\\s+:\\s+${MAC_ADDRESS}\n  ^System\\s+restarted\\s+at\\s+${RESTARTED}$$\n  ^Switch\\s+Port -> Stack\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Switch\\s\\d+ -> Stack\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n\n\nStack\n  ^[Ss]ystem\\s+[Ss]erial\\s+[Nn]umber\\s+:\\s+${SERIAL}\n  ^[Mm]odel\\s+[Nn]umber\\s+:\\s+${HARDWARE}\\s*\n  ^[Cc]onfiguration\\s+register\\s+is\\s+${CONFIG_REGISTER}\n  ^Base [Ee]thernet MAC [Aa]ddress\\s+:\\s+${MAC_ADDRESS}\n"
+}

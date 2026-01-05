@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_routing_ospf_neighbor_print
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="neighbor_id_address_interface_priority_state_up_time">
+ 0 instance=default router-id={{NEIGHBOR_ID}} address={{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} interface={{INTERFACE}} priority={{PRIORITY}} dr-address=0.0.0.0 backup-dr-address=0.0.0.0 state="{{STATE | ORPHRASE}}" state-changes=5 ls-retransmits=0 ls-requests=0 db-summaries=0 adjacency={{UP_TIME | ORPHRASE}}
+</group>

@@ -1,0 +1,14 @@
+{
+  "command": "show mlag brief",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 0,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"domain_id_local_intf_role_peer_intf_role_local_system_id_peer_system_id_mlag_status\">\n  {{DOMAIN_ID | re(\".*\\\\w.*\")}} {{LOCAL_INTF_ROLE | re(\".*\\\\w.*\")}} {{PEER_INTF_ROLE | ORPHRASE}} {{LOCAL_SYSTEM_ID | re(\".*\\\\w.*\")}} {{PEER_SYSTEM_ID | re(\".*\\\\w.*\")}} {{MLAG_STATUS | ORPHRASE}}\n</group>",
+  "error": "TTP parsing timed out",
+  "textfsm_parsed": [],
+  "ttp_parsed": [],
+  "cli_content": "MLAG Status Overview:\n  Domain-id     Local intf role     Peer intf role       Local system-id       Peer system-id      MLAG status\n  ------------  -----------------  ------------------  -----------------    -----------------    ------------\n  core          primary             secondary            02:42:ac:11:00:01    02:42:ac:12:00:01    active\n  edge          primary             secondary            02:42:ac:11:00:02    02:42:ac:12:00:02    active\n  distribution  secondary           primary              02:42:ac:12:00:03    02:42:ac:11:00:03    active\n",
+  "textfsm_template": "Value DOMAIN_ID (\\S+)\nValue LOCAL_INTF_ROLE (\\S+)\nValue PEER_INTF_ROLE (\\S+)\nValue LOCAL_SYSTEM_ID (\\S+)\nValue PEER_SYSTEM_ID (\\S+)\nValue MLAG_STATUS (\\S+)\n\nStart\n  ^\\s*Domain-id\\s+Local intf role\\s+Peer intf role\\s+Local system-id\\s+Peer system-id\\s+MLAG status\\s*$$\n  ^\\s*${DOMAIN_ID}\\s+${LOCAL_INTF_ROLE}\\s+${PEER_INTF_ROLE}\\s+${LOCAL_SYSTEM_ID}\\s+${PEER_SYSTEM_ID}\\s+${MLAG_STATUS}\\s*$$ -> Record"
+}

@@ -1,0 +1,51 @@
+{
+  "command": "cisco_asa_show_version",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"cluster_compile_date_device_mgr_version_failover\">\nCisco Adaptive Security Appliance Software Version {{VERSION | ORPHRASE}} \nDevice Manager Version {{DEVICE_MGR_VERSION | ORPHRASE}}\nCompiled on Mon {{COMPILE_DATE | ORPHRASE}} 13:32 PST by builders\nSystem image file is \"{{IMAGE | ORPHRASE}}\"\n{{HOSTNAME | re(\"\\\\S+\")}} up {{UPTIME | ORPHRASE}}\nHardware:  {{HARDWARE | ORPHRASE}}\nInternal ATA Compact Flash, {{FLASH | ORPHRASE}}\nMaximum Physical Interfaces  : {{MAX_INTF | ORPHRASE}}  perpetual\nMaximum VLANs  : {{MAX_VLANS | ORPHRASE}}  perpetual\nFailover  : {{FAILOVER | ORPHRASE}}  perpetual\nEncryption-DES  : {{CLUSTER | ORPHRASE}}  perpetual\nSerial Number: {{SERIAL | ORPHRASE}}\nConfiguration last modified by {{LAST_MOD | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VERSION": "9.9(2)32",
+      "DEVICE_MGR_VERSION": "7.9(1)151",
+      "COMPILE_DATE": "05-Nov-18",
+      "IMAGE": "disk0:/asa992-32-lfbff-k8.SPA",
+      "HOSTNAME": "ASA2",
+      "UPTIME": "55 days 9 hours",
+      "HARDWARE": "ASA5516, 8192 MB RAM, CPU Atom C2000 series 2416 MHz, 1 CPU (8 cores)",
+      "FLASH": "8000MB",
+      "INTERFACES": "GigabitEthernet1/1, GigabitEthernet1/2, GigabitEthernet1/3, GigabitEthernet1/4, GigabitEthernet1/5, GigabitEthernet1/6, GigabitEthernet1/7, GigabitEthernet1/8, Internal-Data1/1, Internal-Data1/2, Internal-Control1/1, Internal-Data1/3, Management1/1, Internal-Data1/4",
+      "MAX_INTF": "Unlimited",
+      "MAX_VLANS": "150",
+      "FAILOVER": "Active/Active",
+      "CLUSTER": "Enabled",
+      "SERIAL": "JAD222605K8",
+      "LAST_MOD": "xxx at 17:31:04.576 CDT Mon Aug 12 2019"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "cluster_compile_date_device_mgr_version_failover": {
+        "LAST_MOD": "xxx at 17:31:04.576 CDT Mon Aug 12 2019",
+        "SERIAL": "JAD222605K8",
+        "CLUSTER": "Enabled",
+        "FAILOVER": "Active/Active",
+        "MAX_VLANS": "150",
+        "MAX_INTF": "Unlimited",
+        "FLASH": "8000MB",
+        "HARDWARE": "ASA5516, 8192 MB RAM, CPU Atom C2000 series 2416 MHz, 1 CPU (8 cores)",
+        "HOSTNAME": "ASA2",
+        "UPTIME": "55 days 9 hours",
+        "IMAGE": "disk0:/asa992-32-lfbff-k8.SPA",
+        "COMPILE_DATE": "05-Nov-18",
+        "DEVICE_MGR_VERSION": "7.9(1)151",
+        "VERSION": "9.9(2)32"
+      }
+    }
+  ],
+  "cli_content": "Cisco Adaptive Security Appliance Software Version 9.9(2)32 \nFirepower Extensible Operating System Version 2.3(1.121)\nDevice Manager Version 7.9(1)151\n\nCompiled on Mon 05-Nov-18 13:32 PST by builders\nSystem image file is \"disk0:/asa992-32-lfbff-k8.SPA\"\nConfig file at boot was \"startup-config\"\n\nASA2 up 55 days 9 hours\nfailover cluster up 87 days 15 hours\n\nHardware:   ASA5516, 8192 MB RAM, CPU Atom C2000 series 2416 MHz, 1 CPU (8 cores)\nInternal ATA Compact Flash, 8000MB\nBIOS Flash M25P64 @ 0xfed01000, 16384KB\n\nEncryption hardware device : Cisco ASA Crypto on-board accelerator (revision 0x1)\n                             Number of accelerators: 1\n\n 1: Ext: GigabitEthernet1/1  : address is 7872.5dce.e58c, irq 255\n 2: Ext: GigabitEthernet1/2  : address is 7872.5dce.e58d, irq 255\n 3: Ext: GigabitEthernet1/3  : address is 7872.5dce.e58e, irq 255\n 4: Ext: GigabitEthernet1/4  : address is 7872.5dce.e58f, irq 255\n 5: Ext: GigabitEthernet1/5  : address is 7872.5dce.e590, irq 255\n 6: Ext: GigabitEthernet1/6  : address is 7872.5dce.e591, irq 255\n 7: Ext: GigabitEthernet1/7  : address is 7872.5dce.e592, irq 255\n 8: Ext: GigabitEthernet1/8  : address is 7872.5dce.e593, irq 255\n 9: Int: Internal-Data1/1    : address is 7872.5dce.e58b, irq 255\n10: Int: Internal-Data1/2    : address is 0000.0001.0002, irq 0\n11: Int: Internal-Control1/1 : address is 0000.0001.0001, irq 0\n12: Int: Internal-Data1/3    : address is 0000.0001.0003, irq 0\n13: Ext: Management1/1       : address is 7872.5dce.e58b, irq 0\n14: Int: Internal-Data1/4    : address is 0000.0100.0001, irq 0\n\nLicensed features for this platform:\nMaximum Physical Interfaces       : Unlimited      perpetual\nMaximum VLANs                     : 150            perpetual\nInside Hosts                      : Unlimited      perpetual\nFailover                          : Active/Active  perpetual\nEncryption-DES                    : Enabled        perpetual\nEncryption-3DES-AES               : Enabled        perpetual\nSecurity Contexts                 : 2              perpetual\nCarrier                           : Disabled       perpetual\nAnyConnect Premium Peers          : 4              perpetual\nAnyConnect Essentials             : Disabled       perpetual\nOther VPN Peers                   : 300            perpetual\nTotal VPN Peers                   : 300            perpetual\nAnyConnect for Mobile             : Disabled       perpetual\nAnyConnect for Cisco VPN Phone    : Disabled       perpetual\nAdvanced Endpoint Assessment      : Disabled       perpetual\nShared License                    : Disabled       perpetual\nTotal TLS Proxy Sessions          : 1000           perpetual\nBotnet Traffic Filter             : Disabled       perpetual\nCluster                           : Enabled        perpetual\nCluster Members                   : 2              perpetual\nVPN Load Balancing                : Enabled        perpetual\n\n\nFailover cluster licensed features for this platform:\nMaximum Physical Interfaces       : Unlimited      perpetual\nMaximum VLANs                     : 150            perpetual\nInside Hosts                      : Unlimited      perpetual\nFailover                          : Active/Active  perpetual\nEncryption-DES                    : Enabled        perpetual\nEncryption-3DES-AES               : Enabled        perpetual\nSecurity Contexts                 : 4              perpetual\nCarrier                           : Disabled       perpetual\nAnyConnect Premium Peers          : 8              perpetual\nAnyConnect Essentials             : Disabled       perpetual\nOther VPN Peers                   : 300            perpetual\nTotal VPN Peers                   : 300            perpetual\nAnyConnect for Mobile             : Disabled       perpetual\nAnyConnect for Cisco VPN Phone    : Disabled       perpetual\nAdvanced Endpoint Assessment      : Disabled       perpetual\nShared License                    : Disabled       perpetual\nTotal TLS Proxy Sessions          : 1000           perpetual\nBotnet Traffic Filter             : Disabled       perpetual\nCluster                           : Enabled        perpetual\nVPN Load Balancing                : Enabled        perpetual\n\nSerial Number: JAD222605K8\nConfiguration register is 0x1\nImage type                : Release\nKey Version               : A\nConfiguration last modified by xxx at 17:31:04.576 CDT Mon Aug 12 2019\n",
+  "textfsm_template": "Value VERSION (\\S+)\nValue DEVICE_MGR_VERSION (\\S+)\nValue COMPILE_DATE (\\d+-\\w+-\\d+)\nValue IMAGE (\\S+)\nValue HOSTNAME (\\S+)\nValue UPTIME (.+)\nValue HARDWARE (.+?)\nValue MODEL (\\S+)\nValue FLASH (\\S+)\nValue List INTERFACES (\\S+)\nValue LICENSE_MODE (.+)\nValue LICENSE_STATE (.+)\nValue MAX_INTF (\\S+)\nValue MAX_VLANS (\\d+)\nValue FAILOVER (\\S+)\nValue CLUSTER (\\S+)\nValue List SERIAL (\\S+)\nValue LAST_MOD (.+)\n\nStart\n  ^.*Software\\sVersion\\s${VERSION}\n  ^Device.+\\s${DEVICE_MGR_VERSION}\n  ^Compiled\\s+on\\s+\\w+\\s+${COMPILE_DATE}.*\n  ^System image file.+\"${IMAGE}\"\n  ^${HOSTNAME} up ${UPTIME}\n  ^Hardware:\\s+${HARDWARE},?\\s*$$\n  ^Model Id:\\s+${MODEL}\n  ^Internal.+Flash,\\s${FLASH}\n  ^\\s*\\d+:.\\S+\\s*${INTERFACES}.*\n  ^License mode:\\s${LICENSE_MODE}\n  ^.+License State:\\s${LICENSE_STATE}\n  ^Maximum Physical.+:\\s${MAX_INTF}\n  ^Maximum VLANs.+:\\s${MAX_VLANS}\n  ^Failover\\s+:\\s${FAILOVER}\n  ^Cluster\\s+:\\s${CLUSTER}\n  ^Serial Number:\\s${SERIAL}\n  ^.+last modified by\\s${LAST_MOD}\n  ^Config\\s+file\\s+at\\s+boot\\s+was\n  ^Slot\\s+\\d:\n  ^Firepower\\s+Extensible\\s+Operating\\s+System\\s+Version\n  ^BIOS\\s+Flash\\s+Firmware\\s+Hub\n  ^No\\s+active\\s+entitlement:\n  ^[F|f]ailover\\s+cluster\n  ^Licensed\\s+features\\s+for\\s+this.*:\n  ^BIOS\\s+Flash\n  ^\\*Memory\\s+resource\\s+allocation\n  ^Licensed\\s+features\\s+for\n  ^Encryption\\s+hardware\\s+device\n  ^Encryption\\-\n  ^Inside\\s+Hosts\\s*:\n  ^\\s*Number\\s+of\\s+accelerators\\s*:\n  ^Carrier\\s*:\n  ^Security\\s+Contexts\\s*:\n  ^AnyConnect\\s+.*:\n  ^\\w+\\s+VPN\\s+Peers\\s*:\n  ^Advanced\\s+Endpoint\\s+Assessment\\s*:\n  ^Shared\\s+License\n  ^Failover\\s+cluster\\s+licensed\\s+features\\s+for\\s+this\\s+user\\s+context\\s*:\n  ^Total\\s+\\w+\\s+Proxy\\s+Sessions\\s*:\n  ^Botnet\\s+Traffic\\s+Filter\\s*:\n  ^Image\\s+type\\s*:\n  ^Cluster\\s+Members\\s*:\n  ^Key\\s+version\\s*:\n  ^VPN\\s+Load\\s+Balancing\\s*:\n  ^Configuration\\s+register\\s+is\n  ^Key\\s+Version\\s*:\n  ^This\\s+platform\\s+has\\s+an\n  ^Running\\s+Permanent\\s+Activation\\s+Key\\s*:\n  ^Configuration\\s+has\\s+not\\s+been\\s+modified\n  ^\\s{6,}\\d+\\s+CPUs\n  ^\\s*Boot\\s+microcode\\s*:\n  ^\\s*\\S+\\s+microcode\\s*:\n  ^\\s*Programmable\\s+device\\s*:\n  ^\\s*VPN\\-\\d*DES.*:\n  ^GTP\\/GPRS\\s*:\n  ^.*Proxy\\s+Sessions\\s*:\n  ^Intercompany\\s+Media\\s+Engine\\s*:\n  ^\\d+GE\\s+I\\/O\\s*:\n  ^SSP\\s+Operating\\s+System\\s+Version\n  ^Start\\-up\\s+time\n  ^Active\\s+entitlement\\s*:\n  ^Firewall\\s+throughput\n  ^\\s+ASA:\\s+\\d+\\s+MB\\s+RAM\n  ^Baseboard\\s+Management\\s+Controller\n  ^IPS\\s+Module\\s*:\n  ^The\\s+Running\\s+Activation\\s+Key\\s+feature\\s*:\n  ^FPGA\\s+.*\\s*:\n  ^ROMMON.*:\n  ^VPN.*:\n  ^WebVPN.*:\n  ^WARNING:\n  ^Running\\s+Activation\\s+Key\\s*:\n  ^\\s*$$\n  ^. -> Error\n"
+}

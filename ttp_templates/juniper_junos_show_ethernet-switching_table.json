@@ -1,0 +1,35 @@
+{
+  "command": "juniper_junos_show_ethernet-switching_table",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"age_logical_interface_mac_address_mac_flag\">\nMAC flags (S {{AGE | ORPHRASE}} static MAC, D - dynamic MAC, L - locally learned, P - Persistent static\n  Vlan{{VLAN_ID | re(\"\\\\d+\")}}  2c:5a:0f:bc:a3:cd  {{MAC_FLAG | re(\"[0-9a-fA-F:.-]+\")}}  -  {{LOGICAL_INTERFACE | ORPHRASE}}\n  Vlan100  {{MAC_ADDRESS | ORPHRASE}}  DL  -  ae112.0\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN_ID": "100",
+      "MAC_ADDRESS": "2c:5a:0f:bc:a3:cd",
+      "MAC_FLAG": "DL",
+      "AGE": "-",
+      "LOGICAL_INTERFACE": "ae112.0"
+    },
+    {
+      "VLAN_ID": "100",
+      "MAC_ADDRESS": "ca:fe:ca:fe:00:07",
+      "MAC_FLAG": "DL",
+      "AGE": "-",
+      "LOGICAL_INTERFACE": "ae112.0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "age_logical_interface_mac_address_mac_flag": {
+        "AGE": "-"
+      }
+    }
+  ],
+  "cli_content": "\nMAC flags (S - static MAC, D - dynamic MAC, L - locally learned, P - Persistent static\n           SE - statistics enabled, NM - non configured MAC, R - remote PE MAC, O - ovsdb MAC)\n\n\nEthernet switching table : 2 entries, 2 learned\nRouting instance : default-switch\n    Vlan                MAC                 MAC         Age    Logical\n    name                address             flags              interface\n    Vlan100             2c:5a:0f:bc:a3:cd   DL            -   ae112.0\n    Vlan100             ca:fe:ca:fe:00:07   DL            -   ae112.0\n\n{master:0}\n",
+  "textfsm_template": "Value VLAN_ID (\\S+)\nValue BRIDGE_DOMAIN_ID (\\S+)\nValue MAC_ADDRESS (\\S+)\nValue MAC_FLAG (\\S+)\nValue AGE (\\S+)\nValue LOGICAL_INTERFACE (\\S+)\n\nStart\n  ^MAC\\sflags\n  ^\\s*SE\\s-\\sstatistics\\senabled\n  ^Ethernet\\sswitching\\stable\\s:\\s\\d+\\sentries,\\s\\d+\\slearned$$\n  ^Routing\\sinstance\\s:\\sdefault-switch$$\n  ^\\s*Vlan\\s+MAC\\s+MAC\\s+Age\\s+Logical\\s*\\S*\\s*\\S*\\s*$$\n  ^\\s*name\\s+address\\s+flags\\s+interface\\s*\\S*\\s*\\S*\\s*$$\n  ^\\s*(?:Vlan${VLAN_ID}|BD-${BRIDGE_DOMAIN_ID})\\s+${MAC_ADDRESS}\\s+${MAC_FLAG}\\s+${AGE}\\s+${LOGICAL_INTERFACE}\\s*\\S*\\s*\\S* -> Record\n  ^\\s*$$\n  ^{master:\\d+}\n  ^. -> Error\n"
+}

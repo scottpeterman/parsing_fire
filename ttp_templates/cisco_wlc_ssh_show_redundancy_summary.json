@@ -1,0 +1,42 @@
+{
+  "command": "cisco_wlc_ssh_show_redundancy_summary",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"avg_mgmt_gw_latency_avg_redundancy_peer_latency_bulksync_status_local_state\">\nRedundancy Mode = {{REDUNDANCY_MODE | ORPHRASE}} \nLocal State = {{LOCAL_STATE | ORPHRASE}} \nPeer State = {{PEER_STATE | ORPHRASE}} \nUnit = {{UNIT | ORPHRASE}}\nUnit ID = {{UNIT_ID | ORPHRASE}}\nRedundancy Port  = {{REDUNDANCY_PORT | ORPHRASE}}\nBulkSync Status = {{BULKSYNC_STATUS | ORPHRASE}}\nAverage Redundancy Peer Reachability Latency = {{AVG_REDUNDANCY_PEER_LATENCY | ORPHRASE}} Micro Seconds\nAverage Management Gateway Reachability Latency = {{AVG_MGMT_GW_LATENCY | ORPHRASE}} Micro Seconds\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "REDUNDANCY_MODE": "SSO ENABLED",
+      "LOCAL_STATE": "ACTIVE",
+      "PEER_STATE": "STANDBY HOT",
+      "UNIT": "Primary",
+      "UNIT_ID": "00:00:00:00:12:34",
+      "REDUNDANCY_STATE": "SSO",
+      "MOBILITY_MAC": "00:00:00:00:12:34",
+      "REDUNDANCY_PORT": "UP",
+      "BULKSYNC_STATUS": "Complete",
+      "AVG_REDUNDANCY_PEER_LATENCY": "199",
+      "AVG_MGMT_GW_LATENCY": "570"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "avg_mgmt_gw_latency_avg_redundancy_peer_latency_bulksync_status_local_state": {
+        "AVG_MGMT_GW_LATENCY": "570",
+        "AVG_REDUNDANCY_PEER_LATENCY": "199",
+        "BULKSYNC_STATUS": "Complete",
+        "REDUNDANCY_PORT": "UP",
+        "UNIT_ID": "00:00:00:00:12:34",
+        "UNIT": "Primary",
+        "PEER_STATE": "STANDBY HOT",
+        "LOCAL_STATE": "ACTIVE",
+        "REDUNDANCY_MODE": "SSO ENABLED"
+      }
+    }
+  ],
+  "cli_content": "Redundancy Mode = SSO ENABLED \nLocal State = ACTIVE \nPeer State = STANDBY HOT \nUnit = Primary\nUnit ID = 00:00:00:00:12:34\nRedundancy State = SSO\nMobility MAC = 00:00:00:00:12:34\nRedundancy Port  = UP\nBulkSync Status = Complete\nAverage Redundancy Peer Reachability Latency = 199 Micro Seconds\nAverage Management Gateway Reachability Latency = 570 Micro Seconds\n",
+  "textfsm_template": "Value REDUNDANCY_MODE (\\S+\\s+\\S+)\nValue LOCAL_STATE (\\S+)\nValue PEER_STATE (\\S+\\s+\\S+)\nValue UNIT (\\S+)\nValue UNIT_ID (([\\da-fA-F]{2}\\:?){6})\nValue REDUNDANCY_STATE (\\S+)\nValue MOBILITY_MAC (([\\da-fA-F]{2}\\:?){6})\nValue REDUNDANCY_PORT (\\S+)\nValue BULKSYNC_STATUS (\\S+)\nValue AVG_REDUNDANCY_PEER_LATENCY (\\d+)\nValue AVG_MGMT_GW_LATENCY (\\d+)\n\nStart\n  ^\\s*Redundancy Mode\\s+=\\s+${REDUNDANCY_MODE}\\s*$$\n  ^\\s*Local State\\s+=\\s+${LOCAL_STATE}\\s*$$\n  ^\\s*Peer State\\s+=\\s+${PEER_STATE}\\s*$$\n  ^\\s*Unit\\s+=\\s+${UNIT}\\s*$$\n  ^\\s*Unit ID\\s+=\\s+${UNIT_ID}\\s*$$\n  ^\\s*Redundancy State\\s+=\\s+${REDUNDANCY_STATE}\\s*$$\n  ^\\s*Mobility MAC\\s+=\\s+${MOBILITY_MAC}\\s*$$\n  ^\\s*Redundancy Port\\s+=\\s+${REDUNDANCY_PORT}\\s*$$\n  ^\\s*BulkSync Status\\s+=\\s+${BULKSYNC_STATUS}\\s*$$\n  ^\\s*Average Redundancy Peer Reachability Latency\\s+=\\s+${AVG_REDUNDANCY_PEER_LATENCY}\\s+\\S+\\s+Seconds\\s*$$\n  ^\\s*Average Management Gateway Reachability Latency\\s+=\\s+${AVG_MGMT_GW_LATENCY}\\s+\\S+\\s+Seconds\\s*$$\n"
+}

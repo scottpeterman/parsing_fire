@@ -1,0 +1,55 @@
+{
+  "command": "cisco_nxos_show_cts_interface_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 4.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"interface_mode_ifc_state_sgt_assignment_sgt_propagate\">\n{{INTERFACE}} {{MODE}} {{IFC_STATE | ORPHRASE}} {{SGT_ASSIGNMENT | ORPHRASE}} {{SGT_PROPAGATE | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Eth4/1",
+      "MODE": "MANUAL",
+      "IFC_STATE": "OPEN",
+      "SGT_ASSIGNMENT": "0, Not Trusted",
+      "SGT_PROPAGATE": "Disabled"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_mode_ifc_state_sgt_assignment_sgt_propagate": [
+        {
+          "INTERFACE": "---------",
+          "MODE": "--------",
+          "IFC_STATE": "----------",
+          "SGT_ASSIGNMENT": "------------------",
+          "SGT_PROPAGATE": "-------------"
+        },
+        {
+          "INTERFACE": "Interface",
+          "MODE": "CTS",
+          "IFC_STATE": "Mode IFC State",
+          "SGT_ASSIGNMENT": "SGT Assignment",
+          "SGT_PROPAGATE": "Propagate SGT"
+        },
+        {
+          "INTERFACE": "---------",
+          "MODE": "--------",
+          "IFC_STATE": "----------",
+          "SGT_ASSIGNMENT": "------------------",
+          "SGT_PROPAGATE": "-------------"
+        },
+        {
+          "INTERFACE": "Eth4/1",
+          "MODE": "MANUAL",
+          "IFC_STATE": "OPEN",
+          "SGT_ASSIGNMENT": "0,",
+          "SGT_PROPAGATE": "Not Trusted Disabled"
+        }
+      ]
+    }
+  ],
+  "cli_content": "CTS Information for Interfaces:\n--------- -------- ---------- ------------------ -------------\nInterface CTS Mode IFC State    SGT Assignment   Propagate SGT \n--------- -------- ---------- ------------------ -------------\nEth4/1    MANUAL   OPEN           0, Not Trusted Disabled \n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue MODE (\\S+)\nValue IFC_STATE (\\S+)\nValue SGT_ASSIGNMENT ((\\S+(\\s\\S+)*))\nValue SGT_PROPAGATE (Enabled|Disabled)\n\nStart\n  ^${INTERFACE}\\s+${MODE}\\s+${IFC_STATE}\\s+${SGT_ASSIGNMENT}\\s+${SGT_PROPAGATE} -> Record"
+}

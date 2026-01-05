@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: brocade_netiron_show_lag_brief
+# Source: ntc
+# TextFSM rows: 12
+# TTP rows: 13
+# Match ratio: 1.08
+
+<group name="lagnameshort_lagtype_deployed_trunkid_primaryinterface_portlist">
+{{lagnameshort | ORPHRASE}} {{lagtype}} {{deployed}} {{trunkid | re("\\d+")}} {{primaryinterface}} {{portlist | ORPHRASE}}
+</group>

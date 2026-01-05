@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_comware_display_lldp_neighbor-information_verbose
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 7
+# Match ratio: 1.75
+
+<group name="mgmt_address">
+ Management address : {{MGMT_ADDRESS | ORPHRASE}}
+</group>
+<group name="neighbor_interface_description">
+ Port description : {{NEIGHBOR_INTERFACE_DESCRIPTION | ORPHRASE}}
+</group>

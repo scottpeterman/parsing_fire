@@ -1,0 +1,76 @@
+{
+  "command": "show mlag status",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"mlag_id_local_intf_remote_intf_vlan_id_status\">\n{{MLAG_ID | re(\"\\\\d+\")}} {{LOCAL_INTF}} {{REMOTE_INTF}} {{VLAN_ID | re(\"\\\\d+\")}} {{STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "MLAG_ID": "1",
+      "LOCAL_INTF": "Port-Channel10",
+      "REMOTE_INTF": "Port-Channel20",
+      "VLAN_ID": "100",
+      "STATUS": "active"
+    },
+    {
+      "MLAG_ID": "2",
+      "LOCAL_INTF": "Port-Channel11",
+      "REMOTE_INTF": "Port-Channel21",
+      "VLAN_ID": "200",
+      "STATUS": "active"
+    },
+    {
+      "MLAG_ID": "3",
+      "LOCAL_INTF": "Port-Channel12",
+      "REMOTE_INTF": "Port-Channel22",
+      "VLAN_ID": "300",
+      "STATUS": "inactive"
+    },
+    {
+      "MLAG_ID": "4",
+      "LOCAL_INTF": "Port-Channel13",
+      "REMOTE_INTF": "Port-Channel23",
+      "VLAN_ID": "400",
+      "STATUS": "active"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "mlag_id_local_intf_remote_intf_vlan_id_status": [
+        {
+          "MLAG_ID": "1",
+          "LOCAL_INTF": "Port-Channel10",
+          "REMOTE_INTF": "Port-Channel20",
+          "VLAN_ID": "100",
+          "STATUS": "active"
+        },
+        {
+          "MLAG_ID": "2",
+          "LOCAL_INTF": "Port-Channel11",
+          "REMOTE_INTF": "Port-Channel21",
+          "VLAN_ID": "200",
+          "STATUS": "active"
+        },
+        {
+          "MLAG_ID": "3",
+          "LOCAL_INTF": "Port-Channel12",
+          "REMOTE_INTF": "Port-Channel22",
+          "VLAN_ID": "300",
+          "STATUS": "inactive"
+        },
+        {
+          "MLAG_ID": "4",
+          "LOCAL_INTF": "Port-Channel13",
+          "REMOTE_INTF": "Port-Channel23",
+          "VLAN_ID": "400",
+          "STATUS": "active"
+        }
+      ]
+    }
+  ],
+  "cli_content": "MLAG ID    Local Intf      Remote Intf     VLAN ID   Status\n1          Port-Channel10  Port-Channel20  100       active\n2          Port-Channel11  Port-Channel21  200       active\n3          Port-Channel12  Port-Channel22  300       inactive\n4          Port-Channel13  Port-Channel23  400       active\n",
+  "textfsm_template": "Value MLAG_ID (\\d+)\nValue LOCAL_INTF (\\S+)\nValue REMOTE_INTF (\\S+)\nValue VLAN_ID (\\d+)\nValue STATUS (active|inactive)\n\nStart\n  ^\\s*MLAG ID\\s+Local Intf\\s+Remote Intf\\s+VLAN ID\\s+Status\\s*$$\n  ^\\s*${MLAG_ID}\\s+${LOCAL_INTF}\\s+${REMOTE_INTF}\\s+${VLAN_ID}\\s+${STATUS}\\s*$$ -> Record"
+}

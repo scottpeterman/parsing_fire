@@ -1,0 +1,86 @@
+{
+  "command": "show ip prefix-list",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.5,
+  "textfsm_rows": 4,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"list_name_seq_action_network\">\nip prefix-list {{LIST_NAME}} seq {{SEQ}} {{ACTION}} {{NETWORK | ORPHRASE}}\n</group>\n<group name=\"list_name_seq_action_network_le\">\nip prefix-list {{LIST_NAME}} seq {{SEQ}} {{ACTION}} {{NETWORK}} le {{LE | ORPHRASE}}\n</group>\n<group name=\"list_name_seq_action_network_ge_le\">\nip prefix-list {{LIST_NAME}} seq {{SEQ}} {{ACTION}} {{NETWORK}} ge {{GE}} le {{LE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LIST_NAME": "TEST",
+      "SEQ": "5",
+      "ACTION": "permit",
+      "NETWORK": "10.0.0.0/8"
+    },
+    {
+      "LIST_NAME": "TEST",
+      "SEQ": "10",
+      "ACTION": "permit",
+      "NETWORK": "172.16.0.0/12",
+      "LE": "24"
+    },
+    {
+      "LIST_NAME": "TEST",
+      "SEQ": "15",
+      "ACTION": "permit",
+      "NETWORK": "192.168.1.0/24",
+      "GE": "25",
+      "LE": "28"
+    },
+    {
+      "LIST_NAME": "TEST",
+      "SEQ": "20",
+      "ACTION": "deny",
+      "NETWORK": "192.168.10.0/24"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "list_name_seq_action_network": [
+        {
+          "LIST_NAME": "TEST",
+          "SEQ": "5",
+          "ACTION": "permit",
+          "NETWORK": "10.0.0.0/8"
+        },
+        {
+          "LIST_NAME": "TEST",
+          "SEQ": "10",
+          "ACTION": "permit",
+          "NETWORK": "172.16.0.0/12 le 24"
+        },
+        {
+          "LIST_NAME": "TEST",
+          "SEQ": "15",
+          "ACTION": "permit",
+          "NETWORK": "192.168.1.0/24 ge 25 le 28"
+        },
+        {
+          "LIST_NAME": "TEST",
+          "SEQ": "20",
+          "ACTION": "deny",
+          "NETWORK": "192.168.10.0/24"
+        }
+      ],
+      "list_name_seq_action_network_le": {
+        "LIST_NAME": "TEST",
+        "SEQ": "10",
+        "ACTION": "permit",
+        "NETWORK": "172.16.0.0/12",
+        "LE": "24"
+      },
+      "list_name_seq_action_network_ge_le": {
+        "LIST_NAME": "TEST",
+        "SEQ": "15",
+        "ACTION": "permit",
+        "NETWORK": "192.168.1.0/24",
+        "GE": "25",
+        "LE": "28"
+      }
+    }
+  ],
+  "cli_content": "ip prefix-list TEST seq 5 permit 10.0.0.0/8\nip prefix-list TEST seq 10 permit 172.16.0.0/12 le 24\nip prefix-list TEST seq 15 permit 192.168.1.0/24 ge 25 le 28\nip prefix-list TEST seq 20 deny 192.168.10.0/24\n",
+  "textfsm_template": "Value LIST_NAME (\\S+)\nValue SEQ (\\d+)\nValue ACTION (permit|deny)\nValue NETWORK (\\d+\\.\\d+\\.\\d+\\.\\d+\\/\\d+)\nValue GE (\\d+)\nValue LE (\\d+)\n\nStart\n  ^ip\\s+prefix-list\\s+${LIST_NAME}\\s+seq\\s+${SEQ}\\s+${ACTION}\\s+${NETWORK}\\s+ge\\s+${GE}\\s+le\\s+${LE}\\s*$$ -> Record\n  ^ip\\s+prefix-list\\s+${LIST_NAME}\\s+seq\\s+${SEQ}\\s+${ACTION}\\s+${NETWORK}\\s+le\\s+${LE}\\s*$$ -> Record\n  ^ip\\s+prefix-list\\s+${LIST_NAME}\\s+seq\\s+${SEQ}\\s+${ACTION}\\s+${NETWORK}\\s*$$ -> Record"
+}

@@ -1,0 +1,34 @@
+{
+  "command": "show high-availability summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"active_role_active_software_version_current_active_unit_current_standby_unit\">\n  Switchovers:  {{SWITCHOVERS | ORPHRASE}}\n  Last switchover reason: {{LAST_SWITCHOVER_REASON | ORPHRASE}}\n  Current {{ACTIVE_ROLE}} Unit:  {{CURRENT_ACTIVE_UNIT | ORPHRASE}}\n  Current {{STANDBY_ROLE}} Unit:  {{CURRENT_STANDBY_UNIT | ORPHRASE}}\n  Uptime:  {{UPTIME | ORPHRASE}}\n  Software Version:  {{ACTIVE_SOFTWARE_VERSION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "UPTIME": "235 hours",
+      "SWITCHOVERS": "3",
+      "LAST_SWITCHOVER_REASON": "Power Failure",
+      "CURRENT_ACTIVE_UNIT": "Slot 1",
+      "CURRENT_STANDBY_UNIT": "Slot 2",
+      "ACTIVE_ROLE": "Active",
+      "ACTIVE_SOFTWARE_VERSION": "12.1(20)S",
+      "STANDBY_ROLE": "Standby"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "active_role_active_software_version_current_active_unit_current_standby_unit": {
+        "ACTIVE_ROLE": "Active",
+        "CURRENT_ACTIVE_UNIT": "Slot 1",
+        "LAST_SWITCHOVER_REASON": "Power Failure",
+        "SWITCHOVERS": "3"
+      }
+    }
+  ],
+  "cli_content": "High Availability Summary:\n  Uptime:                 450 hours\n  Switchovers:            3\n  Last switchover reason: Power Failure\n  Current Active Unit:    Slot 1\n  Current Standby Unit:   Slot 2\n  \n  Active Unit Details:\n    Slot:                 1\n    Role:                 Active\n    Uptime:               235 hours\n    Software Version:     12.1(20)S\n\n  Standby Unit Details:\n    Slot:                 2\n    Role:                 Standby\n    Uptime:               235 hours\n    Software Version:     12.1(20)S\n",
+  "textfsm_template": "Value UPTIME (\\d+ hours)\nValue SWITCHOVERS (\\d+)\nValue LAST_SWITCHOVER_REASON (.+)\nValue CURRENT_ACTIVE_UNIT (Slot \\d+)\nValue CURRENT_STANDBY_UNIT (Slot \\d+)\nValue ACTIVE_SLOT (Slot \\d+)\nValue ACTIVE_ROLE (Active)\nValue ACTIVE_UPTIME (\\d+ hours)\nValue ACTIVE_SOFTWARE_VERSION (\\d+\\.\\d+\\(\\d+\\)S)\nValue STANDBY_SLOT (Slot \\d+)\nValue STANDBY_ROLE (Standby)\nValue STANDBY_UPTIME (\\d+ hours)\nValue STANDBY_SOFTWARE_VERSION (\\d+\\.\\d+\\(\\d+\\)S)\n\nStart\n  ^High Availability Summary:$$\n  ^\\s*Uptime:\\s+${UPTIME}$$\n  ^\\s*Switchovers:\\s+${SWITCHOVERS}$$\n  ^\\s*Last switchover reason:\\s+${LAST_SWITCHOVER_REASON}$$\n  ^\\s*Current Active Unit:\\s+${CURRENT_ACTIVE_UNIT}$$\n  ^\\s*Current Standby Unit:\\s+${CURRENT_STANDBY_UNIT}$$\n  ^\\s*Active Unit Details:$$\n  ^\\s*Slot:\\s+${ACTIVE_SLOT}$$\n  ^\\s*Role:\\s+${ACTIVE_ROLE}$$\n  ^\\s*Uptime:\\s+${ACTIVE_UPTIME}$$\n  ^\\s*Software Version:\\s+${ACTIVE_SOFTWARE_VERSION}$$\n  ^\\s*Standby Unit Details:$$\n  ^\\s*Slot:\\s+${STANDBY_SLOT}$$\n  ^\\s*Role:\\s+${STANDBY_ROLE}$$\n  ^\\s*Uptime:\\s+${STANDBY_UPTIME}$$\n  ^\\s*Software Version:\\s+${STANDBY_SOFTWARE_VERSION}$$"
+}

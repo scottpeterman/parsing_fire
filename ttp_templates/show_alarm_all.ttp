@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show alarm all
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 6
+# Match ratio: 1.20
+
+<group name="index_time_type_severity_description">
+{{INDEX}} {{TIME | ORPHRASE}} {{TYPE}} {{SEVERITY | re("[\\d\\.\\(\\)A-Za-z]+")}} {{DESCRIPTION | ORPHRASE}}
+</group>

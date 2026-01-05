@@ -1,0 +1,268 @@
+{
+  "command": "cisco_nxos_show_ip_bgp_summary_vrf",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.42857142857142855,
+  "textfsm_rows": 14,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"address_family_local_as_router_id\">\nBGP summary information for VRF AMB, address family {{ADDRESS_FAMILY | ORPHRASE}}\n<group name=\"in_queue_out_queue_state_pfxrcd\">\nBGP community entries [{{IN_QUEUE | ORPHRASE}}/{{OUT_QUEUE}}], BGP clusterlist entries [6/24]\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VRF": "BLU",
+      "ADDRESS_FAMILY": "IPv4 Unicast",
+      "ROUTER_ID": "172.16.101.101",
+      "LOCAL_AS": "65161",
+      "BGP_NEIGH": "10.25.113.1",
+      "BGP_VER": "4",
+      "NEIGH_AS": "65001",
+      "MSG_RCVD": "21968368",
+      "MSG_SENT": "22451737",
+      "TBLVER": "2301549",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "24w2d",
+      "STATE_PFXRCD": "0"
+    },
+    {
+      "VRF": "TRI",
+      "ADDRESS_FAMILY": "IPv4 Unicast",
+      "ROUTER_ID": "172.16.101.123",
+      "LOCAL_AS": "65161",
+      "BGP_NEIGH": "10.23.1.74",
+      "BGP_VER": "4",
+      "NEIGH_AS": "65171",
+      "MSG_RCVD": "3078819",
+      "MSG_SENT": "3074406",
+      "TBLVER": "8526",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "2w5d",
+      "STATE_PFXRCD": "24"
+    },
+    {
+      "VRF": "default",
+      "ADDRESS_FAMILY": "IPv4 Unicast",
+      "ROUTER_ID": "172.16.101.37",
+      "LOCAL_AS": "65161",
+      "BGP_NEIGH": "172.16.14.2",
+      "BGP_VER": "4",
+      "NEIGH_AS": "65164",
+      "MSG_RCVD": "8429603",
+      "MSG_SENT": "8531693",
+      "TBLVER": "14450",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "1d08h",
+      "STATE_PFXRCD": "2"
+    },
+    {
+      "VRF": "default",
+      "ADDRESS_FAMILY": "IPv4 Unicast",
+      "ROUTER_ID": "172.16.101.37",
+      "LOCAL_AS": "65161",
+      "BGP_NEIGH": "172.16.31.1",
+      "BGP_VER": "4",
+      "NEIGH_AS": "65191",
+      "MSG_RCVD": "8081582",
+      "MSG_SENT": "8260415",
+      "TBLVER": "14450",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "1w0d",
+      "STATE_PFXRCD": "2"
+    },
+    {
+      "VRF": "default",
+      "ADDRESS_FAMILY": "IPv4 Unicast",
+      "ROUTER_ID": "172.16.101.37",
+      "LOCAL_AS": "65161",
+      "BGP_NEIGH": "172.16.31.17",
+      "BGP_VER": "4",
+      "NEIGH_AS": "65193",
+      "MSG_RCVD": "8167842",
+      "MSG_SENT": "8348036",
+      "TBLVER": "14450",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "1w0d",
+      "STATE_PFXRCD": "2"
+    },
+    {
+      "VRF": "default",
+      "ADDRESS_FAMILY": "IPv4 Unicast",
+      "ROUTER_ID": "172.16.101.37",
+      "LOCAL_AS": "65161",
+      "BGP_NEIGH": "172.16.102.2",
+      "BGP_VER": "4",
+      "NEIGH_AS": "65161",
+      "MSG_RCVD": "1166456",
+      "MSG_SENT": "1165743",
+      "TBLVER": "14450",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "2y0w",
+      "STATE_PFXRCD": "28"
+    },
+    {
+      "VRF": "default",
+      "ADDRESS_FAMILY": "IPv4 Unicast",
+      "ROUTER_ID": "172.16.101.37",
+      "LOCAL_AS": "65161",
+      "BGP_NEIGH": "172.16.151.2",
+      "BGP_VER": "4",
+      "NEIGH_AS": "65162",
+      "MSG_RCVD": "1074723",
+      "MSG_SENT": "1073151",
+      "TBLVER": "14450",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "1w1d",
+      "STATE_PFXRCD": "18"
+    },
+    {
+      "VRF": "default",
+      "ADDRESS_FAMILY": "L2VPN EVPN",
+      "ROUTER_ID": "172.16.101.37",
+      "LOCAL_AS": "65161",
+      "BGP_NEIGH": "172.23.129.240",
+      "BGP_VER": "4",
+      "NEIGH_AS": "65191",
+      "MSG_RCVD": "8081498",
+      "MSG_SENT": "8246843",
+      "TBLVER": "63025110",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "1w0d",
+      "STATE_PFXRCD": "6"
+    },
+    {
+      "VRF": "default",
+      "ADDRESS_FAMILY": "L2VPN EVPN",
+      "ROUTER_ID": "172.16.101.37",
+      "LOCAL_AS": "65161",
+      "BGP_NEIGH": "172.23.133.240",
+      "BGP_VER": "4",
+      "NEIGH_AS": "65193",
+      "MSG_RCVD": "8167863",
+      "MSG_SENT": "8334538",
+      "TBLVER": "63025110",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "1w0d",
+      "STATE_PFXRCD": "6"
+    },
+    {
+      "VRF": "default",
+      "ADDRESS_FAMILY": "L2VPN EVPN",
+      "ROUTER_ID": "172.16.101.37",
+      "LOCAL_AS": "65161",
+      "BGP_NEIGH": "172.16.101.33",
+      "BGP_VER": "4",
+      "NEIGH_AS": "65161",
+      "MSG_RCVD": "40997672",
+      "MSG_SENT": "23273121",
+      "TBLVER": "63025110",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "2y11w",
+      "STATE_PFXRCD": "1782"
+    },
+    {
+      "VRF": "default",
+      "ADDRESS_FAMILY": "L2VPN EVPN",
+      "ROUTER_ID": "172.16.101.37",
+      "LOCAL_AS": "65161",
+      "BGP_NEIGH": "172.16.101.34",
+      "BGP_VER": "4",
+      "NEIGH_AS": "65161",
+      "MSG_RCVD": "40992491",
+      "MSG_SENT": "23273008",
+      "TBLVER": "63025110",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "2y11w",
+      "STATE_PFXRCD": "1782"
+    },
+    {
+      "VRF": "default",
+      "ADDRESS_FAMILY": "L2VPN EVPN",
+      "ROUTER_ID": "172.16.101.37",
+      "LOCAL_AS": "65161",
+      "BGP_NEIGH": "172.16.201.37",
+      "BGP_VER": "4",
+      "NEIGH_AS": "65162",
+      "MSG_RCVD": "23261970",
+      "MSG_SENT": "26520909",
+      "TBLVER": "63025110",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "1w1d",
+      "STATE_PFXRCD": "698"
+    },
+    {
+      "VRF": "default",
+      "ADDRESS_FAMILY": "L2VPN EVPN",
+      "ROUTER_ID": "172.16.101.37",
+      "LOCAL_AS": "65161",
+      "BGP_NEIGH": "172.16.201.38",
+      "BGP_VER": "4",
+      "NEIGH_AS": "65162",
+      "MSG_RCVD": "23309853",
+      "MSG_SENT": "26564632",
+      "TBLVER": "63025110",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "2y2w",
+      "STATE_PFXRCD": "698"
+    },
+    {
+      "VRF": "default",
+      "ADDRESS_FAMILY": "L2VPN EVPN",
+      "ROUTER_ID": "172.16.101.37",
+      "LOCAL_AS": "65161",
+      "BGP_NEIGH": "172.16.255.42",
+      "BGP_VER": "4",
+      "NEIGH_AS": "65164",
+      "MSG_RCVD": "20901792",
+      "MSG_SENT": "21346308",
+      "TBLVER": "63025110",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "1d08h",
+      "STATE_PFXRCD": "14"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "address_family_local_as_router_id": [
+        {
+          "ADDRESS_FAMILY": "IPv4 Unicast"
+        },
+        {
+          "ADDRESS_FAMILY": "IPv6 Unicast",
+          "in_queue_out_queue_state_pfxrcd": [
+            {
+              "IN_QUEUE": "0",
+              "OUT_QUEUE": "0"
+            },
+            {
+              "IN_QUEUE": "0",
+              "OUT_QUEUE": "0"
+            },
+            {
+              "IN_QUEUE": "0",
+              "OUT_QUEUE": "0"
+            },
+            {
+              "IN_QUEUE": "0",
+              "OUT_QUEUE": "0"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "cli_content": "BGP summary information for VRF AMB, address family IPv4 Unicast\n \nBGP summary information for VRF AMB, address family IPv6 Unicast\n \nBGP summary information for VRF BLU, address family IPv4 Unicast\nBGP router identifier 172.16.101.101, local AS number 65161\nBGP table version is 2301549, IPv4 Unicast config peers 1, capable peers 1\n827 network entries and 1406 paths using 105308 bytes of memory\nBGP attribute entries [107/18404], BGP AS path entries [26/272]\nBGP community entries [0/0], BGP clusterlist entries [6/24]\n \nNeighbor        V    AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd\n10.25.113.1     4 65001 21968368 22451737  2301549    0    0    24w2d 0        \n \nBGP summary information for VRF BLU, address family IPv6 Unicast\n \nBGP summary information for VRF GRN, address family IPv4 Unicast\n \nBGP summary information for VRF GRN, address family IPv6 Unicast\n \nBGP summary information for VRF GRY, address family IPv4 Unicast\n \nBGP summary information for VRF GRY, address family IPv6 Unicast\n \nBGP summary information for VRF NPE, address family IPv4 Unicast\n \nBGP summary information for VRF NPE, address family IPv6 Unicast\n \nBGP summary information for VRF RED, address family IPv4 Unicast\n \nBGP summary information for VRF RED, address family IPv6 Unicast\n \nBGP summary information for VRF TRI, address family IPv4 Unicast\nBGP router identifier 172.16.101.123, local AS number 65161\nBGP table version is 8526, IPv4 Unicast config peers 1, capable peers 1\n55 network entries and 102 paths using 9940 bytes of memory\nBGP attribute entries [11/1892], BGP AS path entries [8/80]\nBGP community entries [0/0], BGP clusterlist entries [6/24]\n \nNeighbor        V    AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd\n10.23.1.74      4 65171 3078819 3074406     8526    0    0     2w5d 24    \n \nBGP summary information for VRF TRI, address family IPv6 Unicast\n \nBGP summary information for VRF default, address family IPv4 Unicast\nBGP router identifier 172.16.101.37, local AS number 65161\nBGP table version is 14450, IPv4 Unicast config peers 5, capable peers 5\n36 network entries and 56 paths using 11184 bytes of memory\nBGP attribute entries [24/4128], BGP AS path entries [13/102]\nBGP community entries [0/0], BGP clusterlist entries [6/24]\n \nNeighbor        V    AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd\n172.16.14.2     4 65164 8429603 8531693    14450    0    0    1d08h 2        \n172.16.31.1     4 65191 8081582 8260415    14450    0    0     1w0d 2        \n172.16.31.17    4 65193 8167842 8348036    14450    0    0     1w0d 2        \n172.16.102.2    4 65161 1166456 1165743    14450    0    0     2y0w 28       \n172.16.151.2    4 65162 1074723 1073151    14450    0    0     1w1d 18       \n \nBGP summary information for VRF default, address family IPv6 Unicast\n \nBGP summary information for VRF default, address family VPNv4 Unicast\n \nBGP summary information for VRF default, address family VPNv6 Unicast\n \nBGP summary information for VRF default, address family IPv4 MVPN\n \nBGP summary information for VRF default, address family IPv6 MVPN\n\nBGP summary information for VRF default, address family L2VPN EVPN\nBGP router identifier 172.16.101.37, local AS number 65161\nBGP table version is 63025110, L2VPN EVPN config peers 7, capable peers 7\n4630 network entries and 8017 paths using 1210960 bytes of memory\nBGP attribute entries [796/136912], BGP AS path entries [31/334]\nBGP community entries [0/0], BGP clusterlist entries [6/24]\n \nNeighbor        V    AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd\n172.23.129.240  4 65191 8081498 8246843 63025110    0    0     1w0d 6        \n172.23.133.240  4 65193 8167863 8334538 63025110    0    0     1w0d 6        \n172.16.101.33   4 65161 40997672 23273121 63025110    0    0    2y11w 1782     \n172.16.101.34   4 65161 40992491 23273008 63025110    0    0    2y11w 1782     \n172.16.201.37   4 65162 23261970 26520909 63025110    0    0     1w1d 698      \n172.16.201.38   4 65162 23309853 26564632 63025110    0    0     2y2w 698      \n172.16.255.42   4 65164 20901792 21346308 63025110    0    0    1d08h 14       \n \nNeighbor        T    AS PfxRcd     Type-2     Type-3     Type-4     Type-5   \n172.23.129.240  I 65191 6          0          0          0          6        \n172.23.133.240  I 65193 6          0          0          0          6        \n172.16.101.33   I 65161 1782       1434       14         0          334      \n172.16.101.34   I 65161 1782       1434       14         0          334      \n172.16.201.37   E 65162 698        481        7          0          210      \n172.16.201.38   E 65162 698        481        7          0          210      \n172.16.255.42   I 65164 14         0          0          0          14\n\n\nValue Filldown VRF (\\S+)\nValue Filldown ADDRESS_FAMILY (\\S+\\s\\S+)\nValue Filldown ROUTER_ID (\\d+?\\.\\d+?\\.\\d+?\\.\\d+?)\nValue Filldown LOCAL_AS (\\d+)\nValue Required BGP_NEIGH (\\d+?\\.\\d+?\\.\\d+?\\.\\d+?)\nValue BGP_VER (\\d)\nValue Required NEIGH_AS (\\S+)\nValue MSG_RCVD (\\d+)\nValue MSG_SENT (\\d+)\nValue TBLVER (\\d+)\nValue IN_QUEUE (\\d+)\nValue OUT_QUEUE (\\d+)\nValue UP_DOWN (\\S+)\nValue STATE_PFXRCD (\\S+?\\s+\\S+?|\\S+?)\n",
+  "textfsm_template": "Value Filldown VRF (\\S+)\nValue Filldown ADDRESS_FAMILY (\\S+\\s\\S+)\nValue Filldown ROUTER_ID (\\d+?\\.\\d+?\\.\\d+?\\.\\d+?)\nValue Filldown LOCAL_AS (\\d+)\nValue Required BGP_NEIGH (\\d+?\\.\\d+?\\.\\d+?\\.\\d+?)\nValue BGP_VER (\\d)\nValue Required NEIGH_AS (\\S+)\nValue MSG_RCVD (\\d+)\nValue MSG_SENT (\\d+)\nValue TBLVER (\\d+)\nValue IN_QUEUE (\\d+)\nValue OUT_QUEUE (\\d+)\nValue UP_DOWN (\\S+)\nValue STATE_PFXRCD (\\S+?\\s+\\S+?|\\S+?)\n\nStart\n  # Match BGP VRF\n  ^BGP summary information for VRF ${VRF}, address family ${ADDRESS_FAMILY}\n  # Match RID and Local AS\n  ^BGP router identifier ${ROUTER_ID}, local AS number ${LOCAL_AS}\n  # Match Neighbor lines\n  ^${BGP_NEIGH}\\s+${BGP_VER}\\s+${NEIGH_AS}.* -> Continue\n  ^\\s+${MSG_RCVD}\\s+${MSG_SENT}\\s+${TBLVER}\\s+${IN_QUEUE}\\s+${OUT_QUEUE}\\s+${UP_DOWN}\\s+${STATE_PFXRCD}\\s*$$ -> Record\n  ^${BGP_NEIGH}\\s+${BGP_VER}\\s+${NEIGH_AS}\\s+${MSG_RCVD}\\s+${MSG_SENT}\\s+${TBLVER}\\s+${IN_QUEUE}\\s+${OUT_QUEUE}\\s+${UP_DOWN}\\s+${STATE_PFXRCD}\\s*$$ -> Record\n  # Match lines that are spaces\n  ^\\s+$$\n\nDone\n  ^.*\n"
+}

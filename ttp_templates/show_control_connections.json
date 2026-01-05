@@ -1,0 +1,74 @@
+{
+  "command": "show control connections",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"peer_type_public_addr_private_addr_color_state_system_id_domain_id\">\n{{PEER_TYPE}} {{PUBLIC_ADDR | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{PRIVATE_ADDR | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{COLOR}} {{STATE | ORPHRASE}} {{SYSTEM_ID | ORPHRASE}} {{DOMAIN_ID | re(\"\\\\d+\")}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PEER_TYPE": "vsmart",
+      "PUBLIC_ADDR": "192.168.100.2",
+      "PRIVATE_ADDR": "10.1.10.2",
+      "COLOR": "default",
+      "STATE": "up",
+      "SYSTEM_ID": "1000",
+      "DOMAIN_ID": "1"
+    },
+    {
+      "PEER_TYPE": "vsmart",
+      "PUBLIC_ADDR": "192.168.100.3",
+      "PRIVATE_ADDR": "10.1.10.3",
+      "COLOR": "default",
+      "STATE": "up",
+      "SYSTEM_ID": "1000",
+      "DOMAIN_ID": "1"
+    },
+    {
+      "PEER_TYPE": "vbond",
+      "PUBLIC_ADDR": "192.168.100.5",
+      "PRIVATE_ADDR": "10.1.10.5",
+      "COLOR": "biz-internet",
+      "STATE": "up",
+      "SYSTEM_ID": "1005",
+      "DOMAIN_ID": "1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "peer_type_public_addr_private_addr_color_state_system_id_domain_id": [
+        {
+          "PEER_TYPE": "vsmart",
+          "PUBLIC_ADDR": "192.168.100.2",
+          "PRIVATE_ADDR": "10.1.10.2",
+          "COLOR": "default",
+          "STATE": "up",
+          "SYSTEM_ID": "1000",
+          "DOMAIN_ID": "1"
+        },
+        {
+          "PEER_TYPE": "vsmart",
+          "PUBLIC_ADDR": "192.168.100.3",
+          "PRIVATE_ADDR": "10.1.10.3",
+          "COLOR": "default",
+          "STATE": "up",
+          "SYSTEM_ID": "1000",
+          "DOMAIN_ID": "1"
+        },
+        {
+          "PEER_TYPE": "vbond",
+          "PUBLIC_ADDR": "192.168.100.5",
+          "PRIVATE_ADDR": "10.1.10.5",
+          "COLOR": "biz-internet",
+          "STATE": "up",
+          "SYSTEM_ID": "1005",
+          "DOMAIN_ID": "1"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Peer            Peer             Peer                                          Remote            \nType            Public-Addr      Private-Addr      Color             State     System-ID  Domain-ID\nvsmart          192.168.100.2    10.1.10.2         default            up        1000      1        \nvsmart          192.168.100.3    10.1.10.3         default            up        1000      1        \nvbond           192.168.100.5    10.1.10.5         biz-internet       up        1005      1        \n",
+  "textfsm_template": "Value PEER_TYPE (\\S+)\nValue PUBLIC_ADDR (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue PRIVATE_ADDR (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue COLOR (\\S+)\nValue STATE (up|down)\nValue SYSTEM_ID (\\d+)\nValue DOMAIN_ID (\\d+)\n\nStart\n  ^\\s*Peer\\s+Peer\\s+Peer\\s+Remote\\s*$$\n  ^\\s*Type\\s+Public-Addr\\s+Private-Addr\\s+Color\\s+State\\s+System-ID\\s+Domain-ID\\s*$$\n  ^\\s*${PEER_TYPE}\\s+${PUBLIC_ADDR}\\s+${PRIVATE_ADDR}\\s+${COLOR}\\s+${STATE}\\s+${SYSTEM_ID}\\s+${DOMAIN_ID}\\s*$$ -> Record"
+}

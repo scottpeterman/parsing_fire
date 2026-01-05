@@ -1,0 +1,18 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_comware_display_interface
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 13
+# Match ratio: 13.00
+
+<group name="bandwidth_description_duplex_hw_address">
+{{INTERFACE | ORPHRASE}}
+Current state: {{LINE_STATUS | ORPHRASE}}
+IP packet frame type: Ethernet II, hardware address: {{HW_ADDRESS | ORPHRASE}}
+Description: {{DESCRIPTION | ORPHRASE}}
+Bandwidth: {{BANDWIDTH | ORPHRASE}}
+{{SPEED}} mode, {{DUPLEX | ORPHRASE}} mode
+Port link-type: {{PORT_LINK_TYPE | ORPHRASE}}
+ VLAN Passing:  {{VLAN_PASSING | ORPHRASE}}
+ VLAN permitted: {{VLAN_PERMITTED | ORPHRASE}}
+</group>

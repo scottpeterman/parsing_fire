@@ -1,0 +1,36 @@
+{
+  "command": "cisco_nxos_show_version",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"boot_image_hostname_last_reboot_reason_os\">\n  kickstart: version {{OS | ORPHRASE}}\n  kickstart image file is: {{BOOT_IMAGE | ORPHRASE}}\n  cisco {{PLATFORM | ORPHRASE}} Chassis (\"O2 32X10GE/Modular Universal Platform Supervisor\")\n  Processor Board ID {{SERIAL | ORPHRASE}}\n  Device name: {{HOSTNAME | ORPHRASE}}\nKernel uptime is {{UPTIME | ORPHRASE}}\n  Reason: {{LAST_REBOOT_REASON | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "UPTIME": "311 day(s), 0 hour(s), 27 minute(s), 35 second(s)",
+      "LAST_REBOOT_REASON": "Reset triggered due to HA policy of Reset",
+      "OS": "5.2(1)N1(4)",
+      "BOOT_IMAGE": "bootflash:///n5000-uk9-kickstart.5.2.1.N1.4.bin",
+      "PLATFORM": "Nexus5548",
+      "HOSTNAME": "DC2TESTSW01-55",
+      "SERIAL": "FOC171737PL"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "boot_image_hostname_last_reboot_reason_os": {
+        "LAST_REBOOT_REASON": "Reset triggered due to HA policy of Reset",
+        "UPTIME": "311 day(s), 0 hour(s), 27 minute(s), 35 second(s)",
+        "HOSTNAME": "DC2TESTSW01-55",
+        "SERIAL": "FOC171737PL",
+        "PLATFORM": "Nexus5548",
+        "BOOT_IMAGE": "bootflash:///n5000-uk9-kickstart.5.2.1.N1.4.bin",
+        "OS": "5.2(1)N1(4)"
+      }
+    }
+  ],
+  "cli_content": "Cisco Nexus Operating System (NX-OS) Software\nTAC support: http://www.cisco.com/tac\nDocuments: http://www.cisco.com/en/US/products/ps9372/tsd_products_support_series_home.html\nCopyright (c) 2002-2013, Cisco Systems, Inc. All rights reserved.\nThe copyrights to certain works contained herein are owned by\nother third parties and are used and distributed under license.\nSome parts of this software are covered under the GNU Public\nLicense. A copy of the license is available at\nhttp://www.gnu.org/licenses/gpl.html.\n\nSoftware\n  BIOS:      version 3.6.0\n  loader:    version N/A\n  kickstart: version 5.2(1)N1(4)\n  system:    version 5.2(1)N1(4)\n  power-seq: Module 1: version v1.0\n             Module 3: version v5.0\n  uC:        version v1.2.0.1\n  SFP uC:    Module 1: v1.0.0.0\n  BIOS compile time:       05/09/2012\n  kickstart image file is: bootflash:///n5000-uk9-kickstart.5.2.1.N1.4.bin\n  kickstart compile time:  3/19/2013 3:00:00 [03/19/2013 23:12:59]\n  system image file is:    bootflash:///n5000-uk9.5.2.1.N1.4.bin\n  system compile time:     3/19/2013 3:00:00 [03/20/2013 01:10:47]\n\n\nHardware\n  cisco Nexus5548 Chassis (\"O2 32X10GE/Modular Universal Platform Supervisor\")\n  Intel(R) Xeon(R) CPU         with 8263848 kB of memory.\n  Processor Board ID FOC171737PL\n\n  Device name: DC2TESTSW01-55\n  bootflash:    2007040 kB\n\nKernel uptime is 311 day(s), 0 hour(s), 27 minute(s), 35 second(s)\n\nLast reset at 629197 usecs after  Thu Dec  5 15:17:54 2019\n\n  Reason: Reset triggered due to HA policy of Reset\n  System version: 5.2(1)N1(4)\n  Service: __inst_001__eigrp hap reset\n\nplugin\n  Core Plugin, Ethernet Plugin\n",
+  "textfsm_template": "Value UPTIME ((\\d+\\s\\w+.s.,?\\s?){4})\nValue LAST_REBOOT_REASON (.+)\nValue OS (\\d+.\\d+(.+)?)\nValue BOOT_IMAGE (.*)\nValue PLATFORM (\\w+)\nValue HOSTNAME (.*)\nValue SERIAL (\\w+)\n\nStart\n  ^\\s+(NXOS: version|system:\\s+version)\\s+${OS}\\s*$$\n  ^\\s+(NXOS|kickstart)\\s+image\\s+file\\s+is:\\s+${BOOT_IMAGE}\\s*$$\n  ^\\s+cisco\\s+${PLATFORM}\\s+[cC]hassis\n  ^\\s+cisco\\s+Nexus\\d+\\s+${PLATFORM}\n  # Cisco N5K platform\n  ^\\s+cisco\\s+Nexus\\s+${PLATFORM}\\s+[cC]hassis\n  ^\\s+Device\\s+name:\\s+${HOSTNAME}$$\n  ^\\s+cisco\\s+.+-${PLATFORM}\\s*\n  # Nexus intel platform uses Board ID as serial/license\n  ^\\s*Processor\\s[Bb]oard\\sID\\s+${SERIAL}$$\n  ^Kernel\\s+uptime\\s+is\\s+${UPTIME}\n  ^\\s+Reason:\\s${LAST_REBOOT_REASON} -> Record\n"
+}

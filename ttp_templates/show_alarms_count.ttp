@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show alarms count
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 7
+# Match ratio: 1.75
+
+<group name="type_critical_major_minor_warning_info">
+{{TYPE | ORPHRASE}} {{CRITICAL}} {{MAJOR}} {{MINOR}} {{WARNING}} {{INFO | ORPHRASE}}
+</group>

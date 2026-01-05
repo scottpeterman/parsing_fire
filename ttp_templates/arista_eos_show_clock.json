@@ -1,0 +1,33 @@
+{
+  "command": "arista_eos_show_clock",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"dayweek_month_day_time_year\">\n{{DAYWEEK}} {{MONTH}} {{DAY}} {{TIME}} {{YEAR | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TIME": "18:42:49",
+      "TIMEZONE": "US/Central",
+      "DAYWEEK": "Mon",
+      "MONTH": "Jan",
+      "DAY": "14",
+      "YEAR": "2013"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "dayweek_month_day_time_year": {
+        "DAYWEEK": "Mon",
+        "MONTH": "Jan",
+        "DAY": "14",
+        "TIME": "18:42:49",
+        "YEAR": "2013"
+      }
+    }
+  ],
+  "cli_content": "Mon Jan 14 18:42:49 2013\ntimezone is US/Central\n\n",
+  "textfsm_template": "Value TIME (\\d+:\\d+:\\d+)\nValue TIMEZONE (\\S+)\nValue DAYWEEK (\\w+)\nValue MONTH (\\w+)\nValue DAY (\\d+)\nValue YEAR (\\d+)\n\nStart\n  ^${DAYWEEK}\\s+${MONTH}\\s+${DAY}\\s+${TIME}\\s+${YEAR}\n  ^[t|T]imezone(:|\\sis)\\s+${TIMEZONE} -> Record\n"
+}

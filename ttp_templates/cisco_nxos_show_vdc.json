@@ -1,0 +1,68 @@
+{
+  "command": "cisco_nxos_show_vdc",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"vdc_id_vdc_name_state_mac_address_type_lc\">\n{{VDC_ID | re(\"\\\\d+\")}} {{VDC_NAME}} {{STATE | ORPHRASE}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{TYPE}} {{LC | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VDC_ID": "1",
+      "VDC_NAME": "not1.barr1",
+      "STATE": "active",
+      "MAC_ADDRESS": "e4:c7:22:0c:67:c1",
+      "TYPE": "Admin",
+      "LC": "None"
+    },
+    {
+      "VDC_ID": "2",
+      "VDC_NAME": "foo1.bar1.bazz1",
+      "STATE": "active",
+      "MAC_ADDRESS": "e4:c7:22:0c:67:c2",
+      "TYPE": "Ethernet",
+      "LC": "f2e"
+    },
+    {
+      "VDC_ID": "3",
+      "VDC_NAME": "foo2.bar2.bazz2",
+      "STATE": "active",
+      "MAC_ADDRESS": "e4:c7:22:0c:67:c3",
+      "TYPE": "Ethernet",
+      "LC": "f2e"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vdc_id_vdc_name_state_mac_address_type_lc": [
+        {
+          "VDC_ID": "1",
+          "VDC_NAME": "not1.barr1",
+          "STATE": "active",
+          "MAC_ADDRESS": "e4:c7:22:0c:67:c1",
+          "TYPE": "Admin",
+          "LC": "None"
+        },
+        {
+          "VDC_ID": "2",
+          "VDC_NAME": "foo1.bar1.bazz1",
+          "STATE": "active",
+          "MAC_ADDRESS": "e4:c7:22:0c:67:c2",
+          "TYPE": "Ethernet",
+          "LC": "f2e"
+        },
+        {
+          "VDC_ID": "3",
+          "VDC_NAME": "foo2.bar2.bazz2",
+          "STATE": "active",
+          "MAC_ADDRESS": "e4:c7:22:0c:67:c3",
+          "TYPE": "Ethernet",
+          "LC": "f2e"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nSwitchwide mode is m1 f1 m1xl f2 m2xl f2e f3\n\nvdc_id  vdc_name                          state               mac                 type        lc\n------  --------                          -----               ----------          ---------   ------\n1       not1.barr1                        active              e4:c7:22:0c:67:c1   Admin       None\n2       foo1.bar1.bazz1                   active              e4:c7:22:0c:67:c2   Ethernet    f2e\n3       foo2.bar2.bazz2                   active              e4:c7:22:0c:67:c3   Ethernet    f2e\n",
+  "textfsm_template": "Value VDC_ID (\\d+)\nValue VDC_NAME (\\S+)\nValue STATE (\\S+)\nValue MAC_ADDRESS (\\S+)\nValue TYPE (\\S+)\nValue LC (\\S+)\n\nStart\n  ^[Ss]witchwide\\s+mode\n  ^vdc_id\\s+vdc_name\\s+state\\s+mac\\s+type\\s+lc\\s*$$\n  ^-+\n  ^\\s*${VDC_ID}\\s+${VDC_NAME}\\s+${STATE}\\s+${MAC_ADDRESS}\\s+${TYPE}\\s+${LC} -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

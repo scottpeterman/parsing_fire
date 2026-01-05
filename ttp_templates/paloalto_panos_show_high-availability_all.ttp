@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: paloalto_panos_show_high-availability_all
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="sw_version">
+      Software Version: {{SW_VERSION | ORPHRASE}}
+</group>

@@ -1,0 +1,68 @@
+{
+  "command": "cisco_ftd_show_vpn-sessiondb_anyconnect",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"assigned_ip_audt_sess_id_bytes_rx_bytes_tx\">\nSession Type: {{SESSION_TYPE | ORPHRASE}}\nUsername  : {{USERNAME}}  Index  : {{INDEX | ORPHRASE}}\nAssigned IP  : {{ASSIGNED_IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}  Public IP  : {{PUBLIC_IP | ORPHRASE}}\nProtocol  : {{PROTOCOL | ORPHRASE}}\nLicense  : {{LICENSE | ORPHRASE}}\nEncryption  : {{ENCRYPTION | ORPHRASE}}\nHashing  : {{HASHING | ORPHRASE}}\nBytes Tx  : {{BYTES_TX}}  Bytes Rx  : {{BYTES_RX | ORPHRASE}}\nGroup Policy : {{GROUP_POLICY}}  Tunnel Group : {{TUNNEL_GROUP | ORPHRASE}}\nLogin Time  : {{LOGIN_TIME}} {{LOGIN_TIME_ZONE}} {{LOGIN_WEEKDAY}} {{LOGIN_MONTH}} 20 {{LOGIN_YEAR | ORPHRASE}}\nDuration  : {{DURATION | ORPHRASE}}\nInactivity  : {{INACTIVITY | ORPHRASE}}\nVLAN Mapping : {{VLAN_MAPPING | ORPHRASE}}  VLAN  : none\nAudt Sess ID : {{AUDT_SESS_ID | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SESSION_TYPE": "AnyConnect",
+      "USERNAME": "USER",
+      "INDEX": "7033",
+      "ASSIGNED_IP": "10.0.0.1",
+      "PUBLIC_IP": "1.1.1.1",
+      "PROTOCOL": "AnyConnect-Parent SSL-Tunnel DTLS-Tunnel",
+      "LICENSE": "AnyConnect Premium",
+      "ENCRYPTION": "AnyConnect-Parent: (1)none  SSL-Tunnel: (1)AES-GCM-256  DTLS-Tunnel: (1)AES-GCM-256",
+      "HASHING": "AnyConnect-Parent: (1)none  SSL-Tunnel: (1)SHA384  DTLS-Tunnel: (1)SHA384",
+      "BYTES_TX": "67583000",
+      "BYTES_RX": "20229428",
+      "GROUP_POLICY": "ABC_GRP_POL",
+      "TUNNEL_GROUP": "DefaultWEBVPNGroup",
+      "LOGIN_TIME": "05:06:11",
+      "LOGIN_TIME_ZONE": "UTC",
+      "LOGIN_WEEKDAY": "Fri",
+      "LOGIN_MONTH": "Oct",
+      "LOGIN_DAY": "20",
+      "LOGIN_YEAR": "2023",
+      "DURATION": "12h:51m:51s",
+      "INACTIVITY": "0h:00m:00s",
+      "VLAN_MAPPING": "N/A",
+      "VLAN_ID": "none",
+      "AUDT_SESS_ID": "d05f30eb01b7900065320ac3",
+      "SECURITY_GRP": "none",
+      "TUNNEL_ZONE": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "assigned_ip_audt_sess_id_bytes_rx_bytes_tx": {
+        "AUDT_SESS_ID": "d05f30eb01b7900065320ac3",
+        "VLAN_MAPPING": "N/A",
+        "INACTIVITY": "0h:00m:00s",
+        "DURATION": "12h:51m:51s",
+        "LOGIN_TIME": "05:06:11",
+        "LOGIN_TIME_ZONE": "UTC",
+        "LOGIN_WEEKDAY": "Fri",
+        "LOGIN_MONTH": "Oct",
+        "LOGIN_YEAR": "2023",
+        "GROUP_POLICY": "ABC_GRP_POL",
+        "TUNNEL_GROUP": "DefaultWEBVPNGroup",
+        "BYTES_TX": "67583000",
+        "BYTES_RX": "20229428",
+        "LICENSE": "AnyConnect Premium",
+        "PROTOCOL": "AnyConnect-Parent SSL-Tunnel DTLS-Tunnel",
+        "ASSIGNED_IP": "10.0.0.1",
+        "PUBLIC_IP": "1.1.1.1",
+        "USERNAME": "USER",
+        "INDEX": "7033",
+        "SESSION_TYPE": "AnyConnect"
+      }
+    }
+  ],
+  "cli_content": "Session Type: AnyConnect\n\nUsername     : USER                 Index        : 7033\nAssigned IP  : 10.0.0.1             Public IP    : 1.1.1.1\nProtocol     : AnyConnect-Parent SSL-Tunnel DTLS-Tunnel\nLicense      : AnyConnect Premium\nEncryption   : AnyConnect-Parent: (1)none  SSL-Tunnel: (1)AES-GCM-256  DTLS-Tunnel: (1)AES-GCM-256\nHashing      : AnyConnect-Parent: (1)none  SSL-Tunnel: (1)SHA384  DTLS-Tunnel: (1)SHA384\nBytes Tx     : 67583000               Bytes Rx     : 20229428\nGroup Policy : ABC_GRP_POL           Tunnel Group : DefaultWEBVPNGroup\nLogin Time   : 05:06:11 UTC Fri Oct 20 2023\nDuration     : 12h:51m:51s\nInactivity   : 0h:00m:00s\nVLAN Mapping : N/A                    VLAN         : none\nAudt Sess ID : d05f30eb01b7900065320ac3\nSecurity Grp : none                   Tunnel Zone  : 0\n",
+  "textfsm_template": "Value Filldown,Required SESSION_TYPE (\\S+)\nValue USERNAME (\\S+)\nValue Required INDEX (\\d+)\nValue ASSIGNED_IP (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue PUBLIC_IP (\\S+)\nValue ASSIGNED_IPV6 (\\S+)\nValue PROTOCOL (.+?)\nValue LICENSE (.+?)\nValue ENCRYPTION (.+?)\nValue HASHING (.+?)\nValue BYTES_TX (\\d+)\nValue BYTES_RX (\\d+)\nValue GROUP_POLICY (\\S+)\nValue TUNNEL_GROUP (\\S+)\nValue LOGIN_TIME (\\d+:\\d+:\\d+)\nValue LOGIN_TIME_ZONE (\\S+)\nValue LOGIN_WEEKDAY (\\w+)\nValue LOGIN_MONTH (\\w+)\nValue LOGIN_DAY (\\d+)\nValue LOGIN_YEAR (\\d+)\nValue DURATION (.+?)\nValue INACTIVITY (.+?)\nValue VLAN_MAPPING (\\S+)\nValue VLAN_ID (.+?)\nValue AUDT_SESS_ID (.+?)\nValue SECURITY_GRP (\\S+)\nValue TUNNEL_ZONE (\\d+)\n\nStart\n  ^Session\\s+Type:\\s+${SESSION_TYPE}$$ -> Connection\n\nConnection\n  ^\\s*Username\\s*:\\s+${USERNAME}\\s+Index\\s+:\\s*${INDEX}$$\n  ^\\s*Username\\s*:\\s+${USERNAME}$$\n  ^\\s*Index\\s*:\\s+${INDEX}$$\n  ^\\s*Assigned\\s+IP\\s*:\\s+${ASSIGNED_IP}\\s+Public\\s*IP\\s*:\\s*${PUBLIC_IP}$$\n  ^\\s*Assigned\\s+IP\\s*:\\s+${ASSIGNED_IP}$$\n  ^\\s*Assigned\\s+IPv6\\s*:\\s+${ASSIGNED_IPV6}$$\n  ^\\s*Public\\s+IP\\s*:\\s+${PUBLIC_IP}$$\n  ^\\s*Protocol\\s+:\\s+${PROTOCOL}$$\n  ^\\s*License\\s+:\\s*${LICENSE}$$\n  ^\\s*Encryption\\s+:\\s*${ENCRYPTION}$$\n  ^\\s*Hashing\\s+:\\s*${HASHING}$$\n  ^\\s*Bytes\\s+Tx\\s+:\\s+${BYTES_TX}\\s+Bytes\\s+Rx\\s+:\\s+${BYTES_RX}$$\n  ^\\s*Group\\s+Policy\\s+:\\s+${GROUP_POLICY}\\s+Tunnel\\s+Group\\s+:\\s+${TUNNEL_GROUP}$$\n  ^\\s*Group\\s+Policy\\s+:\\s+${GROUP_POLICY}$$\n  ^\\s*Tunnel\\s+Group\\s+:\\s+${TUNNEL_GROUP}$$\n  ^\\s*Login\\s+Time\\s+:\\s+${LOGIN_TIME}\\s+${LOGIN_TIME_ZONE}\\s+${LOGIN_WEEKDAY}\\s+${LOGIN_MONTH}\\s+${LOGIN_DAY}\\s+${LOGIN_YEAR}$$\n  ^\\s*Duration\\s+:\\s+${DURATION}$$\n  ^\\s*Inactivity\\s+:\\s+${INACTIVITY}$$\n  ^\\s*VLAN\\s+Mapping\\s+:\\s+${VLAN_MAPPING}\\s+VLAN\\s+:\\s+${VLAN_ID}$$\n  ^\\s*Audt\\s+Sess\\s+ID\\s+:\\s+${AUDT_SESS_ID}$$\n  ^\\s*Security\\s+Grp\\s+:\\s+${SECURITY_GRP}\\s+Tunnel\\s+Zone\\s+:\\s+${TUNNEL_ZONE}$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

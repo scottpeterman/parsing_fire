@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip arp
+# Source: chatgpt
+# TextFSM rows: 6
+# TTP rows: 6
+# Match ratio: 1.00
+
+<group name="protocol_address_age_hardware_addr_type_interface">
+{{PROTOCOL}} {{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{AGE}} {{HARDWARE_ADDR}} {{TYPE}} {{INTERFACE | ORPHRASE}}
+</group>

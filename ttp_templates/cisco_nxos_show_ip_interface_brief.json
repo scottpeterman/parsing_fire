@@ -1,0 +1,148 @@
+{
+  "command": "cisco_nxos_show_ip_interface_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 8,
+  "ttp_rows": 10,
+  "ttp_template": "<group name=\"vrf\">\nIP Interface Status for VRF \"{{VRF | ORPHRASE}}\"(1)\n<group name=\"interface_ip_address_link\">\n{{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{PROTO}}/{{LINK}}/{{STATUS | ORPHRASE}} \n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VRF": "default",
+      "INTERFACE": "Eth1/1",
+      "IP_ADDRESS": "10.1.1.11",
+      "STATUS": "admin-up",
+      "LINK": "link-down",
+      "PROTO": "protocol-down"
+    },
+    {
+      "VRF": "default",
+      "INTERFACE": "Eth1/2",
+      "IP_ADDRESS": "10.1.1.12",
+      "STATUS": "admin-up",
+      "LINK": "link-up",
+      "PROTO": "protocol-up"
+    },
+    {
+      "VRF": "default",
+      "INTERFACE": "Eth1/3",
+      "IP_ADDRESS": "10.1.1.13",
+      "STATUS": "admin-up",
+      "LINK": "link-up",
+      "PROTO": "protocol-up"
+    },
+    {
+      "VRF": "default",
+      "INTERFACE": "Eth1/4",
+      "IP_ADDRESS": "10.1.1.14",
+      "STATUS": "admin-up",
+      "LINK": "link-up",
+      "PROTO": "protocol-up"
+    },
+    {
+      "VRF": "default",
+      "INTERFACE": "Eth1/5",
+      "IP_ADDRESS": "10.1.1.15",
+      "STATUS": "admin-up",
+      "LINK": "link-up",
+      "PROTO": "protocol-up"
+    },
+    {
+      "VRF": "default",
+      "INTERFACE": "Eth1/6",
+      "IP_ADDRESS": "10.1.1.16",
+      "STATUS": "admin-up",
+      "LINK": "link-down",
+      "PROTO": "protocol-down"
+    },
+    {
+      "VRF": "default",
+      "INTERFACE": "Eth1/7",
+      "IP_ADDRESS": "10.1.1.17",
+      "STATUS": "admin-up",
+      "LINK": "link-down",
+      "PROTO": "protocol-down"
+    },
+    {
+      "VRF": "management",
+      "INTERFACE": "mgmt0",
+      "IP_ADDRESS": "192.168.149.11",
+      "STATUS": "admin-up",
+      "LINK": "link-up",
+      "PROTO": "protocol-up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vrf": [
+        {
+          "VRF": "default",
+          "interface_ip_address_link": [
+            {
+              "INTERFACE": "Eth1/1",
+              "IP_ADDRESS": "10.1.1.11",
+              "PROTO": "protocol-down",
+              "LINK": "link-down",
+              "STATUS": "admin-up"
+            },
+            {
+              "INTERFACE": "Eth1/2",
+              "IP_ADDRESS": "10.1.1.12",
+              "PROTO": "protocol-up",
+              "LINK": "link-up",
+              "STATUS": "admin-up"
+            },
+            {
+              "INTERFACE": "Eth1/3",
+              "IP_ADDRESS": "10.1.1.13",
+              "PROTO": "protocol-up",
+              "LINK": "link-up",
+              "STATUS": "admin-up"
+            },
+            {
+              "INTERFACE": "Eth1/4",
+              "IP_ADDRESS": "10.1.1.14",
+              "PROTO": "protocol-up",
+              "LINK": "link-up",
+              "STATUS": "admin-up"
+            },
+            {
+              "INTERFACE": "Eth1/5",
+              "IP_ADDRESS": "10.1.1.15",
+              "PROTO": "protocol-up",
+              "LINK": "link-up",
+              "STATUS": "admin-up"
+            },
+            {
+              "INTERFACE": "Eth1/6",
+              "IP_ADDRESS": "10.1.1.16",
+              "PROTO": "protocol-down",
+              "LINK": "link-down",
+              "STATUS": "admin-up"
+            },
+            {
+              "INTERFACE": "Eth1/7",
+              "IP_ADDRESS": "10.1.1.17",
+              "PROTO": "protocol-down",
+              "LINK": "link-down",
+              "STATUS": "admin-up"
+            }
+          ]
+        },
+        {
+          "VRF": "management",
+          "interface_ip_address_link": {
+            "INTERFACE": "mgmt0",
+            "IP_ADDRESS": "192.168.149.11",
+            "PROTO": "protocol-up",
+            "LINK": "link-up",
+            "STATUS": "admin-up"
+          }
+        }
+      ]
+    }
+  ],
+  "cli_content": "IP Interface Status for VRF \"default\"(1)\nInterface            IP Address      Interface Status\nEth1/1               10.1.1.11       protocol-down/link-down/admin-up   \nEth1/2               10.1.1.12       protocol-up/link-up/admin-up       \nEth1/3               10.1.1.13       protocol-up/link-up/admin-up       \nEth1/4               10.1.1.14       protocol-up/link-up/admin-up       \nEth1/5               10.1.1.15       protocol-up/link-up/admin-up       \nEth1/6               10.1.1.16       protocol-down/link-down/admin-up   \nEth1/7               10.1.1.17       protocol-down/link-down/admin-up  \n\nIP Interface Status for VRF \"management\"(2)\nInterface            IP Address      Interface Status\nmgmt0                192.168.149.11  protocol-up/link-up/admin-up\n",
+  "textfsm_template": "Value Filldown VRF (\\S+)\nValue Required INTERFACE (\\S+)\nValue Required IP_ADDRESS ([a-zA-Z0-9./]+|forward-enabled)\nValue STATUS (\\S+-\\S+)\nValue LINK (\\S+-\\S+)\nValue PROTO (\\S+-\\S+)\n\nStart\n  ^IP\\s+Interface\\s+Status\\s+for\\s+VRF\\s+\"${VRF}\"\\(\\d+\\)\n  ^Interface\\s+IP\\s+Address\\s+Interface\\s+Status\n  ^\\S+\\s+unnumbered\\s+\\S+\n  ^\\s+\\(\\w+\\)\n  ^${INTERFACE}\\s+${IP_ADDRESS}\\s+${PROTO}/${LINK}/${STATUS} -> Record\n  ^\\s*$$\n  ^.*$$ -> Error\n"
+}

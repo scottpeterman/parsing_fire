@@ -1,0 +1,22 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ipv6_access-lists
+# Source: ntc
+# TextFSM rows: 18
+# TTP rows: 17
+# Match ratio: 0.94
+
+<group name="action_protocol_ipv6_source_ipv6_destination_sequence">
+    {{ACTION}} {{PROTOCOL}} {{IPV6_SOURCE}} {{IPV6_DESTINATION}} sequence {{SEQUENCE | ORPHRASE}}
+</group>
+<group name="action_protocol_ipv6_source_ipv6_destination_log_authentification_routing_sequence">
+    {{ACTION}} {{PROTOCOL}} {{IPV6_SOURCE}} {{IPV6_DESTINATION}} {{LOG}} {{AUTHENTIFICATION}} {{ROUTING}} sequence {{SEQUENCE | ORPHRASE}}
+</group>
+<group name="action_protocol_ipv6_source_ipv6_destination_src_port_match_port_number_sequence">
+    {{ACTION}} {{PROTOCOL}} {{IPV6_SOURCE}} {{IPV6_DESTINATION}} {{SRC_PORT_MATCH}} {{PORT_NUMBER | re("\\d+")}} sequence {{SEQUENCE | ORPHRASE}}
+</group>
+<group name="action_protocol_ipv6_source_ipv6_destination_src_port_range_start_src_port_range_end_sequence">
+    {{ACTION}} {{PROTOCOL}} host {{IPV6_SOURCE}} host {{IPV6_DESTINATION}} range {{SRC_PORT_RANGE_START | re("\\d+")}} {{SRC_PORT_RANGE_END | re("\\d+")}} sequence {{SEQUENCE | ORPHRASE}}
+</group>
+<group name="action_protocol_ipv6_source_ipv6_destination_src_port_match_sequence">
+    {{ACTION}} {{PROTOCOL}} {{IPV6_SOURCE}} {{IPV6_DESTINATION}} {{SRC_PORT_MATCH}} sequence {{SEQUENCE | ORPHRASE}}
+</group>

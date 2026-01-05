@@ -1,0 +1,56 @@
+{
+  "command": "show ip pim sparse-mode rp-hash",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"group_interface_metric_preference\">\nMetric: {{PREFERENCE | ORPHRASE}}\nGroup: {{GROUP | ORPHRASE}}\nRP: {{RP | ORPHRASE}}\nInterface: {{INTERFACE | ORPHRASE}}\nMetric: {{METRIC | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "GROUP": "239.0.0.1",
+      "RP": "192.168.0.1",
+      "INTERFACE": "GigabitEthernet0/1",
+      "METRIC": "110",
+      "PREFERENCE": "100"
+    },
+    {
+      "GROUP": "239.1.1.1",
+      "RP": "192.168.0.2",
+      "INTERFACE": "GigabitEthernet0/2",
+      "METRIC": "120",
+      "PREFERENCE": "110"
+    },
+    {
+      "GROUP": "239.2.2.2",
+      "RP": "192.168.0.3",
+      "INTERFACE": "GigabitEthernet0/3",
+      "METRIC": "130",
+      "PREFERENCE": "120"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "group_interface_metric_preference": [
+        {
+          "INTERFACE": "GigabitEthernet0/2",
+          "RP": "192.168.0.2",
+          "GROUP": "239.1.1.1",
+          "PREFERENCE": "110"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/3",
+          "RP": "192.168.0.3",
+          "GROUP": "239.2.2.2",
+          "PREFERENCE": "120"
+        },
+        {
+          "PREFERENCE": "130"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Group: 239.0.0.1\nRP: 192.168.0.1\nInterface: GigabitEthernet0/1\nMetric: 110\nPreference: 100\n\nGroup: 239.1.1.1\nRP: 192.168.0.2\nInterface: GigabitEthernet0/2\nMetric: 120\nPreference: 110\n\nGroup: 239.2.2.2\nRP: 192.168.0.3\nInterface: GigabitEthernet0/3\nMetric: 130\nPreference: 120\n",
+  "textfsm_template": "Value GROUP (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue RP (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue INTERFACE (\\S+)\nValue METRIC (\\d+)\nValue PREFERENCE (\\d+)\n\nStart\n  ^Group:\\s+${GROUP}\\s*$$\n  ^RP:\\s+${RP}\\s*$$\n  ^Interface:\\s+${INTERFACE}\\s*$$\n  ^Metric:\\s+${METRIC}\\s*$$\n  ^Preference:\\s+${PREFERENCE}\\s*$$ -> Record"
+}

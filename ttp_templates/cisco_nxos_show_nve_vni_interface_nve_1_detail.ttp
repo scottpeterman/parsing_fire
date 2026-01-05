@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_nve_vni_interface_nve_1_detail
+# Source: ntc
+# TextFSM rows: 17
+# TTP rows: 17
+# Match ratio: 1.00
+
+<group name="vni">
+VNI: {{VNI | ORPHRASE}}
+</group>

@@ -1,0 +1,53 @@
+{
+  "command": "juniper_junos_show_vlans",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"routing_instance_vlan_name_tag\">\n{{ROUTING_INSTANCE}} {{VLAN_NAME | ORPHRASE}} {{TAG}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ROUTING_INSTANCE": "default-switch",
+      "VLAN_NAME": "v100-Control",
+      "TAG": "100",
+      "INTERFACES": "ae0.0*, et-0/0/24.0*, ge-0/0/3.0, xe-0/0/13.0*, xe-0/0/15.0*, xe-0/0/17.0*, xe-0/0/9.0*"
+    },
+    {
+      "ROUTING_INSTANCE": "default-switch",
+      "VLAN_NAME": "v1005-HelpDesk",
+      "TAG": "1005",
+      "INTERFACES": "ae0.0*, et-0/0/24.0*, ge-0/0/7.0, xe-0/0/13.0*, xe-0/0/15.0*, xe-0/0/17.0*, xe-0/0/9.0*"
+    },
+    {
+      "ROUTING_INSTANCE": "default-switch",
+      "VLAN_NAME": "v109-TEMP-Project-Data",
+      "TAG": "109",
+      "INTERFACES": "ae0.0*, et-0/0/24.0*, ge-0/0/7.0, xe-0/0/13.0*, xe-0/0/15.0*, xe-0/0/17.0*, xe-0/0/22.0, xe-0/0/9.0*"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "routing_instance_vlan_name_tag": [
+        {
+          "ROUTING_INSTANCE": "default-switch",
+          "VLAN_NAME": "v100-Control",
+          "TAG": "100"
+        },
+        {
+          "ROUTING_INSTANCE": "default-switch",
+          "VLAN_NAME": "v1005-HelpDesk",
+          "TAG": "1005"
+        },
+        {
+          "ROUTING_INSTANCE": "default-switch",
+          "VLAN_NAME": "v109-TEMP-Project-Data",
+          "TAG": "109"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Routing instance        VLAN name             Tag          Interfaces\ndefault-switch          v100-Control           100\n                                                           ae0.0*\n                                                           et-0/0/24.0*\n                                                           ge-0/0/3.0\n                                                           xe-0/0/13.0*\n                                                           xe-0/0/15.0*\n                                                           xe-0/0/17.0*\n                                                           xe-0/0/9.0*\ndefault-switch          v1005-HelpDesk        1005\n                                                           ae0.0*\n                                                           et-0/0/24.0*\n                                                           ge-0/0/7.0\n                                                           xe-0/0/13.0*\n                                                           xe-0/0/15.0*\n                                                           xe-0/0/17.0*\n                                                           xe-0/0/9.0*\ndefault-switch          v109-TEMP-Project-Data 109\n                                                           ae0.0*\n                                                           et-0/0/24.0*\n                                                           ge-0/0/7.0\n                                                           xe-0/0/13.0*\n                                                           xe-0/0/15.0*\n                                                           xe-0/0/17.0*\n                                                           xe-0/0/22.0\n                                                           xe-0/0/9.0*\n\n{master:0}",
+  "textfsm_template": "Value ROUTING_INSTANCE (\\S+)\nValue VLAN_NAME (\\S+)\nValue TAG (\\d+)\nValue List INTERFACES (\\S+)\n\t\t   \nStart\n  ^Routing\\sinstance\\s+VLAN\\sname\\s+Tag\\s+Interfaces$$ -> VLAN\n\t\t   \nVLAN\n  ^\\S -> Continue.Record\n  ^${ROUTING_INSTANCE}\\s+${VLAN_NAME}\\s+${TAG}\\s*$$\n  ^\\s+${INTERFACES}$$\n  ^\\s*$$\n  ^{master:\\d+}\n  ^. -> Error"
+}

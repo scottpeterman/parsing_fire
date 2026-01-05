@@ -1,0 +1,56 @@
+{
+  "command": "show cts interface details",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"shared_secret\">\n  Cisco_Shared_Secret: {{SHARED_SECRET | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "GigabitEthernet1/0/1",
+      "CTS_STATUS": "Enabled",
+      "POLICY": "Enforced",
+      "PEER_DEVICE": "Yes",
+      "AUTHENTICATION": "PASSED",
+      "SHARED_SECRET": "Configured",
+      "SGT": "2"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/0/2",
+      "CTS_STATUS": "Enabled",
+      "POLICY": "Enforced",
+      "PEER_DEVICE": "No",
+      "AUTHENTICATION": "FAILED",
+      "SHARED_SECRET": "Not Configured",
+      "SGT": "255"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/0/3",
+      "CTS_STATUS": "Disabled",
+      "POLICY": "None",
+      "PEER_DEVICE": "No",
+      "AUTHENTICATION": "FAILED",
+      "SHARED_SECRET": "Not Configured",
+      "SGT": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "shared_secret": [
+        {
+          "SHARED_SECRET": "Configured"
+        },
+        {
+          "SHARED_SECRET": "Not Configured"
+        },
+        {
+          "SHARED_SECRET": "Not Configured"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface: GigabitEthernet1/0/1\n  CTS Status: Enabled\n  Policy: Enforced\n  Peer Device: Yes\n  Authentication: PASSED\n  Cisco_Shared_Secret: Configured\n  SGT: 2\n\nInterface: GigabitEthernet1/0/2\n  CTS Status: Enabled\n  Policy: Enforced\n  Peer Device: No\n  Authentication: FAILED\n  Cisco_Shared_Secret: Not Configured\n  SGT: 255\n\nInterface: GigabitEthernet1/0/3\n  CTS Status: Disabled\n  Policy: None\n  Peer Device: No\n  Authentication: FAILED\n  Cisco_Shared_Secret: Not Configured\n  SGT: 0\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue CTS_STATUS (\\S+)\nValue POLICY (\\S+)\nValue PEER_DEVICE (\\S+)\nValue AUTHENTICATION (\\S+)\nValue SHARED_SECRET (Configured|Not Configured)\nValue SGT (\\d+)\n\nStart\n  ^Interface:\\s+${INTERFACE}$$\n  ^\\s+CTS Status:\\s+${CTS_STATUS}$$\n  ^\\s+Policy:\\s+${POLICY}$$\n  ^\\s+Peer Device:\\s+${PEER_DEVICE}$$\n  ^\\s+Authentication:\\s+${AUTHENTICATION}$$\n  ^\\s+Cisco_Shared_Secret:\\s+${SHARED_SECRET}$$\n  ^\\s+SGT:\\s+${SGT}$$ -> Record"
+}

@@ -1,0 +1,56 @@
+{
+  "command": "cisco_ios_show_lldp_neighbors_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"local_interface_mgmt_address_neighbor_description_neighbor_interface\">\nLocal Intf: {{LOCAL_INTERFACE | ORPHRASE}}\nChassis id: {{NEIGHBOR_INTERFACE | ORPHRASE}}\nSystem Name: {{NEIGHBOR_NAME | ORPHRASE}}\n{{NEIGHBOR_DESCRIPTION | ORPHRASE}}\n  IP: {{MGMT_ADDRESS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOCAL_INTERFACE": "Gi1/0/2",
+      "NEIGHBOR_INTERFACE": "502",
+      "NEIGHBOR_DESCRIPTION": "Juniper Networks, Inc. ex2200-24t-4g , version 12.3R9.4 Build date: 2015-02-12 11:25:30 UTC"
+    },
+    {
+      "LOCAL_INTERFACE": "Gi1/0/1",
+      "NEIGHBOR_INTERFACE": "94f1.2879.5555",
+      "NEIGHBOR_NAME": "HpSwitch",
+      "NEIGHBOR_DESCRIPTION": "HPE OfficeConnect Switch 1820 48G J9981A, PT.02.01, Linux 3.6.5-79c95a77, U-Boot 2012.10-00116-g3ab515c (Jul 30 2014 - 10:52:01)",
+      "MGMT_ADDRESS": "192.168.1.81"
+    },
+    {
+      "LOCAL_INTERFACE": "Gi1/0/9",
+      "NEIGHBOR_INTERFACE": "4448.c1c4.dddd",
+      "NEIGHBOR_NAME": "44:48:c1:c4:dd:dd",
+      "NEIGHBOR_DESCRIPTION": "ArubaOS (MODEL: 225), Version 6.4.2.6-4.1.1.6 (50009)",
+      "MGMT_ADDRESS": "192.168.1.40"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "local_interface_mgmt_address_neighbor_description_neighbor_interface": [
+        {
+          "NEIGHBOR_DESCRIPTION": "Port id: 502",
+          "NEIGHBOR_INTERFACE": "7c25.86c9.aaaa",
+          "LOCAL_INTERFACE": "Gi1/0/2"
+        },
+        {
+          "NEIGHBOR_DESCRIPTION": "Port id: 94f1.2879.5555",
+          "NEIGHBOR_NAME": "HpSwitch",
+          "NEIGHBOR_INTERFACE": "94f1.2879.5555",
+          "LOCAL_INTERFACE": "Gi1/0/1"
+        },
+        {
+          "NEIGHBOR_DESCRIPTION": "Port id: 4448.c1c4.dddd",
+          "NEIGHBOR_NAME": "44:48:c1:c4:dd:dd",
+          "NEIGHBOR_INTERFACE": "4448.c1c4.dddd",
+          "LOCAL_INTERFACE": "Gi1/0/9"
+        }
+      ]
+    }
+  ],
+  "cli_content": "------------------------------------------------\nLocal Intf: Gi1/0/2\nChassis id: 7c25.86c9.aaaa\nPort id: 502\nPort Description: ge-0/0/0.0\nSystem Name - not advertised\n\nSystem Description:\nJuniper Networks, Inc. ex2200-24t-4g , version 12.3R9.4 Build date: 2015-02-12 11:25:30 UTC\n\nTime remaining: 116 seconds\nSystem Capabilities: B,R\nEnabled Capabilities: B,R\nManagement Addresses - not advertised\nAuto Negotiation - supported, enabled\nPhysical media capabilities:\n    1000baseT(FD)\n    Symm, Asym Pause(FD)\n    100base-TX(FD)\n    100base-TX(HD)\n    10base-T(FD)\n    10base-T(HD)\nMedia Attachment Unit type - not advertised\nVlan ID: 1\n\nMED Information:\n\n    MED Codes:\n          (NP) Network Policy, (LI) Location Identification\n          (PS) Power Source Entity, (PD) Power Device\n          (IN) Inventory\n\n    Inventory information - not advertised\n    Capabilities: NP, LI, PS\n    Device type: Network connectivity\n    Network Policies - not advertised\n    Power requirements - not advertised\n    Location - not advertised\n\n------------------------------------------------\nLocal Intf: Gi1/0/1\nChassis id: 94f1.2879.5555\nPort id: 94f1.2879.5555\nPort Description: 13\nSystem Name: HpSwitch\n\nSystem Description:\nHPE OfficeConnect Switch 1820 48G J9981A, PT.02.01, Linux 3.6.5-79c95a77, U-Boot 2012.10-00116-g3ab515c (Jul 30 2014 - 10:52:01)\n\nTime remaining: 91 seconds\nSystem Capabilities: B\nEnabled Capabilities: B\nManagement Addresses:\n    IP: 192.168.1.81\n    OID:\n        1.9.46.51.46.54.46.49.46.52.46.49.46.49.49.46.50.46.51.46.55.46.49.49.46.49.54.57.\nAuto Negotiation - not supported\nPhysical media capabilities - not advertised\nMedia Attachment Unit type - not advertised\nVlan ID: - not advertised\n\n------------------------------------------------\nLocal Intf: Gi1/0/9\nChassis id: 4448.c1c4.dddd\nPort id: 4448.c1c4.dddd\nPort Description: eth0\nSystem Name: 44:48:c1:c4:dd:dd\n\nSystem Description:\nArubaOS (MODEL: 225), Version 6.4.2.6-4.1.1.6 (50009)\n\nTime remaining: 110 seconds\nSystem Capabilities: B,W\nEnabled Capabilities: W\nManagement Addresses:\n    IP: 192.168.1.40\nAuto Negotiation - supported, enabled\nPhysical media capabilities:\n    1000baseT(FD)\n    100base-TX(FD)\n    100base-TX(HD)\n    10base-T(FD)\n    10base-T(HD)\nMedia Attachment Unit type: 30\nVlan ID: - not advertised\nPoE+ Power-via-MDI TLV:\n Power Pair: Signal\n Power Class: Class 4\n Power Device Type: Type 2 PD\n Power Source: PSE\n Power Priority: unknown\n Power Requested: 19000 mW\n Power Allocated: 19000 mW\n\n\nTotal entries displayed: 3\n\n",
+  "textfsm_template": "Value LOCAL_INTERFACE (\\S+)\r\nValue NEIGHBOR_INTERFACE (\\S+) \r\nValue NEIGHBOR_NAME (\\S+)\r\nValue NEIGHBOR_DESCRIPTION (.+)\r\nValue MGMT_ADDRESS (\\S+)\r\n\r\nStart\r\n  ^Local\\s+Intf:\\s+${LOCAL_INTERFACE}\r\n  ^Port\\s+id:\\s+${NEIGHBOR_INTERFACE}\r\n  ^System\\s+Name:\\s+${NEIGHBOR_NAME}\r\n  ^System\\s+Description: -> GetDescription\r\n  ^Management\\s+Addresses: -> InMgmt\r\n  ^Total\\s+entries\\s+displayed -> Record\r\n  ^-+ -> Record\r\n  ^\\s*\r\n  ^.* -> Continue\r\n\r\nGetDescription\r\n  ^${NEIGHBOR_DESCRIPTION} -> Start\r\n  ^\\s* -> GetDescription\r\n  ^.* -> GetDescription\r\n\r\nInMgmt\r\n  ^\\s*IP:\\s+${MGMT_ADDRESS} -> Start\r\n  ^\\s* -> Start\r\n  ^.* -> InMgmt"
+}

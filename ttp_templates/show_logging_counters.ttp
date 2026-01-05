@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show logging counters
+# Source: chatgpt
+# TextFSM rows: 7
+# TTP rows: 7
+# Match ratio: 1.00
+
+<group name="id_message_count">
+{{ID | re("\\d+")}} {{MESSAGE | ORPHRASE}} {{COUNT | ORPHRASE}}
+</group>

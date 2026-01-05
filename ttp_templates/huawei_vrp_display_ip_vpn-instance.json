@@ -1,0 +1,40 @@
+{
+  "command": "huawei_vrp_display_ip_vpn-instance",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"name_rd_address_family\">\n  {{NAME}} {{RD}} {{ADDRESS_FAMILY | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "red",
+      "RD": "1:2",
+      "ADDRESS_FAMILY": "IPv4"
+    },
+    {
+      "NAME": "red",
+      "RD": "1:2",
+      "ADDRESS_FAMILY": "IPv6"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name_rd_address_family": [
+        {
+          "NAME": "red",
+          "RD": "1:2",
+          "ADDRESS_FAMILY": "IPv4"
+        },
+        {
+          "NAME": "red",
+          "RD": "1:2",
+          "ADDRESS_FAMILY": "IPv6"
+        }
+      ]
+    }
+  ],
+  "cli_content": " Total VPN-Instances configured      : 1\n Total IPv4 VPN-Instances configured : 1\n Total IPv6 VPN-Instances configured : 1\n\n  VPN-Instance Name               RD                    Address-family\n  red                             1:2                   IPv4\n  red                             1:2                   IPv6\n",
+  "textfsm_template": "Value Required NAME (\\S+)\nValue RD (\\d+:\\d+)\nValue ADDRESS_FAMILY (\\S+)\n\nStart\n  ^\\s*VPN-Instance Name -> VPNInstances\n  ^\\s*Total\n  ^\\s*$$\n  ^. -> Error\n\nVPNInstances\n  ^\\s*${NAME}\\s+${RD}\\s+${ADDRESS_FAMILY}\\s* -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

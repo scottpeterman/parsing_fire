@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show dns query-host google.com
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="address_ipv4_ipv6_name">
+Running DNS query for host: {{NAME | ORPHRASE}}
+Server:  {{SERVER | ORPHRASE}}
+Address: {{IPV4 | ORPHRASE}}
+Address: {{IPV6 | ORPHRASE}}
+</group>

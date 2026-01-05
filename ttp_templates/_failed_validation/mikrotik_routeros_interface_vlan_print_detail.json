@@ -1,0 +1,89 @@
+{
+  "command": "mikrotik_routeros_interface_vlan_print_detail",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 8,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"name_vlan_id_status_service_tag\">\n     name=\"{{NAME}}\" mtu={{VLAN_ID | re(\"\\\\d+\")}}574 l2mtu=8992 mac-address=AA:BB:CC:11:22:33 arp=enabled arp-timeout=auto loop-protect=default loop-protect-status=off loop-protect-send-interval=5s loop-protect-disable-time=5m vlan-id=1 interface={{PA{{STATUS | ORPHRASE}}ENT_INTERFACE}} use-service-tag={{SERVICE_TAG | ORPHRASE}}\n</group>\n<group name=\"name_id_vlan_id_status_service_tag\">\n     name=\"{{NAME}}\" mtu={{ID | re(\"\\\\d+\")}}508 l2mtu=899{{VLAN_ID | re(\"\\\\d+\")}} mac-address=AA:BB:CC:11:22:33 arp=enabled arp-timeout=auto loop-protect=default loop-protect-status=off loop-protect-send-interval=5s loop-protect-disable-time=5m vlan-id=6 interface={{PA{{STATUS | ORPHRASE}}ENT_INTERFACE}} use-service-tag={{SERVICE_TAG | ORPHRASE}}\n</group>\n<group name=\"name_vlan_id_id_status_service_tag\">\n     name=\"{{NAME}}\" mtu=1500 l2mtu=8996 mac-address=AA:BB:CC:{{VLAN_ID | re(\"\\\\d+\")}}:22:{{ID | re(\"\\\\d+\")}}3 arp=enabled arp-timeout=auto loop-protect=default loop-protect-status=off loop-protect-send-interval=5s loop-protect-disable-time=5m vlan-id=11 interface={{PA{{STATUS | ORPHRASE}}ENT_INTERFACE}} use-service-tag={{SERVICE_TAG | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "ID": "0",
+      "NAME": "vlan1@vlan602@interface",
+      "PARENT_INTERFACE": "vlan602@interface",
+      "DESCRIPTION": "CUST",
+      "STATUS": "R",
+      "VLAN_ID": "1",
+      "SERVICE_TAG": "no"
+    },
+    {
+      "ID": "1",
+      "NAME": "vlan6@bond1",
+      "PARENT_INTERFACE": "bond1",
+      "DESCRIPTION": "PPPoE Termination on BNGs",
+      "STATUS": "R",
+      "VLAN_ID": "6",
+      "SERVICE_TAG": "no"
+    },
+    {
+      "ID": "2",
+      "NAME": "vlan10@vlan975@interface",
+      "PARENT_INTERFACE": "vlan975@interface",
+      "DESCRIPTION": "Cust",
+      "STATUS": "R",
+      "VLAN_ID": "10",
+      "SERVICE_TAG": "no"
+    },
+    {
+      "ID": "3",
+      "NAME": "vlan11@bond1",
+      "PARENT_INTERFACE": "bond1",
+      "DESCRIPTION": "test pppoe",
+      "STATUS": "R",
+      "VLAN_ID": "11",
+      "SERVICE_TAG": "no"
+    },
+    {
+      "ID": "4",
+      "NAME": "vlan11@vlan975@interface",
+      "PARENT_INTERFACE": "vlan975@interface",
+      "DESCRIPTION": "Intercap",
+      "STATUS": "R",
+      "VLAN_ID": "11",
+      "SERVICE_TAG": "no"
+    },
+    {
+      "ID": "5",
+      "NAME": "vlan12@vlan975@interface",
+      "PARENT_INTERFACE": "vlan975@interface",
+      "DESCRIPTION": "Intercap",
+      "STATUS": "R",
+      "VLAN_ID": "12",
+      "SERVICE_TAG": "no"
+    },
+    {
+      "ID": "6",
+      "NAME": "vlan60@interface",
+      "PARENT_INTERFACE": "sfp-sfpplus1",
+      "DESCRIPTION": "Carrier",
+      "STATUS": "R",
+      "VLAN_ID": "60",
+      "SERVICE_TAG": "no"
+    },
+    {
+      "ID": "7",
+      "NAME": "vlan60@bond1",
+      "PARENT_INTERFACE": "bond1",
+      "DESCRIPTION": "Carrier",
+      "STATUS": "R",
+      "VLAN_ID": "60",
+      "SERVICE_TAG": "no"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Flags: X - disabled, R - running\n 0 R ;;; CUST\n     name=\"vlan1@vlan602@interface\" mtu=1574 l2mtu=8992 mac-address=AA:BB:CC:11:22:33 arp=enabled arp-timeout=auto loop-protect=default loop-protect-status=off loop-protect-send-interval=5s loop-protect-disable-time=5m vlan-id=1 interface=vlan602@interface use-service-tag=no\n\n 1 R ;;; PPPoE Termination on BNGs\n     name=\"vlan6@bond1\" mtu=1508 l2mtu=8996 mac-address=AA:BB:CC:11:22:33 arp=enabled arp-timeout=auto loop-protect=default loop-protect-status=off loop-protect-send-interval=5s loop-protect-disable-time=5m vlan-id=6 interface=bond1 use-service-tag=no\n\n 2 R ;;; Cust\n     name=\"vlan10@vlan975@interface\" mtu=1574 l2mtu=8992 mac-address=AA:BB:CC:11:22:33 arp=enabled arp-timeout=auto loop-protect=default loop-protect-status=off loop-protect-send-interval=5s loop-protect-disable-time=5m vlan-id=10 interface=vlan975@interface use-service-tag=no\n\n 3 R ;;; test pppoe\n     name=\"vlan11@bond1\" mtu=1500 l2mtu=8996 mac-address=AA:BB:CC:11:22:33 arp=enabled arp-timeout=auto loop-protect=default loop-protect-status=off loop-protect-send-interval=5s loop-protect-disable-time=5m vlan-id=11 interface=bond1 use-service-tag=no\n\n 4 R ;;; Intercap\n     name=\"vlan11@vlan975@interface\" mtu=1574 l2mtu=8992 mac-address=AA:BB:CC:11:22:33 arp=enabled arp-timeout=auto loop-protect=default loop-protect-status=off loop-protect-send-interval=5s loop-protect-disable-time=5m vlan-id=11 interface=vlan975@interface use-service-tag=no\n\n 5 R ;;; Intercap\n     name=\"vlan12@vlan975@interface\" mtu=1574 l2mtu=8992 mac-address=AA:BB:CC:11:22:33 arp=enabled arp-timeout=auto loop-protect=default loop-protect-status=off loop-protect-send-interval=5s loop-protect-disable-time=5m vlan-id=12 interface=vlan975@interface use-service-tag=no\n\n 6 R ;;; Carrier\n     name=\"vlan60@interface\" mtu=1600 l2mtu=8996 mac-address=AA:BB:CC:11:22:33 arp=enabled arp-timeout=auto loop-protect=default loop-protect-status=off loop-protect-send-interval=5s loop-protect-disable-time=5m vlan-id=60 interface=sfp-sfpplus1 use-service-tag=no\n\n 7 R ;;; Carrier\n     name=\"vlan60@bond1\" mtu=1600 l2mtu=8996 mac-address=AA:BB:CC:11:22:33 arp=enabled arp-timeout=auto loop-protect=default loop-protect-status=off loop-protect-send-interval=5s loop-protect-disable-time=5m vlan-id=60 interface=bond1 use-service-tag=no\n",
+  "textfsm_template": "Value Required ID (\\d+)\nValue NAME (\\S+)\nValue PARENT_INTERFACE (\\S+)\nValue List DESCRIPTION (.+?)\nValue STATUS (X|R)\nValue VLAN_ID (\\d+)\nValue SERVICE_TAG (yes|no)\n\nStart\n  ^\\s*Flags:\\s*X\\s*-\\s*disabled,\\s*R\\s*-\\s*running\\s*$$ -> Vlan\n  ^\\s*$$\n  ^. -> Error\n\nVlan\n  ^\\s*(?:\\d+)?\\s*(?:X|R)?\\s*$$ -> Continue.Record\n  ^\\s*name=\"${NAME}\"\\s*mtu=(?:\\d+)\\s*l2mtu=(?:\\d+)\\s*mac-address=(?:[a-zA-Z0-9]{2}(?::[a-zA-Z0-9]{2}){5})\\s*arp=(?:\\S+)\\s*arp-timeout=(?:\\S+)\\s*loop-protect=(?:\\S+)\\s*loop-protect-status=(?:\\S+)\\s*loop-protect-send-interval=(?:\\d+\\w)\\s*loop-protect-disable-time=(?:\\d+\\w)\\s*vlan-id=${VLAN_ID}\\s*interface=${PARENT_INTERFACE}\\s*use-service-tag=${SERVICE_TAG}\\s*$$\n  ^\\s*${ID}\\s*${STATUS}\\s*name=\"${NAME}\"\\s*mtu=(?:\\d+)\\s*l2mtu=(?:\\d+)\\s*mac-address=(?:[a-zA-Z0-9]{2}(?::[a-zA-Z0-9]{2}){5})\\s*arp=(?:\\S+)\\s*arp-timeout=(?:\\S+)\\s*loop-protect=(?:\\S+)\\s*loop-protect-status=(?:\\S+)\\s*loop-protect-send-interval=(?:\\d+\\w)\\s*loop-protect-disable-time=(?:\\d+\\w)\\s*vlan-id=${VLAN_ID}\\s*interface=${PARENT_INTERFACE}\\s*use-service-tag=${SERVICE_TAG}\\s*$$\n  ^\\s*${ID}\\s*${STATUS}\\s*;{3}\\s*${DESCRIPTION}\\s*$$\n  ^\\s*${DESCRIPTION}\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

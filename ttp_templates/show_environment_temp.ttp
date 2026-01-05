@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show environment temp
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="temperature_status">
+    Temperature: {{TEMPERATURE}} C ({{STATUS | ORPHRASE}})
+</group>

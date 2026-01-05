@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ntp status
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="nominal_freq_actual_freq_precision">
+nominal freq is {{NOMINAL_FREQ | ORPHRASE}}, actual freq is {{ACTUAL_FREQ | ORPHRASE}}, precision is {{PRECISION | ORPHRASE}}
+</group>

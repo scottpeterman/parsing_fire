@@ -1,0 +1,35 @@
+{
+  "command": "brocade_fastiron_show_mac-address",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 3,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"mac_address_destination_port_vlan_id\">\n{{MAC_ADDRESS | re(\"[{{AGE}}-9a-fA-F:.-]+\")}} {{DESTINATION_PORT}} 0 {{VLAN_ID | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "MAC_ADDRESS": "6cae.8b2d.c979",
+      "DESTINATION_PORT": "2/1",
+      "AGE": "0",
+      "VLAN_ID": "1000"
+    },
+    {
+      "MAC_ADDRESS": "3440.b5be.e3ac",
+      "DESTINATION_PORT": "2/1",
+      "AGE": "0",
+      "VLAN_ID": "1000"
+    },
+    {
+      "MAC_ADDRESS": "90e2.ba5a.ab8c",
+      "DESTINATION_PORT": "2/1",
+      "AGE": "0",
+      "VLAN_ID": "1000"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Total active entries from all ports = 236\nMAC Address     Port      Age      VLAN    Type\n\n6cae.8b2d.c979   2/1        0      1000\n3440.b5be.e3ac   2/1        0      1000\n90e2.ba5a.ab8c   2/1        0      1000",
+  "textfsm_template": "Value Required MAC_ADDRESS ([A-Fa-f0-9\\.]{14})\nValue Required DESTINATION_PORT (\\S+)\nValue Required AGE (\\d+)\nValue Required VLAN_ID (\\d+)\nValue TYPE (\\S+)\n\n\nStart\n  ^Total.*\n  ^MAC Address\\s+Port\\s+Age\\s+VLAN\\s+Type\n  ^${MAC_ADDRESS}\\s+${DESTINATION_PORT}\\s+${AGE}\\s+${VLAN_ID}\\s+${TYPE} -> Record\n  ^${MAC_ADDRESS}\\s+${DESTINATION_PORT}\\s+${AGE}\\s+${VLAN_ID} -> Record\n  ^. -> Error"
+}

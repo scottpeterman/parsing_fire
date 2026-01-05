@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_forwarding_adjacency
+# Source: ntc
+# TextFSM rows: 9
+# TTP rows: 11
+# Match ratio: 1.22
+
+<group name="nexthop_rewrite_interface">
+{{NEXTHOP}} {{REWRITE}} {{INTERFACE | ORPHRASE}}
+</group>

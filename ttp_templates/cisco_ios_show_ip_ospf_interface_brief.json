@@ -1,0 +1,260 @@
+{
+  "command": "cisco_ios_show_ip_ospf_interface_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 12,
+  "ttp_rows": 12,
+  "ttp_template": "<group name=\"interface_process_area_ip_address_prefix_length_cost_state_neighbors_fc\">\n{{INTERFACE}} {{PROCESS}} {{AREA}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{PREFIX_LENGTH}} {{COST}} {{STATE | ORPHRASE}} {{NEIGHBORS_FC | ORPHRASE}}\n</group>\n<group name=\"interface_process_area_state_prefix_length_cost_neighbors_fc\">\n{{INTERFACE}} {{PROCESS}} {{AREA}} {{IP_AD{{STATE | ORPHRASE}}ESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{PREFIX_LENGTH}} {{COST}} DR {{NEIGHBORS_FC | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Lo0",
+      "PROCESS": "1",
+      "AREA": "0",
+      "IP_ADDRESS": "172.16.0.11",
+      "PREFIX_LENGTH": "32",
+      "COST": "1",
+      "STATE": "LOOP",
+      "NEIGHBORS_FC": "0/0"
+    },
+    {
+      "INTERFACE": "Se0/0/0.100",
+      "PROCESS": "1",
+      "AREA": "0",
+      "IP_ADDRESS": "172.16.1.1",
+      "PREFIX_LENGTH": "30",
+      "COST": "50",
+      "STATE": "P2P",
+      "NEIGHBORS_FC": "1/1"
+    },
+    {
+      "INTERFACE": "Fa0/0",
+      "PROCESS": "1",
+      "AREA": "0",
+      "IP_ADDRESS": "10.0.0.5",
+      "PREFIX_LENGTH": "24",
+      "COST": "1",
+      "STATE": "BDR",
+      "NEIGHBORS_FC": "1/1"
+    },
+    {
+      "INTERFACE": "Fa0/1",
+      "PROCESS": "1",
+      "AREA": "11",
+      "IP_ADDRESS": "10.1.2.1",
+      "PREFIX_LENGTH": "24",
+      "COST": "1",
+      "STATE": "DR",
+      "NEIGHBORS_FC": "0/0"
+    },
+    {
+      "INTERFACE": "Tu1610",
+      "PROCESS": "1",
+      "AREA": "0",
+      "IP_ADDRESS": "0.0.0.0",
+      "PREFIX_LENGTH": "0",
+      "COST": "50",
+      "STATE": "P2P",
+      "NEIGHBORS_FC": "0/0"
+    },
+    {
+      "INTERFACE": "Lo5",
+      "PROCESS": "1",
+      "AREA": "0",
+      "IP_ADDRESS": "10.48.8.5",
+      "PREFIX_LENGTH": "32",
+      "COST": "1",
+      "STATE": "LOOP",
+      "NEIGHBORS_FC": "0/0"
+    },
+    {
+      "INTERFACE": "Lo4",
+      "PROCESS": "1",
+      "AREA": "0",
+      "IP_ADDRESS": "10.48.8.4",
+      "PREFIX_LENGTH": "32",
+      "COST": "1",
+      "STATE": "LOOP",
+      "NEIGHBORS_FC": "0/0"
+    },
+    {
+      "INTERFACE": "Tu1603",
+      "PROCESS": "1",
+      "AREA": "0",
+      "IP_ADDRESS": "0.0.0.0",
+      "PREFIX_LENGTH": "0",
+      "COST": "50",
+      "STATE": "DOWN",
+      "NEIGHBORS_FC": "0/0"
+    },
+    {
+      "INTERFACE": "Tu1602",
+      "PROCESS": "1",
+      "AREA": "0",
+      "IP_ADDRESS": "0.0.0.0",
+      "PREFIX_LENGTH": "0",
+      "COST": "50",
+      "STATE": "P2P",
+      "NEIGHBORS_FC": "0/0"
+    },
+    {
+      "INTERFACE": "PO4/0",
+      "PROCESS": "1",
+      "AREA": "0",
+      "IP_ADDRESS": "10.1.232.6",
+      "PREFIX_LENGTH": "30",
+      "COST": "6",
+      "STATE": "P2P",
+      "NEIGHBORS_FC": "1/1"
+    },
+    {
+      "INTERFACE": "Se3/2:0",
+      "PROCESS": "1",
+      "AREA": "0",
+      "IP_ADDRESS": "10.1.224.218",
+      "PREFIX_LENGTH": "30",
+      "COST": "6",
+      "STATE": "P2P",
+      "NEIGHBORS_FC": "1/1"
+    },
+    {
+      "INTERFACE": "Se3/1:0",
+      "PROCESS": "1",
+      "AREA": "0",
+      "IP_ADDRESS": "10.1.225.150",
+      "PREFIX_LENGTH": "30",
+      "COST": "6",
+      "STATE": "P2P",
+      "NEIGHBORS_FC": "1/1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_process_area_ip_address_prefix_length_cost_state_neighbors_fc": [
+        {
+          "INTERFACE": "Lo0",
+          "PROCESS": "1",
+          "AREA": "0",
+          "IP_ADDRESS": "172.16.0.11",
+          "PREFIX_LENGTH": "32",
+          "COST": "1",
+          "STATE": "LOOP",
+          "NEIGHBORS_FC": "0/0"
+        },
+        {
+          "INTERFACE": "Se0/0/0.100",
+          "PROCESS": "1",
+          "AREA": "0",
+          "IP_ADDRESS": "172.16.1.1",
+          "PREFIX_LENGTH": "30",
+          "COST": "50",
+          "STATE": "P2P",
+          "NEIGHBORS_FC": "1/1"
+        },
+        {
+          "INTERFACE": "Fa0/0",
+          "PROCESS": "1",
+          "AREA": "0",
+          "IP_ADDRESS": "10.0.0.5",
+          "PREFIX_LENGTH": "24",
+          "COST": "1",
+          "STATE": "BDR",
+          "NEIGHBORS_FC": "1/1"
+        },
+        {
+          "INTERFACE": "Fa0/1",
+          "PROCESS": "1",
+          "AREA": "11",
+          "IP_ADDRESS": "10.1.2.1",
+          "PREFIX_LENGTH": "24",
+          "COST": "1",
+          "STATE": "DR",
+          "NEIGHBORS_FC": "0/0"
+        },
+        {
+          "INTERFACE": "Tu1610",
+          "PROCESS": "1",
+          "AREA": "0",
+          "IP_ADDRESS": "0.0.0.0",
+          "PREFIX_LENGTH": "0",
+          "COST": "50",
+          "STATE": "P2P",
+          "NEIGHBORS_FC": "0/0"
+        },
+        {
+          "INTERFACE": "Lo5",
+          "PROCESS": "1",
+          "AREA": "0",
+          "IP_ADDRESS": "10.48.8.5",
+          "PREFIX_LENGTH": "32",
+          "COST": "1",
+          "STATE": "LOOP",
+          "NEIGHBORS_FC": "0/0"
+        },
+        {
+          "INTERFACE": "Lo4",
+          "PROCESS": "1",
+          "AREA": "0",
+          "IP_ADDRESS": "10.48.8.4",
+          "PREFIX_LENGTH": "32",
+          "COST": "1",
+          "STATE": "LOOP",
+          "NEIGHBORS_FC": "0/0"
+        },
+        {
+          "INTERFACE": "Tu1603",
+          "PROCESS": "1",
+          "AREA": "0",
+          "IP_ADDRESS": "0.0.0.0",
+          "PREFIX_LENGTH": "0",
+          "COST": "50",
+          "STATE": "DOWN",
+          "NEIGHBORS_FC": "0/0"
+        },
+        {
+          "INTERFACE": "Tu1602",
+          "PROCESS": "1",
+          "AREA": "0",
+          "IP_ADDRESS": "0.0.0.0",
+          "PREFIX_LENGTH": "0",
+          "COST": "50",
+          "STATE": "P2P",
+          "NEIGHBORS_FC": "0/0"
+        },
+        {
+          "INTERFACE": "PO4/0",
+          "PROCESS": "1",
+          "AREA": "0",
+          "IP_ADDRESS": "10.1.232.6",
+          "PREFIX_LENGTH": "30",
+          "COST": "6",
+          "STATE": "P2P",
+          "NEIGHBORS_FC": "1/1"
+        },
+        {
+          "INTERFACE": "Se3/2:0",
+          "PROCESS": "1",
+          "AREA": "0",
+          "IP_ADDRESS": "10.1.224.218",
+          "PREFIX_LENGTH": "30",
+          "COST": "6",
+          "STATE": "P2P",
+          "NEIGHBORS_FC": "1/1"
+        },
+        {
+          "INTERFACE": "Se3/1:0",
+          "PROCESS": "1",
+          "AREA": "0",
+          "IP_ADDRESS": "10.1.225.150",
+          "PREFIX_LENGTH": "30",
+          "COST": "6",
+          "STATE": "P2P",
+          "NEIGHBORS_FC": "1/1"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface    PID   Area  IP Address/Mask    Cost  State Nbrs F/C\nLo0          1     0     172.16.0.11/32     1     LOOP  0/0\nSe0/0/0.100  1     0     172.16.1.1/30      50    P2P   1/1\nFa0/0        1     0     10.0.0.5/24        1     BDR   1/1\nFa0/1        1     11    10.1.2.1/24        1     DR    0/0\nTu1610 \t\t 1\t   0 \t 0.0.0.0/0\t\t\t50 \t  P2P \t0/0\nLo5 \t\t 1\t   0 \t 10.48.8.5/32\t\t1 \t  LOOP \t0/0\nLo4 \t\t 1\t   0 \t 10.48.8.4/32\t\t1 \t  LOOP \t0/0\nTu1603 \t\t 1\t   0 \t 0.0.0.0/0\t\t\t50\t  DOWN \t0/0\nTu1602 \t\t 1\t   0 \t 0.0.0.0/0\t\t\t50\t  P2P \t0/0\nPO4/0 \t\t 1\t   0 \t 10.1.232.6/30 \t\t6 \t  P2P\t1/1\nSe3/2:0 \t 1\t   0 \t 10.1.224.218/30 \t6\t  P2P\t1/1\nSe3/1:0 \t 1\t   0 \t 10.1.225.150/30 \t6\t  P2P\t1/1\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue PROCESS (\\d+)\nValue AREA (\\d+)\nValue IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue PREFIX_LENGTH (\\d+)\nValue COST (\\d+)\nValue STATE (\\S+)\nValue NEIGHBORS_FC (\\d+/\\d+)\n\nStart\n  ^${INTERFACE}\\s+${PROCESS}\\s+${AREA}\\s+${IP_ADDRESS}\\/${PREFIX_LENGTH}\\s+${COST}\\s+${STATE}\\s+${NEIGHBORS_FC} -> Record\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n"
+}

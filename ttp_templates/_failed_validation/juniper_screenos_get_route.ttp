@@ -1,0 +1,11 @@
+# TTP Template - FAILED VALIDATION
+# Original command: juniper_screenos_get_route
+# Source: ntc
+# Error: TTP parse error: not well-formed (invalid token): line 3, column 24
+
+<group name="vr">
+IPv4 Dest-Routes for <un{{VR | ORPHRASE}}> (0 entries)
+<group name="id_ip_address_metric">
+* {{ID | re("\\d+")}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{PREFIX_LENGT{{PROTOCOL}}}} {{OUTINTERFACE}} {{NEXTHOP}} H {{PREF}} {{METRIC}} {{VSYS | ORPHRASE}}
+</group>
+</group>

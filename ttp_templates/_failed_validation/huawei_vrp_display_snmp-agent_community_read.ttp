@@ -1,0 +1,11 @@
+# TTP Template - FAILED VALIDATION
+# Original command: huawei_vrp_display_snmp-agent_community_read
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="acl_name_storage_type_view">
+  Storage type: {{STORAGE_TYPE | ORPHRASE}} 
+  View name: {{VIEW | ORPHRASE}} 
+  Acl: {{ACL | ORPHRASE}}
+  Community name: {{NAME | ORPHRASE}} 
+</group>

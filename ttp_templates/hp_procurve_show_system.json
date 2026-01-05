@@ -1,0 +1,60 @@
+{
+  "command": "hp_procurve_show_system",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"allow_mods_buffers_free_buffers_lowest_buffers_missed\">\n  System Name  : {{HOSTNAME | ORPHRASE}}  \n  System Contact  : {{CONTACT | ORPHRASE}}\n  System Location  : {{LOCATION | ORPHRASE}}\n  MAC Age Time (sec) : {{MAC_AGE | ORPHRASE}}  \n  Time Zone  : {{TIMEZONE | ORPHRASE}} \n  Daylight Time Rule : {{DAYLIGHT_RULE | ORPHRASE}} \n  Software revision  : {{VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}}  Base MAC Addr  : {{MAC_ADDRESS | ORPHRASE}}\n  ROM Version  : {{ROM_VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}}  Serial Number  : {{SERIAL_NUMBER | ORPHRASE}}  \n  Allow V1 Modules  : {{ALLOW_MODS | ORPHRASE}}\n  Up Time  : {{UPTIME | ORPHRASE}}  Memory  - Total  : {{MEM_TOT | ORPHRASE}} \n  CPU Util (%)  : {{CPU_UTIL}}  Free  : {{MEM_FREE | ORPHRASE}}  \n  IP Mgmt  - Pkts Rx : {{PACKETS_RX}}  Packet  - Total  : {{PACKETS_TOT | ORPHRASE}}  \n  Pkts Tx : {{PACKETS_TX}}  Buffers  Free  : {{BUFFERS_FREE | ORPHRASE}}  \n  Lowest  : {{BUFFERS_LOWEST | ORPHRASE}}  \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "HOSTNAME": "HP_Procurve-01",
+      "CONTACT": "John Smith",
+      "LOCATION": "Downtown DC2",
+      "MAC_AGE": "300",
+      "TIMEZONE": "-480",
+      "DAYLIGHT_RULE": "Continental-US-and-Canada",
+      "VERSION": "K.15.06.0017",
+      "ROM_VERSION": "K.15.29",
+      "ALLOW_MODS": "Yes",
+      "MAC_ADDRESS": "7446a0-41a56f",
+      "SERIAL_NUMBER": "AB12CDE3FG",
+      "UPTIME": "15 days",
+      "CPU_UTIL": "22",
+      "MEM_TOT": "128,380,928",
+      "MEM_FREE": "61,999,280",
+      "PACKETS_RX": "39,808,402",
+      "PACKETS_TX": "4,524,902",
+      "PACKETS_TOT": "6750",
+      "BUFFERS_FREE": "5086",
+      "BUFFERS_LOWEST": "3416",
+      "BUFFERS_MISSED": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "allow_mods_buffers_free_buffers_lowest_buffers_missed": {
+        "PACKETS_RX": "39,808,402",
+        "PACKETS_TOT": "6750",
+        "CPU_UTIL": "22",
+        "MEM_FREE": "61,999,280",
+        "UPTIME": "15 days",
+        "MEM_TOT": "128,380,928",
+        "ALLOW_MODS": "Yes",
+        "ROM_VERSION": "K.15.29",
+        "SERIAL_NUMBER": "AB12CDE3FG",
+        "VERSION": "K.15.06.0017",
+        "MAC_ADDRESS": "7446a0-41a56f",
+        "DAYLIGHT_RULE": "Continental-US-and-Canada",
+        "TIMEZONE": "-480",
+        "MAC_AGE": "300",
+        "LOCATION": "Downtown DC2",
+        "CONTACT": "John Smith",
+        "HOSTNAME": "HP_Procurve-01"
+      }
+    }
+  ],
+  "cli_content": "\n Status and Counters - General System Information\n\n  System Name        : HP_Procurve-01                           \n  System Contact     : John Smith\n  System Location    : Downtown DC2\n\n  MAC Age Time (sec) : 300    \n\n  Time Zone          : -480 \n  Daylight Time Rule : Continental-US-and-Canada \n\n\n  Software revision  : K.15.06.0017         Base MAC Addr      : 7446a0-41a56f\n  ROM Version        : K.15.29              Serial Number      : AB12CDE3FG  \n  Allow V1 Modules   : Yes\n\n  Up Time            : 15 days              Memory   - Total   : 128,380,928 \n  CPU Util (%)       : 22                              Free    : 61,999,280  \n\n  IP Mgmt  - Pkts Rx : 39,808,402           Packet   - Total   : 6750        \n             Pkts Tx : 4,524,902            Buffers    Free    : 5086        \n                                                       Lowest  : 3416        \n                                                       Missed  : 0           \n\n",
+  "textfsm_template": "Value HOSTNAME (\\S+)\r\nValue CONTACT (.+)\r\nValue LOCATION (.+)\r\nValue MAC_AGE (\\d+)\r\nValue TIMEZONE (\\S+)\r\nValue DAYLIGHT_RULE (\\S+)\r\nValue VERSION (\\S+)\r\nValue ROM_VERSION (\\S+)\r\nValue ALLOW_MODS ([Yy]es|[Nn]o)\r\nValue MAC_ADDRESS (\\S+)\r\nValue SERIAL_NUMBER (\\S+)\r\nValue UPTIME (\\d+ \\w+)\r\nValue CPU_UTIL (\\d+)\r\nValue MEM_TOT ([\\d,]+)\r\nValue MEM_FREE ([\\d,]+)\r\nValue PACKETS_RX ([\\d,]+)\r\nValue PACKETS_TX ([\\d,]+)\r\nValue PACKETS_TOT (\\d+)\r\nValue BUFFERS_FREE (\\d+)\r\nValue BUFFERS_LOWEST (\\d+)\r\nValue BUFFERS_MISSED (\\d+)\r\n\r\nStart\r\n  ^.*Status and Counters -> INFO\r\n\r\nINFO\r\n  ^\\s*System Name\\s+:\\s+${HOSTNAME}\r\n  ^\\s*System Contact\\s+:\\s+${CONTACT}\r\n  ^\\s*System Location\\s+:\\s+${LOCATION}\r\n  ^\\s*MAC Age Time[^:]*:\\s+${MAC_AGE}\r\n  ^\\s*Time Zone\\s+:\\s+${TIMEZONE}\r\n  ^\\s*Daylight Time Rule\\s+:\\s+${DAYLIGHT_RULE}\r\n  ^\\s*Software revision\\s+:\\s+${VERSION}\\s+Base MAC Addr\\s+:\\s+${MAC_ADDRESS}\r\n  ^\\s*ROM Version\\s+:\\s+${ROM_VERSION}\\s+Serial Number\\s+:\\s+${SERIAL_NUMBER}\r\n  ^\\s*Allow V1 Modules\\s+:\\s+${ALLOW_MODS}\r\n  ^\\s*Up Time\\s+:\\s+${UPTIME}\\s+Memory\\s+- Total\\s+:\\s+${MEM_TOT}\r\n  ^\\s*CPU Util[^:]*:\\s+${CPU_UTIL}\\s+Free\\s+:\\s+${MEM_FREE}\r\n  ^\\s*IP Mgmt\\s+- Pkts Rx\\s+:\\s+${PACKETS_RX}\\s+Packet\\s+- Total\\s+:\\s+${PACKETS_TOT}\r\n  ^\\s*Pkts Tx\\s+:\\s+${PACKETS_TX}\\s+Buffers\\s+Free\\s+:\\s+${BUFFERS_FREE}\r\n  ^\\s*Lowest\\s+:\\s+${BUFFERS_LOWEST}\r\n  ^\\s*Missed\\s+:\\s+${BUFFERS_MISSED} -> Record\r\n  "
+}

@@ -1,0 +1,74 @@
+{
+  "command": "fortinet_get_router_info_bgp_neighbors",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"neighbor_remote_asn_local_asn\">\nBGP neighbor is {{NEIGHBOR}}, remote AS {{REMOTE_ASN | ORPHRASE}}, local AS {{LOCAL_ASN | re(\"\\\\w+\")}}, internal link\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR": "10.105.1.254",
+      "BGP_VERSION": "4",
+      "REMOTE_ASN": "65400",
+      "LOCAL_ASN": "65400",
+      "REMOTE_ROUTER_ID": "10.105.3.254",
+      "BGP_STATE": "Established",
+      "UPTIME": "4d14h28m",
+      "ADDR_FAMILY": "IPv4 Unicast, IPv6 Unicast",
+      "TABLE_VERSION": "31, 1",
+      "NEI_TABLE_VERSION": "25, 1",
+      "INBOUND_ROUTEMAP": "*prefer_vpn1root",
+      "ACCEPTED_PREFIXES": "423, 0",
+      "ACCEPTED_PREFIXES_RIB": "423, 0",
+      "ANNOUNCED_PREFIXES": "3, 0",
+      "LOCALHOST_IP": "10.105.1.2",
+      "LOCALHOST_PORT": "3777",
+      "REMOTE_IP": "10.105.1.254",
+      "REMOTE_PORT": "179",
+      "NEXTHOP_IP": "10.105.1.2",
+      "NEXTHOP_INTERFACE": "VPN1_0"
+    },
+    {
+      "NEIGHBOR": "10.105.2.254",
+      "BGP_VERSION": "4",
+      "REMOTE_ASN": "65400",
+      "LOCAL_ASN": "65400",
+      "REMOTE_ROUTER_ID": "10.105.3.254",
+      "BGP_STATE": "Established",
+      "UPTIME": "12:41:52",
+      "ADDR_FAMILY": "IPv4 Unicast, IPv6 Unicast",
+      "TABLE_VERSION": "31, 1",
+      "NEI_TABLE_VERSION": "30, 1",
+      "INBOUND_ROUTEMAP": "*prefer_vpn2root",
+      "ACCEPTED_PREFIXES": "423, 0",
+      "ACCEPTED_PREFIXES_RIB": "423, 0",
+      "ANNOUNCED_PREFIXES": "3, 0",
+      "LOCALHOST_IP": "10.105.2.2",
+      "LOCALHOST_PORT": "21489",
+      "REMOTE_IP": "10.105.2.254",
+      "REMOTE_PORT": "179",
+      "NEXTHOP_IP": "10.105.2.2",
+      "NEXTHOP_INTERFACE": "VPN2_0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neighbor_remote_asn_local_asn": [
+        {
+          "NEIGHBOR": "10.105.1.254",
+          "REMOTE_ASN": "65400",
+          "LOCAL_ASN": "65400"
+        },
+        {
+          "NEIGHBOR": "10.105.2.254",
+          "REMOTE_ASN": "65400",
+          "LOCAL_ASN": "65400"
+        }
+      ]
+    }
+  ],
+  "cli_content": "VRF 0 neighbor table:\nBGP neighbor is 10.105.1.254, remote AS 65400, local AS 65400, internal link\n  BGP version 4, remote router ID 10.105.3.254\n  BGP state = Established, up for 4d14h28m\n  Last read 00:00:00, hold time is 3, keepalive interval is 1 seconds\n  Configured hold time is 3, keepalive interval is 1 seconds\n  Neighbor capabilities:\n    Route refresh: advertised and received (old and new)\n    Address family IPv4 Unicast: advertised and received\n    Address family IPv6 Unicast: advertised and received\n  Received 1517339 messages, 2 notifications, 0 in queue\n  Sent 1482858 messages, 6 notifications, 0 in queue\n  Route refresh request: received 0, sent 0\n  Minimum time between advertisement runs is 1 seconds\n\n For address family: IPv4 Unicast\n  BGP table version 31, neighbor version 25\n  Index 1, Offset 0, Mask 0x2\n    Additional Path:\n      Send-mode: received\n      Receive-mode: advertised\n  NEXT_HOP is always this router\n  Community attribute sent to this neighbor (both)\n  Inbound path policy configured\n  Route map for incoming advertisements is *prefer_vpn1root\n  423 accepted prefixes, 423 prefixes in rib\n  3 announced prefixes\n\n For address family: IPv6 Unicast\n  BGP table version 1, neighbor version 1\n  Index 1, Offset 0, Mask 0x2\n  Community attribute sent to this neighbor (both)\n  0 accepted prefixes, 0 prefixes in rib\n  0 announced prefixes\n\n Connections established 9; dropped 8\nLocal host: 10.105.1.2, Local port: 3777\nForeign host: 10.105.1.254, Foreign port: 179\nNexthop: 10.105.1.2\nNexthop interface: VPN1_0\nNexthop global: ::\nNexthop local: ::\nBGP connection: non shared network\nLast Reset: 4d14h38m, due to BGP Notification sent\nNotification Error Message: (Hold Timer Expired/Unspecified Error Subcode)\n\nBGP neighbor is 10.105.2.254, remote AS 65400, local AS 65400, internal link\n  BGP version 4, remote router ID 10.105.3.254\n  BGP state = Established, up for 12:41:52\n  Last read 00:00:00, hold time is 3, keepalive interval is 1 seconds\n  Configured hold time is 3, keepalive interval is 1 seconds\n  Neighbor capabilities:\n    Route refresh: advertised and received (old and new)\n    Address family IPv4 Unicast: advertised and received\n    Address family IPv6 Unicast: advertised and received\n  Received 1517182 messages, 4 notifications, 0 in queue\n  Sent 1481876 messages, 16 notifications, 0 in queue\n  Route refresh request: received 0, sent 0\n  Minimum time between advertisement runs is 1 seconds\n\n For address family: IPv4 Unicast\n  BGP table version 31, neighbor version 30\n  Index 2, Offset 0, Mask 0x4\n    Additional Path:\n      Send-mode: received\n      Receive-mode: advertised\n  NEXT_HOP is always this router\n  Community attribute sent to this neighbor (both)\n  Inbound path policy configured\n  Route map for incoming advertisements is *prefer_vpn2root\n  423 accepted prefixes, 423 prefixes in rib\n  3 announced prefixes\n\n For address family: IPv6 Unicast\n  BGP table version 1, neighbor version 1\n  Index 2, Offset 0, Mask 0x4\n  Community attribute sent to this neighbor (both)\n  0 accepted prefixes, 0 prefixes in rib\n  0 announced prefixes\n\n Connections established 21; dropped 20\nLocal host: 10.105.2.2, Local port: 21489\nForeign host: 10.105.2.254, Foreign port: 179\nNexthop: 10.105.2.2\nNexthop interface: VPN2_0\nNexthop global: ::\nNexthop local: ::\nBGP connection: non shared network\nLast Reset: 12:55:18, due to BGP Notification sent\nNotification Error Message: (Hold Timer Expired/Unspecified Error Subcode)\n\n\n",
+  "textfsm_template": "Value NEIGHBOR (\\S+)\nValue BGP_VERSION (\\d+)\nValue REMOTE_ASN (\\d+)\nValue LOCAL_ASN (\\d+)\nValue REMOTE_ROUTER_ID (\\S+)\nValue BGP_STATE ([\\w\\s\\(\\)]+)\nValue UPTIME (\\S+)\nValue List ADDR_FAMILY (\\w+(?:\\s+\\w+)?)\nValue List TABLE_VERSION (\\d+)\nValue List NEI_TABLE_VERSION (\\d+)\nValue List INBOUND_ROUTEMAP (\\S+)\nValue List OUTBOUND_ROUTEMAP (\\S+)\nValue List ACCEPTED_PREFIXES (\\d+)\nValue List ACCEPTED_PREFIXES_RIB (\\d+)\nValue List ANNOUNCED_PREFIXES (\\d+)\nValue LOCALHOST_IP (\\S+)\nValue LOCALHOST_PORT (\\d+)\nValue REMOTE_IP (\\S+)\nValue REMOTE_PORT (\\d+)\nValue NEXTHOP_IP (\\S+)\nValue NEXTHOP_INTERFACE (\\S+)\n\nStart\n  ^VRF\\s+\\d+\\s+neighbor\\s+table:\\s*$$\n  ^BGP\\s+neighbor\\s+is -> Continue.Record\n  ^BGP\\s+neighbor\\s+is\\s+${NEIGHBOR},\\s+remote\\s+AS\\s+${REMOTE_ASN},\\s+local\\s+AS\\s+${LOCAL_ASN},.*$$\n  ^\\s+BGP\\s+version\\s+${BGP_VERSION},\\s+remote\\s+router\\s+ID\\s+${REMOTE_ROUTER_ID}\\s*$$\n  ^\\s+BGP\\s+state\\s+=\\s+${BGP_STATE},\\s+\\w+\\s+for\\s+${UPTIME}\\s*$$\n  ^\\s+Last\\s+read\\s+\\d{2}:\\d{2}:\\d{2},\\s+hold\\s+time\\s+is\\s+\\d+,\\s+keepalive\\s+interval\\s+is\\s+\\d+\\s+seconds\\s*$$\n  ^\\s+Configured\\s+hold\\s+time\\s+is\\s+\\d+,\\s+keepalive\\s+interval\\s+is\\s+\\d+\\s+seconds\\s*$$\n  ^\\s+Neighbor\\s+capabilities:\\s*$$\n  ^\\s+Route\\s+refresh:\\s+.*$$\n  ^\\s+Address\\s+family\\s+IPv4\\s+Unicast:\\s+.*$$\n  ^\\s+Address\\s+family\\s+IPv6\\s+Unicast:\\s+.*$$\n  ^\\s+Received\\s+\\d+\\s+messages,\\s+\\d+\\s+notifications,\\s+\\d+\\s+in\\s+queue\\s*$$\n  ^\\s+Sent\\s+\\d+\\s+messages,\\s+\\d+\\s+notifications,\\s+\\d+\\s+in\\s+queue\\s*$$\n  ^\\s+Route\\s+refresh\\s+request:\\s+received\\s+\\d+,\\s+sent\\s+\\d+\\s*$$\n  ^\\s+Minimum\\s+time\\s+between\\s+advertisement\\s+runs\\s+is\\s+\\d+\\s+seconds\\s*$$\n  ^\\s+For\\s+address\\s+family:\\s+${ADDR_FAMILY}\\s*$$ -> AddrFamState\n  ^\\s+Connections\\s+established\\s+\\d+;\\s+dropped\\s+\\d+\\s*$$\n  ^Local\\s+host:\\s+${LOCALHOST_IP},\\s+Local port:\\s+${LOCALHOST_PORT}\\s*$$\n  ^Foreign\\s+host:\\s+${REMOTE_IP},\\s+Foreign port:\\s+${REMOTE_PORT}\\s*$$\n  ^Nexthop:\\s+${NEXTHOP_IP}\\s*$$\n  ^Nexthop\\s+interface:\\s+${NEXTHOP_INTERFACE}\\s*$$\n  ^Nexthop\\s+global:\\s+.*$$\n  ^Nexthop\\s+local:\\s+.*$$\n  ^BGP\\s+connection:\\s+.*$$\n  ^Last\\s+Reset:\\s+\\S+,\\s+.*$$\n  ^Notification\\s+Error\\s+Message:\\s+.*$$\n  ^\\s*\\%\\s+No\\s+neighbor\\s+exist\\s*$$\n  ^\\s*$$\n  ^. -> Error\n\nAddrFamState\n  ^\\s+BGP\\s+table\\s+version\\s+${TABLE_VERSION},\\s+neighbor\\s+version\\s+${NEI_TABLE_VERSION}\\s*$$\n  ^\\s+Index\\s+\\d+,\\s+Offset\\s+\\d+,\\s+Mask\\s+\\w+\\s*$$\n  ^\\s+Additional\\s+Path:\\s*$$\n  ^\\s+Send-mode:\\s+.*$$\n  ^\\s+Receive-mode:\\s+.*$$\n  ^\\s+NEXT_HOP\\s+is\\s+always\\s+this\\s+router\\s*$$\n  ^\\s+Community\\s+attribute\\s+sent\\s+to\\s+this\\s+neighbor.*$$\n  ^\\s+Inbound\\s+path\\s+policy\\s+configured\\s*$$\n  ^\\s+Route\\s+map\\s+for\\s+incoming\\s+advertisements\\s+is\\s+${INBOUND_ROUTEMAP}\\s*$$\n  ^\\s+Route\\s+map\\s+for\\s+outgoing\\s+advertisements\\s+is\\s+${OUTBOUND_ROUTEMAP}\\s*$$\n  ^\\s+${ACCEPTED_PREFIXES}\\saccepted\\sprefixes,\\s${ACCEPTED_PREFIXES_RIB}\\sprefixes\\sin\\srib\\s*$$\n  ^\\s+${ANNOUNCED_PREFIXES}\\sannounced\\sprefixes\\s*$$ -> Start\n  ^\\s*$$\n  ^. -> Error\n"
+}

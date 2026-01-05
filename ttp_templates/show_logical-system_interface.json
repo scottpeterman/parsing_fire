@@ -1,0 +1,110 @@
+{
+  "command": "show logical-system interface",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.8333333333333334,
+  "textfsm_rows": 6,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"interface_admin_state_oper_state_protocol_ip_address_netmask\">\n{{INTERFACE}} {{ADMIN_STATE | ORPHRASE}} {{OPER_STATE | ORPHRASE}} {{PROTOCOL}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{NETMASK | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOGICAL_SYSTEM_NAME": "router1",
+      "INTERFACE": "lo0.0",
+      "ADMIN_STATE": "up",
+      "OPER_STATE": "up",
+      "PROTOCOL": "inet",
+      "IP_ADDRESS": "192.168.1.1",
+      "NETMASK": "/32"
+    },
+    {
+      "INTERFACE": "ge-0/0/1.0",
+      "ADMIN_STATE": "up",
+      "OPER_STATE": "up",
+      "PROTOCOL": "inet",
+      "IP_ADDRESS": "10.0.0.1",
+      "NETMASK": "/24"
+    },
+    {
+      "INTERFACE": "ge-0/0/2.0",
+      "ADMIN_STATE": "up",
+      "OPER_STATE": "down",
+      "PROTOCOL": "inet",
+      "IP_ADDRESS": "10.0.1.1",
+      "NETMASK": "/24"
+    },
+    {
+      "INTERFACE": "ge-0/0/3.0",
+      "ADMIN_STATE": "down",
+      "OPER_STATE": "down",
+      "PROTOCOL": "inet",
+      "IP_ADDRESS": "unassigned",
+      "NETMASK": "--"
+    },
+    {
+      "LOGICAL_SYSTEM_NAME": "router2",
+      "INTERFACE": "lo0.0",
+      "ADMIN_STATE": "up",
+      "OPER_STATE": "up",
+      "PROTOCOL": "inet",
+      "IP_ADDRESS": "172.16.1.1",
+      "NETMASK": "/32"
+    },
+    {
+      "INTERFACE": "fe-0/0/0.0",
+      "ADMIN_STATE": "up",
+      "OPER_STATE": "up",
+      "PROTOCOL": "inet",
+      "IP_ADDRESS": "192.168.2.1",
+      "NETMASK": "/24"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_admin_state_oper_state_protocol_ip_address_netmask": [
+        {
+          "INTERFACE": "lo0.0",
+          "ADMIN_STATE": "up",
+          "OPER_STATE": "up",
+          "PROTOCOL": "inet",
+          "IP_ADDRESS": "192.168.1.1",
+          "NETMASK": "/32"
+        },
+        {
+          "INTERFACE": "ge-0/0/1.0",
+          "ADMIN_STATE": "up",
+          "OPER_STATE": "up",
+          "PROTOCOL": "inet",
+          "IP_ADDRESS": "10.0.0.1",
+          "NETMASK": "/24"
+        },
+        {
+          "INTERFACE": "ge-0/0/2.0",
+          "ADMIN_STATE": "up",
+          "OPER_STATE": "down",
+          "PROTOCOL": "inet",
+          "IP_ADDRESS": "10.0.1.1",
+          "NETMASK": "/24"
+        },
+        {
+          "INTERFACE": "lo0.0",
+          "ADMIN_STATE": "up",
+          "OPER_STATE": "up",
+          "PROTOCOL": "inet",
+          "IP_ADDRESS": "172.16.1.1",
+          "NETMASK": "/32"
+        },
+        {
+          "INTERFACE": "fe-0/0/0.0",
+          "ADMIN_STATE": "up",
+          "OPER_STATE": "up",
+          "PROTOCOL": "inet",
+          "IP_ADDRESS": "192.168.2.1",
+          "NETMASK": "/24"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Logical system Name: router1\nInterface                    Admin State    Oper State   Protocol  IP Address     Netmask\nlo0.0                        up             up           inet      192.168.1.1    /32\nge-0/0/1.0                   up             up           inet      10.0.0.1       /24\nge-0/0/2.0                   up             down         inet      10.0.1.1       /24\nge-0/0/3.0                   down           down         inet      unassigned     --\n\nLogical system Name: router2\nInterface                    Admin State    Oper State   Protocol  IP Address     Netmask\nlo0.0                        up             up           inet      172.16.1.1     /32\nfe-0/0/0.0                   up             up           inet      192.168.2.1    /24\n",
+  "textfsm_template": "Value LOGICAL_SYSTEM_NAME (.+)\nValue INTERFACE (\\S+)\nValue ADMIN_STATE (\\S+)\nValue OPER_STATE (\\S+)\nValue PROTOCOL (\\S+)\nValue IP_ADDRESS (\\S+)\nValue NETMASK (\\S+)\n\nStart\n  ^\\s*Logical\\s+system\\s+Name:\\s+${LOGICAL_SYSTEM_NAME}\\s*$$\n  ^\\s*Interface\\s+Admin\\s+State\\s+Oper\\s+State\\s+Protocol\\s+IP\\s+Address\\s+Netmask\\s*$$\n  ^\\s*${INTERFACE}\\s+${ADMIN_STATE}\\s+${OPER_STATE}\\s+${PROTOCOL}\\s+${IP_ADDRESS}\\s+${NETMASK}\\s*$$ -> Record\n  ^\\s*$$ -> Start"
+}

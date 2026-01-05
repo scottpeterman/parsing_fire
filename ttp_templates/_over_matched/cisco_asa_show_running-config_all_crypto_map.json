@@ -1,0 +1,208 @@
+{
+  "command": "cisco_asa_show_running-config_all_crypto_map",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0909090909090908,
+  "textfsm_rows": 11,
+  "ttp_rows": 12,
+  "ttp_template": "<group name=\"map_seq_matched_address\">\ncrypto map {{MAP}} {{SEQ}} match address {{MATCHED_ADDRESS | ORPHRASE}}\n</group>\n<group name=\"map_seq_sa_kb_sa_sec\">\ncrypto map {{MAP}} {{SEQ}} set security-association lifetime kilobytes {{SA_KB}} seconds {{SA_SEC | ORPHRASE}}\n</group>\n<group name=\"map_seq_isakmp_dynamic\">\ncrypto map {{MAP}} {{SEQ}} ipsec-isakmp dynamic {{ISAKMP_DYNAMIC | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "MATCHED_ADDRESS": "CMAP_RU16",
+      "CONNECTION_TYPE": "bidirectional",
+      "MAP": "WAN1_CMAP",
+      "SEQ": "10",
+      "PEER": "192.0.2.1",
+      "IKEv1_PHASE1_MODE": "main",
+      "IKEv1_TRANSFORM_SET": "ESP-AES-256-SHA ESP-AES-192-SHA",
+      "IKEv2_MODE": "tunnel",
+      "INTERFACE": "WAN1",
+      "TFC_PACKETS": "no"
+    },
+    {
+      "MATCHED_ADDRESS": "CMAP_RU11",
+      "CONNECTION_TYPE": "bidirectional",
+      "MAP": "WAN1_CMAP",
+      "SEQ": "20",
+      "PEER": "192.0.2.2",
+      "IKEv1_PHASE1_MODE": "main",
+      "IKEv1_TRANSFORM_SET": "ESP-AES-256-SHA ESP-AES-192-SHA",
+      "IKEv2_MODE": "tunnel",
+      "INTERFACE": "WAN1",
+      "SA_SEC": "3600",
+      "TFC_PACKETS": "no"
+    },
+    {
+      "MATCHED_ADDRESS": "CMAP_RU12",
+      "CONNECTION_TYPE": "bidirectional",
+      "MAP": "WAN1_CMAP",
+      "SEQ": "30",
+      "PEER": "192.0.2.3",
+      "IKEv1_PHASE1_MODE": "main",
+      "IKEv1_TRANSFORM_SET": "ESP-AES-256-SHA ESP-AES-192-SHA",
+      "IKEv2_MODE": "tunnel",
+      "INTERFACE": "WAN1",
+      "SA_KB": "100000",
+      "TFC_PACKETS": "no"
+    },
+    {
+      "MATCHED_ADDRESS": "CMAP_RU17",
+      "CONNECTION_TYPE": "bidirectional",
+      "MAP": "WAN1_CMAP",
+      "SEQ": "40",
+      "PEER": "192.0.2.4",
+      "IKEv1_PHASE1_MODE": "main",
+      "IKEv1_TRANSFORM_SET": "ESP-AES-256-SHA ESP-AES-192-SHA",
+      "IKEv2_MODE": "tunnel",
+      "INTERFACE": "WAN1",
+      "SA_SEC": "3600",
+      "SA_KB": "100000",
+      "TFC_PACKETS": "no"
+    },
+    {
+      "MATCHED_ADDRESS": "CMAP_FR_TEST_VPN",
+      "CONNECTION_TYPE": "bidirectional",
+      "MAP": "WAN1_CMAP",
+      "SEQ": "100",
+      "PFS": "group5",
+      "PEER": "192.0.2.5",
+      "IKEv1_PHASE1_MODE": "main",
+      "IKEv1_TRANSFORM_SET": "DES-MD5",
+      "IKEv2_MODE": "tunnel",
+      "INTERFACE": "WAN1",
+      "SA_SEC": "3600",
+      "SA_KB": "100000",
+      "TFC_PACKETS": "no"
+    },
+    {
+      "MAP": "WAN1_CMAP",
+      "SEQ": "65535",
+      "ISAKMP_DYNAMIC": "SYSTEM_DEFAULT_CRYPTO_MAP",
+      "INTERFACE": "WAN1"
+    },
+    {
+      "MATCHED_ADDRESS": "CMAP_RU17",
+      "CONNECTION_TYPE": "bidirectional",
+      "MAP": "S2S_CMAP",
+      "SEQ": "10",
+      "PEER": "172.21.251.10",
+      "IKEv1_PHASE1_MODE": "main",
+      "IKEv1_TRANSFORM_SET": "ESP-AES-256-SHA ESP-AES-192-SHA",
+      "IKEv2_MODE": "tunnel",
+      "TFC_PACKETS": "no"
+    },
+    {
+      "MATCHED_ADDRESS": "CMAP_RU12",
+      "CONNECTION_TYPE": "bidirectional",
+      "MAP": "S2S_CMAP",
+      "SEQ": "20",
+      "PEER": "172.21.251.26",
+      "IKEv1_PHASE1_MODE": "main",
+      "IKEv1_TRANSFORM_SET": "ESP-AES-256-SHA ESP-AES-192-SHA",
+      "IKEv2_MODE": "tunnel",
+      "TFC_PACKETS": "no"
+    },
+    {
+      "MATCHED_ADDRESS": "CMAP_RU11",
+      "CONNECTION_TYPE": "bidirectional",
+      "MAP": "S2S_CMAP",
+      "SEQ": "30",
+      "PEER": "172.21.251.18",
+      "IKEv1_PHASE1_MODE": "main",
+      "IKEv1_TRANSFORM_SET": "ESP-AES-256-SHA ESP-AES-192-SHA",
+      "IKEv2_MODE": "tunnel",
+      "TFC_PACKETS": "no"
+    },
+    {
+      "MATCHED_ADDRESS": "CMAP_RU16",
+      "CONNECTION_TYPE": "bidirectional",
+      "MAP": "S2S_CMAP",
+      "SEQ": "40",
+      "PEER": "172.21.251.34",
+      "IKEv1_PHASE1_MODE": "main",
+      "IKEv1_TRANSFORM_SET": "ESP-AES-256-SHA ESP-AES-192-SHA",
+      "IKEv2_MODE": "tunnel",
+      "TFC_PACKETS": "no"
+    },
+    {
+      "MATCHED_ADDRESS": "CMAP_RU16_Access-to-Internet",
+      "CONNECTION_TYPE": "bidirectional",
+      "MAP": "S2S_CMAP",
+      "SEQ": "160",
+      "PEER": "172.21.251.34",
+      "IKEv1_PHASE1_MODE": "main",
+      "IKEv1_TRANSFORM_SET": "ESP-AES-256-SHA ESP-AES-192-SHA",
+      "IKEv2_MODE": "tunnel"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "map_seq_matched_address": [
+        {
+          "MAP": "WAN1_CMAP",
+          "SEQ": "10",
+          "MATCHED_ADDRESS": "CMAP_RU16"
+        },
+        {
+          "MAP": "WAN1_CMAP",
+          "SEQ": "20",
+          "MATCHED_ADDRESS": "CMAP_RU11"
+        },
+        {
+          "MAP": "WAN1_CMAP",
+          "SEQ": "30",
+          "MATCHED_ADDRESS": "CMAP_RU12"
+        },
+        {
+          "MAP": "WAN1_CMAP",
+          "SEQ": "40",
+          "MATCHED_ADDRESS": "CMAP_RU17"
+        },
+        {
+          "MAP": "WAN1_CMAP",
+          "SEQ": "100",
+          "MATCHED_ADDRESS": "CMAP_FR_TEST_VPN"
+        },
+        {
+          "MAP": "S2S_CMAP",
+          "SEQ": "10",
+          "MATCHED_ADDRESS": "CMAP_RU17"
+        },
+        {
+          "MAP": "S2S_CMAP",
+          "SEQ": "20",
+          "MATCHED_ADDRESS": "CMAP_RU12"
+        },
+        {
+          "MAP": "S2S_CMAP",
+          "SEQ": "30",
+          "MATCHED_ADDRESS": "CMAP_RU11"
+        },
+        {
+          "MAP": "S2S_CMAP",
+          "SEQ": "40",
+          "MATCHED_ADDRESS": "CMAP_RU16"
+        },
+        {
+          "MAP": "S2S_CMAP",
+          "SEQ": "160",
+          "MATCHED_ADDRESS": "CMAP_RU16_Access-to-Internet"
+        }
+      ],
+      "map_seq_sa_kb_sa_sec": {
+        "MAP": "WAN1_CMAP",
+        "SEQ": "40",
+        "SA_KB": "100000",
+        "SA_SEC": "3600"
+      },
+      "map_seq_isakmp_dynamic": {
+        "MAP": "WAN1_CMAP",
+        "SEQ": "65535",
+        "ISAKMP_DYNAMIC": "SYSTEM_DEFAULT_CRYPTO_MAP"
+      }
+    }
+  ],
+  "cli_content": "crypto map WAN1_CMAP 10 match address CMAP_RU16\ncrypto map WAN1_CMAP 10 set connection-type bidirectional\ncrypto map WAN1_CMAP 10 set peer 192.0.2.1\ncrypto map WAN1_CMAP 10 set ikev1 phase1-mode main\ncrypto map WAN1_CMAP 10 set ikev1 transform-set ESP-AES-256-SHA ESP-AES-192-SHA\ncrypto map WAN1_CMAP 10 set ikev2 mode tunnel\nno crypto map WAN1_CMAP 10 set tfc-packets\ncrypto map WAN1_CMAP 20 match address CMAP_RU11\ncrypto map WAN1_CMAP 20 set connection-type bidirectional\ncrypto map WAN1_CMAP 20 set peer 192.0.2.2\ncrypto map WAN1_CMAP 20 set ikev1 phase1-mode main\ncrypto map WAN1_CMAP 20 set ikev1 transform-set ESP-AES-256-SHA ESP-AES-192-SHA\ncrypto map WAN1_CMAP 20 set ikev2 mode tunnel\ncrypto map WAN1_CMAP 20 set security-association lifetime seconds 3600\nno crypto map WAN1_CMAP 20 set tfc-packets\ncrypto map WAN1_CMAP 30 match address CMAP_RU12\ncrypto map WAN1_CMAP 30 set connection-type bidirectional\ncrypto map WAN1_CMAP 30 set peer 192.0.2.3\ncrypto map WAN1_CMAP 30 set ikev1 phase1-mode main\ncrypto map WAN1_CMAP 30 set ikev1 transform-set ESP-AES-256-SHA ESP-AES-192-SHA\ncrypto map WAN1_CMAP 30 set ikev2 mode tunnel\ncrypto map WAN1_CMAP 30 set security-association lifetime kilobytes 100000\nno crypto map WAN1_CMAP 30 set tfc-packets\ncrypto map WAN1_CMAP 40 match address CMAP_RU17\ncrypto map WAN1_CMAP 40 set connection-type bidirectional\ncrypto map WAN1_CMAP 40 set peer 192.0.2.4\ncrypto map WAN1_CMAP 40 set ikev1 phase1-mode main\ncrypto map WAN1_CMAP 40 set ikev1 transform-set ESP-AES-256-SHA ESP-AES-192-SHA\ncrypto map WAN1_CMAP 40 set ikev2 mode tunnel\ncrypto map WAN1_CMAP 40 set security-association lifetime kilobytes 100000 seconds 3600\nno crypto map WAN1_CMAP 40 set tfc-packets\ncrypto map WAN1_CMAP 100 match address CMAP_FR_TEST_VPN\ncrypto map WAN1_CMAP 100 set pfs group5\ncrypto map WAN1_CMAP 100 set connection-type bidirectional\ncrypto map WAN1_CMAP 100 set peer 192.0.2.5\ncrypto map WAN1_CMAP 100 set ikev1 phase1-mode main\ncrypto map WAN1_CMAP 100 set ikev1 transform-set DES-MD5\ncrypto map WAN1_CMAP 100 set ikev2 mode tunnel\ncrypto map WAN1_CMAP 100 set security-association lifetime seconds 3600 kilobytes 100000\nno crypto map WAN1_CMAP 100 set tfc-packets\ncrypto map WAN1_CMAP 65535 ipsec-isakmp dynamic SYSTEM_DEFAULT_CRYPTO_MAP\ncrypto map WAN1_CMAP interface WAN1\ncrypto map S2S_CMAP 10 match address CMAP_RU17\ncrypto map S2S_CMAP 10 set connection-type bidirectional\ncrypto map S2S_CMAP 10 set peer 172.21.251.10\ncrypto map S2S_CMAP 10 set ikev1 phase1-mode main\ncrypto map S2S_CMAP 10 set ikev1 transform-set ESP-AES-256-SHA ESP-AES-192-SHA\ncrypto map S2S_CMAP 10 set ikev2 mode tunnel\nno crypto map S2S_CMAP 10 set tfc-packets\ncrypto map S2S_CMAP 20 match address CMAP_RU12\ncrypto map S2S_CMAP 20 set connection-type bidirectional\ncrypto map S2S_CMAP 20 set peer 172.21.251.26\ncrypto map S2S_CMAP 20 set ikev1 phase1-mode main\ncrypto map S2S_CMAP 20 set ikev1 transform-set ESP-AES-256-SHA ESP-AES-192-SHA\ncrypto map S2S_CMAP 20 set ikev2 mode tunnel\nno crypto map S2S_CMAP 20 set tfc-packets\ncrypto map S2S_CMAP 30 match address CMAP_RU11\ncrypto map S2S_CMAP 30 set connection-type bidirectional\ncrypto map S2S_CMAP 30 set peer 172.21.251.18\ncrypto map S2S_CMAP 30 set ikev1 phase1-mode main\ncrypto map S2S_CMAP 30 set ikev1 transform-set ESP-AES-256-SHA ESP-AES-192-SHA\ncrypto map S2S_CMAP 30 set ikev2 mode tunnel\nno crypto map S2S_CMAP 30 set tfc-packets\ncrypto map S2S_CMAP 40 match address CMAP_RU16\ncrypto map S2S_CMAP 40 set connection-type bidirectional\ncrypto map S2S_CMAP 40 set peer 172.21.251.34\ncrypto map S2S_CMAP 40 set ikev1 phase1-mode main\ncrypto map S2S_CMAP 40 set ikev1 transform-set ESP-AES-256-SHA ESP-AES-192-SHA\ncrypto map S2S_CMAP 40 set ikev2 mode tunnel\nno crypto map S2S_CMAP 40 set tfc-packets\ncrypto map S2S_CMAP 160 match address CMAP_RU16_Access-to-Internet\ncrypto map S2S_CMAP 160 set connection-type bidirectional\ncrypto map S2S_CMAP 160 set peer 172.21.251.34\ncrypto map S2S_CMAP 160 set ikev1 phase1-mode main\ncrypto map S2S_CMAP 160 set ikev1 transform-set ESP-AES-256-SHA ESP-AES-192-SHA\ncrypto map S2S_CMAP 160 set ikev2 mode tunnel\n",
+  "textfsm_template": "Value MATCHED_ADDRESS (\\S+)\nValue CONNECTION_TYPE (\\S+)\nValue Required MAP (\\S+)\nValue Required SEQ (\\d+)\nValue PFS (group\\d|\\s*)\nValue PEER (\\S+)\nValue IKEv1_PHASE1_MODE (\\S+)\nValue IKEv1_TRANSFORM_SET (\\S+(\\s\\S+)*?)\nValue IKEv2_MODE (\\S+)\nValue ISAKMP_DYNAMIC (\\S+)\nValue Fillup INTERFACE (\\S+)\nValue TRANSFORM (\\S+)\nValue SA_SEC (\\d+)\nValue SA_KB (\\d+)\nValue TFC_PACKETS (\\S\\S)\n\nStart\n  # Value's address , start of block\n  ^crypto\\smap\\s${MAP}\\s${SEQ}\\smatch\\saddress\\s${MATCHED_ADDRESS}\\s*$$ -> ReadBlockLines\n  ^. -> Error\n\nReadBlockLines\n  #1 Fake start, block \"match address\" to trigger recording of current block\n  ^crypto\\s+map\\s\\S+\\s\\d+\\s+match\\s+address\\s\\S+\\s*$$ -> Continue.Record\n  #1 Real capture of \"match address\" start of new record\n  ^crypto\\smap\\s${MAP}\\s${SEQ}\\smatch\\saddress\\s${MATCHED_ADDRESS}\\s*$$\n  #\n  ^crypto\\smap\\s${MAP}\\s${SEQ}\\sset\\sconnection-type\\s${CONNECTION_TYPE}\\s*$$\n  ^crypto\\smap\\s${MAP}\\s${SEQ}\\sset\\spfs\\s${PFS}\\s*$$\n  ^crypto\\smap\\s${MAP}\\s${SEQ}\\sset\\speer\\s${PEER}\\s*$$\n  ^crypto\\smap\\s${MAP}\\s${SEQ}\\sset\\sikev1\\sphase1-mode\\s${IKEv1_PHASE1_MODE}\\s*$$\n  ^crypto\\smap\\s${MAP}\\s${SEQ}\\sset\\sikev1\\stransform-set\\s${IKEv1_TRANSFORM_SET}\\s*$$\n  ^crypto\\smap\\s${MAP}\\s${SEQ}\\sset\\sikev2\\smode\\s${IKEv2_MODE}\\s*$$\n  # SA Second/Byte alone or in different combinations\n  ^crypto\\smap\\s\\S+\\s\\d+\\sset\\ssecurity-association\\slifetime\\sseconds\\s${SA_SEC}\\s*$$\n  ^crypto\\smap\\s\\S+\\s\\d+\\sset\\ssecurity-association\\slifetime\\skilobytes\\s${SA_KB}\\s*$$\n  ^crypto\\smap\\s\\S+\\s\\d+\\sset\\ssecurity-association\\slifetime\\skilobytes\\s${SA_KB}\\sseconds\\s${SA_SEC}\\s*$$\n  ^crypto\\smap\\s\\S+\\s\\d+\\sset\\ssecurity-association\\slifetime\\sseconds\\s${SA_SEC}\\skilobytes\\s${SA_KB}\\s*$$\n  #2 Fake start, block \"match address\" to trigger recording of current block\n  ^crypto\\s+map\\s\\S+\\s\\d+\\sipsec-isakmp\\sdynamic\\s${ISAKMP_DYNAMIC}\\s*$$ -> Continue.Record\n  #2 Real capture of \"match address\" start of new record\n  ^crypto\\smap\\s${MAP}\\s${SEQ}\\sipsec-isakmp\\sdynamic\\s${ISAKMP_DYNAMIC}\\s*$$\n  #\n  #3 no crypto map only at end of each block, if unset (add -> Record for safety)\n  ^${TFC_PACKETS}\\scrypto\\smap\\s${MAP}\\s${SEQ}\\sset\\stfc-packets\\s*$$ -> Record\n  #4 Interface only after multiple blocks, FillUp\n  ^crypto\\smap\\s${MAP}\\sinterface\\s${INTERFACE}\\s*$$\n  #\n  ^\\s*$$\n  ^. -> Error\n"
+}

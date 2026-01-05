@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip vrf int brief
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 4
+# Match ratio: 0.80
+
+<group name="interface_vrf_ip_address_state">
+{{INTERFACE}} {{VRF}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATE | ORPHRASE}} 
+</group>

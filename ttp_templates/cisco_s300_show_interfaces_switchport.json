@@ -1,0 +1,38 @@
+{
+  "command": "cisco_s300_show_interfaces_switchport",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"acceptable_frame_type_egress_rule_gvrp_status_ingress_filtering_status\">\nPort : {{INTERFACE | ORPHRASE}}\nPort Mode: {{INTERFACE_MODE | ORPHRASE}}\nGvrp Status: {{GVRP_STATUS | ORPHRASE}}\nIngress Filtering: {{INGRESS_FILTERING_STATUS | ORPHRASE}}\nAcceptable Frame Type: {{ACCEPTABLE_FRAME_TYPE | ORPHRASE}}\nIngress UnTagged VLAN ( NATIVE ): {{NATIVE_VLAN | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "fa1",
+      "INTERFACE_MODE": "Trunk",
+      "GVRP_STATUS": "disabled",
+      "INGRESS_FILTERING_STATUS": "true",
+      "ACCEPTABLE_FRAME_TYPE": "admitAll",
+      "NATIVE_VLAN": "203",
+      "VLAN": "203, 222",
+      "NAME": "203, VOIP-1",
+      "EGRESS_RULE": "Untagged, Tagged",
+      "INTERFACE_MEMBERSHIP_TYPE": "Static, Static"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "acceptable_frame_type_egress_rule_gvrp_status_ingress_filtering_status": {
+        "NATIVE_VLAN": "203",
+        "ACCEPTABLE_FRAME_TYPE": "admitAll",
+        "INGRESS_FILTERING_STATUS": "true",
+        "GVRP_STATUS": "disabled",
+        "INTERFACE_MODE": "Trunk",
+        "INTERFACE": "fa1"
+      }
+    }
+  ],
+  "cli_content": "Port : fa1\nPort Mode: Trunk\nGvrp Status: disabled\nIngress Filtering: true\nAcceptable Frame Type: admitAll\nIngress UnTagged VLAN ( NATIVE ): 203\n\nPort is member in:\n\nVlan               Name               Egress rule Port Membership Type\n---- -------------------------------- ----------- --------------------\n203                203                 Untagged          Static\n222               VOIP-1                Tagged           Static\n\n\nForbidden VLANS:\nVlan               Name\n---- --------------------------------\n\n\nClassification rules:\n\nMac based VLANs:\n  Group ID   Vlan ID\n------------ -------\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue INTERFACE_MODE (\\S+)\nValue GVRP_STATUS (\\S+)\nValue INGRESS_FILTERING_STATUS (\\S+)\nValue ACCEPTABLE_FRAME_TYPE (\\S+)\nValue NATIVE_VLAN (\\S+)\nValue List VLAN (\\d+)\nValue List NAME (.*?)\nValue List EGRESS_RULE (Untagged|Tagged)\nValue List INTERFACE_MEMBERSHIP_TYPE (\\S+)\nValue List FORBIDDEN_VLAN (\\d+)\nValue List FORBIDDEN_VLAN_NAME (.*)\nValue List MAC_BASED_VLAN_GROUP_ID (\\d+)\nValue List MAC_BASED_VLAN_ID (\\d+)\n\nStart\n  ^\\s*Port\\s*:\\s*${INTERFACE}\\s*$$\n  ^\\s*Port\\s+Mode\\s*:\\s*${INTERFACE_MODE}\\s*$$\n  ^\\s*Gvrp\\s+Status\\s*:\\s*${GVRP_STATUS}\\s*$$\n  ^\\s*Ingress\\s+Filtering\\s*:\\s*${INGRESS_FILTERING_STATUS}\\s*$$\n  ^\\s*Acceptable\\s+Frame\\s+Type\\s*:\\s*${ACCEPTABLE_FRAME_TYPE}\\s*$$\n  ^\\s*Ingress\\s+UnTagged\\s+VLAN\\s*\\(\\s*NATIVE\\s*\\)\\s*:\\s*${NATIVE_VLAN}\\s*$$\n  ^\\s*Port\\s+is\\s+member\\s+in:\\s*$$ -> PartOfVlan\n  ^\\s*$$\n  ^. -> Error\n\nPartOfVlan\n  ^\\s*Vlan\\s+Name\\s+Egress\\s+rule\\s+Port\\s+Membership\\s+Type\\s*$$\n  ^(\\s*-*)*\\s*$$\n  ^\\s*${VLAN}\\s+${NAME}\\s+${EGRESS_RULE}\\s+${INTERFACE_MEMBERSHIP_TYPE}\\s*$$\n  ^\\s*Forbidden\\s+VLANS:\\s*$$ -> ForbiddenVlans\n  ^\\s*$$\n  ^. -> Error\n\nForbiddenVlans\n  ^\\s*Vlan\\s+Name\\s*$$\n  ^(\\s*-*)*\\s*$$\n  ^\\s*${FORBIDDEN_VLAN}\\s+${FORBIDDEN_VLAN_NAME}\\s*$$\n  ^\\s*Classification\\s+rules:\\s*$$ -> ClassificationRules\n  ^\\s*$$\n  ^. -> Error\n\nClassificationRules\n  ^\\s*Mac\\s+based\\s+VLANs:\\s*$$ -> MacBasedVlans\n  ^\\s*$$\n  ^. -> Error\n\nMacBasedVlans\n  ^\\s*Group\\s+ID\\s+Vlan\\s+ID\\s*$$\n  ^(\\s*-*)*\\s*$$\n  ^\\s*${FORBIDDEN_VLAN}\\s+${FORBIDDEN_VLAN_NAME}\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

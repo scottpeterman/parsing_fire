@@ -1,0 +1,136 @@
+{
+  "command": "alcatel_sros_show_router_interface",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.1666666666666667,
+  "textfsm_rows": 6,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"interface_admin_state_oper_state_v4_oper_state_v6_mode_port_sap_id\">\n{{INTERFACE}} {{ADMIN_STATE | ORPHRASE}} {{OPER_STATE_V4 | ORPHRASE}}/{{OPER_STATE_V6 | ORPHRASE}} {{MODE}} {{PORT_SAP_ID | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "L3-Telecom-IXR01-1",
+      "ADMIN_STATE": "Up",
+      "OPER_STATE_V4": "Down",
+      "OPER_STATE_V6": "Up",
+      "MODE": "IES",
+      "PORT_SAP_ID": "lag-21:300",
+      "IP_ADDRESS": "2001:4888:2062:357a:645:400:0:2/64, fe80::645:400:0:2/64",
+      "PFX_STATE": "PREFERRED, PREFERRED"
+    },
+    {
+      "INTERFACE": "L3-Telecom-IXR02-1",
+      "ADMIN_STATE": "Up",
+      "OPER_STATE_V4": "Down",
+      "OPER_STATE_V6": "Up",
+      "MODE": "IES",
+      "PORT_SAP_ID": "lag-22:300",
+      "IP_ADDRESS": "2001:4888:2062:3591:645:400:0:2/64, fe80::645:400:0:2/64",
+      "PFX_STATE": "PREFERRED, PREFERRED"
+    },
+    {
+      "INTERFACE": "TO_EDGE_IXR01",
+      "ADMIN_STATE": "Up",
+      "OPER_STATE_V4": "Down",
+      "OPER_STATE_V6": "Down",
+      "MODE": "Network",
+      "PORT_SAP_ID": "n/a",
+      "IP_ADDRESS": "192.168.28.1/24, 192.168.47.1/24",
+      "PFX_STATE": "n/a, n/a"
+    },
+    {
+      "INTERFACE": "system",
+      "ADMIN_STATE": "Up",
+      "OPER_STATE_V4": "Up",
+      "OPER_STATE_V6": "Up",
+      "MODE": "Network",
+      "PORT_SAP_ID": "system",
+      "IP_ADDRESS": "10.115.43.64/32, 2001:4888:2062:3000:645:400:0:1a0/128",
+      "PFX_STATE": "n/a, PREFERRED"
+    },
+    {
+      "INTERFACE": "to-7750-02",
+      "ADMIN_STATE": "Up",
+      "OPER_STATE_V4": "Up",
+      "OPER_STATE_V6": "Up",
+      "MODE": "Network",
+      "PORT_SAP_ID": "1/1/c4/1:2415",
+      "IP_ADDRESS": "172.25.214.121/31, 2001:4888:206a:335c:645:400:0:1/64, fe80::c9:ffff:fe00:0/64",
+      "PFX_STATE": "n/a, PREFERRED, PREFERRED"
+    },
+    {
+      "INTERFACE": "to-BTS0415-7750-H1",
+      "ADMIN_STATE": "Up",
+      "OPER_STATE_V4": "Down",
+      "OPER_STATE_V6": "Down",
+      "MODE": "Network",
+      "PORT_SAP_ID": "lag-11:4094",
+      "IP_ADDRESS": "172.25.198.123/31, 2001:4888:206a:335f:645:400:0:1/64, fe80::c9:ffff:fe00:14b/64",
+      "PFX_STATE": "n/a, INACCESSIBLE, INACCESSIBLE"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_admin_state_oper_state_v4_oper_state_v6_mode_port_sap_id": [
+        {
+          "INTERFACE": "Interface-Name",
+          "ADMIN_STATE": "Adm",
+          "OPER_STATE_V4": "Opr(v4",
+          "OPER_STATE_V6": "v6)",
+          "MODE": "Mode",
+          "PORT_SAP_ID": "Port/SapId"
+        },
+        {
+          "INTERFACE": "L3-Telecom-IXR01-1",
+          "ADMIN_STATE": "Up",
+          "OPER_STATE_V4": "Down",
+          "OPER_STATE_V6": "Up",
+          "MODE": "IES",
+          "PORT_SAP_ID": "lag-21:300"
+        },
+        {
+          "INTERFACE": "L3-Telecom-IXR02-1",
+          "ADMIN_STATE": "Up",
+          "OPER_STATE_V4": "Down",
+          "OPER_STATE_V6": "Up",
+          "MODE": "IES",
+          "PORT_SAP_ID": "lag-22:300"
+        },
+        {
+          "INTERFACE": "TO_EDGE_IXR01",
+          "ADMIN_STATE": "Up",
+          "OPER_STATE_V4": "Down",
+          "OPER_STATE_V6": "Down",
+          "MODE": "Network",
+          "PORT_SAP_ID": "n/a"
+        },
+        {
+          "INTERFACE": "system",
+          "ADMIN_STATE": "Up",
+          "OPER_STATE_V4": "Up",
+          "OPER_STATE_V6": "Up",
+          "MODE": "Network",
+          "PORT_SAP_ID": "system"
+        },
+        {
+          "INTERFACE": "to-7750-02",
+          "ADMIN_STATE": "Up",
+          "OPER_STATE_V4": "Up",
+          "OPER_STATE_V6": "Up",
+          "MODE": "Network",
+          "PORT_SAP_ID": "1/1/c4/1:2415"
+        },
+        {
+          "INTERFACE": "to-BTS0415-7750-H1",
+          "ADMIN_STATE": "Up",
+          "OPER_STATE_V4": "Down",
+          "OPER_STATE_V6": "Down",
+          "MODE": "Network",
+          "PORT_SAP_ID": "lag-11:4094"
+        }
+      ]
+    }
+  ],
+  "cli_content": "===============================================================================\nInterface Table (Router: Base)\n===============================================================================\nInterface-Name                   Adm       Opr(v4/v6)  Mode    Port/SapId\n   IP-Address                                                  PfxState\n-------------------------------------------------------------------------------\nL3-Telecom-IXR01-1               Up        Down/Up     IES     lag-21:300\n   2001:4888:2062:357a:645:400:0:2/64                          PREFERRED\n   fe80::645:400:0:2/64                                        PREFERRED\nL3-Telecom-IXR02-1               Up        Down/Up     IES     lag-22:300\n   2001:4888:2062:3591:645:400:0:2/64                          PREFERRED\n   fe80::645:400:0:2/64                                        PREFERRED\nTO_EDGE_IXR01                    Up        Down/Down   Network n/a\n   192.168.28.1/24                                             n/a\n   192.168.47.1/24                                             n/a\nsystem                           Up        Up/Up       Network system\n   10.115.43.64/32                                             n/a\n   2001:4888:2062:3000:645:400:0:1a0/128                       PREFERRED\nto-7750-02                       Up        Up/Up       Network 1/1/c4/1:2415\n   172.25.214.121/31                                           n/a\n   2001:4888:206a:335c:645:400:0:1/64                          PREFERRED\n   fe80::c9:ffff:fe00:0/64                                     PREFERRED\nto-BTS0415-7750-H1               Up        Down/Down   Network lag-11:4094\n   172.25.198.123/31                                           n/a\n   2001:4888:206a:335f:645:400:0:1/64                          INACCESSIBLE\n   fe80::c9:ffff:fe00:14b/64                                   INACCESSIBLE\n-------------------------------------------------------------------------------\nInterfaces : 6\n===============================================================================\n",
+  "textfsm_template": "Value Required INTERFACE (\\S+)\nValue Required ADMIN_STATE (Up|Down)\nValue Required OPER_STATE_V4 (Up|Down)\nValue Required OPER_STATE_V6 (Up|Down)\nValue Required MODE (\\S+)\nValue Required PORT_SAP_ID (\\S+)\nValue List IP_ADDRESS (\\S+)\nValue List PFX_STATE (\\S+)\n\nStart\n  ^=+\n  ^Interface\\s+Table\n  ^Interface-Name\\s+Adm\\s+Opr\\(v4\\/v6\\)\\s+Mode\\s+Port/SapId\\s*$$ -> Interface\n  ^\\s*$$\n  ^. -> Error\n\nInterface\n  ^\\s+IP-Address\\s+PfxState\n  ^-+\n  ^.*?\\s+(Up|Down) -> Continue.Record\n  ^${INTERFACE}\\s+${ADMIN_STATE}\\s+${OPER_STATE_V4}\\/${OPER_STATE_V6}\\s+${MODE}\\s+${PORT_SAP_ID} \n  ^\\s+${IP_ADDRESS}\\s+${PFX_STATE}\n  ^Interfaces -> Done\n  ^=+\n  ^\\s*$$\n  ^. -> Error\n\nDone\n"
+}

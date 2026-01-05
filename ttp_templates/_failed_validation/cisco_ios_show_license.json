@@ -1,0 +1,94 @@
+{
+  "command": "cisco_ios_show_license",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 9,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"feature_license_count_license_priority_license_state\">\n  License Count: {{LICENSE_COUNT | ORPHRASE}}\n  Period left: {{PERIOD_LEFT | ORPHRASE}}\n  Period Used: {{PERIOD_USED | ORPHRASE}}\n  License Type: {{LICENSE_TYPE | ORPHRASE}}\n  License State: {{LICENSE_STATE | ORPHRASE}}\n  License Priority: {{LICENSE_PRIORITY | ORPHRASE}}\nIndex 10 Feature: {{FEATURE | ORPHRASE}}  \n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "FEATURE": "appxk9",
+      "PERIOD_LEFT": "Life time",
+      "LICENSE_TYPE": "Permanent",
+      "LICENSE_STATE": "Active, In Use",
+      "LICENSE_COUNT": "Non-Counted",
+      "LICENSE_PRIORITY": "Medium"
+    },
+    {
+      "FEATURE": "uck9",
+      "PERIOD_LEFT": "Not Activated",
+      "PERIOD_USED": "0  minute  0  second",
+      "LICENSE_TYPE": "EvalRightToUse",
+      "LICENSE_STATE": "Active, Not in Use, EULA not accepted",
+      "LICENSE_COUNT": "Non-Counted",
+      "LICENSE_PRIORITY": "None"
+    },
+    {
+      "FEATURE": "securityk9",
+      "PERIOD_LEFT": "Life time",
+      "LICENSE_TYPE": "Permanent",
+      "LICENSE_STATE": "Active, In Use",
+      "LICENSE_COUNT": "Non-Counted",
+      "LICENSE_PRIORITY": "Medium"
+    },
+    {
+      "FEATURE": "ipbasek9",
+      "PERIOD_LEFT": "Life time",
+      "LICENSE_TYPE": "Permanent",
+      "LICENSE_STATE": "Active, In Use",
+      "LICENSE_COUNT": "Non-Counted",
+      "LICENSE_PRIORITY": "Medium"
+    },
+    {
+      "FEATURE": "FoundationSuiteK9",
+      "PERIOD_LEFT": "Not Activated",
+      "PERIOD_USED": "0  minute  0  second",
+      "LICENSE_TYPE": "EvalRightToUse",
+      "LICENSE_STATE": "Active, Not in Use, EULA not accepted",
+      "LICENSE_COUNT": "Non-Counted",
+      "LICENSE_PRIORITY": "None"
+    },
+    {
+      "FEATURE": "AdvUCSuiteK9",
+      "PERIOD_LEFT": "Not Activated",
+      "PERIOD_USED": "0  minute  0  second",
+      "LICENSE_TYPE": "EvalRightToUse",
+      "LICENSE_STATE": "Active, Not in Use, EULA not accepted",
+      "LICENSE_COUNT": "Non-Counted",
+      "LICENSE_PRIORITY": "None"
+    },
+    {
+      "FEATURE": "cme-srst",
+      "PERIOD_LEFT": "Not Activated",
+      "PERIOD_USED": "0  minute  0  second",
+      "LICENSE_TYPE": "EvalRightToUse",
+      "LICENSE_STATE": "Active, Not in Use, EULA not accepted",
+      "LICENSE_COUNT": "0/0  (In-use/Violation)",
+      "LICENSE_PRIORITY": "None"
+    },
+    {
+      "FEATURE": "hseck9",
+      "PERIOD_LEFT": "Life time",
+      "LICENSE_TYPE": "Permanent",
+      "LICENSE_STATE": "Active, In Use",
+      "LICENSE_COUNT": "Non-Counted",
+      "LICENSE_PRIORITY": "Medium"
+    },
+    {
+      "FEATURE": "throughput",
+      "PERIOD_LEFT": "Not Activated",
+      "PERIOD_USED": "0  minute  0  second",
+      "LICENSE_TYPE": "EvalRightToUse",
+      "LICENSE_STATE": "Active, Not in Use, EULA not accepted",
+      "LICENSE_COUNT": "Non-Counted",
+      "LICENSE_PRIORITY": "None"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Index 1 Feature: appxk9                         \n        Period left: Life time\n        License Type: Permanent\n        License State: Active, In Use\n        License Count: Non-Counted\n        License Priority: Medium\nIndex 2 Feature: uck9                           \n        Period left: Not Activated\n        Period Used: 0  minute  0  second\n        License Type: EvalRightToUse\n        License State: Active, Not in Use, EULA not accepted\n        License Count: Non-Counted\n        License Priority: None\nIndex 3 Feature: securityk9                     \n        Period left: Life time\n        License Type: Permanent\n        License State: Active, In Use\n        License Count: Non-Counted\n        License Priority: Medium\nIndex 4 Feature: ipbasek9                       \n        Period left: Life time\n        License Type: Permanent\n        License State: Active, In Use\n        License Count: Non-Counted\n        License Priority: Medium\nIndex 5 Feature: FoundationSuiteK9              \n        Period left: Not Activated\n        Period Used: 0  minute  0  second\n        License Type: EvalRightToUse\n        License State: Active, Not in Use, EULA not accepted\n        License Count: Non-Counted\n        License Priority: None\nIndex 6 Feature: AdvUCSuiteK9                   \n        Period left: Not Activated\n        Period Used: 0  minute  0  second\n        License Type: EvalRightToUse\n        License State: Active, Not in Use, EULA not accepted\n        License Count: Non-Counted\n        License Priority: None\nIndex 7 Feature: cme-srst                       \n        Period left: Not Activated\n        Period Used: 0  minute  0  second\n        License Type: EvalRightToUse\n        License State: Active, Not in Use, EULA not accepted\n        License Count: 0/0  (In-use/Violation)\n        License Priority: None\nIndex 8 Feature: hseck9                         \n        Period left: Life time\n        License Type: Permanent\n        License State: Active, In Use\n        License Count: Non-Counted\n        License Priority: Medium\nIndex 9 Feature: throughput                     \n        Period left: Not Activated\n        Period Used: 0  minute  0  second\n        License Type: EvalRightToUse\n        License State: Active, Not in Use, EULA not accepted\n        License Count: Non-Counted\n        License Priority: None\nIndex 10 Feature: internal_service              \n",
+  "textfsm_template": "Value FEATURE (\\S+)\nValue PERIOD_LEFT (.*)\nValue PERIOD_USED (.*)\nValue LICENSE_TYPE (.*)\nValue LICENSE_STATE (.*)\nValue LICENSE_COUNT (.*)\nValue LICENSE_PRIORITY (.*)\n\nStart\n  ^Index\\s+\\d+\\s+Feature: -> Continue.Record\n  ^Index\\s+\\d+\\s+Feature:\\s+${FEATURE}\\s*$$\n  ^\\s+Period\\s+left:\\s+${PERIOD_LEFT}$$\n  ^\\s+Period\\s+Used:\\s+${PERIOD_USED}$$\n  ^\\s+License\\s+Type:\\s+${LICENSE_TYPE}$$\n  ^\\s+License\\s+State:\\s+${LICENSE_STATE}$$\n  ^\\s+License\\s+Count:\\s+${LICENSE_COUNT}$$\n  ^\\s+License\\s+Priority:\\s+${LICENSE_PRIORITY}$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

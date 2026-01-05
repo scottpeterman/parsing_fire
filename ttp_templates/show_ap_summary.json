@@ -1,0 +1,100 @@
+{
+  "command": "show ap summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"ap_name_ap_model_ip_address_status_clients_uptime\">\n{{AP_NAME}} {{AP_MODEL}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATUS | ORPHRASE}} {{CLIENTS}} {{UPTIME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "AP_NAME": "AP01",
+      "AP_MODEL": "205",
+      "IP_ADDRESS": "192.168.1.21",
+      "STATUS": "Up",
+      "CLIENTS": "15",
+      "UPTIME": "3d 12h"
+    },
+    {
+      "AP_NAME": "AP02",
+      "AP_MODEL": "215",
+      "IP_ADDRESS": "192.168.1.22",
+      "STATUS": "Down",
+      "CLIENTS": "0",
+      "UPTIME": "0h"
+    },
+    {
+      "AP_NAME": "AP03",
+      "AP_MODEL": "225",
+      "IP_ADDRESS": "192.168.1.23",
+      "STATUS": "Up",
+      "CLIENTS": "22",
+      "UPTIME": "5d 4h"
+    },
+    {
+      "AP_NAME": "AP04",
+      "AP_MODEL": "235",
+      "IP_ADDRESS": "192.168.1.24",
+      "STATUS": "Up",
+      "CLIENTS": "5",
+      "UPTIME": "10d 1h"
+    },
+    {
+      "AP_NAME": "AP05",
+      "AP_MODEL": "245",
+      "IP_ADDRESS": "192.168.1.25",
+      "STATUS": "Down",
+      "CLIENTS": "0",
+      "UPTIME": "0h"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ap_name_ap_model_ip_address_status_clients_uptime": [
+        {
+          "AP_NAME": "AP01",
+          "AP_MODEL": "205",
+          "IP_ADDRESS": "192.168.1.21",
+          "STATUS": "Up",
+          "CLIENTS": "15",
+          "UPTIME": "3d 12h"
+        },
+        {
+          "AP_NAME": "AP02",
+          "AP_MODEL": "215",
+          "IP_ADDRESS": "192.168.1.22",
+          "STATUS": "Down",
+          "CLIENTS": "0",
+          "UPTIME": "0h"
+        },
+        {
+          "AP_NAME": "AP03",
+          "AP_MODEL": "225",
+          "IP_ADDRESS": "192.168.1.23",
+          "STATUS": "Up",
+          "CLIENTS": "22",
+          "UPTIME": "5d 4h"
+        },
+        {
+          "AP_NAME": "AP04",
+          "AP_MODEL": "235",
+          "IP_ADDRESS": "192.168.1.24",
+          "STATUS": "Up",
+          "CLIENTS": "5",
+          "UPTIME": "10d 1h"
+        },
+        {
+          "AP_NAME": "AP05",
+          "AP_MODEL": "245",
+          "IP_ADDRESS": "192.168.1.25",
+          "STATUS": "Down",
+          "CLIENTS": "0",
+          "UPTIME": "0h"
+        }
+      ]
+    }
+  ],
+  "cli_content": "AP Name            AP Model     IP Address        Status    Clients  Uptime\nAP01               205          192.168.1.21      Up        15       3d 12h\nAP02               215          192.168.1.22      Down      0        0h\nAP03               225          192.168.1.23      Up        22       5d 4h\nAP04               235          192.168.1.24      Up        5        10d 1h\nAP05               245          192.168.1.25      Down      0        0h\n",
+  "textfsm_template": "Value AP_NAME (\\S+)\nValue AP_MODEL (\\S+)\nValue IP_ADDRESS (\\S+)\nValue STATUS (Up|Down)\nValue CLIENTS (\\d+)\nValue UPTIME (\\d+d \\d+h|\\d+h)\n\nStart\n  ^\\s*AP\\s+Name\\s+AP\\s+Model\\s+IP\\s+Address\\s+Status\\s+Clients\\s+Uptime\\s*$$\n  ^\\s*${AP_NAME}\\s+${AP_MODEL}\\s+${IP_ADDRESS}\\s+${STATUS}\\s+${CLIENTS}\\s+${UPTIME}\\s*$$ -> Record"
+}

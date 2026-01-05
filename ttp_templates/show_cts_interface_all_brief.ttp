@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show cts interface all brief
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 6
+# Match ratio: 1.20
+
+<group name="interface_cts_policy_status_peer_policy_status_interface_status">
+{{INTERFACE}} {{CTS_POLICY_STATUS | ORPHRASE}} {{PEER_POLICY_STATUS | ORPHRASE}} {{INTERFACE_STATUS | ORPHRASE}}
+</group>

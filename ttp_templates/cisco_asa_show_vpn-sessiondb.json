@@ -1,0 +1,39 @@
+{
+  "command": "cisco_asa_show_vpn-sessiondb",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"totals_active_totals_cumulative\">\nTotals : {{TOTALS_ACTIVE}} : {{TOTALS_CUMULATIVE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VPN_SESSION_NAME": "AnyConnect Client, SSL/TLS/DTLS, Clientless VPN, Browser",
+      "VPN_SESSION_ACTIVE": "38, 38, 0, 0",
+      "VPN_SESSION_CUMULATIVE": "330351, 330351, 1040, 1040",
+      "VPN_SESSION_PEAK_CONCURRENT": "442, 442, 9, 9",
+      "VPN_SESSION_INACTIVE": "0, 0",
+      "TOTAL_ACTIVE_AND_INACTIVE": "38",
+      "TOTAL_CUMULATIVE": "331391",
+      "DEVICE_TOTAL_VPN_CAPACITY": "5000",
+      "DEVICE_LOAD_PERCENT": "1",
+      "TUNNELS_SUMMARY_NAME": "Clientless, AnyConnect-Parent, SSL-Tunnel, DTLS-Tunnel",
+      "TUNNELS_SUMMARY_ACTIVE": "0, 38, 38, 37",
+      "TUNNELS_SUMMARY_CUMULATIVE": "1040, 330351, 985244, 2227003",
+      "TUNNELS_SUMMARY_PEAK_CONCURRENT": "9, 442, 392, 386",
+      "TOTALS_ACTIVE": "113",
+      "TOTALS_CUMULATIVE": "3543638"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "totals_active_totals_cumulative": {
+        "TOTALS_ACTIVE": "113",
+        "TOTALS_CUMULATIVE": "3543638"
+      }
+    }
+  ],
+  "cli_content": "---------------------------------------------------------------------------\nVPN Session Summary\n---------------------------------------------------------------------------\n                               Active : Cumulative : Peak Concur : Inactive\n                             ----------------------------------------------\nAnyConnect Client            :     38 :     330351 :         442 :        0\n  SSL/TLS/DTLS               :     38 :     330351 :         442 :        0\nClientless VPN               :      0 :       1040 :           9\n  Browser                    :      0 :       1040 :           9\n---------------------------------------------------------------------------\nTotal Active and Inactive    :     38             Total Cumulative : 331391\nDevice Total VPN Capacity    :   5000\nDevice Load                  :     1%\n---------------------------------------------------------------------------\n---------------------------------------------------------------------------\nTunnels Summary\n---------------------------------------------------------------------------\n                               Active : Cumulative : Peak Concurrent\n                             ----------------------------------------------\nClientless                   :      0 :       1040 :               9\nAnyConnect-Parent            :     38 :     330351 :             442\nSSL-Tunnel                   :     38 :     985244 :             392\nDTLS-Tunnel                  :     37 :    2227003 :             386\n---------------------------------------------------------------------------\nTotals                       :    113 :    3543638\n---------------------------------------------------------------------------\n",
+  "textfsm_template": "Value List VPN_SESSION_NAME (\\S+?\\s?\\S+)\nValue List VPN_SESSION_ACTIVE (\\d+)\nValue List VPN_SESSION_CUMULATIVE (\\d+)\nValue List VPN_SESSION_PEAK_CONCURRENT (\\d+)\nValue List VPN_SESSION_INACTIVE (\\d+)\n#\nValue TOTAL_ACTIVE_AND_INACTIVE (\\d+)\nValue TOTAL_CUMULATIVE (\\d+)\nValue DEVICE_TOTAL_VPN_CAPACITY (\\d+)\nValue DEVICE_LOAD_PERCENT (\\d+)\n#\nValue List TUNNELS_SUMMARY_NAME (\\S+?\\s?\\S+)\nValue List TUNNELS_SUMMARY_ACTIVE (\\d+)\nValue List TUNNELS_SUMMARY_CUMULATIVE (\\d+)\nValue List TUNNELS_SUMMARY_PEAK_CONCURRENT (\\d+)\n#\nValue TOTALS_ACTIVE (\\d+)\nValue TOTALS_CUMULATIVE (\\d+)\n\nStart\n  ^.+#\\s+show\\s+vpn-sessiondb\\s*$$\n  ^\\s*\\-+\\s*$$\n  ^\\s*VPN\\s+Session\\s+Summary\\s*$$ -> VPN_Session_Summary\n\nVPN_Session_Summary\n  ^\\s*\\-+\\s*$$\n  ^\\s*Active\\s+:\\s+Cumulative\\s+:\\s+Peak\\s+Concur\\s+:\\s+Inactive\\s*$$\n  ^\\s*${VPN_SESSION_NAME}\\s+:\\s+${VPN_SESSION_ACTIVE}\\s+:\\s+${VPN_SESSION_CUMULATIVE}\\s+:\\s+${VPN_SESSION_PEAK_CONCURRENT}\\s*(:\\s+${VPN_SESSION_INACTIVE}\\s*)?$$\n  ^\\s*Total\\s+Active\\s+and\\s+Inactive\\s+:\\s+${TOTAL_ACTIVE_AND_INACTIVE}\\s+Total\\s+Cumulative\\s+:\\s+${TOTAL_CUMULATIVE}\\s*$$\n  ^\\s*Device\\s+Total\\s+VPN\\s+Capacity\\s+:\\s+${DEVICE_TOTAL_VPN_CAPACITY}\n  ^\\s*Device\\s+Load\\s+:\\s+${DEVICE_LOAD_PERCENT}%\\s*$$\n  #\n  ^\\s*Tunnels\\s+Summary\\s* -> Tunnels_Summary\n  #\n  ^\\s*$$\n  ^. -> Error\n\nTunnels_Summary\n  ^\\s*\\-+\\s*$$\n  ^\\s*Active\\s+:\\s+Cumulative\\s+:\\s+Peak\\s+Concurrent\\s*$$\n  ^\\s*${TUNNELS_SUMMARY_NAME}\\s+:\\s+${TUNNELS_SUMMARY_ACTIVE}\\s+:\\s+${TUNNELS_SUMMARY_CUMULATIVE}\\s+:\\s+${TUNNELS_SUMMARY_PEAK_CONCURRENT}\\s*$$\n  ^\\s*Totals\\s+:\\s+${TOTALS_ACTIVE}\\s+:\\s+${TOTALS_CUMULATIVE}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

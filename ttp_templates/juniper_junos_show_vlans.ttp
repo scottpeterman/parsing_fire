@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: juniper_junos_show_vlans
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="routing_instance_vlan_name_tag">
+{{ROUTING_INSTANCE}} {{VLAN_NAME | ORPHRASE}} {{TAG}}
+</group>

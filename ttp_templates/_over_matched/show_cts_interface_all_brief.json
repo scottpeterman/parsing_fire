@@ -1,0 +1,86 @@
+{
+  "command": "show cts interface all brief",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.2,
+  "textfsm_rows": 5,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"interface_cts_policy_status_peer_policy_status_interface_status\">\n{{INTERFACE}} {{CTS_POLICY_STATUS | ORPHRASE}} {{PEER_POLICY_STATUS | ORPHRASE}} {{INTERFACE_STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "GigabitEthernet1/0/1",
+      "CTS_POLICY_STATUS": "enabled",
+      "PEER_POLICY_STATUS": "attached",
+      "INTERFACE_STATUS": "secure"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/0/2",
+      "CTS_POLICY_STATUS": "enabled",
+      "PEER_POLICY_STATUS": "not-attached",
+      "INTERFACE_STATUS": "unsecure"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/0/3",
+      "CTS_POLICY_STATUS": "disabled",
+      "PEER_POLICY_STATUS": "not-attached",
+      "INTERFACE_STATUS": "unsecure"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/0/4",
+      "CTS_POLICY_STATUS": "enabled",
+      "PEER_POLICY_STATUS": "attached",
+      "INTERFACE_STATUS": "secure"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/0/5",
+      "CTS_POLICY_STATUS": "enabled",
+      "PEER_POLICY_STATUS": "validating",
+      "INTERFACE_STATUS": "unsecure"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_cts_policy_status_peer_policy_status_interface_status": [
+        {
+          "INTERFACE": "Interface",
+          "CTS_POLICY_STATUS": "CTS-Policy Status",
+          "PEER_POLICY_STATUS": "Peer Policy Status",
+          "INTERFACE_STATUS": "Interface Status"
+        },
+        {
+          "INTERFACE": "GigabitEthernet1/0/1",
+          "CTS_POLICY_STATUS": "enabled",
+          "PEER_POLICY_STATUS": "attached",
+          "INTERFACE_STATUS": "secure"
+        },
+        {
+          "INTERFACE": "GigabitEthernet1/0/2",
+          "CTS_POLICY_STATUS": "enabled",
+          "PEER_POLICY_STATUS": "not-attached",
+          "INTERFACE_STATUS": "unsecure"
+        },
+        {
+          "INTERFACE": "GigabitEthernet1/0/3",
+          "CTS_POLICY_STATUS": "disabled",
+          "PEER_POLICY_STATUS": "not-attached",
+          "INTERFACE_STATUS": "unsecure"
+        },
+        {
+          "INTERFACE": "GigabitEthernet1/0/4",
+          "CTS_POLICY_STATUS": "enabled",
+          "PEER_POLICY_STATUS": "attached",
+          "INTERFACE_STATUS": "secure"
+        },
+        {
+          "INTERFACE": "GigabitEthernet1/0/5",
+          "CTS_POLICY_STATUS": "enabled",
+          "PEER_POLICY_STATUS": "validating",
+          "INTERFACE_STATUS": "unsecure"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              CTS-Policy Status   Peer Policy Status   Interface Status\nGigabitEthernet1/0/1   enabled             attached             secure\nGigabitEthernet1/0/2   enabled             not-attached         unsecure\nGigabitEthernet1/0/3   disabled            not-attached         unsecure\nGigabitEthernet1/0/4   enabled             attached             secure\nGigabitEthernet1/0/5   enabled             validating           unsecure\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue CTS_POLICY_STATUS (\\S+)\nValue PEER_POLICY_STATUS (\\S+)\nValue INTERFACE_STATUS (\\S+)\n\nStart\n  ^\\s*Interface\\s+CTS-Policy\\s+Status\\s+Peer\\s+Policy\\s+Status\\s+Interface\\s+Status\\s*$$\n  ^\\s*${INTERFACE}\\s+${CTS_POLICY_STATUS}\\s+${PEER_POLICY_STATUS}\\s+${INTERFACE_STATUS}\\s*$$ -> Record"
+}

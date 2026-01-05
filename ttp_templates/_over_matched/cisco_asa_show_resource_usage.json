@@ -1,0 +1,356 @@
+{
+  "command": "cisco_asa_show_resource_usage",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.1,
+  "textfsm_rows": 20,
+  "ttp_rows": 22,
+  "ttp_template": "<group name=\"resource_current_peak_limit_denied_context\">\n{{RESOURCE | ORPHRASE}} {{CURRENT}} {{PEAK}} {{LIMIT}} {{DENIED}} {{CONTEXT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "RESOURCE": "Telnet",
+      "CURRENT": "0",
+      "PEAK": "1",
+      "LIMIT": "5",
+      "DENIED": "0",
+      "CONTEXT": "admin"
+    },
+    {
+      "RESOURCE": "SSH Server",
+      "CURRENT": "2",
+      "PEAK": "5",
+      "LIMIT": "5",
+      "DENIED": "0",
+      "CONTEXT": "admin"
+    },
+    {
+      "RESOURCE": "ASDM",
+      "CURRENT": "1",
+      "PEAK": "5",
+      "LIMIT": "5",
+      "DENIED": "18",
+      "CONTEXT": "admin"
+    },
+    {
+      "RESOURCE": "Syslogs [rate]",
+      "CURRENT": "0",
+      "PEAK": "1153",
+      "LIMIT": "unlimited",
+      "DENIED": "0",
+      "CONTEXT": "admin"
+    },
+    {
+      "RESOURCE": "Conns",
+      "CURRENT": "177",
+      "PEAK": "319",
+      "LIMIT": "unlimited",
+      "DENIED": "0",
+      "CONTEXT": "admin"
+    },
+    {
+      "RESOURCE": "Hosts",
+      "CURRENT": "11",
+      "PEAK": "19",
+      "LIMIT": "unlimited",
+      "DENIED": "0",
+      "CONTEXT": "admin"
+    },
+    {
+      "RESOURCE": "Inspects [rate]",
+      "CURRENT": "0",
+      "PEAK": "99",
+      "LIMIT": "unlimited",
+      "DENIED": "0",
+      "CONTEXT": "admin"
+    },
+    {
+      "RESOURCE": "Routes",
+      "CURRENT": "3",
+      "PEAK": "3",
+      "LIMIT": "unlimited",
+      "DENIED": "0",
+      "CONTEXT": "admin"
+    },
+    {
+      "RESOURCE": "Syslogs [rate]",
+      "CURRENT": "0",
+      "PEAK": "112",
+      "LIMIT": "unlimited",
+      "DENIED": "0",
+      "CONTEXT": "DATA"
+    },
+    {
+      "RESOURCE": "Conns",
+      "CURRENT": "20",
+      "PEAK": "1031",
+      "LIMIT": "unlimited",
+      "DENIED": "0",
+      "CONTEXT": "DATA"
+    },
+    {
+      "RESOURCE": "Hosts",
+      "CURRENT": "18",
+      "PEAK": "28",
+      "LIMIT": "unlimited",
+      "DENIED": "0",
+      "CONTEXT": "DATA"
+    },
+    {
+      "RESOURCE": "Inspects [rate]",
+      "CURRENT": "0",
+      "PEAK": "73",
+      "LIMIT": "unlimited",
+      "DENIED": "0",
+      "CONTEXT": "DATA"
+    },
+    {
+      "RESOURCE": "Routes",
+      "CURRENT": "30",
+      "PEAK": "30",
+      "LIMIT": "unlimited",
+      "DENIED": "0",
+      "CONTEXT": "DATA"
+    },
+    {
+      "RESOURCE": "Syslogs [rate]",
+      "CURRENT": "329",
+      "PEAK": "6727",
+      "LIMIT": "unlimited",
+      "DENIED": "0",
+      "CONTEXT": "TEST"
+    },
+    {
+      "RESOURCE": "Conns",
+      "CURRENT": "5802",
+      "PEAK": "32491",
+      "LIMIT": "unlimited",
+      "DENIED": "0",
+      "CONTEXT": "TEST"
+    },
+    {
+      "RESOURCE": "Xlates",
+      "CURRENT": "943",
+      "PEAK": "944",
+      "LIMIT": "unlimited",
+      "DENIED": "0",
+      "CONTEXT": "TEST"
+    },
+    {
+      "RESOURCE": "Hosts",
+      "CURRENT": "2085",
+      "PEAK": "7120",
+      "LIMIT": "unlimited",
+      "DENIED": "0",
+      "CONTEXT": "TEST"
+    },
+    {
+      "RESOURCE": "Conns [rate]",
+      "CURRENT": "605",
+      "PEAK": "7235",
+      "LIMIT": "unlimited",
+      "DENIED": "0",
+      "CONTEXT": "TEST"
+    },
+    {
+      "RESOURCE": "Inspects [rate]",
+      "CURRENT": "510",
+      "PEAK": "3574",
+      "LIMIT": "unlimited",
+      "DENIED": "0",
+      "CONTEXT": "TEST"
+    },
+    {
+      "RESOURCE": "Routes",
+      "CURRENT": "701",
+      "PEAK": "701",
+      "LIMIT": "unlimited",
+      "DENIED": "0",
+      "CONTEXT": "TEST"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "resource_current_peak_limit_denied_context": [
+        {
+          "RESOURCE": "Resource",
+          "CURRENT": "Current",
+          "PEAK": "Peak",
+          "LIMIT": "Limit",
+          "DENIED": "Denied",
+          "CONTEXT": "Context"
+        },
+        {
+          "RESOURCE": "Telnet",
+          "CURRENT": "0",
+          "PEAK": "1",
+          "LIMIT": "5",
+          "DENIED": "0",
+          "CONTEXT": "admin"
+        },
+        {
+          "RESOURCE": "SSH",
+          "CURRENT": "Server",
+          "PEAK": "2",
+          "LIMIT": "5",
+          "DENIED": "5",
+          "CONTEXT": "0 admin"
+        },
+        {
+          "RESOURCE": "ASDM",
+          "CURRENT": "1",
+          "PEAK": "5",
+          "LIMIT": "5",
+          "DENIED": "18",
+          "CONTEXT": "admin"
+        },
+        {
+          "RESOURCE": "Syslogs",
+          "CURRENT": "[rate]",
+          "PEAK": "0",
+          "LIMIT": "1153",
+          "DENIED": "unlimited",
+          "CONTEXT": "0 admin"
+        },
+        {
+          "RESOURCE": "Conns",
+          "CURRENT": "177",
+          "PEAK": "319",
+          "LIMIT": "unlimited",
+          "DENIED": "0",
+          "CONTEXT": "admin"
+        },
+        {
+          "RESOURCE": "Hosts",
+          "CURRENT": "11",
+          "PEAK": "19",
+          "LIMIT": "unlimited",
+          "DENIED": "0",
+          "CONTEXT": "admin"
+        },
+        {
+          "RESOURCE": "Inspects",
+          "CURRENT": "[rate]",
+          "PEAK": "0",
+          "LIMIT": "99",
+          "DENIED": "unlimited",
+          "CONTEXT": "0 admin"
+        },
+        {
+          "RESOURCE": "Routes",
+          "CURRENT": "3",
+          "PEAK": "3",
+          "LIMIT": "unlimited",
+          "DENIED": "0",
+          "CONTEXT": "admin"
+        },
+        {
+          "RESOURCE": "Syslogs",
+          "CURRENT": "[rate]",
+          "PEAK": "0",
+          "LIMIT": "112",
+          "DENIED": "unlimited",
+          "CONTEXT": "0 DATA"
+        },
+        {
+          "RESOURCE": "Conns",
+          "CURRENT": "20",
+          "PEAK": "1031",
+          "LIMIT": "unlimited",
+          "DENIED": "0",
+          "CONTEXT": "DATA"
+        },
+        {
+          "RESOURCE": "Hosts",
+          "CURRENT": "18",
+          "PEAK": "28",
+          "LIMIT": "unlimited",
+          "DENIED": "0",
+          "CONTEXT": "DATA"
+        },
+        {
+          "RESOURCE": "Inspects",
+          "CURRENT": "[rate]",
+          "PEAK": "0",
+          "LIMIT": "73",
+          "DENIED": "unlimited",
+          "CONTEXT": "0 DATA"
+        },
+        {
+          "RESOURCE": "Routes",
+          "CURRENT": "30",
+          "PEAK": "30",
+          "LIMIT": "unlimited",
+          "DENIED": "0",
+          "CONTEXT": "DATA"
+        },
+        {
+          "RESOURCE": "Syslogs",
+          "CURRENT": "[rate]",
+          "PEAK": "329",
+          "LIMIT": "6727",
+          "DENIED": "unlimited",
+          "CONTEXT": "0 TEST"
+        },
+        {
+          "RESOURCE": "Conns",
+          "CURRENT": "5802",
+          "PEAK": "32491",
+          "LIMIT": "unlimited",
+          "DENIED": "0",
+          "CONTEXT": "TEST"
+        },
+        {
+          "RESOURCE": "Xlates",
+          "CURRENT": "943",
+          "PEAK": "944",
+          "LIMIT": "unlimited",
+          "DENIED": "0",
+          "CONTEXT": "TEST"
+        },
+        {
+          "RESOURCE": "Hosts",
+          "CURRENT": "2085",
+          "PEAK": "7120",
+          "LIMIT": "unlimited",
+          "DENIED": "0",
+          "CONTEXT": "TEST"
+        },
+        {
+          "RESOURCE": "Conns",
+          "CURRENT": "[rate]",
+          "PEAK": "605",
+          "LIMIT": "7235",
+          "DENIED": "unlimited",
+          "CONTEXT": "0 TEST"
+        },
+        {
+          "RESOURCE": "Inspects",
+          "CURRENT": "[rate]",
+          "PEAK": "510",
+          "LIMIT": "3574",
+          "DENIED": "unlimited",
+          "CONTEXT": "0 TEST"
+        },
+        {
+          "RESOURCE": "Routes",
+          "CURRENT": "701",
+          "PEAK": "701",
+          "LIMIT": "unlimited",
+          "DENIED": "0",
+          "CONTEXT": "TEST"
+        },
+        {
+          "RESOURCE": "S",
+          "CURRENT": "=",
+          "PEAK": "System:",
+          "LIMIT": "Combined",
+          "DENIED": "context",
+          "CONTEXT": "limits exceed the system limit; the system limit is shown"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Resource                 Current        Peak      Limit        Denied Context\nTelnet                         0           1          5             0 admin\nSSH Server                     2           5          5             0 admin\nASDM                           1           5          5            18 admin\nSyslogs [rate]                 0        1153  unlimited             0 admin\nConns                        177         319  unlimited             0 admin\nHosts                         11          19  unlimited             0 admin\nInspects [rate]                0          99  unlimited             0 admin\nRoutes                         3           3  unlimited             0 admin\nSyslogs [rate]                 0         112  unlimited             0 DATA\nConns                         20        1031  unlimited             0 DATA\nHosts                         18          28  unlimited             0 DATA\nInspects [rate]                0          73  unlimited             0 DATA\nRoutes                        30          30  unlimited             0 DATA\nSyslogs [rate]               329        6727  unlimited             0 TEST\nConns                       5802       32491  unlimited             0 TEST\nXlates                       943         944  unlimited             0 TEST\nHosts                       2085        7120  unlimited             0 TEST\nConns [rate]                 605        7235  unlimited             0 TEST\nInspects [rate]              510        3574  unlimited             0 TEST\nRoutes                       701         701  unlimited             0 TEST\nS = System: Combined context limits exceed the system limit; the system limit is shown\n",
+  "textfsm_template": "Value Required RESOURCE (.+?)\nValue CURRENT (\\d+)\nValue PEAK (\\d+)\nValue LIMIT (\\S+)\nValue DENIED (\\d+)\nValue CONTEXT (.+?)\n\n\nStart\n  ^Resource\\s+Current\\s+Peak\\s+Limit\\s+Denied\\s+Context\\s*$$ -> Start_record\n  ^\\s*$$\n  ^. -> Error\n\nStart_record\n  ^${RESOURCE}\\s+${CURRENT}\\s+${PEAK}\\s+${LIMIT}\\s+${DENIED}\\s+${CONTEXT}\\s*$$ -> Record\n  ^S\\s+=\\s+System:\\s+Combined\\s+context\\s+limits\n  ^\\s*$$\n  ^.* -> Error \"LINE NOT FOUND\"\n"
+}

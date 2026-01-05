@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show control connections
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="peer_type_public_addr_private_addr_color_state_system_id_domain_id">
+{{PEER_TYPE}} {{PUBLIC_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{PRIVATE_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{COLOR}} {{STATE | ORPHRASE}} {{SYSTEM_ID | ORPHRASE}} {{DOMAIN_ID | re("\\d+")}} 
+</group>

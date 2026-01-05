@@ -1,0 +1,68 @@
+{
+  "command": "show ip adjacencies",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.6,
+  "textfsm_rows": 5,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"protocol_address_age_interface\">\n{{PROTOCOL}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{AGE}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "IPv4",
+      "ADDRESS": "192.168.1.1",
+      "AGE": "300",
+      "INTERFACE": "GigabitEthernet0/1"
+    },
+    {
+      "PROTOCOL": "IPv4",
+      "ADDRESS": "10.0.0.2",
+      "AGE": "150",
+      "INTERFACE": "GigabitEthernet0/2"
+    },
+    {
+      "PROTOCOL": "IPv6",
+      "ADDRESS": "2001:db8::1",
+      "AGE": "200",
+      "INTERFACE": "GigabitEthernet0/3"
+    },
+    {
+      "PROTOCOL": "IPv4",
+      "ADDRESS": "172.16.0.5",
+      "AGE": "80",
+      "INTERFACE": "GigabitEthernet0/4"
+    },
+    {
+      "PROTOCOL": "IPv6",
+      "ADDRESS": "fe80::f00d",
+      "AGE": "60",
+      "INTERFACE": "GigabitEthernet0/5"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "protocol_address_age_interface": [
+        {
+          "PROTOCOL": "IPv4",
+          "ADDRESS": "192.168.1.1",
+          "AGE": "300",
+          "INTERFACE": "GigabitEthernet0/1"
+        },
+        {
+          "PROTOCOL": "IPv4",
+          "ADDRESS": "10.0.0.2",
+          "AGE": "150",
+          "INTERFACE": "GigabitEthernet0/2"
+        },
+        {
+          "PROTOCOL": "IPv4",
+          "ADDRESS": "172.16.0.5",
+          "AGE": "80",
+          "INTERFACE": "GigabitEthernet0/4"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Protocol     Address          Age (sec)  Interface\nIPv4         192.168.1.1      300        GigabitEthernet0/1\nIPv4         10.0.0.2         150        GigabitEthernet0/2\nIPv6         2001:db8::1      200        GigabitEthernet0/3\nIPv4         172.16.0.5       80         GigabitEthernet0/4\nIPv6         fe80::f00d       60         GigabitEthernet0/5\n",
+  "textfsm_template": "Value PROTOCOL (\\S+)\nValue ADDRESS (\\S+)\nValue AGE (\\d+)\nValue INTERFACE (\\S+)\n\nStart\n  ^Protocol\\s+Address\\s+Age\\s+\\(sec\\)\\s+Interface\\s*$$\n  ^${PROTOCOL}\\s+${ADDRESS}\\s+${AGE}\\s+${INTERFACE}\\s*$$ -> Record"
+}

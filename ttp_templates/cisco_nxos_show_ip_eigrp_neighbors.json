@@ -1,0 +1,200 @@
+{
+  "command": "cisco_nxos_show_ip_eigrp_neighbors",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.125,
+  "textfsm_rows": 8,
+  "ttp_rows": 9,
+  "ttp_template": "<group name=\"as_vrf\">\nIP-EIGRP neighbors for process {{AS}} VRF {{VRF | ORPHRASE}}\n<group name=\"hold_interface_ip_address\">\n7 {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE}} {{HOLD}} {{UPTIME | ORPHRASE}} {{SRTT}} {{RTO}} {{Q_CNT}} {{SEQ_NUM | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "AS": "65535",
+      "IP_ADDRESS": "10.20.150.2",
+      "INTERFACE": "Po2001",
+      "VRF": "default",
+      "HOLD": "12",
+      "UPTIME": "03:44:02",
+      "SRTT": "20",
+      "RTO": "200",
+      "Q_CNT": "0",
+      "SEQ_NUM": "10331"
+    },
+    {
+      "AS": "65535",
+      "IP_ADDRESS": "10.20.200.2",
+      "INTERFACE": "Po2000",
+      "VRF": "default",
+      "HOLD": "14",
+      "UPTIME": "03:44:02",
+      "SRTT": "13",
+      "RTO": "200",
+      "Q_CNT": "0",
+      "SEQ_NUM": "158157"
+    },
+    {
+      "AS": "65535",
+      "IP_ADDRESS": "10.40.1.1",
+      "INTERFACE": "Eth1/26",
+      "VRF": "default",
+      "HOLD": "13",
+      "UPTIME": "03:44:14",
+      "SRTT": "16",
+      "RTO": "200",
+      "Q_CNT": "0",
+      "SEQ_NUM": "158164"
+    },
+    {
+      "AS": "65535",
+      "IP_ADDRESS": "10.50.2.1",
+      "INTERFACE": "Eth2/5",
+      "VRF": "default",
+      "HOLD": "12",
+      "UPTIME": "03:44:14",
+      "SRTT": "16",
+      "RTO": "200",
+      "Q_CNT": "0",
+      "SEQ_NUM": "158166"
+    },
+    {
+      "AS": "65535",
+      "IP_ADDRESS": "10.50.1.1",
+      "INTERFACE": "Eth2/6",
+      "VRF": "default",
+      "HOLD": "13",
+      "UPTIME": "03:44:15",
+      "SRTT": "16",
+      "RTO": "200",
+      "Q_CNT": "0",
+      "SEQ_NUM": "158165"
+    },
+    {
+      "AS": "65535",
+      "IP_ADDRESS": "10.50.3.1",
+      "INTERFACE": "Eth2/7",
+      "VRF": "default",
+      "HOLD": "11",
+      "UPTIME": "03:44:15",
+      "SRTT": "13",
+      "RTO": "200",
+      "Q_CNT": "0",
+      "SEQ_NUM": "158167"
+    },
+    {
+      "AS": "65535",
+      "IP_ADDRESS": "10.20.5.2",
+      "INTERFACE": "Eth3/11",
+      "VRF": "default",
+      "HOLD": "14",
+      "UPTIME": "03:44:16",
+      "SRTT": "18",
+      "RTO": "200",
+      "Q_CNT": "0",
+      "SEQ_NUM": "158158"
+    },
+    {
+      "AS": "65535",
+      "IP_ADDRESS": "10.20.6.2",
+      "INTERFACE": "Eth3/12",
+      "VRF": "default",
+      "HOLD": "11",
+      "UPTIME": "03:44:17",
+      "SRTT": "14",
+      "RTO": "200",
+      "Q_CNT": "0",
+      "SEQ_NUM": "158163"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "as_vrf": {
+        "AS": "65535",
+        "VRF": "default",
+        "hold_interface_ip_address": [
+          {
+            "IP_ADDRESS": "10.20.150.2",
+            "INTERFACE": "Po2001",
+            "HOLD": "12",
+            "UPTIME": "03:44:02",
+            "SRTT": "20",
+            "RTO": "200",
+            "Q_CNT": "0",
+            "SEQ_NUM": "10331"
+          },
+          {
+            "IP_ADDRESS": "10.20.200.2",
+            "INTERFACE": "Po2000",
+            "HOLD": "14",
+            "UPTIME": "03:44:02",
+            "SRTT": "13",
+            "RTO": "200",
+            "Q_CNT": "0",
+            "SEQ_NUM": "158157"
+          },
+          {
+            "IP_ADDRESS": "10.40.1.1",
+            "INTERFACE": "Eth1/26",
+            "HOLD": "13",
+            "UPTIME": "03:44:14",
+            "SRTT": "16",
+            "RTO": "200",
+            "Q_CNT": "0",
+            "SEQ_NUM": "158164"
+          },
+          {
+            "IP_ADDRESS": "10.50.2.1",
+            "INTERFACE": "Eth2/5",
+            "HOLD": "12",
+            "UPTIME": "03:44:14",
+            "SRTT": "16",
+            "RTO": "200",
+            "Q_CNT": "0",
+            "SEQ_NUM": "158166"
+          },
+          {
+            "IP_ADDRESS": "10.50.1.1",
+            "INTERFACE": "Eth2/6",
+            "HOLD": "13",
+            "UPTIME": "03:44:15",
+            "SRTT": "16",
+            "RTO": "200",
+            "Q_CNT": "0",
+            "SEQ_NUM": "158165"
+          },
+          {
+            "IP_ADDRESS": "10.50.3.1",
+            "INTERFACE": "Eth2/7",
+            "HOLD": "11",
+            "UPTIME": "03:44:15",
+            "SRTT": "13",
+            "RTO": "200",
+            "Q_CNT": "0",
+            "SEQ_NUM": "158167"
+          },
+          {
+            "IP_ADDRESS": "10.20.5.2",
+            "INTERFACE": "Eth3/11",
+            "HOLD": "14",
+            "UPTIME": "03:44:16",
+            "SRTT": "18",
+            "RTO": "200",
+            "Q_CNT": "0",
+            "SEQ_NUM": "158158"
+          },
+          {
+            "IP_ADDRESS": "10.20.6.2",
+            "INTERFACE": "Eth3/12",
+            "HOLD": "11",
+            "UPTIME": "03:44:17",
+            "SRTT": "14",
+            "RTO": "200",
+            "Q_CNT": "0",
+            "SEQ_NUM": "158163"
+          }
+        ]
+      }
+    }
+  ],
+  "cli_content": "IP-EIGRP neighbors for process 65535 VRF default\nH Address Interface Hold Uptime SRTT RTO Q Seq\n(sec) (ms) Cnt Num\n7 10.20.150.2 Po2001 12 03:44:02 20 200 0 10331\n6 10.20.200.2 Po2000 14 03:44:02 13 200 0 158157\n5 10.40.1.1 Eth1/26 13 03:44:14 16 200 0 158164\n4 10.50.2.1 Eth2/5 12 03:44:14 16 200 0 158166\n3 10.50.1.1 Eth2/6 13 03:44:15 16 200 0 158165\n2 10.50.3.1 Eth2/7 11 03:44:15 13 200 0 158167\n1 10.20.5.2 Eth3/11 14 03:44:16 18 200 0 158158\n0 10.20.6.2 Eth3/12 11 03:44:17 14 200 0 158163\n",
+  "textfsm_template": "Value Filldown AS (\\d+)\nValue IP_ADDRESS ([0-9A-Fa-f:\\.]+)\nValue INTERFACE (\\S+)\nValue Filldown VRF (\\S+)\nValue HOLD (\\d+)\nValue UPTIME (\\d+:\\d+:\\d+)\nValue SRTT (\\d+)\nValue RTO (\\d+)\nValue Q_CNT (\\d+)\nValue SEQ_NUM (\\d+)\n\nStart\n  # Match the EIGRP process and AS number line\n  ^IP-EIGRP neighbors for process ${AS} VRF ${VRF}\\s*$$\n  # Match the header lines\n  ^\\s*H\\s+Address\\s+Interface\\s+Hold\\s+Uptime\\s+SRTT\\s+RTO\\s+Q\\s+Seq\\s*$$\n  ^\\s*\\(sec\\)\\s+\\(ms\\)\\s+Cnt\\s+Num\\s*$$\n  # Match the data lines\n  ^\\d+\\s+${IP_ADDRESS}\\s+${INTERFACE}\\s+${HOLD}\\s+${UPTIME}\\s+${SRTT}\\s+${RTO}\\s+${Q_CNT}\\s+${SEQ_NUM}\\s*$$ -> Record\n  ^. -> Error\n\nEOF\n"
+}

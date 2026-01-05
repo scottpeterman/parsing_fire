@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nvfis_show_running-config_system_settings
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="default_gateway_dpdk_hostname_ip_address">
+system settings hostname {{HOSTNAME | ORPHRASE}}
+system settings dpdk {{DPDK | ORPHRASE}}
+system settings mgmt ip address {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{NETMASK | ORPHRASE}}
+system settings default-gw {{DEFAULT_GATEWAY | ORPHRASE}}
+</group>

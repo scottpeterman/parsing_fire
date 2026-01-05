@@ -1,0 +1,15 @@
+# TTP Template - FAILED VALIDATION
+# Original command: mikrotik_routeros_system_routerboard_print
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="board_name_current_firmware_factory_firmware_firmware_type">
+  routerboard: {{ROUTERBOARD | ORPHRASE}}
+  board-name: {{BOARD_NAME | ORPHRASE}}
+  model: {{HARDWARE_MODEL | ORPHRASE}}
+  revision: {{REVISION | ORPHRASE}}
+  serial-number: {{SERIAL_NUMBER | ORPHRASE}}
+  firmware-type: {{FIRMWARE_TYPE | ORPHRASE}}
+  factory-firmware: {{FACTORY_FIRMWARE | ORPHRASE}}
+  current-firmware: {{CURRENT_FIRMWARE | ORPHRASE}}
+</group>

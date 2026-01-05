@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show file systems
+# Source: chatgpt
+# TextFSM rows: 8
+# TTP rows: 2
+# Match ratio: 0.25
+
+<group name="size_free_type_flags_prefixes">
+        {{SIZE}} {{FREE}} {{TYPE}} {{FLAGS}} {{PREFIXES | ORPHRASE}}
+</group>

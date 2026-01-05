@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show mpls ldp bindings
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="remote_peer_remote_label">
+    remote binding: peer {{REMOTE_PEER}}:0, label: {{REMOTE_LABEL | ORPHRASE}}
+</group>

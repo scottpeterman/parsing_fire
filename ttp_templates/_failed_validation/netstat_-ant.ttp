@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: netstat -ant
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="protocol_rec_q_send_q_local_addr_foreign_addr_state">
+{{PROTOCOL}} {{REC_Q}} {{SEND_Q}} {{LOCAL_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{FOREIGN_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATE | ORPHRASE}}
+</group>

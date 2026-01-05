@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip pim sparse-mode rp-hash
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="group_interface_metric_preference">
+Metric: {{PREFERENCE | ORPHRASE}}
+Group: {{GROUP | ORPHRASE}}
+RP: {{RP | ORPHRASE}}
+Interface: {{INTERFACE | ORPHRASE}}
+Metric: {{METRIC | ORPHRASE}}
+</group>

@@ -1,0 +1,77 @@
+{
+  "command": "cisco_ios_show_ip_prefix-list",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.6666666666666667,
+  "textfsm_rows": 3,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"seq_action_network_netmask\">\n   seq {{SEQ}} {{ACTION}} {{NETWORK}}/{{NETMASK | ORPHRASE}}\n</group>\n<group name=\"seq_action_network_netmask_le\">\n   seq {{SEQ}} {{ACTION}} {{NETWORK}}/{{NETMASK}} le {{LE | ORPHRASE}}\n</group>\n<group name=\"seq_action_network_netmask_ge_le\">\n   seq {{SEQ}} {{ACTION}} {{NETWORK}}/{{NETMASK}} ge {{GE}} le {{LE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "OSPF_Redist",
+      "SEQ": "5",
+      "ACTION": "deny",
+      "NETWORK": "10.0.0.0",
+      "NETMASK": "24"
+    },
+    {
+      "NAME": "OSPF_Redist",
+      "SEQ": "10",
+      "ACTION": "permit",
+      "NETWORK": "0.0.0.0",
+      "NETMASK": "0",
+      "LE": "32"
+    },
+    {
+      "NAME": "OSPF_Redist",
+      "SEQ": "15",
+      "ACTION": "deny",
+      "NETWORK": "10.0.0.0",
+      "NETMASK": "8",
+      "LE": "20",
+      "GE": "10"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "seq_action_network_netmask": [
+        {
+          "SEQ": "5",
+          "ACTION": "deny",
+          "NETWORK": "10.0.0.0",
+          "NETMASK": "24"
+        },
+        {
+          "SEQ": "10",
+          "ACTION": "permit",
+          "NETWORK": "0.0.0.0",
+          "NETMASK": "0 le 32"
+        },
+        {
+          "SEQ": "15",
+          "ACTION": "deny",
+          "NETWORK": "10.0.0.0",
+          "NETMASK": "8 ge 10 le 20"
+        }
+      ],
+      "seq_action_network_netmask_le": {
+        "SEQ": "10",
+        "ACTION": "permit",
+        "NETWORK": "0.0.0.0",
+        "NETMASK": "0",
+        "LE": "32"
+      },
+      "seq_action_network_netmask_ge_le": {
+        "SEQ": "15",
+        "ACTION": "deny",
+        "NETWORK": "10.0.0.0",
+        "NETMASK": "8",
+        "GE": "10",
+        "LE": "20"
+      }
+    }
+  ],
+  "cli_content": "ip prefix-list OSPF_Redist: 2 entries\n   seq 5 deny 10.0.0.0/24\n   seq 10 permit 0.0.0.0/0 le 32\n   seq 15 deny 10.0.0.0/8 ge 10 le 20\n",
+  "textfsm_template": "Value Required,Filldown NAME (\\S+)\nValue Required SEQ (\\d+)\nValue ACTION (\\S+)\nValue NETWORK ([0-9a-f:\\.]+)\nValue NETMASK (\\d+)\nValue LE (\\d+)\nValue GE (\\d+)\n\nStart\n  ^ip\\s+prefix-list\\s+${NAME}:\n  ^\\s+seq\\s+${SEQ}\\s+${ACTION}\\s+${NETWORK}/${NETMASK}(?:\\s+ge\\s+${GE}|)(?:\\s+le\\s+${LE}|)\\s*$$ -> Record\n  ^\\s*$$\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^.+ -> Error\n"
+}

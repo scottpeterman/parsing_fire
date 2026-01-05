@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_version
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="free_memory_model_software_version_sys_mac">
+Arista {{MODEL | ORPHRASE}}
+System MAC address:  {{SYS_MAC | ORPHRASE}}
+Software image version: {{SOFTWARE_VERSION | ORPHRASE}}
+Total memory:  {{TOTAL_MEMORY | ORPHRASE}} kB
+Free memory:  {{FREE_MEMORY | ORPHRASE}} kB
+</group>

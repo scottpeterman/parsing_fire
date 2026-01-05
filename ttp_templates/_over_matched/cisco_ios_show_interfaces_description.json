@@ -1,0 +1,214 @@
+{
+  "command": "cisco_ios_show_interfaces_description",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.2,
+  "textfsm_rows": 15,
+  "ttp_rows": 18,
+  "ttp_template": "<group name=\"port_status_protocol\">\n{{PORT}} {{STATUS | ORPHRASE}} {{PROTOCOL}}\n</group>\n<group name=\"port_status_protocol_description\">\n{{PORT}} {{STATUS | ORPHRASE}} {{PROTOCOL}} {{DESCRIPTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "Vl1",
+      "STATUS": "admin down",
+      "PROTOCOL": "down"
+    },
+    {
+      "PORT": "Vl99",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "10.20.99.0_Switch_mgmt_VLAN"
+    },
+    {
+      "PORT": "Gi0/1",
+      "STATUS": "down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "D3 USER"
+    },
+    {
+      "PORT": "Gi0/2",
+      "STATUS": "down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "D3 USER"
+    },
+    {
+      "PORT": "Gi0/3",
+      "STATUS": "down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "D3 USER"
+    },
+    {
+      "PORT": "Gi0/4",
+      "STATUS": "down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "D3 USER"
+    },
+    {
+      "PORT": "Gi0/5",
+      "STATUS": "down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "D3 USER"
+    },
+    {
+      "PORT": "Gi0/6",
+      "STATUS": "down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "D3 USER"
+    },
+    {
+      "PORT": "Gi0/7",
+      "STATUS": "down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "D3 USER"
+    },
+    {
+      "PORT": "Gi0/8",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "MERAKI TEST AP"
+    },
+    {
+      "PORT": "Gi0/9",
+      "STATUS": "admin down",
+      "PROTOCOL": "down"
+    },
+    {
+      "PORT": "Gi0/10",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "UPLINK TO TULCCD3S01P"
+    },
+    {
+      "PORT": "Gi0/10.10",
+      "STATUS": "deleted",
+      "PROTOCOL": "down"
+    },
+    {
+      "PORT": "Gi0/10.20",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "Carrier VLAN"
+    },
+    {
+      "PORT": "Gi0/10.30",
+      "STATUS": "reset",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "Garbage"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_status_protocol": [
+        {
+          "PORT": "Vl1",
+          "STATUS": "admin down",
+          "PROTOCOL": "down"
+        },
+        {
+          "PORT": "Gi0/9",
+          "STATUS": "admin down",
+          "PROTOCOL": "down"
+        },
+        {
+          "PORT": "Gi0/10.10",
+          "STATUS": "deleted",
+          "PROTOCOL": "down"
+        }
+      ],
+      "port_status_protocol_description": [
+        {
+          "PORT": "Interface",
+          "STATUS": "Status",
+          "PROTOCOL": "Protocol",
+          "DESCRIPTION": "Description"
+        },
+        {
+          "PORT": "Vl1",
+          "STATUS": "admin",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "down"
+        },
+        {
+          "PORT": "Vl99",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "10.20.99.0_Switch_mgmt_VLAN"
+        },
+        {
+          "PORT": "Gi0/1",
+          "STATUS": "down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "D3 USER"
+        },
+        {
+          "PORT": "Gi0/2",
+          "STATUS": "down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "D3 USER"
+        },
+        {
+          "PORT": "Gi0/3",
+          "STATUS": "down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "D3 USER"
+        },
+        {
+          "PORT": "Gi0/4",
+          "STATUS": "down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "D3 USER"
+        },
+        {
+          "PORT": "Gi0/5",
+          "STATUS": "down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "D3 USER"
+        },
+        {
+          "PORT": "Gi0/6",
+          "STATUS": "down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "D3 USER"
+        },
+        {
+          "PORT": "Gi0/7",
+          "STATUS": "down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "D3 USER"
+        },
+        {
+          "PORT": "Gi0/8",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "MERAKI TEST AP"
+        },
+        {
+          "PORT": "Gi0/9",
+          "STATUS": "admin",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "down"
+        },
+        {
+          "PORT": "Gi0/10",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "UPLINK TO TULCCD3S01P"
+        },
+        {
+          "PORT": "Gi0/10.20",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "Carrier VLAN"
+        },
+        {
+          "PORT": "Gi0/10.30",
+          "STATUS": "reset",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "Garbage"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface                      Status         Protocol Description\nVl1                            admin down     down\nVl99                           up             up       10.20.99.0_Switch_mgmt_VLAN\nGi0/1                          down           down     D3 USER\nGi0/2                          down           down     D3 USER\nGi0/3                          down           down     D3 USER\nGi0/4                          down           down     D3 USER\nGi0/5                          down           down     D3 USER\nGi0/6                          down           down     D3 USER\nGi0/7                          down           down     D3 USER\nGi0/8                          up             up       MERAKI TEST AP\nGi0/9                          admin down     down\nGi0/10                         up             up       UPLINK TO TULCCD3S01P\nGi0/10.10                      deleted        down\nGi0/10.20                      up             up       Carrier VLAN\nGi0/10.30                      reset          down     Garbage\n",
+  "textfsm_template": "Value PORT (\\S+)\nValue STATUS (up|down|deleted|admin\\s+down|reset)\nValue PROTOCOL (up|down)\nValue DESCRIPTION (\\S.*?)\n\nStart\n  ^Interface\\s+Status\\s+Protocol\\s+Description\\s*$$ -> Begin\n  ^\\s*$$\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^. -> Error\n\nBegin\n  ^${PORT}\\s+${STATUS}\\s+${PROTOCOL}(?:\\s+${DESCRIPTION})?\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

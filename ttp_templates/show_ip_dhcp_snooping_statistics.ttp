@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip dhcp snooping statistics
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="interface_trusted_switched_pkts_declined_pkts_dropped_pkts_rate_limited_pkts">
+{{INTERFACE}} {{TRUSTED}} {{SWITCHED_PKTS}} {{DECLINED_PKTS}} {{DROPPED_PKTS | ORPHRASE}} {{RATE_LIMITED_PKTS}}
+</group>

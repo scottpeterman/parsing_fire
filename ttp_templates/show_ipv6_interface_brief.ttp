@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ipv6 interface brief
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 6
+# Match ratio: 1.20
+
+<group name="interface_ipv6_address_admin_state_oper_state">
+{{INTERFACE}} {{IPV6_ADDRESS}} {{ADMIN_STATE | ORPHRASE}} {{OPER_STATE | ORPHRASE}}
+</group>

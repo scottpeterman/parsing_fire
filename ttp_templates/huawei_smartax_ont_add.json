@@ -1,0 +1,30 @@
+{
+  "command": "huawei_smartax_ont_add",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"onts_ont_id_port_id_success\">\n  Number of ONTs that can be added: {{ONTS | ORPHRASE}}, success: {{SUCCESS}}\n  PortID :{{PORT_ID | re(\"\\\\d+\")}}, ONTID :{{ONT_ID | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ONTS": "1",
+      "SUCCESS": "1",
+      "PORT_ID": "6",
+      "ONT_ID": "2"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "onts_ont_id_port_id_success": {
+        "PORT_ID": "6",
+        "ONT_ID": "2",
+        "ONTS": "1",
+        "SUCCESS": "1"
+      }
+    }
+  ],
+  "cli_content": "  Number of ONTs that can be added: 1, success: 1\n  PortID :6, ONTID :2",
+  "textfsm_template": "Value ONTS (\\d+)\nValue SUCCESS (\\d+)\nValue PORT_ID (\\d+)\nValue ONT_ID (\\d+)\n\nStart\n  ^\\s*Number\\s*of\\s*ONTs\\s*that\\s*can\\s*be\\s*added:\\s*${ONTS},\\s*success:\\s*${SUCCESS} -> OntDetails\n\nOntDetails\n  ^\\s*PortID\\s*:${PORT_ID},\\s*ONTID\\s*:${ONT_ID} -> Record\n  ^\\s*$$\n  ^. -> Error"
+}

@@ -1,0 +1,48 @@
+{
+  "command": "hp_procurve_show_trunks",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"local_port_int_name_int_type_trunk_trunk_type\">\n  {{LOCAL_PORT | re(\"\\\\d+\")}} | {{INT_NAME | ORPHRASE}} {{INT_TYPE}} | {{TRUNK}} {{TRUNK_TYPE | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOCAL_PORT": "49",
+      "INT_NAME": "Uplink 65432p-swi001",
+      "INT_TYPE": "1000LX",
+      "TRUNK": "Trk2",
+      "TRUNK_TYPE": "LACP"
+    },
+    {
+      "LOCAL_PORT": "50",
+      "INT_NAME": "Uplink 65432p-swi001",
+      "INT_TYPE": "1000LX",
+      "TRUNK": "Trk2",
+      "TRUNK_TYPE": "LACP"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "local_port_int_name_int_type_trunk_trunk_type": [
+        {
+          "LOCAL_PORT": "49",
+          "INT_NAME": "Uplink 65432p-swi001",
+          "INT_TYPE": "1000LX",
+          "TRUNK": "Trk2",
+          "TRUNK_TYPE": "LACP"
+        },
+        {
+          "LOCAL_PORT": "50",
+          "INT_NAME": "Uplink 65432p-swi001",
+          "INT_TYPE": "1000LX",
+          "TRUNK": "Trk2",
+          "TRUNK_TYPE": "LACP"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\n Load Balancing Method:  L3-based (default)\n\n  Port   | Name                             Type       | Group Type    \n  ------ + -------------------------------- ---------- + ----- --------\n  49     | Uplink 65432p-swi001             1000LX     | Trk2  LACP    \n  50     | Uplink 65432p-swi001             1000LX     | Trk2  LACP    \n \n",
+  "textfsm_template": "Value Required LOCAL_PORT (\\S+)\nValue INT_NAME (.*?)\nValue INT_TYPE (.*?)\nValue TRUNK (\\S+)\nValue TRUNK_TYPE (\\S+)\n\nStart\n  ^\\s*Load\\sBalancing\\sMethod.*$$\n  ^\\s+Port\\s+|\\s+Name\\s+Type\\s+|\\s+Group\\s+Type.*$$\n  ^\\s+-+\\s+\\+\\s+\\-+.* -> TRUNKS\n  ^\\s*$$\n  ^. -> Error\n\nTRUNKS\n  ^\\s+${LOCAL_PORT}\\s+\\|\\s${INT_NAME}\\s+ ${INT_TYPE}\\s+ \\|\\s${TRUNK}\\s+${TRUNK_TYPE}.*$$ -> Record\n  ^\\S+\\#\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: brocade_fastiron_show_trunk
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 2
+# Match ratio: 2.00
+
+<group name="id_link1_link2_port1">
+Trunk ID: {{ID | ORPHRASE}}
+Ports  5  {{PORT2 | ORPHRASE}}  
+Link_Status  {{LINK1 | ORPHRASE}}  {{LINK2}}  
+port_state  {{STATE1 | ORPHRASE}} {{STATE2 | ORPHRASE}} 
+</group>

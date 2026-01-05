@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_environment_temperature
+# Source: ntc
+# TextFSM rows: 16
+# TTP rows: 22
+# Match ratio: 1.38
+
+<group name="module">
+{{MODULE | ORPHRASE}}:
+<group name="alert_limit_critical_limit_current_value">
+{{SENSOR}} {{DESCRIPTION | ORPHRASE}} {{CURRENT_VALUE}} ({{SETPOINT}}) 63.8 {{ALERT_LIMIT}} {{CRITICAL_LIMIT | ORPHRASE}}
+</group>
+</group>

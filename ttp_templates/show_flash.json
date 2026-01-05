@@ -1,0 +1,80 @@
+{
+  "command": "show flash:",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"file_index_file_size_date_file_name\">\n    {{FILE_INDEX}} -rw- {{FILE_SIZE}} {{DATE | ORPHRASE}} {{FILE_NAME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FILE_INDEX": "2",
+      "FILE_NAME": "c2960-lanbasek9-mz.150-2.SE8.bin",
+      "FILE_SIZE": "13782208",
+      "DATE": "Jul 4 2016 17:20:01 +00:00"
+    },
+    {
+      "FILE_INDEX": "3",
+      "FILE_NAME": "vlan.dat",
+      "FILE_SIZE": "76096",
+      "DATE": "Jul 4 2016 17:22:51 +00:00"
+    },
+    {
+      "FILE_INDEX": "5",
+      "FILE_NAME": "config.text",
+      "FILE_SIZE": "30292",
+      "DATE": "Jul 4 2016 18:08:48 +00:00"
+    },
+    {
+      "FILE_INDEX": "6",
+      "FILE_NAME": "private-config.text",
+      "FILE_SIZE": "1024",
+      "DATE": "Jul 4 2016 18:09:09 +00:00"
+    },
+    {
+      "FILE_INDEX": "7",
+      "FILE_NAME": "multiple-fs",
+      "FILE_SIZE": "1248",
+      "DATE": "Jul 4 2016 18:09:09 +00:00"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "file_index_file_size_date_file_name": [
+        {
+          "FILE_INDEX": "2",
+          "FILE_SIZE": "13782208",
+          "DATE": "Jul 4 2016 17:20:01 +00:00",
+          "FILE_NAME": "c2960-lanbasek9-mz.150-2.SE8.bin"
+        },
+        {
+          "FILE_INDEX": "3",
+          "FILE_SIZE": "76096",
+          "DATE": "Jul 4 2016 17:22:51 +00:00",
+          "FILE_NAME": "vlan.dat"
+        },
+        {
+          "FILE_INDEX": "5",
+          "FILE_SIZE": "30292",
+          "DATE": "Jul 4 2016 18:08:48 +00:00",
+          "FILE_NAME": "config.text"
+        },
+        {
+          "FILE_INDEX": "6",
+          "FILE_SIZE": "1024",
+          "DATE": "Jul 4 2016 18:09:09 +00:00",
+          "FILE_NAME": "private-config.text"
+        },
+        {
+          "FILE_INDEX": "7",
+          "FILE_SIZE": "1248",
+          "DATE": "Jul 4 2016 18:09:09 +00:00",
+          "FILE_NAME": "multiple-fs"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Directory of flash:/\n\n    2  -rw-     13782208  Jul 4 2016 17:20:01 +00:00  c2960-lanbasek9-mz.150-2.SE8.bin\n    3  -rw-        76096  Jul 4 2016 17:22:51 +00:00  vlan.dat\n    5  -rw-        30292  Jul 4 2016 18:08:48 +00:00  config.text\n    6  -rw-        1024   Jul 4 2016 18:09:09 +00:00  private-config.text\n    7  -rw-        1248   Jul 4 2016 18:09:09 +00:00  multiple-fs\n\n77414400 bytes total (62738432 bytes free)\n",
+  "textfsm_template": "Value FILE_INDEX (\\d+)\nValue FILE_NAME (\\S+)\nValue FILE_SIZE (\\d+)\nValue DATE (\\w+ \\d+ \\d+ \\d+:\\d+:\\d+ \\S+)\nValue BYTES_TOTAL (\\d+ bytes total)\nValue BYTES_FREE (\\d+ bytes free)\n\nStart\n  ^\\s*Directory\\s+of\\s+flash:/\\s*$$\n  ^\\s*${FILE_INDEX}\\s+-\\w+-\\s+${FILE_SIZE}\\s+${DATE}\\s+${FILE_NAME}\\s*$$ -> Record\n  ^\\s*${BYTES_TOTAL}\\s+\\(${BYTES_FREE}\\)\\s*$$ -> Record\n\nEOF\n"
+}

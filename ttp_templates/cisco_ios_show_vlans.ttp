@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_vlans
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 3
+# Match ratio: 3.00
+
+<group name="interfaces">
+{{INTERFACES}}
+</group>

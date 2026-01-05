@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip bgp
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="as_path_loc_pref_metric_network">
+BGP table vers{{ORIGIN | ORPHRASE}}on is 3, local router ID is 192.168.1.1
+*> 1{{METRIC}}.{{WEIGHT}}.0.0/8  192.168.10.1  0  {{LOC_PREF | ORPHRASE}}  0 65001 i
+*  10.0.0.0/8  192.168.20.1  0  100  0 {{AS_PATH | ORPHRASE}} i
+*> {{NETWORK | ORPHRASE}}  192.168.10.2  0  100  0 65001 i
+  172.16.0.0/12  {{NEXT_HOP | ORPHRASE}}  0  100  0 65002 i
+</group>

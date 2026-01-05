@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show crypto ipsec sa
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="encaps_encrypt_digest">
+    #pkts encaps: {{ENCAPS | ORPHRASE}}, #pkts encrypt: {{ENCRYPT}}, #pkts digest: {{DIGEST}}
+</group>

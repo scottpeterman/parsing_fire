@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show ip tcp brief
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="tcb_local_address_foreign_address_state">
+{{TCB}} {{LOCAL_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{FOREIGN_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATE | ORPHRASE}}
+</group>

@@ -1,0 +1,11 @@
+# TTP Template - FAILED VALIDATION
+# Original command: netstat -tulnp
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="protocol_recv_q_send_q_local_address_foreign_address_state_pid_program">
+{{PROTOCOL}} {{RECV_Q}} {{SEND_Q}} {{LOCAL_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{FOREIGN_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATE | ORPHRASE}} {{PID | re("\\d+")}}/{{PROGRAM | ORPHRASE}}
+</group>
+<group name="protocol_recv_q_send_q_local_address_foreign_address_pid_program">
+{{PROTOCOL}} {{RECV_Q}} {{SEND_Q}} {{LOCAL_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{FOREIGN_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{PID | re("\\d+")}}/{{PROGRAM | ORPHRASE}}
+</group>

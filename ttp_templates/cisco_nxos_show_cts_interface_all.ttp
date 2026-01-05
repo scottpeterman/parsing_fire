@@ -1,0 +1,21 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_cts_interface_all
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="authentication_status_authorization_status_cts_mode_cts_status">
+CTS Information for Interface Ethernet1/{{PEER_SGT | ORPHRASE}}:
+  CTS is {{CTS_STATUS | ORPHRASE}}, mode:  {{CTS_MODE | ORPHRASE}}
+  IFC state:  {{IFC_STATE | ORPHRASE}}
+  Authentication Status:  {{AUTHENTICATION_STATUS | ORPHRASE}}
+  Peer Identity:  {{PEER_IDENTITY | ORPHRASE}}
+  Peer is:  {{PEER_IS | ORPHRASE}}
+  802.1X role:  {{DOT1X_ROLE | ORPHRASE}}
+  Peer SGT assignment:  {{PEER_SGT_ASSIGNMENT | ORPHRASE}}
+  SAP Status:  {{SAP_STATUS | ORPHRASE}}
+  Propagate SGT: {{SGT_PROPAGATE | ORPHRASE}}
+CTS Information for Interface {{INTERFACE | ORPHRASE}}:
+  Authorization Status:  {{AUTHORIZATION_STATUS | ORPHRASE}}
+</group>

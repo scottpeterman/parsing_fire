@@ -1,0 +1,68 @@
+{
+  "command": "show ip ospf neighbor",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"neighbor_id_priority_state_dead_time_address_interface\">\n{{NEIGHBOR_ID}} {{PRIORITY}} {{STATE | ORPHRASE}} {{DEAD_TIME}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR_ID": "10.1.1.2",
+      "PRIORITY": "1",
+      "STATE": "FULL/BDR",
+      "DEAD_TIME": "00:00:30",
+      "ADDRESS": "192.168.1.2",
+      "INTERFACE": "GigabitEthernet0/1"
+    },
+    {
+      "NEIGHBOR_ID": "10.1.1.3",
+      "PRIORITY": "1",
+      "STATE": "FULL/DR",
+      "DEAD_TIME": "00:00:31",
+      "ADDRESS": "192.168.1.3",
+      "INTERFACE": "GigabitEthernet0/2"
+    },
+    {
+      "NEIGHBOR_ID": "10.1.1.4",
+      "PRIORITY": "1",
+      "STATE": "FULL/DROTHER",
+      "DEAD_TIME": "00:00:29",
+      "ADDRESS": "192.168.1.4",
+      "INTERFACE": "GigabitEthernet0/3"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neighbor_id_priority_state_dead_time_address_interface": [
+        {
+          "NEIGHBOR_ID": "10.1.1.2",
+          "PRIORITY": "1",
+          "STATE": "FULL/BDR",
+          "DEAD_TIME": "00:00:30",
+          "ADDRESS": "192.168.1.2",
+          "INTERFACE": "GigabitEthernet0/1"
+        },
+        {
+          "NEIGHBOR_ID": "10.1.1.3",
+          "PRIORITY": "1",
+          "STATE": "FULL/DR",
+          "DEAD_TIME": "00:00:31",
+          "ADDRESS": "192.168.1.3",
+          "INTERFACE": "GigabitEthernet0/2"
+        },
+        {
+          "NEIGHBOR_ID": "10.1.1.4",
+          "PRIORITY": "1",
+          "STATE": "FULL/DROTHER",
+          "DEAD_TIME": "00:00:29",
+          "ADDRESS": "192.168.1.4",
+          "INTERFACE": "GigabitEthernet0/3"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Neighbor ID     Pri   State           Dead Time   Address         Interface\n10.1.1.2        1     FULL/BDR        00:00:30    192.168.1.2     GigabitEthernet0/1\n10.1.1.3        1     FULL/DR         00:00:31    192.168.1.3     GigabitEthernet0/2\n10.1.1.4        1     FULL/DROTHER    00:00:29    192.168.1.4     GigabitEthernet0/3\n",
+  "textfsm_template": "Value NEIGHBOR_ID (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue PRIORITY (\\d+)\nValue STATE (\\S+)\nValue DEAD_TIME (\\d+:\\d+:\\d+)\nValue ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue INTERFACE (\\S+)\n\nStart\n  ^Neighbor\\sID\\s+Pri\\s+State\\s+Dead\\sTime\\s+Address\\s+Interface\\s*$$\n  ^\\s*${NEIGHBOR_ID}\\s+${PRIORITY}\\s+${STATE}\\s+${DEAD_TIME}\\s+${ADDRESS}\\s+${INTERFACE}\\s*$$ -> Record"
+}

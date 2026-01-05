@@ -1,0 +1,36 @@
+{
+  "command": "brocade_fastiron_show_monitor",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"inputmirror\">\n  Input mirrored by\t: {{inputmirror | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "monitoredport": "10",
+      "inputmirror": "18",
+      "outputmirror": "18"
+    },
+    {
+      "monitoredport": "16",
+      "inputmirror": "18",
+      "outputmirror": "18"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "inputmirror": [
+        {
+          "inputmirror": "18"
+        },
+        {
+          "inputmirror": "18"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Monitored Port 10\n  Input mirrored by\t:  18\n  Output mirrored by\t:  18\nMonitored Port 16\n  Input mirrored by\t:  18\n  Output mirrored by\t:  18\n",
+  "textfsm_template": "Value monitoredport ([0-9\\/]+)\nValue inputmirror ([0-9\\/\\(\\)\\ UM]+)\nValue outputmirror ([0-9\\/\\(\\)\\ UM]+)\n\nStart\n  ^\\w -> Continue.Record\n  ^Monitored Port ${monitoredport} -> Continue\n  ^\\s+Input mirrored by\\s+:\\s+${inputmirror} -> Continue\n  ^\\s+Output mirrored by\\s+:\\s+${outputmirror} -> Continue\n"
+}

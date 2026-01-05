@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_running-config_crypto_map
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 6
+# Match ratio: 1.00
+
+<group name="map_seq_ike_transform">
+crypto map {{MAP}} {{SEQ}} set {{IKE}} transform-set {{TRANSFORM | ORPHRASE}}
+</group>

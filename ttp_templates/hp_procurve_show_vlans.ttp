@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_procurve_show_vlans
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="vlan_id_vlan_name_status_voice">
+  {{VLAN_ID | re("\\d+")}} {{VLAN_NAME}} {{STATUS | ORPHRASE}} {{VOICE | ORPHRASE}}
+</group>

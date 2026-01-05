@@ -1,0 +1,45 @@
+{
+  "command": "show mpls ldp neighbor detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"msgs_rcvd_msgs_sent_peer_id_state\">\n  State: Oper; Msgs sent/rcvd: 2{{UPTIME | ORPHRASE}}4/253; Downstream\nPeer LDP Identifier: {{PEER_ID | ORPHRASE}}\n  TCP connection: {{TCP_CONN | ORPHRASE}}\n  State: {{STATE | ORPHRASE}}; Msgs sent/rcvd: {{MSGS_SENT}}/{{MSGS_RCVD | ORPHRASE}}; Downstream\n  {{TARGET_HELLO | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PEER_ID": "10.1.1.1:0",
+      "TCP_CONN": "10.1.1.2:18003 - 10.1.1.1:646",
+      "STATE": "Oper",
+      "MSGS_SENT": "254",
+      "MSGS_RCVD": "253",
+      "UPTIME": "2",
+      "TARGET_HELLO": "10.1.1.2 -> 10.1.1.1"
+    },
+    {
+      "PEER_ID": "20.1.1.1:0",
+      "TCP_CONN": "20.1.1.2:18003 - 20.1.1.1:646",
+      "STATE": "Non-oper",
+      "MSGS_SENT": "100",
+      "MSGS_RCVD": "99",
+      "UPTIME": "5",
+      "TARGET_HELLO": "20.1.1.2 -> 20.1.1.1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "msgs_rcvd_msgs_sent_peer_id_state": {
+        "TARGET_HELLO": "Up time: 2w0d",
+        "STATE": "Non-oper",
+        "MSGS_SENT": "100",
+        "MSGS_RCVD": "99",
+        "TCP_CONN": "20.1.1.2:18003 - 20.1.1.1:646",
+        "PEER_ID": "20.1.1.1:0",
+        "UPTIME": "5"
+      }
+    }
+  ],
+  "cli_content": "Peer LDP Identifier: 10.1.1.1:0\n  TCP connection: 10.1.1.2:18003 - 10.1.1.1:646\n  State: Oper; Msgs sent/rcvd: 254/253; Downstream\n  Up time: 2w0d\n  LDP Discovery Sources:\n    Interfaces:\n      GigabitEthernet0/1 (ldp): xmit/recv\n    Targeted Hellos:\n      10.1.1.2 -> 10.1.1.1\n\nPeer LDP Identifier: 20.1.1.1:0\n  TCP connection: 20.1.1.2:18003 - 20.1.1.1:646\n  State: Non-oper; Msgs sent/rcvd: 100/99; Downstream\n  Up time: 5d3h\n  LDP Discovery Sources:\n    Interfaces:\n      GigabitEthernet0/2 (ldp): xmit/recv\n    Targeted Hellos:\n      20.1.1.2 -> 20.1.1.1\n",
+  "textfsm_template": "Value PEER_ID (\\S+:\\d+)\nValue TCP_CONN (\\S+:\\d+ - \\S+:\\d+)\nValue STATE (\\S+)\nValue MSGS_SENT (\\d+)\nValue MSGS_RCVD (\\d+)\nValue UPTIME (.+?)\nValue INTERFACE (\\S+)\nValue TARGET_HELLO (\\S+ -> \\S+)\n\nStart\n  ^Peer LDP Identifier: ${PEER_ID}\n  ^\\s*TCP connection: ${TCP_CONN}\n  ^\\s*State: ${STATE}; Msgs sent/rcvd: ${MSGS_SENT}/${MSGS_RCVD}; .*\n  ^\\s*Up time: ${UPTIME}\n  ^\\s*Interfaces:\n  ^\\s*${INTERFACE}\\s.*\\s->\\s.*\n  ^\\s*Targeted Hellos:\n  ^\\s*${TARGET_HELLO}\\s*$$ -> Record"
+}

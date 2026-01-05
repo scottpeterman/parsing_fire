@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: fortinet_execute_log_display
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 6
+# Match ratio: 2.00
+
+<group name="message_number_year_month_logs_returned_hour_minute_second_message">
+{{MESSAGE_NUMBER}}: date={{YEAR}}-{{MONTH}}-{{LOGS_RETURNED}} time={{HOUR}}:{{MINUTE}}:{{SECOND}} {{MESSAGE | ORPHRASE}}
+</group>
+<group name="message_number_year_month_day_hour_minute_second_message">
+{{MESSAGE_NUMBER}}: date={{YEAR}}-{{MONTH}}-{{DAY}} time={{HOUR}}:{{MINUTE}}:{{SECOND}} {{MESSAGE | ORPHRASE}}
+</group>

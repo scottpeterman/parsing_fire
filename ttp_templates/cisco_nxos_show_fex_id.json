@@ -1,0 +1,49 @@
+{
+  "command": "cisco_nxos_show_fex_id",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"description_extender_model_extender_serial_fabric_interface\">\nFEX: {{FEX}} Description: {{DESCRIPTION}}  state: {{STATE | ORPHRASE}}\n  FEX version: {{VERSION | ORPHRASE}} [Switch version: 7.2(1)N1(1)]\n  Extender Serial: {{EXTENDER_SERIAL | ORPHRASE}}\n  Extender Model: {{EXTENDER_MODEL}}, \u00a0Part No: {{PART_NO | ORPHRASE}}\n  Pinning-mode: {{PINNING_MODE | ORPHRASE}} \u00a0 \u00a0Max-links: 1\n  Fabric port for control traffic: {{FABRIC_PORT | ORPHRASE}}\n  FCoE Admin: {{FCOE_ADMIN | ORPHRASE}}\n  FCoE Oper: {{FCOE_OPER | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FEX": "102",
+      "DESCRIPTION": "ATL1-AS3P",
+      "STATE": "Online",
+      "VERSION": "7.2(1)N1(1)",
+      "EXTENDER_SERIAL": "SSI16340AR0",
+      "EXTENDER_MODEL": "N2K-C2248TP-E-1GE",
+      "PART_NO": "73-13671-01",
+      "PINNING_MODE": "static",
+      "MAX_LINKS": "1",
+      "FABRIC_PORT": "Eth1/31",
+      "FCOE_ADMIN": "false",
+      "FCOE_OPER": "true",
+      "FCOE_FEX_AA_CONFIGURED": "false",
+      "FABRIC_INTERFACE": "Po102, Eth1/31, Eth2/15",
+      "INTERFACE_MODE": "Up, Up, Up",
+      "INTERFACE_STATE": "Active, Active, Active"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "description_extender_model_extender_serial_fabric_interface": {
+        "FCOE_OPER": "true",
+        "FCOE_ADMIN": "false",
+        "FABRIC_PORT": "Eth1/31",
+        "PINNING_MODE": "static",
+        "EXTENDER_MODEL": "N2K-C2248TP-E-1GE",
+        "PART_NO": "73-13671-01",
+        "EXTENDER_SERIAL": "SSI16340AR0",
+        "VERSION": "7.2(1)N1(1)",
+        "FEX": "102",
+        "DESCRIPTION": "ATL1-AS3P",
+        "STATE": "Online"
+      }
+    }
+  ],
+  "cli_content": "FEX: 102 Description: ATL1-AS3P   state: Online\n  FEX version: 7.2(1)N1(1) [Switch version: 7.2(1)N1(1)]\n  Extender Serial: SSI16340AR0\n  Extender Model: N2K-C2248TP-E-1GE, \u00a0Part No: 73-13671-01\n  Pinning-mode: static \u00a0 \u00a0Max-links: 1\n  Fabric port for control traffic: Eth1/31\n  FCoE Admin: false\n  FCoE Oper: true\n  FCoE FEX AA Configured: false\n  Fabric interface state:\n    Po102 - Interface Up. State: Active\n    Eth1/31 - Interface Up. State: Active\n    Eth2/15 - Interface Up. State: Active\n",
+  "textfsm_template": "Value FEX (\\d+)\nValue DESCRIPTION (\\S+)\nValue STATE (\\S+)\nValue VERSION (\\S+)\nValue EXTENDER_SERIAL (\\S+)\nValue EXTENDER_MODEL (\\S+)\nValue PART_NO (\\S+)\nValue PINNING_MODE (\\w+)\nValue MAX_LINKS (\\d+)\nValue FABRIC_PORT (\\S+)\nValue FCOE_ADMIN (\\w+)\nValue FCOE_OPER (\\w+)\nValue FCOE_FEX_AA_CONFIGURED (\\w+)\nValue List FABRIC_INTERFACE (\\S+)\nValue List INTERFACE_MODE (\\w+)\nValue List INTERFACE_STATE (\\w+)\n\nStart\n  ^FEX:\\s+${FEX}\\s+Description:\\s+${DESCRIPTION}\\s+state:\\s+${STATE}\n  ^.*FEX\\s+version:\\s+${VERSION}\n  ^.*Extender\\s+Serial:\\s+${EXTENDER_SERIAL}\n  ^.*Extender\\s+Model:\\s+${EXTENDER_MODEL},.*Part\\s+No:\\s+${PART_NO}\n  ^.*Pinning\\-mode:\\s+${PINNING_MODE}.*Max\\-links:\\s+${MAX_LINKS}\n  ^.*Fabric\\s+port\\s+for\\s+control\\s+traffic:\\s+${FABRIC_PORT} \n  ^.*FCoE\\s+Admin:\\s+${FCOE_ADMIN}\n  ^.*FCoE\\s+Oper:\\s+${FCOE_OPER}  \n  ^.*FCoE\\s+FEX\\s+AA\\s+Configured:\\s+${FCOE_FEX_AA_CONFIGURED} \n  ^\\s+${FABRIC_INTERFACE}\\s+\\-\\s+Interface\\s+${INTERFACE_MODE}\\.\\s+State:\\s+${INTERFACE_STATE} \n  ^\\S -> Record\n"
+}

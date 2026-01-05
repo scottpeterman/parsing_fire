@@ -1,0 +1,84 @@
+{
+  "command": "show interfaces descriptions",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.2,
+  "textfsm_rows": 5,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"interface_admin_state_oper_state_description\">\n{{INTERFACE}} {{ADMIN_STATE | ORPHRASE}} {{OPER_STATE | ORPHRASE}} {{DESCRIPTION | ORPHRASE}}\n</group>\n<group name=\"interface_admin_state_oper_state\">\n{{INTERFACE}} {{ADMIN_STATE | ORPHRASE}} {{OPER_STATE | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "ge-0/0/0",
+      "ADMIN_STATE": "up",
+      "OPER_STATE": "up",
+      "DESCRIPTION": "Link to Router A"
+    },
+    {
+      "INTERFACE": "ge-0/0/1",
+      "ADMIN_STATE": "down",
+      "OPER_STATE": "down",
+      "DESCRIPTION": "Link to Switch B"
+    },
+    {
+      "INTERFACE": "ge-0/0/2",
+      "ADMIN_STATE": "up",
+      "OPER_STATE": "down",
+      "DESCRIPTION": "Link to Server C"
+    },
+    {
+      "INTERFACE": "ge-0/0/3",
+      "ADMIN_STATE": "up",
+      "OPER_STATE": "up",
+      "DESCRIPTION": "Link to WAN"
+    },
+    {
+      "INTERFACE": "ge-0/0/4",
+      "ADMIN_STATE": "down",
+      "OPER_STATE": "down"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_admin_state_oper_state_description": [
+        {
+          "INTERFACE": "Interface",
+          "ADMIN_STATE": "Admin State",
+          "OPER_STATE": "Oper State",
+          "DESCRIPTION": "Description"
+        },
+        {
+          "INTERFACE": "ge-0/0/0",
+          "ADMIN_STATE": "up",
+          "OPER_STATE": "up",
+          "DESCRIPTION": "Link to Router A"
+        },
+        {
+          "INTERFACE": "ge-0/0/1",
+          "ADMIN_STATE": "down",
+          "OPER_STATE": "down",
+          "DESCRIPTION": "Link to Switch B"
+        },
+        {
+          "INTERFACE": "ge-0/0/2",
+          "ADMIN_STATE": "up",
+          "OPER_STATE": "down",
+          "DESCRIPTION": "Link to Server C"
+        },
+        {
+          "INTERFACE": "ge-0/0/3",
+          "ADMIN_STATE": "up",
+          "OPER_STATE": "up",
+          "DESCRIPTION": "Link to WAN"
+        }
+      ],
+      "interface_admin_state_oper_state": {
+        "INTERFACE": "ge-0/0/4",
+        "ADMIN_STATE": "down",
+        "OPER_STATE": "down"
+      }
+    }
+  ],
+  "cli_content": "Interface    Admin State  Oper State  Description\nge-0/0/0     up           up          Link to Router A\nge-0/0/1     down         down        Link to Switch B\nge-0/0/2     up           down        Link to Server C\nge-0/0/3     up           up          Link to WAN\nge-0/0/4     down         down        \n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue ADMIN_STATE (\\S+)\nValue OPER_STATE (\\S+)\nValue DESCRIPTION (.*)\n\nStart\n  ^\\s*Interface\\s+Admin State\\s+Oper State\\s+Description\\s*$$\n  ^\\s*${INTERFACE}\\s+${ADMIN_STATE}\\s+${OPER_STATE}\\s+${DESCRIPTION}\\s*$$ -> Record"
+}

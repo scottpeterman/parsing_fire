@@ -1,0 +1,46 @@
+{
+  "command": "show ip multicast mroute",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"source_addr_multicast_group_rpf_nbr\">\n({{SOURCE_ADDR | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}, {{MULTICAST_GROUP}}), RPF nbr: {{RPF_NBR | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SOURCE_ADDR": "10.1.1.0",
+      "MULTICAST_GROUP": "224.1.1.1",
+      "RPF_NBR": "192.168.1.1",
+      "INCOMING_INTERFACE": "GigabitEthernet0/1",
+      "OUTGOING_INTERFACE": "GigabitEthernet0/3",
+      "INTERFACE_STATUS": "forwarded"
+    },
+    {
+      "SOURCE_ADDR": "10.1.2.0",
+      "MULTICAST_GROUP": "224.2.2.2",
+      "RPF_NBR": "192.168.2.1",
+      "INCOMING_INTERFACE": "GigabitEthernet0/2",
+      "OUTGOING_INTERFACE": "GigabitEthernet0/4",
+      "INTERFACE_STATUS": "forwarded"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "source_addr_multicast_group_rpf_nbr": [
+        {
+          "SOURCE_ADDR": "10.1.1.0",
+          "MULTICAST_GROUP": "224.1.1.1",
+          "RPF_NBR": "192.168.1.1"
+        },
+        {
+          "SOURCE_ADDR": "10.1.2.0",
+          "MULTICAST_GROUP": "224.2.2.2",
+          "RPF_NBR": "192.168.2.1"
+        }
+      ]
+    }
+  ],
+  "cli_content": "(10.1.1.0, 224.1.1.1), RPF nbr: 192.168.1.1\n  Incoming interface: GigabitEthernet0/1, RPF nbr: 192.168.1.1\n  Outgoing interface list:\n    GigabitEthernet0/3, forwarded\n    GigabitEthernet0/2, pruned\n\n(10.1.2.0, 224.2.2.2), RPF nbr: 192.168.2.1\n  Incoming interface: GigabitEthernet0/2, RPF nbr: 192.168.2.1\n  Outgoing interface list:\n    GigabitEthernet0/4, forwarded\n    GigabitEthernet0/5, pruned\n",
+  "textfsm_template": "Value SOURCE_ADDR (\\S+)\nValue MULTICAST_GROUP (\\S+)\nValue RPF_NBR (\\S+)\nValue INCOMING_INTERFACE (\\S+)\nValue OUTGOING_INTERFACE (\\S+)\nValue INTERFACE_STATUS (\\S+)\n\nStart\n  ^\\(${SOURCE_ADDR},\\s+${MULTICAST_GROUP}\\),\\s+RPF nbr:\\s+${RPF_NBR}\\s*$$\n  ^\\s+Incoming interface:\\s+${INCOMING_INTERFACE},\\s+RPF nbr:\\s+\\S+\\s*$$\n  ^\\s+Outgoing interface list:\\s*$$\n  ^\\s+${OUTGOING_INTERFACE},\\s+${INTERFACE_STATUS}\\s*$$ -> Record"
+}

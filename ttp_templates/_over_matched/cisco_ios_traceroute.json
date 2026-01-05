@@ -1,0 +1,390 @@
+{
+  "command": "cisco_ios_traceroute",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.088235294117647,
+  "textfsm_rows": 34,
+  "ttp_rows": 37,
+  "ttp_template": "<group name=\"hop_num_ip_address\">\n  {{HOP_NUM}} {{IP_ADDRESS | ORPHRASE}} 2 msec 1 msec 1 msec 2 msec 1 msec 1 msec 1 msec 1 msec 1 msec 1 msec\n</group>\n<group name=\"ip_address_rtt_response\">\n    {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{RTT_RESPONSE | ORPHRASE}} msec\n</group>\n<group name=\"hop_num_fqdn_ip_address_rtt_response\">\n  {{HOP_NUM}} {{FQDN}} ({{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}) {{RTT_RESPONSE | ORPHRASE}} msec\n</group>\n<group name=\"fqdn_ip_address_rtt_response\">\n    {{FQDN}} ({{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}) {{RTT_RESPONSE | ORPHRASE}} msec\n</group>\n<group name=\"fqdn_ip_address\">\n    {{FQDN}} ({{IP_ADDRESS | ORPHRASE}}) 13 msec 13 msec\n</group>\n<group name=\"hop_num_ip_address_rtt_response\">\n  {{HOP_NUM}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{RTT_RESPONSE | ORPHRASE}} msec\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "HOP_NUM": "1",
+      "IP_ADDRESS": "10.255.1.1",
+      "RTT_RESPONSE": "2, 1, 1, 2, 1, 1, 1, 1, 1, 1"
+    },
+    {
+      "HOP_NUM": "2",
+      "IP_ADDRESS": "10.255.0.5",
+      "RTT_RESPONSE": "1, 1, 1, 0, 1, 0, 1, 0, 0, 1"
+    },
+    {
+      "HOP_NUM": "3",
+      "IP_ADDRESS": "192.168.1.254",
+      "RTT_RESPONSE": "1, 1, 1, 1, 1, 1, *, 1, *, 1"
+    },
+    {
+      "HOP_NUM": "5",
+      "IP_ADDRESS": "31.55.185.181",
+      "RTT_RESPONSE": "12"
+    },
+    {
+      "HOP_NUM": "6",
+      "IP_ADDRESS": "31.55.185.188",
+      "RTT_RESPONSE": "16, 18, 12, 13, 12, 11, 12, 17, 12, 12"
+    },
+    {
+      "HOP_NUM": "7",
+      "IP_ADDRESS": "195.99.127.152",
+      "FQDN": "core2-hu0-8-0-1.colindale.ukcore.bt.net",
+      "RTT_RESPONSE": "11"
+    },
+    {
+      "HOP_NUM": "7",
+      "IP_ADDRESS": "195.99.127.214",
+      "FQDN": "core1-hu0-12-0-1.colindale.ukcore.bt.net",
+      "RTT_RESPONSE": "11"
+    },
+    {
+      "HOP_NUM": "7",
+      "IP_ADDRESS": "213.121.192.44",
+      "FQDN": "core2-hu0-16-0-8.colindale.ukcore.bt.net",
+      "RTT_RESPONSE": "13, 13"
+    },
+    {
+      "HOP_NUM": "7",
+      "IP_ADDRESS": "213.121.192.18",
+      "FQDN": "core1-hu0-16-0-7.colindale.ukcore.bt.net",
+      "RTT_RESPONSE": "11"
+    },
+    {
+      "HOP_NUM": "7",
+      "IP_ADDRESS": "213.121.192.44",
+      "FQDN": "core2-hu0-16-0-8.colindale.ukcore.bt.net",
+      "RTT_RESPONSE": "11"
+    },
+    {
+      "HOP_NUM": "7",
+      "IP_ADDRESS": "195.99.127.214",
+      "FQDN": "core1-hu0-12-0-1.colindale.ukcore.bt.net",
+      "RTT_RESPONSE": "12"
+    },
+    {
+      "HOP_NUM": "7",
+      "IP_ADDRESS": "195.99.127.150",
+      "FQDN": "core1-hu0-17-0-5.colindale.ukcore.bt.net",
+      "RTT_RESPONSE": "12"
+    },
+    {
+      "HOP_NUM": "7",
+      "IP_ADDRESS": "213.121.192.24",
+      "FQDN": "core2-hu0-6-0-6.colindale.ukcore.bt.net",
+      "RTT_RESPONSE": "12"
+    },
+    {
+      "HOP_NUM": "7",
+      "IP_ADDRESS": "213.121.192.14",
+      "FQDN": "core1-hu0-15-0-9.colindale.ukcore.bt.net",
+      "RTT_RESPONSE": "11"
+    },
+    {
+      "HOP_NUM": "8",
+      "IP_ADDRESS": "62.172.103.238",
+      "FQDN": "peer3-et-0-0-1.redbus.ukcore.bt.net",
+      "RTT_RESPONSE": "12"
+    },
+    {
+      "HOP_NUM": "8",
+      "IP_ADDRESS": "194.72.16.122",
+      "FQDN": "peer7-et-4-0-1.telehouse.ukcore.bt.net",
+      "RTT_RESPONSE": "14"
+    },
+    {
+      "HOP_NUM": "8",
+      "IP_ADDRESS": "194.72.16.128",
+      "FQDN": "core2-hu0-7-0-0.colindale.ukcore.bt.net",
+      "RTT_RESPONSE": "12"
+    },
+    {
+      "HOP_NUM": "8",
+      "IP_ADDRESS": "109.159.252.150",
+      "FQDN": "peer8-et-0-1-1.telehouse.ukcore.bt.net",
+      "RTT_RESPONSE": "12"
+    },
+    {
+      "HOP_NUM": "8",
+      "IP_ADDRESS": "194.72.16.230",
+      "RTT_RESPONSE": "12"
+    },
+    {
+      "HOP_NUM": "8",
+      "IP_ADDRESS": "109.159.252.122",
+      "FQDN": "peer2-et-3-0-4.slough.ukcore.bt.net",
+      "RTT_RESPONSE": "17"
+    },
+    {
+      "HOP_NUM": "8",
+      "IP_ADDRESS": "62.172.103.238",
+      "FQDN": "peer3-et-0-0-1.redbus.ukcore.bt.net",
+      "RTT_RESPONSE": "17"
+    },
+    {
+      "HOP_NUM": "8",
+      "IP_ADDRESS": "194.72.16.190",
+      "RTT_RESPONSE": "12"
+    },
+    {
+      "HOP_NUM": "8",
+      "IP_ADDRESS": "62.172.103.158",
+      "FQDN": "peer7-et-0-0-1.telehouse.ukcore.bt.net",
+      "RTT_RESPONSE": "12"
+    },
+    {
+      "HOP_NUM": "8",
+      "IP_ADDRESS": "109.159.252.104",
+      "FQDN": "peer8-et-7-0-1.telehouse.ukcore.bt.net",
+      "RTT_RESPONSE": "12"
+    },
+    {
+      "HOP_NUM": "9",
+      "IP_ADDRESS": "109.159.253.189",
+      "RTT_RESPONSE": "12"
+    },
+    {
+      "HOP_NUM": "9",
+      "IP_ADDRESS": "195.99.126.77",
+      "FQDN": "peer5-te0-0-0-32.telehouse.ukcore.bt.net",
+      "RTT_RESPONSE": "12"
+    },
+    {
+      "HOP_NUM": "9",
+      "IP_ADDRESS": "109.159.253.73",
+      "RTT_RESPONSE": "12"
+    },
+    {
+      "HOP_NUM": "9",
+      "IP_ADDRESS": "109.159.253.237",
+      "RTT_RESPONSE": "13"
+    },
+    {
+      "HOP_NUM": "9",
+      "IP_ADDRESS": "195.99.126.77",
+      "FQDN": "peer5-te0-0-0-32.telehouse.ukcore.bt.net",
+      "RTT_RESPONSE": "13"
+    },
+    {
+      "HOP_NUM": "9",
+      "IP_ADDRESS": "109.159.253.3",
+      "RTT_RESPONSE": "12"
+    },
+    {
+      "HOP_NUM": "9",
+      "IP_ADDRESS": "109.159.253.219",
+      "RTT_RESPONSE": "11"
+    },
+    {
+      "HOP_NUM": "9",
+      "IP_ADDRESS": "109.159.253.237",
+      "RTT_RESPONSE": "12"
+    },
+    {
+      "HOP_NUM": "9",
+      "IP_ADDRESS": "109.159.253.187",
+      "RTT_RESPONSE": "13"
+    },
+    {
+      "HOP_NUM": "9",
+      "IP_ADDRESS": "109.159.253.75",
+      "RTT_RESPONSE": "12"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "hop_num_ip_address": [
+        {
+          "HOP_NUM": "1",
+          "IP_ADDRESS": "10.255.1.1"
+        },
+        {
+          "HOP_NUM": "2",
+          "IP_ADDRESS": "10.255.0.5"
+        },
+        {
+          "HOP_NUM": "6",
+          "IP_ADDRESS": "31.55.185.188"
+        }
+      ],
+      "ip_address_rtt_response": [
+        {
+          "IP_ADDRESS": "31.55.185.181",
+          "RTT_RESPONSE": "12"
+        },
+        {
+          "IP_ADDRESS": "194.72.16.230",
+          "RTT_RESPONSE": "12"
+        },
+        {
+          "IP_ADDRESS": "194.72.16.190",
+          "RTT_RESPONSE": "12"
+        },
+        {
+          "IP_ADDRESS": "109.159.253.73",
+          "RTT_RESPONSE": "12"
+        },
+        {
+          "IP_ADDRESS": "109.159.253.237",
+          "RTT_RESPONSE": "13"
+        },
+        {
+          "IP_ADDRESS": "109.159.253.3",
+          "RTT_RESPONSE": "12"
+        },
+        {
+          "IP_ADDRESS": "109.159.253.219",
+          "RTT_RESPONSE": "11"
+        },
+        {
+          "IP_ADDRESS": "109.159.253.237",
+          "RTT_RESPONSE": "12"
+        },
+        {
+          "IP_ADDRESS": "109.159.253.187",
+          "RTT_RESPONSE": "13"
+        },
+        {
+          "IP_ADDRESS": "109.159.253.75",
+          "RTT_RESPONSE": "12"
+        }
+      ],
+      "hop_num_fqdn_ip_address_rtt_response": [
+        {
+          "HOP_NUM": "7",
+          "FQDN": "core2-hu0-8-0-1.colindale.ukcore.bt.net",
+          "IP_ADDRESS": "195.99.127.152",
+          "RTT_RESPONSE": "11"
+        },
+        {
+          "HOP_NUM": "8",
+          "FQDN": "peer3-et-0-0-1.redbus.ukcore.bt.net",
+          "IP_ADDRESS": "62.172.103.238",
+          "RTT_RESPONSE": "12"
+        }
+      ],
+      "fqdn_ip_address_rtt_response": [
+        {
+          "FQDN": "core1-hu0-12-0-1.colindale.ukcore.bt.net",
+          "IP_ADDRESS": "195.99.127.214",
+          "RTT_RESPONSE": "11"
+        },
+        {
+          "FQDN": "core2-hu0-16-0-8.colindale.ukcore.bt.net",
+          "IP_ADDRESS": "213.121.192.44",
+          "RTT_RESPONSE": "13 msec 13"
+        },
+        {
+          "FQDN": "core1-hu0-16-0-7.colindale.ukcore.bt.net",
+          "IP_ADDRESS": "213.121.192.18",
+          "RTT_RESPONSE": "11"
+        },
+        {
+          "FQDN": "core2-hu0-16-0-8.colindale.ukcore.bt.net",
+          "IP_ADDRESS": "213.121.192.44",
+          "RTT_RESPONSE": "11"
+        },
+        {
+          "FQDN": "core1-hu0-12-0-1.colindale.ukcore.bt.net",
+          "IP_ADDRESS": "195.99.127.214",
+          "RTT_RESPONSE": "12"
+        },
+        {
+          "FQDN": "core1-hu0-17-0-5.colindale.ukcore.bt.net",
+          "IP_ADDRESS": "195.99.127.150",
+          "RTT_RESPONSE": "12"
+        },
+        {
+          "FQDN": "core2-hu0-6-0-6.colindale.ukcore.bt.net",
+          "IP_ADDRESS": "213.121.192.24",
+          "RTT_RESPONSE": "12"
+        },
+        {
+          "FQDN": "core1-hu0-15-0-9.colindale.ukcore.bt.net",
+          "IP_ADDRESS": "213.121.192.14",
+          "RTT_RESPONSE": "11"
+        },
+        {
+          "FQDN": "peer7-et-4-0-1.telehouse.ukcore.bt.net",
+          "IP_ADDRESS": "194.72.16.122",
+          "RTT_RESPONSE": "14"
+        },
+        {
+          "FQDN": "core2-hu0-7-0-0.colindale.ukcore.bt.net",
+          "IP_ADDRESS": "194.72.16.128",
+          "RTT_RESPONSE": "12"
+        },
+        {
+          "FQDN": "peer8-et-0-1-1.telehouse.ukcore.bt.net",
+          "IP_ADDRESS": "109.159.252.150",
+          "RTT_RESPONSE": "12"
+        },
+        {
+          "FQDN": "peer2-et-3-0-4.slough.ukcore.bt.net",
+          "IP_ADDRESS": "109.159.252.122",
+          "RTT_RESPONSE": "17"
+        },
+        {
+          "FQDN": "peer3-et-0-0-1.redbus.ukcore.bt.net",
+          "IP_ADDRESS": "62.172.103.238",
+          "RTT_RESPONSE": "17"
+        },
+        {
+          "FQDN": "peer7-et-0-0-1.telehouse.ukcore.bt.net",
+          "IP_ADDRESS": "62.172.103.158",
+          "RTT_RESPONSE": "12"
+        },
+        {
+          "FQDN": "peer8-et-7-0-1.telehouse.ukcore.bt.net",
+          "IP_ADDRESS": "109.159.252.104",
+          "RTT_RESPONSE": "12"
+        },
+        {
+          "FQDN": "peer5-te0-0-0-32.telehouse.ukcore.bt.net",
+          "IP_ADDRESS": "195.99.126.77",
+          "RTT_RESPONSE": "12"
+        },
+        {
+          "FQDN": "peer5-te0-0-0-32.telehouse.ukcore.bt.net",
+          "IP_ADDRESS": "195.99.126.77",
+          "RTT_RESPONSE": "13"
+        }
+      ],
+      "fqdn_ip_address": {
+        "FQDN": "core2-hu0-16-0-8.colindale.ukcore.bt.net",
+        "IP_ADDRESS": "213.121.192.44"
+      },
+      "hop_num_ip_address_rtt_response": [
+        {
+          "HOP_NUM": "1",
+          "IP_ADDRESS": "10.255.1.1",
+          "RTT_RESPONSE": "2 msec 1 msec 1 msec 2 msec 1 msec 1 msec 1 msec 1 msec 1 msec 1"
+        },
+        {
+          "HOP_NUM": "2",
+          "IP_ADDRESS": "10.255.0.5",
+          "RTT_RESPONSE": "1 msec 1 msec 1 msec 0 msec 1 msec 0 msec 1 msec 0 msec 0 msec 1"
+        },
+        {
+          "HOP_NUM": "6",
+          "IP_ADDRESS": "31.55.185.188",
+          "RTT_RESPONSE": "16 msec 18 msec 12 msec 13 msec 12 msec 11 msec 12 msec 17 msec 12 msec 12"
+        },
+        {
+          "HOP_NUM": "9",
+          "IP_ADDRESS": "109.159.253.189",
+          "RTT_RESPONSE": "12"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Type escape sequence to abort.\nTracing the route to dns.google (8.8.8.8)\nVRF info: (vrf in name/id, vrf out name/id)\n  1 10.255.1.1 2 msec 1 msec 1 msec 2 msec 1 msec 1 msec 1 msec 1 msec 1 msec 1 msec\n  2 10.255.0.5 1 msec 1 msec 1 msec 0 msec 1 msec 0 msec 1 msec 0 msec 0 msec 1 msec\n  3 192.168.1.254 1 msec 1 msec 1 msec 1 msec 1 msec 1 msec *  1 msec *  1 msec\n  4  *  *  *  *  *  *  *  *  *  * \n  5  *  *  *  *  *  *  *  *  * \n    31.55.185.181 12 msec\n  6 31.55.185.188 16 msec 18 msec 12 msec 13 msec 12 msec 11 msec 12 msec 17 msec 12 msec 12 msec\n  7 core2-hu0-8-0-1.colindale.ukcore.bt.net (195.99.127.152) 11 msec\n    core1-hu0-12-0-1.colindale.ukcore.bt.net (195.99.127.214) 11 msec\n    core2-hu0-16-0-8.colindale.ukcore.bt.net (213.121.192.44) 13 msec 13 msec\n    core1-hu0-16-0-7.colindale.ukcore.bt.net (213.121.192.18) 11 msec\n    core2-hu0-16-0-8.colindale.ukcore.bt.net (213.121.192.44) 11 msec\n    core1-hu0-12-0-1.colindale.ukcore.bt.net (195.99.127.214) 12 msec\n    core1-hu0-17-0-5.colindale.ukcore.bt.net (195.99.127.150) 12 msec\n    core2-hu0-6-0-6.colindale.ukcore.bt.net (213.121.192.24) 12 msec\n    core1-hu0-15-0-9.colindale.ukcore.bt.net (213.121.192.14) 11 msec\n  8 peer3-et-0-0-1.redbus.ukcore.bt.net (62.172.103.238) 12 msec\n    peer7-et-4-0-1.telehouse.ukcore.bt.net (194.72.16.122) 14 msec\n    core2-hu0-7-0-0.colindale.ukcore.bt.net (194.72.16.128) 12 msec\n    peer8-et-0-1-1.telehouse.ukcore.bt.net (109.159.252.150) 12 msec\n    194.72.16.230 12 msec\n    peer2-et-3-0-4.slough.ukcore.bt.net (109.159.252.122) 17 msec\n    peer3-et-0-0-1.redbus.ukcore.bt.net (62.172.103.238) 17 msec\n    194.72.16.190 12 msec\n    peer7-et-0-0-1.telehouse.ukcore.bt.net (62.172.103.158) 12 msec\n    peer8-et-7-0-1.telehouse.ukcore.bt.net (109.159.252.104) 12 msec\n  9 109.159.253.189 12 msec\n    peer5-te0-0-0-32.telehouse.ukcore.bt.net (195.99.126.77) 12 msec\n    109.159.253.73 12 msec\n    109.159.253.237 13 msec\n    peer5-te0-0-0-32.telehouse.ukcore.bt.net (195.99.126.77) 13 msec\n    109.159.253.3 12 msec\n    109.159.253.219 11 msec\n    109.159.253.237 12 msec\n    109.159.253.187 13 msec\n    109.159.253.75 12 msec\n 10  *  *  *  *  *  *  *  *  *  * \n 11  *  *  *  *  *  *  *  *  *  * \n 12  *  *  *  *  *  *  *  *  *  * \n 13  *  *  *  *  *  *  *  *  *  * \n 14  *  *  *  *  *  *  *  *  *  * \n 15  *  *  *  *  *  *  *  *  *  * \n 16  *  *  *  *  *  *  *  *  *  * \n 17  *  *  *  *  *  *  *  *  *  * \n 18  *  *  *  *  *  *  *  *  *  * \n 19  *  *  *  *  *  *  *  *  *  * \n 20  *  *  *  *  *  *  *  *  *  * \n 21  *  *  *  *  *  *  *  *  *  * \n 22  *  *  *  *  *  *  *  *  *  *",
+  "textfsm_template": "Value Required,Filldown HOP_NUM (\\d+)\nValue IP_ADDRESS ((?:\\d{1,3}\\.){3}\\d{1,3})\nValue FQDN (\\S+)\n# Captures RTT (in milliseconds), or faults, like\n#   - * (probe timed out)\n#   - !H (destination host unreachable)\n#   - !N (destination network unreachable)\n#   - !P (destination protocol unreachable)\n#   - !A (administratively prohibited, aka ACL deny)\n#   - !Q (source quench, aka destination too busy)\n#   - !I (user interrupted test)\n#   - !T (timeout)\n#   - ? (unknown packet type)\nValue List RTT_RESPONSE (\\d+(?=\\s+msec)|![A-Z]|\\*|\\?)\n# Some intermediate devices provide additional information, such as\n#   - ASN\n#   - MPLS Exp Bits / Labels\n# This is captured into details field\nValue DETAILS (.*)\n\nStart\n  ^Type\\s+escape\n  ^Tracing\\s+the\\s+route\n  ^VRF\\s+info: -> Entries\n  ^\\s*$$\n  ^\\s*$$\n  ^. -> Error\n\nEntries\n  ^\\s+${HOP_NUM}\\s+ -> Continue\n  ^.*?${FQDN}\\s+\\(${IP_ADDRESS}\\)\\s+(?:\\[${DETAILS}\\])? -> Continue\n  ^.*?${IP_ADDRESS}\\s+(?:\\[${DETAILS}\\])? -> Continue\n  ^.*?${RTT_RESPONSE} -> Continue\n  ^.*?(?:(?:\\d+\\s+msec|![A-Z]|\\*|\\?)\\s+){1}${RTT_RESPONSE} -> Continue\n  ^.*?(?:(?:\\d+\\s+msec|![A-Z]|\\*|\\?)\\s+){2}${RTT_RESPONSE} -> Continue\n  ^.*?(?:(?:\\d+\\s+msec|![A-Z]|\\*|\\?)\\s+){3}${RTT_RESPONSE} -> Continue\n  ^.*?(?:(?:\\d+\\s+msec|![A-Z]|\\*|\\?)\\s+){4}${RTT_RESPONSE} -> Continue\n  ^.*?(?:(?:\\d+\\s+msec|![A-Z]|\\*|\\?)\\s+){5}${RTT_RESPONSE} -> Continue\n  ^.*?(?:(?:\\d+\\s+msec|![A-Z]|\\*|\\?)\\s+){6}${RTT_RESPONSE} -> Continue\n  ^.*?(?:(?:\\d+\\s+msec|![A-Z]|\\*|\\?)\\s+){7}${RTT_RESPONSE} -> Continue\n  ^.*?(?:(?:\\d+\\s+msec|![A-Z]|\\*|\\?)\\s+){8}${RTT_RESPONSE} -> Continue\n  ^.*?(?:(?:\\d+\\s+msec|![A-Z]|\\*|\\?)\\s+){9}${RTT_RESPONSE} -> Continue\n  ^.* -> Record\n\nEOF\n"
+}

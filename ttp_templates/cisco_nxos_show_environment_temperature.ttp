@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_environment_temperature
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 2
+# Match ratio: 0.50
+
+<group name="module_sensor_major_threshold_minor_threshold_current_value_status">
+{{MODULE | re("\\d+")}} {{SENSOR | ORPHRASE}} {{MAJOR_THRESHOLD}} {{MINOR_THRESHOLD}} {{CURRENT_VALUE}} {{STATUS | ORPHRASE}} 
+</group>

@@ -1,0 +1,110 @@
+{
+  "command": "show firewall all",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"id_source_destination_service_action_status_log\">\n{{ID | re(\"\\\\d+\")}} {{SOURCE}} {{DESTINATION}} {{SERVICE}} {{ACTION}} {{STATUS | ORPHRASE}} {{LOG | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ID": "1",
+      "SOURCE": "192.168.1.1",
+      "DESTINATION": "10.0.0.1",
+      "SERVICE": "http",
+      "ACTION": "permit",
+      "STATUS": "enabled",
+      "LOG": "yes"
+    },
+    {
+      "ID": "2",
+      "SOURCE": "192.168.2.2",
+      "DESTINATION": "10.0.0.2",
+      "SERVICE": "https",
+      "ACTION": "deny",
+      "STATUS": "disabled",
+      "LOG": "no"
+    },
+    {
+      "ID": "3",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "SERVICE": "dns",
+      "ACTION": "permit",
+      "STATUS": "enabled",
+      "LOG": "yes"
+    },
+    {
+      "ID": "4",
+      "SOURCE": "192.168.3.3",
+      "DESTINATION": "10.0.0.3",
+      "SERVICE": "ftp",
+      "ACTION": "permit",
+      "STATUS": "enabled",
+      "LOG": "no"
+    },
+    {
+      "ID": "5",
+      "SOURCE": "any",
+      "DESTINATION": "10.0.0.4",
+      "SERVICE": "smtp",
+      "ACTION": "deny",
+      "STATUS": "enabled",
+      "LOG": "yes"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "id_source_destination_service_action_status_log": [
+        {
+          "ID": "1",
+          "SOURCE": "192.168.1.1",
+          "DESTINATION": "10.0.0.1",
+          "SERVICE": "http",
+          "ACTION": "permit",
+          "STATUS": "enabled",
+          "LOG": "yes"
+        },
+        {
+          "ID": "2",
+          "SOURCE": "192.168.2.2",
+          "DESTINATION": "10.0.0.2",
+          "SERVICE": "https",
+          "ACTION": "deny",
+          "STATUS": "disabled",
+          "LOG": "no"
+        },
+        {
+          "ID": "3",
+          "SOURCE": "any",
+          "DESTINATION": "any",
+          "SERVICE": "dns",
+          "ACTION": "permit",
+          "STATUS": "enabled",
+          "LOG": "yes"
+        },
+        {
+          "ID": "4",
+          "SOURCE": "192.168.3.3",
+          "DESTINATION": "10.0.0.3",
+          "SERVICE": "ftp",
+          "ACTION": "permit",
+          "STATUS": "enabled",
+          "LOG": "no"
+        },
+        {
+          "ID": "5",
+          "SOURCE": "any",
+          "DESTINATION": "10.0.0.4",
+          "SERVICE": "smtp",
+          "ACTION": "deny",
+          "STATUS": "enabled",
+          "LOG": "yes"
+        }
+      ]
+    }
+  ],
+  "cli_content": "ID   Source       Destination  Service   Action    Status    Log\n1    192.168.1.1  10.0.0.1     http      permit    enabled   yes\n2    192.168.2.2  10.0.0.2     https     deny      disabled  no\n3    any          any          dns       permit    enabled   yes\n4    192.168.3.3  10.0.0.3     ftp       permit    enabled   no\n5    any          10.0.0.4     smtp      deny      enabled   yes\n",
+  "textfsm_template": "Value ID (\\d+)\nValue SOURCE (\\S+)\nValue DESTINATION (\\S+)\nValue SERVICE (\\S+)\nValue ACTION (\\S+)\nValue STATUS (enabled|disabled)\nValue LOG (yes|no)\n\nStart\n  ^\\s*ID\\s+Source\\s+Destination\\s+Service\\s+Action\\s+Status\\s+Log\\s*$$\n  ^\\s*${ID}\\s+${SOURCE}\\s+${DESTINATION}\\s+${SERVICE}\\s+${ACTION}\\s+${STATUS}\\s+${LOG}\\s*$$ -> Record"
+}

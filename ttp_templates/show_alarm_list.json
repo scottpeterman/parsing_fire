@@ -1,0 +1,76 @@
+{
+  "command": "show alarm list",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"alarm_id_description_severity_category_time\">\n{{ALARM_ID | re(\"\\\\d+\")}} {{DESCRIPTION | ORPHRASE}} {{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{CATEGORY}} {{TIME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ALARM_ID": "12345",
+      "DESCRIPTION": "Link Down",
+      "SEVERITY": "Critical",
+      "CATEGORY": "Network",
+      "TIME": "2023-10-01 12:30:00"
+    },
+    {
+      "ALARM_ID": "12346",
+      "DESCRIPTION": "High Temperature",
+      "SEVERITY": "Warning",
+      "CATEGORY": "Hardware",
+      "TIME": "2023-10-01 13:00:00"
+    },
+    {
+      "ALARM_ID": "12347",
+      "DESCRIPTION": "Memory Utilization High",
+      "SEVERITY": "Major",
+      "CATEGORY": "System",
+      "TIME": "2023-10-01 13:45:00"
+    },
+    {
+      "ALARM_ID": "12348",
+      "DESCRIPTION": "Power Supply Failure",
+      "SEVERITY": "Critical",
+      "CATEGORY": "Hardware",
+      "TIME": "2023-10-01 14:15:00"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "alarm_id_description_severity_category_time": [
+        {
+          "ALARM_ID": "12345",
+          "DESCRIPTION": "Link Down",
+          "SEVERITY": "Critical",
+          "CATEGORY": "Network",
+          "TIME": "2023-10-01 12:30:00"
+        },
+        {
+          "ALARM_ID": "12346",
+          "DESCRIPTION": "High Temperature",
+          "SEVERITY": "Warning",
+          "CATEGORY": "Hardware",
+          "TIME": "2023-10-01 13:00:00"
+        },
+        {
+          "ALARM_ID": "12347",
+          "DESCRIPTION": "Memory Utilization High",
+          "SEVERITY": "Major",
+          "CATEGORY": "System",
+          "TIME": "2023-10-01 13:45:00"
+        },
+        {
+          "ALARM_ID": "12348",
+          "DESCRIPTION": "Power Supply Failure",
+          "SEVERITY": "Critical",
+          "CATEGORY": "Hardware",
+          "TIME": "2023-10-01 14:15:00"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Alarm ID     Description                Severity       Category             Time\n12345        Link Down                  Critical       Network              2023-10-01 12:30:00\n12346        High Temperature           Warning        Hardware             2023-10-01 13:00:00\n12347        Memory Utilization High    Major          System               2023-10-01 13:45:00\n12348        Power Supply Failure       Critical       Hardware             2023-10-01 14:15:00\n",
+  "textfsm_template": "Value ALARM_ID (\\d+)\nValue DESCRIPTION (.+?)\nValue SEVERITY (\\S+)\nValue CATEGORY (\\S+)\nValue TIME (\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2})\n\nStart\n  ^\\s*Alarm\\sID\\s+Description\\s+Severity\\s+Category\\s+Time\\s*$$\n  ^\\s*${ALARM_ID}\\s+${DESCRIPTION}\\s+${SEVERITY}\\s+${CATEGORY}\\s+${TIME}\\s*$$ -> Record"
+}

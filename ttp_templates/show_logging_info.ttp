@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show logging info
+# Source: chatgpt
+# TextFSM rows: 8
+# TTP rows: 9
+# Match ratio: 1.12
+
+<group name="severity_facility_seq_msg_count">
+{{SEVERITY | re("[\\d\\.\\(\\)A-Za-z]+")}} {{FACILITY}} {{SEQ}} {{MSG_COUNT | ORPHRASE}}
+</group>

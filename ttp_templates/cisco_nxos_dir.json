@@ -1,0 +1,218 @@
+{
+  "command": "cisco_nxos_dir",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5294117647058824,
+  "textfsm_rows": 17,
+  "ttp_rows": 9,
+  "ttp_template": "<group name=\"size_date_time_item_name\">\n       {{SIZE}} {{DATE_TIME | ORPHRASE}} {{ITEM_NAME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SIZE": "4096",
+      "DATE_TIME": "Nov 18 15:29:15 2017",
+      "ITEM_NAME": ".patch/",
+      "TOTAL_SIZE": "3697471488",
+      "TOTAL_FREE": "2166267904",
+      "TOTAL_USED": "1531203584",
+      "FILE_SYSTEM": "bootflash"
+    },
+    {
+      "SIZE": "4096",
+      "DATE_TIME": "Jun 28 21:35:36 2021",
+      "ITEM_NAME": ".snapshots/",
+      "TOTAL_SIZE": "3697471488",
+      "TOTAL_FREE": "2166267904",
+      "TOTAL_USED": "1531203584",
+      "FILE_SYSTEM": "bootflash"
+    },
+    {
+      "SIZE": "196358",
+      "DATE_TIME": "Mar 10 17:15:18 2020",
+      "ITEM_NAME": "capture_auto_capture.tgz",
+      "TOTAL_SIZE": "3697471488",
+      "TOTAL_FREE": "2166267904",
+      "TOTAL_USED": "1531203584",
+      "FILE_SYSTEM": "bootflash"
+    },
+    {
+      "SIZE": "4096",
+      "DATE_TIME": "Nov 18 15:29:15 2017",
+      "ITEM_NAME": "fault-management-logs/",
+      "TOTAL_SIZE": "3697471488",
+      "TOTAL_FREE": "2166267904",
+      "TOTAL_USED": "1531203584",
+      "FILE_SYSTEM": "bootflash"
+    },
+    {
+      "SIZE": "70076928",
+      "DATE_TIME": "Apr 24 17:25:03 2018",
+      "ITEM_NAME": "flash:",
+      "TOTAL_SIZE": "3697471488",
+      "TOTAL_FREE": "2166267904",
+      "TOTAL_USED": "1531203584",
+      "FILE_SYSTEM": "bootflash"
+    },
+    {
+      "SIZE": "1801",
+      "DATE_TIME": "Nov 18 15:49:06 2017",
+      "ITEM_NAME": "license_JPA21G_36.lic",
+      "TOTAL_SIZE": "3697471488",
+      "TOTAL_FREE": "2166267904",
+      "TOTAL_USED": "1531203584",
+      "FILE_SYSTEM": "bootflash"
+    },
+    {
+      "SIZE": "4096",
+      "DATE_TIME": "Sep 23 10:04:15 2019",
+      "ITEM_NAME": "lost+found/",
+      "TOTAL_SIZE": "3697471488",
+      "TOTAL_FREE": "2166267904",
+      "TOTAL_USED": "1531203584",
+      "FILE_SYSTEM": "bootflash"
+    },
+    {
+      "SIZE": "538255348",
+      "DATE_TIME": "Jan 31 16:57:56 2021",
+      "ITEM_NAME": "n7700-s2-dk9.8.4.3.bin",
+      "TOTAL_SIZE": "3697471488",
+      "TOTAL_FREE": "2166267904",
+      "TOTAL_USED": "1531203584",
+      "FILE_SYSTEM": "bootflash"
+    },
+    {
+      "SIZE": "64396288",
+      "DATE_TIME": "Jan 31 17:26:12 2021",
+      "ITEM_NAME": "n7700-s2-kickstart.8.4.3.bin",
+      "TOTAL_SIZE": "3697471488",
+      "TOTAL_FREE": "2166267904",
+      "TOTAL_USED": "1531203584",
+      "FILE_SYSTEM": "bootflash"
+    },
+    {
+      "SIZE": "4096",
+      "DATE_TIME": "Nov 18 15:30:32 2017",
+      "ITEM_NAME": "scripts/",
+      "TOTAL_SIZE": "3697471488",
+      "TOTAL_FREE": "2166267904",
+      "TOTAL_USED": "1531203584",
+      "FILE_SYSTEM": "bootflash"
+    },
+    {
+      "SIZE": "18788554",
+      "DATE_TIME": "Jun 29 12:59:57 2021",
+      "ITEM_NAME": "showtech_mpls_ldp_202106291259",
+      "TOTAL_SIZE": "3697471488",
+      "TOTAL_FREE": "2166267904",
+      "TOTAL_USED": "1531203584",
+      "FILE_SYSTEM": "bootflash"
+    },
+    {
+      "SIZE": "4096",
+      "DATE_TIME": "Sep 10 15:01:42 2019",
+      "ITEM_NAME": "sup-2/",
+      "TOTAL_SIZE": "3697471488",
+      "TOTAL_FREE": "2166267904",
+      "TOTAL_USED": "1531203584",
+      "FILE_SYSTEM": "bootflash"
+    },
+    {
+      "SIZE": "2813192",
+      "DATE_TIME": "Sep 01 08:35:52 2021",
+      "ITEM_NAME": "tech_bgp.txt",
+      "TOTAL_SIZE": "3697471488",
+      "TOTAL_FREE": "2166267904",
+      "TOTAL_USED": "1531203584",
+      "FILE_SYSTEM": "bootflash"
+    },
+    {
+      "SIZE": "87673293",
+      "DATE_TIME": "Apr 18 09:34:13 2019",
+      "ITEM_NAME": "tech_mod15.txt",
+      "TOTAL_SIZE": "3697471488",
+      "TOTAL_FREE": "2166267904",
+      "TOTAL_USED": "1531203584",
+      "FILE_SYSTEM": "bootflash"
+    },
+    {
+      "SIZE": "41525",
+      "DATE_TIME": "Jul 06 09:08:35 2020",
+      "ITEM_NAME": "tftp",
+      "TOTAL_SIZE": "3697471488",
+      "TOTAL_FREE": "2166267904",
+      "TOTAL_USED": "1531203584",
+      "FILE_SYSTEM": "bootflash"
+    },
+    {
+      "SIZE": "4096",
+      "DATE_TIME": "Nov 18 15:29:15 2017",
+      "ITEM_NAME": "vdc_2/",
+      "TOTAL_SIZE": "3697471488",
+      "TOTAL_FREE": "2166267904",
+      "TOTAL_USED": "1531203584",
+      "FILE_SYSTEM": "bootflash"
+    },
+    {
+      "SIZE": "4096",
+      "DATE_TIME": "Nov 18 15:29:17 2017",
+      "ITEM_NAME": "virtual-instance/",
+      "TOTAL_SIZE": "3697471488",
+      "TOTAL_FREE": "2166267904",
+      "TOTAL_USED": "1531203584",
+      "FILE_SYSTEM": "bootflash"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "size_date_time_item_name": [
+        {
+          "SIZE": "4096",
+          "DATE_TIME": "Nov 18 15:29:15 2017",
+          "ITEM_NAME": ".patch/"
+        },
+        {
+          "SIZE": "4096",
+          "DATE_TIME": "Jun 28 21:35:36 2021",
+          "ITEM_NAME": ".snapshots/"
+        },
+        {
+          "SIZE": "4096",
+          "DATE_TIME": "Nov 18 15:29:15 2017",
+          "ITEM_NAME": "fault-management-logs/"
+        },
+        {
+          "SIZE": "1801",
+          "DATE_TIME": "Nov 18 15:49:06 2017",
+          "ITEM_NAME": "license_JPA21G_36.lic"
+        },
+        {
+          "SIZE": "4096",
+          "DATE_TIME": "Sep 23 10:04:15 2019",
+          "ITEM_NAME": "lost+found/"
+        },
+        {
+          "SIZE": "4096",
+          "DATE_TIME": "Nov 18 15:30:32 2017",
+          "ITEM_NAME": "scripts/"
+        },
+        {
+          "SIZE": "4096",
+          "DATE_TIME": "Sep 10 15:01:42 2019",
+          "ITEM_NAME": "sup-2/"
+        },
+        {
+          "SIZE": "4096",
+          "DATE_TIME": "Nov 18 15:29:15 2017",
+          "ITEM_NAME": "vdc_2/"
+        },
+        {
+          "SIZE": "4096",
+          "DATE_TIME": "Nov 18 15:29:17 2017",
+          "ITEM_NAME": "virtual-instance/"
+        }
+      ]
+    }
+  ],
+  "cli_content": "       4096    Nov 18 15:29:15 2017  .patch/\n       4096    Jun 28 21:35:36 2021  .snapshots/\n     196358    Mar 10 17:15:18 2020  capture_auto_capture.tgz\n       4096    Nov 18 15:29:15 2017  fault-management-logs/\n   70076928    Apr 24 17:25:03 2018  flash:\n       1801    Nov 18 15:49:06 2017  license_JPA21G_36.lic\n       4096    Sep 23 10:04:15 2019  lost+found/\n  538255348    Jan 31 16:57:56 2021  n7700-s2-dk9.8.4.3.bin\n   64396288    Jan 31 17:26:12 2021  n7700-s2-kickstart.8.4.3.bin\n       4096    Nov 18 15:30:32 2017  scripts/\n   18788554    Jun 29 12:59:57 2021  showtech_mpls_ldp_202106291259\n       4096    Sep 10 15:01:42 2019  sup-2/\n    2813192    Sep 01 08:35:52 2021  tech_bgp.txt\n   87673293    Apr 18 09:34:13 2019  tech_mod15.txt\n      41525    Jul 06 09:08:35 2020  tftp\n       4096    Nov 18 15:29:15 2017  vdc_2/\n       4096    Nov 18 15:29:17 2017  virtual-instance/\n\nUsage for bootflash://\n 1531203584 bytes used\n 2166267904 bytes free\n 3697471488 bytes total\n",
+  "textfsm_template": "Value SIZE (\\d+)\nValue DATE_TIME (\\w+\\s+\\d+\\s+\\d+\\:\\d+\\:\\d+\\s+\\d+)\nValue ITEM_NAME (\\S+)\nValue Fillup TOTAL_SIZE (\\d+)\nValue Fillup TOTAL_FREE (\\d+)\nValue Fillup TOTAL_USED (\\d+)\nValue Fillup FILE_SYSTEM (\\w+)\n\nStart\n  ^Input\\/output\\s+error\n  ^\\s*${SIZE}\\s+${DATE_TIME}\\s+${ITEM_NAME} -> Record\n  ^\\s*Usage\\s+for\\s+${FILE_SYSTEM}://\n  ^\\s*${TOTAL_USED}\\s+bytes\\s+used\n  ^\\s*${TOTAL_FREE}\\s+bytes\\s+free\n  ^\\s*${TOTAL_SIZE}\\s+bytes\\s+total\n  ^.+ -> Error\n\nEOF\n"
+}

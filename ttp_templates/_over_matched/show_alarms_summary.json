@@ -1,0 +1,74 @@
+{
+  "command": "show alarms summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"severity_date_time_description\">\n{{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{DATE}} {{TIME}} {{DESCRIPTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SEVERITY": "Critical",
+      "DATE": "2023-10-12",
+      "TIME": "12:34:56",
+      "DESCRIPTION": "Memory usage exceeded threshold"
+    },
+    {
+      "SEVERITY": "Major",
+      "DATE": "2023-10-12",
+      "TIME": "11:23:45",
+      "DESCRIPTION": "Fan failure detected in chassis"
+    },
+    {
+      "SEVERITY": "Minor",
+      "DATE": "2023-10-12",
+      "TIME": "10:15:30",
+      "DESCRIPTION": "Port 3/2 is down"
+    },
+    {
+      "SEVERITY": "Critical",
+      "DATE": "2023-10-11",
+      "TIME": "18:05:20",
+      "DESCRIPTION": "CPU overload detected"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "severity_date_time_description": [
+        {
+          "SEVERITY": "Severity",
+          "DATE": "Date",
+          "TIME": "Time",
+          "DESCRIPTION": "Description"
+        },
+        {
+          "SEVERITY": "Critical",
+          "DATE": "2023-10-12",
+          "TIME": "12:34:56",
+          "DESCRIPTION": "Memory usage exceeded threshold"
+        },
+        {
+          "SEVERITY": "Major",
+          "DATE": "2023-10-12",
+          "TIME": "11:23:45",
+          "DESCRIPTION": "Fan failure detected in chassis"
+        },
+        {
+          "SEVERITY": "Minor",
+          "DATE": "2023-10-12",
+          "TIME": "10:15:30",
+          "DESCRIPTION": "Port 3/2 is down"
+        },
+        {
+          "SEVERITY": "Critical",
+          "DATE": "2023-10-11",
+          "TIME": "18:05:20",
+          "DESCRIPTION": "CPU overload detected"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Severity      Date        Time         Description\nCritical      2023-10-12  12:34:56     Memory usage exceeded threshold\nMajor         2023-10-12  11:23:45     Fan failure detected in chassis\nMinor         2023-10-12  10:15:30     Port 3/2 is down\nCritical      2023-10-11  18:05:20     CPU overload detected\n",
+  "textfsm_template": "Value SEVERITY (\\S+)\nValue DATE (\\d{4}-\\d{2}-\\d{2})\nValue TIME (\\d{2}:\\d{2}:\\d{2})\nValue DESCRIPTION (.+)\n\nStart\n  ^Severity\\s+Date\\s+Time\\s+Description\\s*$$\n  ^${SEVERITY}\\s+${DATE}\\s+${TIME}\\s+${DESCRIPTION}\\s*$$ -> Record"
+}

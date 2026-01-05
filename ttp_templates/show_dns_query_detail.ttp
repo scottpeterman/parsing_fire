@@ -1,0 +1,17 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show dns query detail
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="answer_ip_answer_ttl_dns_query_retries">
+DNS Query  : {{DNS_QUERY | ORPHRASE}}
+Transport  : {{TRANSPORT | ORPHRASE}}
+Timeout  : {{TIMEOUT | ORPHRASE}}
+Retries  : {{RETRIES | ORPHRASE}}
+Server IP  : {{SERVER_IP | ORPHRASE}}
+Status  : {{STATUS | ORPHRASE}}
+  TTL  : {{ANSWER_TTL | ORPHRASE}}
+  IP  : {{ANSWER_IP | ORPHRASE}}
+</group>

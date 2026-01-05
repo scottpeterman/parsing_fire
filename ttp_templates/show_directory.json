@@ -1,0 +1,140 @@
+{
+  "command": "show directory",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.6666666666666666,
+  "textfsm_rows": 12,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"permissions_size_date_filename\">\n    2 {{PERMISSIONS}} {{SIZE}} {{DATE | ORPHRASE}} {{FILENAME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FILENAME": "private-config.text",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "12288",
+      "DATE": "Mar 5 2013 19:38:14 +00:00"
+    },
+    {
+      "FILENAME": "multiple-fs",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "2144",
+      "DATE": "Mar 5 2013 19:38:14 +00:00"
+    },
+    {
+      "FILENAME": "memory",
+      "PERMISSIONS": "drwx",
+      "SIZE": "960",
+      "DATE": "Mar 5 2013 19:38:14 +00:00"
+    },
+    {
+      "FILENAME": "coredumpinfo",
+      "PERMISSIONS": "drwx",
+      "SIZE": "3072",
+      "DATE": "Mar 5 2013 19:38:18 +00:00"
+    },
+    {
+      "FILENAME": "startup-config",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "6892",
+      "DATE": "Mar 5 2013 19:38:20 +00:00"
+    },
+    {
+      "FILENAME": "vlan.dat",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "660684",
+      "DATE": "Mar 5 2013 19:38:24 +00:00"
+    },
+    {
+      "FILENAME": "system_env_vars",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "38",
+      "DATE": "Mar 5 2013 19:38:28 +00:00"
+    },
+    {
+      "FILENAME": "running-config",
+      "PERMISSIONS": "-rw-",
+      "SIZE": "528544",
+      "DATE": "Mar 5 2013 19:38:38 +00:00"
+    },
+    {
+      "FILENAME": "crashinfo",
+      "PERMISSIONS": "drwx",
+      "SIZE": "337920",
+      "DATE": "Mar 5 2013 19:38:42 +00:00"
+    },
+    {
+      "FILENAME": "mode_switch",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "5276",
+      "DATE": "Mar 5 2013 19:38:46 +00:00"
+    },
+    {
+      "FILENAME": "config.text",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "151492",
+      "DATE": "Mar 5 2013 19:38:50 +00:00"
+    },
+    {
+      "FILENAME": "private-config.text",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "12288",
+      "DATE": "Mar 5 2013 19:38:54 +00:00"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "permissions_size_date_filename": [
+        {
+          "PERMISSIONS": "-rwx",
+          "SIZE": "12288",
+          "DATE": "Mar 5 2013 19:38:14 +00:00",
+          "FILENAME": "private-config.text"
+        },
+        {
+          "PERMISSIONS": "-rwx",
+          "SIZE": "2144",
+          "DATE": "Mar 5 2013 19:38:14 +00:00",
+          "FILENAME": "multiple-fs"
+        },
+        {
+          "PERMISSIONS": "drwx",
+          "SIZE": "960",
+          "DATE": "Mar 5 2013 19:38:14 +00:00",
+          "FILENAME": "memory"
+        },
+        {
+          "PERMISSIONS": "drwx",
+          "SIZE": "3072",
+          "DATE": "Mar 5 2013 19:38:18 +00:00",
+          "FILENAME": "coredumpinfo"
+        },
+        {
+          "PERMISSIONS": "-rwx",
+          "SIZE": "6892",
+          "DATE": "Mar 5 2013 19:38:20 +00:00",
+          "FILENAME": "startup-config"
+        },
+        {
+          "PERMISSIONS": "-rwx",
+          "SIZE": "660684",
+          "DATE": "Mar 5 2013 19:38:24 +00:00",
+          "FILENAME": "vlan.dat"
+        },
+        {
+          "PERMISSIONS": "-rwx",
+          "SIZE": "38",
+          "DATE": "Mar 5 2013 19:38:28 +00:00",
+          "FILENAME": "system_env_vars"
+        },
+        {
+          "PERMISSIONS": "-rwx",
+          "SIZE": "5276",
+          "DATE": "Mar 5 2013 19:38:46 +00:00",
+          "FILENAME": "mode_switch"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Directory of flash:/\n\n    2  -rwx        12288   Mar 5 2013 19:38:14 +00:00  private-config.text\n    3  -rwx         2144   Mar 5 2013 19:38:14 +00:00  multiple-fs\n    4  drwx          960   Mar 5 2013 19:38:14 +00:00  memory\n    5  drwx         3072   Mar 5 2013 19:38:18 +00:00  coredumpinfo\n    6  -rwx         6892   Mar 5 2013 19:38:20 +00:00  startup-config\n    7  -rwx       660684   Mar 5 2013 19:38:24 +00:00  vlan.dat\n    8  -rwx           38   Mar 5 2013 19:38:28 +00:00  system_env_vars\n   10  -rw-       528544   Mar 5 2013 19:38:38 +00:00  running-config\n   11  drwx       337920   Mar 5 2013 19:38:42 +00:00  crashinfo\n    9  -rwx         5276   Mar 5 2013 19:38:46 +00:00  mode_switch\n121   -rwx       151492   Mar 5 2013 19:38:50 +00:00  config.text\n122   -rwx        12288   Mar 5 2013 19:38:54 +00:00  private-config.text\n\n334163968 bytes total (314123776 bytes free)\n",
+  "textfsm_template": "Value FILENAME (\\S+)\nValue PERMISSIONS (\\S+)\nValue SIZE (\\d+)\nValue DATE (\\w+\\s+\\d+\\s+\\d{4}\\s+\\d{2}:\\d{2}:\\d{2} \\+\\d{2}:\\d{2})\nValue FILETYPE (\\S+)\n\nStart\n  ^\\s*\\d+\\s+${PERMISSIONS}\\s+${SIZE}\\s+${DATE}\\s+${FILENAME}\\s*$$ -> Record\n  ^\\s*\\d+\\s+drwx\\s+\\d+\\s+${DATE}\\s+${FILENAME}\\s*$$ -> Record\n"
+}

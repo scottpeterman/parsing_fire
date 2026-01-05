@@ -1,0 +1,41 @@
+{
+  "command": "cisco_ios_show_ip_ospf_neighbor",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 3,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"neighbor_id_priority_state_dead_time_ip_address_interface\">\n{{NEIGHBOR_ID}} {{PRIORITY}} {{STATE | ORPHRASE}} {{DEAD_TIME}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR_ID": "10.0.0.1",
+      "PRIORITY": "0",
+      "STATE": "FULL/  -",
+      "DEAD_TIME": "00:00:32",
+      "IP_ADDRESS": "10.0.1.1",
+      "INTERFACE": "Port-channel1"
+    },
+    {
+      "NEIGHBOR_ID": "10.0.0.2",
+      "PRIORITY": "0",
+      "STATE": "FULL/  -",
+      "DEAD_TIME": "00:00:33",
+      "IP_ADDRESS": "10.0.2.1",
+      "INTERFACE": "Port-channel2"
+    },
+    {
+      "NEIGHBOR_ID": "10.0.0.3",
+      "PRIORITY": "0",
+      "STATE": "FULL/  -",
+      "DEAD_TIME": "00:00:39",
+      "IP_ADDRESS": "10.0.3.1",
+      "INTERFACE": "Vlan1000"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Neighbor ID     Pri   State           Dead Time   Address         Interface\n10.0.0.1          0   FULL/  -        00:00:32    10.0.1.1        Port-channel1\n10.0.0.2          0   FULL/  -        00:00:33    10.0.2.1        Port-channel2\n10.0.0.3          0   FULL/  -        00:00:39    10.0.3.1        Vlan1000\n",
+  "textfsm_template": "Value NEIGHBOR_ID (\\d+.\\d+.\\d+.\\d+)\nValue PRIORITY (\\d+)\nValue STATE (\\S+\\/\\s+\\-|\\S+)\nValue DEAD_TIME (\\d+:\\d+:\\d+)\nValue IP_ADDRESS (\\d+.\\d+.\\d+.\\d+)\nValue INTERFACE (\\S+)\n\nStart\n  ^${NEIGHBOR_ID}\\s+${PRIORITY}\\s+${STATE}\\s+${DEAD_TIME}\\s+${IP_ADDRESS}\\s+${INTERFACE} -> Record\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n"
+}

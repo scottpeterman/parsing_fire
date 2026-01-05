@@ -1,0 +1,50 @@
+{
+  "command": "cisco_ios_show_platform_diag",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"chassis_type_hardware_signal_insert_time_internal_operational_state\">\nChassis type: {{CHASSIS_TYPE | ORPHRASE}}\n  Running state  : {{RUNNING_STATE | ORPHRASE}}\n  Internal state  : {{INTERNAL_STATE | ORPHRASE}}\n  Physical insert detect time : {{INSERT_TIME | ORPHRASE}}\nSlot: {{SLOT_NUMBER | ORPHRASE}}, CSR1000V\n  Software declared up time  : {{UPTIME | ORPHRASE}}\n  Hardware ready signal time  : {{HARDWARE_SIGNAL | ORPHRASE}}\n  Packet ready signal time  : {{PACKET_SIGNAL | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CHASSIS_TYPE": "CSR1000V",
+      "SLOT_NUMBER": "R0",
+      "MODULE_SKU": "CSR1000V",
+      "RUNNING_STATE": "ok, active",
+      "INTERNAL_STATE": "online",
+      "INTERNAL_OPERATIONAL_STATE": "ok",
+      "INSERT_TIME": "00:00:35 (4d16h ago)",
+      "UPTIME": "00:00:35 (4d16h ago)"
+    },
+    {
+      "CHASSIS_TYPE": "CSR1000V",
+      "SLOT_NUMBER": "F0",
+      "MODULE_SKU": "CSR1000V",
+      "RUNNING_STATE": "ok, active",
+      "INTERNAL_STATE": "online",
+      "INTERNAL_OPERATIONAL_STATE": "ok",
+      "INSERT_TIME": "00:00:35 (4d16h ago)",
+      "UPTIME": "00:00:59 (4d16h ago)",
+      "HARDWARE_SIGNAL": "00:00:51 (4d16h ago)",
+      "PACKET_SIGNAL": "00:01:06 (4d16h ago)"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "chassis_type_hardware_signal_insert_time_internal_operational_state": {
+        "PACKET_SIGNAL": "00:01:06 (4d16h ago)",
+        "HARDWARE_SIGNAL": "00:00:51 (4d16h ago)",
+        "UPTIME": "00:00:35 (4d16h ago)",
+        "INSERT_TIME": "00:00:35 (4d16h ago)",
+        "INTERNAL_STATE": "online",
+        "RUNNING_STATE": "ok, active",
+        "SLOT_NUMBER": "R0",
+        "CHASSIS_TYPE": "CSR1000V"
+      }
+    }
+  ],
+  "cli_content": "Chassis type: CSR1000V\n\nSlot: R0, CSR1000V\n  Running state               : ok, active\n  Internal state              : online\n  Internal operational state  : ok\n  Physical insert detect time : 00:00:35 (4d16h ago)\n  Software declared up time   : 00:00:35 (4d16h ago)\n\nSlot: F0, CSR1000V\n  Running state               : ok, active\n  Internal state              : online\n  Internal operational state  : ok\n  Physical insert detect time : 00:00:35 (4d16h ago)\n  Software declared up time   : 00:00:59 (4d16h ago)\n  Hardware ready signal time  : 00:00:51 (4d16h ago)\n  Packet ready signal time    : 00:01:06 (4d16h ago)\n\n",
+  "textfsm_template": "Value Filldown CHASSIS_TYPE (.*?)\nValue Required SLOT_NUMBER (.*?)\nValue MODULE_SKU (.+?)\nValue STATE (.+)\nValue RUNNING_STATE (.+)\nValue INTERNAL_STATE (.+)\nValue INTERNAL_OPERATIONAL_STATE (.+)\nValue INSERT_TIME (.*)\nValue UPTIME (.*)\nValue HARDWARE_SIGNAL (.*)\nValue PACKET_SIGNAL (.*)\nValue CPLD_VERSION (.*)\nValue FIRMWARE_VERSION (.*)\n\nStart\n  ^Chassis type: ${CHASSIS_TYPE}(?:\\s|$$)\n  ^.*(?:Sub-slot|Slot):\\s${SLOT_NUMBER}\\,(?:\\s${MODULE_SKU}|\\s+$$)(?:\\s+|$$)\n  ^\\s+State\\s*\\:\\s${STATE}\n  ^.*Running state\\s*\\:\\s${RUNNING_STATE}\n  ^.*Internal state\\s*\\:\\s${INTERNAL_STATE}\n  ^.*Internal operational state\\s*\\:\\s${INTERNAL_OPERATIONAL_STATE}\n  ^.*Physical insert detect time\\s*\\:\\s${INSERT_TIME}\n  ^.*Software declared up time\\s*\\:\\s${UPTIME}\n  ^.*Hardware ready signal time\\s*\\:\\s${HARDWARE_SIGNAL}\n  ^.*Packet ready signal time\\s*\\:\\s${PACKET_SIGNAL}\n  ^.*CPLD version\\s*\\:\\s${CPLD_VERSION}\n  ^.*Firmware version\\s*\\:\\s${FIRMWARE_VERSION}\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^$$ -> Record"
+}

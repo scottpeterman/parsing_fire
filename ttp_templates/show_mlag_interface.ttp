@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show mlag interface
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="interface_localstate_peerstate_consistency_activeports">
+{{INTERFACE}} {{LOCALSTATE | ORPHRASE}} {{PEERSTATE | ORPHRASE}} {{CONSISTENCY}} {{ACTIVEPORTS | ORPHRASE}}
+</group>

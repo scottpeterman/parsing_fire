@@ -1,0 +1,36 @@
+{
+  "command": "cisco_ios_show_module",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"model_module_port_serial\">\n 1  {{PORT | re(\"\\\\d+\")}}  {{MODEL | ORPHRASE}}  3YEEQEY{{MODULE | re(\"\\\\d+\")}}MND  dc8c.5322.19c6  V01  16.12.6  \n 2  28  C9200L-24T-4G-E  {{SERIAL | ORPHRASE}}  dc8c.aaa0.1b77  V01  16.12.6  \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "MODULE": "1",
+      "PORT": "28",
+      "MODEL": "C9200L-24T-4G-E",
+      "SERIAL": "3YEEQEY2MND"
+    },
+    {
+      "MODULE": "2",
+      "PORT": "28",
+      "MODEL": "C9200L-24T-4G-E",
+      "SERIAL": "CBC7DQFNB7F"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "model_module_port_serial": {
+        "SERIAL": "CBC7DQFNB7F",
+        "PORT": "28",
+        "MODEL": "C9200L-24T-4G-E",
+        "MODULE": "2"
+      }
+    }
+  ],
+  "cli_content": "Switch  Ports    Model                Serial No.   MAC address     Hw Ver.       Sw Ver. \n------  -----   ---------             -----------  --------------  -------       --------\n 1       28     C9200L-24T-4G-E       3YEEQEY2MND  dc8c.5322.19c6  V01           16.12.6  \n 2       28     C9200L-24T-4G-E       CBC7DQFNB7F  dc8c.aaa0.1b77  V01           16.12.6  \n",
+  "textfsm_template": "Value Key MODULE (\\d+)\nValue Filldown SWITCH_NUMBER (\\d+)\nValue PORT (\\d+)\nValue CARDTYPE (\\S.+?)\nValue MODEL (\\S+)\nValue SERIAL (\\w+)\n\n\nStart\n  ^Switch Number:? ${SWITCH_NUMBER}\n  ^Mod\\s+Ports\\s+Card\\s+Type\\s+Model\\s+Serial -> Status\n  ^Chassis\\sType\\s?:\\s\n  ^Power\\sconsumed\\sby\\sbackplane\\s:\\s\n  # #1083 C9200L-24T\n  ^Switch\\s+Ports\\s+Model\\s+Serial\\sNo\\.\\s+MAC\\saddress\\s+Hw\\sVer\\.\\s+Sw\\sVer\\. -> SwitchStack\n  ^. -> Error NoMatchInStart\n\nStatus\n  ^---+\n  ^\\s*${MODULE}\\s+(${PORT}\\s+)?${CARDTYPE}(\\s+${MODEL})?(\\s+${SERIAL})?\\s*$$ -> Record\n  ^(?:Mod|\\s+M)\\s+MAC\\s+addresses\\s+Hw\\s+Fw\\s+Sw\\s+Status -> End\n  ^Mod\\s+Sub-Module\\s+Model\\s+Serial\\s+Hw\\s+Status -> End\n  ^Mod\\s+Redundancy\\s+Role\\s+Operating\\s+Redundancy\\s+Mode\\s+Configured\\s+Redundancy\\s+Mode -> End\n  ^Mod\\s+Redundancy\\s+Role\\s+Operating\\s+Mode\\s+Configured\\s+Mode\\s+Redundancy\\s+Status -> End\n  ^Mod\\s+Online\\s+Diag\\s+Status -> End\n  ^\\s*$$\n  ^. -> Error NoMatchInStatus\n\nSwitchStack\n  ^---+\n  # #1083 C9200L-24T\n  ^\\s*${MODULE}\\s+${PORT}\\s+${MODEL}\\s+${SERIAL}\\s+ -> Record\n  ^\\s*$$\n  ^. -> Error NoMatchInSwitch\n\nEnd\n"
+}

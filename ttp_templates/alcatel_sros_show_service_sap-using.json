@@ -1,0 +1,120 @@
+{
+  "command": "alcatel_sros_show_service_sap-using",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"port_id_service_id_ingress_qos_ingress_filter_egress_qos_egress_filter_admin_state_oper_state\">\n{{PORT_ID}} {{SERVICE_ID | re(\"\\\\d+\")}} {{INGRESS_QOS}} {{INGRESS_FILTER}} {{EGRESS_QOS}} {{EGRESS_FILTER}} {{ADMIN_STATE | ORPHRASE}} {{OPER_STATE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT_ID": "lag-21:300",
+      "SERVICE_ID": "1",
+      "INGRESS_QOS": "11130",
+      "INGRESS_FILTER": "none",
+      "EGRESS_QOS": "11140",
+      "EGRESS_FILTER": "none",
+      "ADMIN_STATE": "Up",
+      "OPER_STATE": "Up"
+    },
+    {
+      "PORT_ID": "lag-22:300",
+      "SERVICE_ID": "1",
+      "INGRESS_QOS": "11130",
+      "INGRESS_FILTER": "ip4",
+      "EGRESS_QOS": "11140",
+      "EGRESS_FILTER": "none",
+      "ADMIN_STATE": "Up",
+      "OPER_STATE": "Up"
+    },
+    {
+      "PORT_ID": "1/1/c6/1:234",
+      "SERVICE_ID": "400",
+      "INGRESS_QOS": "1",
+      "INGRESS_FILTER": "none",
+      "EGRESS_QOS": "1",
+      "EGRESS_FILTER": "none",
+      "ADMIN_STATE": "Up",
+      "OPER_STATE": "Down"
+    },
+    {
+      "PORT_ID": "lag-21:400",
+      "SERVICE_ID": "76415001",
+      "INGRESS_QOS": "10",
+      "INGRESS_FILTER": "none",
+      "EGRESS_QOS": "1",
+      "EGRESS_FILTER": "none",
+      "ADMIN_STATE": "Up",
+      "OPER_STATE": "Up"
+    },
+    {
+      "PORT_ID": "lag-22:400",
+      "SERVICE_ID": "76415002",
+      "INGRESS_QOS": "10",
+      "INGRESS_FILTER": "none",
+      "EGRESS_QOS": "1",
+      "EGRESS_FILTER": "none",
+      "ADMIN_STATE": "Up",
+      "OPER_STATE": "Up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_id_service_id_ingress_qos_ingress_filter_egress_qos_egress_filter_admin_state_oper_state": [
+        {
+          "PORT_ID": "lag-21:300",
+          "SERVICE_ID": "1",
+          "INGRESS_QOS": "11130",
+          "INGRESS_FILTER": "none",
+          "EGRESS_QOS": "11140",
+          "EGRESS_FILTER": "none",
+          "ADMIN_STATE": "Up",
+          "OPER_STATE": "Up"
+        },
+        {
+          "PORT_ID": "lag-22:300",
+          "SERVICE_ID": "1",
+          "INGRESS_QOS": "11130",
+          "INGRESS_FILTER": "ip4",
+          "EGRESS_QOS": "11140",
+          "EGRESS_FILTER": "none",
+          "ADMIN_STATE": "Up",
+          "OPER_STATE": "Up"
+        },
+        {
+          "PORT_ID": "1/1/c6/1:234",
+          "SERVICE_ID": "400",
+          "INGRESS_QOS": "1",
+          "INGRESS_FILTER": "none",
+          "EGRESS_QOS": "1",
+          "EGRESS_FILTER": "none",
+          "ADMIN_STATE": "Up",
+          "OPER_STATE": "Down"
+        },
+        {
+          "PORT_ID": "lag-21:400",
+          "SERVICE_ID": "76415001",
+          "INGRESS_QOS": "10",
+          "INGRESS_FILTER": "none",
+          "EGRESS_QOS": "1",
+          "EGRESS_FILTER": "none",
+          "ADMIN_STATE": "Up",
+          "OPER_STATE": "Up"
+        },
+        {
+          "PORT_ID": "lag-22:400",
+          "SERVICE_ID": "76415002",
+          "INGRESS_QOS": "10",
+          "INGRESS_FILTER": "none",
+          "EGRESS_QOS": "1",
+          "EGRESS_FILTER": "none",
+          "ADMIN_STATE": "Up",
+          "OPER_STATE": "Up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "===============================================================================\nService Access Points \n===============================================================================\nPortId                          SvcId      Ing.  Ing.    Egr.  Egr.   Adm  Opr\n                                           QoS   Fltr    QoS   Fltr        \n-------------------------------------------------------------------------------\nlag-21:300                      1          11130 none    11140 none   Up   Up\nlag-22:300                      1          11130 ip4     11140 none   Up   Up\n1/1/c6/1:234                    400        1     none    1     none   Up   Down\nlag-21:400                      76415001   10    none    1     none   Up   Up\nlag-22:400                      76415002   10    none    1     none   Up   Up\n-------------------------------------------------------------------------------\nNumber of SAPs : 5\n-------------------------------------------------------------------------------\n===============================================================================\n",
+  "textfsm_template": "Value Required PORT_ID (\\S+)\nValue Required SERVICE_ID (\\d+)\nValue Required INGRESS_QOS (\\S+)\nValue Required INGRESS_FILTER (\\S+)\nValue Required EGRESS_QOS (\\d+)\nValue Required EGRESS_FILTER (\\S+)\nValue Required ADMIN_STATE (Up|Down)\nValue Required OPER_STATE (Up|Down)\n\nStart\n  ^=+\n  ^Service\\s+Access\\s+Points\n  ^PortId\\s+SvcId\\s+Ing.\\s+Ing.\\s+Egr.\\s+Egr.\\s+Adm\\s+Opr\\s*$$ -> SAPS\n  ^\\s*$$\n  ^. -> Error\n\nSAPS\n  ^\\s+QoS\\s+Fltr\\s+QoS\\s+Fltr        \n  ^-+\n  ^${PORT_ID}\\s+${SERVICE_ID}\\s+${INGRESS_QOS}\\s+${INGRESS_FILTER}\\s+${EGRESS_QOS}\\s+${EGRESS_FILTER}\\s+${ADMIN_STATE}\\s+${OPER_STATE} -> Record\n  ^=+\n  ^Number\\s+of\n  ^\\*\\s+indicates\n  ^\\s*$$\n  ^. -> Error\n"
+}

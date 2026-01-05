@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_stats_port_summary
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 6
+# Match ratio: 1.20
+
+<group name="port_link_status_packets_in_packets_out_broadcast_in_errors_in_errors_out_collisions">
+{{PORT | re("\\d+")}} {{LINK_STATUS | ORPHRASE}} {{PACKETS_IN}} {{PACKETS_OUT}} {{BROADCAST_IN | ORPHRASE}} {{ERRORS_IN}} {{ERRORS_OUT}} {{COLLISIONS}}
+</group>
+<group name="total_packets_in_total_packets_out_total_broadcast_in_packets_in_packets_out_broadcast_in">
+   Total {{TOTAL_PACKETS_IN}} {{TOTAL_PACKETS_OUT}} {{TOTAL_BROADCAST_IN | ORPHRASE}} {{PACKETS_IN}} {{PACKETS_OUT}} {{BROADCAST_IN}}
+</group>

@@ -1,0 +1,157 @@
+{
+  "command": "cisco_nxos_show_port-channel_summary",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.05,
+  "textfsm_rows": 20,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"bundle_name_bundle_status_bundle_protocol_member_interface\">\n131 {{BUNDLE_NAME}}({{BUNDLE_STATUS | OR{{MEMBER_INTERFACE_STATUS | ORPHRASE}}HRASE}}) Eth {{BUNDLE_PROTOCOL}} {{MEMBER_INTERFACE | ORPHRASE}}(P) \n</group>\n<group name=\"member_interface_status_bundle_status_bundle_protocol_member_interface\">\n136 {{BUN{{MEMBER_INTERFACE_STATUS | ORPHRASE}}LE_NAME}}({{BUNDLE_STATUS | ORPHRASE}}) Eth {{BUNDLE_PROTOCOL}} {{MEMBER_INTERFACE | ORPHRASE}}(D) \n</group>\n<group name=\"bundle_name_bundle_status_bundle_protocol\">\n200 {{BUNDLE_NAME}}({{BUNDLE_STATUS | ORPHRASE}}) Eth {{BUNDLE_PROTOCOL | ORPHRASE}} Eth1/21(P) Eth1/22(P) \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "BUNDLE_NAME": "Po131",
+      "BUNDLE_STATUS": "SU",
+      "BUNDLE_PROTOCOL": "LACP",
+      "MEMBER_INTERFACE": "Eth1/1",
+      "MEMBER_INTERFACE_STATUS": "P"
+    },
+    {
+      "BUNDLE_NAME": "Po132",
+      "BUNDLE_STATUS": "SU",
+      "BUNDLE_PROTOCOL": "LACP",
+      "MEMBER_INTERFACE": "Eth1/2",
+      "MEMBER_INTERFACE_STATUS": "P"
+    },
+    {
+      "BUNDLE_NAME": "Po133",
+      "BUNDLE_STATUS": "SU",
+      "BUNDLE_PROTOCOL": "LACP",
+      "MEMBER_INTERFACE": "Eth1/3",
+      "MEMBER_INTERFACE_STATUS": "P"
+    },
+    {
+      "BUNDLE_NAME": "Po134",
+      "BUNDLE_STATUS": "SU",
+      "BUNDLE_PROTOCOL": "LACP",
+      "MEMBER_INTERFACE": "Eth1/4",
+      "MEMBER_INTERFACE_STATUS": "P"
+    },
+    {
+      "BUNDLE_NAME": "Po135",
+      "BUNDLE_STATUS": "SD",
+      "BUNDLE_PROTOCOL": "NONE",
+      "MEMBER_INTERFACE": "--"
+    },
+    {
+      "BUNDLE_NAME": "Po136",
+      "BUNDLE_STATUS": "SD",
+      "BUNDLE_PROTOCOL": "LACP",
+      "MEMBER_INTERFACE": "Eth1/6",
+      "MEMBER_INTERFACE_STATUS": "D"
+    },
+    {
+      "BUNDLE_NAME": "Po137",
+      "BUNDLE_STATUS": "SD",
+      "BUNDLE_PROTOCOL": "NONE",
+      "MEMBER_INTERFACE": "--"
+    },
+    {
+      "BUNDLE_NAME": "Po138",
+      "BUNDLE_STATUS": "SD",
+      "BUNDLE_PROTOCOL": "LACP",
+      "MEMBER_INTERFACE": "Eth1/24",
+      "MEMBER_INTERFACE_STATUS": "D"
+    },
+    {
+      "BUNDLE_NAME": "Po141",
+      "BUNDLE_STATUS": "SD",
+      "BUNDLE_PROTOCOL": "NONE",
+      "MEMBER_INTERFACE": "--"
+    },
+    {
+      "BUNDLE_NAME": "Po142",
+      "BUNDLE_STATUS": "SD",
+      "BUNDLE_PROTOCOL": "NONE",
+      "MEMBER_INTERFACE": "--"
+    },
+    {
+      "BUNDLE_NAME": "Po151",
+      "BUNDLE_STATUS": "SD",
+      "BUNDLE_PROTOCOL": "NONE",
+      "MEMBER_INTERFACE": "--"
+    },
+    {
+      "BUNDLE_NAME": "Po171",
+      "BUNDLE_STATUS": "SU",
+      "BUNDLE_PROTOCOL": "LACP",
+      "MEMBER_INTERFACE": "Eth1/14",
+      "MEMBER_INTERFACE_STATUS": "P"
+    },
+    {
+      "BUNDLE_NAME": "Po172",
+      "BUNDLE_STATUS": "SU",
+      "BUNDLE_PROTOCOL": "LACP",
+      "MEMBER_INTERFACE": "Eth1/15",
+      "MEMBER_INTERFACE_STATUS": "P"
+    },
+    {
+      "BUNDLE_NAME": "Po173",
+      "BUNDLE_STATUS": "SU",
+      "BUNDLE_PROTOCOL": "LACP",
+      "MEMBER_INTERFACE": "Eth1/16",
+      "MEMBER_INTERFACE_STATUS": "P"
+    },
+    {
+      "BUNDLE_NAME": "Po174",
+      "BUNDLE_STATUS": "SU",
+      "BUNDLE_PROTOCOL": "LACP",
+      "MEMBER_INTERFACE": "Eth1/17",
+      "MEMBER_INTERFACE_STATUS": "P"
+    },
+    {
+      "BUNDLE_NAME": "Po175",
+      "BUNDLE_STATUS": "SD",
+      "BUNDLE_PROTOCOL": "LACP",
+      "MEMBER_INTERFACE": "Eth1/25",
+      "MEMBER_INTERFACE_STATUS": "D"
+    },
+    {
+      "BUNDLE_NAME": "Po176",
+      "BUNDLE_STATUS": "SD",
+      "BUNDLE_PROTOCOL": "LACP",
+      "MEMBER_INTERFACE": "Eth1/27",
+      "MEMBER_INTERFACE_STATUS": "D"
+    },
+    {
+      "BUNDLE_NAME": "Po177",
+      "BUNDLE_STATUS": "SD",
+      "BUNDLE_PROTOCOL": "LACP",
+      "MEMBER_INTERFACE": "Eth1/28",
+      "MEMBER_INTERFACE_STATUS": "D"
+    },
+    {
+      "BUNDLE_NAME": "Po178",
+      "BUNDLE_STATUS": "SD",
+      "BUNDLE_PROTOCOL": "NONE",
+      "MEMBER_INTERFACE": "--"
+    },
+    {
+      "BUNDLE_NAME": "Po200",
+      "BUNDLE_STATUS": "SU",
+      "BUNDLE_PROTOCOL": "LACP",
+      "MEMBER_INTERFACE": "Eth1/21, Eth1/22",
+      "MEMBER_INTERFACE_STATUS": "P, P"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "bundle_name_bundle_status_bundle_protocol": {
+        "BUNDLE_NAME": "Po200",
+        "BUNDLE_STATUS": "SU",
+        "BUNDLE_PROTOCOL": "LACP"
+      }
+    }
+  ],
+  "cli_content": "Flags:  D - Down        P - Up in port-channel (members)\n        I - Individual  H - Hot-standby (LACP only)\n        s - Suspended   r - Module-removed\n        S - Switched    R - Routed\n        U - Up (port-channel)\n        M - Not in use. Min-links not met\n--------------------------------------------------------------------------------\nGroup Port-       Type     Protocol  Member Ports\n      Channel\n--------------------------------------------------------------------------------\n131   Po131(SU)   Eth      LACP      Eth1/1(P)    \n132   Po132(SU)   Eth      LACP      Eth1/2(P)    \n133   Po133(SU)   Eth      LACP      Eth1/3(P)    \n134   Po134(SU)   Eth      LACP      Eth1/4(P)    \n135   Po135(SD)   Eth      NONE      --\n136   Po136(SD)   Eth      LACP      Eth1/6(D)    \n137   Po137(SD)   Eth      NONE      --\n138   Po138(SD)   Eth      LACP      Eth1/24(D)   \n141   Po141(SD)   Eth      NONE      --\n142   Po142(SD)   Eth      NONE      --\n151   Po151(SD)   Eth      NONE      --\n171   Po171(SU)   Eth      LACP      Eth1/14(P)   \n172   Po172(SU)   Eth      LACP      Eth1/15(P)   \n173   Po173(SU)   Eth      LACP      Eth1/16(P)   \n174   Po174(SU)   Eth      LACP      Eth1/17(P)   \n175   Po175(SD)   Eth      LACP      Eth1/25(D)   \n176   Po176(SD)   Eth      LACP      Eth1/27(D)   \n177   Po177(SD)   Eth      LACP      Eth1/28(D)   \n178   Po178(SD)   Eth      NONE      --\n200   Po200(SU)   Eth      LACP      Eth1/21(P)   Eth1/22(P)  \n",
+  "textfsm_template": "Value Required,Filldown BUNDLE_NAME (Po\\d+)\nValue Filldown BUNDLE_STATUS (\\w+)\nValue Filldown BUNDLE_PROTOCOL (\\w+)\nValue Filldown BUNDLE_PROTOCOL_STATE (\\w+)\nValue List MEMBER_INTERFACE ([\\w\\/]+|\\-\\-)\nValue List MEMBER_INTERFACE_STATUS (.+?)\n\n\nStart\n  ^\\s+Flag -> CASE1\n  ^Flags: -> CASE2\n\n\nCASE1\n  ^.*------------ -> CASE1_RTE\n\nCASE1_RTE\n  ^Po -> Continue.Record\n  ^${BUNDLE_NAME}\\(${BUNDLE_STATUS}\\)\\s+${BUNDLE_PROTOCOL}\\(${BUNDLE_PROTOCOL_STATE}\\)\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n  ^Po\\d+\\(\\w+\\)\\s+\\w+\\(\\w+\\)\\s+Et.+?\\(.+?\\)\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n  ^Po\\d+\\(\\w+\\)\\s+\\w+\\(\\w+\\)\\s+Et.+?\\(.+?\\)\\s+Et.+?\\(.+?\\)\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n  ^Po\\d+\\(\\w+\\)\\s+\\w+\\(\\w+\\)\\s+Et.+?\\(.+?\\)\\s+Et.+?\\(.+?\\)\\s+Et.+?\\(.+?\\)\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n  ^Po\\d+\\(\\w+\\)\\s+\\w+\\(\\w+\\)\\s+Et.+?\\(.+?\\)\\s+Et.+?\\(.+?\\)\\s+Et.+?\\(.+?\\)\\s+Et.+?\\(.+?\\)\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n  ^Po\\d+\\(\\w+\\)\\s+\\w+\\(\\w+\\)\\s+Et.+?\\(.+?\\)\\s+Et.+?\\(.+?\\)\\s+Et.+?\\(.+?\\)\\s+Et.+?\\(.+?\\)\\s+Et.+?\\(.+?\\)\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n  ^\\s{24}${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n  ^\\s{24}Et.+?\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n  ^\\s{24}Et.+?\\s+Et.+?\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n  ^\\s{24}Et.+?\\s+Et.+?\\s+Et.+?\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n  ^\\s{24}Et.+?\\s+Et.+?\\s+Et.+?\\s+Et.+?\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n\n\nCASE2\n  ^Group\\s+Port -> CASE2_RTE\n\nCASE2_RTE\n  ^------------ -> Next\n  ^\\d+ -> Continue.Record\n  ^\\d+\\s+${BUNDLE_NAME}\\(${BUNDLE_STATUS}\\)\\s+\\w+\\s+${BUNDLE_PROTOCOL}\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n  ^\\d+\\s+Po\\d+\\(\\w+\\)\\s+\\w+\\s+\\w+\\s+Et.+?\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n  ^\\d+\\s+Po\\d+\\(\\w+\\)\\s+\\w+\\s+\\w+\\s+Et.+?\\s+Et.+?\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n  ^\\d+\\s+Po\\d+\\(\\w+\\)\\s+\\w+\\s+\\w+\\s+Et.+?\\s+Et.+?\\s+Et.+?\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n  ^\\s{37}${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n  ^\\s{37}Et.+?\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n  ^\\s{37}Et.+?\\s+Et.+?\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n  ^\\s{37}Et.+?\\s+Et.+?\\s+Et.+?\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\)(\\s|$$) -> Continue\n  ^\\d+\\s+${BUNDLE_NAME}\\(${BUNDLE_STATUS}\\)\\s+\\w+\\s+${BUNDLE_PROTOCOL}\\s+${MEMBER_INTERFACE}($$) -> Next\n"
+}

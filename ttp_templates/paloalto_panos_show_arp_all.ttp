@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: paloalto_panos_show_arp_all
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 3
+# Match ratio: 0.75
+
+<group name="interface_ip_address_mac_address_port_status_ttl">
+{{INTERFACE}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{PORT}} {{STATUS | ORPHRASE}} {{TTL | ORPHRASE}}
+</group>

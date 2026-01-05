@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: paloalto_panos_show_jobs_all
+# Source: ntc
+# TextFSM rows: 8
+# TTP rows: 8
+# Match ratio: 1.00
+
+<group name="enqueued_id_type_status_result_completed">
+{{ENQUEUED | ORPHRASE}} {{ID | re("\\d+")}} {{TYPE}} {{STATUS | ORPHRASE}} {{RESULT}} {{COMPLETED | ORPHRASE}} 
+</group>

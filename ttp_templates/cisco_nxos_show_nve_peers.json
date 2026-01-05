@@ -1,0 +1,90 @@
+{
+  "command": "cisco_nxos_show_nve_peers",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"interface_peer_state_type_mac_address\">\n{{INTERFACE}} {{PEER}} {{STATE | ORPHRASE}} {{TYPE}} 2y11w {{MAC_ADDRESS | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "nve1",
+      "PEER": "192.168.111.41",
+      "STATE": "Up",
+      "TYPE": "CP",
+      "MAC_ADDRESS": "0200.c0a8.5422"
+    },
+    {
+      "INTERFACE": "nve1",
+      "PEER": "192.168.111.47",
+      "STATE": "Up",
+      "TYPE": "CP",
+      "MAC_ADDRESS": "2416.9dd1.4117"
+    },
+    {
+      "INTERFACE": "nve1",
+      "PEER": "192.168.111.48",
+      "STATE": "Up",
+      "TYPE": "CP",
+      "MAC_ADDRESS": "cc7f.76a5.3a77"
+    },
+    {
+      "INTERFACE": "nve1",
+      "PEER": "192.168.111.52",
+      "STATE": "Up",
+      "TYPE": "CP",
+      "MAC_ADDRESS": "2416.9dd1.8137"
+    },
+    {
+      "INTERFACE": "nve1",
+      "PEER": "192.168.111.81",
+      "STATE": "Up",
+      "TYPE": "CP",
+      "MAC_ADDRESS": "0200.c0a8.545b"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_peer_state_type_mac_address": [
+        {
+          "INTERFACE": "nve1",
+          "PEER": "192.168.111.41",
+          "STATE": "Up",
+          "TYPE": "CP",
+          "MAC_ADDRESS": "0200.c0a8.5422"
+        },
+        {
+          "INTERFACE": "nve1",
+          "PEER": "192.168.111.47",
+          "STATE": "Up",
+          "TYPE": "CP",
+          "MAC_ADDRESS": "2416.9dd1.4117"
+        },
+        {
+          "INTERFACE": "nve1",
+          "PEER": "192.168.111.48",
+          "STATE": "Up",
+          "TYPE": "CP",
+          "MAC_ADDRESS": "cc7f.76a5.3a77"
+        },
+        {
+          "INTERFACE": "nve1",
+          "PEER": "192.168.111.52",
+          "STATE": "Up",
+          "TYPE": "CP",
+          "MAC_ADDRESS": "2416.9dd1.8137"
+        },
+        {
+          "INTERFACE": "nve1",
+          "PEER": "192.168.111.81",
+          "STATE": "Up",
+          "TYPE": "CP",
+          "MAC_ADDRESS": "0200.c0a8.545b"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface Peer-IP                                 State LearnType Uptime   Router-Mac      \n--------- --------------------------------------  ----- --------- -------- -----------------\nnve1      192.168.111.41                          Up    CP        2y11w    0200.c0a8.5422   \nnve1      192.168.111.47                          Up    CP        2y11w    2416.9dd1.4117  \nnve1      192.168.111.48                          Up    CP        2y11w    cc7f.76a5.3a77  \nnve1      192.168.111.52                          Up    CP        2y11w    2416.9dd1.8137  \nnve1      192.168.111.81                          Up    CP        2y11w    0200.c0a8.545b  \n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue PEER (\\d+.\\d+.\\d+.\\d+)\nValue STATE (Up|Down)\nValue TYPE (\\S+)\nValue MAC_ADDRESS (.*)\n\nStart\n  ^Interface\\s+Peer-IP\\s+State\\s+LearnType\\s+Uptime\\s+Router-Mac\\s*$$\n  ^-+\n  ^${INTERFACE}\\s+${PEER}\\s+${STATE}\\s+${TYPE}\\s+\\S+\\s+${MAC_ADDRESS}\\s+ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

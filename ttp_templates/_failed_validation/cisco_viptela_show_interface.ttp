@@ -1,0 +1,14 @@
+# TTP Template - FAILED VALIDATION
+# Original command: cisco_viptela_show_interface
+# Source: ntc
+# Error: TTP parsing timed out
+
+<group name="vpn_interface_af_type_ip_address_admin_status_oper_status_tracker_status_encap_type_port_type_mtu_mac_address_speed_duplex_uptime_rx_packets_tx_packets">
+{{VPN}} {{INTERFACE}} {{AF_TYPE}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{ADMIN_STATUS | ORPHRASE}} {{OPER_STATUS | ORPHRASE}} {{TRACKER_STATUS | ORPHRASE}} {{ENCAP_TYPE}} {{PORT_TYPE}} {{MTU | re(".*\\w.*")}} {{MAC_ADDRESS | re("[0{{MSS_ADJUST | re(".*\\w.*")}}9a-fA-F:.-]+")}} {{SPEED}} {{DUPLEX}} - {{UPTIME | ORPHRASE}} {{RX_PACKETS}} {{TX_PACKETS | ORPHRASE}}
+</group>
+<group name="vpn_interface_af_type_ip_address_admin_status_oper_status_tracker_status_encap_type_port_type_mtu_mac_address_uptime_rx_packets_tx_packets_speed_duplex">
+{{VPN}} {{INTERFACE}} {{AF_TYPE}} {{IP_ADDRESS | re(".*\\w.*")}} {{ADMIN_STATUS | ORPHRASE}} {{OPER_STATUS | ORPHRASE}} {{TRACKER_STATUS | ORPHRASE}} {{ENCAP_TYPE | re(".*\\w.*")}} {{PORT_TYPE | re(".*\\w.*")}} {{MTU | re(".*\\w.*")}} {{MAC_ADDRESS | re("[0{{MSS_ADJUST | re(".*\\w.*")}}9a{{UPTIME | ORPHRASE}}fA{{RX_PACKETS | re(".*\\w.*")}}F:.{{TX_PACKETS | re(".*\\w.*")}}]+")}} {{SPEED}} {{DUPLEX | ORPHRASE}} - - - -
+</group>
+<group name="vpn_interface_af_type_ip_address_admin_status_oper_status_tracker_status_encap_type_port_type_mtu_mac_address_mss_adjust_speed_duplex_uptime_tx_packets">
+{{VPN}} {{INTERFACE}} {{AF_TYPE}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{ADMIN_STATUS | ORPHRASE}} {{OPER_STATUS | ORPHRASE}} {{TRACKER_STATUS | ORPHRASE}} {{ENCAP_TYPE}} {{PORT_TYPE}} {{MTU | re(".*\\w.*")}} {{MAC_ADDRESS | re("[{{RX_PACKETS}}{{MSS_ADJUST | re(".*\\w.*")}}9a-fA-F:.-]+")}} {{SPEED}} {{DUPLEX}} - {{UPTIME | ORPHRASE}} {{TX_PACKETS}} 0
+</group>

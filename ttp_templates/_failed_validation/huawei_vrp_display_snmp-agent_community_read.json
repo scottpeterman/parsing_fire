@@ -1,0 +1,28 @@
+{
+  "command": "huawei_vrp_display_snmp-agent_community_read",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 2,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"acl_name_storage_type_view\">\n  Storage type: {{STORAGE_TYPE | ORPHRASE}} \n  View name: {{VIEW | ORPHRASE}} \n  Acl: {{ACL | ORPHRASE}}\n  Community name: {{NAME | ORPHRASE}} \n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "NAME": "%^%#9FN.Q|,$9%{xZHI(!/F-7GAxPSHn}H'Z7CP1~@pJ-;\"k)`q><)~;%aTv*'m#<>Y#(^h1S=_t:W&Wy8\"B%^%#",
+      "STORAGE_TYPE": "nonVolatile",
+      "VIEW": "ViewDefault",
+      "ACL": "2000"
+    },
+    {
+      "NAME": "%^%#<F>aPR*-=3rz1|Bp|Q83\\4T!'b`$p2%{SFB6\"lAQ&E&|Bt+IFCF'_0B6KT8MLsAoL]*->2Zce&!doP6-%^%#",
+      "STORAGE_TYPE": "nonVolatile",
+      "VIEW": "ViewDefault"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "   Community name: %^%#9FN.Q|,$9%{xZHI(!/F-7GAxPSHn}H'Z7CP1~@pJ-;\"k)`q><)~;%aTv*'m#<>Y#(^h1S=_t:W&Wy8\"B%^%# \n   Storage type: nonVolatile \n   View name: ViewDefault \n   Acl: 2000\n\n   Community name: %^%#<F>aPR*-=3rz1|Bp|Q83\\4T!'b`$p2%{SFB6\"lAQ&E&|Bt+IFCF'_0B6KT8MLsAoL]*->2Zce&!doP6-%^%# \n   Storage type: nonVolatile \n   View name: ViewDefault \n\n   Total number is 2 \n",
+  "textfsm_template": "Value NAME (\\S+)\nValue GROUP (\\S+)\nValue STORAGE_TYPE (volatile|nonVolatile|permanent|readOnly|other)\nValue VIEW (\\S+)\nValue ACL (\\d+)\n\nStart\n  ^\\s*Community\\sname:.*$$ -> Continue.Record\n  ^\\s*Community\\sname:\\s+${NAME}\\s*$$\n  ^\\s*Group\\sname:\\s+${GROUP}\\s*$$\n  ^\\s*Storage(\\s|-)type:\\s+${STORAGE_TYPE}\\s*$$\n  ^\\s*View\\sname:\\s+${VIEW}\\s*$$\n  ^\\s*Acl:\\s+${ACL}\\s*$$\n  ^\\s*Total\\snumber\\sis\\s\\d+\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

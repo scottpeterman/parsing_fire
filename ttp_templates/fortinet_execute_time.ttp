@@ -1,0 +1,11 @@
+# TTP Template auto-generated from TextFSM
+# Original command: fortinet_execute_time
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="hour_last_ntp_sync_minute_second">
+current time is: {{HOUR}}:{{MINUTE}}:{{SECOND | ORPHRASE}}
+last ntp sync: {{LAST_NTP_SYNC | ORPHRASE}}
+</group>

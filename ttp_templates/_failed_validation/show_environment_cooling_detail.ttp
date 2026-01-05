@@ -1,0 +1,12 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show environment cooling detail
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="airflow_power_rpm_speed">
+  State: {{STATE | ORPHRASE}}
+  Airflow: {{AIRFLOW | ORPHRASE}}
+  Speed: {{SPEED | ORPHRASE}}
+  Power: {{POWER | ORPHRASE}}
+  RPM: {{RPM | ORPHRASE}}
+</group>

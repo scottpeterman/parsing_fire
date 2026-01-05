@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_ip_ospf_database
+# Source: ntc
+# TextFSM rows: 11
+# TTP rows: 1
+# Match ratio: 0.09
+
+<group name="area_process_id_router_id">
+                 Router Link States (Area {{AREA | ORPHRASE}})
+<group name="adv_router_link_count_link_id">
+            OSPF Router with ID({{LINK_ID | ORPHRASE}}) (Process ID {{LINK_COUNT | re("\\d+")}}) (VRF default)
+</group>
+</group>

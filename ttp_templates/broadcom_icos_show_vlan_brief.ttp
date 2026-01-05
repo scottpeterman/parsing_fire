@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: broadcom_icos_show_vlan_brief
+# Source: ntc
+# TextFSM rows: 20
+# TTP rows: 20
+# Match ratio: 1.00
+
+<group name="vlan_id_vlan_name_type">
+{{VLAN_ID | re("\\d+")}} {{VLAN_NAME}} {{TYPE | ORPHRASE}}
+</group>

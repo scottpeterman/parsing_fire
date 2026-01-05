@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show forwarding-adjacency
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="destination_interface_next_hop_mac_outgoing_interface">
+  Status: {{STATUS | ORPHRASE}}
+  Outgoing Interface: {{INTERFACE | ORPHRASE}}
+  Destination: {{DESTINATION | ORPHRASE}}
+  Next Hop MAC: {{NEXT_HOP_MAC | ORPHRASE}}
+  Outgoing Interface: {{OUTGOING_INTERFACE | ORPHRASE}}
+</group>

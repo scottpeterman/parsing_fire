@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show mpls interfaces verbose
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="interface_state_label_space_mpls_enabled_admin_state_oper_state">
+{{INTERFACE}} {{STATE | ORPHRASE}} {{LABEL_SPACE}} {{MPLS_ENABLED}} {{ADMIN_STATE | ORPHRASE}} {{OPER_STATE | ORPHRASE}}
+</group>

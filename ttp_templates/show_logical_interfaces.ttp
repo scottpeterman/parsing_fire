@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show logical interfaces
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="interface_index_snmp_index">
+Logical interface {{INTERFACE}} (Index {{INDEX}}) (SNMP ifIndex {{SNMP_INDEX | ORPHRASE}})
+</group>

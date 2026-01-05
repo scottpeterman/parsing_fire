@@ -1,0 +1,92 @@
+{
+  "command": "show feature fex",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"fex_interface_state_model_serial_fex_serial\">\n{{FEX}} {{INTERFACE}} {{STATE | ORPHRASE}} {{MODEL}} {{SERIAL | re(\"\\\\w+\")}} {{FEX_SERIAL | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FEX": "100",
+      "INTERFACE": "Eth1/5",
+      "STATE": "Online",
+      "MODEL": "N2K-C2348UPQ",
+      "SERIAL": "FOC12345L7G",
+      "FEX_SERIAL": "FOC98765A3B"
+    },
+    {
+      "FEX": "101",
+      "INTERFACE": "Eth1/6",
+      "STATE": "Online",
+      "MODEL": "N2K-C2232PP",
+      "SERIAL": "FOC67891J9U",
+      "FEX_SERIAL": "FOC24680Z5X"
+    },
+    {
+      "FEX": "102",
+      "INTERFACE": "Eth1/7",
+      "STATE": "Offline",
+      "MODEL": "N2K-C2348PQ",
+      "SERIAL": "FOC84753P2M",
+      "FEX_SERIAL": "FOC13579P1C"
+    },
+    {
+      "FEX": "103",
+      "INTERFACE": "Eth1/8",
+      "STATE": "Offline",
+      "MODEL": "N2K-C2232TM",
+      "SERIAL": "FOC47563Q4N",
+      "FEX_SERIAL": "FOC75319X6Z"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "fex_interface_state_model_serial_fex_serial": [
+        {
+          "FEX": "FEX",
+          "INTERFACE": "Interface",
+          "STATE": "State",
+          "MODEL": "Model",
+          "SERIAL": "Serial",
+          "FEX_SERIAL": "Fex-Serial"
+        },
+        {
+          "FEX": "100",
+          "INTERFACE": "Eth1/5",
+          "STATE": "Online",
+          "MODEL": "N2K-C2348UPQ",
+          "SERIAL": "FOC12345L7G",
+          "FEX_SERIAL": "FOC98765A3B"
+        },
+        {
+          "FEX": "101",
+          "INTERFACE": "Eth1/6",
+          "STATE": "Online",
+          "MODEL": "N2K-C2232PP",
+          "SERIAL": "FOC67891J9U",
+          "FEX_SERIAL": "FOC24680Z5X"
+        },
+        {
+          "FEX": "102",
+          "INTERFACE": "Eth1/7",
+          "STATE": "Offline",
+          "MODEL": "N2K-C2348PQ",
+          "SERIAL": "FOC84753P2M",
+          "FEX_SERIAL": "FOC13579P1C"
+        },
+        {
+          "FEX": "103",
+          "INTERFACE": "Eth1/8",
+          "STATE": "Offline",
+          "MODEL": "N2K-C2232TM",
+          "SERIAL": "FOC47563Q4N",
+          "FEX_SERIAL": "FOC75319X6Z"
+        }
+      ]
+    }
+  ],
+  "cli_content": "FEX         Interface   State      Model            Serial          Fex-Serial\n--------------------------------------------------------------------------------\n100         Eth1/5      Online     N2K-C2348UPQ     FOC12345L7G     FOC98765A3B\n101         Eth1/6      Online     N2K-C2232PP      FOC67891J9U     FOC24680Z5X\n102         Eth1/7      Offline    N2K-C2348PQ      FOC84753P2M     FOC13579P1C\n103         Eth1/8      Offline    N2K-C2232TM      FOC47563Q4N     FOC75319X6Z\n",
+  "textfsm_template": "Value FEX (\\d+)\nValue INTERFACE (\\S+)\nValue STATE (Online|Offline)\nValue MODEL (\\S+)\nValue SERIAL (\\S+)\nValue FEX_SERIAL (\\S+)\n\nStart\n  ^FEX\\s+Interface\\s+State\\s+Model\\s+Serial\\s+Fex-Serial\\s*$$\n  ^-+\\s+-+\\s+-+\\s+-+\\s+-+\\s+-+\\s*$$\n  ^\\s*${FEX}\\s+${INTERFACE}\\s+${STATE}\\s+${MODEL}\\s+${SERIAL}\\s+${FEX_SERIAL}\\s*$$ -> Record"
+}

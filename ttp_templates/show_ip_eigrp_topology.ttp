@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip eigrp topology
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="via_metric_rx_metric_tx_interface">
+        via {{VIA}} ({{METRIC_RX}}/{{METRIC_TX}}), {{INTERFACE | ORPHRASE}}
+</group>

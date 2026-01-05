@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: ping 192.168.1.
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="bytes_ip_icmp_seq_ttl_time">
+{{BYTES}} bytes from {{IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}: icmp_seq={{ICMP_SEQ}} ttl={{TTL}} time={{TIME | ORPHRASE}} ms
+</group>

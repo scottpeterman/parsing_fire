@@ -1,0 +1,108 @@
+{
+  "command": "arista_eos_show_pim_ipv4_interface",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"ip_address_interface_mode_neighbors_hello_interval_dr_priority_dr_address_packets_queued_packets_dropped\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE}} {{MODE}} {{NEIGHBORS}} {{HELLO_INTERVAL}} {{DR_PRIORITY}} {{DR_ADDRESS | ORPHRASE}} {{PACKETS_QUEUED}} {{PACKETS_DROPPED}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP_ADDRESS": "192.0.2.1",
+      "INTERFACE": "Ethernet20/1",
+      "MODE": "sparse",
+      "NEIGHBORS": "1",
+      "HELLO_INTERVAL": "5",
+      "DR_PRIORITY": "1",
+      "DR_ADDRESS": "192.0.2.2",
+      "PACKETS_QUEUED": "0",
+      "PACKETS_DROPPED": "0"
+    },
+    {
+      "IP_ADDRESS": "192.0.2.3",
+      "INTERFACE": "Port-Channel1.10",
+      "MODE": "sparse",
+      "NEIGHBORS": "1",
+      "HELLO_INTERVAL": "30",
+      "DR_PRIORITY": "1",
+      "DR_ADDRESS": "192.0.2.4",
+      "PACKETS_QUEUED": "28",
+      "PACKETS_DROPPED": "0"
+    },
+    {
+      "IP_ADDRESS": "192.0.2.5",
+      "INTERFACE": "Vlan100",
+      "MODE": "sparse",
+      "NEIGHBORS": "1",
+      "HELLO_INTERVAL": "30",
+      "DR_PRIORITY": "1",
+      "DR_ADDRESS": "192.0.2.6",
+      "PACKETS_QUEUED": "0",
+      "PACKETS_DROPPED": "0"
+    },
+    {
+      "IP_ADDRESS": "192.0.2.7",
+      "INTERFACE": "Vlan200",
+      "MODE": "sparse",
+      "NEIGHBORS": "1",
+      "HELLO_INTERVAL": "30",
+      "DR_PRIORITY": "1",
+      "DR_ADDRESS": "192.0.2.8",
+      "PACKETS_QUEUED": "0",
+      "PACKETS_DROPPED": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_address_interface_mode_neighbors_hello_interval_dr_priority_dr_address_packets_queued_packets_dropped": [
+        {
+          "IP_ADDRESS": "192.0.2.1",
+          "INTERFACE": "Ethernet20/1",
+          "MODE": "sparse",
+          "NEIGHBORS": "1",
+          "HELLO_INTERVAL": "5",
+          "DR_PRIORITY": "1",
+          "DR_ADDRESS": "192.0.2.2",
+          "PACKETS_QUEUED": "0",
+          "PACKETS_DROPPED": "0"
+        },
+        {
+          "IP_ADDRESS": "192.0.2.3",
+          "INTERFACE": "Port-Channel1.10",
+          "MODE": "sparse",
+          "NEIGHBORS": "1",
+          "HELLO_INTERVAL": "30",
+          "DR_PRIORITY": "1",
+          "DR_ADDRESS": "192.0.2.4",
+          "PACKETS_QUEUED": "28",
+          "PACKETS_DROPPED": "0"
+        },
+        {
+          "IP_ADDRESS": "192.0.2.5",
+          "INTERFACE": "Vlan100",
+          "MODE": "sparse",
+          "NEIGHBORS": "1",
+          "HELLO_INTERVAL": "30",
+          "DR_PRIORITY": "1",
+          "DR_ADDRESS": "192.0.2.6",
+          "PACKETS_QUEUED": "0",
+          "PACKETS_DROPPED": "0"
+        },
+        {
+          "IP_ADDRESS": "192.0.2.7",
+          "INTERFACE": "Vlan200",
+          "MODE": "sparse",
+          "NEIGHBORS": "1",
+          "HELLO_INTERVAL": "30",
+          "DR_PRIORITY": "1",
+          "DR_ADDRESS": "192.0.2.8",
+          "PACKETS_QUEUED": "0",
+          "PACKETS_DROPPED": "0"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Address       Interface             Mode    Neighbor  Hello  DR   DR Address    PktsQed  PktsDropped\n                                            Count     Intvl  Pri\n192.0.2.1     Ethernet20/1          sparse  1         5      1    192.0.2.2     0        0\n192.0.2.3     Port-Channel1.10      sparse  1         30     1    192.0.2.4     28       0\n192.0.2.5     Vlan100               sparse  1         30     1    192.0.2.6     0        0\n192.0.2.7     Vlan200               sparse  1         30     1    192.0.2.8     0        0",
+  "textfsm_template": "Value IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue Required INTERFACE ([\\w\\./-]+)\nValue MODE (\\S+)\nValue NEIGHBORS (\\d+)\nValue HELLO_INTERVAL (\\d+)\nValue DR_PRIORITY (\\d+)\nValue DR_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue PACKETS_QUEUED (\\d+)\nValue PACKETS_DROPPED (\\d+)\n\nStart\n  ^\\s*Address\\s+Interface\\s+Mode\\s+Neighbor\\s+Hello\\s+DR\\s+DR Address\\s+PktsQed\\s+PktsDropped\\s*$$\n  ^\\s*Count\\s+Intvl\\s+Pri\\s*$$\n  ^\\s*${IP_ADDRESS}\\s+${INTERFACE}\\s+${MODE}\\s+${NEIGHBORS}\\s+${HELLO_INTERVAL}\\s+${DR_PRIORITY}\\s+${DR_ADDRESS}\\s+${PACKETS_QUEUED}\\s+${PACKETS_DROPPED}\\s*$$ -> Record\n"
+}

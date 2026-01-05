@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_arp
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 3
+# Match ratio: 0.60
+
+<group name="protocol_address_age_min_hardware_address_type_interface">
+{{PROTOCOL}} {{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{AGE_MIN | re(".*\\w.*")}} {{HARDWARE_ADDRESS}} {{TYPE}} {{INTERFACE | ORPHRASE}}
+</group>
+<group name="protocol_address_age_min_hardware_address_type">
+{{PROTOCOL}} {{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{AGE_MIN}} {{HARDWARE_ADDRESS}} {{TYPE | ORPHRASE}}
+</group>

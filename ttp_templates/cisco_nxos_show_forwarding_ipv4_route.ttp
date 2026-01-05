@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_forwarding_ipv4_route
+# Source: ntc
+# TextFSM rows: 240
+# TTP rows: 221
+# Match ratio: 0.92
+
+<group name="ip_address_prefix_length_nexthop_interface">
+{{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{PREFIX_LENGTH}} {{NEXTHOP | ORPHRASE}} {{INTERFACE | ORPHRASE}}
+</group>
+<group name="ip_address_prefix_length_nexthop">
+{{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{PREFIX_LENGTH}} {{NEXTHOP | ORPHRASE}} 
+</group>
+<group name="ip_address_prefix_length">
+{{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{PREFIX_LENGTH | ORPHRASE}} 172.16.90.6 Ethernet1/45 
+</group>

@@ -1,0 +1,80 @@
+{
+  "command": "show alerts counters",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"alert_id_severity_count_description\">\n{{ALERT_ID | re(\"\\\\d+\")}} {{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{COUNT | re(\"\\\\d+\")}} {{DESCRIPTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ALERT_ID": "1001",
+      "SEVERITY": "Critical",
+      "COUNT": "5",
+      "DESCRIPTION": "High CPU usage detected"
+    },
+    {
+      "ALERT_ID": "1002",
+      "SEVERITY": "High",
+      "COUNT": "12",
+      "DESCRIPTION": "Memory usage exceeds threshold"
+    },
+    {
+      "ALERT_ID": "1003",
+      "SEVERITY": "Medium",
+      "COUNT": "7",
+      "DESCRIPTION": "Interface down detected"
+    },
+    {
+      "ALERT_ID": "1004",
+      "SEVERITY": "Low",
+      "COUNT": "9",
+      "DESCRIPTION": "High temperature warning"
+    },
+    {
+      "ALERT_ID": "1005",
+      "SEVERITY": "Critical",
+      "COUNT": "3",
+      "DESCRIPTION": "Disk space running low"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "alert_id_severity_count_description": [
+        {
+          "ALERT_ID": "1001",
+          "SEVERITY": "Critical",
+          "COUNT": "5",
+          "DESCRIPTION": "High CPU usage detected"
+        },
+        {
+          "ALERT_ID": "1002",
+          "SEVERITY": "High",
+          "COUNT": "12",
+          "DESCRIPTION": "Memory usage exceeds threshold"
+        },
+        {
+          "ALERT_ID": "1003",
+          "SEVERITY": "Medium",
+          "COUNT": "7",
+          "DESCRIPTION": "Interface down detected"
+        },
+        {
+          "ALERT_ID": "1004",
+          "SEVERITY": "Low",
+          "COUNT": "9",
+          "DESCRIPTION": "High temperature warning"
+        },
+        {
+          "ALERT_ID": "1005",
+          "SEVERITY": "Critical",
+          "COUNT": "3",
+          "DESCRIPTION": "Disk space running low"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Alert ID   Severity   Count     Description\n1001       Critical   5         High CPU usage detected\n1002       High       12        Memory usage exceeds threshold\n1003       Medium     7         Interface down detected\n1004       Low        9         High temperature warning\n1005       Critical   3         Disk space running low\n",
+  "textfsm_template": "Value ALERT_ID (\\d+)\nValue SEVERITY (\\S+)\nValue COUNT (\\d+)\nValue DESCRIPTION (.+)\n\nStart\n  ^\\s*Alert ID\\s+Severity\\s+Count\\s+Description\\s*$$\n  ^\\s*${ALERT_ID}\\s+${SEVERITY}\\s+${COUNT}\\s+${DESCRIPTION}\\s*$$ -> Record"
+}

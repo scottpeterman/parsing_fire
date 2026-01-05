@@ -1,0 +1,70 @@
+{
+  "command": "show feature | include fex",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"feature_fex_id_status\">\n{{FEATURE}} {{FEX_ID | re(\"\\\\d+\")}} {{STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FEATURE": "fex",
+      "FEX_ID": "1",
+      "STATUS": "enabled"
+    },
+    {
+      "FEATURE": "fex",
+      "FEX_ID": "2",
+      "STATUS": "disabled"
+    },
+    {
+      "FEATURE": "fex",
+      "FEX_ID": "3",
+      "STATUS": "enabled"
+    },
+    {
+      "FEATURE": "fex",
+      "FEX_ID": "4",
+      "STATUS": "enabled"
+    },
+    {
+      "FEATURE": "fex",
+      "FEX_ID": "5",
+      "STATUS": "disabled"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "feature_fex_id_status": [
+        {
+          "FEATURE": "fex",
+          "FEX_ID": "1",
+          "STATUS": "enabled"
+        },
+        {
+          "FEATURE": "fex",
+          "FEX_ID": "2",
+          "STATUS": "disabled"
+        },
+        {
+          "FEATURE": "fex",
+          "FEX_ID": "3",
+          "STATUS": "enabled"
+        },
+        {
+          "FEATURE": "fex",
+          "FEX_ID": "4",
+          "STATUS": "enabled"
+        },
+        {
+          "FEATURE": "fex",
+          "FEX_ID": "5",
+          "STATUS": "disabled"
+        }
+      ]
+    }
+  ],
+  "cli_content": "fex             1      enabled\nfex             2      disabled\nfex             3      enabled\nfex             4      enabled\nfex             5      disabled\n",
+  "textfsm_template": "Value FEATURE (\\S+)\nValue FEX_ID (\\d+)\nValue STATUS (enabled|disabled)\n\nStart\n  ^${FEATURE}\\s+${FEX_ID}\\s+${STATUS}\\s*$$ -> Record"
+}

@@ -1,0 +1,60 @@
+{
+  "command": "show inventory fan",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"model\">\n  Model: {{MODEL | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FAN_ID": "1",
+      "MODEL": "F100",
+      "SERIAL_NUMBER": "SN1234567",
+      "STATUS": "Active",
+      "SPEED": "12000 RPM"
+    },
+    {
+      "FAN_ID": "2",
+      "MODEL": "F200",
+      "SERIAL_NUMBER": "SN2345678",
+      "STATUS": "Active",
+      "SPEED": "11500 RPM"
+    },
+    {
+      "FAN_ID": "3",
+      "MODEL": "F300",
+      "SERIAL_NUMBER": "SN3456789",
+      "STATUS": "Faulty",
+      "SPEED": "0 RPM"
+    },
+    {
+      "FAN_ID": "4",
+      "MODEL": "F400",
+      "SERIAL_NUMBER": "SN4567890",
+      "STATUS": "Active",
+      "SPEED": "11000 RPM"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "model": [
+        {
+          "MODEL": "F100"
+        },
+        {
+          "MODEL": "F200"
+        },
+        {
+          "MODEL": "F300"
+        },
+        {
+          "MODEL": "F400"
+        }
+      ]
+    }
+  ],
+  "cli_content": "FAN Information:\n----------------\nFan 1\n  Model:          F100\n  Serial Number:  SN1234567\n  Status:         Active\n  Speed:          12000 RPM\n\nFan 2\n  Model:          F200\n  Serial Number:  SN2345678\n  Status:         Active\n  Speed:          11500 RPM\n\nFan 3\n  Model:          F300\n  Serial Number:  SN3456789\n  Status:         Faulty\n  Speed:          0 RPM\n\nFan 4\n  Model:          F400\n  Serial Number:  SN4567890\n  Status:         Active\n  Speed:          11000 RPM\n",
+  "textfsm_template": "Value FAN_ID (\\d+)\nValue MODEL (\\S+)\nValue SERIAL_NUMBER (\\w+)\nValue STATUS (\\S+)\nValue SPEED (\\d+ \\w+)\n\nStart\n  ^Fan\\s+${FAN_ID}\\s*$$\n  ^\\s*Model:\\s+${MODEL}\\s*$$\n  ^\\s*Serial\\s+Number:\\s+${SERIAL_NUMBER}\\s*$$\n  ^\\s*Status:\\s+${STATUS}\\s*$$\n  ^\\s*Speed:\\s+${SPEED}\\s*$$ -> Record"
+}

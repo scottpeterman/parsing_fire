@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_standby
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="active_router_active_router_priority_hold_time_group">
+  Active router is {{ACTIVE_ROUTER}}, priority {{ACTIVE_ROUTER_PRIORITY}} (expires in {{HOLD_TIME | ORPHRASE}}.4{{GROUP}}6 sec)
+</group>
+<group name="standby_router_standby_router_priority_hold_time_priority">
+  Standby router is {{STANDBY_ROUTER}}, priority {{STANDBY_ROUTER_PRIORITY}} (expires in {{HOLD_TIME}}.{{PRIORITY | ORPHRASE}} sec)
+</group>
+<group name="track_type_track_item_track_state_hold_time">
+    Track {{TRACK_TYPE}} {{TRACK_ITEM}} state {{TRACK_STATE | ORPHRASE}} decrement {{HOLD_TIME | ORPHRASE}}
+</group>

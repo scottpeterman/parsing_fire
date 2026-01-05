@@ -1,0 +1,72 @@
+{
+  "command": "cisco_nxos_show_ip_ospf_neighbor",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"ospf_pid_vrf\">\n OSPF Process ID {{OSPF_PID}} VRF {{VRF | ORPHRASE}}\n<group name=\"interface_ip_address_neighbor_id\">\n {{NEIGHBOR_ID}} 1 {{STATE | ORPHRASE}} {{UPTIME | ORPHRASE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "OSPF_PID": "DC_UNDERLAY",
+      "VRF": "default",
+      "NEIGHBOR_ID": "192.168.1.8",
+      "STATE": "FULL/ -",
+      "UPTIME": "2y0w",
+      "IP_ADDRESS": "192.168.2.2",
+      "INTERFACE": "Vlan2"
+    },
+    {
+      "OSPF_PID": "DC_UNDERLAY",
+      "VRF": "default",
+      "NEIGHBOR_ID": "192.168.1.3",
+      "STATE": "FULL/ -",
+      "UPTIME": "2y10w",
+      "IP_ADDRESS": "192.168.1.3",
+      "INTERFACE": "Eth1/1"
+    },
+    {
+      "OSPF_PID": "DC_UNDERLAY",
+      "VRF": "default",
+      "NEIGHBOR_ID": "192.168.1.4",
+      "STATE": "FULL/ -",
+      "UPTIME": "2y11w",
+      "IP_ADDRESS": "192.168.1.4",
+      "INTERFACE": "Eth1/2"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ospf_pid_vrf": {
+        "OSPF_PID": "DC_UNDERLAY",
+        "VRF": "default",
+        "interface_ip_address_neighbor_id": [
+          {
+            "NEIGHBOR_ID": "192.168.1.8",
+            "STATE": "FULL/ -",
+            "UPTIME": "2y0w",
+            "IP_ADDRESS": "192.168.2.2",
+            "INTERFACE": "Vlan2"
+          },
+          {
+            "NEIGHBOR_ID": "192.168.1.3",
+            "STATE": "FULL/ -",
+            "UPTIME": "2y10w",
+            "IP_ADDRESS": "192.168.1.3",
+            "INTERFACE": "Eth1/1"
+          },
+          {
+            "NEIGHBOR_ID": "192.168.1.4",
+            "STATE": "FULL/ -",
+            "UPTIME": "2y11w",
+            "IP_ADDRESS": "192.168.1.4",
+            "INTERFACE": "Eth1/2"
+          }
+        ]
+      }
+    }
+  ],
+  "cli_content": " OSPF Process ID DC_UNDERLAY VRF default\n Total number of neighbors: 3\n Neighbor ID     Pri State            Up Time  Address         Interface\n 192.168.1.8       1 FULL/ -          2y0w     192.168.2.2     Vlan2\n 192.168.1.3       1 FULL/ -          2y10w    192.168.1.3    Eth1/1\n 192.168.1.4       1 FULL/ -          2y11w    192.168.1.4    Eth1/2\n",
+  "textfsm_template": "Value Filldown OSPF_PID (\\S+)\nValue Filldown VRF (\\S+)\nValue NEIGHBOR_ID (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue STATE (\\S+.\\/.\\S+)\nValue UPTIME (\\S+)\nValue IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue Required INTERFACE (\\S+)\n\nStart\n  ^\\s+\\w+\\s+\\w+\\s+\\w+\\s+${OSPF_PID}\\s+[Vv][Rr][Ff]\\s+${VRF} -> Record\n  ^\\s+${NEIGHBOR_ID}\\s+\\d+\\s+${STATE}\\s+${UPTIME}\\s+${IP_ADDRESS}\\s+${INTERFACE} -> Record\n"
+}

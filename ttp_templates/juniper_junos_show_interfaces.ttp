@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: juniper_junos_show_interfaces
+# Source: ntc
+# TextFSM rows: 8
+# TTP rows: 8
+# Match ratio: 1.00
+
+<group name="interface_admin_state_link_status">
+Physical interface: {{INTERFACE}}, {{ADMIN_STATE | ORPHRASE}}, Physical link is {{LINK_STATUS | ORPHRASE}}
+</group>
+<group name="destination_local">
+        Destination: {{DESTINATION}}, Local: {{LOCAL | ORPHRASE}}, Broadcast: 10.10.199.183
+</group>

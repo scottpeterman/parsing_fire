@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show mlag detail
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="local">
+Local : {{LOCAL | ORPHRASE}}
+</group>

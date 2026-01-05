@@ -1,0 +1,37 @@
+{
+  "command": "brocade_netiron_show_running-config_interface",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"interface_interface_type_ipredirect_ip_address\">\ninterface {{INTERFACE_TYPE}} {{INTERFACE | ORPHRASE}}\n port-name {{PORTNAME | ORPHRASE}}\n qos-tos trust {{QOSTOSTRUST | ORPHRASE}}\n vrf forwarding {{VRF | ORPHRASE}}\n {{IPREDIRECT | ORPHRASE}} ip redirect\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE_TYPE": "ve",
+      "INTERFACE": "1390",
+      "PORTNAME": "TA5000A.CLMAMOXI-VoIP",
+      "QOSTOSTRUST": "ip-prec",
+      "VRF": "SocketVoIP",
+      "IP_HELPER": "10.154.0.180, 10.154.0.181",
+      "IPREDIRECT": "no",
+      "IP_ADDRESS": "10.192.0.129, 10.192.4.1",
+      "IP_ADDR_CIDR": "27, 24"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_interface_type_ipredirect_ip_address": {
+        "IPREDIRECT": "no",
+        "VRF": "SocketVoIP",
+        "QOSTOSTRUST": "ip-prec",
+        "PORTNAME": "TA5000A.CLMAMOXI-VoIP",
+        "INTERFACE_TYPE": "ve",
+        "INTERFACE": "1390"
+      }
+    }
+  ],
+  "cli_content": "interface ve 1390\n port-name TA5000A.CLMAMOXI-VoIP\n qos-tos trust ip-prec\n vrf forwarding SocketVoIP\n ip address 10.192.0.129/27\n ip address 10.192.4.1/24\n ip helper-address 10.154.0.180\n ip helper-address 10.154.0.181\n no ip redirect\n",
+  "textfsm_template": "Value INTERFACE_TYPE (.+?)\nValue Required INTERFACE (.+?)\nValue PORTNAME (.+?)\nValue QOSTOSTRUST ([a-z\\-]+)\nValue QOSTOSMARK ([a-z\\-]+)\nValue OSPFAREA (\\d+)\nValue OSPFPASSIVE (.+?)\nValue OSPFCOST (\\d+)\nValue VRF (.+?)\nValue IPPIMSPARSE (pim-sparse)\nValue IPROUTERISIS (isis)\nValue ISISMETRIC (\\d+)\nValue List IP_HELPER (.+?)\nValue IPREDIRECT ([no]*)\nValue List IP_ADDRESS (\\S+?)\nValue List IP_ADDR_CIDR (\\d*)\nValue List IPV6_ADDR (\\S+?)\nValue List IPV6_ADDR_CIDR (\\d*)\nValue ADMIN_STATE (disable)\nValue ACL_IN (\\S+)\nValue ACL_OUT (\\S+)\nValue List VRID (\\d+)\nValue List IP_ADDR_VRRPE (\\S+)\n\n\nStart\n  ^interface -> Continue.Record\n  ^interface\\s+${INTERFACE_TYPE}\\s+${INTERFACE}\\s*$$\n  ^\\s+${ADMIN_STATE}\\s*$$\n  ^\\s+port-name\\s+${PORTNAME}\\s*$$\n  ^\\s+qos-tos\\s+trust\\s+${QOSTOSTRUST}\n  ^\\s+qos-tos\\s+mark\\s+${QOSTOSMARK}\n  ^\\s+ip\\s+ospf\\s+area\\s+${OSPFAREA}\\s*$$\n  ^\\s+ip\\s+ospf\\s+${OSPFPASSIVE}\n  ^\\s+ip\\s+ospf\\s+cost\\s+${OSPFCOST}\n  ^\\s+vrf\\s+forwarding\\s+${VRF}\\s*$$\n  ^\\s+ip\\s+${IPPIMSPARSE}\\s*$$\n  ^\\s+ip\\s+router\\s+${IPROUTERISIS}\n  ^\\s+isis\\s+metric\\s+${ISISMETRIC}\\s*$$\n  ^\\s+${IPREDIRECT}\\s*ip\\s+redirect\n  ^\\s+ip\\s+helper-address\\s+${IP_HELPER}\\s*$$\n  ^\\s+ip\\s+access-group\\s+${ACL_IN}\\s+in\n  ^\\s+ip\\s+access-group\\s+${ACL_OUT}\\s+out\n  ^\\s+ip\\s+address\\s+${IP_ADDRESS}/*${IP_ADDR_CIDR}\\s*$$\n  ^\\s+ipv6\\s+address\\s+${IPV6_ADDR}/*${IPV6_ADDR_CIDR}\\s*$$\n  ^\\s+ip(?:v6|)\\s+vrrp-extended\\s+vrid\\s+${VRID} -> VRRPEXTENDED\n\nVRRPEXTENDED\n  ^\\s+ip(?:v6|)-address\\s+${IP_ADDR_VRRPE}\n  ^\\s+ip(?:v6|)\\s+vrrp-extended\\s+vrid\\s+${VRID}\n  ^interface -> Continue.Record\n  ^interface\\s+${INTERFACE_TYPE}\\s+${INTERFACE}\\s*$$ -> Start\n"
+}

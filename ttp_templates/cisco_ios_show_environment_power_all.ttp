@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_environment_power_all
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 6
+# Match ratio: 1.00
+
+<group name="ps_module_pid_serial_status_sys_pwr_poe_pwr_watts">
+{{PS_MODULE}} {{PID}} {{SERIAL | re("\\w+")}} {{STATUS | ORPHRASE}} {{SYS_PWR | ORPHRASE}} {{POE_PWR}} {{WATTS}}
+</group>

@@ -1,0 +1,125 @@
+{
+  "command": "avaya_ers_show_vlan",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"vlan_id_vlan_name_vlan_type_vlan_protocol_vlan_pid_vlan_active_vlan_ivl_svl_vlan_mgmt\">\n{{VLAN_ID | re(\"\\\\d+\")}} {{VLAN_NAME}} {{VLAN_TYPE}} {{VLAN_PROTOCOL}} {{VLAN_PID}} {{VLAN_ACTIVE}} {{VLAN_IVL_SVL | ORPHRASE}} {{VLAN_MGMT}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN_ID": "1",
+      "VLAN_NAME": "Default",
+      "VLAN_TYPE": "Port",
+      "VLAN_PROTOCOL": "None",
+      "VLAN_PID": "0x0000",
+      "VLAN_ACTIVE": "Yes",
+      "VLAN_IVL_SVL": "IVL",
+      "VLAN_MGMT": "No",
+      "VLAN_PORT_MEMBERS": "NONE"
+    },
+    {
+      "VLAN_ID": "140",
+      "VLAN_NAME": "Housing",
+      "VLAN_TYPE": "Port",
+      "VLAN_PROTOCOL": "None",
+      "VLAN_PID": "0x0000",
+      "VLAN_ACTIVE": "Yes",
+      "VLAN_IVL_SVL": "IVL",
+      "VLAN_MGMT": "No",
+      "VLAN_PORT_MEMBERS": "1/1,1/49,2/49"
+    },
+    {
+      "VLAN_ID": "216",
+      "VLAN_NAME": "Res",
+      "VLAN_TYPE": "Port",
+      "VLAN_PROTOCOL": "None",
+      "VLAN_PID": "0x0000",
+      "VLAN_ACTIVE": "Yes",
+      "VLAN_IVL_SVL": "IVL",
+      "VLAN_MGMT": "No",
+      "VLAN_PORT_MEMBERS": "1/2-8,1/10-19,1/21-26,1/28-45,1/48-49,2/1-6,2/9,2/11-15,, 2/17,2/19,2/21-42,2/44-49,3/1-17,3/19-20,3/23,3/25-26,, 3/28-29,3/32-39,3/41-43,3/45-47,3/49,4/1-3,4/11-45,, 4/47-49"
+    },
+    {
+      "VLAN_ID": "305",
+      "VLAN_NAME": "NetManage",
+      "VLAN_TYPE": "Port",
+      "VLAN_PROTOCOL": "None",
+      "VLAN_PID": "0x0000",
+      "VLAN_ACTIVE": "Yes",
+      "VLAN_IVL_SVL": "IVL",
+      "VLAN_MGMT": "Yes",
+      "VLAN_PORT_MEMBERS": "1/49,2/49,4/46"
+    },
+    {
+      "VLAN_ID": "329",
+      "VLAN_NAME": "AP",
+      "VLAN_TYPE": "Port",
+      "VLAN_PROTOCOL": "None",
+      "VLAN_PID": "0x0000",
+      "VLAN_ACTIVE": "Yes",
+      "VLAN_IVL_SVL": "IVL",
+      "VLAN_MGMT": "No",
+      "VLAN_PORT_MEMBERS": "1/9,1/20,1/27,1/46-47,1/49,2/7-8,2/10,2/16,2/18,2/20,, 2/43,2/49,3/18,3/21-22,3/24,3/27,3/30-31,3/40,3/48,, 4/4-10"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_id_vlan_name_vlan_type_vlan_protocol_vlan_pid_vlan_active_vlan_ivl_svl_vlan_mgmt": [
+        {
+          "VLAN_ID": "1",
+          "VLAN_NAME": "Default",
+          "VLAN_TYPE": "Port",
+          "VLAN_PROTOCOL": "None",
+          "VLAN_PID": "0x0000",
+          "VLAN_ACTIVE": "Yes",
+          "VLAN_IVL_SVL": "IVL",
+          "VLAN_MGMT": "No"
+        },
+        {
+          "VLAN_ID": "140",
+          "VLAN_NAME": "Housing",
+          "VLAN_TYPE": "Port",
+          "VLAN_PROTOCOL": "None",
+          "VLAN_PID": "0x0000",
+          "VLAN_ACTIVE": "Yes",
+          "VLAN_IVL_SVL": "IVL",
+          "VLAN_MGMT": "No"
+        },
+        {
+          "VLAN_ID": "216",
+          "VLAN_NAME": "Res",
+          "VLAN_TYPE": "Port",
+          "VLAN_PROTOCOL": "None",
+          "VLAN_PID": "0x0000",
+          "VLAN_ACTIVE": "Yes",
+          "VLAN_IVL_SVL": "IVL",
+          "VLAN_MGMT": "No"
+        },
+        {
+          "VLAN_ID": "305",
+          "VLAN_NAME": "NetManage",
+          "VLAN_TYPE": "Port",
+          "VLAN_PROTOCOL": "None",
+          "VLAN_PID": "0x0000",
+          "VLAN_ACTIVE": "Yes",
+          "VLAN_IVL_SVL": "IVL",
+          "VLAN_MGMT": "Yes"
+        },
+        {
+          "VLAN_ID": "329",
+          "VLAN_NAME": "AP",
+          "VLAN_TYPE": "Port",
+          "VLAN_PROTOCOL": "None",
+          "VLAN_PID": "0x0000",
+          "VLAN_ACTIVE": "Yes",
+          "VLAN_IVL_SVL": "IVL",
+          "VLAN_MGMT": "No"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Id   Name                 Type     Protocol         PID     Active IVL/SVL Mgmt\n---- -------------------- -------- ---------------- ------- ------ ------- ----\n1    Default              Port     None             0x0000  Yes    IVL     No\n\tPort Members: NONE\n140  Housing              Port     None             0x0000  Yes    IVL     No\n\tPort Members: 1/1,1/49,2/49\n216  Res                  Port     None             0x0000  Yes    IVL     No\n\tPort Members: 1/2-8,1/10-19,1/21-26,1/28-45,1/48-49,2/1-6,2/9,2/11-15,\n\t              2/17,2/19,2/21-42,2/44-49,3/1-17,3/19-20,3/23,3/25-26,\n\t              3/28-29,3/32-39,3/41-43,3/45-47,3/49,4/1-3,4/11-45,\n\t              4/47-49\n305  NetManage            Port     None             0x0000  Yes    IVL     Yes\n\tPort Members: 1/49,2/49,4/46\n329  AP                   Port     None             0x0000  Yes    IVL     No\n\tPort Members: 1/9,1/20,1/27,1/46-47,1/49,2/7-8,2/10,2/16,2/18,2/20,\n\t              2/43,2/49,3/18,3/21-22,3/24,3/27,3/30-31,3/40,3/48,\n\t              4/4-10\nTotal VLANs: 5\n",
+  "textfsm_template": "Value VLAN_ID (\\d+)\nValue VLAN_NAME (\\S.*?)\nValue VLAN_TYPE (\\S+)\nValue VLAN_PROTOCOL (\\S+)\nValue VLAN_PID (\\S+)\nValue VLAN_ACTIVE (\\S+)\nValue VLAN_IVL_SVL (\\S+)\nValue VLAN_MGMT (\\S+)\nValue List VLAN_PORT_MEMBERS (\\S+)\n\nStart\n  ^Total\\s+VLAN_s: -> Done\n  ^\\d+ -> Continue.Record\n  ^${VLAN_ID}\\s+${VLAN_NAME}\\s+${VLAN_TYPE}\\s+${VLAN_PROTOCOL}\\s+${VLAN_PID}\\s+${VLAN_ACTIVE}\\s+${VLAN_IVL_SVL}\\s+${VLAN_MGMT}$$\n  ^\\t+Port Members:\\s+${VLAN_PORT_MEMBERS}$$\n  ^\\t+\\s{14}${VLAN_PORT_MEMBERS}$$\n\n\nDone\n"
+}

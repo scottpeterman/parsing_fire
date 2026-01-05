@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_switch_detail
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 1
+# Match ratio: 0.25
+
+<group name="switch_role_mac_address_priority_version_state">
+*{{SWITCH}} {{ROLE}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{PRIORITY}} {{VERSION | re("[\\d\\.\\(\\)A-Za-z]+")}} {{STATE | ORPHRASE}}
+</group>

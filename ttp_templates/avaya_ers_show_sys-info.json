@@ -1,0 +1,55 @@
+{
+  "command": "avaya_ers_show_sys-info",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"autotopology_base_unit_selection_installed_firmware_installed_license\">\n201{{SYS_SERVICES | ORPHRASE}}-09-03 23:45:16 GMT+00:00  \nOperation Mode:  {{OPERATION_MODE | ORPHRASE}}\nMAC Address:  {{MAC_ADDRESS | ORPHRASE}}\nPoE Module FW:  {{POE_MODULE_FW | ORPHRASE}}\nReset Count:  {{RESET_COUNT | ORPHRASE}}\nLast Reset Type:  {{LAST_RESET_TYPE | ORPHRASE}}\nAutotopology:  {{AUTOTOPOLOGY | ORPHRASE}}\nBase Unit Selection:  {{BASE_UNIT_SELECTION | ORPHRASE}}\n  HW:13  FW:{{OPERATIONAL_FIRMWARE}}  SW:{{OPERATIONAL_SOFTWARE | ORPHRASE}}\nSerial #:  {{SERIAL_NUMBER | ORPHRASE}}\nOperational license:  {{OPERATIONAL_LICENSE | ORPHRASE}} \nsysObjectID:  {{SYS_OBJECT_ID | ORPHRASE}}\nsysUpTime:  {{SYS_UP_TIME | ORPHRASE}}\nsysNtpTime:  {{SYS_NTP_TIME | ORPHRASE}}\nsysName:  {{SYS_NAME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "OPERATION_MODE": "Switch",
+      "MAC_ADDRESS": "41-61-94-DA-54-30",
+      "POE_MODULE_FW": "4.1.0.4",
+      "RESET_COUNT": "31",
+      "LAST_RESET_TYPE": "Power Cycle",
+      "AUTOTOPOLOGY": "Disabled",
+      "BASE_UNIT_SELECTION": "Non-base unit using rear-panel switch",
+      "SERIAL_NUMBER": "12YJ464H117P",
+      "OPERATIONAL_FIRMWARE": "5.8.0.3",
+      "OPERATIONAL_SOFTWARE": "v5.10.1.039",
+      "INSTALLED_FIRMWARE": "5.8.0.3",
+      "INSTALLED_SOFTWARE": "v5.10.1.039",
+      "OPERATIONAL_LICENSE": "Base software",
+      "INSTALLED_LICENSE": "Base software",
+      "SYS_OBJECT_ID": "1.3.6.1.4.1.45.3.78.2",
+      "SYS_UP_TIME": "8 days, 11:47:39",
+      "SYS_NTP_TIME": "2016-07-03 23:45:16 GMT+00:00",
+      "SYS_SERVICES": "6",
+      "SYS_NAME": "SW1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "autotopology_base_unit_selection_installed_firmware_installed_license": {
+        "SYS_NAME": "SW1",
+        "SYS_NTP_TIME": "2016-07-03 23:45:16 GMT+00:00",
+        "SYS_UP_TIME": "8 days, 11:47:39",
+        "SYS_OBJECT_ID": "1.3.6.1.4.1.45.3.78.2",
+        "OPERATIONAL_LICENSE": "Base software",
+        "SERIAL_NUMBER": "12YJ464H117P",
+        "BASE_UNIT_SELECTION": "Non-base unit using rear-panel switch",
+        "AUTOTOPOLOGY": "Disabled",
+        "LAST_RESET_TYPE": "Power Cycle",
+        "RESET_COUNT": "31",
+        "POE_MODULE_FW": "4.1.0.4",
+        "MAC_ADDRESS": "41-61-94-DA-54-30",
+        "OPERATION_MODE": "Switch",
+        "SYS_SERVICES": "6"
+      }
+    }
+  ],
+  "cli_content": "2016-09-03 23:45:16 GMT+00:00    \n\nOperation Mode:        Switch\nEnhanced Secure Mode:  Enabled\nMAC Address:           41-61-94-DA-54-30\nPoE Module FW:         4.1.0.4\nReset Count:           31\nLast Reset Type:       Power Cycle\nPower Status:          Primary Power\nAutotopology:          Disabled\nPluggable Port 47:     None\nPluggable Port 48:     None\nPluggable Port 49:     None\nPluggable Port 50:     None\nBase Unit Selection:   Non-base unit using rear-panel switch\nsysDescr:              Ethernet Routing Switch 4850GTS-PWR+ \n                       HW:13       FW:5.8.0.3   SW:v5.10.1.039\n                       Mfg Date:20141110    HW Dev:none\nSerial #:              12YJ464H117P\nOperational Software:  FW:5.8.0.3   SW:v5.10.1.039 \nInstalled software:    FW:5.8.0.3   SW:v5.10.1.039  \nOperational license:   Base software \nInstalled license:     Base software\nsysObjectID:           1.3.6.1.4.1.45.3.78.2\nsysUpTime:             8 days, 11:47:39\nsysNtpTime:            2016-07-03 23:45:16 GMT+00:00\nsysServices:           6\nsysContact:            \nsysName:               SW1\nsysLocation:           \nStack sysAssetId:      \nUnit sysAssetId:       \nSW-Frontend#ls",
+  "textfsm_template": "Value OPERATION_MODE (.*\\w)\nValue SIZE_OF_STACK (\\d)\nValue BASE_UNIT (\\d)\nValue MAC_ADDRESS (.*\\w)\nValue POE_MODULE_FW (.*\\w)\nValue RESET_COUNT (\\d+)\nValue LAST_RESET_TYPE (.*\\w)\nValue AUTOTOPOLOGY (.*\\w)\nValue BASE_UNIT_SELECTION (.*\\w)\nValue SERIAL_NUMBER (.*\\w)\nValue OPERATIONAL_FIRMWARE (.*\\w)\nValue OPERATIONAL_SOFTWARE (.*\\w)\nValue INSTALLED_FIRMWARE (.*\\w)\nValue INSTALLED_SOFTWARE (.*\\w)\nValue OPERATIONAL_LICENSE (.*\\w)\nValue INSTALLED_LICENSE (.*\\w)\nValue SYS_OBJECT_ID (.*\\w)\nValue SYS_UP_TIME (.*\\w)\nValue SYS_NTP_TIME (.*\\w)\nValue SYS_SERVICES (\\d+)\nValue SYS_CONTACT (.*\\w)\nValue SYS_NAME (.*\\w)\nValue SYS_LOCATION (.*\\w)\nValue STACK_SYSASSETID (.*\\w)\nValue UNIT_SYSASSETID (.*\\w)\n\nStart\n  ^Operation Mode:\\s+${OPERATION_MODE}(\\s+|$$)\n  ^Size Of Stack:\\s+${SIZE_OF_STACK}(\\s+|$$)\n  ^Base Unit:\\s+${BASE_UNIT}(\\s+|$$)\n  ^MAC Address:\\s+${MAC_ADDRESS}(\\s+|$$)\n  ^PoE Module FW:\\s+${POE_MODULE_FW}(\\s+|$$)\n  ^Reset Count:\\s+${RESET_COUNT}(\\s+|$$)\n  ^Last Reset Type:\\s+${LAST_RESET_TYPE}(\\s+|$$)\n  ^Autotopology:\\s+${AUTOTOPOLOGY}(\\s+|$$)\n  ^Base Unit Selection:\\s+${BASE_UNIT_SELECTION}(\\s+|$$)\n  ^Serial #:\\s+${SERIAL_NUMBER}(\\s+|$$)\n  ^Operational Software:\\s+FW:${OPERATIONAL_FIRMWARE}\\s+SW:${OPERATIONAL_SOFTWARE}(\\s+|$$)\n  ^Installed software:\\s+FW:${INSTALLED_FIRMWARE}\\s+SW:${INSTALLED_SOFTWARE}(\\s+|$$)\n  ^Operational license:\\s+${OPERATIONAL_LICENSE}(\\s+|$$)\n  ^Installed license:\\s+${INSTALLED_LICENSE}(\\s+|$$)\n  ^sysObjectID:\\s+${SYS_OBJECT_ID}(\\s+|$$)\n  ^sysUpTime:\\s+${SYS_UP_TIME}(\\s+|$$)\n  ^sysNtpTime:\\s+${SYS_NTP_TIME}(\\s+|$$)\n  ^sysServices:\\s+${SYS_SERVICES}(\\s+|$$)\n  ^sysContact:\\s+${SYS_CONTACT}(\\s+|$$)\n  ^sysName:\\s+${SYS_NAME}(\\s+|$$)\n  ^sysLocation:\\s+${SYS_LOCATION}(\\s+|$$)\n  ^Stack sysAssetId:\\s+${STACK_SYSASSETID}(\\s+|$$)\n  ^Unit sysAssetId:\\s+${UNIT_SYSASSETID}(\\s+|$$) -> Record\n"
+}

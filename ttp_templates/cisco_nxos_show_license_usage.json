@@ -1,0 +1,212 @@
+{
+  "command": "cisco_nxos_show_license_usage",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.3636363636363635,
+  "textfsm_rows": 11,
+  "ttp_rows": 15,
+  "ttp_template": "<group name=\"feature_installed_license_count_status_comments\">\n{{FEATURE}} {{INSTALLED}} {{LICENSE_COUNT | re(\".*\\\\w.*\")}} {{STATUS | ORPHRASE}} {{COMMENTS | ORPHRASE}}\n</group>\n<group name=\"feature_installed_license_count_status_expiry_date_comments\">\n{{FEATURE}} {{INSTALLED}} {{LICENSE_COUNT | re(\".*\\\\w.*\")}} {{STATUS | ORPHRASE}} {{EXPIRY_DATE | ORPHRASE}} {{COMMENTS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FEATURE": "MPLS_PKG",
+      "INSTALLED": "No",
+      "LICENSE_COUNT": "-",
+      "STATUS": "Unused",
+      "COMMENTS": "Grace 10D 1H"
+    },
+    {
+      "FEATURE": "STORAGE-ENT",
+      "INSTALLED": "No",
+      "LICENSE_COUNT": "-",
+      "STATUS": "Unused",
+      "COMMENTS": "Grace 20D 6H"
+    },
+    {
+      "FEATURE": "VDC_LICENSES",
+      "INSTALLED": "No",
+      "LICENSE_COUNT": "0",
+      "STATUS": "Unused",
+      "COMMENTS": "-"
+    },
+    {
+      "FEATURE": "ENTERPRISE_PKG",
+      "INSTALLED": "No",
+      "LICENSE_COUNT": "-",
+      "STATUS": "Unused",
+      "COMMENTS": "-"
+    },
+    {
+      "FEATURE": "FCOE-N7K-F132XP",
+      "INSTALLED": "No",
+      "LICENSE_COUNT": "0",
+      "STATUS": "Unused",
+      "COMMENTS": "-"
+    },
+    {
+      "FEATURE": "FCOE-N7K-F248XP",
+      "INSTALLED": "No",
+      "LICENSE_COUNT": "0",
+      "STATUS": "Unused",
+      "COMMENTS": "-"
+    },
+    {
+      "FEATURE": "ENHANCED_LAYER2_PKG",
+      "INSTALLED": "No",
+      "LICENSE_COUNT": "-",
+      "STATUS": "Unused",
+      "COMMENTS": "Grace 20D 6H"
+    },
+    {
+      "FEATURE": "SCALABLE_SERVICES_PKG",
+      "INSTALLED": "No",
+      "LICENSE_COUNT": "-",
+      "STATUS": "Unused",
+      "COMMENTS": "-"
+    },
+    {
+      "FEATURE": "TRANSPORT_SERVICES_PKG",
+      "INSTALLED": "Yes",
+      "LICENSE_COUNT": "-",
+      "STATUS": "Unused",
+      "EXPIRY_DATE": "Never",
+      "COMMENTS": "-"
+    },
+    {
+      "FEATURE": "LAN_ADVANCED_SERVICES_PKG",
+      "INSTALLED": "Yes",
+      "LICENSE_COUNT": "-",
+      "STATUS": "Unused",
+      "EXPIRY_DATE": "Never",
+      "COMMENTS": "-"
+    },
+    {
+      "FEATURE": "LAN_ENTERPRISE_SERVICES_PKG",
+      "INSTALLED": "Yes",
+      "LICENSE_COUNT": "-",
+      "STATUS": "In use",
+      "EXPIRY_DATE": "Never",
+      "COMMENTS": "-"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "feature_installed_license_count_status_comments": [
+        {
+          "FEATURE": "Feature",
+          "INSTALLED": "Ins",
+          "LICENSE_COUNT": "Lic   Status Expiry",
+          "STATUS": "Date",
+          "COMMENTS": "Comments"
+        },
+        {
+          "FEATURE": "MPLS_PKG",
+          "INSTALLED": "No",
+          "LICENSE_COUNT": "-   Unused             Grace",
+          "STATUS": "10D",
+          "COMMENTS": "1H"
+        },
+        {
+          "FEATURE": "STORAGE-ENT",
+          "INSTALLED": "No",
+          "LICENSE_COUNT": "-   Unused             Grace",
+          "STATUS": "20D",
+          "COMMENTS": "6H"
+        },
+        {
+          "FEATURE": "VDC_LICENSES",
+          "INSTALLED": "No",
+          "LICENSE_COUNT": "0  ",
+          "STATUS": "Unused",
+          "COMMENTS": "-"
+        },
+        {
+          "FEATURE": "FCOE-N7K-F132XP",
+          "INSTALLED": "No",
+          "LICENSE_COUNT": "0  ",
+          "STATUS": "Unused",
+          "COMMENTS": "-"
+        },
+        {
+          "FEATURE": "FCOE-N7K-F248XP",
+          "INSTALLED": "No",
+          "LICENSE_COUNT": "0  ",
+          "STATUS": "Unused",
+          "COMMENTS": "-"
+        },
+        {
+          "FEATURE": "ENHANCED_LAYER2_PKG",
+          "INSTALLED": "No",
+          "LICENSE_COUNT": "-   Unused             Grace",
+          "STATUS": "20D",
+          "COMMENTS": "6H"
+        },
+        {
+          "FEATURE": "TRANSPORT_SERVICES_PKG",
+          "INSTALLED": "Yes",
+          "LICENSE_COUNT": "-   Unused",
+          "STATUS": "Never",
+          "COMMENTS": "-"
+        },
+        {
+          "FEATURE": "LAN_ADVANCED_SERVICES_PKG",
+          "INSTALLED": "Yes",
+          "LICENSE_COUNT": "-   Unused",
+          "STATUS": "Never",
+          "COMMENTS": "-"
+        },
+        {
+          "FEATURE": "LAN_ENTERPRISE_SERVICES_PKG",
+          "INSTALLED": "Yes",
+          "LICENSE_COUNT": "-   In use",
+          "STATUS": "Never",
+          "COMMENTS": "-"
+        }
+      ],
+      "feature_installed_license_count_status_expiry_date_comments": [
+        {
+          "FEATURE": "Feature",
+          "INSTALLED": "Ins",
+          "LICENSE_COUNT": "Lic   Status",
+          "STATUS": "Expiry",
+          "EXPIRY_DATE": "Date",
+          "COMMENTS": "Comments"
+        },
+        {
+          "FEATURE": "MPLS_PKG",
+          "INSTALLED": "No",
+          "LICENSE_COUNT": "-   Unused            ",
+          "STATUS": "Grace",
+          "EXPIRY_DATE": "10D",
+          "COMMENTS": "1H"
+        },
+        {
+          "FEATURE": "STORAGE-ENT",
+          "INSTALLED": "No",
+          "LICENSE_COUNT": "-   Unused            ",
+          "STATUS": "Grace",
+          "EXPIRY_DATE": "20D",
+          "COMMENTS": "6H"
+        },
+        {
+          "FEATURE": "ENHANCED_LAYER2_PKG",
+          "INSTALLED": "No",
+          "LICENSE_COUNT": "-   Unused            ",
+          "STATUS": "Grace",
+          "EXPIRY_DATE": "20D",
+          "COMMENTS": "6H"
+        },
+        {
+          "FEATURE": "LAN_ENTERPRISE_SERVICES_PKG",
+          "INSTALLED": "Yes",
+          "LICENSE_COUNT": "-   In",
+          "STATUS": "use",
+          "EXPIRY_DATE": "Never",
+          "COMMENTS": "-"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nFeature                      Ins  Lic   Status Expiry Date Comments\n                                 Count\n--------------------------------------------------------------------------------\nMPLS_PKG                      No    -   Unused             Grace 10D 1H\nSTORAGE-ENT                   No    -   Unused             Grace 20D 6H\nVDC_LICENSES                  No    0   Unused             -\nENTERPRISE_PKG                No    -   Unused             -\nFCOE-N7K-F132XP               No    0   Unused             -\nFCOE-N7K-F248XP               No    0   Unused             -\nENHANCED_LAYER2_PKG           No    -   Unused             Grace 20D 6H\nSCALABLE_SERVICES_PKG         No    -   Unused             -\nTRANSPORT_SERVICES_PKG        Yes   -   Unused Never       -\nLAN_ADVANCED_SERVICES_PKG     Yes   -   Unused Never       -\nLAN_ENTERPRISE_SERVICES_PKG   Yes   -   In use Never       -\n--------------------------------------------------------------------------------\n",
+  "textfsm_template": "Value FEATURE (\\S+)\nValue INSTALLED (Yes|No)\nValue LICENSE_COUNT (\\d+|-)\nValue STATUS (Unused|In\\s+use)\nValue EXPIRY_DATE (\\S+|\\s*?)\nValue COMMENTS (.+)\n\nStart\n  ^Feature\\s+Ins\\s+Lic\\s+Status\\s+Expiry\\s+Date\\s+Comments -> Begin\n  ^\\s*$$\n  ^. -> Error\n\nBegin\n  ^\\s+Count\n  ^${FEATURE}\\s+${INSTALLED}\\s+${LICENSE_COUNT}\\s+${STATUS}\\s+?${EXPIRY_DATE}\\s+${COMMENTS}\\s*$$ -> Record\n  ^-+\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

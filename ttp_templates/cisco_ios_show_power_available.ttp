@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_power_available
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="backplane_avail_watts_backplane_used_watts_inline_avail_watts_inline_used_watts">
+System Power (12V)  {{SYS_USED_WATTS}}  {{SYS_AVAIL_WATTS | ORPHRASE}}
+Inline Power (-50V)  {{INLINE_USED_WATTS}}  {{INLINE_AVAIL_WATTS | ORPHRASE}}
+Backplane Power (3.3V)  {{BACKPLANE_USED_WATTS | ORPHRASE}}  {{BACKPLANE_AVAIL_WATTS}}
+Total  {{TOTAL_USED_WATTS}} (not to exceed Total Maximum Available = {{MAX_AVAIL_WATTS | ORPHRASE}})
+</group>

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_smartax_display_service-port_all
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="index_vlan_id_vlan_attr_port_type_fsp_ont_id_gem_index_flow_type_vlan_access_state">
+    {{INDEX}} {{VLAN_ID | re("\\d+")}} {{VLAN_ATTR}} {{PORT_TYPE}} {{FSP | ORPHRASE}} {{ONT_ID | re("\\d+")}} {{GEM_INDEX}} {{FLOW_TYPE}} {{VLAN_ACCESS | re("\\d+")}} - - {{STATE | ORPHRASE}} 
+</group>

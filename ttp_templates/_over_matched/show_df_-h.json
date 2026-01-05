@@ -1,0 +1,108 @@
+{
+  "command": "show df -h",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.2,
+  "textfsm_rows": 5,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"fs_size_used_avail_use_mount\">\n{{FS}} {{SIZE}} {{USED}} {{AVAIL}} {{USE}} {{MOUNT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FS": "devtmpfs",
+      "SIZE": "16G",
+      "USED": "0B",
+      "AVAIL": "16G",
+      "USE": "0%",
+      "MOUNT": "/dev"
+    },
+    {
+      "FS": "tmpfs",
+      "SIZE": "16G",
+      "USED": "0B",
+      "AVAIL": "16G",
+      "USE": "0%",
+      "MOUNT": "/dev/shm"
+    },
+    {
+      "FS": "tmpfs",
+      "SIZE": "16G",
+      "USED": "9.2M",
+      "AVAIL": "16G",
+      "USE": "1%",
+      "MOUNT": "/run"
+    },
+    {
+      "FS": "/dev/sda1",
+      "SIZE": "100G",
+      "USED": "40G",
+      "AVAIL": "60G",
+      "USE": "40%",
+      "MOUNT": "/"
+    },
+    {
+      "FS": "tmpfs",
+      "SIZE": "3.2G",
+      "USED": "28K",
+      "AVAIL": "3.2G",
+      "USE": "1%",
+      "MOUNT": "/run/user/1000"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "fs_size_used_avail_use_mount": [
+        {
+          "FS": "Filesystem",
+          "SIZE": "Size",
+          "USED": "Used",
+          "AVAIL": "Available",
+          "USE": "Use%",
+          "MOUNT": "Mounted on"
+        },
+        {
+          "FS": "devtmpfs",
+          "SIZE": "16G",
+          "USED": "0B",
+          "AVAIL": "16G",
+          "USE": "0%",
+          "MOUNT": "/dev"
+        },
+        {
+          "FS": "tmpfs",
+          "SIZE": "16G",
+          "USED": "0B",
+          "AVAIL": "16G",
+          "USE": "0%",
+          "MOUNT": "/dev/shm"
+        },
+        {
+          "FS": "tmpfs",
+          "SIZE": "16G",
+          "USED": "9.2M",
+          "AVAIL": "16G",
+          "USE": "1%",
+          "MOUNT": "/run"
+        },
+        {
+          "FS": "/dev/sda1",
+          "SIZE": "100G",
+          "USED": "40G",
+          "AVAIL": "60G",
+          "USE": "40%",
+          "MOUNT": "/"
+        },
+        {
+          "FS": "tmpfs",
+          "SIZE": "3.2G",
+          "USED": "28K",
+          "AVAIL": "3.2G",
+          "USE": "1%",
+          "MOUNT": "/run/user/1000"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Filesystem                Size      Used Available Use% Mounted on\ndevtmpfs                  16G        0B        16G   0% /dev\ntmpfs                     16G        0B        16G   0% /dev/shm\ntmpfs                     16G      9.2M        16G   1% /run\n/dev/sda1                100G       40G        60G  40% /\ntmpfs                    3.2G       28K       3.2G   1% /run/user/1000\n",
+  "textfsm_template": "Value FS (\\S+)\nValue SIZE (\\S+)\nValue USED (\\S+)\nValue AVAIL (\\S+)\nValue USE (\\S+)\nValue MOUNT (\\S+)\n\nStart\n  ^\\s*Filesystem\\s+Size\\s+Used\\s+Available\\s+Use%\\s+Mounted\\s+on\\s*$$\n  ^\\s*${FS}\\s+${SIZE}\\s+${USED}\\s+${AVAIL}\\s+${USE}\\s+${MOUNT}\\s*$$ -> Record"
+}

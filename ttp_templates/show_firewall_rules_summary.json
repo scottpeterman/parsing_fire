@@ -1,0 +1,90 @@
+{
+  "command": "show firewall rules summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"rule_name_source_destination_action_status\">\n{{RULE_NAME | re(\".*\\\\w.*\")}} {{SOURCE | re(\".*\\\\w.*\")}} {{DESTINATION | ORPHRASE}} {{ACTION | re(\".*\\\\w.*\")}} {{STATUS | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "RULE_NAME": "---------",
+      "SOURCE": "------",
+      "DESTINATION": "-----------",
+      "ACTION": "------",
+      "STATUS": "------"
+    },
+    {
+      "RULE_NAME": "Rule1",
+      "SOURCE": "192.168.1.0/24",
+      "DESTINATION": "10.1.1.0/24",
+      "ACTION": "Allow",
+      "STATUS": "Active"
+    },
+    {
+      "RULE_NAME": "Rule2",
+      "SOURCE": "192.168.2.0/24",
+      "DESTINATION": "10.1.2.0/24",
+      "ACTION": "Deny",
+      "STATUS": "Inactive"
+    },
+    {
+      "RULE_NAME": "Rule3",
+      "SOURCE": "192.168.3.0/24",
+      "DESTINATION": "10.1.3.0/24",
+      "ACTION": "Allow",
+      "STATUS": "Active"
+    },
+    {
+      "RULE_NAME": "Rule4",
+      "SOURCE": "192.168.4.0/24",
+      "DESTINATION": "10.1.4.0/24",
+      "ACTION": "Deny",
+      "STATUS": "Inactive"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "rule_name_source_destination_action_status": [
+        {
+          "RULE_NAME": "Rule Name     ",
+          "SOURCE": "Source        ",
+          "DESTINATION": "Destination",
+          "ACTION": "Action  ",
+          "STATUS": "Status"
+        },
+        {
+          "RULE_NAME": "Rule1         ",
+          "SOURCE": "192.168.1.0/24",
+          "DESTINATION": "10.1.1.0/24",
+          "ACTION": "Allow   ",
+          "STATUS": "Active"
+        },
+        {
+          "RULE_NAME": "Rule2         ",
+          "SOURCE": "192.168.2.0/24",
+          "DESTINATION": "10.1.2.0/24",
+          "ACTION": "Deny    ",
+          "STATUS": "Inactive"
+        },
+        {
+          "RULE_NAME": "Rule3         ",
+          "SOURCE": "192.168.3.0/24",
+          "DESTINATION": "10.1.3.0/24",
+          "ACTION": "Allow   ",
+          "STATUS": "Active"
+        },
+        {
+          "RULE_NAME": "Rule4         ",
+          "SOURCE": "192.168.4.0/24",
+          "DESTINATION": "10.1.4.0/24",
+          "ACTION": "Deny    ",
+          "STATUS": "Inactive"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Rule Name      Source         Destination    Action   Status \n---------      ------         -----------    ------   ------ \nRule1          192.168.1.0/24 10.1.1.0/24    Allow    Active \nRule2          192.168.2.0/24 10.1.2.0/24    Deny     Inactive\nRule3          192.168.3.0/24 10.1.3.0/24    Allow    Active \nRule4          192.168.4.0/24 10.1.4.0/24    Deny     Inactive\n",
+  "textfsm_template": "Value RULE_NAME (\\S+)\nValue SOURCE (\\S+)\nValue DESTINATION (\\S+)\nValue ACTION (\\S+)\nValue STATUS (\\S+)\n\nStart\n  ^\\s*Rule Name\\s+Source\\s+Destination\\s+Action\\s+Status\\s*$$\n  ^\\s*${RULE_NAME}\\s+${SOURCE}\\s+${DESTINATION}\\s+${ACTION}\\s+${STATUS}\\s*$$ -> Record"
+}

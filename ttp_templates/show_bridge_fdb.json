@@ -1,0 +1,92 @@
+{
+  "command": "show bridge fdb",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"vlan_mac_address_type_ports\">\n   {{VLAN | re(\"\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{TYPE}} {{PORTS | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN": "1",
+      "MAC_ADDRESS": "00:1A:2B:3C:4D:5E",
+      "TYPE": "dynamic",
+      "PORTS": "1/1"
+    },
+    {
+      "VLAN": "1",
+      "MAC_ADDRESS": "00:1A:2B:3C:4D:5F",
+      "TYPE": "dynamic",
+      "PORTS": "1/2"
+    },
+    {
+      "VLAN": "2",
+      "MAC_ADDRESS": "00:1A:2B:3C:4D:60",
+      "TYPE": "dynamic",
+      "PORTS": "1/3"
+    },
+    {
+      "VLAN": "2",
+      "MAC_ADDRESS": "00:1A:2B:3C:4D:61",
+      "TYPE": "dynamic",
+      "PORTS": "1/4"
+    },
+    {
+      "VLAN": "3",
+      "MAC_ADDRESS": "00:1A:2B:3C:4D:62",
+      "TYPE": "static",
+      "PORTS": "1/5"
+    },
+    {
+      "VLAN": "3",
+      "MAC_ADDRESS": "00:1A:2B:3C:4D:63",
+      "TYPE": "static",
+      "PORTS": "1/6"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_mac_address_type_ports": [
+        {
+          "VLAN": "1",
+          "MAC_ADDRESS": "00:1A:2B:3C:4D:5E",
+          "TYPE": "dynamic",
+          "PORTS": "1/1"
+        },
+        {
+          "VLAN": "1",
+          "MAC_ADDRESS": "00:1A:2B:3C:4D:5F",
+          "TYPE": "dynamic",
+          "PORTS": "1/2"
+        },
+        {
+          "VLAN": "2",
+          "MAC_ADDRESS": "00:1A:2B:3C:4D:60",
+          "TYPE": "dynamic",
+          "PORTS": "1/3"
+        },
+        {
+          "VLAN": "2",
+          "MAC_ADDRESS": "00:1A:2B:3C:4D:61",
+          "TYPE": "dynamic",
+          "PORTS": "1/4"
+        },
+        {
+          "VLAN": "3",
+          "MAC_ADDRESS": "00:1A:2B:3C:4D:62",
+          "TYPE": "static",
+          "PORTS": "1/5"
+        },
+        {
+          "VLAN": "3",
+          "MAC_ADDRESS": "00:1A:2B:3C:4D:63",
+          "TYPE": "static",
+          "PORTS": "1/6"
+        }
+      ]
+    }
+  ],
+  "cli_content": "mac address table\n-------------------------------------------\n\nVLAN    MAC Address       Type        Ports\n----    -----------       --------    -----\n   1    00:1A:2B:3C:4D:5E dynamic     1/1   \n   1    00:1A:2B:3C:4D:5F dynamic     1/2   \n   2    00:1A:2B:3C:4D:60 dynamic     1/3   \n   2    00:1A:2B:3C:4D:61 dynamic     1/4   \n   3    00:1A:2B:3C:4D:62 static      1/5   \n   3    00:1A:2B:3C:4D:63 static      1/6   \n",
+  "textfsm_template": "Value VLAN (\\d+)\nValue MAC_ADDRESS ([0-9A-Fa-f:]+)\nValue TYPE (\\w+)\nValue PORTS ([\\w/]+)\n\nStart\n  ^\\s*VLAN\\s+MAC Address\\s+Type\\s+Ports\\s*$$\n  ^\\s*${VLAN}\\s+${MAC_ADDRESS}\\s+${TYPE}\\s+${PORTS}\\s*$$ -> Record"
+}

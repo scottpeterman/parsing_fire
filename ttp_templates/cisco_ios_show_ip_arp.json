@@ -1,0 +1,81 @@
+{
+  "command": "cisco_ios_show_ip_arp",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.14285714285714285,
+  "textfsm_rows": 7,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"protocol_ip_address_age_mac_address_type_interface\">\n{{PROTOCOL}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{AGE | re(\".*\\\\w.*\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{TYPE}} {{INTERFACE | ORPHRASE}}\n</group>\n<group name=\"protocol_ip_address_age_mac_address_type\">\n{{PROTOCOL}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{AGE | re(\".*\\\\w.*\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{TYPE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "172.16.233.229",
+      "AGE": "-",
+      "MAC_ADDRESS": "0000.0c59.f892",
+      "TYPE": "ARPA",
+      "INTERFACE": "Ethernet0/0"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "172.16.233.218",
+      "AGE": "-",
+      "MAC_ADDRESS": "0000.0c07.ac00",
+      "TYPE": "ARPA",
+      "INTERFACE": "Ethernet0/0"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "172.16.233.19",
+      "AGE": "-",
+      "MAC_ADDRESS": "0000.0c63.1300",
+      "TYPE": "ARPA",
+      "INTERFACE": "Ethernet0/0"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "172.16.233.209",
+      "AGE": "-",
+      "MAC_ADDRESS": "0000.0c36.6965",
+      "TYPE": "ARPA",
+      "INTERFACE": "Ethernet0/0"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "172.16.168.11",
+      "AGE": "-",
+      "MAC_ADDRESS": "0000.0c63.1300",
+      "TYPE": "ARPA",
+      "INTERFACE": "Ethernet0/0"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "172.16.168.254",
+      "AGE": "9",
+      "MAC_ADDRESS": "0000.0c36.6965",
+      "TYPE": "ARPA",
+      "INTERFACE": "Ethernet0/0"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "10.0.0.0",
+      "AGE": "-",
+      "MAC_ADDRESS": "aabb.cc03.8200",
+      "TYPE": "SRP-A"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "protocol_ip_address_age_mac_address_type_interface": {
+        "PROTOCOL": "Internet",
+        "IP_ADDRESS": "172.16.168.254",
+        "AGE": "9             ",
+        "MAC_ADDRESS": "0000.0c36.6965",
+        "TYPE": "ARPA",
+        "INTERFACE": "Ethernet0/0"
+      }
+    }
+  ],
+  "cli_content": "Protocol  Address              Age(min)       Hardware Addr     Type      Interface\nInternet  172.16.233.229       -              0000.0c59.f892    ARPA      Ethernet0/0\nInternet  172.16.233.218       -              0000.0c07.ac00    ARPA      Ethernet0/0\nInternet  172.16.233.19        -              0000.0c63.1300    ARPA      Ethernet0/0\nInternet  172.16.233.209       -              0000.0c36.6965    ARPA      Ethernet0/0\nInternet  172.16.168.11        -              0000.0c63.1300    ARPA      Ethernet0/0\nInternet  172.16.168.254       9              0000.0c36.6965    ARPA      Ethernet0/0 \nInternet  10.0.0.0             -              aabb.cc03.8200    SRP-A\n\n",
+  "textfsm_template": "Value Required PROTOCOL (\\S+)\nValue Required IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue Required AGE (\\S+)\nValue Required MAC_ADDRESS (\\S+)\nValue Required TYPE (\\S+)\nValue INTERFACE (\\S+)\n\nStart\n  ^Protocol\\s+Address\\s+Age\\s*\\(min\\)\\s+Hardware Addr\\s+Type\\s+Interface\n  ^${PROTOCOL}\\s+${IP_ADDRESS}\\s+${AGE}\\s+${MAC_ADDRESS}\\s+${TYPE}\\s+${INTERFACE} -> Record\n  ^${PROTOCOL}\\s+${IP_ADDRESS}\\s+${AGE}\\s+${MAC_ADDRESS}\\s+${TYPE} -> Record\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^. -> Error  \n"
+}

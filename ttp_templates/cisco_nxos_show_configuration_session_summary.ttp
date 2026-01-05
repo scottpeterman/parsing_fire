@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_configuration_session_summary
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 4
+# Match ratio: 2.00
+
+<group name="session_name_session_owner_creation_time">
+{{SESSION_NAME}} {{SESSION_OWNER}} {{CREATION_TIME | ORPHRASE}}
+</group>

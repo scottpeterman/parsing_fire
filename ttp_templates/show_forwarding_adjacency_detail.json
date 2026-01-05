@@ -1,0 +1,54 @@
+{
+  "command": "show forwarding adjacency detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"byte_count_dest_addr_interface_last_transition\">\n  Destination address: 1{{PACKETS | ORPHRASE}}.{{BYTE_COUNT | re(\"\\\\d+\")}}.0.2\n  Destination address: {{DEST_ADDR | ORPHRASE}}\n  Tunnel-type: {{TUNNEL_TYPE | ORPHRASE}}\n  State: {{STATE | ORPHRASE}}\n  Last transition: {{LAST_TRANSITION | ORPHRASE}}\n  Interface: {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DEST_ADDR": "10.0.0.2",
+      "TUNNEL_TYPE": "GRE",
+      "STATE": "Up",
+      "PACKETS": "123456",
+      "BYTE_COUNT": "78901234",
+      "LAST_TRANSITION": "2h47m",
+      "INTERFACE": "Tunnel0"
+    },
+    {
+      "DEST_ADDR": "192.168.1.5",
+      "TUNNEL_TYPE": "IP-IP",
+      "STATE": "Down",
+      "PACKETS": "0",
+      "BYTE_COUNT": "0",
+      "LAST_TRANSITION": "never",
+      "INTERFACE": "Tunnel1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "byte_count_dest_addr_interface_last_transition": [
+        {
+          "INTERFACE": "Tunnel0",
+          "LAST_TRANSITION": "2h47m",
+          "STATE": "Up",
+          "TUNNEL_TYPE": "GRE",
+          "PACKETS": "0",
+          "BYTE_COUNT": "0"
+        },
+        {
+          "INTERFACE": "Tunnel1",
+          "LAST_TRANSITION": "never",
+          "STATE": "Down",
+          "TUNNEL_TYPE": "IP-IP",
+          "PACKETS": "2",
+          "BYTE_COUNT": "168"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Adjacency-information:\n  Destination address: 10.0.0.2\n  Tunnel-type: GRE\n  State: Up\n  Packets: 123456\n  Byte-count: 78901234\n  Last transition: 2h47m\n  Interface: Tunnel0\n\n  Destination address: 192.168.1.5\n  Tunnel-type: IP-IP\n  State: Down\n  Packets: 0\n  Byte-count: 0\n  Last transition: never\n  Interface: Tunnel1\n",
+  "textfsm_template": "Value DEST_ADDR (\\S+)\nValue TUNNEL_TYPE (\\S+)\nValue STATE (Up|Down)\nValue PACKETS (\\d+)\nValue BYTE_COUNT (\\d+)\nValue LAST_TRANSITION (\\S+)\nValue INTERFACE (\\S+)\n\nStart\n  ^\\s*Destination\\s+address:\\s+${DEST_ADDR}\\s*$$\n  ^\\s*Tunnel-type:\\s+${TUNNEL_TYPE}\\s*$$\n  ^\\s*State:\\s+${STATE}\\s*$$\n  ^\\s*Packets:\\s+${PACKETS}\\s*$$\n  ^\\s*Byte-count:\\s+${BYTE_COUNT}\\s*$$\n  ^\\s*Last\\s+transition:\\s+${LAST_TRANSITION}\\s*$$\n  ^\\s*Interface:\\s+${INTERFACE}\\s*$$ -> Record"
+}

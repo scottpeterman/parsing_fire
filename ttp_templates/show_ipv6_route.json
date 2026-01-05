@@ -1,0 +1,56 @@
+{
+  "command": "show ipv6 route",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"type_network_interface\">\n{{TYPE}} {{NETWORK}} is directly connected, {{INTERFACE | ORPHRASE}}\n</group>\n<group name=\"type_network_cost_next_hop_time_interface\">\n{{TYPE}} {{NETWORK}} [{{COST}}] via {{NEXT_HOP}}, {{TIME}}, {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TYPE": "C",
+      "NETWORK": "2001:DB8:1::/48",
+      "INTERFACE": "Ethernet0"
+    },
+    {
+      "TYPE": "D",
+      "NETWORK": "2001:DB8:2::/48",
+      "COST": "90/30720",
+      "NEXT_HOP": "FE80::1",
+      "TIME": "00:02:00",
+      "INTERFACE": "Ethernet1"
+    },
+    {
+      "TYPE": "C",
+      "NETWORK": "FF00::/8",
+      "INTERFACE": "Null0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "type_network_interface": [
+        {
+          "TYPE": "C",
+          "NETWORK": "2001:DB8:1::/48",
+          "INTERFACE": "Ethernet0"
+        },
+        {
+          "TYPE": "C",
+          "NETWORK": "FF00::/8",
+          "INTERFACE": "Null0"
+        }
+      ],
+      "type_network_cost_next_hop_time_interface": {
+        "TYPE": "D",
+        "NETWORK": "2001:DB8:2::/48",
+        "COST": "90/30720",
+        "NEXT_HOP": "FE80::1",
+        "TIME": "00:02:00",
+        "INTERFACE": "Ethernet1"
+      }
+    }
+  ],
+  "cli_content": "IPv6 Routing Table - Default - 15 entries\nCodes: C - connected, S - static\n       U - per-user static route, B - BGP\n       R - RIP, D - EIGRP, EX - EIGRP external\n       ND - ND Default, NDp - ND Prefix, DCE - Destination Controlled Extension\n       NDr - Redirect, O - OSPF Intra, OI - OSPF Inter\n       OE1 - OSPF External Type 1, OE2 - OSPF External Type 2, ON1 - OSPF NSSA Type 1\n       ON2 - OSPF NSSA Type 2\n\nC   2001:DB8:1::/48 is directly connected, Ethernet0\nD   2001:DB8:2::/48 [90/30720] via FE80::1, 00:02:00, Ethernet1\nB   2001:DB8:3::/48 [200/0] via 2001:DB8:FF:1::1, Ethernet2\nS   2001:DB8:4::/64 [1/0] via 2001:DB8:FF:2::2\n\nC   FF00::/8 is directly connected, Null0\n",
+  "textfsm_template": "Value TYPE (\\S+)\nValue NETWORK (\\S+)\nValue COST (\\d+[\\/\\d+]*)\nValue NEXT_HOP (\\S+)\nValue TIME (\\S+)\nValue INTERFACE (\\S+)\n\nStart\n  # Match connected routes\n  ^\\s*${TYPE}\\s+${NETWORK}\\s+is\\s+directly\\s+connected,\\s+${INTERFACE}\\s*$$ -> Record\n  # Match other routes\n  ^\\s*${TYPE}\\s+${NETWORK}\\s+\\[${COST}\\]\\s+via\\s+${NEXT_HOP},\\s+${TIME},\\s+${INTERFACE}\\s*$$ -> Record"
+}

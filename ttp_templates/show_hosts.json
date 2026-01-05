@@ -1,0 +1,28 @@
+{
+  "command": "show hosts",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"host_ipv4_ipv6\">\n{{HOST | re(\"\\\\S+\")}} {{IPV4 | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{IPV6 | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "HOST": "google.com",
+      "IPV4": "142.250.72.78",
+      "IPV6": "2607:f8b0:4007:80d::200e"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "host_ipv4_ipv6": {
+        "HOST": "google.com",
+        "IPV4": "142.250.72.78",
+        "IPV6": "2607:f8b0:4007:80d::200e"
+      }
+    }
+  ],
+  "cli_content": "Default domain is not set\nName-server: 192.168.0.1\nName-server: 8.8.8.8\nName-server: 8.8.4.4\n\nHost              Address(es)\nlocalhost         127.0.0.1\nexample.com       93.184.216.34\ngoogle.com        142.250.72.78 2607:f8b0:4007:80d::200e\n\n",
+  "textfsm_template": "Value NAME_SERVER (\\S+)\nValue HOST (\\S+)\nValue IPV4 (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue IPV6 ([0-9a-f:]+)\n\nStart\n  ^Name-server:\\s+${NAME_SERVER}\\s*$$ -> Next.Record\n  ^Host\\s+Address\\(es\\)\\s*$$\n  ^\\s*${HOST}\\s+${IPV4}\\s*$$ -> Record\n  ^\\s*${HOST}\\s+${IPV4}\\s+${IPV6}\\s*$$ -> Record"
+}

@@ -1,0 +1,878 @@
+{
+  "command": "cisco_ios_show_running-config_partition_access-list",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.024096385542168676,
+  "textfsm_rows": 83,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"acl_type\">\nip access-list {{ACL_TYPE | ORPHRASE}} sample\n<group name=\"action_dst_host_dst_port\">\n {{ACTION}} {{PROTOCOL}} host {{SRC_HOST | re(\"\\\\S+\")}} host {{DST_HOST | re(\"\\\\S+\")}} {{DST_PORT_MATCH}} {{DST_PORT | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "\"allows BGP\"",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_HOST": "10.1.6.20",
+      "DST_HOST": "10.1.6.98",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "bgp"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_HOST": "10.1.6.20",
+      "SRC_PORT_MATCH": "eq",
+      "SRC_PORT": "bgp",
+      "DST_HOST": "10.1.6.98"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "\"allows sample to ping\"",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.1.6.98"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.98"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "\"allows sample to ping\"",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.1.5.20"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.5.20"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "\"allows sample to ping\"",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.1.6.144"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.144"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "\"allows sample to ping\"",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.1.6.146"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.146"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "\"allows sample to ping\"",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.1.6.148"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.148"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "\"allows sample to ping\"",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.1.6.152"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.152"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "allows sample to ping",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.1.8.26"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.8.26"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "allows sample to ping",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.1.8.152"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.8.152"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "permit sample servers to ping",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_NETWORK": "10.3.14.0",
+      "DST_WILDCARD": "0.0.0.127"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_NETWORK": "10.3.14.0",
+      "DST_WILDCARD": "0.0.0.127"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "allows sample to ping",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.3.139.248"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.3.139.248"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_NETWORK": "10.3.139.128",
+      "DST_WILDCARD": "0.0.0.7"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_NETWORK": "10.3.139.128",
+      "DST_WILDCARD": "0.0.0.7"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "\"allows sample workstation(s) to connect\"",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.5.20",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4000"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.5.20",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4010"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.5.20",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4020"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.5.20",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4080"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.5.20",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4300"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.5.20",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4310"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.5.20",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4320"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.5.20",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4380"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "\"allows sample workstation(s)\"",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.144",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4000"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.144",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4010"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.144",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4020"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.144",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4300"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.144",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4310"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.144",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4320"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "\"allows sample workstation(s)\"",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.146",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4000"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.146",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4010"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.146",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4020"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.146",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4300"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.146",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4310"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.146",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4320"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "\"allows sample workstation(s)\"",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.148",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4050"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.148",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4060"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.148",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4350"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.148",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4360"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "\"allows sample workstation(s)\"",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.152",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4000"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.152",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4010"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.152",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4020"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.152",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4080"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.152",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4300"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.152",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4310"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.152",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4320"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.6.152",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4380"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "permit sample workstation(s)",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.8.26",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4001"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "permit sample workstation(s)",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.1.8.152",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4001"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "permit sample to connect",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_NETWORK": "10.3.14.64",
+      "DST_WILDCARD": "0.0.0.31",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "9815"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_NETWORK": "10.3.14.64",
+      "DST_WILDCARD": "0.0.0.31",
+      "DST_PORT_MATCH": "range",
+      "DST_PORT_RANGE_START": "9821",
+      "DST_PORT_RANGE_END": "9823"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "permit sample to connect",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_NETWORK": "10.3.14.96",
+      "DST_WILDCARD": "0.0.0.31",
+      "DST_PORT_MATCH": "range",
+      "DST_PORT_RANGE_START": "7400",
+      "DST_PORT_RANGE_END": "7407"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "permit sample UDP access",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SRC_NETWORK": "10.1.6.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.3.139.133",
+      "DST_PORT_MATCH": "range",
+      "DST_PORT_RANGE_START": "13001",
+      "DST_PORT_RANGE_END": "13191"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.3.139.133",
+      "DST_PORT_MATCH": "range",
+      "DST_PORT_RANGE_START": "13001",
+      "DST_PORT_RANGE_END": "13191"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "permit sample TCP access",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.3.139.134",
+      "DST_PORT_MATCH": "range",
+      "DST_PORT_RANGE_START": "13001",
+      "DST_PORT_RANGE_END": "13191",
+      "LOG": "log",
+      "TIME": "test"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.1.6.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.3.139.134",
+      "DST_PORT_MATCH": "range",
+      "DST_PORT_RANGE_START": "13001",
+      "DST_PORT_RANGE_END": "13191",
+      "LOG": "log-input"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "COMMENT": "allow sample to send PIM-Join",
+      "ACTION": "permit",
+      "PROTOCOL": "pim",
+      "SRC_HOST": "10.1.6.20",
+      "DST_HOST": "224.0.0.1"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "deny",
+      "PROTOCOL": "ip",
+      "SRC_ANY": "any",
+      "DST_ANY": "any"
+    },
+    {
+      "ACL_NAME": "sample",
+      "ACL_TYPE": "extended",
+      "ACTION": "permit",
+      "PROTOCOL": "ip",
+      "SRC_NETWORK": "10.0.0.0",
+      "SRC_WILDCARD": "0.255.0.255",
+      "DST_ANY": "any"
+    },
+    {
+      "ACL_NAME": "97",
+      "ACTION": "deny",
+      "SRC_NETWORK": "10.1.0.1",
+      "SRC_WILDCARD": "0.0.255.0",
+      "LOG": "log"
+    },
+    {
+      "ACL_NAME": "97",
+      "ACTION": "permit",
+      "SRC_ANY": "any"
+    },
+    {
+      "ACL_NAME": "98",
+      "ACTION": "permit",
+      "SRC_HOST": "10.16.5.19"
+    },
+    {
+      "ACL_NAME": "98",
+      "ACTION": "permit",
+      "SRC_HOST": "10.16.5.20"
+    },
+    {
+      "ACL_NAME": "99",
+      "ACTION": "permit",
+      "SRC_HOST": "10.16.5.19"
+    },
+    {
+      "ACL_NAME": "99",
+      "ACTION": "permit",
+      "SRC_HOST": "10.16.5.20"
+    },
+    {
+      "ACL_NAME": "199",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.16.5.19",
+      "SRC_WILDCARD": "0.0.0.0",
+      "DST_ANY": "any",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "80"
+    },
+    {
+      "ACL_NAME": "199",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SRC_ANY": "any",
+      "DST_ANY": "any",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "1000"
+    },
+    {
+      "ACL_NAME": "101",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_ANY": "any",
+      "DST_HOST": "10.1.1.1",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "www"
+    },
+    {
+      "ACL_NAME": "101",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_ANY": "any",
+      "DST_HOST": "10.1.1.1",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "443",
+      "LOG": "log"
+    },
+    {
+      "ACL_NAME": "101",
+      "ACTION": "permit",
+      "PROTOCOL": "ahp",
+      "SRC_ANY": "any",
+      "DST_ANY": "any",
+      "LOG": "log-input"
+    },
+    {
+      "ACL_NAME": "101",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_HOST": "10.1.1.1",
+      "SRC_PORT_MATCH": "eq",
+      "SRC_PORT": "ftp",
+      "DST_ANY": "any",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "tacacs",
+      "LOG": "log",
+      "TIME": "test"
+    },
+    {
+      "ACL_NAME": "stdacl",
+      "ACL_TYPE": "standard",
+      "ACTION": "permit",
+      "SRC_HOST": "10.1.1.1"
+    },
+    {
+      "ACL_NAME": "198",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.16.5.19",
+      "SRC_WILDCARD": "0.0.0.0",
+      "DST_ANY": "any",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "80"
+    },
+    {
+      "ACL_NAME": "198",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SRC_ANY": "any",
+      "DST_ANY": "any",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "1000"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "acl_type": {
+        "ACL_TYPE": "extended",
+        "action_dst_host_dst_port": {
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_HOST": "10.1.6.20",
+          "DST_HOST": "10.1.6.98",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "bgp"
+        }
+      }
+    }
+  ],
+  "cli_content": "Building configuration...\n\nCurrent configuration : 5066 bytes\n!\nConfiguration of Partition - access-list\n!\n!\n!\n!\nip access-list extended sample\n remark \"allows BGP\"\n permit tcp host 10.1.6.20 host 10.1.6.98 eq bgp\n permit tcp host 10.1.6.20 eq bgp host 10.1.6.98\n remark \"allows sample to ping\"\n permit icmp 10.1.6.16 0.0.0.3 host 10.1.6.98\n permit icmp 10.1.6.24 0.0.0.7 host 10.1.6.98\n remark \"allows sample to ping\"\n permit icmp 10.1.6.16 0.0.0.3 host 10.1.5.20\n permit icmp 10.1.6.24 0.0.0.7 host 10.1.5.20\n remark \"allows sample to ping\"\n permit icmp 10.1.6.16 0.0.0.3 host 10.1.6.144\n permit icmp 10.1.6.24 0.0.0.7 host 10.1.6.144\n remark \"allows sample to ping\"\n permit icmp 10.1.6.16 0.0.0.3 host 10.1.6.146\n permit icmp 10.1.6.24 0.0.0.7 host 10.1.6.146\n remark \"allows sample to ping\"\n permit icmp 10.1.6.16 0.0.0.3 host 10.1.6.148\n permit icmp 10.1.6.24 0.0.0.7 host 10.1.6.148\n remark \"allows sample to ping\"\n permit icmp 10.1.6.16 0.0.0.3 host 10.1.6.152\n permit icmp 10.1.6.24 0.0.0.7 host 10.1.6.152\n remark allows sample to ping\n permit icmp 10.1.6.16 0.0.0.3 host 10.1.8.26\n permit icmp 10.1.6.24 0.0.0.7 host 10.1.8.26\n remark allows sample to ping\n permit icmp 10.1.6.16 0.0.0.3 host 10.1.8.152\n permit icmp 10.1.6.24 0.0.0.7 host 10.1.8.152\n remark permit sample servers to ping\n permit icmp 10.1.6.16 0.0.0.3 10.3.14.0 0.0.0.127\n permit icmp 10.1.6.24 0.0.0.7 10.3.14.0 0.0.0.127\n remark allows sample to ping\n permit icmp 10.1.6.16 0.0.0.3 host 10.3.139.248\n permit icmp 10.1.6.24 0.0.0.7 host 10.3.139.248\n permit icmp 10.1.6.16 0.0.0.3 10.3.139.128 0.0.0.7\n permit icmp 10.1.6.24 0.0.0.7 10.3.139.128 0.0.0.7\n remark \"allows sample workstation(s) to connect\"\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.5.20 eq 4000\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.5.20 eq 4010\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.5.20 eq 4020\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.5.20 eq 4080\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.5.20 eq 4300\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.5.20 eq 4310\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.5.20 eq 4320\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.5.20 eq 4380\n remark \"allows sample workstation(s)\"\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.144 eq 4000\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.144 eq 4010\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.144 eq 4020\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.144 eq 4300\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.144 eq 4310\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.144 eq 4320\n remark \"allows sample workstation(s)\"\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.146 eq 4000\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.146 eq 4010\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.146 eq 4020\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.146 eq 4300\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.146 eq 4310\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.146 eq 4320\n remark \"allows sample workstation(s)\"\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.148 eq 4050\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.148 eq 4060\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.148 eq 4350\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.148 eq 4360\n remark \"allows sample workstation(s)\"\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.152 eq 4000\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.152 eq 4010\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.152 eq 4020\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.152 eq 4080\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.152 eq 4300\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.152 eq 4310\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.152 eq 4320\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.6.152 eq 4380\n remark permit sample workstation(s)\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.8.26 eq 4001\n remark permit sample workstation(s)\n permit tcp 10.1.6.24 0.0.0.7 host 10.1.8.152 eq 4001\n remark permit sample to connect\n permit tcp 10.1.6.24 0.0.0.7 10.3.14.64 0.0.0.31 eq 9815\n permit tcp 10.1.6.24 0.0.0.7 10.3.14.64 0.0.0.31 range 9821 9823\n remark permit sample to connect\n permit tcp 10.1.6.24 0.0.0.7 10.3.14.96 0.0.0.31 range 7400 7407\n remark permit sample UDP access\n permit udp 10.1.6.16 0.0.0.3 host 10.3.139.133 range 13001 13191\n permit udp 10.1.6.24 0.0.0.7 host 10.3.139.133 range 13001 13191\n remark permit sample TCP access\n permit tcp 10.1.6.16 0.0.0.3 host 10.3.139.134 range 13001 13191 log time-range test\n permit tcp 10.1.6.24 0.0.0.7 host 10.3.139.134 range 13001 13191 log-input\n remark allow sample to send PIM-Join\n permit pim host 10.1.6.20 host 224.0.0.1\n deny   ip any any\n permit ip 10.0.0.0 0.255.0.255 any\nip access-list extended test\naccess-list 97 remark this is a remark\naccess-list 97 deny   10.1.0.1 0.0.255.0 log\naccess-list 97 permit any\naccess-list 98 permit 10.16.5.19\naccess-list 98 permit 10.16.5.20\naccess-list 99 permit 10.16.5.19\naccess-list 99 permit 10.16.5.20\naccess-list 199 permit tcp 10.16.5.19 0.0.0.0 any eq 80\naccess-list 199 permit udp any any eq 1000\naccess-list 101 permit tcp any host 10.1.1.1 eq www\naccess-list 101 permit tcp any host 10.1.1.1 eq 443 log\naccess-list 101 remark this is a remark\naccess-list 101 permit ahp any any log-input\naccess-list 101 permit tcp host 10.1.1.1 eq ftp any eq tacacs log time-range test\n\n!\nip access-list standard stdacl\n permit 10.1.1.1\nip access-list extended test2\n\naccess-list 198 permit tcp 10.16.5.19 0.0.0.0 any eq 80\naccess-list 198 permit udp any any eq 1000\n\nend\n",
+  "textfsm_template": "Value Required,Filldown ACL_NAME (\\S+)\nValue Filldown ACL_TYPE (standard|extended)\nValue LINE_NUM (\\d+)\nValue List COMMENT (.*)\nValue ACTION (permit|deny)\nValue PROTOCOL (\\S+)\nValue SRC_HOST (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue SRC_ANY (any)\nValue SRC_NETWORK (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue SRC_WILDCARD (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue SRC_PORT_MATCH (eq|neq|range|lt|gt)\nValue SRC_PORT ((?<!range\\s).+?)\nValue SRC_PORT_RANGE_START ((?<=range\\s)\\S+)\nValue SRC_PORT_RANGE_END (\\S+)\nValue DST_HOST (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue DST_ANY (any)\nValue DST_NETWORK (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue DST_WILDCARD (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue DST_PORT_MATCH (eq|neq|range|lt|gt)\nValue DST_PORT ((?<!range\\s)\\S+)\nValue DST_PORT_RANGE_START ((?<=range\\s)\\S+)\nValue DST_PORT_RANGE_END (\\S+)\nValue FLAGS_MATCH (match-all|match-any)\nValue TCP_FLAG (((\\+|-|)ack(\\s*?)|(\\+|-|)established(\\s*?)|(\\+|-|)fin(\\s*?)|(\\+|-|)fragments(\\s*?)|(\\+|-|)psh(\\s*?)|(\\+|-|)rst(\\s*?)|(\\+|-|)syn(\\s*?)|urg(\\s*?))+)\nValue LOG (log-input|log)\nValue ICMP_TYPE (echo|echo-reply|administratively-prohibited|unreachable|port-unreachable|redirect|router-advertisement|router-solicitation|packet-too-big|time-exceeded|ttl-exceeded|parameter-problem)\nValue TIME (\\S+)\n\n\nStart\n  # Clear all data to start new named ACL\n  ^(ip\\s+|)access-list -> Continue.Clearall\n  # Record new named ACL; the record is required if a named ACL does not have any explicit policy entries.\n  ^ip\\s+access-list\\s+${ACL_TYPE}\\s+${ACL_NAME}\\s* -> Record\n  # Record named ACL Extended entry\n  ^\\s+(${LINE_NUM}\\s+|)${ACTION}\\s+${PROTOCOL}\\s+(host\\s+${SRC_HOST}|${SRC_ANY}|${SRC_NETWORK}\\s+${SRC_WILDCARD})(\\s+${SRC_PORT_MATCH}\\s+(${SRC_PORT_RANGE_START}\\s+${SRC_PORT_RANGE_END}|${SRC_PORT})|)\\s+(host\\s+${DST_HOST}|${DST_ANY}|${DST_NETWORK}\\s+${DST_WILDCARD})(\\s+${DST_PORT_MATCH}\\s+(${DST_PORT_RANGE_START}\\s+${DST_PORT_RANGE_END}|${DST_PORT})|\\s+(${FLAGS_MATCH}\\s+|)${TCP_FLAG}|)(\\s+${ICMP_TYPE}|)(\\s+${LOG}|)(\\s+time-range\\s+${TIME}|)\\s*$$ -> Record\n  # Record named ACL Standard entry\n  ^\\s+(${LINE_NUM}\\s+|)${ACTION}\\s+(${SRC_NETWORK}\\s+${SRC_WILDCARD}|${SRC_ANY}|${SRC_HOST})(\\s+${LOG}|)(\\s+time-range\\s+${TIME}|)\\s* -> Record\n  # Record named ACL Remark\n  ^\\s+(${LINE_NUM}\\s+|)remark\\s+${COMMENT}\\s*\n  # Record numbered ACL Extended entry\n  ^access-list\\s+${ACL_NAME}\\s+${ACTION}\\s+${PROTOCOL}\\s+(host\\s+${SRC_HOST}|${SRC_ANY}|${SRC_NETWORK}\\s+${SRC_WILDCARD})(\\s+${SRC_PORT_MATCH}\\s+(${SRC_PORT_RANGE_START}\\s+${SRC_PORT_RANGE_END}|${SRC_PORT})|)\\s+(host\\s+${DST_HOST}|${DST_ANY}|${DST_NETWORK}\\s+${DST_WILDCARD})(\\s+${DST_PORT_MATCH}\\s+(${DST_PORT_RANGE_START}\\s+${DST_PORT_RANGE_END}|${DST_PORT})|\\s+(${FLAGS_MATCH}\\s+|)${TCP_FLAG}|)(\\s+${ICMP_TYPE}|)(\\s+${LOG}|)(\\s+time-range\\s+${TIME}|)\\s* -> Record\n  # Record numbered ACL Standard entry\n  ^access-list\\s+${ACL_NAME}\\s+${ACTION}\\s+(${SRC_NETWORK}\\s+${SRC_WILDCARD}|${SRC_ANY}|${SRC_HOST})(\\s+${LOG}|)(\\s+time-range\\s+${TIME}|)\\s* -> Record\n  # Record numbered ACL Remark\n  ^access-list\\s+${ACL_NAME}\\s+remark\\s+${COMMENT}\\s*\n  # Catch all unuseful raw data\n  ^(!\\s*|$$|Building configuration.*|Current configuration.*|Configuration.*|end.*)\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  # Error out if raw data does not match any above rules.\n  ^.* -> Error \"Could not parse line:\"\n\nEOF\n"
+}

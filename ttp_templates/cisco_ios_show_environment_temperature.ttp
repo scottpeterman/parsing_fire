@@ -1,0 +1,18 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_environment_temperature
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="hotspot_red_threshold_hotspot_temperature_state_hotspot_temperature_value_hotspot_yellow_threshold">
+Switch 1: SYSTEM TEMPERATURE is {{SWITCH_TEMPERATURE | ORPHRASE}}
+Inlet Temperature Value: {{SWITCH | ORPHRASE}}9 Degree Celsius
+Temperature State: {{INLET_TEMPERATURE_STATE | ORPHRASE}}
+Yellow Threshold : {{INLET_YELLOW_THRESHOLD | ORPHRASE}} Degree Celsius
+Red Threshold  : {{INLET_RED_THRESHOLD | ORPHRASE}} Degree Celsius
+Yellow Threshold : {{HOTSPOT_YELLOW_THRESHOLD | ORPHRASE}} Degree Celsius
+Red Threshold  : {{HOTSPOT_RED_THRESHOLD | ORPHRASE}} Degree Celsius
+Inlet Temperature Value: {{INLET_TEMPERATURE_VALUE | ORPHRASE}} Degree Celsius
+Hotspot Temperature Value: {{HOTSPOT_TEMPERATURE_VALUE | ORPHRASE}} Degree Celsius
+</group>

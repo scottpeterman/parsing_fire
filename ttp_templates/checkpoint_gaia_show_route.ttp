@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: checkpoint_gaia_show_route
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="protocol_network_mask_nexthopip_interface">
+{{PROTOCOL}} {{NETWORK}}/{{MASK}} via {{NEXTHOPIP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}, {{INTERFACE | ORPHRASE}}, cost 0, age 4238351
+</group>
+<group name="protocol_network_mask_interface">
+{{PROTOCOL}} {{NETWORK}}/{{MASK}} is directly connected, {{INTERFACE | ORPHRASE}}
+</group>

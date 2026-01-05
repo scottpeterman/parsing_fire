@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_ip_dhcp_relay_address
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="interface_relay_address_vrf">
+ {{INTERFACE}} {{RELAY_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{VRF | ORPHRASE}}
+</group>

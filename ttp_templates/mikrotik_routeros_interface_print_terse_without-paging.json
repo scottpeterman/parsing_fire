@@ -1,0 +1,260 @@
+{
+  "command": "mikrotik_routeros_interface_print_terse_without-paging",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.8181818181818182,
+  "textfsm_rows": 11,
+  "ttp_rows": 9,
+  "ttp_template": "<group name=\"dynamic_name_default_name_type_mtu_actual_mtu_l2mtu_max_l2mtu_mac_address_last_link_up_time\">\n {{I{{DYNAMIC}} | re(\"\\\\d+\")}} D name={{NAME}} default-name={{DEFAULT_NAME}} type={{TYPE}} mtu={{MTU}} actual-mtu={{ACTUAL_MTU}} l2mtu={{L2MTU}} max-l2mtu={{MAX_L2MTU}} mac-address={{MAC_ADDRESS | re(\"[{{LINK_DOWNS}}-9a-fA-F:.-]+\")}} last-link-up-time={{LAST_LINK_UP_TIME | ORPHRASE}} link-downs=0\n</group>\n<group name=\"dynamic_status_name_default_name_type_mtu_actual_mtu_l2mtu_max_l2mtu_mac_address_last_link_down_time_last_link_up_time_link_downs\">\n {{I{{DYNAMIC}} | re(\"\\\\d+\")}} D{{STATUS | ORPHRASE}} name={{NAME}} default-name={{DEFAULT_NAME}} type={{TYPE}} mtu={{MTU}} actual-mtu={{ACTUAL_MTU}} l2mtu={{L2MTU}} max-l2mtu={{MAX_L2MTU}} mac-address={{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} last-link-down-time={{LAST_LINK_DOWN_TIME | ORPHRASE}} last-link-up-time={{LAST_LINK_UP_TIME | ORPHRASE}} link-downs={{LINK_DOWNS}}\n</group>\n<group name=\"id_name_default_name_type_mtu_actual_mtu_l2mtu_max_l2mtu_mac_address_link_downs\">\n {{ID | re(\"\\\\d+\")}} name={{NAME}} default-name={{DEFAULT_NAME}} type={{TYPE}} mtu={{MTU}} actual-mtu={{ACTUAL_MTU}} l2mtu={{L2MTU}} max-l2mtu={{MAX_L2MTU}} mac-address={{MAC_ADDRESS | ORPHRASE}} link-downs={{LINK_DOWNS}}\n</group>\n<group name=\"id_status_name_type_mtu_actual_mtu_l2mtu_mac_address_last_link_up_time\">\n {{ID | re(\"\\\\d+\")}} {{STATUS | ORPHRASE}} name={{NAME}} type={{TYPE}} mtu={{MTU}} actual-mtu={{ACTUAL_MTU}} l2mtu={{L2MTU}} mac-address={{MAC_ADDRESS | re(\"[{{LINK_DOWNS}}-9a-fA-F:.-]+\")}} last-link-up-time={{LAST_LINK_UP_TIME | ORPHRASE}} link-downs=0\n</group>\n<group name=\"id_status_name_type_mac_address_link_downs\">\n {{ID | re(\"\\\\d+\")}} {{STATUS | ORPHRASE}} name={{NAME}} type={{TYPE}} mac-address={{MAC_ADDRESS | ORPHRASE}} link-downs={{LINK_DOWNS}}\n</group>\n<group name=\"id_slave_name_type_mtu_actual_mtu_l2mtu_mac_address_last_link_down_time_last_link_up_time_link_downs\">\n {{ID | re(\"\\\\d+\")}} {{SLAVE}} name={{NAME}} type={{TYPE}} mtu={{MTU}} actual-mtu={{ACTUAL_MTU}} l2mtu={{L2MTU}} mac-address={{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} last-link-down-time={{LAST_LINK_DOWN_TIME | ORPHRASE}} last-link-up-time={{LAST_LINK_UP_TIME | ORPHRASE}} link-downs={{LINK_DOWNS}}\n</group>\n<group name=\"id_slave_name_type_mtu_actual_mtu_l2mtu_mac_address_link_downs\">\n {{ID | re(\"\\\\d+\")}} {{SLAVE}} name={{NAME}} type={{TYPE}} mtu={{MTU}} actual-mtu={{ACTUAL_MTU}} l2mtu={{L2MTU}} mac-address={{MAC_ADDRESS | ORPHRASE}} link-downs={{LINK_DOWNS}}\n</group>\n<group name=\"dynamic_slave_name_type_mtu_actual_mtu_l2mtu_mac_address_link_downs\">\n {{I{{DYNAMIC}} | re(\"\\\\d+\")}} D {{SLAVE}} name={{NAME}} type={{TYPE}} mtu={{MTU}} actual-mtu={{ACTUAL_MTU}} l2mtu={{L2MTU}} mac-address={{MAC_ADDRESS | ORPHRASE}} link-downs={{LINK_DOWNS}}\n</group>\n<group name=\"dynamic_slave_name_type_mtu_actual_mtu_l2mtu_mac_address_last_link_up_time\">\n {{I{{DYNAMIC}} | re(\"\\\\d+\")}} D{{{{SLAVE}}TATUS | ORPHRASE}}S name={{NAME}} type={{TYPE}} mtu={{MTU}} actual-mtu={{ACTUAL_MTU}} l2mtu={{L2MTU}} mac-address={{MAC_ADDRESS | re(\"[{{LINK_DOWNS}}-9a-fA-F:.-]+\")}} last-link-up-time={{LAST_LINK_UP_TIME | ORPHRASE}} link-downs=0\n</group>\n<group name=\"id_status_name_type_mtu_actual_mtu_l2mtu_mac_address_fast_path_last_link_down_time_last_link_up_time_link_downs\">\n{{ID | re(\"\\\\d+\")}} {{STATUS | ORPHRASE}} name={{NAME}} type={{TYPE}} mtu={{MTU}} actual-mtu={{ACTUAL_MTU}} l2mtu={{L2MTU}} mac-address={{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} fast-path={{FAST_PATH}} last-link-down-time={{LAST_LINK_DOWN_TIME | ORPHRASE}} last-link-up-time={{LAST_LINK_UP_TIME | ORPHRASE}} link-downs={{LINK_DOWNS}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ID": "0",
+      "DYNAMIC": "D",
+      "NAME": "ether1",
+      "DEFAULT_NAME": "ether1",
+      "TYPE": "ether",
+      "MTU": "1500",
+      "ACTUAL_MTU": "1500",
+      "L2MTU": "1598",
+      "MAX_L2MTU": "2028",
+      "MAC_ADDRESS": "12:34:56:78:90:AA",
+      "LAST_LINK_UP_TIME": "aug/16/1970 13:05:43",
+      "LINK_DOWNS": "0"
+    },
+    {
+      "ID": "1",
+      "DYNAMIC": "D",
+      "STATUS": "R",
+      "NAME": "ether2_UniFi2",
+      "DEFAULT_NAME": "ether2",
+      "TYPE": "ether",
+      "MTU": "1500",
+      "ACTUAL_MTU": "1500",
+      "L2MTU": "1598",
+      "MAX_L2MTU": "2028",
+      "MAC_ADDRESS": "12:34:56:78:90:AB",
+      "LAST_LINK_DOWN_TIME": "aug/17/1970 13:33:01",
+      "LAST_LINK_UP_TIME": "aug/17/1970 13:23:11",
+      "LINK_DOWNS": "3"
+    },
+    {
+      "ID": "2",
+      "NAME": "ether3_UniFi1",
+      "DEFAULT_NAME": "ether3",
+      "TYPE": "ether",
+      "MTU": "1500",
+      "ACTUAL_MTU": "1500",
+      "L2MTU": "1598",
+      "MAX_L2MTU": "2028",
+      "MAC_ADDRESS": "12:34:56:78:90:AC",
+      "LINK_DOWNS": "0"
+    },
+    {
+      "ID": "3",
+      "STATUS": "R",
+      "NAME": "bridge-VLAN1",
+      "TYPE": "bridge",
+      "MTU": "auto",
+      "ACTUAL_MTU": "1500",
+      "L2MTU": "1594",
+      "MAC_ADDRESS": "12:34:56:78:90:AD",
+      "LAST_LINK_UP_TIME": "aug/16/1970 13:05:35",
+      "LINK_DOWNS": "0"
+    },
+    {
+      "ID": "4",
+      "STATUS": "X",
+      "NAME": "bridge-VLAN2",
+      "TYPE": "bridge",
+      "MAC_ADDRESS": "12:34:56:78:90:AE",
+      "LINK_DOWNS": "0"
+    },
+    {
+      "ID": "5",
+      "SLAVE": "S",
+      "NAME": "eth3_vlan1",
+      "TYPE": "vlan",
+      "MTU": "1500",
+      "ACTUAL_MTU": "1500",
+      "L2MTU": "1594",
+      "MAC_ADDRESS": "12:34:56:78:90:AF",
+      "LAST_LINK_DOWN_TIME": "aug/17/1970 13:33:01",
+      "LAST_LINK_UP_TIME": "aug/17/1970 13:23:11",
+      "LINK_DOWNS": "3"
+    },
+    {
+      "ID": "6",
+      "SLAVE": "S",
+      "NAME": "eth4_vlan2",
+      "TYPE": "vlan",
+      "MTU": "1500",
+      "ACTUAL_MTU": "1500",
+      "L2MTU": "1594",
+      "MAC_ADDRESS": "12:34:56:78:90:BA",
+      "LINK_DOWNS": "0"
+    },
+    {
+      "ID": "7",
+      "STATUS": "R",
+      "SLAVE": "S",
+      "NAME": "eth4_vlan3",
+      "TYPE": "vlan",
+      "MTU": "1500",
+      "ACTUAL_MTU": "1500",
+      "L2MTU": "1594",
+      "MAC_ADDRESS": "12:34:56:78:90:BB",
+      "LINK_DOWNS": "0"
+    },
+    {
+      "ID": "8",
+      "DYNAMIC": "D",
+      "SLAVE": "S",
+      "NAME": "eth4_vlan4",
+      "TYPE": "vlan",
+      "MTU": "1500",
+      "ACTUAL_MTU": "1500",
+      "L2MTU": "1594",
+      "MAC_ADDRESS": "12:34:56:78:90:BC",
+      "LINK_DOWNS": "0"
+    },
+    {
+      "ID": "9",
+      "DYNAMIC": "D",
+      "STATUS": "X",
+      "SLAVE": "S",
+      "NAME": "eth5_vlan5",
+      "TYPE": "vlan",
+      "MTU": "1500",
+      "ACTUAL_MTU": "1500",
+      "L2MTU": "1594",
+      "MAC_ADDRESS": "12:34:56:78:90:BD",
+      "LAST_LINK_UP_TIME": "aug/16/1970 13:05:43",
+      "LINK_DOWNS": "0"
+    },
+    {
+      "ID": "10",
+      "STATUS": "R",
+      "NAME": "eth6_vlan6",
+      "TYPE": "vlan",
+      "MTU": "1500",
+      "ACTUAL_MTU": "1500",
+      "L2MTU": "1598",
+      "MAC_ADDRESS": "12:34:56:78:90:BE",
+      "FAST_PATH": "yes",
+      "LAST_LINK_DOWN_TIME": "sep/08/2023 01:07:00",
+      "LAST_LINK_UP_TIME": "sep/08/2023 01:07:09",
+      "LINK_DOWNS": "7"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "id_name_default_name_type_mtu_actual_mtu_l2mtu_max_l2mtu_mac_address_link_downs": {
+        "ID": "2",
+        "NAME": "ether3_UniFi1",
+        "DEFAULT_NAME": "ether3",
+        "TYPE": "ether",
+        "MTU": "1500",
+        "ACTUAL_MTU": "1500",
+        "L2MTU": "1598",
+        "MAX_L2MTU": "2028",
+        "MAC_ADDRESS": "12:34:56:78:90:AC",
+        "LINK_DOWNS": "0"
+      },
+      "id_status_name_type_mac_address_link_downs": {
+        "ID": "4",
+        "STATUS": "X",
+        "NAME": "bridge-VLAN2",
+        "TYPE": "bridge",
+        "MAC_ADDRESS": "12:34:56:78:90:AE",
+        "LINK_DOWNS": "0"
+      },
+      "id_slave_name_type_mtu_actual_mtu_l2mtu_mac_address_last_link_down_time_last_link_up_time_link_downs": {
+        "ID": "5",
+        "SLAVE": "S",
+        "NAME": "eth3_vlan1",
+        "TYPE": "vlan",
+        "MTU": "1500",
+        "ACTUAL_MTU": "1500",
+        "L2MTU": "1594",
+        "MAC_ADDRESS": "12:34:56:78:90:AF",
+        "LAST_LINK_DOWN_TIME": "aug/17/1970 13:33:01",
+        "LAST_LINK_UP_TIME": "aug/17/1970 13:23:11",
+        "LINK_DOWNS": "3"
+      },
+      "id_slave_name_type_mtu_actual_mtu_l2mtu_mac_address_link_downs": [
+        {
+          "ID": "3",
+          "SLAVE": "R",
+          "NAME": "bridge-VLAN1",
+          "TYPE": "bridge",
+          "MTU": "auto",
+          "ACTUAL_MTU": "1500",
+          "L2MTU": "1594",
+          "MAC_ADDRESS": "12:34:56:78:90:AD last-link-up-time=aug/16/1970 13:05:35",
+          "LINK_DOWNS": "0"
+        },
+        {
+          "ID": "5",
+          "SLAVE": "S",
+          "NAME": "eth3_vlan1",
+          "TYPE": "vlan",
+          "MTU": "1500",
+          "ACTUAL_MTU": "1500",
+          "L2MTU": "1594",
+          "MAC_ADDRESS": "12:34:56:78:90:AF last-link-down-time=aug/17/1970 13:33:01 last-link-up-time=aug/17/1970 13:23:11",
+          "LINK_DOWNS": "3"
+        },
+        {
+          "ID": "6",
+          "SLAVE": "S",
+          "NAME": "eth4_vlan2",
+          "TYPE": "vlan",
+          "MTU": "1500",
+          "ACTUAL_MTU": "1500",
+          "L2MTU": "1594",
+          "MAC_ADDRESS": "12:34:56:78:90:BA",
+          "LINK_DOWNS": "0"
+        },
+        {
+          "ID": "7",
+          "SLAVE": "RS",
+          "NAME": "eth4_vlan3",
+          "TYPE": "vlan",
+          "MTU": "1500",
+          "ACTUAL_MTU": "1500",
+          "L2MTU": "1594",
+          "MAC_ADDRESS": "12:34:56:78:90:BB",
+          "LINK_DOWNS": "0"
+        },
+        {
+          "ID": "9",
+          "SLAVE": "DXS",
+          "NAME": "eth5_vlan5",
+          "TYPE": "vlan",
+          "MTU": "1500",
+          "ACTUAL_MTU": "1500",
+          "L2MTU": "1594",
+          "MAC_ADDRESS": "12:34:56:78:90:BD last-link-up-time=aug/16/1970 13:05:43",
+          "LINK_DOWNS": "0"
+        }
+      ],
+      "id_status_name_type_mtu_actual_mtu_l2mtu_mac_address_fast_path_last_link_down_time_last_link_up_time_link_downs": {
+        "ID": "10",
+        "STATUS": "R",
+        "NAME": "eth6_vlan6",
+        "TYPE": "vlan",
+        "MTU": "1500",
+        "ACTUAL_MTU": "1500",
+        "L2MTU": "1598",
+        "MAC_ADDRESS": "12:34:56:78:90:BE",
+        "FAST_PATH": "yes",
+        "LAST_LINK_DOWN_TIME": "sep/08/2023 01:07:00",
+        "LAST_LINK_UP_TIME": "sep/08/2023 01:07:09",
+        "LINK_DOWNS": "7"
+      }
+    }
+  ],
+  "cli_content": " 0 D   name=ether1 default-name=ether1 type=ether mtu=1500 actual-mtu=1500 l2mtu=1598 max-l2mtu=2028 mac-address=12:34:56:78:90:AA last-link-up-time=aug/16/1970 13:05:43 link-downs=0\n 1 DR  name=ether2_UniFi2 default-name=ether2 type=ether mtu=1500 actual-mtu=1500 l2mtu=1598 max-l2mtu=2028 mac-address=12:34:56:78:90:AB last-link-down-time=aug/17/1970 13:33:01 last-link-up-time=aug/17/1970 13:23:11 link-downs=3\n 2     name=ether3_UniFi1 default-name=ether3 type=ether mtu=1500 actual-mtu=1500 l2mtu=1598 max-l2mtu=2028 mac-address=12:34:56:78:90:AC link-downs=0\n 3  R  name=bridge-VLAN1 type=bridge mtu=auto actual-mtu=1500 l2mtu=1594 mac-address=12:34:56:78:90:AD last-link-up-time=aug/16/1970 13:05:35 link-downs=0\n 4  X  name=bridge-VLAN2 type=bridge mac-address=12:34:56:78:90:AE link-downs=0\n 5   S name=eth3_vlan1 type=vlan mtu=1500 actual-mtu=1500 l2mtu=1594 mac-address=12:34:56:78:90:AF last-link-down-time=aug/17/1970 13:33:01 last-link-up-time=aug/17/1970 13:23:11 link-downs=3\n 6   S name=eth4_vlan2 type=vlan mtu=1500 actual-mtu=1500 l2mtu=1594 mac-address=12:34:56:78:90:BA link-downs=0\n 7  RS name=eth4_vlan3 type=vlan mtu=1500 actual-mtu=1500 l2mtu=1594 mac-address=12:34:56:78:90:BB link-downs=0\n 8 D S name=eth4_vlan4 type=vlan mtu=1500 actual-mtu=1500 l2mtu=1594 mac-address=12:34:56:78:90:BC link-downs=0\n 9 DXS name=eth5_vlan5 type=vlan mtu=1500 actual-mtu=1500 l2mtu=1594 mac-address=12:34:56:78:90:BD last-link-up-time=aug/16/1970 13:05:43 link-downs=0\n10  R  name=eth6_vlan6 type=vlan mtu=1500 actual-mtu=1500 l2mtu=1598 mac-address=12:34:56:78:90:BE fast-path=yes last-link-down-time=sep/08/2023 01:07:00 last-link-up-time=sep/08/2023 01:07:09 link-downs=7\n",
+  "textfsm_template": "Value ID (\\d+)\nValue DYNAMIC (D)\nValue STATUS (X|R)\nValue SLAVE (S)\nValue COMMENT (.*)\nValue NAME (\\S+)\nValue DEFAULT_NAME (\\S+)\nValue TYPE (\\S+)\nValue MTU (\\d+|auto)\nValue ACTUAL_MTU (\\d+)\nValue L2MTU (\\d+|auto)\nValue MAX_L2MTU (\\d+)\nValue MAC_ADDRESS ([a-zA-Z0-9]{2}(:[a-zA-Z0-9]{2}){5})\nValue FAST_PATH (\\S+)\nValue LAST_LINK_DOWN_TIME ([a-z]{3}\\/\\d+\\/\\d+\\s\\d+\\:\\d+\\:\\d+)\nValue LAST_LINK_UP_TIME ([a-z]{3}\\/\\d+\\/\\d+\\s\\d+\\:\\d+\\:\\d+)\nValue LINK_DOWNS (\\d+)\n\nStart\n  ^\\s*${ID}\\s+(?:${DYNAMIC})?(?:${STATUS}|\\s)?(?:${SLAVE})?\\s+(comment=${COMMENT}\\s+)?name=${NAME}(\\s+default-name=${DEFAULT_NAME})?\\s+type=${TYPE}(\\s+mtu=${MTU})?(\\s+actual-mtu=${ACTUAL_MTU})?(\\s+l2mtu=${L2MTU})?(\\s+max-l2mtu=${MAX_L2MTU})?(\\s+mac-address=${MAC_ADDRESS})?(\\s+fast-path=${FAST_PATH})?(\\s+last-link-down-time=${LAST_LINK_DOWN_TIME})?(\\s+last-link-up-time=${LAST_LINK_UP_TIME})?(\\s+link-downs=${LINK_DOWNS})?\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

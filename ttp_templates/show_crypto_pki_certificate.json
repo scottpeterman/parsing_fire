@@ -1,0 +1,48 @@
+{
+  "command": "show crypto pki certificate",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"issuer_serial_number_status_subject\">\n  Status: {{STATUS | ORPHRASE}}\n  cn: {{ISSUER | ORPHRASE}}\n  Certificate Serial Number: {{SERIAL_NUMBER | ORPHRASE}}\n  Certificate Usage: {{USAGE | ORPHRASE}}\n  Name: {{SUBJECT | ORPHRASE}}\n  start date: {{VALID_FROM | ORPHRASE}}\n  end date: {{VALID_TO | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "STATUS": "Available",
+      "SERIAL_NUMBER": "0A1234B5678C",
+      "USAGE": "General Purpose",
+      "ISSUER": "Example CA",
+      "SUBJECT": "cn=Example Device",
+      "VALID_FROM": "01:00:00 UTC Jan 1 2023",
+      "VALID_TO": "01:00:00 UTC Jan 1 2024"
+    },
+    {
+      "STATUS": "Available",
+      "SERIAL_NUMBER": "0B9876C54321",
+      "USAGE": "SSL Client",
+      "ISSUER": "Example CA",
+      "SUBJECT": "cn=Device SSL Client",
+      "VALID_FROM": "01:00:00 UTC Feb 1 2023",
+      "VALID_TO": "01:00:00 UTC Feb 1 2024"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "issuer_serial_number_status_subject": [
+        {
+          "USAGE": "General Purpose",
+          "SERIAL_NUMBER": "0A1234B5678C",
+          "STATUS": "Available"
+        },
+        {
+          "USAGE": "SSL Client",
+          "SERIAL_NUMBER": "0B9876C54321",
+          "STATUS": "Available"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Certificate\n  Status: Available\n  Certificate Serial Number: 0A1234B5678C\n  Certificate Usage: General Purpose\n  Issuer:\n    cn: Example CA\n  Subject:\n    Name: cn=Example Device\n  Validity Date:\n    start date: 01:00:00 UTC Jan 1 2023\n    end date: 01:00:00 UTC Jan 1 2024\n\nCertificate\n  Status: Available\n  Certificate Serial Number: 0B9876C54321\n  Certificate Usage: SSL Client\n  Issuer:\n    cn: Example CA\n  Subject:\n    Name: cn=Device SSL Client\n  Validity Date:\n    start date: 01:00:00 UTC Feb 1 2023\n    end date: 01:00:00 UTC Feb 1 2024\n",
+  "textfsm_template": "Value STATUS (\\S+)\nValue SERIAL_NUMBER (\\S+)\nValue USAGE (.+)\nValue ISSUER (.+)\nValue SUBJECT (.+)\nValue VALID_FROM (\\d{2}:\\d{2}:\\d{2} UTC [a-zA-Z]{3} \\d{1,2} \\d{4})\nValue VALID_TO (\\d{2}:\\d{2}:\\d{2} UTC [a-zA-Z]{3} \\d{1,2} \\d{4})\n\nStart\n  ^\\s*Certificate\\s*$$\n  ^\\s*Status:\\s+${STATUS}\\s*$$\n  ^\\s*Certificate\\s+Serial\\s+Number:\\s+${SERIAL_NUMBER}\\s*$$\n  ^\\s*Certificate\\s+Usage:\\s+${USAGE}\\s*$$\n  ^\\s*Issuer:\\s*$$\n  ^\\s*cn:\\s+${ISSUER}\\s*$$\n  ^\\s*Subject:\\s*$$\n  ^\\s*Name:\\s+${SUBJECT}\\s*$$\n  ^\\s*Validity\\s+Date:\\s*$$\n  ^\\s*start\\s+date:\\s+${VALID_FROM}\\s*$$\n  ^\\s*end\\s+date:\\s+${VALID_TO}\\s*$$ -> Record\n"
+}

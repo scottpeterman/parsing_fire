@@ -1,0 +1,56 @@
+{
+  "command": "ciena_saos_traffic-profiling_standard-profile_show",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 3,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"port_id_role_parent_child_cir_eir_cbs_ebs_classifier_a_classifier_b\">\n|{{PORT | re(\"\\\\d+\")}} |{{ID | re(\"\\\\d+\")}} |{{PROFILE_{{ROLE}}AME}} | N | {{PARENT_CHILD}} | {{CIR}} | {{EIR}} | {{CBS}} | {{EBS}} | {{CLASSIFIER_A}} | {{CLASSIFIER_B | ORPHRASE}} |\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "PORT": "21",
+      "ID": "1",
+      "PROFILE_NAME": "V4096",
+      "ROLE": "N",
+      "PARENT_CHILD": "0",
+      "CIR": "10000",
+      "EIR": "0",
+      "CBS": "2000",
+      "EBS": "0",
+      "CLASSIFIER_A": "VS",
+      "CLASSIFIER_B": "TestA"
+    },
+    {
+      "PORT": "22",
+      "ID": "1",
+      "PROFILE_NAME": "V4096",
+      "ROLE": "N",
+      "PARENT_CHILD": "0",
+      "CIR": "100000",
+      "EIR": "0",
+      "CBS": "2000",
+      "EBS": "0",
+      "CLASSIFIER_A": "VS",
+      "CLASSIFIER_B": "TestB"
+    },
+    {
+      "PORT": "24",
+      "ID": "1",
+      "PROFILE_NAME": "V4096",
+      "ROLE": "N",
+      "PARENT_CHILD": "0",
+      "CIR": "32",
+      "EIR": "0",
+      "CBS": "3000",
+      "EBS": "0",
+      "CLASSIFIER_A": "VS",
+      "CLASSIFIER_B": "TestC"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "+---------------------------------------- STANDARD PROFILE TABLE -----------------------------------------+\n|  Port |      Profile       |    |Parent|        BW (Kbps)    |   Max Burst KB  |       CLASSIFIERS      |\n|       | ID | Name          |Role|#Child|    CIR   |    EIR   |   CBS  |   EBS  |                        |\n+-------+----+---------------+----+------+----------+----------+--------+--------+------------------------+\n|21     |1   |V4096          | N  |    0 |    10000 |        0 |   2000 |      0 | VS | TestA             |\n+-------+----+---------------+----+------+----------+----------+--------+--------+------------------------+\n|22     |1   |V4096          | N  |    0 |   100000 |        0 |   2000 |      0 | VS | TestB             |\n+-------+----+---------------+----+------+----------+----------+--------+--------+------------------------+\n|24     |1   |V4096          | N  |    0 |       32 |        0 |   3000 |      0 | VS | TestC             |\n+-------+----+---------------+----+------+----------+----------+--------+--------+------------------------+",
+  "textfsm_template": "Value PORT ([0-9A-Za-z\\.]+)\nValue ID (\\d+)\nValue PROFILE_NAME (\\S+)\nValue ROLE (\\S+)\nValue PARENT_CHILD (\\d+)\nValue CIR (\\d+)\nValue EIR (\\d+)\nValue CBS (\\d+)\nValue EBS (\\d+)\nValue CLASSIFIER_A (\\S+)\nValue CLASSIFIER_B (\\S+)\n\n\nStart\n  ^\\+-+\\s*STANDARD\\s*PROFILE\\s*TABLE\\s*-+\\+\n  ^\\|\\s*Port\n  ^\\|\\s*\\|\\s*ID\n  ^\\+-+\\+\n  ^\\|\\s*${PORT}\\s*\\|\\s*${ID}\\s*\\|\\s*${PROFILE_NAME}\\s*\\|\\s*${ROLE}\\s*\\|\\s*${PARENT_CHILD}\\s*\\|\\s*${CIR}\\s*\\|\\s*${EIR}\\s*\\|\\s*${CBS}\\s*\\|\\s*${EBS}\\s*\\|\\s*${CLASSIFIER_A}\\s*\\|\\s*${CLASSIFIER_B}\\s*\\| -> Record\n  ^\\+-.*\n  ^\\s*$$\n  ^. -> Error\n  "
+}

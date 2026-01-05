@@ -1,0 +1,9 @@
+# TTP Template - FAILED VALIDATION
+# Original command: cisco_asa_show_module
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="cardtype_model_module_serial">
+  1 ASA 5506-X with SW, 8GE Data, 1GE Mgmt, AC  {{MODEL | ORPHRASE}}  JAD22466666
+ {{MODULE}} {{CARDTYPE | ORPHRASE}}  ASA5506  {{SERIAL | ORPHRASE}}
+</group>

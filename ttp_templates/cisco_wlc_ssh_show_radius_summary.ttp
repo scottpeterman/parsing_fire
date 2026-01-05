@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_radius_summary
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="accounting_call_station_id_type_aggressive_failover_ap_events_accounting">
+Call Station Id Case............................. {{CALL_STATION_ID_CASE | ORPHRASE}}
+<group name="authentication_addr_index_ipsec_region">
+{{INDEX}} * {{TYPE}} {{AUTHENTICATION_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{PORT | re("\\d+")}} {{STATE | ORPHRASE}} {{TIMEOUT}} {{MGMT_TIMEOUT}} {{RFC3576}} {{IPSEC_STATE | ORPHRASE}} - /{{IPSEC_REGION | ORPHRASE}}
+</group>
+</group>

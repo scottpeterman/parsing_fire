@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_vrf
+# Source: ntc
+# TextFSM rows: 8
+# TTP rows: 8
+# Match ratio: 1.00
+
+<group name="name_id_state_reason">
+{{NAME}} {{ID | re("\\d+")}} {{STATE | ORPHRASE}} {{REASON | ORPHRASE}}
+</group>

@@ -1,0 +1,125 @@
+{
+  "command": "ps",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 18,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"pid_tty_time_cmd\">\n    {{PID | re(\"\\\\d+\")}} {{TTY | re(\".*\\\\w.*\")}} {{TIME}} {{CMD | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "PID": "1",
+      "TTY": "?",
+      "TIME": "00:00:01",
+      "CMD": "init"
+    },
+    {
+      "PID": "2",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "kthreadd"
+    },
+    {
+      "PID": "3",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "ksoftirqd/0"
+    },
+    {
+      "PID": "4",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "kworker/0:0H"
+    },
+    {
+      "PID": "5",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "kworker/0:0"
+    },
+    {
+      "PID": "6",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "kworker/u16:0"
+    },
+    {
+      "PID": "7",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "kworker/u16:1"
+    },
+    {
+      "PID": "78",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "kworker/1:0H"
+    },
+    {
+      "PID": "115",
+      "TTY": "?",
+      "TIME": "00:00:01",
+      "CMD": "systemd-journal"
+    },
+    {
+      "PID": "136",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "systemd-udevd"
+    },
+    {
+      "PID": "156",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "systemd-networkd"
+    },
+    {
+      "PID": "162",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "systemd-resolved"
+    },
+    {
+      "PID": "222",
+      "TTY": "tty1",
+      "TIME": "00:00:00",
+      "CMD": "agetty"
+    },
+    {
+      "PID": "223",
+      "TTY": "tty2",
+      "TIME": "00:00:00",
+      "CMD": "agetty"
+    },
+    {
+      "PID": "235",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "sshd"
+    },
+    {
+      "PID": "237",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "bash"
+    },
+    {
+      "PID": "1045",
+      "TTY": "?",
+      "TIME": "00:03:15",
+      "CMD": "my_app"
+    },
+    {
+      "PID": "5690",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "app_helper"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "  PID TTY          TIME CMD\n    1 ?        00:00:01 init\n    2 ?        00:00:00 kthreadd\n    3 ?        00:00:00 ksoftirqd/0\n    4 ?        00:00:00 kworker/0:0H\n    5 ?        00:00:00 kworker/0:0\n    6 ?        00:00:00 kworker/u16:0\n    7 ?        00:00:00 kworker/u16:1\n   78 ?        00:00:00 kworker/1:0H\n  115 ?        00:00:01 systemd-journal\n  136 ?        00:00:00 systemd-udevd\n  156 ?        00:00:00 systemd-networkd\n  162 ?        00:00:00 systemd-resolved\n  222 tty1     00:00:00 agetty\n  223 tty2     00:00:00 agetty\n  235 ?        00:00:00 sshd\n  237 ?        00:00:00 bash\n1045 ?        00:03:15 my_app\n 5690 ?        00:00:00 app_helper\n",
+  "textfsm_template": "Value PID (\\d+)\nValue TTY (\\S+)\nValue TIME (\\d+:\\d+:\\d+)\nValue CMD (\\S+)\n\nStart\n  ^\\s*PID\\s+TTY\\s+TIME\\s+CMD\\s*$$\n  ^\\s*${PID}\\s+${TTY}\\s+${TIME}\\s+${CMD}\\s*$$ -> Record"
+}

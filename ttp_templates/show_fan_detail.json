@@ -1,0 +1,70 @@
+{
+  "command": "show fan detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"fan_id_speed_status\">\n{{FAN_ID}} {{SPEED}} {{STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FAN_ID": "Fan1",
+      "SPEED": "2500",
+      "STATUS": "Normal"
+    },
+    {
+      "FAN_ID": "Fan2",
+      "SPEED": "2600",
+      "STATUS": "Normal"
+    },
+    {
+      "FAN_ID": "Fan3",
+      "SPEED": "2000",
+      "STATUS": "Normal"
+    },
+    {
+      "FAN_ID": "Fan4",
+      "SPEED": "0",
+      "STATUS": "Stopped"
+    },
+    {
+      "FAN_ID": "Fan5",
+      "SPEED": "2300",
+      "STATUS": "Normal"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "fan_id_speed_status": [
+        {
+          "FAN_ID": "Fan1",
+          "SPEED": "2500",
+          "STATUS": "Normal"
+        },
+        {
+          "FAN_ID": "Fan2",
+          "SPEED": "2600",
+          "STATUS": "Normal"
+        },
+        {
+          "FAN_ID": "Fan3",
+          "SPEED": "2000",
+          "STATUS": "Normal"
+        },
+        {
+          "FAN_ID": "Fan4",
+          "SPEED": "0",
+          "STATUS": "Stopped"
+        },
+        {
+          "FAN_ID": "Fan5",
+          "SPEED": "2300",
+          "STATUS": "Normal"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Fan ID   Speed   Status\n------------------------------------\nFan1     2500    Normal\nFan2     2600    Normal\nFan3     2000    Normal\nFan4     0       Stopped\nFan5     2300    Normal\n",
+  "textfsm_template": "Value FAN_ID (\\S+)\nValue SPEED (\\d+)\nValue STATUS (\\S+)\n\nStart\n  ^\\s*Fan\\s+ID\\s+Speed\\s+Status\\s*$$\n  ^\\s*------------------------------------\\s*$$\n  ^\\s*${FAN_ID}\\s+${SPEED}\\s+${STATUS}\\s*$$ -> Record"
+}

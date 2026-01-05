@@ -1,0 +1,174 @@
+{
+  "command": "arista_eos_show_ip_bgp",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.6666666666666666,
+  "textfsm_rows": 9,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"local_as_router_id_vrf\">\nBGP routing table information for VRF {{VRF | ORPHRASE}}\n<group name=\"local_pref_metric_network\">\n * > {{NETWORK}} - {{METRIC}} {{LOCAL_PREF}} - {{ORIGIN | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "STATUS": "*",
+      "ROUTE_SOURCE": ">",
+      "NETWORK": "10.103.1.0/24",
+      "NEXT_HOP": "-",
+      "METRIC": "1",
+      "LOCAL_PREF": "0",
+      "WEIGHT": "-",
+      "ORIGIN": "i",
+      "VRF": "default",
+      "LOCAL_AS": "103",
+      "ROUTER_ID": "10.103.1.1"
+    },
+    {
+      "STATUS": "*",
+      "ROUTE_SOURCE": ">",
+      "NETWORK": "10.103.2.0/24",
+      "NEXT_HOP": "-",
+      "METRIC": "1",
+      "LOCAL_PREF": "0",
+      "WEIGHT": "-",
+      "ORIGIN": "i",
+      "VRF": "default",
+      "LOCAL_AS": "103",
+      "ROUTER_ID": "10.103.1.1"
+    },
+    {
+      "STATUS": "*",
+      "ROUTE_SOURCE": ">",
+      "NETWORK": "10.103.3.0/24",
+      "NEXT_HOP": "-",
+      "METRIC": "1",
+      "LOCAL_PREF": "0",
+      "WEIGHT": "-",
+      "ORIGIN": "i",
+      "VRF": "default",
+      "LOCAL_AS": "103",
+      "ROUTER_ID": "10.103.1.1"
+    },
+    {
+      "STATUS": "*",
+      "ROUTE_SOURCE": ">",
+      "NETWORK": "10.103.4.0/24",
+      "NEXT_HOP": "-",
+      "METRIC": "1",
+      "LOCAL_PREF": "0",
+      "WEIGHT": "-",
+      "ORIGIN": "i",
+      "VRF": "default",
+      "LOCAL_AS": "103",
+      "ROUTER_ID": "10.103.1.1"
+    },
+    {
+      "STATUS": "*",
+      "ROUTE_SOURCE": "#",
+      "NETWORK": "10.104.1.0/24",
+      "NEXT_HOP": "10.10.10.20",
+      "METRIC": "0",
+      "LOCAL_PREF": "100",
+      "WEIGHT": "0",
+      "AS_PATH": "104",
+      "ORIGIN": "i",
+      "VRF": "default",
+      "LOCAL_AS": "103",
+      "ROUTER_ID": "10.103.1.1"
+    },
+    {
+      "STATUS": "*",
+      "ROUTE_SOURCE": "#",
+      "NETWORK": "10.104.2.0/24",
+      "NEXT_HOP": "10.10.10.20",
+      "METRIC": "0",
+      "LOCAL_PREF": "100",
+      "WEIGHT": "0",
+      "AS_PATH": "104",
+      "ORIGIN": "i",
+      "VRF": "default",
+      "LOCAL_AS": "103",
+      "ROUTER_ID": "10.103.1.1"
+    },
+    {
+      "STATUS": "*",
+      "ROUTE_SOURCE": "#",
+      "NETWORK": "10.104.3.0/24",
+      "NEXT_HOP": "10.10.10.20",
+      "METRIC": "0",
+      "LOCAL_PREF": "100",
+      "WEIGHT": "0",
+      "AS_PATH": "104",
+      "ORIGIN": "i",
+      "VRF": "default",
+      "LOCAL_AS": "103",
+      "ROUTER_ID": "10.103.1.1"
+    },
+    {
+      "STATUS": "*",
+      "ROUTE_SOURCE": "#",
+      "NETWORK": "10.104.4.0/24",
+      "NEXT_HOP": "10.10.10.20",
+      "METRIC": "0",
+      "LOCAL_PREF": "100",
+      "WEIGHT": "0",
+      "AS_PATH": "104",
+      "ORIGIN": "i",
+      "VRF": "default",
+      "LOCAL_AS": "103",
+      "ROUTER_ID": "10.103.1.1"
+    },
+    {
+      "STATUS": "*",
+      "ROUTE_SOURCE": ">",
+      "NETWORK": "10.9.41.96/29",
+      "NEXT_HOP": "172.26.159.6",
+      "METRIC": "0",
+      "LOCAL_PREF": "5000",
+      "WEIGHT": "0",
+      "AS_PATH": "62222.4002",
+      "ORIGIN": "?",
+      "VRF": "INTERNET",
+      "LOCAL_AS": "62222.4003",
+      "ROUTER_ID": "172.26.159.40"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "local_as_router_id_vrf": [
+        {
+          "VRF": "default",
+          "local_pref_metric_network": [
+            {
+              "NETWORK": "10.103.1.0/24",
+              "METRIC": "1",
+              "LOCAL_PREF": "0",
+              "ORIGIN": "i"
+            },
+            {
+              "NETWORK": "10.103.2.0/24",
+              "METRIC": "1",
+              "LOCAL_PREF": "0",
+              "ORIGIN": "i"
+            },
+            {
+              "NETWORK": "10.103.3.0/24",
+              "METRIC": "1",
+              "LOCAL_PREF": "0",
+              "ORIGIN": "i"
+            },
+            {
+              "NETWORK": "10.103.4.0/24",
+              "METRIC": "1",
+              "LOCAL_PREF": "0",
+              "ORIGIN": "i"
+            }
+          ]
+        },
+        {
+          "VRF": "INTERNET"
+        }
+      ]
+    }
+  ],
+  "cli_content": "BGP routing table information for VRF default\nRouter identifier 10.103.1.1, local AS number 103\nRoute status codes: s - suppressed, * - valid, > - active, # - not installed, E - ECMP head, e - ECMP\n                    S - Stale, c - Contributing to ECMP, b - backup\nOrigin codes: i - IGP, e - EGP, ? - incomplete\nAS Path Attributes: Or-ID - Originator ID, C-LST - Cluster List, LL Nexthop - Link Local Nexthop\n\n       Network             Next Hop         Metric  LocPref Weight Path\n * >   10.103.1.0/24       -                1       0       -       i\n * >   10.103.2.0/24       -                1       0       -       i\n * >   10.103.3.0/24       -                1       0       -       i\n * >   10.103.4.0/24       -                1       0       -       i\n * #   10.104.1.0/24       10.10.10.20      0       100     0       104 i\n * #   10.104.2.0/24       10.10.10.20      0       100     0       104 i\n * #   10.104.3.0/24       10.10.10.20      0       100     0       104 i\n * #   10.104.4.0/24       10.10.10.20      0       100     0       104 i\nBGP routing table information for VRF INTERNET\nRouter identifier 172.26.159.40, local AS number 62222.4003\nRoute status codes: s - suppressed, * - valid, > - active, # - not installed, E - ECMP head, e - ECMP\n                    S - Stale, c - Contributing to ECMP, b - backup, L - labeled-unicast\nOrigin codes: i - IGP, e - EGP, ? - incomplete\nAS Path Attributes: Or-ID - Originator ID, C-LST - Cluster List, LL Nexthop - Link Local Nexthop\n\n         Network                Next Hop            Metric  LocPref Weight  Path\n * >     10.9.41.96/29          172.26.159.6          0       5000    0       62222.4002 ?\n",
+  "textfsm_template": "Value STATUS ([bceEisS*>#?])\nValue PATH_SELECTION ([bceEisS*>#? ])\nValue ROUTE_SOURCE ([bceEisS*>#? ])\nValue NETWORK (\\S+)\nValue NEXT_HOP (\\S+)\nValue METRIC (\\S+)\nValue LOCAL_PREF (\\S+)\nValue WEIGHT (\\S+)\nValue AS_PATH (.*?)\nValue ORIGIN ([ie\\?])\nValue Filldown VRF (\\S+)\nValue Filldown LOCAL_AS (\\d+\\.\\d+|\\d+)\nValue Filldown ROUTER_ID (\\S+)\n\nStart\n  ^BGP\\s+routing\\s+table\\s+information\\s+for\\s+VRF\\s+${VRF}\n  ^Router\\s+identifier\\s+${ROUTER_ID},\\s+local\\s+AS\\s+number\\s+${LOCAL_AS}\n  ^AS Path Attributes.+\n  ^\\s${STATUS}${PATH_SELECTION}${ROUTE_SOURCE}\\s+${NETWORK}\\s+${NEXT_HOP}\\s+${METRIC}\\s+${LOCAL_PREF}\\s+${WEIGHT}\\s+${AS_PATH}\\s+${ORIGIN}$$ -> Record\n\nEOF\n"
+}

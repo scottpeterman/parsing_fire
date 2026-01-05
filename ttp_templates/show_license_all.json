@@ -1,0 +1,50 @@
+{
+  "command": "show license all",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"expiry_date_feature_license_type_state\">\nFeature  : {{FEATURE | ORPHRASE}}\nLicense Type  : {{LICENSE_TYPE | ORPHRASE}}\nState  : {{STATE | ORPHRASE}}\nExpiry Date  : {{EXPIRY_DATE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FEATURE": "advanced-routing",
+      "LICENSE_TYPE": "Subscription",
+      "STATE": "Inactive",
+      "EXPIRY_DATE": "2024-12-31"
+    },
+    {
+      "FEATURE": "security",
+      "LICENSE_TYPE": "Evaluation",
+      "STATE": "Active, Not in use",
+      "EXPIRY_DATE": "2023-11-15"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "expiry_date_feature_license_type_state": [
+        {
+          "EXPIRY_DATE": "Not Applicable",
+          "STATE": "Active, In use",
+          "LICENSE_TYPE": "Permanent",
+          "FEATURE": "base"
+        },
+        {
+          "EXPIRY_DATE": "2024-12-31",
+          "STATE": "Inactive",
+          "LICENSE_TYPE": "Subscription",
+          "FEATURE": "advanced-routing"
+        },
+        {
+          "EXPIRY_DATE": "2023-11-15",
+          "STATE": "Active, Not in use",
+          "LICENSE_TYPE": "Evaluation",
+          "FEATURE": "security"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Feature                : base\nLicense Type           : Permanent\nState                  : Active, In use\nExpiry Date            : Not Applicable\n\nFeature                : advanced-routing\nLicense Type           : Subscription\nState                  : Inactive\nExpiry Date            : 2024-12-31\n\nFeature                : security\nLicense Type           : Evaluation\nState                  : Active, Not in use\nExpiry Date            : 2023-11-15\n",
+  "textfsm_template": "Value FEATURE (\\S+)\nValue LICENSE_TYPE (\\S+)\nValue STATE (.+)\nValue EXPIRY_DATE (\\S+)\n\nStart\n  ^Feature\\s+:\\s+${FEATURE}\\s*$$\n  ^License\\s+Type\\s+:\\s+${LICENSE_TYPE}\\s*$$\n  ^State\\s+:\\s+${STATE}\\s*$$\n  ^Expiry\\s+Date\\s+:\\s+${EXPIRY_DATE}\\s*$$ -> Record"
+}

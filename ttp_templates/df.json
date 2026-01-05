@@ -1,0 +1,132 @@
+{
+  "command": "df",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 7,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"filesystem_size_used_available_use_mounted_on\">\n{{FILESYSTEM}} {{SIZE}} {{USED}} {{AVAILABLE}} {{USE | ORPHRASE}} {{MOUNTED_ON | re(\".*\\\\w.*\")}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FILESYSTEM": "/dev/sda1",
+      "SIZE": "10060224",
+      "USED": "4254984",
+      "AVAILABLE": "5255250",
+      "USE": "45%",
+      "MOUNTED_ON": "/"
+    },
+    {
+      "FILESYSTEM": "none",
+      "SIZE": "4",
+      "USED": "0",
+      "AVAILABLE": "4",
+      "USE": "0%",
+      "MOUNTED_ON": "/dev"
+    },
+    {
+      "FILESYSTEM": "tmpfs",
+      "SIZE": "16445432",
+      "USED": "0",
+      "AVAILABLE": "16445432",
+      "USE": "0%",
+      "MOUNTED_ON": "/dev/shm"
+    },
+    {
+      "FILESYSTEM": "tmpfs",
+      "SIZE": "16445432",
+      "USED": "8764",
+      "AVAILABLE": "16436668",
+      "USE": "1%",
+      "MOUNTED_ON": "/run"
+    },
+    {
+      "FILESYSTEM": "/dev/sdb1",
+      "SIZE": "49023424",
+      "USED": "2334024",
+      "AVAILABLE": "44199380",
+      "USE": "5%",
+      "MOUNTED_ON": "/mnt/backup"
+    },
+    {
+      "FILESYSTEM": "/dev/sdc1",
+      "SIZE": "123094656",
+      "USED": "7287632",
+      "AVAILABLE": "115806024",
+      "USE": "6%",
+      "MOUNTED_ON": "/mnt/data"
+    },
+    {
+      "FILESYSTEM": "/dev/sr0",
+      "SIZE": "476",
+      "USED": "476",
+      "AVAILABLE": "0",
+      "USE": "100%",
+      "MOUNTED_ON": "/mnt/cdrom"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "filesystem_size_used_available_use_mounted_on": [
+        {
+          "FILESYSTEM": "Filesystem",
+          "SIZE": "1K-blocks",
+          "USED": "Used",
+          "AVAILABLE": "Available",
+          "USE": "Use%",
+          "MOUNTED_ON": "Mounted on"
+        },
+        {
+          "FILESYSTEM": "none",
+          "SIZE": "4",
+          "USED": "0",
+          "AVAILABLE": "4",
+          "USE": "0%",
+          "MOUNTED_ON": "/dev"
+        },
+        {
+          "FILESYSTEM": "tmpfs",
+          "SIZE": "16445432",
+          "USED": "0",
+          "AVAILABLE": "16445432",
+          "USE": "0%",
+          "MOUNTED_ON": "/dev/shm"
+        },
+        {
+          "FILESYSTEM": "tmpfs",
+          "SIZE": "16445432",
+          "USED": "8764",
+          "AVAILABLE": "16436668",
+          "USE": "1%",
+          "MOUNTED_ON": "/run"
+        },
+        {
+          "FILESYSTEM": "/dev/sdb1",
+          "SIZE": "49023424",
+          "USED": "2334024",
+          "AVAILABLE": "44199380",
+          "USE": "5%",
+          "MOUNTED_ON": "/mnt/backup"
+        },
+        {
+          "FILESYSTEM": "/dev/sdc1",
+          "SIZE": "123094656",
+          "USED": "7287632",
+          "AVAILABLE": "115806024",
+          "USE": "6%",
+          "MOUNTED_ON": "/mnt/data"
+        },
+        {
+          "FILESYSTEM": "/dev/sr0",
+          "SIZE": "476",
+          "USED": "476",
+          "AVAILABLE": "0",
+          "USE": "100%",
+          "MOUNTED_ON": "/mnt/cdrom"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Filesystem                     1K-blocks       Used   Available Use% Mounted on\n/dev/sda1                       10060224    4254984      5255250  45% /\nnone                                    4          0            4   0% /dev\ntmpfs                           16445432          0     16445432   0% /dev/shm\ntmpfs                           16445432       8764     16436668   1% /run\n/dev/sdb1                       49023424    2334024     44199380   5% /mnt/backup\n/dev/sdc1                      123094656    7287632    115806024   6% /mnt/data\n/dev/sr0                             476       476            0 100% /mnt/cdrom\n",
+  "textfsm_template": "Value FILESYSTEM (\\S+)\nValue SIZE (\\d+)\nValue USED (\\d+)\nValue AVAILABLE (\\d+)\nValue USE (\\d+%)\nValue MOUNTED_ON (\\S+)\n\nStart\n  ^\\s*Filesystem\\s+1K-blocks\\s+Used\\s+Available\\s+Use%\\s+Mounted on\\s*$$\n  ^\\s*${FILESYSTEM}\\s+${SIZE}\\s+${USED}\\s+${AVAILABLE}\\s+${USE}\\s+${MOUNTED_ON}\\s*$$ -> Record"
+}

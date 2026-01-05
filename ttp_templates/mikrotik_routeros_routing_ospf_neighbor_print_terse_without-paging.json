@@ -1,0 +1,80 @@
+{
+  "command": "mikrotik_routeros_routing_ospf_neighbor_print_terse_without-paging",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"index_instance_router_id_address_interface_priority_dr_address_backup_dr_address_state_state_changes_ls_retransmits_ls_requests_db_summaries_adjacency\">\n {{INDEX}} instance={{INSTANCE}} router-id={{ROUTER_ID}} address={{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} interface={{INTERFACE}} priority={{PRIORITY}} dr-address={{DR_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} backup-dr-address={{BACKUP_DR_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} state={{STATE | ORPHRASE}} state-changes={{STATE_CHANGES | ORPHRASE}} ls-retransmits={{LS_RETRANSMITS}} ls-requests={{LS_REQUESTS}} db-summaries={{DB_SUMMARIES}} adjacency={{ADJACENCY | ORPHRASE}}\n</group>\n<group name=\"index_instance_router_id_address_interface_priority_dr_address_backup_dr_address_state_state_changes_ls_retransmits_ls_requests_db_summaries\">\n {{INDEX}} instance={{INSTANCE}} router-id={{ROUTER_ID}} address={{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} interface={{INTERFACE}} priority={{PRIORITY}} dr-address={{DR_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} backup-dr-address={{BACKUP_DR_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} state={{STATE | ORPHRASE}} state-changes={{STATE_CHANGES | ORPHRASE}} ls-retransmits={{LS_RETRANSMITS}} ls-requests={{LS_REQUESTS}} db-summaries={{DB_SUMMARIES}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INDEX": "0",
+      "INSTANCE": "default",
+      "ROUTER_ID": "1.2.3.4",
+      "ADDRESS": "1.2.3.58",
+      "INTERFACE": "vlan1",
+      "PRIORITY": "128",
+      "DR_ADDRESS": "0.0.0.0",
+      "BACKUP_DR_ADDRESS": "0.0.0.0",
+      "STATE": "Full",
+      "STATE_CHANGES": "5",
+      "LS_RETRANSMITS": "0",
+      "LS_REQUESTS": "0",
+      "DB_SUMMARIES": "0",
+      "ADJACENCY": "7w5d8h47m54s"
+    },
+    {
+      "INDEX": "1",
+      "INSTANCE": "default",
+      "ROUTER_ID": "1.2.3.5",
+      "ADDRESS": "1.2.3.59",
+      "INTERFACE": "vlan2",
+      "PRIORITY": "128",
+      "DR_ADDRESS": "0.0.0.0",
+      "BACKUP_DR_ADDRESS": "0.0.0.0",
+      "STATE": "Full",
+      "STATE_CHANGES": "5",
+      "LS_RETRANSMITS": "0",
+      "LS_REQUESTS": "0",
+      "DB_SUMMARIES": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "index_instance_router_id_address_interface_priority_dr_address_backup_dr_address_state_state_changes_ls_retransmits_ls_requests_db_summaries_adjacency": {
+        "INDEX": "0",
+        "INSTANCE": "default",
+        "ROUTER_ID": "1.2.3.4",
+        "ADDRESS": "1.2.3.58",
+        "INTERFACE": "vlan1",
+        "PRIORITY": "128",
+        "DR_ADDRESS": "0.0.0.0",
+        "BACKUP_DR_ADDRESS": "0.0.0.0",
+        "STATE": "Full",
+        "STATE_CHANGES": "5",
+        "LS_RETRANSMITS": "0",
+        "LS_REQUESTS": "0",
+        "DB_SUMMARIES": "0",
+        "ADJACENCY": "7w5d8h47m54s"
+      },
+      "index_instance_router_id_address_interface_priority_dr_address_backup_dr_address_state_state_changes_ls_retransmits_ls_requests_db_summaries": {
+        "INDEX": "1",
+        "INSTANCE": "default",
+        "ROUTER_ID": "1.2.3.5",
+        "ADDRESS": "1.2.3.59",
+        "INTERFACE": "vlan2",
+        "PRIORITY": "128",
+        "DR_ADDRESS": "0.0.0.0",
+        "BACKUP_DR_ADDRESS": "0.0.0.0",
+        "STATE": "Full",
+        "STATE_CHANGES": "5",
+        "LS_RETRANSMITS": "0",
+        "LS_REQUESTS": "0",
+        "DB_SUMMARIES": "0"
+      }
+    }
+  ],
+  "cli_content": " 0 instance=default router-id=1.2.3.4 address=1.2.3.58 interface=vlan1 priority=128 dr-address=0.0.0.0 backup-dr-address=0.0.0.0 state=Full state-changes=5 ls-retransmits=0 ls-requests=0 db-summaries=0 adjacency=7w5d8h47m54s\n 1 instance=default router-id=1.2.3.5 address=1.2.3.59 interface=vlan2 priority=128 dr-address=0.0.0.0 backup-dr-address=0.0.0.0 state=Full state-changes=5 ls-retransmits=0 ls-requests=0 db-summaries=0\n",
+  "textfsm_template": "Value INDEX (\\d+)\nValue INSTANCE (\\S+)\nValue ROUTER_ID (\\S+)\nValue ADDRESS (\\S+)\nValue INTERFACE (\\S+)\nValue PRIORITY (\\d+)\nValue DR_ADDRESS (\\S+)\nValue BACKUP_DR_ADDRESS (\\S+)\nValue STATE (\\S+)\nValue STATE_CHANGES (\\d+)\nValue LS_RETRANSMITS (\\d+)\nValue LS_REQUESTS (\\d+)\nValue DB_SUMMARIES (\\d+)\nValue ADJACENCY (\\S+)\n\nStart\n  ^\\s*${INDEX}\\s+instance=${INSTANCE}\\s+router-id=${ROUTER_ID}\\s+address=${ADDRESS}\\s+interface=${INTERFACE}\\s+priority=${PRIORITY}(\\s+dr-address=${DR_ADDRESS})?(\\s+backup-dr-address=${BACKUP_DR_ADDRESS})?(\\s+state=${STATE})?(\\s+state-changes=${STATE_CHANGES})?(\\s+ls-retransmits=${LS_RETRANSMITS})?(\\s+ls-requests=${LS_REQUESTS})?(\\s+db-summaries=${DB_SUMMARIES})?(\\s+adjacency=${ADJACENCY})?\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

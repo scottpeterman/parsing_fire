@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: linux_ip_route_show
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 4
+# Match ratio: 1.33
+
+<group name="network_nexthop_ip_nexthop_if">
+{{NETWORK}} via {{NEXTHOP_IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} dev {{NEXTHOP_IF | ORPHRASE}}
+</group>
+<group name="network_nexthop_if_protocol_scope_src">
+{{NETWORK}} dev {{NEXTHOP_IF}} proto {{PROTOCOL}} scope {{SCOPE}} src {{SRC | ORPHRASE}}
+</group>

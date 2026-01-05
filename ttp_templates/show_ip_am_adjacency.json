@@ -1,0 +1,62 @@
+{
+  "command": "show ip am adjacency",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"protocol_address_age_hw_address_type\">\n         {{PROTOCOL}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{AGE}} {{HW_ADDRESS}} {{TYPE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "Internet",
+      "ADDRESS": "10.0.0.2",
+      "AGE": "1",
+      "HW_ADDRESS": "5e00.0000.0001",
+      "TYPE": "ARPA"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "ADDRESS": "10.0.0.3",
+      "AGE": "15",
+      "HW_ADDRESS": "5e00.0000.0002",
+      "TYPE": "ARPA"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "ADDRESS": "10.0.0.4",
+      "AGE": "5",
+      "HW_ADDRESS": "5e00.0000.0003",
+      "TYPE": "ARPA"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "protocol_address_age_hw_address_type": [
+        {
+          "PROTOCOL": "Internet",
+          "ADDRESS": "10.0.0.2",
+          "AGE": "1",
+          "HW_ADDRESS": "5e00.0000.0001",
+          "TYPE": "ARPA"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "ADDRESS": "10.0.0.3",
+          "AGE": "15",
+          "HW_ADDRESS": "5e00.0000.0002",
+          "TYPE": "ARPA"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "ADDRESS": "10.0.0.4",
+          "AGE": "5",
+          "HW_ADDRESS": "5e00.0000.0003",
+          "TYPE": "ARPA"
+        }
+      ]
+    }
+  ],
+  "cli_content": "         Protocol    Address          Age (min)   Hardware Addr   Type\n         Internet    10.0.0.2                1   5e00.0000.0001   ARPA\n         Internet    10.0.0.3               15   5e00.0000.0002   ARPA\n         Internet    10.0.0.4                5   5e00.0000.0003   ARPA\n",
+  "textfsm_template": "Value PROTOCOL (\\w+)\nValue ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue AGE (\\d+)\nValue HW_ADDRESS (\\S+)\nValue TYPE (\\w+)\n\nStart\n  ^\\s*Protocol\\s+Address\\s+Age\\s+\\(min\\)\\s+Hardware\\s+Addr\\s+Type\\s*$$\n  ^\\s*${PROTOCOL}\\s+${ADDRESS}\\s+${AGE}\\s+${HW_ADDRESS}\\s+${TYPE}\\s*$$ -> Record"
+}

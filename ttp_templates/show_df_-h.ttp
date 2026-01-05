@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show df -h
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 6
+# Match ratio: 1.20
+
+<group name="fs_size_used_avail_use_mount">
+{{FS}} {{SIZE}} {{USED}} {{AVAIL}} {{USE}} {{MOUNT | ORPHRASE}}
+</group>

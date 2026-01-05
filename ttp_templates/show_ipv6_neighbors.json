@@ -1,0 +1,69 @@
+{
+  "command": "show ipv6 neighbors",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"ipv6_address_age_link_layer_addr_state_interface\">\n{{IPV6_ADDRESS}} {{AGE}} {{LINK_LAYER_ADDR}} {{STATE | ORPHRASE}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IPV6_ADDRESS": "fe80::1a2b:3c4d:5e6f:7g8h",
+      "AGE": "2",
+      "LINK_LAYER_ADDR": "00:1A:2B:3C:4D:5E",
+      "STATE": "REACH",
+      "INTERFACE": "Eth0/0"
+    },
+    {
+      "IPV6_ADDRESS": "fe80::2b3c:4d5e:6f7g:8h9i",
+      "AGE": "9",
+      "LINK_LAYER_ADDR": "00:2B:3C:4D:5E:6F",
+      "STATE": "STALE",
+      "INTERFACE": "Eth0/1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ipv6_address_age_link_layer_addr_state_interface": [
+        {
+          "IPV6_ADDRESS": "IPv6",
+          "AGE": "Address",
+          "LINK_LAYER_ADDR": "Age",
+          "STATE": "Link-layer",
+          "INTERFACE": "Addr State Interface"
+        },
+        {
+          "IPV6_ADDRESS": "fe80::1a2b:3c4d:5e6f:7g8h",
+          "AGE": "2",
+          "LINK_LAYER_ADDR": "00:1A:2B:3C:4D:5E",
+          "STATE": "REACH",
+          "INTERFACE": "Eth0/0"
+        },
+        {
+          "IPV6_ADDRESS": "fe80::2b3c:4d5e:6f7g:8h9i",
+          "AGE": "9",
+          "LINK_LAYER_ADDR": "00:2B:3C:4D:5E:6F",
+          "STATE": "STALE",
+          "INTERFACE": "Eth0/1"
+        },
+        {
+          "IPV6_ADDRESS": "2001:db8:1::1",
+          "AGE": "15",
+          "LINK_LAYER_ADDR": "00:3C:4D:5E:6F:7G",
+          "STATE": "REACH",
+          "INTERFACE": "Eth1/0"
+        },
+        {
+          "IPV6_ADDRESS": "2001:db8:2::2",
+          "AGE": "43",
+          "LINK_LAYER_ADDR": "00:4D:5E:6F:7G:8H",
+          "STATE": "DELAY",
+          "INTERFACE": "Eth1/1"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IPv6 Address                              Age Link-layer Addr State Interface\nfe80::1a2b:3c4d:5e6f:7g8h                   2 00:1A:2B:3C:4D:5E REACH Eth0/0\nfe80::2b3c:4d5e:6f7g:8h9i                   9 00:2B:3C:4D:5E:6F STALE Eth0/1\n2001:db8:1::1                               15 00:3C:4D:5E:6F:7G REACH Eth1/0\n2001:db8:2::2                               43 00:4D:5E:6F:7G:8H DELAY Eth1/1\n",
+  "textfsm_template": "Value IPV6_ADDRESS (\\S+)\nValue AGE (\\d+)\nValue LINK_LAYER_ADDR ([0-9A-Fa-f:]+)\nValue STATE (\\S+)\nValue INTERFACE (\\S+)\n\nStart\n  ^\\s*IPv6 Address\\s+Age\\s+Link-layer\\s+Addr\\s+State\\s+Interface\\s*$$\n  ^\\s*${IPV6_ADDRESS}\\s+${AGE}\\s+${LINK_LAYER_ADDR}\\s+${STATE}\\s+${INTERFACE}\\s*$$ -> Record"
+}

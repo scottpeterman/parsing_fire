@@ -1,0 +1,32 @@
+{
+  "command": "arista_eos_show_vrf",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"vrf_rd\">\n   {{VRF}} {{RD | ORPHRASE}} ipv4,ipv6 v4:routing; multicast, Ethernet10, Ethernet20/1,\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VRF": "red",
+      "RD": "<not set>",
+      "INTERFACES": "Ethernet10, Ethernet20/1, Loopback0, Vlan100, Vlan200"
+    },
+    {
+      "VRF": "blue",
+      "RD": "1:1",
+      "INTERFACES": "Ethernet20/1.10, Loopback1, Port-Channel1.20"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vrf_rd": {
+        "VRF": "red",
+        "RD": "<not set>"
+      }
+    }
+  ],
+  "cli_content": "Maximum number of vrfs allowed: 1023\n   VRF           RD              Protocols       State                     Interfaces\n------------- --------------- --------------- ---------------------------- ---------------------------\n   red           <not set>       ipv4,ipv6       v4:routing; multicast,    Ethernet10, Ethernet20/1,\n                                                 v6:no routing             Loopback0, Vlan100,\n                                                                           Vlan200\n   blue          1:1             ipv4,ipv6       v4:routing,               Ethernet20/1.10, Loopback1,\n                                                 v6:no routing             Port-Channel1.20\n\n",
+  "textfsm_template": "Value VRF (\\S+)\nValue RD (\\d\\S+|<.+>)\nValue List INTERFACES ([\\w\\./-]+)\n\nStart\n  ^\\s+V[rR][fF]\\s+RD\\s+Protocols\\s+State\\s+Interfaces -> VRF\n  ^Maximum\n  ^\\s*$$\n  ^. -> Error\n\nVRF\n  # match a vrf with interfaces\n  # key on the first line of a VRF\n  ^\\s+\\S+\\s+(\\d\\S+|<.+>)\\s+\\S+\\s+(\\S+:?\\S+(?:\\s\\S+)*).*$$ -> Continue.Record\n  #\n  ################# First lines of VRF ###################\n  #\n  # match first line of vrf, first interface and it is the last interface\n  ^\\s+${VRF}\\s+${RD}\\s+\\S+\\s+\\S+:\\S+(\\s\\S+)*,?\\s+${INTERFACES}\\s*$$ -> Continue\n  #\n  # match first line of a vrf, first interface and it is not the last interface\n  ^\\s+${VRF}\\s+${RD}\\s+\\S+\\s+\\S+:\\S+(\\s\\S+)*,\\s+${INTERFACES}, -> Continue\n  #\n  # match first line of a vrf, second interface and it is the last interface\n  # two interfaces displayed per line\n  ^\\s+\\S+\\s+\\S+(\\s\\S+)*\\s+\\S+\\s+\\S+:\\S+(\\s\\S+)*,?\\s+(?:\\S+,\\s){1}${INTERFACES}\\s*$$ -> Continue\n  #\n  # match first line of a vrf, third interface and it is the last interface\n  # three interfaces displayed per line\n  ^\\s+\\S+\\s+\\S+(\\s\\S+)*\\s+\\S+\\s+\\S+:\\S+(\\s\\S+)*,?\\s+(?:\\S+,\\s){2}${INTERFACES}\\s*$$ -> Continue\n  #\n  # match first line of a vrf, second interface when there are more than two interfaces\n  # two or three interfaces displayed per line\n  ^\\s+\\S+\\s+\\S+(\\s\\S+)*\\s+\\S+\\s+\\S+:\\S+(\\s\\S+)*,?\\s+(?:\\S+,\\s){1}${INTERFACES}, -> Continue\n  #\n  # match first line of a vrf, third interface when there are more than three Interfaces\n  # three interfaces displayed per line\n  ^\\s+\\S+\\s+\\S+(\\s\\S+)*\\s+\\S+\\s+\\S+:\\S+(\\s\\S+)*,?\\s+(?:\\S+,\\s){2}${INTERFACES}, -> Continue\n  #\n  ############## Lines that contains state ##################\n  #\n  # match state only line\n  ^\\s+(\\S+:\\S+(?:\\s\\S+)*)\\s*$$\n  #\n  # match first interface of the line when it also has a state and it is the last interface\n  ^\\s+(\\S+:\\S+(?:\\s\\S+)*)\\s+${INTERFACES}?\\s*$$ -> Continue\n  #\n  # match first interface of the line when it also has a state and it is not the last interface\n  ^\\s+\\S+:\\S+(\\s\\S+)*\\s+${INTERFACES}, -> Continue\n  #\n  # match second interface of the line when it also has a state and it is the last interface\n  # two interfaces displayed per line\n  ^\\s+\\S+:\\S+(\\s\\S+)*\\s+(?:\\S+,\\s){1}${INTERFACES}\\s*$$ -> Continue\n  #\n  # match third interface of the line when it also has a state and it is the last interface\n  # three interfaces displayed per line\n  ^\\s+\\S+:\\S+(\\s\\S+)*\\s+(?:\\S+,\\s){2}${INTERFACES}\\s*$$ -> Continue\n  #\n  # match second interface of the line when it also has a state and it is not the last interface\n  # two or three interfaces displayed per line\n  ^\\s+\\S+:\\S+(\\s\\S+)*\\s+(?:\\S+,\\s){1}${INTERFACES}, -> Continue\n  #\n  # match third interface of the line when it also has a state and it is not the last interface\n  # three interfaces displayed per line\n  ^\\s+\\S+:\\S+(\\s\\S+)*\\s+(?:\\S+,\\s){2}${INTERFACES}, -> Continue\n  #\n  ################# Lines that have whitespace preceding the interface list ####################\n  #\n  #\n  # match first interface of the line when it only has whitespace and it is the last interface\n  ^\\s+${INTERFACES}\\s*$$ -> Continue\n  #\n  # match first interface of the line when it only has whitespace and it is not the last interface\n  ^\\s+${INTERFACES}, -> Continue\n  #\n  # match second interface of the line when it only has whitespace and it is the last interface\n  # two interfaces displayed per line\n  ^\\s+(?:\\S+,\\s){1}${INTERFACES}\\s*$$ -> Continue\n  #\n  # match third interface of the line when it only has whitespace and it is the last interface\n  # three interfaces displayed per line\n  ^\\s+(?:\\S+,\\s){2}${INTERFACES}\\s*$$ -> Continue\n  #\n  # match second interface of the line when it only has whitespace and it is not the last interface\n  # two or three interfaces displayed per line\n  ^\\s+(?:\\S+,\\s){1}${INTERFACES}, -> Continue\n  #\n  # match third interface of the line when it only has whitespace and it is not the last interface\n  # three interfaces displayed per line\n  ^\\s+(?:\\S+,\\s){2}${INTERFACES}, -> Continue\n  #\n  ################## For vrfs without interfaces ###################\n  #\n  # match vrf line with no interfaces\n  ^\\s+${VRF}\\s+${RD}\\s+\\S+\\s+\\S+:\\S+(\\s\\S+)*,?\\s+$$"
+}

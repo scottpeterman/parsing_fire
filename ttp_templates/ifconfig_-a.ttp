@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: ifconfig -a
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 2
+# Match ratio: 2.00
+
+<group name="rx_packets_rx_errors_rx_dropped_rx_overruns_rx_frame">
+          {{RX_PACKETS | ORPHRASE}} {{RX_ERRORS}} {{RX_DROPPED}} {{RX_OVERRUNS | re("[\\d\\.\\(\\)A-Za-z]+")}} {{RX_FRAME | ORPHRASE}}
+</group>

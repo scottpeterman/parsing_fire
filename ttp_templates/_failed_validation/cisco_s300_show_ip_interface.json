@@ -1,0 +1,23 @@
+{
+  "command": "cisco_s300_show_ip_interface",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 1,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"ip_interface_type_status\">\n{{IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE | ORPHRASE}} {{TYPE}} {{STATUS | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "IP": "10.255.1.72/16",
+      "INTERFACE": "vlan 255",
+      "TYPE": "Static",
+      "STATUS": "Valid"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "  Gateway IP Address        Activity status       Type\n----------------------- ----------------------- --------\n10.255.1.51             Active                  static\n\n\n    IP Address         I/F       Type       Status\n------------------- --------- ----------- -----------\n10.255.1.72/16      vlan 255  Static      Valid\n",
+  "textfsm_template": "Value IP (\\S+)\nValue INTERFACE (\\S+(?:\\s\\d+)?)\nValue INTERFACE_STATUS_ADMIN_OPER (\\S+/\\S+)\nValue TYPE (Static|DHCP)\nValue STATUS (\\S+)\n\nStart\n  ^\\s*Gateway\\s+IP\\s+Address\\s+Activity\\s+status\\s+Type\\s*$$ -> Gateway\n  ^\\s*IP\\s+Address\\s+I/F\\s+Type\\s+Status\\s*$$ -> IpAddress4Column\n  ^\\s*IP\\s+Address\\s+I/F\\s+I/F\\s+Status\\s+Type\\s+Status\\s*$$ -> IpAddress5Column\n  ^\\s*$$\n  ^. -> Error\n\nGateway\n  ^(\\s*-*)*\\s*$$\n  ^\\s*IP\\s+Address\\s+I/F\\s+Type\\s+Status\\s*$$ -> IpAddress4Column\n  ^\\s*\\S+\\s+\\S+\\s+\\S+\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n\nIpAddress4Column\n  ^(\\s*-*)*\\s*$$\n  ^\\s*${IP}\\s+${INTERFACE}\\s+${TYPE}\\s+${STATUS}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n\nIpAddress5Column\n  ^\\s*admin/oper\\s*$$\n  ^(\\s*-*)*\\s*$$\n  ^\\s*Gateway\\s+IP\\s+Address\\s+Activity\\s+status\\s+Type\\s*$$ -> Gateway\n  ^\\s*${IP}\\s+${INTERFACE}\\s+${INTERFACE_STATUS_ADMIN_OPER}\\s+${TYPE}\\s+${STATUS}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show high-availability
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 4
+# Match ratio: 1.33
+
+<group name="state">
+State: {{STATE | ORPHRASE}}
+</group>
+<group name="interface">
+Interface: {{INTERFACE | ORPHRASE}}
+</group>
+<group name="failures_missed_heartbeats_failovers">
+Last Transition: 2{{FAILURES}}23-{{MISSED_HEARTBEATS}}9-25 {{FAILOVERS | ORPHRASE}}2:45:36
+</group>

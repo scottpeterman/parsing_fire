@@ -1,0 +1,60 @@
+{
+  "command": "cisco_ios_show_environment_temperature",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"hotspot_red_threshold_hotspot_temperature_state_hotspot_temperature_value_hotspot_yellow_threshold\">\nSwitch 1: SYSTEM TEMPERATURE is {{SWITCH_TEMPERATURE | ORPHRASE}}\nInlet Temperature Value: {{SWITCH | ORPHRASE}}9 Degree Celsius\nTemperature State: {{INLET_TEMPERATURE_STATE | ORPHRASE}}\nYellow Threshold : {{INLET_YELLOW_THRESHOLD | ORPHRASE}} Degree Celsius\nRed Threshold  : {{INLET_RED_THRESHOLD | ORPHRASE}} Degree Celsius\nYellow Threshold : {{HOTSPOT_YELLOW_THRESHOLD | ORPHRASE}} Degree Celsius\nRed Threshold  : {{HOTSPOT_RED_THRESHOLD | ORPHRASE}} Degree Celsius\nInlet Temperature Value: {{INLET_TEMPERATURE_VALUE | ORPHRASE}} Degree Celsius\nHotspot Temperature Value: {{HOTSPOT_TEMPERATURE_VALUE | ORPHRASE}} Degree Celsius\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SWITCH": "1",
+      "SWITCH_TEMPERATURE": "OK",
+      "INLET_TEMPERATURE_VALUE": "29",
+      "INLET_TEMPERATURE_STATE": "GREEN",
+      "INLET_YELLOW_THRESHOLD": "46",
+      "INLET_RED_THRESHOLD": "56",
+      "HOTSPOT_TEMPERATURE_VALUE": "67",
+      "HOTSPOT_TEMPERATURE_STATE": "GREEN",
+      "HOTSPOT_YELLOW_THRESHOLD": "105",
+      "HOTSPOT_RED_THRESHOLD": "125"
+    },
+    {
+      "SWITCH": "2",
+      "SWITCH_TEMPERATURE": "OK",
+      "INLET_TEMPERATURE_VALUE": "28",
+      "INLET_TEMPERATURE_STATE": "GREEN",
+      "INLET_YELLOW_THRESHOLD": "46",
+      "INLET_RED_THRESHOLD": "56",
+      "HOTSPOT_TEMPERATURE_VALUE": "69",
+      "HOTSPOT_TEMPERATURE_STATE": "GREEN",
+      "HOTSPOT_YELLOW_THRESHOLD": "105",
+      "HOTSPOT_RED_THRESHOLD": "125"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "hotspot_red_threshold_hotspot_temperature_state_hotspot_temperature_value_hotspot_yellow_threshold": [
+        {
+          "INLET_RED_THRESHOLD": "56",
+          "INLET_YELLOW_THRESHOLD": "46",
+          "INLET_TEMPERATURE_STATE": "GREEN",
+          "HOTSPOT_TEMPERATURE_VALUE": "67",
+          "SWITCH": "2",
+          "SWITCH_TEMPERATURE": "OK"
+        },
+        {
+          "INLET_RED_THRESHOLD": "56",
+          "INLET_YELLOW_THRESHOLD": "46",
+          "INLET_TEMPERATURE_STATE": "GREEN",
+          "HOTSPOT_TEMPERATURE_VALUE": "69",
+          "SWITCH": "2",
+          "SWITCH_TEMPERATURE": "OK"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Switch 1: SYSTEM TEMPERATURE is OK\nInlet Temperature Value: 29 Degree Celsius\nTemperature State: GREEN\nYellow Threshold : 46 Degree Celsius\nRed Threshold    : 56 Degree Celsius\n\nHotspot Temperature Value: 67 Degree Celsius\nTemperature State: GREEN\nYellow Threshold : 105 Degree Celsius\nRed Threshold    : 125 Degree Celsius\nSwitch 2: SYSTEM TEMPERATURE is OK\nInlet Temperature Value: 28 Degree Celsius\nTemperature State: GREEN\nYellow Threshold : 46 Degree Celsius\nRed Threshold    : 56 Degree Celsius\n\nHotspot Temperature Value: 69 Degree Celsius\nTemperature State: GREEN\nYellow Threshold : 105 Degree Celsius\nRed Threshold    : 125 Degree Celsius",
+  "textfsm_template": "Value SWITCH (\\d+)\nValue SWITCH_TEMPERATURE (\\w+)\nValue INLET_TEMPERATURE_VALUE (\\d+)\nValue INLET_TEMPERATURE_STATE (\\S+)\nValue INLET_YELLOW_THRESHOLD (\\d+)\nValue INLET_RED_THRESHOLD (\\d+)\nValue HOTSPOT_TEMPERATURE_VALUE (\\d+)\nValue HOTSPOT_TEMPERATURE_STATE (\\S+)\nValue HOTSPOT_YELLOW_THRESHOLD (\\d+)\nValue HOTSPOT_RED_THRESHOLD (\\d+)\n\nStart\n  ^Switch\\s+\\d -> Continue.Record\n  ^Switch\\s+${SWITCH}:\\s+SYSTEM\\s+TEMPERATURE\\s+is\\s+${SWITCH_TEMPERATURE}\\s*$$\n  ^Inlet\\s+Temperature\\s+Value:\\s+${INLET_TEMPERATURE_VALUE}\\s+Degree\\s+Celsius\\s*$$ -> Inlet\n  ^Hotspot\\s+Temperature\\s+Value:\\s+${HOTSPOT_TEMPERATURE_VALUE}\\s+Degree\\s+Celsius\\s*$$ -> Hotspot\n  ^\\s*$$\n  ^. -> Error \n \nInlet\n  ^Temperature\\s+State:\\s+${INLET_TEMPERATURE_STATE}\\s*$$\n  ^Yellow\\s+Threshold\\s+:\\s+${INLET_YELLOW_THRESHOLD}\\s+Degree\\s+Celsius\\s*$$\n  ^Red\\s+Threshold\\s+:\\s+${INLET_RED_THRESHOLD}\\s+Degree\\s+Celsius\\s*$$\n  ^Hotspot\\s+Temperature\\s+Value:\\s+${HOTSPOT_TEMPERATURE_VALUE}\\s+Degree\\s+Celsius\\s*$$ -> Hotspot\n  ^Switch\\s+\\d -> Continue.Record\n  ^Switch\\s+${SWITCH}:\\s+SYSTEM\\s+TEMPERATURE\\s+is\\s+${SWITCH_TEMPERATURE}\\s*$$ -> Start\n  ^\\s*$$\n  ^. -> Error \n \nHotspot\n  ^Temperature\\s+State:\\s+${HOTSPOT_TEMPERATURE_STATE}\\s*$$\n  ^Yellow\\s+Threshold\\s+:\\s+${HOTSPOT_YELLOW_THRESHOLD}\\s+Degree\\s+Celsius\\s*$$\n  ^Red\\s+Threshold\\s+:\\s+${HOTSPOT_RED_THRESHOLD}\\s+Degree\\s+Celsius\\s*$$\n  ^Switch\\s+\\d -> Continue.Record\n  ^Switch\\s+${SWITCH}:\\s+SYSTEM\\s+TEMPERATURE\\s+is\\s+${SWITCH_TEMPERATURE}\\s*$$ -> Start\n  ^Inlet\\s+Temperature\\s+Value:\\s+${INLET_TEMPERATURE_VALUE}\\s+Degree\\s+Celsius\\s*$$ -> Inlet\n  ^\\s*$$\n  ^. -> Error\n\n"
+}

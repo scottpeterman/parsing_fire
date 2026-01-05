@@ -1,0 +1,154 @@
+{
+  "command": "hp_procurve_show_lldp_info_remote-device_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.375,
+  "textfsm_rows": 8,
+  "ttp_rows": 19,
+  "ttp_template": "<group name=\"chassis_id\">\n  ChassisId : {{CHASSIS_ID | ORPHRASE}} \n</group>\n<group name=\"neighbor_chassis_type\">\n  ChassisType : {{NEIGHBOR_CHASSIS_TYPE | ORPHRASE}} \n</group>\n<group name=\"capabilities_supported\">\n  System Capabilities Supported : {{CAPABILITIES_SUPPORTED | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOCAL_INTERFACE": "1",
+      "NEIGHBOR_CHASSIS_TYPE": "mac-address",
+      "CHASSIS_ID": "3821c7-c1cd00",
+      "PORT_TYPE": "local",
+      "NEIGHBOR_INTERFACE": "1",
+      "NEIGHBOR_NAME": "65432p-swi006-abcd-srvroom-4asd",
+      "NEIGHBOR_DESCRIPTION": "Aruba JL357A 2540-48G-PoE+-4SFP+ Switch, revision YC.16.0...",
+      "NEIGHBOR_INTERFACE_DESCRIPTION": "1",
+      "VLAN_ID": "0",
+      "CAPABILITIES_SUPPORTED": "bridge, router",
+      "CAPABILITIES": "bridge",
+      "MGMT_ADDRESS": "192.168.130.100"
+    },
+    {
+      "LOCAL_INTERFACE": "3",
+      "NEIGHBOR_CHASSIS_TYPE": "mac-address",
+      "CHASSIS_ID": "3ce1a1-2218f0",
+      "PORT_TYPE": "mac-address",
+      "NEIGHBOR_INTERFACE": "3c e1 a1 22 18 f0"
+    },
+    {
+      "LOCAL_INTERFACE": "7",
+      "NEIGHBOR_CHASSIS_TYPE": "mac-address",
+      "CHASSIS_ID": "bcf310-1f8b40",
+      "PORT_TYPE": "interface-name",
+      "NEIGHBOR_INTERFACE": "mgt0",
+      "NEIGHBOR_NAME": "AH-cust-AP21",
+      "CAPABILITIES_SUPPORTED": "bridge, wlan-access-point",
+      "CAPABILITIES": "bridge, wlan-access-point",
+      "MGMT_ADDRESS": "192.168.100.55"
+    },
+    {
+      "LOCAL_INTERFACE": "25",
+      "NEIGHBOR_CHASSIS_TYPE": "mac-address",
+      "CHASSIS_ID": "d8cb8a-6d303c",
+      "PORT_TYPE": "mac-address",
+      "NEIGHBOR_INTERFACE": "d8 cb 8a 6d 30 3c"
+    },
+    {
+      "LOCAL_INTERFACE": "29",
+      "NEIGHBOR_CHASSIS_TYPE": "mac-address",
+      "CHASSIS_ID": "484d7e-e66c42",
+      "PORT_TYPE": "mac-address",
+      "NEIGHBOR_INTERFACE": "48 4d 7e e6 6c 42"
+    },
+    {
+      "LOCAL_INTERFACE": "36",
+      "NEIGHBOR_CHASSIS_TYPE": "mac-address",
+      "CHASSIS_ID": "603197-7aa548",
+      "PORT_TYPE": "local",
+      "NEIGHBOR_INTERFACE": "1",
+      "NEIGHBOR_NAME": "NAP203",
+      "NEIGHBOR_DESCRIPTION": "ZLD 6.00(###.8)B1 (cannon)",
+      "NEIGHBOR_INTERFACE_DESCRIPTION": "UPLINK",
+      "CAPABILITIES_SUPPORTED": "bridge, wlan-access-point, router",
+      "CAPABILITIES": "bridge, wlan-access-point, router",
+      "MGMT_ADDRESS": "192.168.100.50"
+    },
+    {
+      "LOCAL_INTERFACE": "37",
+      "NEIGHBOR_CHASSIS_TYPE": "mac-address",
+      "CHASSIS_ID": "b00cd1-359a98",
+      "PORT_TYPE": "mac-address",
+      "NEIGHBOR_INTERFACE": "b0 0c d1 35 9a 98"
+    },
+    {
+      "LOCAL_INTERFACE": "42",
+      "NEIGHBOR_CHASSIS_TYPE": "mac-address",
+      "CHASSIS_ID": "d8cb8a-894644",
+      "PORT_TYPE": "mac-address",
+      "NEIGHBOR_INTERFACE": "d8 cb 8a 89 46 44"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "chassis_id": [
+        {
+          "CHASSIS_ID": "3821c7-c1cd00"
+        },
+        {
+          "CHASSIS_ID": "3ce1a1-2218f0"
+        },
+        {
+          "CHASSIS_ID": "bcf310-1f8b40"
+        },
+        {
+          "CHASSIS_ID": "d8cb8a-6d303c"
+        },
+        {
+          "CHASSIS_ID": "484d7e-e66c42"
+        },
+        {
+          "CHASSIS_ID": "603197-7aa548"
+        },
+        {
+          "CHASSIS_ID": "b00cd1-359a98"
+        },
+        {
+          "CHASSIS_ID": "d8cb8a-894644"
+        }
+      ],
+      "neighbor_chassis_type": [
+        {
+          "NEIGHBOR_CHASSIS_TYPE": "mac-address"
+        },
+        {
+          "NEIGHBOR_CHASSIS_TYPE": "mac-address"
+        },
+        {
+          "NEIGHBOR_CHASSIS_TYPE": "mac-address"
+        },
+        {
+          "NEIGHBOR_CHASSIS_TYPE": "mac-address"
+        },
+        {
+          "NEIGHBOR_CHASSIS_TYPE": "mac-address"
+        },
+        {
+          "NEIGHBOR_CHASSIS_TYPE": "mac-address"
+        },
+        {
+          "NEIGHBOR_CHASSIS_TYPE": "mac-address"
+        },
+        {
+          "NEIGHBOR_CHASSIS_TYPE": "mac-address"
+        }
+      ],
+      "capabilities_supported": [
+        {
+          "CAPABILITIES_SUPPORTED": "bridge, router"
+        },
+        {
+          "CAPABILITIES_SUPPORTED": "bridge, wlan-access-point"
+        },
+        {
+          "CAPABILITIES_SUPPORTED": "bridge, wlan-access-point, router"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\n LLDP Remote Device Information Detail\n\n  Local Port   : 1\n  ChassisType  : mac-address         \n  ChassisId    : 3821c7-c1cd00            \n  PortType     : local                                                     \n  PortId       : 1                                                         \n  SysName      : 65432p-swi006-abcd-srvroom-4asd \n  System Descr : Aruba JL357A 2540-48G-PoE+-4SFP+ Switch, revision YC.16.0...\n  PortDescr    : 1                                                           \n  Pvid         : 0                        \n\n  System Capabilities Supported  : bridge, router\n  System Capabilities Enabled    : bridge\n\n  Remote Management Address\n     Type    : ipv4\n     Address : 192.168.130.100\n\n  Poe Plus Information Detail \n\n    Poe Device Type         : Type2 PSE\n    Power Source            : Unknown\n    Power Priority          : Unknown\n    PD Requested Power Value   : 0.0 Watts\n    PSE Allocated Power Value      : 0.0 Watts\n\n------------------------------------------------------------------------------\n  Local Port   : 3\n  ChassisType  : mac-address         \n  ChassisId    : 3ce1a1-2218f0            \n  PortType     : mac-address                                               \n  PortId       : 3c e1 a1 22 18 f0                                         \n  SysName      :                                 \n  System Descr :                                                             \n  PortDescr    :                                                             \n  Pvid         :                          \n\n  System Capabilities Supported  : \n  System Capabilities Enabled    : \n\n  Remote Management Address\n\n  MED Information Detail \n    EndpointClass          :Class1\n\n------------------------------------------------------------------------------\n  Local Port   : 7\n  ChassisType  : mac-address         \n  ChassisId    : bcf310-1f8b40            \n  PortType     : interface-name                                            \n  PortId       : mgt0                                                      \n  SysName      : AH-cust-AP21                    \n  System Descr :                                                             \n  PortDescr    :                                                             \n  Pvid         :                          \n\n  System Capabilities Supported  : bridge, wlan-access-point\n  System Capabilities Enabled    : bridge, wlan-access-point\n\n  Remote Management Address\n     Type    : ipv4\n     Address : 192.168.100.55\n\n  MED Information Detail \n    EndpointClass          :Class1\n    Poe Device Type        :PD\n    Power Requested        :17.5 W\n    Power Source           :From PSE\n    Power Priority         :Critical\n\n  Poe Plus Information Detail \n\n    Poe Device Type         : Type2 PD\n    Power Source            : Unknown\n    Power Priority          : Critical\n    PD Requested Power Value   : 17.5 Watts\n    PSE Allocated Power Value      : 17.5 Watts\n\n------------------------------------------------------------------------------\n  Local Port   : 25\n  ChassisType  : mac-address         \n  ChassisId    : d8cb8a-6d303c            \n  PortType     : mac-address                                               \n  PortId       : d8 cb 8a 6d 30 3c                                         \n  SysName      :                                 \n  System Descr :                                                             \n  PortDescr    :                                                             \n  Pvid         :                          \n\n  System Capabilities Supported  : \n  System Capabilities Enabled    : \n\n  Remote Management Address\n\n  MED Information Detail \n    EndpointClass          :Class1\n\n------------------------------------------------------------------------------\n  Local Port   : 29\n  ChassisType  : mac-address         \n  ChassisId    : 484d7e-e66c42            \n  PortType     : mac-address                                               \n  PortId       : 48 4d 7e e6 6c 42                                         \n  SysName      :                                 \n  System Descr :                                                             \n  PortDescr    :                                                             \n  Pvid         :                          \n\n  System Capabilities Supported  : \n  System Capabilities Enabled    : \n\n  Remote Management Address\n\n  MED Information Detail \n    EndpointClass          :Class1\n\n------------------------------------------------------------------------------\n  Local Port   : 36\n  ChassisType  : mac-address         \n  ChassisId    : 603197-7aa548            \n  PortType     : local                                                     \n  PortId       : 1                                                         \n  SysName      : NAP203                          \n  System Descr : ZLD 6.00(###.8)B1 (cannon)                                  \n  PortDescr    : UPLINK                                                      \n  Pvid         :                          \n\n  System Capabilities Supported  : bridge, wlan-access-point, router\n  System Capabilities Enabled    : bridge, wlan-access-point, router\n\n  Remote Management Address\n     Type    : ipv4\n     Address : 192.168.100.50\n\n  Poe Plus Information Detail \n\n    Poe Device Type         : Type2 PD\n    Power Source            : Unknown\n    Power Priority          : High\n    PD Requested Power Value   : 16.0 Watts\n    PSE Allocated Power Value      : 16.0 Watts\n\n------------------------------------------------------------------------------\n  Local Port   : 37\n  ChassisType  : mac-address         \n  ChassisId    : b00cd1-359a98            \n  PortType     : mac-address                                               \n  PortId       : b0 0c d1 35 9a 98                                         \n  SysName      :                                 \n  System Descr :                                                             \n  PortDescr    :                                                             \n  Pvid         :                          \n\n  System Capabilities Supported  : \n  System Capabilities Enabled    : \n\n  Remote Management Address\n\n  MED Information Detail \n    EndpointClass          :Class1\n\n------------------------------------------------------------------------------\n  Local Port   : 42\n  ChassisType  : mac-address         \n  ChassisId    : d8cb8a-894644            \n  PortType     : mac-address                                               \n  PortId       : d8 cb 8a 89 46 44                                         \n  SysName      :                                 \n  System Descr :                                                             \n  PortDescr    :                                                             \n  Pvid         :                          \n\n  System Capabilities Supported  : \n  System Capabilities Enabled    : \n\n  Remote Management Address\n\n  MED Information Detail \n    EndpointClass          :Class1\n\n\n",
+  "textfsm_template": "Value Required LOCAL_INTERFACE (\\S+)\r\nValue NEIGHBOR_CHASSIS_TYPE (\\S+)\r\nValue CHASSIS_ID ([a-f0-9]{6}-[a-f0-9]{6}|(?:[a-z0-9]{2}\\s){5}[a-z0-9]{2}|\\S+)\r\nValue PORT_TYPE (\\S+)\r\nValue NEIGHBOR_INTERFACE (.*?)\r\nValue NEIGHBOR_NAME (.*?)\r\nValue NEIGHBOR_DESCRIPTION (.*?)\r\nValue NEIGHBOR_INTERFACE_DESCRIPTION (\\S+|.*?)\r\nValue VLAN_ID (\\d+|.*?)\r\nValue CAPABILITIES_SUPPORTED (.*?)\r\nValue CAPABILITIES (.*?)\r\nValue MGMT_ADDRESS (\\S+|.*?)\r\n\r\nStart\r\n  ^\\s*$$\r\n  ^\\s*LLDP\\sRemote\\sDevice\\sInformation\\sDetail -> LLDP\r\n  ^. -> Error\r\n\r\nLLDP\r\n  ^\\s+Local\\sPort\\s+:\\s${LOCAL_INTERFACE}\\s*$$\r\n  ^\\s+ChassisType\\s+:\\s${NEIGHBOR_CHASSIS_TYPE}\\s*$$\r\n  ^\\s+ChassisId\\s+:\\s${CHASSIS_ID}\\s*$$\r\n  ^\\s+PortType\\s+:\\s${PORT_TYPE}\\s*$$\r\n  ^\\s+PortId\\s+:\\s${NEIGHBOR_INTERFACE}\\s*$$\r\n  ^\\s+SysName\\s+:\\s${NEIGHBOR_NAME}\\s*$$\r\n  ^\\s+System\\sDescr\\s:\\s${NEIGHBOR_DESCRIPTION}\\s*$$\r\n  ^\\s+PortDescr\\s+:\\s${NEIGHBOR_INTERFACE_DESCRIPTION}\\s*$$\r\n# Port VLAN ID\r\n  ^\\s+Pvid\\s+:\\s${VLAN_ID}\\s*$$\r\n  ^\\s+System\\s+Capabilities\\s+Supported\\s+:\\s${CAPABILITIES_SUPPORTED}\\s*$$\r\n  ^\\s+System\\s+Capabilities\\s+Enabled\\s+:\\s${CAPABILITIES}\\s*$$\r\n  ^\\s+Remote\\s+Management\\s+Address\\s*$$\r\n  ^\\s+Type.*$$\r\n  ^\\s+Address\\s:\\s${MGMT_ADDRESS}\r\n  ^\\s+Poe\\s+Plus\\s+Information\\s+Detail\\s*$$\r\n  ^\\s+Poe\\s+Device\\s+Type.*\r\n  ^\\s+Power\\s+Source.*\r\n  ^\\s+Power\\s+Priority.*\r\n  ^\\s+PD\\s+Request\\s+Power\\s+Value.*\r\n  ^\\s+PD\\s+Requested\\s+Power\\s+Value.*\r\n  ^\\s+Requested\\s+Power\\s+Value.*\r\n  ^\\s+Actual\\s+Power\\s+Value.*\r\n  ^\\s+PSE\\s+Allocated\\s+Power\\s+Value.*\r\n  ^\\s+MED\\sInformation\\sDetail\\s*$$\r\n  ^\\s+EndpointClass.*\r\n  ^\\s+Poe\\s+Device\\s+Type.*\r\n  ^\\s+Power\\s+Requested.*\r\n  ^\\s+Power\\s+Source.*\r\n  ^\\s+Power\\s+Priority.*\r\n  ^\\s*$$\r\n  ^\\S+\\#\\s*$$ -> Record\r\n  ^\\s*-*$$ -> Record\r\n  ^\\s+Media\\s+Policy.*$$\r\n  ^. -> Error\r\n"
+}

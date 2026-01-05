@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show licenses
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="feature_license_state_period_left_comments">
+{{FEATURE}} {{LICENSE_STATE | ORPHRASE}} {{PERIOD_LEFT}} {{COMMENTS | ORPHRASE}}
+</group>

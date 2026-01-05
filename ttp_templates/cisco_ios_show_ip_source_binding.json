@@ -1,0 +1,68 @@
+{
+  "command": "cisco_ios_show_ip_source_binding",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"mac_address_ip_address_lease_type_vlan_id_interface\">\n{{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{LEASE}} {{TYPE}} {{VLAN_ID | re(\"\\\\d+\")}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "MAC_ADDRESS": "DC:A9:04:80:02:0F",
+      "IP_ADDRESS": "192.168.1.48",
+      "LEASE": "583720",
+      "TYPE": "dhcp-snooping",
+      "VLAN_ID": "1",
+      "INTERFACE": "GigabitEthernet1/0/9"
+    },
+    {
+      "MAC_ADDRESS": "8C:85:90:8E:AC:13",
+      "IP_ADDRESS": "192.168.1.66",
+      "LEASE": "583795",
+      "TYPE": "dhcp-snooping",
+      "VLAN_ID": "1",
+      "INTERFACE": "GigabitEthernet1/0/9"
+    },
+    {
+      "MAC_ADDRESS": "9C:A0:B0:16:26:D2",
+      "IP_ADDRESS": "192.168.1.104",
+      "LEASE": "591457",
+      "TYPE": "dhcp-snooping",
+      "VLAN_ID": "1",
+      "INTERFACE": "GigabitEthernet1/0/9"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "mac_address_ip_address_lease_type_vlan_id_interface": [
+        {
+          "MAC_ADDRESS": "DC:A9:04:80:02:0F",
+          "IP_ADDRESS": "192.168.1.48",
+          "LEASE": "583720",
+          "TYPE": "dhcp-snooping",
+          "VLAN_ID": "1",
+          "INTERFACE": "GigabitEthernet1/0/9"
+        },
+        {
+          "MAC_ADDRESS": "8C:85:90:8E:AC:13",
+          "IP_ADDRESS": "192.168.1.66",
+          "LEASE": "583795",
+          "TYPE": "dhcp-snooping",
+          "VLAN_ID": "1",
+          "INTERFACE": "GigabitEthernet1/0/9"
+        },
+        {
+          "MAC_ADDRESS": "9C:A0:B0:16:26:D2",
+          "IP_ADDRESS": "192.168.1.104",
+          "LEASE": "591457",
+          "TYPE": "dhcp-snooping",
+          "VLAN_ID": "1",
+          "INTERFACE": "GigabitEthernet1/0/9"
+        }
+      ]
+    }
+  ],
+  "cli_content": "MacAddress          IpAddress        Lease(sec)  Type           VLAN  Interface\n------------------  ---------------  ----------  -------------  ----  --------------------\nDC:A9:04:80:02:0F   192.168.1.48     583720      dhcp-snooping   1     GigabitEthernet1/0/9\n8C:85:90:8E:AC:13   192.168.1.66     583795      dhcp-snooping   1     GigabitEthernet1/0/9\n9C:A0:B0:16:26:D2   192.168.1.104    591457      dhcp-snooping   1     GigabitEthernet1/0/9\nTotal number of bindings: 3\n",
+  "textfsm_template": "Value Required MAC_ADDRESS ((?:[0-9a-fA-F]{2}[:-]){5}(?:[0-9a-fA-F]{2}))\nValue Required IP_ADDRESS ((?:[0-9]{1,3}\\.){3}[0-9]{1,3})\nValue Required LEASE ([0-9]+)\nValue Required TYPE (\\S+)\nValue Required VLAN_ID ([0-9]+)\nValue Required INTERFACE (\\S+)\n\nStart\n  ^\\s*MacAddress\\s*IpAddress\\s*Lease\\(sec\\)\\s*Type\\s*VLAN\\s*Interface\\s*\n  ^-+\n  ^${MAC_ADDRESS}\\s+${IP_ADDRESS}\\s+${LEASE}\\s+${TYPE}\\s+${VLAN_ID}\\s+${INTERFACE} -> Record\n  ^Total number of bindings\n  ^\\s*$$\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^.*$$ -> Error\n"
+}

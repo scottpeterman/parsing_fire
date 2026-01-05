@@ -1,0 +1,90 @@
+{
+  "command": "show high-avail status",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 3.3333333333333335,
+  "textfsm_rows": 3,
+  "ttp_rows": 10,
+  "ttp_template": "<group name=\"mode\">\n  Mode: {{MODE | ORPHRASE}}\n</group>\n<group name=\"interface_status_role\">\n  {{INTERFACE}} {{STATUS | ORPHRASE}} {{ROLE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "MODE": "Active-Standby",
+      "LOCAL_PRIORITY": "100",
+      "REMOTE_PRIORITY": "80",
+      "LOCAL_STATE": "Active",
+      "REMOTE_STATE": "Standby",
+      "PREEMPTION": "Enabled",
+      "UPTIME": "2d 4h 15m",
+      "INTERFACE": "eth1",
+      "STATUS": "Up",
+      "ROLE": "Active"
+    },
+    {
+      "INTERFACE": "eth2",
+      "STATUS": "Up",
+      "ROLE": "Standby"
+    },
+    {
+      "INTERFACE": "eth3",
+      "STATUS": "Down",
+      "ROLE": "Unknown"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "mode": {
+        "MODE": "Active-Standby"
+      },
+      "interface_status_role": [
+        {
+          "INTERFACE": "Local",
+          "STATUS": "Priority:",
+          "ROLE": "100"
+        },
+        {
+          "INTERFACE": "Remote",
+          "STATUS": "Priority:",
+          "ROLE": "80"
+        },
+        {
+          "INTERFACE": "Local",
+          "STATUS": "State:",
+          "ROLE": "Active"
+        },
+        {
+          "INTERFACE": "Remote",
+          "STATUS": "State:",
+          "ROLE": "Standby"
+        },
+        {
+          "INTERFACE": "Uptime:",
+          "STATUS": "2d",
+          "ROLE": "4h 15m"
+        },
+        {
+          "INTERFACE": "Interface",
+          "STATUS": "Status",
+          "ROLE": "Role"
+        },
+        {
+          "INTERFACE": "eth1",
+          "STATUS": "Up",
+          "ROLE": "Active"
+        },
+        {
+          "INTERFACE": "eth2",
+          "STATUS": "Up",
+          "ROLE": "Standby"
+        },
+        {
+          "INTERFACE": "eth3",
+          "STATUS": "Down",
+          "ROLE": "Unknown"
+        }
+      ]
+    }
+  ],
+  "cli_content": "High Availability Status:\n  Mode: Active-Standby\n  Local Priority: 100\n  Remote Priority: 80\n  Local State: Active\n  Remote State: Standby\n  Preemption: Enabled\n  Uptime: 2d 4h 15m\n\n  Interface     Status    Role\n  eth1          Up        Active\n  eth2          Up        Standby\n  eth3          Down      Unknown\n",
+  "textfsm_template": "Value MODE (\\w+[-]?\\w+)\nValue LOCAL_PRIORITY (\\d+)\nValue REMOTE_PRIORITY (\\d+)\nValue LOCAL_STATE (\\w+)\nValue REMOTE_STATE (\\w+)\nValue PREEMPTION (\\w+)\nValue UPTIME (\\d+d \\d+h \\d+m)\nValue INTERFACE (\\S+)\nValue STATUS (Up|Down)\nValue ROLE (\\w+)\n\nStart\n  ^\\s*High Availability Status:$$\n  ^\\s*Mode:\\s+${MODE}$$\n  ^\\s*Local Priority:\\s+${LOCAL_PRIORITY}$$\n  ^\\s*Remote Priority:\\s+${REMOTE_PRIORITY}$$\n  ^\\s*Local State:\\s+${LOCAL_STATE}$$\n  ^\\s*Remote State:\\s+${REMOTE_STATE}$$\n  ^\\s*Preemption:\\s+${PREEMPTION}$$\n  ^\\s*Uptime:\\s+${UPTIME}$$\n  ^\\s*$$\n  ^\\s*Interface\\s+Status\\s+Role$$\n  ^\\s*${INTERFACE}\\s+${STATUS}\\s+${ROLE}$$ -> Record"
+}

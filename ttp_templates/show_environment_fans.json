@@ -1,0 +1,68 @@
+{
+  "command": "show environment fans",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"fan_model_status_speed_direction\">\n{{FAN_MODEL | ORPHRASE}} {{STATUS | ORPHRASE}} {{SPEED}} {{DIRECTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FAN_MODEL": "Fan 1",
+      "STATUS": "ok",
+      "SPEED": "7000",
+      "DIRECTION": "front-to-back"
+    },
+    {
+      "FAN_MODEL": "Fan 2",
+      "STATUS": "ok",
+      "SPEED": "7200",
+      "DIRECTION": "front-to-back"
+    },
+    {
+      "FAN_MODEL": "Fan 3",
+      "STATUS": "ok",
+      "SPEED": "6900",
+      "DIRECTION": "front-to-back"
+    },
+    {
+      "FAN_MODEL": "Fan 4",
+      "STATUS": "ok",
+      "SPEED": "7100",
+      "DIRECTION": "front-to-back"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "fan_model_status_speed_direction": [
+        {
+          "FAN_MODEL": "Fan 1",
+          "STATUS": "ok",
+          "SPEED": "7000",
+          "DIRECTION": "front-to-back"
+        },
+        {
+          "FAN_MODEL": "Fan 2",
+          "STATUS": "ok",
+          "SPEED": "7200",
+          "DIRECTION": "front-to-back"
+        },
+        {
+          "FAN_MODEL": "Fan 3",
+          "STATUS": "ok",
+          "SPEED": "6900",
+          "DIRECTION": "front-to-back"
+        },
+        {
+          "FAN_MODEL": "Fan 4",
+          "STATUS": "ok",
+          "SPEED": "7100",
+          "DIRECTION": "front-to-back"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Fan Model             Status      Speed (RPM)    Direction\n-------------------------------------------------------------\nFan 1                 ok          7000           front-to-back\nFan 2                 ok          7200           front-to-back\nFan 3                 ok          6900           front-to-back\nFan 4                 ok          7100           front-to-back\n",
+  "textfsm_template": "Value FAN_MODEL (\\S+\\s*\\S*)\nValue STATUS (\\S+)\nValue SPEED (\\d+)\nValue DIRECTION (\\S+-to-\\S+)\n\nStart\n  ^Fan\\s+Model\\s+Status\\s+Speed\\s+\\(RPM\\)\\s+Direction\\s*$$\n  ^-+\\s*$$\n  ^${FAN_MODEL}\\s+${STATUS}\\s+${SPEED}\\s+${DIRECTION}\\s*$$ -> Record"
+}

@@ -1,0 +1,138 @@
+{
+  "command": "cisco_nxos_show_ip_ospf_interface_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.1666666666666667,
+  "textfsm_rows": 6,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"interface_count_process_vrf\">\n OSPF Process ID {{PROCESS}} VRF {{VRF | ORPHRASE}}\n<group name=\"area_cost_interface\">\n {{INTERFACE}} 3 {{AREA}} {{COST}} {{STATE | ORPHRASE}} {{NEIGHBORS_FC}} {{STATUS | ORPHRASE}} \n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROCESS": "DC_UNDERLAY",
+      "VRF": "default",
+      "INTERFACE_COUNT": "6",
+      "INTERFACE": "Vlan2",
+      "AREA": "0.0.0.0",
+      "COST": "100",
+      "STATE": "P2P",
+      "NEIGHBORS_FC": "1",
+      "STATUS": "up"
+    },
+    {
+      "PROCESS": "DC_UNDERLAY",
+      "VRF": "default",
+      "INTERFACE_COUNT": "6",
+      "INTERFACE": "Lo1",
+      "AREA": "0.0.0.0",
+      "COST": "1",
+      "STATE": "LOOPBACK",
+      "NEIGHBORS_FC": "0",
+      "STATUS": "up"
+    },
+    {
+      "PROCESS": "DC_UNDERLAY",
+      "VRF": "default",
+      "INTERFACE_COUNT": "6",
+      "INTERFACE": "Lo2",
+      "AREA": "0.0.0.0",
+      "COST": "1",
+      "STATE": "LOOPBACK",
+      "NEIGHBORS_FC": "0",
+      "STATUS": "up"
+    },
+    {
+      "PROCESS": "DC_UNDERLAY",
+      "VRF": "default",
+      "INTERFACE_COUNT": "6",
+      "INTERFACE": "Lo3",
+      "AREA": "0.0.0.0",
+      "COST": "1",
+      "STATE": "LOOPBACK",
+      "NEIGHBORS_FC": "0",
+      "STATUS": "up"
+    },
+    {
+      "PROCESS": "DC_UNDERLAY",
+      "VRF": "default",
+      "INTERFACE_COUNT": "6",
+      "INTERFACE": "Eth1/1",
+      "AREA": "0.0.0.0",
+      "COST": "1",
+      "STATE": "P2P",
+      "NEIGHBORS_FC": "1",
+      "STATUS": "up"
+    },
+    {
+      "PROCESS": "DC_UNDERLAY",
+      "VRF": "default",
+      "INTERFACE_COUNT": "6",
+      "INTERFACE": "Eth1/2",
+      "AREA": "0.0.0.0",
+      "COST": "1",
+      "STATE": "P2P",
+      "NEIGHBORS_FC": "1",
+      "STATUS": "up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_count_process_vrf": {
+        "PROCESS": "DC_UNDERLAY",
+        "VRF": "default",
+        "area_cost_interface": [
+          {
+            "INTERFACE": "Vlan2",
+            "AREA": "0.0.0.0",
+            "COST": "100",
+            "STATE": "P2P",
+            "NEIGHBORS_FC": "1",
+            "STATUS": "up"
+          },
+          {
+            "INTERFACE": "Lo1",
+            "AREA": "0.0.0.0",
+            "COST": "1",
+            "STATE": "LOOPBACK",
+            "NEIGHBORS_FC": "0",
+            "STATUS": "up"
+          },
+          {
+            "INTERFACE": "Lo2",
+            "AREA": "0.0.0.0",
+            "COST": "1",
+            "STATE": "LOOPBACK",
+            "NEIGHBORS_FC": "0",
+            "STATUS": "up"
+          },
+          {
+            "INTERFACE": "Lo3",
+            "AREA": "0.0.0.0",
+            "COST": "1",
+            "STATE": "LOOPBACK",
+            "NEIGHBORS_FC": "0",
+            "STATUS": "up"
+          },
+          {
+            "INTERFACE": "Eth1/1",
+            "AREA": "0.0.0.0",
+            "COST": "1",
+            "STATE": "P2P",
+            "NEIGHBORS_FC": "1",
+            "STATUS": "up"
+          },
+          {
+            "INTERFACE": "Eth1/2",
+            "AREA": "0.0.0.0",
+            "COST": "1",
+            "STATE": "P2P",
+            "NEIGHBORS_FC": "1",
+            "STATUS": "up"
+          }
+        ]
+      }
+    }
+  ],
+  "cli_content": " OSPF Process ID DC_UNDERLAY VRF default\n Total number of interface: 6\n Interface               ID     Area            Cost   State    Neighbors Status\n Vlan2                   3      0.0.0.0         100    P2P      1         up \n Lo1                     1      0.0.0.0         1      LOOPBACK 0         up \n Lo2                     2      0.0.0.0         1      LOOPBACK 0         up \n Lo3                     4      0.0.0.0         1      LOOPBACK 0         up \n Eth1/1                  6      0.0.0.0         1      P2P      1         up \n Eth1/2                  5      0.0.0.0         1      P2P      1         up ",
+  "textfsm_template": "Value Filldown PROCESS (\\S+)\nValue Filldown VRF (\\S+)\nValue Filldown INTERFACE_COUNT (\\d+)\nValue Required INTERFACE (\\S+)\nValue AREA (\\S+)\nValue COST (\\d+)\nValue STATE (\\S+)\nValue NEIGHBORS_FC (\\d+)\nValue STATUS (up|down)\n\nStart\n  ^\\s+OSPF\\s+Process\\s+ID\\s+${PROCESS}\\s+VRF\\s+${VRF}\n  ^\\s+Total\\s+number\\s+of\\s+interface:\\s+${INTERFACE_COUNT}\n  ^\\s+Interface\\s+ID\\s+Area\\s+Cost\\s+State\\s+Neighbors\\s+Status\n  ^\\s+${INTERFACE}\\s+\\d+\\s+${AREA}\\s+${COST}\\s+${STATE}\\s+${NEIGHBORS_FC}\\s+${STATUS} -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

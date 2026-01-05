@@ -1,0 +1,130 @@
+{
+  "command": "cisco_ios_show_policy-map",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 10,
+  "ttp_rows": 10,
+  "ttp_template": "<group name=\"class_bw_ratio_class_bw_account\">\n      bandwidth remaining ratio {{CLASS_BW_RATIO}} account user-defined {{CLASS_BW_ACCOUNT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "POLICY_MAP": "vpn-bandwidths",
+      "CLASS": "internet-private",
+      "CLASS_BW_RATIO": "5",
+      "CLASS_BW_ACCOUNT": "4",
+      "CLASS_SERVICE_POLICY": "internet-private_class"
+    },
+    {
+      "POLICY_MAP": "vpn-bandwidths",
+      "CLASS": "systems-m2m",
+      "CLASS_BW_RATIO": "5",
+      "CLASS_BW_ACCOUNT": "4",
+      "CLASS_SERVICE_POLICY": "systems-m2m_class"
+    },
+    {
+      "POLICY_MAP": "vpn-bandwidths",
+      "CLASS": "internal-office",
+      "CLASS_BW_RATIO": "5",
+      "CLASS_BW_ACCOUNT": "4",
+      "CLASS_SERVICE_POLICY": "internal-office_class"
+    },
+    {
+      "POLICY_MAP": "vpn-bandwidths",
+      "CLASS": "db-net-lst",
+      "CLASS_BW_RATIO": "5",
+      "CLASS_BW_ACCOUNT": "4",
+      "CLASS_SERVICE_POLICY": "db-net-lst_class"
+    },
+    {
+      "POLICY_MAP": "vpn-bandwidths",
+      "CLASS": "db-systems-abc",
+      "CLASS_BW_RATIO": "5",
+      "CLASS_BW_ACCOUNT": "4",
+      "CLASS_SERVICE_POLICY": "db-systems-abc_class"
+    },
+    {
+      "POLICY_MAP": "vpn-bandwidths",
+      "CLASS": "iot-systems",
+      "CLASS_BW_RATIO": "5",
+      "CLASS_BW_ACCOUNT": "4",
+      "CLASS_SERVICE_POLICY": "iot-systems_class"
+    },
+    {
+      "POLICY_MAP": "vpn-bandwidths",
+      "CLASS": "class-default",
+      "CLASS_BW_RATIO": "6",
+      "CLASS_BW_ACCOUNT": "4",
+      "CLASS_SERVICE_POLICY": "db-systems-net_class"
+    },
+    {
+      "POLICY_MAP": "db-systems-abc_class",
+      "CLASS": "premium",
+      "CLASS_BW_RATIO": "10",
+      "CLASS_BW_ACCOUNT": "1",
+      "CLASS_QUEUE_LIMIT": "50"
+    },
+    {
+      "POLICY_MAP": "db-systems-abc_class",
+      "CLASS": "classic",
+      "CLASS_BW_RATIO": "20",
+      "CLASS_BW_ACCOUNT": "2",
+      "CLASS_QUEUE_LIMIT": "50"
+    },
+    {
+      "POLICY_MAP": "db-systems-abc_class",
+      "CLASS": "class-default",
+      "CLASS_BW_RATIO": "60",
+      "CLASS_BW_ACCOUNT": "3",
+      "CLASS_QUEUE_LIMIT": "50"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "class_bw_ratio_class_bw_account": [
+        {
+          "CLASS_BW_RATIO": "5",
+          "CLASS_BW_ACCOUNT": "4"
+        },
+        {
+          "CLASS_BW_RATIO": "5",
+          "CLASS_BW_ACCOUNT": "4"
+        },
+        {
+          "CLASS_BW_RATIO": "5",
+          "CLASS_BW_ACCOUNT": "4"
+        },
+        {
+          "CLASS_BW_RATIO": "5",
+          "CLASS_BW_ACCOUNT": "4"
+        },
+        {
+          "CLASS_BW_RATIO": "5",
+          "CLASS_BW_ACCOUNT": "4"
+        },
+        {
+          "CLASS_BW_RATIO": "5",
+          "CLASS_BW_ACCOUNT": "4"
+        },
+        {
+          "CLASS_BW_RATIO": "6",
+          "CLASS_BW_ACCOUNT": "4"
+        },
+        {
+          "CLASS_BW_RATIO": "10",
+          "CLASS_BW_ACCOUNT": "1"
+        },
+        {
+          "CLASS_BW_RATIO": "20",
+          "CLASS_BW_ACCOUNT": "2"
+        },
+        {
+          "CLASS_BW_RATIO": "60",
+          "CLASS_BW_ACCOUNT": "3"
+        }
+      ]
+    }
+  ],
+  "cli_content": "  Policy Map vpn-bandwidths\n    Class internet-private\n      bandwidth remaining ratio 5 account user-defined 4\n      service-policy internet-private_class\n    Class systems-m2m\n      bandwidth remaining ratio 5 account user-defined 4\n      service-policy systems-m2m_class\n    Class internal-office\n      bandwidth remaining ratio 5 account user-defined 4\n      service-policy internal-office_class\n    Class db-net-lst\n      bandwidth remaining ratio 5 account user-defined 4\n      service-policy db-net-lst_class\n    Class db-systems-abc\n      bandwidth remaining ratio 5 account user-defined 4\n      service-policy db-systems-abc_class\n    Class iot-systems\n      bandwidth remaining ratio 5 account user-defined 4\n      service-policy iot-systems_class\n    Class class-default\n      bandwidth remaining ratio 6 account user-defined 4\n      service-policy db-systems-net_class\n\n  Policy Map db-systems-abc_class\n    Class premium\n      bandwidth remaining ratio 10 account user-defined 1\n      queue-limit 50 ms\n    Class classic\n      bandwidth remaining ratio 20 account user-defined 2\n      queue-limit 50 ms\n    Class class-default\n      bandwidth remaining ratio 60 account user-defined 3\n      queue-limit 50 ms\n",
+  "textfsm_template": "Value Required,Filldown POLICY_MAP (\\S+)\nValue Required CLASS (\\S+)\nValue CLASS_BW_RATIO (\\d+)\nValue CLASS_BW_ACCOUNT (\\d+)\nValue CLASS_SERVICE_POLICY (\\S+)\nValue CLASS_QUEUE_LIMIT (\\d+)\nValue CLASS_POLICE_CIR (\\d+)\nValue CLASS_POLICE_BC (\\d+)\nValue CLASS_POLICE_ACTION_CONFORM (\\S+)\nValue CLASS_POLICE_ACTION_EXCEED (\\S+)\nValue CLASS_POLICE_ACCOUNT (\\d+)\nValue CLASS_POLICE_PRIORITY (\\d+)\nValue CLASS_SHAPE_CIR (\\d+)\nValue CLASS_SHAPE_ACCOUNT (\\d+)\nValue CLASS_SHAPE_RATE_TYPE (\\S+)\n\nStart\n  ^\\s+Policy\\sMap\\s\\S+$$ -> Continue.Record\n  ^\\s+Class\\s\\S+$$ -> Continue.Record\n  ^\\s+bandwidth\\sremaining\\sratio\\s${CLASS_BW_RATIO}\\saccount\\suser-defined\\s${CLASS_BW_ACCOUNT}$$\n  ^\\s+service-policy\\s${CLASS_SERVICE_POLICY}$$\n  ^\\s+queue-limit\\s${CLASS_QUEUE_LIMIT}\\sms$$\n  ^\\s+police\\scir\\s${CLASS_POLICE_CIR}\\sbc\\s${CLASS_POLICE_BC}$$\n  ^\\s+conform-action\\s${CLASS_POLICE_ACTION_CONFORM}$$\n  ^\\s+exceed-action\\s${CLASS_POLICE_ACTION_EXCEED}$$\n  ^\\s+account\\suser-defined\\s${CLASS_POLICE_ACCOUNT}$$\n  ^\\s+priority\\slevel\\s${CLASS_POLICE_PRIORITY}$$\n  ^\\s+${CLASS_SHAPE_RATE_TYPE}\\sRate\\sTraffic\\sShaping$$`\n  ^\\s+cir\\s${CLASS_SHAPE_CIR}\\s+\\S+\\s+account\\suser-defined\\s${CLASS_SHAPE_ACCOUNT}$$\n  ^\\s+Policy\\sMap\\s${POLICY_MAP}$$\n  ^\\s+Class\\s${CLASS}$$\n  ^[\\S\\s]*$$\n  ^\\s*$$\n  ^. -> Error PolicyMap\n"
+}

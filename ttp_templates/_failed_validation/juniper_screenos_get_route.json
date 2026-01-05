@@ -1,0 +1,14 @@
+{
+  "command": "juniper_screenos_get_route",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 0,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"vr\">\nIPv4 Dest-Routes for <un{{VR | ORPHRASE}}> (0 entries)\n<group name=\"id_ip_address_metric\">\n* {{ID | re(\"\\\\d+\")}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{PREFIX_LENGT{{PROTOCOL}}}} {{OUTINTERFACE}} {{NEXTHOP}} H {{PREF}} {{METRIC}} {{VSYS | ORPHRASE}}\n</group>\n</group>",
+  "error": "TTP parse error: not well-formed (invalid token): line 3, column 24",
+  "textfsm_parsed": [],
+  "ttp_parsed": [],
+  "cli_content": "IPv4 Dest-Routes for <untrust-vr> (0 entries)\n----------------------------------------------------------------------\nH: Host C: Connected S: Static A: Auto-Exported\nI: Imported R: RIP P: Permanent D: Auto-Discovered\niB: IBGP eB: EBGP O: OSPF E1: OSPF external type 1\nE2: OSPF external type 2\n\nIPv4 Dest-Routes for <trust-vr> (4 entries)\n----------------------------------------------------------------------\n   ID          IP-Prefix  Interface    Gateway   P Pref    Mtr    Vsys\n----------------------------------------------------------------------\n*   4         1.1.1.2/32     eth0/1    0.0.0.0   H    0      0    Root\n*   2     192.168.1.1/32     eth0/0    0.0.0.0   H    0      0    Root\n*   1     192.168.1.0/24     eth0/0    0.0.0.0   C    0      0    Root\n*   3         1.1.1.0/24     eth0/1    0.0.0.0   C    0      0    Root\n",
+  "textfsm_template": "Value Filldown VR (\\S+)\nValue BEST (\\S+)\nValue ID (\\d+)\nValue Required IP_ADDRESS (\\d+(\\.\\d+){3})\nValue Required PREFIX_LENGTH (\\d{1,2})\nValue OUTINTERFACE (\\S+)\nValue NEXTHOP (\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})\nValue PROTOCOL (\\S+)\nValue PREF (\\d+)\nValue METRIC (\\d+)\nValue VSYS (\\S+)\n\nStart\n  # Match the VR\n  ^IPv\\d\\s+Dest-Routes\\s+for\\s+<${VR}>\n  # Match route line\n  ^${BEST}\\s+${ID}\\s+${IP_ADDRESS}\\/${PREFIX_LENGTH}\\s+${OUTINTERFACE}\\s+${NEXTHOP}\\s+${PROTOCOL}\\s+${PREF}\\s+${METRIC}\\s+${VSYS} -> Record\n  # Match table separator\n  ^-+\\s*$$\n  # Match route type keys\n  ^\\S+:\\s+\n  # Match lines that are just space\n  ^\\s+$$\n  # Match table header\n  ^\\s+ID\\s+IP-Prefix\\s+Interface\\s+Gateway\\s+P\\s+Pref\\s+Mtr\\s+Vsys\\s*$$\n  # Error out if line does not match any expressions\n  ^.+ -> Error \"Line not found\"\n\nEOF\n"
+}

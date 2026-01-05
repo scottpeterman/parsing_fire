@@ -1,0 +1,121 @@
+{
+  "command": "show policy-map interface",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.4,
+  "textfsm_rows": 5,
+  "ttp_rows": 12,
+  "ttp_template": "<group name=\"packets_bytes\">\n      {{PACKETS}} packets, {{BYTES | ORPHRASE}} bytes\n</group>\n<group name=\"bytes_drop_rate\">\n        cir {{BYTES}}0 bps, bc {{DROP_RATE | ORPHRASE}}0 bytes\n</group>\n<group name=\"offered_rate_bytes\">\n      {{OFFERED_RATE}} packets, {{BYTES | ORPHRASE}}0 bytes\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Ethernet1/1",
+      "SERVICE_POLICY_INPUT": "policy1",
+      "CLASS_MAP": "class1",
+      "MATCH_TYPE": "match-all",
+      "PACKETS": "100",
+      "BYTES": "10000",
+      "OFFERED_RATE": "0000",
+      "DROP_RATE": "0000",
+      "MATCH": "access-group 101"
+    },
+    {
+      "CLASS_MAP": "class2",
+      "MATCH_TYPE": "match-any",
+      "PACKETS": "200",
+      "BYTES": "20000",
+      "OFFERED_RATE": "1000",
+      "DROP_RATE": "0000",
+      "MATCH": "protocol http"
+    },
+    {
+      "CLASS_MAP": "class-default",
+      "MATCH_TYPE": "match-any",
+      "PACKETS": "500",
+      "BYTES": "50000",
+      "OFFERED_RATE": "5000",
+      "DROP_RATE": "1000",
+      "MATCH": "any"
+    },
+    {
+      "INTERFACE": "Ethernet1/2",
+      "SERVICE_POLICY_INPUT": "policy2",
+      "CLASS_MAP": "class3",
+      "MATCH_TYPE": "match-all",
+      "PACKETS": "50",
+      "BYTES": "5000",
+      "OFFERED_RATE": "500",
+      "DROP_RATE": "500",
+      "MATCH": "access-group 102"
+    },
+    {
+      "CLASS_MAP": "class-default",
+      "MATCH_TYPE": "match-any",
+      "PACKETS": "250",
+      "BYTES": "25000",
+      "OFFERED_RATE": "2500",
+      "DROP_RATE": "2500",
+      "MATCH": "any"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "packets_bytes": [
+        {
+          "PACKETS": "100",
+          "BYTES": "10000"
+        },
+        {
+          "PACKETS": "200",
+          "BYTES": "20000"
+        },
+        {
+          "PACKETS": "500",
+          "BYTES": "50000"
+        },
+        {
+          "PACKETS": "50",
+          "BYTES": "5000"
+        },
+        {
+          "PACKETS": "250",
+          "BYTES": "25000"
+        }
+      ],
+      "bytes_drop_rate": [
+        {
+          "BYTES": "50000",
+          "DROP_RATE": "1000"
+        },
+        {
+          "BYTES": "25000",
+          "DROP_RATE": "500"
+        }
+      ],
+      "offered_rate_bytes": [
+        {
+          "OFFERED_RATE": "100",
+          "BYTES": "1000"
+        },
+        {
+          "OFFERED_RATE": "200",
+          "BYTES": "2000"
+        },
+        {
+          "OFFERED_RATE": "500",
+          "BYTES": "5000"
+        },
+        {
+          "OFFERED_RATE": "50",
+          "BYTES": "500"
+        },
+        {
+          "OFFERED_RATE": "250",
+          "BYTES": "2500"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Ethernet1/1 \n\n  Service-policy input: policy1\n\n    Class-map: class1 (match-all)  \n      100 packets, 10000 bytes\n      5 minute offered rate 0000 bps, drop rate 0000 bps\n      Match: access-group 101\n\n    Class-map: class2 (match-any)\n      200 packets, 20000 bytes\n      5 minute offered rate 1000 bps, drop rate 0000 bps\n      Match: protocol http\n      Match: protocol https\n\n    Class-map: class-default (match-any)\n      500 packets, 50000 bytes\n      5 minute offered rate 5000 bps, drop rate 1000 bps\n      Match: any\n      police:\n        cir 500000 bps, bc 10000 bytes\n        conformed 450 packets, 45000 bytes; actions:\n        exceed 50 packets, 5000 bytes; actions:\n\nEthernet1/2 \n\n  Service-policy input: policy2\n\n    Class-map: class3 (match-all)  \n      50 packets, 5000 bytes\n      5 minute offered rate 500 bps, drop rate 500 bps\n      Match: access-group 102\n\n    Class-map: class-default (match-any)\n      250 packets, 25000 bytes\n      5 minute offered rate 2500 bps, drop rate 2500 bps\n      Match: any\n      police:\n        cir 250000 bps, bc 5000 bytes\n        conformed 100 packets, 10000 bytes; actions:\n        exceed 150 packets, 15000 bytes; actions:\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue SERVICE_POLICY_INPUT (\\S+)\nValue CLASS_MAP (\\S+)\nValue MATCH_TYPE (match-all|match-any)\nValue PACKETS (\\d+)\nValue BYTES (\\d+)\nValue OFFERED_RATE (\\d+)\nValue DROP_RATE (\\d+)\nValue MATCH (access-group\\s\\d+|protocol\\s\\S+|any)\n\nStart\n  ^\\s*${INTERFACE}\\s*$$\n  ^\\s*Service-policy\\s+input:\\s+${SERVICE_POLICY_INPUT}\\s*$$\n  ^\\s*Class-map:\\s+${CLASS_MAP}\\s+\\(${MATCH_TYPE}\\)\\s*$$\n  ^\\s*${PACKETS}\\s+packets,\\s+${BYTES}\\s+bytes\\s*$$\n  ^\\s*5 minute offered rate\\s+${OFFERED_RATE}\\s+bps,\\s+drop rate\\s+${DROP_RATE}\\s+bps\\s*$$\n  ^\\s*Match:\\s+${MATCH}\\s*$$ -> Record"
+}

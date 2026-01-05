@@ -1,0 +1,123 @@
+{
+  "command": "huawei_vrp_display_acl_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.07692307692307693,
+  "textfsm_rows": 13,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"acl_name\">\nAdvanced ACL {{ACL_NAME | ORPHRASE}} 3998, 3 rules\n<group name=\"action_sn_source\">\n rule {{SN | re(\"\\\\w+\")}} {{ACTION}} source {{SOURCE | ORPHRASE}} (94 matches)\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ACL_NUMBER": "2000",
+      "SN": "5",
+      "ACTION": "permit",
+      "SOURCE": "85.14.167.234 0",
+      "MATCHES": "94"
+    },
+    {
+      "ACL_NUMBER": "2000",
+      "SN": "10",
+      "ACTION": "permit",
+      "SOURCE": "85.14.167.193 0",
+      "MATCHES": "26939"
+    },
+    {
+      "ACL_NUMBER": "2000",
+      "SN": "15",
+      "ACTION": "permit",
+      "SOURCE": "5.10.130.152 0.0.0.3",
+      "MATCHES": "24"
+    },
+    {
+      "ACL_NUMBER": "2000",
+      "SN": "20",
+      "ACTION": "permit",
+      "SOURCE": "185.48.254.19 0"
+    },
+    {
+      "ACL_NUMBER": "2000",
+      "SN": "25",
+      "ACTION": "permit",
+      "SOURCE": "10.0.0.0 0.255.255.255"
+    },
+    {
+      "ACL_NUMBER": "2000",
+      "SN": "30",
+      "ACTION": "permit",
+      "SOURCE": "172.0.0.0 0.15.255.255"
+    },
+    {
+      "ACL_NUMBER": "2000",
+      "SN": "35",
+      "ACTION": "permit",
+      "SOURCE": "192.168.0.0 0.0.255.255"
+    },
+    {
+      "ACL_NUMBER": "2500",
+      "SN": "35",
+      "ACTION": "permit",
+      "SOURCE": "192.168.0.0 0.0.255.255",
+      "MATCHES": "5431"
+    },
+    {
+      "ACL_NUMBER": "3997",
+      "SN": "5",
+      "ACTION": "permit",
+      "PROTOCOL": "ip",
+      "SOURCE": "192.165.3.5 0",
+      "DESCRIPTION": "qsdqsdqsdqsdqsdqsdqs az"
+    },
+    {
+      "ACL_NAME": "REGLE_NAT",
+      "ACL_NUMBER": "3998",
+      "SN": "5",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SOURCE": "85.14.167.234 0",
+      "DESTINATION": "192.214.198.156 0",
+      "DESTINATION_PORT_MODIFIER": "eq",
+      "DESTINATION_PORT_RANGE": "8022",
+      "MATCHES": "18"
+    },
+    {
+      "ACL_NAME": "REGLE_NAT",
+      "ACL_NUMBER": "3998",
+      "SN": "10",
+      "ACTION": "deny",
+      "PROTOCOL": "tcp",
+      "DESTINATION": "192.214.198.156 0",
+      "DESTINATION_PORT_MODIFIER": "eq",
+      "DESTINATION_PORT_RANGE": "www",
+      "MATCHES": "8"
+    },
+    {
+      "ACL_NAME": "REGLE_NAT",
+      "ACL_NUMBER": "3998",
+      "SN": "15",
+      "ACTION": "deny",
+      "PROTOCOL": "tcp",
+      "DESTINATION": "192.23.26.1 0.0.255.255",
+      "DESTINATION_PORT_MODIFIER": "range",
+      "DESTINATION_PORT_RANGE": "50 80",
+      "MATCHES": "8"
+    },
+    {
+      "ACL_NAME": "REGLE_NAT",
+      "ACL_NUMBER": "3998",
+      "SN": "20",
+      "ACTION": "permit",
+      "PROTOCOL": "ip",
+      "MATCHES": "278450"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "acl_name": {
+        "ACL_NAME": "REGLE_NAT"
+      }
+    }
+  ],
+  "cli_content": " Total quantity of nonempty ACL number is 3 \n\nBasic ACL 2000, 7 rules\nAcl's step is 5\n rule 5 permit source 85.14.167.234 0 (94 matches)\n rule 10 permit source 85.14.167.193 0 (26939 matches)\n rule 15 permit source 5.10.130.152 0.0.0.3 (24 matches)\n rule 20 permit source 185.48.254.19 0 \n rule 25 permit source 10.0.0.0 0.255.255.255 \n rule 30 permit source 172.0.0.0 0.15.255.255 \n rule 35 permit source 192.168.0.0 0.0.255.255 \n\nBasic ACL 2500, 1 rule\nAcl's step is 5\n rule 35 permit source 192.168.0.0 0.0.255.255 (5431 matches)\n\nAdvanced ACL 3997, 1 rule\nAcl's step is 5\n rule 5 permit ip source 192.165.3.5 0 \n rule 5 description \"qsdqsdqsdqsdqsdqsdqs az\"\n\nAdvanced ACL REGLE_NAT 3998, 3 rules\nAcl's step is 5\n rule 5 permit tcp source 85.14.167.234 0 destination 192.214.198.156 0 destination-port eq 8022 (18 matches)\n rule 10 deny tcp destination 192.214.198.156 0 destination-port eq www (8 matches)\n rule 15 deny tcp destination 192.23.26.1 0.0.255.255 destination-port range 50 80 (8 matches)\n rule 20 permit ip (278450 matches)\n\nAdvanced ACL qsdqsd 3999, 0 rule\nAcl's step is 5\n",
+  "textfsm_template": "Value Filldown ACL_NAME (.*?)\nValue Filldown,Required ACL_NUMBER (\\d+)\nValue SN (\\d+)\nValue ACTION (deny|permit)\nValue PROTOCOL (\\d+|icmp(v6)?|tcp|udp|gre|igmp|ip(v6)?|ipinip|ospf)\nValue SOURCE (((\\d+.){3}\\d+|[0-9a-fA-F]{1,4}([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4})[\\/\\s]((\\d+.){3}\\d+|\\d+))\nValue SOURCE_PORT_MODIFIER (eq|lt|gt|range)\nValue SOURCE_PORT_RANGE ((\\S+)(\\s(\\S+))?)\nValue DESTINATION (((\\d+.){3}\\d+|[0-9a-fA-F]{1,4}([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4})[\\/\\s]((\\d+.){3}\\d+|\\d+))\nValue DESTINATION_PORT_MODIFIER (eq|lt|gt|range)\nValue DESTINATION_PORT_RANGE ((\\S+)(\\s(\\S+))?)\nValue MATCHES (\\d+)\nValue DESCRIPTION (.*)\n\nStart\n  ^\\s*rule\\s\\d+\\s(deny|permit) -> Continue.Record\n  ^\\S+\\sIPv6\\sACL\\s -> Continue.Record\n  ^\\S+\\sACL\\s -> Continue.Record\n  ^\\s*Total\\squantity\\sof\\snonempty\\sACL\\snumber\\sis\\s\\d+\\s*$$\n  ^\\s*Total\\snonempty\\sacl6\\snumber\\sis\\s\\d+\\s*$$\n  ^\\S+\\sIPv6\\sACL\\s${ACL_NUMBER}(\\sname\\s${ACL_NAME})?,\\s\\d+\\srules?.*$$\n  ^\\S+\\sACL\\s(${ACL_NAME}\\s)?${ACL_NUMBER},\\s\\d+\\srules?.*$$\n  ^\\s*Acl's\\sstep\\sis\\s\\d+\\s*$$\n  ^\\s*rule\\s${SN}\\s${ACTION}(\\s${PROTOCOL})?(\\ssource\\s${SOURCE})?(\\ssource-port\\s${SOURCE_PORT_MODIFIER}\\s${SOURCE_PORT_RANGE})?(\\sdestination\\s${DESTINATION})?(\\sdestination-port\\s${DESTINATION_PORT_MODIFIER}\\s${DESTINATION_PORT_RANGE})?(\\s\\(${MATCHES}\\smatch(es)?\\))?\\s*$$\n  ^\\s*rule\\s\\d+\\sdescription\\s\"${DESCRIPTION}\"\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

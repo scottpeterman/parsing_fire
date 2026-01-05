@@ -1,0 +1,70 @@
+{
+  "command": "netstat -tuln",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 7,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"protocol_recv_q_send_q_local_address_foreign_address_state\">\n{{PROTOCOL}} {{RECV_Q}} {{SEND_Q}} {{LOCAL_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{FOREIGN_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATE | ORPHRASE}} \n</group>\n<group name=\"protocol_recv_q_send_q_local_address_foreign_address\">\n{{PROTOCOL}} {{RECV_Q}} {{SEND_Q}} {{LOCAL_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{FOREIGN_ADDRESS | ORPHRASE}} \n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "tcp",
+      "RECV_Q": "0",
+      "SEND_Q": "0",
+      "LOCAL_ADDRESS": "0.0.0.0:22",
+      "FOREIGN_ADDRESS": "0.0.0.0:*",
+      "STATE": "LISTEN"
+    },
+    {
+      "PROTOCOL": "tcp",
+      "RECV_Q": "0",
+      "SEND_Q": "0",
+      "LOCAL_ADDRESS": "127.0.0.1:25",
+      "FOREIGN_ADDRESS": "0.0.0.0:*",
+      "STATE": "LISTEN"
+    },
+    {
+      "PROTOCOL": "tcp6",
+      "RECV_Q": "0",
+      "SEND_Q": "0",
+      "LOCAL_ADDRESS": ":::80",
+      "FOREIGN_ADDRESS": ":::*",
+      "STATE": "LISTEN"
+    },
+    {
+      "PROTOCOL": "tcp6",
+      "RECV_Q": "0",
+      "SEND_Q": "0",
+      "LOCAL_ADDRESS": ":::443",
+      "FOREIGN_ADDRESS": ":::*",
+      "STATE": "LISTEN"
+    },
+    {
+      "PROTOCOL": "udp",
+      "RECV_Q": "0",
+      "SEND_Q": "0",
+      "LOCAL_ADDRESS": "0.0.0.0:68",
+      "FOREIGN_ADDRESS": "0.0.0.0:*"
+    },
+    {
+      "PROTOCOL": "udp",
+      "RECV_Q": "0",
+      "SEND_Q": "0",
+      "LOCAL_ADDRESS": "127.0.0.1:123",
+      "FOREIGN_ADDRESS": "0.0.0.0:*"
+    },
+    {
+      "PROTOCOL": "udp6",
+      "RECV_Q": "0",
+      "SEND_Q": "0",
+      "LOCAL_ADDRESS": ":::123",
+      "FOREIGN_ADDRESS": ":::*"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Active Internet connections (only servers)\nProto Recv-Q Send-Q Local Address           Foreign Address         State      \ntcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN     \ntcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN     \ntcp6       0      0 :::80                   :::*                    LISTEN     \ntcp6       0      0 :::443                  :::*                    LISTEN     \nudp        0      0 0.0.0.0:68              0.0.0.0:*                           \nudp        0      0 127.0.0.1:123           0.0.0.0:*                           \nudp6       0      0 :::123                  :::*                                \n",
+  "textfsm_template": "Value PROTOCOL (\\S+)\nValue RECV_Q (\\d+)\nValue SEND_Q (\\d+)\nValue LOCAL_ADDRESS (\\S+)\nValue FOREIGN_ADDRESS (\\S+)\nValue STATE (\\S+|)\n\nStart\n  ^\\s*Proto\\s+Recv-Q\\s+Send-Q\\s+Local\\s+Address\\s+Foreign\\s+Address\\s+State\\s*$$\n  ^\\s*${PROTOCOL}\\s+${RECV_Q}\\s+${SEND_Q}\\s+${LOCAL_ADDRESS}\\s+${FOREIGN_ADDRESS}\\s*${STATE}\\s*$$ -> Record"
+}

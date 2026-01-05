@@ -1,0 +1,50 @@
+{
+  "command": "show ip prefix-list my-prefix",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"seq_action_network\">\n   seq {{SEQ}} {{ACTION}} {{NETWORK | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SEQ": "5",
+      "ACTION": "permit",
+      "NETWORK": "10.0.0.0/24"
+    },
+    {
+      "SEQ": "10",
+      "ACTION": "permit",
+      "NETWORK": "192.168.0.0/16"
+    },
+    {
+      "SEQ": "15",
+      "ACTION": "deny",
+      "NETWORK": "172.16.0.0/12"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "seq_action_network": [
+        {
+          "SEQ": "5",
+          "ACTION": "permit",
+          "NETWORK": "10.0.0.0/24"
+        },
+        {
+          "SEQ": "10",
+          "ACTION": "permit",
+          "NETWORK": "192.168.0.0/16"
+        },
+        {
+          "SEQ": "15",
+          "ACTION": "deny",
+          "NETWORK": "172.16.0.0/12"
+        }
+      ]
+    }
+  ],
+  "cli_content": "ip prefix-list my-prefix: 3 entries\n   seq 5 permit 10.0.0.0/24\n   seq 10 permit 192.168.0.0/16\n   seq 15 deny 172.16.0.0/12\n",
+  "textfsm_template": "Value SEQ (\\d+)\nValue ACTION (\\S+)\nValue NETWORK (\\S+)\n\nStart\n  ^ip prefix-list \\S+: -> Continue.Record\n  ^\\s*seq ${SEQ}\\s+${ACTION}\\s+${NETWORK}\\s*$$ -> Record"
+}

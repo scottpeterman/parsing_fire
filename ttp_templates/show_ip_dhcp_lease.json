@@ -1,0 +1,50 @@
+{
+  "command": "show ip dhcp lease",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"ip_address_hardware_address_lease_expiration\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{HARDWARE_ADDRESS}} {{LEASE_EXPIRATION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP_ADDRESS": "192.168.1.10",
+      "HARDWARE_ADDRESS": "00:1A:2B:3C:4D:5E",
+      "LEASE_EXPIRATION": "2023/12/31 23:59:59"
+    },
+    {
+      "IP_ADDRESS": "192.168.1.11",
+      "HARDWARE_ADDRESS": "1C:4D:70:6E:2F:A8",
+      "LEASE_EXPIRATION": "2024/01/01 12:00:00"
+    },
+    {
+      "IP_ADDRESS": "192.168.1.12",
+      "HARDWARE_ADDRESS": "00:0C:F1:56:98:C8",
+      "LEASE_EXPIRATION": "2024/01/02 08:45:30"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_address_hardware_address_lease_expiration": [
+        {
+          "IP_ADDRESS": "192.168.1.10",
+          "HARDWARE_ADDRESS": "00:1A:2B:3C:4D:5E",
+          "LEASE_EXPIRATION": "2023/12/31 23:59:59"
+        },
+        {
+          "IP_ADDRESS": "192.168.1.11",
+          "HARDWARE_ADDRESS": "1C:4D:70:6E:2F:A8",
+          "LEASE_EXPIRATION": "2024/01/01 12:00:00"
+        },
+        {
+          "IP_ADDRESS": "192.168.1.12",
+          "HARDWARE_ADDRESS": "00:0C:F1:56:98:C8",
+          "LEASE_EXPIRATION": "2024/01/02 08:45:30"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IP address       Hardware Address    Lease expiration\n192.168.1.10     00:1A:2B:3C:4D:5E  2023/12/31 23:59:59\n192.168.1.11     1C:4D:70:6E:2F:A8  2024/01/01 12:00:00\n192.168.1.12     00:0C:F1:56:98:C8  2024/01/02 08:45:30\n",
+  "textfsm_template": "Value IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue HARDWARE_ADDRESS ([\\dA-Fa-f]{2}:[\\dA-Fa-f]{2}:[\\dA-Fa-f]{2}:[\\dA-Fa-f]{2}:[\\dA-Fa-f]{2}:[\\dA-Fa-f]{2})\nValue LEASE_EXPIRATION (\\d{4}/\\d{2}/\\d{2} \\d{2}:\\d{2}:\\d{2})\n\nStart\n  ^\\s*IP address\\s+Hardware Address\\s+Lease expiration\\s*$$\n  ^\\s*${IP_ADDRESS}\\s+${HARDWARE_ADDRESS}\\s+${LEASE_EXPIRATION}\\s*$$ -> Record"
+}

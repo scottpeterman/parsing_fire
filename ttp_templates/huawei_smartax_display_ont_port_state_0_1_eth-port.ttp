@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_smartax_display_ont_port_state_0_1_eth-port
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 6
+# Match ratio: 2.00
+
+<group name="ont_id_ont_port_id_ont_port_type_speed_mbps_duplex_link_state_ring_status">
+       {{ONT_ID | re("\\d+")}} {{ONT_PORT_ID | re("\\d+")}} {{ONT_PORT_TYPE}} {{SPEED_MBPS}} {{DUPLEX}} {{LINK_STATE | ORPHRASE}} {{RING_STATUS | ORPHRASE}} 
+</group>
+<group name="ont_id_ont_port_id_ont_port_type_link_state_ring_status">
+       {{ONT_ID | re("\\d+")}} {{ONT_PORT_ID | re("\\d+")}} {{ONT_PORT_TYPE}} - - {{LINK_STATE | ORPHRASE}} {{RING_STATUS | ORPHRASE}} 
+</group>
+<group name="ont_id_ont_port_id_ont_port_type">
+       {{ONT_ID | re("\\d+")}} {{ONT_PORT_ID | re("\\d+")}} {{ONT_PORT_TYPE | ORPHRASE}} - - - - 
+</group>

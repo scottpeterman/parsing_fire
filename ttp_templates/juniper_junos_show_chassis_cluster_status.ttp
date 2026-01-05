@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: juniper_junos_show_chassis_cluster_status
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 4
+# Match ratio: 1.33
+
+<group name="redundancy_group_id_cluster_id">
+Redundancy group: {{REDUNDANCY_GROUP_ID | re("\\d+")}} , Failover count: {{CLUSTER_ID | ORPHRASE}}
+</group>
+<group name="cluster_id">
+Cluster ID: {{CLUSTER_ID | ORPHRASE}}
+</group>

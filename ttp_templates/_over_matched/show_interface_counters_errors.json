@@ -1,0 +1,128 @@
+{
+  "command": "show interface counters errors",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.4,
+  "textfsm_rows": 5,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"port_align_err_fcs_err_xmit_err_rcv_err_under_size_out_discards\">\n{{PORT}} {{ALIGN_ERR}} {{FCS_ERR}} {{XMIT_ERR}} {{RCV_ERR | ORPHRASE}} {{UNDER_SIZE}} {{OUT_DISCARDS}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "Gi1/0/1",
+      "ALIGN_ERR": "0",
+      "FCS_ERR": "8",
+      "XMIT_ERR": "0",
+      "RCV_ERR": "3",
+      "UNDER_SIZE": "0",
+      "OUT_DISCARDS": "0"
+    },
+    {
+      "PORT": "Gi1/0/2",
+      "ALIGN_ERR": "0",
+      "FCS_ERR": "0",
+      "XMIT_ERR": "0",
+      "RCV_ERR": "0",
+      "UNDER_SIZE": "0",
+      "OUT_DISCARDS": "0"
+    },
+    {
+      "PORT": "Gi1/0/3",
+      "ALIGN_ERR": "0",
+      "FCS_ERR": "2",
+      "XMIT_ERR": "0",
+      "RCV_ERR": "0",
+      "UNDER_SIZE": "0",
+      "OUT_DISCARDS": "0"
+    },
+    {
+      "PORT": "Gi1/0/4",
+      "ALIGN_ERR": "0",
+      "FCS_ERR": "0",
+      "XMIT_ERR": "0",
+      "RCV_ERR": "7",
+      "UNDER_SIZE": "0",
+      "OUT_DISCARDS": "0"
+    },
+    {
+      "PORT": "Gi1/0/5",
+      "ALIGN_ERR": "0",
+      "FCS_ERR": "12",
+      "XMIT_ERR": "0",
+      "RCV_ERR": "4",
+      "UNDER_SIZE": "0",
+      "OUT_DISCARDS": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_align_err_fcs_err_xmit_err_rcv_err_under_size_out_discards": [
+        {
+          "PORT": "Port",
+          "ALIGN_ERR": "Align-Err",
+          "FCS_ERR": "FCS-Err",
+          "XMIT_ERR": "Xmit-Err",
+          "RCV_ERR": "Rcv-Err",
+          "UNDER_SIZE": "UnderSize",
+          "OUT_DISCARDS": "OutDiscards"
+        },
+        {
+          "PORT": "---------",
+          "ALIGN_ERR": "-----------",
+          "FCS_ERR": "--------",
+          "XMIT_ERR": "----------",
+          "RCV_ERR": "---------",
+          "UNDER_SIZE": "-----------",
+          "OUT_DISCARDS": "------------"
+        },
+        {
+          "PORT": "Gi1/0/1",
+          "ALIGN_ERR": "0",
+          "FCS_ERR": "8",
+          "XMIT_ERR": "0",
+          "RCV_ERR": "3",
+          "UNDER_SIZE": "0",
+          "OUT_DISCARDS": "0"
+        },
+        {
+          "PORT": "Gi1/0/2",
+          "ALIGN_ERR": "0",
+          "FCS_ERR": "0",
+          "XMIT_ERR": "0",
+          "RCV_ERR": "0",
+          "UNDER_SIZE": "0",
+          "OUT_DISCARDS": "0"
+        },
+        {
+          "PORT": "Gi1/0/3",
+          "ALIGN_ERR": "0",
+          "FCS_ERR": "2",
+          "XMIT_ERR": "0",
+          "RCV_ERR": "0",
+          "UNDER_SIZE": "0",
+          "OUT_DISCARDS": "0"
+        },
+        {
+          "PORT": "Gi1/0/4",
+          "ALIGN_ERR": "0",
+          "FCS_ERR": "0",
+          "XMIT_ERR": "0",
+          "RCV_ERR": "7",
+          "UNDER_SIZE": "0",
+          "OUT_DISCARDS": "0"
+        },
+        {
+          "PORT": "Gi1/0/5",
+          "ALIGN_ERR": "0",
+          "FCS_ERR": "12",
+          "XMIT_ERR": "0",
+          "RCV_ERR": "4",
+          "UNDER_SIZE": "0",
+          "OUT_DISCARDS": "0"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Port       Align-Err    FCS-Err   Xmit-Err    Rcv-Err    UnderSize    OutDiscards\n---------  -----------  --------  ----------  ---------  -----------  ------------\nGi1/0/1             0         8           0          3            0             0\nGi1/0/2             0         0           0          0            0             0\nGi1/0/3             0         2           0          0            0             0\nGi1/0/4             0         0           0          7            0             0\nGi1/0/5             0        12           0          4            0             0\n",
+  "textfsm_template": "Value PORT (\\S+)\nValue ALIGN_ERR (\\d+)\nValue FCS_ERR (\\d+)\nValue XMIT_ERR (\\d+)\nValue RCV_ERR (\\d+)\nValue UNDER_SIZE (\\d+)\nValue OUT_DISCARDS (\\d+)\n\nStart\n  ^\\s*Port\\s+Align-Err\\s+FCS-Err\\s+Xmit-Err\\s+Rcv-Err\\s+UnderSize\\s+OutDiscards\\s*$$\n  ^\\s*${PORT}\\s+${ALIGN_ERR}\\s+${FCS_ERR}\\s+${XMIT_ERR}\\s+${RCV_ERR}\\s+${UNDER_SIZE}\\s+${OUT_DISCARDS}\\s*$$ -> Record"
+}

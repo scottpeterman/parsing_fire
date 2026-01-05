@@ -1,0 +1,176 @@
+{
+  "command": "hp_comware_display_interface_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.1818181818181819,
+  "textfsm_rows": 11,
+  "ttp_rows": 13,
+  "ttp_template": "<group name=\"interface_link_protocol_main_ip\">\n{{INTERFACE}} {{LINK}} {{PROTOCOL}} {{MAIN_IP | ORPHRASE}}\n</group>\n<group name=\"interface_link_protocol_main_ip_description\">\n{{INTERFACE}} {{LINK}} {{PROTOCOL}} {{MAIN_IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{DESCRIPTION | ORPHRASE}}\n</group>\n<group name=\"duplex_link_speed_pvid\">\n{{INTERF{{DUPLEX | ORPHR{{TYPE}}SE}}CE}} {{LINK}} {{SPEED}} A A {{PVID | re(\"\\\\d+\")}}\n</group>\n<group name=\"duplex_link_speed_type_pvid\">\n{{INTERF{{DUPLEX}}CE}} {{LINK}} {{SPEED}} {{TYPE}} A {{PVID | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Aux0",
+      "LINK": "UP",
+      "PROTOCOL": "UP",
+      "MAIN_IP": "--"
+    },
+    {
+      "INTERFACE": "Cellular0/0",
+      "LINK": "DOWN",
+      "PROTOCOL": "DOWN",
+      "MAIN_IP": "--"
+    },
+    {
+      "INTERFACE": "GE0/0",
+      "LINK": "UP",
+      "PROTOCOL": "UP",
+      "MAIN_IP": "192.168.100.1",
+      "DESCRIPTION": "The interface for connecting RouterA."
+    },
+    {
+      "INTERFACE": "Loop0",
+      "LINK": "UP",
+      "PROTOCOL": "UP(s)",
+      "MAIN_IP": "--",
+      "DESCRIPTION": "--"
+    },
+    {
+      "INTERFACE": "MP0",
+      "LINK": "DOWN",
+      "PROTOCOL": "DOWN",
+      "MAIN_IP": "--"
+    },
+    {
+      "INTERFACE": "NULL0",
+      "LINK": "UP",
+      "PROTOCOL": "UP(s)",
+      "MAIN_IP": "--",
+      "DESCRIPTION": "--"
+    },
+    {
+      "INTERFACE": "Vlan1",
+      "LINK": "DOWN",
+      "PROTOCOL": "DOWN",
+      "MAIN_IP": "192.168.1.1"
+    },
+    {
+      "INTERFACE": "GE0/1",
+      "LINK": "DOWN",
+      "SPEED": "auto",
+      "DUPLEX": "A",
+      "TYPE": "A",
+      "PVID": "1"
+    },
+    {
+      "INTERFACE": "GE0/2",
+      "LINK": "DOWN",
+      "SPEED": "auto",
+      "DUPLEX": "A",
+      "TYPE": "A",
+      "PVID": "1"
+    },
+    {
+      "INTERFACE": "GE0/3",
+      "LINK": "DOWN",
+      "SPEED": "auto",
+      "DUPLEX": "A",
+      "TYPE": "A",
+      "PVID": "1"
+    },
+    {
+      "INTERFACE": "GE0/4",
+      "LINK": "DOWN",
+      "SPEED": "auto",
+      "DUPLEX": "A",
+      "TYPE": "A",
+      "PVID": "1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_link_protocol_main_ip": [
+        {
+          "INTERFACE": "The",
+          "LINK": "brief",
+          "PROTOCOL": "information",
+          "MAIN_IP": "of interface(s) under route mode:"
+        },
+        {
+          "INTERFACE": "Link:",
+          "LINK": "ADM",
+          "PROTOCOL": "-",
+          "MAIN_IP": "administratively down; Stby - standby"
+        },
+        {
+          "INTERFACE": "Protocol:",
+          "LINK": "(s)",
+          "PROTOCOL": "-",
+          "MAIN_IP": "spoofing"
+        },
+        {
+          "INTERFACE": "Aux0",
+          "LINK": "UP",
+          "PROTOCOL": "UP",
+          "MAIN_IP": "--"
+        },
+        {
+          "INTERFACE": "Cellular0/0",
+          "LINK": "DOWN",
+          "PROTOCOL": "DOWN",
+          "MAIN_IP": "--"
+        },
+        {
+          "INTERFACE": "MP0",
+          "LINK": "DOWN",
+          "PROTOCOL": "DOWN",
+          "MAIN_IP": "--"
+        },
+        {
+          "INTERFACE": "Vlan1",
+          "LINK": "DOWN",
+          "PROTOCOL": "DOWN",
+          "MAIN_IP": "192.168.1.1"
+        },
+        {
+          "INTERFACE": "The",
+          "LINK": "brief",
+          "PROTOCOL": "information",
+          "MAIN_IP": "of interface(s) under bridge mode:"
+        },
+        {
+          "INTERFACE": "Link:",
+          "LINK": "ADM",
+          "PROTOCOL": "-",
+          "MAIN_IP": "administratively down; Stby - standby"
+        },
+        {
+          "INTERFACE": "Speed",
+          "LINK": "or",
+          "PROTOCOL": "Duplex:",
+          "MAIN_IP": "(a)/A - auto; H - half; F - full"
+        },
+        {
+          "INTERFACE": "Type:",
+          "LINK": "A",
+          "PROTOCOL": "-",
+          "MAIN_IP": "access; T - trunk; H - hybrid"
+        },
+        {
+          "INTERFACE": "Interface",
+          "LINK": "Link",
+          "PROTOCOL": "Speed",
+          "MAIN_IP": "Duplex Type PVID Description"
+        }
+      ],
+      "interface_link_protocol_main_ip_description": {
+        "INTERFACE": "GE0/0",
+        "LINK": "UP",
+        "PROTOCOL": "UP",
+        "MAIN_IP": "192.168.100.1",
+        "DESCRIPTION": "The interface for connecting RouterA."
+      }
+    }
+  ],
+  "cli_content": "The brief information of interface(s) under route mode:\nLink: ADM - administratively down; Stby - standby\nProtocol: (s) - spoofing\nInterface            Link Protocol Main IP         Description\nAux0                 UP   UP       --\nCellular0/0          DOWN DOWN     --\nGE0/0                UP   UP       192.168.100.1   The interface for connecting RouterA.\nLoop0                UP   UP(s)    --              --\nMP0                  DOWN DOWN     --\nNULL0                UP   UP(s)    --              --\nVlan1                DOWN DOWN     192.168.1.1\n\nThe brief information of interface(s) under bridge mode:\nLink: ADM - administratively down; Stby - standby\nSpeed or Duplex: (a)/A - auto; H - half; F - full\nType: A - access; T - trunk; H - hybrid\nInterface            Link Speed   Duplex Type PVID Description\nGE0/1                DOWN auto    A      A    1\nGE0/2                DOWN auto    A      A    1\nGE0/3                DOWN auto    A      A    1\nGE0/4                DOWN auto    A      A    1\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue LINK (\\S+)\nValue PROTOCOL ((?:UP|DOWN)(?:\\(s\\))?)\nValue MAIN_IP (\\S+)\nValue SPEED (\\S+)\nValue DUPLEX (A|H|F)\nValue TYPE (A|T|H)\nValue PVID (\\d+)\nValue DESCRIPTION (.*?)\n\nStart\n  ^\\s*The\\s+brief\\s+information\\s+of\\s+interface\\(s\\)\\s+under\\s+route\\s+mode:\\s*$$\n  ^\\s*Link:\\s+ADM\\s+-\\s+administratively\\s+down;\\s+Stby\\s+-\\s+standby\\s*$$\n  ^\\s*Protocol:\\s+\\(s\\)\\s+-\\s+spoofing\\s*$$\n  ^\\s*Interface\\s+Link\\s+Protocol\\s+Main\\s+IP\\s+Description\\s*$$ -> RouteModeIfaces\n  ^\\s*The\\s+brief\\s+information\\s+of\\s+interface\\(s\\)\\s+under\\s+bridge\\s+mode:\\s*$$\n  ^\\s*Link:\\s+ADM\\s+-\\s+administratively\\s+down;\\s+Stby\\s+-\\s+standby\\s*$$\n  ^\\s*Speed\\s+or\\s+Duplex:\\s+\\(a\\)/A\\s+-\\s+auto;\\s+H\\s+-\\s+half;\\s+F\\s+-\\s+full\\s*$$\n  ^\\s*Type:\\s+A\\s+-\\s+access;\\s+T\\s+-\\s+trunk;\\s+H\\s+-\\s+hybrid\\s*$$\n  ^\\s*Interface\\s+Link\\s+Speed\\s+Duplex\\s+Type\\s+PVID\\s+Description\\s*$$ -> BridgeModeIfaces\n  ^\\s*$$\n  ^. -> Error\n\nRouteModeIfaces\n  ^\\s*${INTERFACE}\\s+${LINK}\\s+${PROTOCOL}\\s+${MAIN_IP}(?:\\s+${DESCRIPTION})?\\s*$$ -> Record\n  ^\\s*$$ -> Start\n  ^. -> Error\n\nBridgeModeIfaces\n  ^${INTERFACE}\\s+${LINK}\\s+${SPEED}\\s+${DUPLEX}\\s+${TYPE}\\s+${PVID}(?:\\s+${DESCRIPTION})?\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

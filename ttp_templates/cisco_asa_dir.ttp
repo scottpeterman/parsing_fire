@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_dir
+# Source: ntc
+# TextFSM rows: 10
+# TTP rows: 13
+# Match ratio: 1.30
+
+<group name="file_system">
+Directory of {{FILE_SYSTEM | ORPHRASE}}
+<group name="date_time_id_name">
+{{ID | re("\\d+")}} {{PERMISSIONS}} {{SIZE}} {{DATE_TIME | ORPHRASE}} {{NAME | ORPHRASE}}
+</group>
+</group>

@@ -1,0 +1,76 @@
+{
+  "command": "show alarms",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.75,
+  "textfsm_rows": 4,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"id_severity_state_acknowledge_components_description\">\n{{ID | re(\"\\\\d+\")}} {{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{STATE | ORPHRASE}} {{ACKNOWLEDGE}} {{COMPONENTS}} {{DESCRIPTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ID": "1",
+      "SEVERITY": "critical",
+      "STATE": "active",
+      "ACKNOWLEDGE": "no",
+      "COMPONENTS": "Interface",
+      "DESCRIPTION": "Eth1  Link down"
+    },
+    {
+      "ID": "2",
+      "SEVERITY": "warning",
+      "STATE": "resolved",
+      "ACKNOWLEDGE": "yes",
+      "COMPONENTS": "Chassis",
+      "DESCRIPTION": "Overheating"
+    },
+    {
+      "ID": "3",
+      "SEVERITY": "major",
+      "STATE": "active",
+      "ACKNOWLEDGE": "no",
+      "COMPONENTS": "Memory",
+      "DESCRIPTION": "Memory leak"
+    },
+    {
+      "ID": "4",
+      "SEVERITY": "minor",
+      "STATE": "active",
+      "ACKNOWLEDGE": "yes",
+      "COMPONENTS": "PowerSupply",
+      "DESCRIPTION": "Power supply fail"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "id_severity_state_acknowledge_components_description": [
+        {
+          "ID": "2",
+          "SEVERITY": "warning",
+          "STATE": "resolved",
+          "ACKNOWLEDGE": "yes",
+          "COMPONENTS": "Chassis",
+          "DESCRIPTION": "Overheating"
+        },
+        {
+          "ID": "3",
+          "SEVERITY": "major",
+          "STATE": "active",
+          "ACKNOWLEDGE": "no",
+          "COMPONENTS": "Memory",
+          "DESCRIPTION": "Memory leak"
+        },
+        {
+          "ID": "4",
+          "SEVERITY": "minor",
+          "STATE": "active",
+          "ACKNOWLEDGE": "yes",
+          "COMPONENTS": "PowerSupply",
+          "DESCRIPTION": "Power supply fail"
+        }
+      ]
+    }
+  ],
+  "cli_content": "ID      Severity  State         Acknowledge Components      Description\n1       critical  active        no          Interface Eth1  Link down\n2       warning   resolved      yes         Chassis         Overheating\n3       major     active        no          Memory          Memory leak\n4       minor     active        yes         PowerSupply     Power supply fail\n",
+  "textfsm_template": "Value ID (\\d+)\nValue SEVERITY (\\S+)\nValue STATE (\\S+)\nValue ACKNOWLEDGE (\\S+)\nValue COMPONENTS ([\\S\\s]+?)\nValue DESCRIPTION (.+)\n\nStart\n  ^\\s*ID\\s+Severity\\s+State\\s+Acknowledge\\s+Components\\s+Description\\s*$$\n  ^\\s*${ID}\\s+${SEVERITY}\\s+${STATE}\\s+${ACKNOWLEDGE}\\s+${COMPONENTS}\\s+${DESCRIPTION}\\s*$$ -> Record"
+}

@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: cisco_ios_show_vrrp_brief
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="interface_group_preempt_time_state_master_ip_address_virtual_ip_address">
+{{INTERFACE}} {{GROUP}} {{PRIORIT{{PREEMPT}}}} {{TIME}} Y {{STATE | ORPHRASE}} {{MASTER_IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{VIRTUAL_IP_ADDRESS | ORPHRASE}} 
+</group>

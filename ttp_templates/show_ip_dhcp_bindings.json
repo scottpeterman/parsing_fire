@@ -1,0 +1,84 @@
+{
+  "command": "show ip dhcp bindings",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"ip_address_client_id_hardware_address_lease_expiration_type_interface\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{CLIENT_ID}} {{HARDWARE_ADDRESS}} {{LEASE_EXPIRATION}} {{TYPE}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP_ADDRESS": "192.168.1.101",
+      "CLIENT_ID": "0100.50.56.11",
+      "HARDWARE_ADDRESS": "fa:ce:cd:de:ad:01",
+      "LEASE_EXPIRATION": "23:59:59",
+      "TYPE": "Automatic",
+      "INTERFACE": "Vlan10"
+    },
+    {
+      "IP_ADDRESS": "192.168.1.102",
+      "CLIENT_ID": "0100.50.56.22",
+      "HARDWARE_ADDRESS": "fa:ce:cd:de:ad:02",
+      "LEASE_EXPIRATION": "24:00:59",
+      "TYPE": "Automatic",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "192.168.1.103",
+      "CLIENT_ID": "0100.50.56.33",
+      "HARDWARE_ADDRESS": "fa:ce:cd:de:ad:03",
+      "LEASE_EXPIRATION": "24:30:00",
+      "TYPE": "Automatic",
+      "INTERFACE": "Vlan30"
+    },
+    {
+      "IP_ADDRESS": "192.168.1.104",
+      "CLIENT_ID": "0100.50.56.44",
+      "HARDWARE_ADDRESS": "fa:ce:cd:de:ad:04",
+      "LEASE_EXPIRATION": "23:30:59",
+      "TYPE": "Automatic",
+      "INTERFACE": "Vlan40"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_address_client_id_hardware_address_lease_expiration_type_interface": [
+        {
+          "IP_ADDRESS": "192.168.1.101",
+          "CLIENT_ID": "0100.50.56.11",
+          "HARDWARE_ADDRESS": "fa:ce:cd:de:ad:01",
+          "LEASE_EXPIRATION": "23:59:59",
+          "TYPE": "Automatic",
+          "INTERFACE": "Vlan10"
+        },
+        {
+          "IP_ADDRESS": "192.168.1.102",
+          "CLIENT_ID": "0100.50.56.22",
+          "HARDWARE_ADDRESS": "fa:ce:cd:de:ad:02",
+          "LEASE_EXPIRATION": "24:00:59",
+          "TYPE": "Automatic",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "192.168.1.103",
+          "CLIENT_ID": "0100.50.56.33",
+          "HARDWARE_ADDRESS": "fa:ce:cd:de:ad:03",
+          "LEASE_EXPIRATION": "24:30:00",
+          "TYPE": "Automatic",
+          "INTERFACE": "Vlan30"
+        },
+        {
+          "IP_ADDRESS": "192.168.1.104",
+          "CLIENT_ID": "0100.50.56.44",
+          "HARDWARE_ADDRESS": "fa:ce:cd:de:ad:04",
+          "LEASE_EXPIRATION": "23:30:59",
+          "TYPE": "Automatic",
+          "INTERFACE": "Vlan40"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Bindings from all pools not associated with VRF:\nIPAddress        Client-ID/    Lease expiration        Type       Interface\n                 Hardware address/\n                 User name\n192.168.1.101    0100.50.56.11 fa:ce:cd:de:ad:01      23:59:59    Automatic  Vlan10\n192.168.1.102    0100.50.56.22 fa:ce:cd:de:ad:02      24:00:59    Automatic  Vlan20\n192.168.1.103    0100.50.56.33 fa:ce:cd:de:ad:03      24:30:00    Automatic  Vlan30\n192.168.1.104    0100.50.56.44 fa:ce:cd:de:ad:04      23:30:59    Automatic  Vlan40\n",
+  "textfsm_template": "Value IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue CLIENT_ID (\\S+)\nValue HARDWARE_ADDRESS (([a-fA-F0-9]{2}:){5}[a-fA-F0-9]{2})\nValue LEASE_EXPIRATION (\\d{2}:\\d{2}:\\d{2})\nValue TYPE (\\S+)\nValue INTERFACE (\\S+)\n\nStart\n  ^${IP_ADDRESS}\\s+${CLIENT_ID}\\s+${HARDWARE_ADDRESS}\\s+${LEASE_EXPIRATION}\\s+${TYPE}\\s+${INTERFACE} -> Record"
+}

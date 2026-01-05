@@ -1,0 +1,18 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show mlag
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="connection_status_domain_id_local_int_local_int_status">
+Domain-id  : {{DOMAIN_ID | ORPHRASE}}
+Local-interface  : {{LOCAL_INT | ORPHRASE}}
+Peer-address  : {{PEER_ADDRESS | ORPHRASE}}
+Peer-link  : {{PEER_LINK | ORPHRASE}}
+Peer-link status  : {{PEER_LINK_STATUS | ORPHRASE}}
+Role  : {{ROLE | ORPHRASE}}
+State  : {{STATE | ORPHRASE}}
+System-id  : {{SYSTEM_ID | ORPHRASE}}
+Connection status  : {{CONNECTION_STATUS | ORPHRASE}}
+</group>

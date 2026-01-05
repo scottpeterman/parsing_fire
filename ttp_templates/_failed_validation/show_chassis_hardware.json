@@ -1,0 +1,71 @@
+{
+  "command": "show chassis hardware",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 9,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"item_version_serial_number_part_number\">\n{{ITEM | ORPHRASE}} {{VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{SERIAL_NUMBER | re(\"\\\\w+\")}} {{PART_NUMBER | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "ITEM": "Chassis          REV",
+      "VERSION": "33",
+      "SERIAL_NUMBER": "AS1234-XXXX",
+      "PART_NUMBER": "740-021943"
+    },
+    {
+      "ITEM": "Routing Engine   REV",
+      "VERSION": "05",
+      "SERIAL_NUMBER": "RE1234-YYYY",
+      "PART_NUMBER": "740-025933"
+    },
+    {
+      "ITEM": "FPC 0            REV",
+      "VERSION": "12",
+      "SERIAL_NUMBER": "FPC1234-ZZZZ",
+      "PART_NUMBER": "750-030234"
+    },
+    {
+      "ITEM": "PIC",
+      "VERSION": "0",
+      "SERIAL_NUMBER": "SPA-1X10GE-SR",
+      "PART_NUMBER": "750-030568"
+    },
+    {
+      "ITEM": "PIC",
+      "VERSION": "1",
+      "SERIAL_NUMBER": "SPA-1X10GE-LR",
+      "PART_NUMBER": "750-030569"
+    },
+    {
+      "ITEM": "Power Supply A   REV",
+      "VERSION": "07",
+      "SERIAL_NUMBER": "PS1234-WXYX",
+      "PART_NUMBER": "740-037492"
+    },
+    {
+      "ITEM": "Fan",
+      "VERSION": "Tray",
+      "SERIAL_NUMBER": "0",
+      "PART_NUMBER": "OK"
+    },
+    {
+      "ITEM": "Fan",
+      "VERSION": "Tray",
+      "SERIAL_NUMBER": "1",
+      "PART_NUMBER": "OK"
+    },
+    {
+      "ITEM": "Fan",
+      "VERSION": "Tray",
+      "SERIAL_NUMBER": "2",
+      "PART_NUMBER": "OK"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Hardware inventory:\nItem             Version  Serial Number     Part Number\nChassis          REV 33   AS1234-XXXX       740-021943\nRouting Engine   REV 05   RE1234-YYYY       740-025933\nFPC 0            REV 12   FPC1234-ZZZZ      750-030234\n   PIC 0                 SPA-1X10GE-SR       750-030568\n   PIC 1                 SPA-1X10GE-LR       750-030569\nPower Supply A   REV 07   PS1234-WXYX       740-037492\nFans:\n  Fan Tray 0               OK\n  Fan Tray 1               OK\n  Fan Tray 2               OK\n",
+  "textfsm_template": "Value ITEM (\\S+(\\s+\\S+)*)\nValue VERSION (\\S+)\nValue SERIAL_NUMBER (\\S+)\nValue PART_NUMBER (\\S+)\nValue STATUS (\\S+)\n\nStart\n  ^\\s*Item\\s+Version\\s+Serial\\s+Number\\s+Part\\s+Number\\s*$$\n  ^\\s*${ITEM}\\s+${VERSION}\\s+${SERIAL_NUMBER}\\s+${PART_NUMBER}\\s*$$ -> Record\n  ^Fans:\\s*$$\n  ^\\s*Fan\\s+Tray\\s+\\d+\\s+${STATUS}\\s*$$ -> Record"
+}

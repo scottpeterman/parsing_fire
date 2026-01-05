@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show interface brief
+# Source: chatgpt
+# TextFSM rows: 6
+# TTP rows: 6
+# Match ratio: 1.00
+
+<group name="port_name_status_vlan_duplex_speed_type">
+{{PORT | re(".*\\w.*")}} {{NAME | ORPHRASE}} {{STATUS | ORPHRASE}} {{VLAN | re(".*\\w.*")}} {{DUPLEX | re(".*\\w.*")}} {{SPEED | re(".*\\w.*")}} {{TYPE | re(".*\\w.*")}}
+</group>

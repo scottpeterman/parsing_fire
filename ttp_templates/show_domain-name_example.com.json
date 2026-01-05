@@ -1,0 +1,50 @@
+{
+  "command": "show domain-name example.com",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"creation_date_dnssec_domain_name_domain_status\">\nDomain Name: {{DOMAIN_NAME | ORPHRASE}}\nRegistry Domain ID: {{REGISTRY_DOMAIN_ID | ORPHRASE}}\nRegistrar WHOIS Server: {{REGISTRAR_WHOIS_SERVER | ORPHRASE}}\nRegistrar URL: {{REGISTRAR_URL | ORPHRASE}}\nUpdated Date: {{UPDATED_DATE | ORPHRASE}}\nCreation Date: {{CREATION_DATE | ORPHRASE}}\nRegistry Expiry Date: {{REGISTRY_EXPIRY_DATE | ORPHRASE}}\nRegistrar: {{REGISTRAR | ORPHRASE}}\nRegistrar IANA ID: {{REGISTRAR_IANA_ID | ORPHRASE}}\nRegistrar Abuse Contact Email: {{REGISTRAR_ABUSE_CONTACT_EMAIL | ORPHRASE}}\nRegistrar Abuse Contact Phone: {{REGISTRAR_ABUSE_CONTACT_PHONE | ORPHRASE}}\nDomain Status: {{DOMAIN_STATUS | ORPHRASE}}\nName Server: {{NAME_SERVER | ORPHRASE}}\nDNSSEC: {{DNSSEC | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DOMAIN_NAME": "example.com",
+      "REGISTRY_DOMAIN_ID": "2336790_DOMAIN_COM-VRSN",
+      "REGISTRAR_WHOIS_SERVER": "whois.example-registrar.com",
+      "REGISTRAR_URL": "http://www.example-registrar.com",
+      "UPDATED_DATE": "2023-01-15T04:00:00Z",
+      "CREATION_DATE": "1995-11-01T05:00:00Z",
+      "REGISTRY_EXPIRY_DATE": "2024-11-01T04:00:00Z",
+      "REGISTRAR": "Example Registrar, LLC",
+      "REGISTRAR_IANA_ID": "1234",
+      "REGISTRAR_ABUSE_CONTACT_EMAIL": "abuse@example-registrar.com",
+      "REGISTRAR_ABUSE_CONTACT_PHONE": "+1.8005550123",
+      "DOMAIN_STATUS": "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+      "NAME_SERVER": "ns2.example.com",
+      "DNSSEC": "unsigned"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "creation_date_dnssec_domain_name_domain_status": {
+        "DNSSEC": "unsigned",
+        "NAME_SERVER": "ns1.example.com",
+        "DOMAIN_STATUS": "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+        "REGISTRAR_ABUSE_CONTACT_PHONE": "+1.8005550123",
+        "REGISTRAR_ABUSE_CONTACT_EMAIL": "abuse@example-registrar.com",
+        "REGISTRAR_IANA_ID": "1234",
+        "REGISTRAR": "Example Registrar, LLC",
+        "REGISTRY_EXPIRY_DATE": "2024-11-01T04:00:00Z",
+        "CREATION_DATE": "1995-11-01T05:00:00Z",
+        "UPDATED_DATE": "2023-01-15T04:00:00Z",
+        "REGISTRAR_URL": "http://www.example-registrar.com",
+        "REGISTRAR_WHOIS_SERVER": "whois.example-registrar.com",
+        "REGISTRY_DOMAIN_ID": "2336790_DOMAIN_COM-VRSN",
+        "DOMAIN_NAME": "example.com"
+      }
+    }
+  ],
+  "cli_content": "Domain Name: example.com\nRegistry Domain ID: 2336790_DOMAIN_COM-VRSN\nRegistrar WHOIS Server: whois.example-registrar.com\nRegistrar URL: http://www.example-registrar.com\nUpdated Date: 2023-01-15T04:00:00Z\nCreation Date: 1995-11-01T05:00:00Z\nRegistry Expiry Date: 2024-11-01T04:00:00Z\nRegistrar: Example Registrar, LLC\nRegistrar IANA ID: 1234\nRegistrar Abuse Contact Email: abuse@example-registrar.com\nRegistrar Abuse Contact Phone: +1.8005550123\nDomain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited\nName Server: ns1.example.com\nName Server: ns2.example.com\nDNSSEC: unsigned\n",
+  "textfsm_template": "Value DOMAIN_NAME (\\S+)\nValue REGISTRY_DOMAIN_ID (\\S+)\nValue REGISTRAR_WHOIS_SERVER (\\S+)\nValue REGISTRAR_URL (\\S+)\nValue UPDATED_DATE (\\S+)\nValue CREATION_DATE (\\S+)\nValue REGISTRY_EXPIRY_DATE (\\S+)\nValue REGISTRAR (\\S+(?:\\s+\\S+)*)\nValue REGISTRAR_IANA_ID (\\d+)\nValue REGISTRAR_ABUSE_CONTACT_EMAIL (\\S+)\nValue REGISTRAR_ABUSE_CONTACT_PHONE (\\S+)\nValue DOMAIN_STATUS (\\S+\\s+\\S+)\nValue NAME_SERVER (\\S+)\nValue DNSSEC (\\S+)\n\nStart\n  ^\\s*Domain Name:\\s*${DOMAIN_NAME}$$\n  ^\\s*Registry Domain ID:\\s*${REGISTRY_DOMAIN_ID}$$\n  ^\\s*Registrar WHOIS Server:\\s*${REGISTRAR_WHOIS_SERVER}$$\n  ^\\s*Registrar URL:\\s*${REGISTRAR_URL}$$\n  ^\\s*Updated Date:\\s*${UPDATED_DATE}$$\n  ^\\s*Creation Date:\\s*${CREATION_DATE}$$\n  ^\\s*Registry Expiry Date:\\s*${REGISTRY_EXPIRY_DATE}$$\n  ^\\s*Registrar:\\s*${REGISTRAR}$$\n  ^\\s*Registrar IANA ID:\\s*${REGISTRAR_IANA_ID}$$\n  ^\\s*Registrar Abuse Contact Email:\\s*${REGISTRAR_ABUSE_CONTACT_EMAIL}$$\n  ^\\s*Registrar Abuse Contact Phone:\\s*${REGISTRAR_ABUSE_CONTACT_PHONE}$$\n  ^\\s*Domain Status:\\s*${DOMAIN_STATUS}$$\n  ^\\s*Name Server:\\s*${NAME_SERVER}$$\n  ^\\s*DNSSEC:\\s*${DNSSEC}$$ -> Record"
+}

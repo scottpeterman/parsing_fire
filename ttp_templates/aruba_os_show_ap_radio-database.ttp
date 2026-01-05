@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: aruba_os_show_ap_radio-database
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="ap_name_group_ap_model_ip_address_status_flags_primary_standby_radio0_radio1_radio2">
+{{AP_NAME}} {{GROUP}} {{AP_MODEL}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATUS | ORPHRASE}} {{FLAGS}} {{PRIMARY}} {{STANDBY}} {{RADIO0}} {{RADIO1}} {{RADIO2 | ORPHRASE}}
+</group>

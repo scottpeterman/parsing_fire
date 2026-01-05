@@ -1,0 +1,19 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_object-group
+# Source: ntc
+# TextFSM rows: 25
+# TTP rows: 31
+# Match ratio: 1.24
+
+<group name="type_name">
+{{TYPE}} object group {{NAME | ORPHRASE}}
+</group>
+<group name="protocol_port_match_port">
+ {{PROTOCOL}} {{PORT_MATCH}} {{PORT | ORPHRASE}}
+</group>
+<group name="protocol_port_match_port_range_start_port_range_end">
+ {{PROTOCOL}} {{PORT_MATCH}} {{PORT_RANGE_START}} {{PORT_RANGE_END | ORPHRASE}}
+</group>
+<group name="type_nested_groups">
+{{TYPE}} object group {{NESTED_GROUPS | ORPHRASE}}
+</group>

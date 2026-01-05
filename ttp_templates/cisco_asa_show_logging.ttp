@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_logging
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="month_day_year_time_hostname_facility_severity_mnemonic_message">
+{{MONTH}} {{DAY}} {{YEAR}} {{TIME}} {{HOSTNAME | re("\\S+")}} : %{{FACILITY}}-{{SEVERITY | re("[\\d\\.\\(\\)A-Za-z]+")}}-{{MNEMONIC}}: {{MESSAGE | ORPHRASE}}
+</group>

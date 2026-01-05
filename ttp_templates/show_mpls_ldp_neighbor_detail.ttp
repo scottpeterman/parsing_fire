@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show mpls ldp neighbor detail
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="msgs_rcvd_msgs_sent_peer_id_state">
+  State: Oper; Msgs sent/rcvd: 2{{UPTIME | ORPHRASE}}4/253; Downstream
+Peer LDP Identifier: {{PEER_ID | ORPHRASE}}
+  TCP connection: {{TCP_CONN | ORPHRASE}}
+  State: {{STATE | ORPHRASE}}; Msgs sent/rcvd: {{MSGS_SENT}}/{{MSGS_RCVD | ORPHRASE}}; Downstream
+  {{TARGET_HELLO | ORPHRASE}}
+</group>

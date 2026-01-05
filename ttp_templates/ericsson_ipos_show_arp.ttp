@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: ericsson_ipos_show_arp
+# Source: ntc
+# TextFSM rows: 8
+# TTP rows: 8
+# Match ratio: 1.00
+
+<group name="host_mac_address_ttl_type_circuit">
+{{HOST | re("\\S+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{TTL}} {{TYPE}} {{CIRCUIT | ORPHRASE}}
+</group>
+<group name="host_mac_address_type_circuit">
+{{HOST | re("\\S+")}} {{MAC_ADDRESS | re("[0{{TTL | re(".*\\w.*")}}9a-fA-F:.-]+")}} - {{TYPE}} {{CIRCUIT | ORPHRASE}}
+</group>

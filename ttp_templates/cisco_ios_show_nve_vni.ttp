@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_nve_vni
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="interface_vni_mcast_group_state_mode_bd_vrf">
+{{INTERFACE}} {{VNI}} {{MCAST_GROUP}} {{STATE | ORPHRASE}} {{MODE}} {{BD}} CLI {{VRF | ORPHRASE}} 
+</group>

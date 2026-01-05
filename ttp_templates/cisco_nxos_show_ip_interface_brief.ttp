@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_ip_interface_brief
+# Source: ntc
+# TextFSM rows: 8
+# TTP rows: 10
+# Match ratio: 1.25
+
+<group name="vrf">
+IP Interface Status for VRF "{{VRF | ORPHRASE}}"(1)
+<group name="interface_ip_address_link">
+{{INTERFACE}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{PROTO}}/{{LINK}}/{{STATUS | ORPHRASE}} 
+</group>
+</group>

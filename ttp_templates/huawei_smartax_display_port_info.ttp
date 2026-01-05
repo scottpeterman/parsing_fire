@@ -1,0 +1,20 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_smartax_display_port_info
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="admin_state_autofind_channel_type_fec_check">
+  F/S/P  {{FSP | ORPHRASE}}
+  Max distance(km)  {{MAX_DISTANCE_KM | ORPHRASE}}
+  Left guaranteed bandwidth(kbps)  {{LEFT_GUARANTEED_BANDWIDTH_KBPS | ORPHRASE}}
+  Autofind  {{AUTOFIND | ORPHRASE}}
+  FEC check  {{FEC_CHECK | ORPHRASE}}
+  Admin State  {{ADMIN_STATE | ORPHRASE}}
+  ONT encryption key switching interval(m)  {{ONT_ENCRYPTION_KEY_SWITCHING_INTERVAL_M | ORPHRASE}}
+  Port MTU(bytes)  {{PORT_MTU_BYTES | ORPHRASE}}
+  Low-latency  {{LOW_LATENCY | ORPHRASE}}
+  Optical module work mode  {{OPTICAL_MODULE_WORK_MODE | ORPHRASE}}
+  Channel Type  {{CHANNEL_TYPE | ORPHRASE}}
+</group>

@@ -1,0 +1,70 @@
+{
+  "command": "netstat",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 7,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"protocol_recv_q_send_q_local_address_foreign_address_state\">\n{{PROTOCOL}} {{RECV_Q}} {{SEND_Q}} {{LOCAL_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{FOREIGN_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATE | ORPHRASE}}\n</group>\n<group name=\"protocol_recv_q_send_q_local_address_foreign_address\">\n{{PROTOCOL}} {{RECV_Q}} {{SEND_Q}} {{LOCAL_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{FOREIGN_ADDRESS | ORPHRASE}} \n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "tcp",
+      "RECV_Q": "0",
+      "SEND_Q": "0",
+      "LOCAL_ADDRESS": "192.168.1.1:22",
+      "FOREIGN_ADDRESS": "192.168.1.100:55000",
+      "STATE": "ESTABLISHED"
+    },
+    {
+      "PROTOCOL": "tcp",
+      "RECV_Q": "0",
+      "SEND_Q": "0",
+      "LOCAL_ADDRESS": "192.168.1.1:80",
+      "FOREIGN_ADDRESS": "192.168.1.101:55001",
+      "STATE": "TIME_WAIT"
+    },
+    {
+      "PROTOCOL": "tcp",
+      "RECV_Q": "0",
+      "SEND_Q": "0",
+      "LOCAL_ADDRESS": "192.168.1.1:443",
+      "FOREIGN_ADDRESS": "192.168.1.102:55002",
+      "STATE": "ESTABLISHED"
+    },
+    {
+      "PROTOCOL": "tcp",
+      "RECV_Q": "0",
+      "SEND_Q": "0",
+      "LOCAL_ADDRESS": "192.168.1.1:22",
+      "FOREIGN_ADDRESS": "192.168.1.103:55003",
+      "STATE": "ESTABLISHED"
+    },
+    {
+      "PROTOCOL": "udp",
+      "RECV_Q": "0",
+      "SEND_Q": "0",
+      "LOCAL_ADDRESS": "192.168.1.1:67",
+      "FOREIGN_ADDRESS": "0.0.0.0:*"
+    },
+    {
+      "PROTOCOL": "udp",
+      "RECV_Q": "0",
+      "SEND_Q": "0",
+      "LOCAL_ADDRESS": "192.168.1.1:123",
+      "FOREIGN_ADDRESS": "0.0.0.0:*"
+    },
+    {
+      "PROTOCOL": "udp",
+      "RECV_Q": "0",
+      "SEND_Q": "0",
+      "LOCAL_ADDRESS": "192.168.1.1:161",
+      "FOREIGN_ADDRESS": "0.0.0.0:*"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Active Internet connections (w/o servers)\nProto Recv-Q Send-Q Local Address           Foreign Address         State       \ntcp        0      0 192.168.1.1:22          192.168.1.100:55000     ESTABLISHED\ntcp        0      0 192.168.1.1:80          192.168.1.101:55001     TIME_WAIT  \ntcp        0      0 192.168.1.1:443         192.168.1.102:55002     ESTABLISHED\ntcp        0      0 192.168.1.1:22          192.168.1.103:55003     ESTABLISHED\nudp        0      0 192.168.1.1:67          0.0.0.0:*                            \nudp        0      0 192.168.1.1:123         0.0.0.0:*                            \nudp        0      0 192.168.1.1:161         0.0.0.0:*                            \n",
+  "textfsm_template": "Value PROTOCOL (\\S+)\nValue RECV_Q (\\d+)\nValue SEND_Q (\\d+)\nValue LOCAL_ADDRESS (\\S+)\nValue FOREIGN_ADDRESS (\\S+)\nValue STATE (\\S+)\n\nStart\n  ^\\s*Proto\\s+Recv-Q\\s+Send-Q\\s+Local\\s+Address\\s+Foreign\\s+Address\\s+State\\s*$$\n  ^\\s*${PROTOCOL}\\s+${RECV_Q}\\s+${SEND_Q}\\s+${LOCAL_ADDRESS}\\s+${FOREIGN_ADDRESS}\\s+${STATE}\\s*$$ -> Record\n  ^\\s*${PROTOCOL}\\s+${RECV_Q}\\s+${SEND_Q}\\s+${LOCAL_ADDRESS}\\s+${FOREIGN_ADDRESS}\\s*$$ -> Record"
+}

@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_ip_bgp_summary
+# Source: ntc
+# TextFSM rows: 13
+# TTP rows: 2
+# Match ratio: 0.15
+
+<group name="local_as_router_id_vrf">
+BGP summary information for VRF {{VRF | ORPHRASE}}, address family IPv4 Multicast
+<group name="in_queue_msg_rcvd_msg_sent">
+BGP table version is 5, IPv4 Multicast config peers 2, capable peers {{MSG_RCVD | ORPHRASE}}
+</group>
+</group>

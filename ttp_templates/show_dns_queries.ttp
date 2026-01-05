@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show dns queries
+# Source: chatgpt
+# TextFSM rows: 6
+# TTP rows: 6
+# Match ratio: 1.00
+
+<group name="query_type_query_time_interface_query_name">
+{{QUERY_TYPE}} {{QUERY_TIME}} {{INTERFACE}} {{QUERY_NAME | ORPHRASE}}
+</group>

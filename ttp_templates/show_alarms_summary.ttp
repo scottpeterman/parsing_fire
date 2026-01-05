@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show alarms summary
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="severity_date_time_description">
+{{SEVERITY | re("[\\d\\.\\(\\)A-Za-z]+")}} {{DATE}} {{TIME}} {{DESCRIPTION | ORPHRASE}}
+</group>

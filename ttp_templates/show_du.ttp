@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show du
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="size_used_available_use_percentage_mounted_on">
+{{SIZE}} {{USED}} {{AVAILABLE}} {{USE_PERCENTAGE}} {{MOUNTED_ON | ORPHRASE}}
+</group>

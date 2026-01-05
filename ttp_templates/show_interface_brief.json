@@ -1,0 +1,128 @@
+{
+  "command": "show interface brief",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"port_name_status_vlan_duplex_speed_type\">\n{{PORT | re(\".*\\\\w.*\")}} {{NAME | ORPHRASE}} {{STATUS | ORPHRASE}} {{VLAN | re(\".*\\\\w.*\")}} {{DUPLEX | re(\".*\\\\w.*\")}} {{SPEED | re(\".*\\\\w.*\")}} {{TYPE | re(\".*\\\\w.*\")}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "---------",
+      "NAME": "------------------",
+      "STATUS": "------------",
+      "VLAN": "----------",
+      "DUPLEX": "-------",
+      "SPEED": "-----",
+      "TYPE": "-------------"
+    },
+    {
+      "PORT": "Eth1/1",
+      "NAME": "Office Switch-1",
+      "STATUS": "connected",
+      "VLAN": "trunk",
+      "DUPLEX": "full",
+      "SPEED": "1G",
+      "TYPE": "10GBase-SR"
+    },
+    {
+      "PORT": "Eth1/2",
+      "NAME": "Office Switch-2",
+      "STATUS": "connected",
+      "VLAN": "trunk",
+      "DUPLEX": "full",
+      "SPEED": "1G",
+      "TYPE": "10GBase-SR"
+    },
+    {
+      "PORT": "Eth1/3",
+      "NAME": "Office Switch-3",
+      "STATUS": "notconnect",
+      "VLAN": "trunk",
+      "DUPLEX": "full",
+      "SPEED": "1G",
+      "TYPE": "10GBase-SR"
+    },
+    {
+      "PORT": "Eth1/4",
+      "NAME": "-",
+      "STATUS": "connected",
+      "VLAN": "access",
+      "DUPLEX": "full",
+      "SPEED": "1G",
+      "TYPE": "10GBase-SR"
+    },
+    {
+      "PORT": "Eth1/5",
+      "NAME": "-",
+      "STATUS": "notconnect",
+      "VLAN": "access",
+      "DUPLEX": "full",
+      "SPEED": "1G",
+      "TYPE": "10GBase-SR"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_name_status_vlan_duplex_speed_type": [
+        {
+          "PORT": "Port     ",
+          "NAME": "Name",
+          "STATUS": "Status",
+          "VLAN": "Vlan      ",
+          "DUPLEX": "Duplex ",
+          "SPEED": "Speed",
+          "TYPE": "Type "
+        },
+        {
+          "PORT": "Eth1/1    Office",
+          "NAME": "Switch-1",
+          "STATUS": "connected",
+          "VLAN": "trunk     ",
+          "DUPLEX": "full   ",
+          "SPEED": "1G   ",
+          "TYPE": "10GBase-SR"
+        },
+        {
+          "PORT": "Eth1/2    Office",
+          "NAME": "Switch-2",
+          "STATUS": "connected",
+          "VLAN": "trunk     ",
+          "DUPLEX": "full   ",
+          "SPEED": "1G   ",
+          "TYPE": "10GBase-SR"
+        },
+        {
+          "PORT": "Eth1/3    Office",
+          "NAME": "Switch-3",
+          "STATUS": "notconnect",
+          "VLAN": "trunk     ",
+          "DUPLEX": "full   ",
+          "SPEED": "1G   ",
+          "TYPE": "10GBase-SR"
+        },
+        {
+          "PORT": "Eth1/4   ",
+          "NAME": "-",
+          "STATUS": "connected",
+          "VLAN": "access    ",
+          "DUPLEX": "full   ",
+          "SPEED": "1G   ",
+          "TYPE": "10GBase-SR"
+        },
+        {
+          "PORT": "Eth1/5   ",
+          "NAME": "-",
+          "STATUS": "notconnect",
+          "VLAN": "access    ",
+          "DUPLEX": "full   ",
+          "SPEED": "1G   ",
+          "TYPE": "10GBase-SR"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Port      Name               Status       Vlan       Duplex  Speed Type \n--------- ------------------ ------------ ---------- ------- ----- -------------\nEth1/1    Office Switch-1    connected    trunk      full    1G    10GBase-SR\nEth1/2    Office Switch-2    connected    trunk      full    1G    10GBase-SR\nEth1/3    Office Switch-3    notconnect   trunk      full    1G    10GBase-SR\nEth1/4    -                  connected    access     full    1G    10GBase-SR\nEth1/5    -                  notconnect   access     full    1G    10GBase-SR\n",
+  "textfsm_template": "Value PORT (\\S+)\nValue NAME (.*\\S.*)\nValue STATUS (\\S+)\nValue VLAN (\\S+)\nValue DUPLEX (\\S+)\nValue SPEED (\\S+)\nValue TYPE (\\S+)\n\nStart\n  ^Port\\s+Name\\s+Status\\s+Vlan\\s+Duplex\\s+Speed\\s+Type\\s*$$\n  ^${PORT}\\s+${NAME}\\s+${STATUS}\\s+${VLAN}\\s+${DUPLEX}\\s+${SPEED}\\s+${TYPE}\\s*$$ -> Record"
+}

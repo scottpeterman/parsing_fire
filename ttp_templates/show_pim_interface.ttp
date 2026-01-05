@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show pim interface
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="interface_address_vrf_mode_nbr_count_dr_dr_prior_hello_time">
+{{INTERFACE}} {{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{VRF}} {{MODE}} {{NBR_COUNT | re("\\d+")}} {{DR}} {{DR_PRIOR}} {{HELLO_TIME | ORPHRASE}} 
+</group>

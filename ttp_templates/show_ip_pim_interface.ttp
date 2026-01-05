@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip pim interface
+# Source: chatgpt
+# TextFSM rows: 6
+# TTP rows: 6
+# Match ratio: 1.00
+
+<group name="interface_pim_enabled_nbr_count_dr_address_state_bidir_capable">
+{{INTERFACE}} {{PIM_ENABLED}} {{NBR_COUNT | re("\\d+")}} {{DR_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATE | ORPHRASE}} {{BIDIR_CAPABLE | ORPHRASE}}
+</group>

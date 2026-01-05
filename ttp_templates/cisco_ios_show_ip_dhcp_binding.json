@@ -1,0 +1,36 @@
+{
+  "command": "cisco_ios_show_ip_dhcp_binding",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"expiration_hardware_address_ip_address_type\">\n10.100.88.26  01aa.aaaa.aaaa.aa  {{EXPIRATION}}  {{TYPE | ORPHRASE}}\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}  {{HARDWARE_ADDRESS | ORPHRASE}}  Infinite  Manual\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP_ADDRESS": "10.100.88.26",
+      "HARDWARE_ADDRESS": "01aa.aaaa.aaaa.aa",
+      "EXPIRATION": "Infinite",
+      "TYPE": "Manual"
+    },
+    {
+      "IP_ADDRESS": "10.100.88.197",
+      "HARDWARE_ADDRESS": "01dd.dddd.dddd.dd",
+      "EXPIRATION": "Infinite",
+      "TYPE": "Manual"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "expiration_hardware_address_ip_address_type": {
+        "IP_ADDRESS": "10.100.88.197",
+        "HARDWARE_ADDRESS": "01dd.dddd.dddd.dd",
+        "EXPIRATION": "Infinite",
+        "TYPE": "Manual"
+      }
+    }
+  ],
+  "cli_content": "Bindings from all pools not associated with VRF:\nIP address          Client-ID/              Lease expiration        Type\n                    Hardware address/\n                    User name\n10.100.88.26        01aa.aaaa.aaaa.aa       Infinite                Manual\n10.100.88.197       01dd.dddd.dddd.dd       Infinite                Manual\n",
+  "textfsm_template": "Value IP_ADDRESS (\\S+)\nValue HARDWARE_ADDRESS (\\S+)\nValue EXPIRATION (\\S+)\nValue TYPE (\\S+)\n\nStart\n  ^\\s*Bindings from all pools not associated with VRF:\\s*$$\n  ^\\s*IP\\s+address\\s+Client-ID/(?:Hardware\\s+address/(?:User\\s+name)?)?\\s+Lease expiration\\s+Type\\s*$$ -> DhcpTable\n  ^\\s*$$\n  ^. -> Error\n\nDhcpTable\n  ^\\s*Hardware\\s+address/\\s*$$\n  ^\\s*User\\s+name\\s*$$\n  ^\\s*${IP_ADDRESS}\\s+${HARDWARE_ADDRESS}\\s+${EXPIRATION}\\s+${TYPE}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

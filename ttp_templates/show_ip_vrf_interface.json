@@ -1,0 +1,62 @@
+{
+  "command": "show ip vrf interface",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"interface_ip_address_vrf_status\">\n{{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{VRF}} {{STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Vlan10",
+      "IP_ADDRESS": "192.168.10.1",
+      "VRF": "management",
+      "STATUS": "up"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/1",
+      "IP_ADDRESS": "10.0.0.1",
+      "VRF": "customerA",
+      "STATUS": "up"
+    },
+    {
+      "INTERFACE": "Vlan20",
+      "IP_ADDRESS": "192.168.20.1",
+      "VRF": "management",
+      "STATUS": "up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_vrf_status": [
+        {
+          "INTERFACE": "Vlan10",
+          "IP_ADDRESS": "192.168.10.1",
+          "VRF": "management",
+          "STATUS": "up"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/1",
+          "IP_ADDRESS": "10.0.0.1",
+          "VRF": "customerA",
+          "STATUS": "up"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/2",
+          "IP_ADDRESS": "172.16.0.1",
+          "VRF": "customerB",
+          "STATUS": "administratively down"
+        },
+        {
+          "INTERFACE": "Vlan20",
+          "IP_ADDRESS": "192.168.20.1",
+          "VRF": "management",
+          "STATUS": "up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              IP-Address      VRF             Status\nVlan10                192.168.10.1    management      up\nGigabitEthernet0/1    10.0.0.1        customerA       up\nGigabitEthernet0/2    172.16.0.1      customerB       administratively down\nVlan20                192.168.20.1    management      up\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue IP_ADDRESS (\\S+)\nValue VRF (\\S+)\nValue STATUS (\\S+)\n\nStart\n  ^\\s*Interface\\s+IP-Address\\s+VRF\\s+Status\\s*$$\n  ^\\s*${INTERFACE}\\s+${IP_ADDRESS}\\s+${VRF}\\s+${STATUS}\\s*$$ -> Record"
+}

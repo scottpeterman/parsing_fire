@@ -1,0 +1,45 @@
+{
+  "command": "brocade_netiron_show_span",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"bridgeid_bridgemaxage_mastervlan_bridgefwddly_holdtime_lasttopochange_topochangecount\">\n{{bridgeid}} {{bridgemaxage | re(\"\\\\d+\")}} {{mastervlan | re(\"\\\\d+\")}} {{bridgefwddly | re(\"\\\\d+\")}} {{holdtime}} {{lasttopochange | ORPHRASE}} {{topochangecount | re(\"\\\\d+\")}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "mastervlan": "2",
+      "instance": "0",
+      "bridgeid": "8000002438a51c00",
+      "bridgemaxage": "20",
+      "bridgehello": "2",
+      "bridgefwddly": "15",
+      "holdtime": "1",
+      "lasttopochange": "2456092",
+      "topochangecount": "8",
+      "rootbridgeid": "8000002438a51c00",
+      "rootpathcost": "0",
+      "designatedbridgeid": "8000002438a51c00",
+      "rootport": "Root",
+      "rbmaxage": "20",
+      "rbhello": "2",
+      "rbfwddly": "15"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "bridgeid_bridgemaxage_mastervlan_bridgefwddly_holdtime_lasttopochange_topochangecount": {
+        "bridgeid": "8000002438a51c00",
+        "bridgemaxage": "20",
+        "mastervlan": "2",
+        "bridgefwddly": "15",
+        "holdtime": "1",
+        "lasttopochange": "2456092",
+        "topochangecount": "8"
+      }
+    }
+  ],
+  "cli_content": "\nVLAN 2 - STP instance 0\n--------------------------------------------------------------------\nSTP Bridge Parameters:\n\nBridge           Bridge Bridge Bridge Hold  LastTopology Topology\nIdentifier       MaxAge Hello  FwdDly Time  Change       Change\nhex              sec    sec    sec    sec   sec          cnt\n8000002438a51c00 20     2      15     1     2456092      8       \n\nRootBridge       RootPath  DesignatedBridge Root  Max Hel Fwd\nIdentifier       Cost      Identifier       Port  Age lo  Dly\nhex                        hex                    sec sec sec\n8000002438a51c00 0         8000002438a51c00 Root  20  2   15  \n\nSTP Port Parameters:\n\nPort  Prio Path      State      Designat- Designated       Designated\nNum   rity Cost                 ed Cost   Root             Bridge\n1/1   128  4         FORWARDING 0         8000002438a51c00 8000002438a51c00 \n1/6   128  4         FORWARDING 0         8000002438a51c00 8000002438a51c00 \n1/17  128  4         FORWARDING 0         8000002438a51c00 8000002438a51c00 \n2/1   128  4         FORWARDING 0         8000002438a51c00 8000002438a51c00 \n2/6   128  4         FORWARDING 0         8000002438a51c00 8000002438a51c00 \n2/17  128  4         FORWARDING 0         8000002438a51c00 8000002438a51c00 ",
+  "textfsm_template": "Value mastervlan (\\d+)\nValue instance (\\d+)\nValue bridgeid ([0-9a-f]+)\nValue bridgemaxage (\\d+)\nValue bridgehello (\\d+)\nValue bridgefwddly (\\d+)\nValue holdtime (\\d+)\nValue lasttopochange (\\d+)\nValue topochangecount (\\d+)\nValue rootbridgeid ([0-9a-f]+)\nValue rootpathcost (\\d+)\nValue designatedbridgeid ([0-9a-f]+)\nValue rootport ([0-9a-zA-Z]+)\nValue rbmaxage (\\d+)\nValue rbhello (\\d+)\nValue rbfwddly (\\d+)\nValue portstates (\\d+)\n\nStart\n  ^VLAN ${mastervlan} - STP instance ${instance}\n  ^${bridgeid}\\s+${bridgemaxage}\\s+${bridgehello}\\s+${bridgefwddly}\\s+${holdtime}\\s+${lasttopochange}\\s+${topochangecount}\n  ^${rootbridgeid}\\s+${rootpathcost}\\s+${designatedbridgeid}\\s+${rootport}\\s+${rbmaxage}\\s+${rbhello}\\s+${rbfwddly} -> Next.Record\n"
+}

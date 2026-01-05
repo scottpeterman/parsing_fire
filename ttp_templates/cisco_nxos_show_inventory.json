@@ -1,0 +1,158 @@
+{
+  "command": "cisco_nxos_show_inventory",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5714285714285714,
+  "textfsm_rows": 14,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"pid_vid_sn\">\nPID: {{PID}} , VID: {{VID}} , SN: {{SN | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "Chassis",
+      "DESCR": "Nexus9000 C9396PX Chassis",
+      "PID": "N9K-C9396PX",
+      "VID": "V02",
+      "SN": "SAL1819S6LU"
+    },
+    {
+      "NAME": "Slot 1",
+      "DESCR": "1/10G SFP+ Ethernet Module",
+      "PID": "N9K-C9396PX",
+      "VID": "V02",
+      "SN": "SAL1819S6LU"
+    },
+    {
+      "NAME": "Slot 2",
+      "DESCR": "40G Ethernet Expansion Module",
+      "PID": "N9K-M12PQ",
+      "VID": "V01",
+      "SN": "SAL1815QCJE"
+    },
+    {
+      "NAME": "Power Supply 1",
+      "DESCR": "Nexus9000 C9396PX Chassis Power Supply",
+      "PID": "N9K-PAC-650W",
+      "VID": "V01",
+      "SN": "DCB1809X07E"
+    },
+    {
+      "NAME": "Power Supply 2",
+      "DESCR": "Nexus9000 C9396PX Chassis Power Supply",
+      "PID": "N9K-PAC-650W",
+      "VID": "V01",
+      "SN": "DCB1809X07H"
+    },
+    {
+      "NAME": "Fan 1",
+      "DESCR": "Nexus9000 C9396PX Chassis Fan Module",
+      "PID": "N9K-C9300-FAN2",
+      "VID": "V01",
+      "SN": "N/A"
+    },
+    {
+      "NAME": "Fan 2",
+      "DESCR": "Nexus9000 C9396PX Chassis Fan Module",
+      "PID": "N9K-C9300-FAN2",
+      "VID": "V01",
+      "SN": "N/A"
+    },
+    {
+      "NAME": "Fan 3",
+      "DESCR": "Nexus9000 C9396PX Chassis Fan Module",
+      "PID": "N9K-C9300-FAN2",
+      "VID": "V01",
+      "SN": "N/A"
+    },
+    {
+      "NAME": "Slot 33",
+      "DESCR": "Nexus7000 C7009 (9 Slot) Chassis Power Supply",
+      "PID": "N7K-AC-6.0KW",
+      "VID": "V01",
+      "SN": "DTM141600XT"
+    },
+    {
+      "NAME": "Slot 34",
+      "DESCR": "Nexus7000 C7009 (9 Slot) Chassis Power Supply",
+      "PID": "N7K-AC-6.0KW",
+      "VID": "V01",
+      "SN": "DTM1414007T"
+    },
+    {
+      "NAME": "Slot 35",
+      "DESCR": "Nexus7000 C7009 (9 Slot) Chassis Fan Module",
+      "PID": "N7K-C7009-FAN",
+      "VID": "V00",
+      "SN": "JAF1433DDEJ"
+    },
+    {
+      "NAME": "Ethernet1/46",
+      "DESCR": "CISCO-AVAGO",
+      "PID": "10Gbase-SR",
+      "VID": "SFBR-709SMZ-CS1",
+      "SN": "AVD42309ABD"
+    },
+    {
+      "NAME": "Ethernet1/47",
+      "DESCR": "CISCO",
+      "PID": "1000base-LH",
+      "VID": "RTXM191-404-C88",
+      "SN": "ACW315000AD"
+    },
+    {
+      "NAME": "Ethernet1/48",
+      "DESCR": "CISCO-AVAGO",
+      "PID": "10Gbase-LR",
+      "VID": "SFCT-739SMZ",
+      "SN": "AVD2219K9AO"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "pid_vid_sn": [
+        {
+          "PID": "N9K-C9396PX",
+          "VID": "V02",
+          "SN": "SAL1819S6LU"
+        },
+        {
+          "PID": "N9K-C9396PX",
+          "VID": "V02",
+          "SN": "SAL1819S6LU"
+        },
+        {
+          "PID": "N9K-M12PQ",
+          "VID": "V01",
+          "SN": "SAL1815QCJE"
+        },
+        {
+          "PID": "N9K-PAC-650W",
+          "VID": "V01",
+          "SN": "DCB1809X07E"
+        },
+        {
+          "PID": "N9K-PAC-650W",
+          "VID": "V01",
+          "SN": "DCB1809X07H"
+        },
+        {
+          "PID": "N9K-C9300-FAN2",
+          "VID": "V01",
+          "SN": "N/A"
+        },
+        {
+          "PID": "N9K-C9300-FAN2",
+          "VID": "V01",
+          "SN": "N/A"
+        },
+        {
+          "PID": "N9K-C9300-FAN2",
+          "VID": "V01",
+          "SN": "N/A"
+        }
+      ]
+    }
+  ],
+  "cli_content": "NAME: \"Chassis\",  DESCR: \"Nexus9000 C9396PX Chassis\"\nPID: N9K-C9396PX         ,  VID: V02 ,  SN: SAL1819S6LU\n\nNAME: \"Slot 1\",  DESCR: \"1/10G SFP+ Ethernet Module\"\nPID: N9K-C9396PX         ,  VID: V02 ,  SN: SAL1819S6LU\n\nNAME: \"Slot 2\",  DESCR: \"40G Ethernet Expansion Module\"\nPID: N9K-M12PQ           ,  VID: V01 ,  SN: SAL1815QCJE\n\nNAME: \"Power Supply 1\",  DESCR: \"Nexus9000 C9396PX Chassis Power Supply\"\nPID: N9K-PAC-650W        ,  VID: V01 ,  SN: DCB1809X07E\n\nNAME: \"Power Supply 2\",  DESCR: \"Nexus9000 C9396PX Chassis Power Supply\"\nPID: N9K-PAC-650W        ,  VID: V01 ,  SN: DCB1809X07H\n\nNAME: \"Fan 1\",  DESCR: \"Nexus9000 C9396PX Chassis Fan Module\"\nPID: N9K-C9300-FAN2      ,  VID: V01 ,  SN: N/A\n\nNAME: \"Fan 2\",  DESCR: \"Nexus9000 C9396PX Chassis Fan Module\"\nPID: N9K-C9300-FAN2      ,  VID: V01 ,  SN: N/A\n\nNAME: \"Fan 3\",  DESCR: \"Nexus9000 C9396PX Chassis Fan Module\"\nPID: N9K-C9300-FAN2      ,  VID: V01 ,  SN: N/A\n\nNAME: \"Slot 33\", DESCR: \"Nexus7000 C7009 (9 Slot) Chassis Power Supply\"\nPID: N7K-AC-6.0KW, VID: V01, SN: DTM141600XT\n \nNAME: \"Slot 34\", DESCR: \"Nexus7000 C7009 (9 Slot) Chassis Power Supply\"\nPID: N7K-AC-6.0KW, VID: V01, SN: DTM1414007T\n \nNAME: \"Slot 35\", DESCR: \"Nexus7000 C7009 (9 Slot) Chassis Fan Module\"\nPID: N7K-C7009-FAN, VID: V00, SN: JAF1433DDEJ\n\nNAME: Ethernet1/46,  DESCR: CISCO-AVAGO\nPID: 10Gbase-SR          ,  VID: SFBR-709SMZ-CS1,  SN: AVD42309ABD\n\nNAME: Ethernet1/47,  DESCR: CISCO\nPID: 1000base-LH         ,  VID: RTXM191-404-C88,  SN: ACW315000AD\n\nNAME: Ethernet1/48,  DESCR: CISCO-AVAGO\nPID: 10Gbase-LR          ,  VID: SFCT-739SMZ,  SN: AVD2219K9AO\n",
+  "textfsm_template": "Value NAME (.*)\nValue DESCR (.*)\nValue PID ([^,]\\S+)\nValue VID ([\\d+\\w-]*)\nValue SN ([\\d+\\w+/]+)\n\nStart\n  ^NAME:\\s+\"${NAME}\",\\s+DESCR:\\s+\"${DESCR}\"\n  ^NAME:\\s+${NAME},\\s+DESCR:\\s+${DESCR}\n  ^PID:\\s+${PID}.*,.*VID:\\s+${VID}.*SN:\\s+${SN} -> Record\n  ^PID:\\s+${PID}.*,.*VID:\\s+${VID}.*SN: -> Record\n  ^PID:\\s+,.*VID:\\s+${VID}.*SN:\\s+${SN} -> Record\n  ^PID:\\s+,.*VID:\\s+${VID}.*SN: -> Record\n  ^PID:\\s+${PID}.*,.*VID:\\s+${VID}.*\n  ^PID:\\s+,.*VID:\\s+${VID}.*\n  ^.*SN:\\s+${SN} -> Record\n  ^.*SN: -> Record\n"
+}

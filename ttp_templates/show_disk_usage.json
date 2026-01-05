@@ -1,0 +1,84 @@
+{
+  "command": "show disk usage",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"fs_blocks_used_available_use_mounted\">\n{{FS}} {{BLOCKS}} {{USED}} {{AVAILABLE}} {{USE | ORPHRASE}} {{MOUNTED | re(\".*\\\\w.*\")}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FS": "/dev/sda1",
+      "BLOCKS": "10154124",
+      "USED": "8656340",
+      "AVAILABLE": "1062184",
+      "USE": "90%",
+      "MOUNTED": "/"
+    },
+    {
+      "FS": "/dev/sda2",
+      "BLOCKS": "20511356",
+      "USED": "9354828",
+      "AVAILABLE": "10156528",
+      "USE": "48%",
+      "MOUNTED": "/home"
+    },
+    {
+      "FS": "/dev/sdb1",
+      "BLOCKS": "10383352",
+      "USED": "2104228",
+      "AVAILABLE": "8250032",
+      "USE": "21%",
+      "MOUNTED": "/data"
+    },
+    {
+      "FS": "/dev/sdc1",
+      "BLOCKS": "41345692",
+      "USED": "31206756",
+      "AVAILABLE": "8981236",
+      "USE": "78%",
+      "MOUNTED": "/var"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "fs_blocks_used_available_use_mounted": [
+        {
+          "FS": "Filesystem",
+          "BLOCKS": "1K-blocks",
+          "USED": "Used",
+          "AVAILABLE": "Available",
+          "USE": "Use%",
+          "MOUNTED": "Mounted on"
+        },
+        {
+          "FS": "/dev/sda2",
+          "BLOCKS": "20511356",
+          "USED": "9354828",
+          "AVAILABLE": "10156528",
+          "USE": "48%",
+          "MOUNTED": "/home"
+        },
+        {
+          "FS": "/dev/sdb1",
+          "BLOCKS": "10383352",
+          "USED": "2104228",
+          "AVAILABLE": "8250032",
+          "USE": "21%",
+          "MOUNTED": "/data"
+        },
+        {
+          "FS": "/dev/sdc1",
+          "BLOCKS": "41345692",
+          "USED": "31206756",
+          "AVAILABLE": "8981236",
+          "USE": "78%",
+          "MOUNTED": "/var"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Filesystem      1K-blocks      Used Available Use% Mounted on\n/dev/sda1        10154124   8656340   1062184  90% /\n/dev/sda2       20511356   9354828  10156528  48% /home\n/dev/sdb1       10383352   2104228   8250032  21% /data\n/dev/sdc1       41345692  31206756   8981236  78% /var\n\n",
+  "textfsm_template": "Value FS (\\S+)\nValue BLOCKS (\\d+)\nValue USED (\\d+)\nValue AVAILABLE (\\d+)\nValue USE (\\d+%)\nValue MOUNTED (/\\S*)\n\nStart\n  ^\\s*Filesystem\\s+1K-blocks\\s+Used\\s+Available\\s+Use%\\s+Mounted\\son\\s*$$\n  ^\\s*${FS}\\s+${BLOCKS}\\s+${USED}\\s+${AVAILABLE}\\s+${USE}\\s+${MOUNTED}\\s*$$ -> Record\n###"
+}

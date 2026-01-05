@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show interfaces transceiver details
+# Source: chatgpt
+# Error: TTP parsing timed out
+
+<group name="port_name_type_vendor_part_number_serial_number">
+{{PORT | re(".*\\w.*")}} {{NAME | ORPHRASE}} {{TYPE | re(".*\\w.*")}} {{VENDOR | re(".*\\w.*")}} {{PART_NUMBER | re(".*\\w.*")}} {{SERIAL_NUMBER | re("\\w+")}}
+</group>

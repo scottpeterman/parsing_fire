@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_ip_pim_group-range_vrf_all
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 4
+# Match ratio: 2.00
+
+<group name="vrf">
+PIM Group-Range Configuration for VRF "{{VRF | ORPHRASE}}"
+<group name="action_group_range_mode">
+{{GROUP_RANGE}} {{ACTION}} {{MODE}} - - {{ORIGIN | ORPHRASE}}
+</group>
+</group>

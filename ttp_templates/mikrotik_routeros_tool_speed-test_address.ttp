@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_tool_speed-test_address
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="ping_min_ping_avg_ping_max">
+    ping-min-avg-max: {{PING_MIN}} / {{PING_AVG}} / {{PING_MAX | ORPHRASE}}
+</group>

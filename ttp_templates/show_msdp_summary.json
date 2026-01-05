@@ -1,0 +1,69 @@
+{
+  "command": "show msdp summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"msdp_peer_state_uptime_rp_ip_address_groups\">\n{{MSDP_PEER}} {{STATE | ORPHRASE}} {{UPTIME | ORPHRASE}} {{RP_IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{GROUPS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "MSDP_PEER": "192.168.100.1",
+      "STATE": "Up",
+      "UPTIME": "5d3h",
+      "RP_IP_ADDRESS": "10.1.2.1",
+      "GROUPS": "23"
+    },
+    {
+      "MSDP_PEER": "192.168.101.1",
+      "STATE": "Up",
+      "UPTIME": "1d10h",
+      "RP_IP_ADDRESS": "10.1.2.2",
+      "GROUPS": "17"
+    },
+    {
+      "MSDP_PEER": "192.168.102.1",
+      "STATE": "Down",
+      "UPTIME": "0d0h",
+      "RP_IP_ADDRESS": "10.1.2.3",
+      "GROUPS": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "msdp_peer_state_uptime_rp_ip_address_groups": [
+        {
+          "MSDP_PEER": "192.168.100.1",
+          "STATE": "Up",
+          "UPTIME": "5d3h",
+          "RP_IP_ADDRESS": "10.1.2.1",
+          "GROUPS": "23"
+        },
+        {
+          "MSDP_PEER": "192.168.101.1",
+          "STATE": "Up",
+          "UPTIME": "1d10h",
+          "RP_IP_ADDRESS": "10.1.2.2",
+          "GROUPS": "17"
+        },
+        {
+          "MSDP_PEER": "192.168.102.1",
+          "STATE": "Down",
+          "UPTIME": "0d0h",
+          "RP_IP_ADDRESS": "10.1.2.3",
+          "GROUPS": "0"
+        },
+        {
+          "MSDP_PEER": "192.168.103.1",
+          "STATE": "Up",
+          "UPTIME": "3w6d",
+          "RP_IP_ADDRESS": "10.1.2.4",
+          "GROUPS": "8"
+        }
+      ]
+    }
+  ],
+  "cli_content": "MSDP Peer             State     Uptime    RP-IP Address       Groups\n192.168.100.1         Up        5d3h      10.1.2.1           23\n192.168.101.1         Up        1d10h     10.1.2.2           17\n192.168.102.1         Down      0d0h      10.1.2.3           0\n192.168.103.1         Up        3w6d      10.1.2.4           8\n",
+  "textfsm_template": "Value MSDP_PEER (\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})\nValue STATE (Up|Down)\nValue UPTIME (\\d+[dw]?\\d*h?)\nValue RP_IP_ADDRESS (\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})\nValue GROUPS (\\d+)\n\nStart\n  ^MSDP Peer\\s+State\\s+Uptime\\s+RP-IP Address\\s+Groups\\s*$$\n  ^${MSDP_PEER}\\s+${STATE}\\s+${UPTIME}\\s+${RP_IP_ADDRESS}\\s+${GROUPS}\\s*$$ -> Record"
+}

@@ -1,0 +1,66 @@
+{
+  "command": "fortinet_diagnose_sys_top",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"process_state_n_cpu_system_app_cpu_idle_cpu_wa_cpu_hi_cpu_si_cpu_st_cpu_total_memory_free_memory\">\n{{USE{{PROCESS_STATE | ORPHRASE}}SPACE_APP_CPU}}U, {{N_CPU}}N, {{SYSTEM_APP_CPU}}S, {{IDLE_CPU | re(\"\\\\d+\")}}I, {{WA_CPU}}WA, {{HI_CPU}}HI, {{SI_CPU}}SI, {{ST_CPU}}ST; {{TOTAL_MEMORY}}T, {{FREE_MEMORY}}F\n</group>\n<group name=\"process_state_process_id_process_cpu_usage_process_memory_usage\">\n            {{PROCE{{PROCESS_STATE | ORPHRASE}}S_NAME}} {{PROCESS_ID | re(\"\\\\d+\")}} S {{PROCESS_CPU_USAGE}} {{PROCESS_MEMORY_USAGE | ORPHRASE}}\n</group>\n<group name=\"process_name_process_id_process_state_process_cpu_usage_process_memory_usage\">\n       {{PROCESS_NAME}} {{PROCESS_ID | re(\"\\\\d+\")}} {{PROCESS_STATE | ORPHRASE}} {{PROCESS_CPU_USAGE}} {{PROCESS_MEMORY_USAGE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "UPTIME_DAYS": "12",
+      "UPTIME_HOURS": "3",
+      "UPTIME_MINUTES": "4",
+      "USERSPACE_APP_CPU": "0",
+      "N_CPU": "0",
+      "SYSTEM_APP_CPU": "0",
+      "IDLE_CPU": "100",
+      "WA_CPU": "0",
+      "HI_CPU": "0",
+      "SI_CPU": "0",
+      "ST_CPU": "0",
+      "TOTAL_MEMORY": "1919",
+      "FREE_MEMORY": "1214",
+      "PROCESS_NAME": "newcli",
+      "PROCESS_ID": "29806",
+      "PROCESS_STATE": "R",
+      "PROCESS_CPU_USAGE": "0.1",
+      "PROCESS_MEMORY_USAGE": "0.5"
+    },
+    {
+      "PROCESS_NAME": "sshd",
+      "PROCESS_ID": "29800",
+      "PROCESS_STATE": "S",
+      "PROCESS_CPU_USAGE": "0.1",
+      "PROCESS_MEMORY_USAGE": "0.4"
+    },
+    {
+      "PROCESS_NAME": "ipshelper",
+      "PROCESS_ID": "199",
+      "PROCESS_STATE": "S <",
+      "PROCESS_CPU_USAGE": "0.0",
+      "PROCESS_MEMORY_USAGE": "1.8"
+    },
+    {
+      "PROCESS_NAME": "httpsd",
+      "PROCESS_ID": "211",
+      "PROCESS_STATE": "S",
+      "PROCESS_CPU_USAGE": "0.0",
+      "PROCESS_MEMORY_USAGE": "1.5"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "process_name_process_id_process_state_process_cpu_usage_process_memory_usage": {
+        "PROCESS_NAME": "ipshelper",
+        "PROCESS_ID": "199",
+        "PROCESS_STATE": "S <",
+        "PROCESS_CPU_USAGE": "0.0",
+        "PROCESS_MEMORY_USAGE": "1.8"
+      }
+    }
+  ],
+  "cli_content": "Run Time:  12 days, 3 hours and 4 minutes\n0U, 0N, 0S, 100I, 0WA, 0HI, 0SI, 0ST; 1919T, 1214F\n          newcli    29806      R       0.1     0.5\n            sshd    29800      S       0.1     0.4\n       ipshelper      199      S <     0.0     1.8\n          httpsd      211      S       0.0     1.5\n",
+  "textfsm_template": "Value UPTIME_DAYS (\\d+)\nValue UPTIME_HOURS (\\d+)\nValue UPTIME_MINUTES (\\d+)\nValue USERSPACE_APP_CPU (\\d+)\nValue N_CPU (\\d+)\nValue SYSTEM_APP_CPU (\\d+)\nValue IDLE_CPU (\\d+)\nValue WA_CPU (\\d+)\nValue HI_CPU (\\d+)\nValue SI_CPU (\\d+)\nValue ST_CPU (\\d+)\nValue TOTAL_MEMORY (\\d+)\nValue FREE_MEMORY (\\d+)\nValue TOTAL_SHARED_MEMORY_PAGES (\\d+)\nValue PROCESS_NAME (\\S+)\nValue PROCESS_ID (\\d+)\nValue PROCESS_STATE ((R|S|Z|D)(\\s+(<|N))?)\nValue PROCESS_CPU_USAGE (\\d+\\.\\d+)\nValue PROCESS_MEMORY_USAGE (\\d+\\.\\d+)\nValue PROCESS_CPU_CORE (\\d+)\n\nStart\n  ^\\s*Run\\s+Time:\\s+${UPTIME_DAYS}\\s+days,\\s+${UPTIME_HOURS}\\s+hours\\s+and\\s+${UPTIME_MINUTES}\\s+minutes\\s*$$\n  ^\\s*${USERSPACE_APP_CPU}U(,\\s+${N_CPU}N)?,\\s+${SYSTEM_APP_CPU}S,\\s+${IDLE_CPU}I(,\\s+${WA_CPU}WA)?(,\\s+${HI_CPU}HI)?(,\\s+${SI_CPU}SI)?(,\\s+${ST_CPU}ST)?;\\s+${TOTAL_MEMORY}T,\\s+${FREE_MEMORY}F(,\\s+${TOTAL_SHARED_MEMORY_PAGES}KF)?\\s*$$\n  ^\\s*${PROCESS_NAME}\\s+${PROCESS_ID}\\s+${PROCESS_STATE}\\s+${PROCESS_CPU_USAGE}\\s+${PROCESS_MEMORY_USAGE}(\\s+${PROCESS_CPU_CORE})?\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

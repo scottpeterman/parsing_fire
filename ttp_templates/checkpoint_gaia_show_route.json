@@ -1,0 +1,63 @@
+{
+  "command": "checkpoint_gaia_show_route",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"protocol_network_mask_nexthopip_interface\">\n{{PROTOCOL}} {{NETWORK}}/{{MASK}} via {{NEXTHOPIP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}, {{INTERFACE | ORPHRASE}}, cost 0, age 4238351\n</group>\n<group name=\"protocol_network_mask_interface\">\n{{PROTOCOL}} {{NETWORK}}/{{MASK}} is directly connected, {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "0.0.0.0",
+      "MASK": "0",
+      "NEXTHOPIP": "10.10.10.1",
+      "INTERFACE": "eth1-02.122",
+      "COMMENT": "default"
+    },
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "10.0.0.0",
+      "MASK": "24",
+      "NEXTHOPIP": "10.1.1.254",
+      "INTERFACE": "eth1-01.100",
+      "COMMENT": "Comment-static-Route-1"
+    },
+    {
+      "PROTOCOL": "C",
+      "NETWORK": "10.1.1.0",
+      "MASK": "24",
+      "INTERFACE": "eth1.111",
+      "COMMENT": "Comment-Network-1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "protocol_network_mask_nexthopip_interface": [
+        {
+          "PROTOCOL": "S",
+          "NETWORK": "0.0.0.0",
+          "MASK": "0",
+          "NEXTHOPIP": "10.10.10.1",
+          "INTERFACE": "eth1-02.122"
+        },
+        {
+          "PROTOCOL": "S",
+          "NETWORK": "10.0.0.0",
+          "MASK": "24",
+          "NEXTHOPIP": "10.1.1.254",
+          "INTERFACE": "eth1-01.100"
+        }
+      ],
+      "protocol_network_mask_interface": {
+        "PROTOCOL": "C",
+        "NETWORK": "10.1.1.0",
+        "MASK": "24",
+        "INTERFACE": "eth1.111"
+      }
+    }
+  ],
+  "cli_content": "Codes: C - Connected, S - Static, R - RIP, B - BGP (D - Default),\n       O - OSPF IntraArea (IA - InterArea, E - External, N - NSSA)\n       A - Aggregate, K - Kernel Remnant, H - Hidden, P - Suppressed,\n       U - Unreachable, i - Inactive\n\nS         0.0.0.0/0           via 10.10.10.1, eth1-02.122, cost 0, age 4238351\n                                  default\nS         10.0.0.0/24        via 10.1.1.254, eth1-01.100, cost 0, age 4238351\n                                  Comment-static-Route-1\nC         10.1.1.0/24      is directly connected, eth1.111\n                                  Comment-Network-1\n",
+  "textfsm_template": "Value PROTOCOL (C|S|R|B|O|A|K|H|P|U|i)\nValue NETWORK ([0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3})\nValue MASK (\\d{1,2})\nValue NEXTHOPIP ([0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3})\nValue INTERFACE (\\S+)\nValue COMMENT (\\S.*)\n\n\nStart\n  ^\\S\\s -> Continue.Record\n  # Match regular routes\n  ^${PROTOCOL}\\s+${NETWORK}/${MASK}\\s+via\\s${NEXTHOPIP},\\s${INTERFACE},\n  # Match directly connected networks\n  ^${PROTOCOL}\\s+${NETWORK}/${MASK}\\s+is directly connected,\\s${INTERFACE}\n  # Match optional comment, ignore trailing whitespace\n  ^\\s{34}${COMMENT}\\s*$$\n"
+}

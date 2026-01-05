@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show ip route summary
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="connected_routes_num_ospf_routes_num">
+Number of IPv{{CONNECTED_ROUTES_NUM}} routes: {{IPV{{OSPF_ROUTES_NUM}}_ROUTES_NUM | ORPHRASE}}
+</group>

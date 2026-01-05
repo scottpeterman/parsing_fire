@@ -1,0 +1,72 @@
+{
+  "command": "cisco_nvfis_show_bridge-settings",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"dhcp_dpdk_interface_ipv6_address\">\n ip-info ipv4_address {{SECONDARY_IP_ADDRESS | ORPHRASE}}\n ip-info link-local ipv6 address fe80{{IPV6_ADDRESS | ORPHRASE}}9474:baff:fe6b:904d\n ip-info mac_address  {{MAC_ADDRESS | ORPHRASE}}\n ip-info mtu  {{MTU | ORPHRASE}}\n vlan tag {{VLAN_TAG | ORPHRASE}}\n dhcp {{DHCP | ORPHRASE}}\n dpdk-enabled {{DPDK | ORPHRASE}}\nbridge-settings {{NAME | ORPHRASE}}\n ip-info ipv4_address {{IP_ADDRESS | ORPHRASE}}\n ip-info netmask {{NETMASK | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "wan-br",
+      "INTERFACE": "wan-br",
+      "IP_ADDRESS": "0.0.0.0",
+      "NETMASK": "0.0.0.0",
+      "IPV6_ADDRESS": "::",
+      "IPV6_PREFIXLEN": "0",
+      "MAC_ADDRESS": "9c:d5:ff:ff:ff:ff",
+      "MTU": "9216",
+      "SECONDARY_IP_ADDRESS": "0.0.0.0",
+      "SECONDARY_IP_NETMASK": "0.0.0.0",
+      "VLAN_TAG": "untagged",
+      "DHCP": "disabled",
+      "IPV6_DHCP": "disabled",
+      "IPV6_SLAAC": "disabled",
+      "DPDK": "false"
+    },
+    {
+      "NAME": "lan-br",
+      "INTERFACE": "lan-br",
+      "IP_ADDRESS": "11.22.33.44",
+      "NETMASK": "255.255.255.240",
+      "IPV6_ADDRESS": "::",
+      "IPV6_PREFIXLEN": "0",
+      "MAC_ADDRESS": "9c:d5:ff:ff:ff:ff",
+      "MTU": "9216",
+      "VLAN_TAG": "untagged",
+      "DHCP": "disabled",
+      "IPV6_DHCP": "disabled",
+      "IPV6_SLAAC": "disabled",
+      "DPDK": "false"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "dhcp_dpdk_interface_ipv6_address": [
+        {
+          "NAME": "lan-br",
+          "DPDK": "false",
+          "DHCP": "disabled",
+          "VLAN_TAG": "untagged",
+          "MTU": "9216",
+          "MAC_ADDRESS": "9c:d5:ff:ff:ff:ff",
+          "IPV6_ADDRESS": "::947",
+          "NETMASK": "0.0.0.0",
+          "SECONDARY_IP_ADDRESS": "0.0.0.0"
+        },
+        {
+          "DPDK": "false",
+          "DHCP": "disabled",
+          "VLAN_TAG": "untagged",
+          "MTU": "9216",
+          "MAC_ADDRESS": "9c:d5:ff:ff:ff:ff",
+          "NETMASK": "255.255.255.240",
+          "SECONDARY_IP_ADDRESS": "11.22.33.44"
+        }
+      ]
+    }
+  ],
+  "cli_content": "bridge-settings wan-br\n ip-info interface    wan-br\n ip-info ipv4_address 0.0.0.0\n ip-info netmask      0.0.0.0\n ip-info link-local ipv6 address fe80::9474:baff:fe6b:904d\n ip-info link-local ipv6 prefixlen 64\n ip-info global ipv6 address ::\n ip-info global ipv6 prefixlen 0\n ip-info mac_address  9c:d5:ff:ff:ff:ff\n ip-info mtu          9216\n ip-info txqueuelen   1000\n ip-info secondary-ip 0.0.0.0\n ip-info secondary-ip-netmask 0.0.0.0\n stats rx_packets 31866\n stats rx_bytes 1465956\n stats rx_errors 0\n stats rx_dropped 0\n stats rx_overruns 0\n stats rx_frame 0\n stats tx_packets 5\n stats tx_bytes 446\n stats tx_errors 0\n stats tx_dropped 0\n stats tx_overruns 0\n stats tx_carrier 0\n stats tx_collisions 0\n vlan tag untagged\n dhcp disabled\n dhcp-ipv6 disabled\n slaac-ipv6 disabled\n dpdk-enabled false\nbridge-settings lan-br\n ip-info interface lan-br\n ip-info ipv4_address 11.22.33.44\n ip-info netmask 255.255.255.240\n ip-info link-local ipv6 address fe80::5808:76ff:fea9:ca44\n ip-info link-local ipv6 prefixlen 64\n ip-info global ipv6 address ::\n ip-info global ipv6 prefixlen 0\n ip-info mac_address 9c:d5:ff:ff:ff:ff\n ip-info mtu  9216\n ip-info txqueuelen 1000\n stats rx_packets 10965426\n stats rx_bytes 1612107737\n stats rx_errors 0\n stats rx_dropped 0\n stats rx_overruns 0\n stats rx_frame 0\n stats tx_packets 10390988\n stats tx_bytes 1976951266\n stats tx_errors 0\n stats tx_dropped 0\n stats tx_overruns 0\n stats tx_carrier 0\n stats tx_collisions 0\n vlan tag untagged\n dhcp disabled\n dhcp-ipv6 disabled\n slaac-ipv6 disabled\n dpdk-enabled false\n",
+  "textfsm_template": "Value NAME (\\S+)\nValue INTERFACE (\\S+)\nValue IP_ADDRESS (\\S+)\nValue NETMASK (\\S+)\nValue IPV6_ADDRESS (\\S+)\nValue IPV6_PREFIXLEN (\\S+)\nValue MAC_ADDRESS (\\S+)\nValue MTU (\\d+)\nValue SECONDARY_IP_ADDRESS (\\S+)\nValue SECONDARY_IP_NETMASK (\\S+)\nValue VLAN_TAG (\\S+)\nValue DHCP (\\S+)\nValue IPV6_DHCP (\\S+)\nValue IPV6_SLAAC (\\S+)\nValue DPDK (\\S+)\n\n\nStart\n  ^bridge-settings\\s${NAME}\n  ^\\sip-info\\sinterface\\s+${INTERFACE}\n  ^\\sip-info\\sipv4_address\\s+${IP_ADDRESS}\n  ^\\sip-info\\snetmask\\s+${NETMASK}\n  ^\\sip-info\\sglobal\\sipv6\\saddress\\s+${IPV6_ADDRESS}\n  ^\\sip-info\\sglobal\\sipv6\\sprefixlen\\s+${IPV6_PREFIXLEN}\n  ^\\sip-info\\smac_address\\s+${MAC_ADDRESS}\n  ^\\sip-info\\smtu\\s+${MTU}\n  ^\\sip-info\\ssecondary-ip\\s+${SECONDARY_IP_ADDRESS}\n  ^\\sip-info\\ssecondary-ip-netmask\\s+${SECONDARY_IP_NETMASK}\n  ^\\svlan\\stag\\s${VLAN_TAG}\n  ^\\sdhcp\\s${DHCP}\n  ^\\sdhcp-ipv6\\s${IPV6_DHCP}\n  ^\\sslaac-ipv6\\s${IPV6_SLAAC}\n  ^\\sdpdk-enabled\\s${DPDK} -> Record\n\nEOF"
+}

@@ -1,0 +1,33 @@
+{
+  "command": "cisco_nvfis_show_running-config_snmp_host",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"hostname_ip_address_port_securitylevel\">\nsnmp host {{HOSTNAME | ORPHRASE}}\n host-port  {{PORT | ORPHRASE}}\n host-ip-address  {{IP_ADDRESS | ORPHRASE}}\n host-security-level {{SECURITYLEVEL | ORPHRASE}}\n host-user-name  {{USERNAME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "USERNAME": "orwell",
+      "HOSTNAME": "big-brother",
+      "VERSION": "3",
+      "PORT": "162",
+      "IP_ADDRESS": "11.22.33.44",
+      "SECURITYLEVEL": "authPriv"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "hostname_ip_address_port_securitylevel": {
+        "USERNAME": "orwell",
+        "SECURITYLEVEL": "authPriv",
+        "IP_ADDRESS": "11.22.33.44",
+        "PORT": "162",
+        "HOSTNAME": "big-brother"
+      }
+    }
+  ],
+  "cli_content": "snmp host big-brother\n host-port           162\n host-ip-address     11.22.33.44\n host-version        3\n host-security-level authPriv\n host-user-name      orwell\n!",
+  "textfsm_template": "Value USERNAME ([-\\w]+)\nValue HOSTNAME ([-\\w]+)\nValue VERSION (\\d+)\nValue PORT (\\d+)\nValue IP_ADDRESS ([0-9A-F:.]+)\nValue SECURITYLEVEL (\\w+)\n\n\nStart\n  ^snmp\\shost\\s${HOSTNAME}\n  ^\\shost-port\\s+${PORT}\n  ^\\shost-ip-address\\s+${IP_ADDRESS}\n  ^\\shost-version\\s+${VERSION}\n  ^\\shost-security-level\\s+${SECURITYLEVEL}\n  ^\\shost-user-name\\s+${USERNAME} \n  ^! -> Record\n\nEOF"
+}

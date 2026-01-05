@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show high-availability detail
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="chassis_ha_state_configured_state_effective_state_slot">
+Chassis HA State: {{CHASSIS_HA_STATE | ORPHRASE}}
+Sync Status: {{SYNC_STATUS | ORPHRASE}}
+ Status: {{STATUS | ORPHRASE}}
+Slot: {{SLOT | ORPHRASE}}
+ Configured State: {{CONFIGURED_STATE | ORPHRASE}}
+</group>

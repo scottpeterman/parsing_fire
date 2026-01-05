@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_mpls_interfaces
+# Source: ntc
+# TextFSM rows: 7
+# TTP rows: 7
+# Match ratio: 1.00
+
+<group name="interface_mpls_ip_protocol_tunnel_bgp_static_operational">
+{{INTERFACE}} {{MPLS_IP}} ({{PROTOCOL}}) {{TUNNEL | ORPHRASE}} {{BGP}} {{STATIC}} {{OPERATIONAL}} 
+</group>

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: alcatel_aos_show_vlan
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 1
+# Match ratio: 0.25
+
+<group name="vlan_id_type_admin_state_operational_state_spanning_tree_1x1_spanning_tree_flat_auth_ip_state_mbletag_source_learn_vlan_name">
+   {{VLAN_ID | re("\\d+")}} {{TYPE}} {{ADMIN_STATE | ORPHRASE}} {{OPERATIONAL_STATE | ORPHRASE}} {{SPANNING_TREE_1X1}} {{SPANNING_TREE_FLAT}} {{AUTH}} {{IP_STATE | ORPHRASE}} {{MBLETAG}} {{SOURCE_LEARN}} {{VLAN_NAME | ORPHRASE}} 
+</group>

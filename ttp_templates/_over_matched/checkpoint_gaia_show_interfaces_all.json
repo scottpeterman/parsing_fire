@@ -1,0 +1,87 @@
+{
+  "command": "checkpoint_gaia_show_interfaces_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.3333333333333335,
+  "textfsm_rows": 3,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"state\">\n    state {{STATE | ORPHRASE}}\n</group>\n<group name=\"state_autoneg_interface\">\n    auto-negotiati{{STATE | ORPHRASE}} {{AUTONEG | ORPHRASE}} ({{INTERFACE | ORPHRASE}})\n</group>\n<group name=\"ipv6_ll_address_ipv6_ll_mask\">\n    ipv6-local-link-address {{IPV6_LL_ADDRESS}}/{{IPV6_LL_MASK | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Mgmt",
+      "STATE": "on",
+      "MAC_ADDRESS": "00:1c:7f:00:11:22",
+      "TYPE": "ethernet",
+      "LINK_STATE": "link up",
+      "MTU": "1500",
+      "AUTONEG": "on",
+      "SPEED": "1000M",
+      "IPV4_ADDRESS": "192.168.1.1/24",
+      "IPV6_LL_ADDRESS": "fe80::21c:7fff:fe00:1122",
+      "IPV6_LL_MASK": "64"
+    },
+    {
+      "INTERFACE": "eth1-01",
+      "STATE": "on",
+      "MAC_ADDRESS": "00:1c:7f:00:11:23",
+      "TYPE": "ethernet",
+      "LINK_STATE": "link up",
+      "MTU": "1500",
+      "AUTONEG": "on",
+      "SPEED": "1000M",
+      "IPV6_LL_ADDRESS": "fe80::21c:7fff:fe00:1123",
+      "IPV6_LL_MASK": "64"
+    },
+    {
+      "INTERFACE": "eth1-01.264",
+      "STATE": "on",
+      "MAC_ADDRESS": "00:1c:7f:00:11:23",
+      "TYPE": "vlan",
+      "LINK_STATE": "not available",
+      "MTU": "1500",
+      "AUTONEG": "on (eth1-01)",
+      "SPEED": "1000M (eth1-01)",
+      "COMMENT": "This-is-a-comment",
+      "IPV4_ADDRESS": "10.10.10.0/29",
+      "IPV6_LL_ADDRESS": "fe80::21c:7fff:fe00:1123",
+      "IPV6_LL_MASK": "64"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "state": [
+        {
+          "STATE": "on"
+        },
+        {
+          "STATE": "on"
+        },
+        {
+          "STATE": "on"
+        }
+      ],
+      "state_autoneg_interface": {
+        "STATE": "on",
+        "AUTONEG": "on",
+        "INTERFACE": "eth1-01"
+      },
+      "ipv6_ll_address_ipv6_ll_mask": [
+        {
+          "IPV6_LL_ADDRESS": "fe80::21c:7fff:fe00:1122",
+          "IPV6_LL_MASK": "64"
+        },
+        {
+          "IPV6_LL_ADDRESS": "fe80::21c:7fff:fe00:1123",
+          "IPV6_LL_MASK": "64"
+        },
+        {
+          "IPV6_LL_ADDRESS": "fe80::21c:7fff:fe00:1123",
+          "IPV6_LL_MASK": "64"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface Mgmt\n    state on\n    mac-addr 00:1c:7f:00:11:22\n    type ethernet\n    link-state link up\n    mtu 1500\n    auto-negotiation on\n    speed 1000M\n    ipv6-autoconfig Not configured\n    duplex full\n    monitor-mode Not configured\n    link-speed 1000M/full\n    comments\n    ipv4-address 192.168.1.1/24\n    ipv6-address Not Configured\n    ipv6-local-link-address fe80::21c:7fff:fe00:1122/64\n\nStatistics:\n    TX bytes:1233377155 packets:129511880 errors:0 dropped:0 overruns:0 carrier:0\n    RX bytes:1114572026 packets:137861721 errors:1 dropped:0 overruns:0 frame:0\nInterface eth1-01\n    state on\n    mac-addr 00:1c:7f:00:11:23\n    type ethernet\n    link-state link up\n    mtu 1500\n    auto-negotiation on\n    speed 1000M\n    ipv6-autoconfig Not configured\n    duplex full\n    monitor-mode Not configured\n    link-speed 1000M/full\n    comments\n    ipv4-address Not Configured\n    ipv6-address Not Configured\n    ipv6-local-link-address fe80::21c:7fff:fe00:1123/64\n\nStatistics:\n    TX bytes:1426617302 packets:2324728082 errors:0 dropped:0 overruns:0 carrier:0\n    RX bytes:4244543976 packets:2072130066 errors:0 dropped:35925 overruns:35925 frame:0\nInterface eth1-01.264\n    state on\n    mac-addr 00:1c:7f:00:11:23\n    type vlan\n    link-state not available\n    mtu 1500\n    auto-negotiation on (eth1-01)\n    speed 1000M (eth1-01)\n    ipv6-autoconfig Not configured\n    duplex full (eth1-01)\n    monitor-mode Not configured\n    link-speed 1000M/full (eth1-01)\n    comments This-is-a-comment\n    ipv4-address 10.10.10.0/29\n    ipv6-address Not Configured\n    ipv6-local-link-address fe80::21c:7fff:fe00:1123/64\n\nStatistics:\n    TX bytes:1513951616 packets:552073593 errors:0 dropped:0 overruns:0 carrier:0\n    RX bytes:3764361864 packets:556503676 errors:0 dropped:0 overruns:0 frame:0\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue STATE (\\w+)\nValue MAC_ADDRESS (.*)\nValue TYPE (\\S+)\nValue LINK_STATE (.*)\nValue MTU (\\d+)\nValue INSTANCE (\\d+)\nValue AUTONEG (.*)\nValue SPEED (.*)\nValue COMMENT (\\S.*)\nValue IPV4_ADDRESS ((?:[0-9]{1,3}\\.){3}[0-9]{1,3}(/\\d{1,2})?|\\w+)\nValue IPV6_ADDRESS ([0-9a-f:]*)\nValue IPV6_LL_ADDRESS ([0-9a-f:]*)\nValue IPV6_LL_MASK (\\d+)\n\n\nStart\n  ^Interface\\s${INTERFACE}\n  ^\\s+state\\s${STATE}\n  ^\\s+mac-addr\\s${MAC_ADDRESS}\n  ^\\s+type\\s${TYPE}\n  ^\\s+link-state\\s${LINK_STATE}\n  ^\\s+instance\\s${INSTANCE}\n  ^\\s+mtu\\s${MTU}\n  ^\\s+auto-negotiation\\s${AUTONEG}\n  ^\\s+speed\\s${SPEED}\n  # sometimes the comment is enclosed in braces\n  ^\\s+comments\\s${COMMENT}\\s*$$\n  ^\\s+ipv4-address\\s${IPV4_ADDRESS}\\s*$$\n  ^\\s+ipv6-address\\s${IPV6_ADDRESS}\\s*$$\n  ^\\s+ipv6-local-link-address\\s${IPV6_LL_ADDRESS}/${IPV6_LL_MASK}\n  ^Statistics: -> Record"
+}

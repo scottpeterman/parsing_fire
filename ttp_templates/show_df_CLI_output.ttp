@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show df CLI output
+# Source: chatgpt
+# TextFSM rows: 7
+# TTP rows: 7
+# Match ratio: 1.00
+
+<group name="filesystem_blocks_used_available_use_percent_mounted">
+{{FILESYSTEM}} {{BLOCKS}} {{USED}} {{AVAILABLE}} {{USE_PERCENT | ORPHRASE}} {{MOUNTED | re(".*\\w.*")}}
+</group>

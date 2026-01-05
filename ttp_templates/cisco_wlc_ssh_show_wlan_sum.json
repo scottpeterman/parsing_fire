@@ -1,0 +1,62 @@
+{
+  "command": "cisco_wlc_ssh_show_wlan_sum",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"wlanid_profile_ssid_status_interface\">\n{{WLANID | re(\"\\\\d+\")}} {{PROFILE}} / {{SSID}} {{STATUS | ORPHRASE}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "WLANID": "4",
+      "PROFILE": "OfficeFloor",
+      "SSID": "OfficeFloor",
+      "STATUS": "Enabled",
+      "INTERFACE": "officefloor_int"
+    },
+    {
+      "WLANID": "5",
+      "PROFILE": "OfficeLobby",
+      "SSID": "OfficeLobby",
+      "STATUS": "Enabled",
+      "INTERFACE": "officelobby_int"
+    },
+    {
+      "WLANID": "6",
+      "PROFILE": "LoadingBay",
+      "SSID": "LoadingBay",
+      "STATUS": "Enabled",
+      "INTERFACE": "loadingbay_int"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "wlanid_profile_ssid_status_interface": [
+        {
+          "WLANID": "4",
+          "PROFILE": "OfficeFloor",
+          "SSID": "OfficeFloor",
+          "STATUS": "Enabled",
+          "INTERFACE": "officefloor_int"
+        },
+        {
+          "WLANID": "5",
+          "PROFILE": "OfficeLobby",
+          "SSID": "OfficeLobby",
+          "STATUS": "Enabled",
+          "INTERFACE": "officelobby_int"
+        },
+        {
+          "WLANID": "6",
+          "PROFILE": "LoadingBay",
+          "SSID": "LoadingBay",
+          "STATUS": "Enabled",
+          "INTERFACE": "loadingbay_int"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nNumber of WLANs.................................. 3\n\nWLAN ID  WLAN Profile Name / SSID               Status    Interface Name\n-------  -------------------------------------  --------  --------------------\n4        OfficeFloor / OfficeFloor              Enabled   officefloor_int\n5        OfficeLobby / OfficeLobby              Enabled   officelobby_int\n6        LoadingBay / LoadingBay                Enabled   loadingbay_int\n",
+  "textfsm_template": "Value WLANID (\\d+)\nValue PROFILE (.+?)\nValue SSID (.+?)\nValue STATUS (Enabled|Disabled)\nValue INTERFACE (\\w+(.?\\w+)+)\nValue PMIP_MOBILITY (\\S+)\n\n\nStart\n  ^Number\\s+of\\s+WLANs\n  ^WLAN\\s+ID\\s+WLAN\\s+Profile\\s+Name\\s+\\/\\s+SSID\\s+Status\\s+Interface\\s+Name(\\s+PMIPv6\\s+Mobility)?\\s*$$\n  ^-------\\s+\n  ^${WLANID}\\s+${PROFILE}\\s/\\s${SSID}\\s+${STATUS}\\s+${INTERFACE}(\\s+${PMIP_MOBILITY})?\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n\n"
+}

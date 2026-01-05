@@ -1,0 +1,68 @@
+{
+  "command": "ericsson_ipos_show_isis_adjacency",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"system_id_interface_l_mt_stat_hold_snpa_uptime\">\n{{SYSTEM_ID}} {{INTERFACE}} {{L}} {{MT}} {{STAT}} {{HOLD}} {{SNPA | re(\"\\\\w+\")}} {{UPTIME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SYSTEM_ID": "MA-BJC547-01",
+      "INTERFACE": "Virtual_Interface_",
+      "L": "2p",
+      "MT": "U",
+      "STAT": "Up",
+      "HOLD": "29",
+      "SNPA": "41de.24a3.1e8d",
+      "UPTIME": "04d20h01"
+    },
+    {
+      "SYSTEM_ID": "MA-BMCI75-01",
+      "INTERFACE": "Virtual_Interface_",
+      "L": "2p",
+      "MT": "U",
+      "STAT": "Up",
+      "HOLD": "22",
+      "SNPA": "7d7e.b92a.670c",
+      "UPTIME": "04d20h01"
+    },
+    {
+      "SYSTEM_ID": "C-BJAHY-01",
+      "INTERFACE": "Virtual_Interface_",
+      "L": "1p",
+      "MT": "U",
+      "STAT": "Up",
+      "HOLD": "22",
+      "SNPA": "801a.8811.f1a4",
+      "UPTIME": "04d20h01"
+    },
+    {
+      "SYSTEM_ID": "0102.1905.0009",
+      "INTERFACE": "Virtual_Interface_",
+      "L": "3p",
+      "MT": "U",
+      "STAT": "Up",
+      "HOLD": "23",
+      "SNPA": "9aac.0480.2d1a",
+      "UPTIME": "04d20h01"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "system_id_interface_l_mt_stat_hold_snpa_uptime": {
+        "SYSTEM_ID": "SystemId",
+        "INTERFACE": "Interface",
+        "L": "L",
+        "MT": "MT",
+        "STAT": "Stat",
+        "HOLD": "Hold",
+        "SNPA": "SNPA",
+        "UPTIME": "Uptime"
+      }
+    }
+  ],
+  "cli_content": "IS-IS Adjacenc(ies) for tag XL:\nSystemId        Interface          L  MT   Stat Hold   SNPA            Uptime\nMA-BJC547-01    Virtual_Interface_ 2p U    Up   29     41de.24a3.1e8d  04d20h01\nMA-BMCI75-01    Virtual_Interface_ 2p U    Up   22     7d7e.b92a.670c  04d20h01\nC-BJAHY-01      Virtual_Interface_ 1p U    Up   22     801a.8811.f1a4  04d20h01\n0102.1905.0009  Virtual_Interface_ 3p U    Up   23     9aac.0480.2d1a  04d20h01\n\nTotal IS-IS Adjacenc(ies):   4\n",
+  "textfsm_template": "Value SYSTEM_ID ((\\d+.\\d+.\\d+)|\\S+)\nValue INTERFACE (\\S+)\nValue L (\\S+)\nValue MT (\\S+)\nValue STAT (\\S+)\nValue HOLD (\\d+)\nValue SNPA ((\\d+.\\d+.\\d+)|\\S+)\nValue UPTIME (\\S+)\n\nStart\n  ^IS-IS\\s+Adjacenc\\S+\\s+for\\s+tag\\s+\\S+:\n  ^SystemId\\s+Interface\\s+L\\s+MT\\s+Stat\\s+Hold\\s+SNPA\\s+Uptime\n  ^${SYSTEM_ID}\\s+${INTERFACE}\\s+${L}\\s+${MT}\\s+${STAT}\\s+${HOLD}\\s+${SNPA}\\s+${UPTIME} -> Record\n  ^Total\\s+IS-IS\\s+Adjacenc\\S+:\\s+\\d+\n  ^. -> Error\n"
+}

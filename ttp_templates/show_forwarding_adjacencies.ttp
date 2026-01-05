@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show forwarding adjacencies
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="ip_address_age_mac_address_interface_vlan_state">
+{{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{AGE}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{INTERFACE}} {{VLAN | re("\\d+")}} {{STATE | ORPHRASE}}
+</group>

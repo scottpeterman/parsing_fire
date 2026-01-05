@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: netstat -s
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 2
+# Match ratio: 2.00
+
+<group name="udppacketsin">
+    {{UdpPacketsIn | ORPHRASE}} packets received
+</group>

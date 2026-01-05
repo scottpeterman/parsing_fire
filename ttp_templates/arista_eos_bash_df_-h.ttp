@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_bash_df_-h
+# Source: ntc
+# TextFSM rows: 13
+# TTP rows: 14
+# Match ratio: 1.08
+
+<group name="file_system_size_used_avail_use_percent_mounted_on">
+{{FILE_SYSTEM}} {{SIZE}} {{USED}} {{AVAIL}} {{USE_PERCENT}} {{MOUNTED_ON | ORPHRASE}}
+</group>

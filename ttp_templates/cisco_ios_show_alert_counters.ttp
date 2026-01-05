@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_alert_counters
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 10
+# Match ratio: 1.67
+
+<group name="description_errorcode_interface_recommendation">
+Interface: {{interface | ORPHRASE}}
+Timestamp:  {{timestamp | ORPHRASE}}
+Error Code: {{errorcode | ORPHRASE}}
+Description:  {{description | ORPHRASE}}
+Recommendation:  {{recommendation | ORPHRASE}}
+</group>

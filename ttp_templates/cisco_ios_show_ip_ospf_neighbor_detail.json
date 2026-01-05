@@ -1,0 +1,86 @@
+{
+  "command": "cisco_ios_show_ip_ospf_neighbor_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"neighbor_id_address\">\nNeighbor {{NEIGHBOR_ID}}, interface address {{ADDRESS | ORPHRASE}}\n</group>\n<group name=\"dr_neighbor_id\">\n    DR is {{DR}} BDR is {{NEIGHBOR_ID | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR_ID": "192.168.5.2",
+      "ADDRESS": "10.225.200.28",
+      "AREA": "0",
+      "INTERFACE": "GigabitEthernet1/0/0",
+      "PRIORITY": "1",
+      "STATE": "FULL",
+      "STATE_CHANGES": "6",
+      "DR": "10.225.200.28",
+      "BDR": "10.225.200.30",
+      "OPTIONS": "0x42",
+      "LLS_OPTIONS": "0x1 (LR)",
+      "LAST_OOB_RESYNC": "00:03:08",
+      "DEAD_TIME": "00:00:36",
+      "UP_TIME": "00:09:46",
+      "RQ_INDEX": "1/1",
+      "RQ_LENGTH": "0",
+      "RETRANSMISSION_NUMBER": "1",
+      "FIRST_PACKET": "0x0(0)/0x0(0)",
+      "NEXT_PACKET": "0x0(0)/0x0(0)",
+      "LAST_RETRANSMISSION_SCAN_LENGTH": "1",
+      "MAX_RETRANSMISSION_SCAN_LENGTH": "1",
+      "LAST_RETRANSMISSION_SCAN_TIME": "0",
+      "MAX_RETRANSMISSION_SCAN_TIME": "0"
+    },
+    {
+      "NEIGHBOR_ID": "10.0.0.2",
+      "ADDRESS": "10.0.0.2",
+      "AREA": "0",
+      "INTERFACE": "FastEthernet0/0",
+      "PRIORITY": "1",
+      "STATE": "FULL",
+      "STATE_CHANGES": "6",
+      "DR": "10.0.0.1",
+      "BDR": "10.0.0.2",
+      "OPTIONS": "0x52",
+      "DEAD_TIME": "00:00:39",
+      "UP_TIME": "00:03:15",
+      "RQ_INDEX": "1/1",
+      "RQ_LENGTH": "0",
+      "RETRANSMISSION_NUMBER": "1",
+      "FIRST_PACKET": "0x0(0)/0x0(0)",
+      "NEXT_PACKET": "0x0(0)/0x0(0)",
+      "LAST_RETRANSMISSION_SCAN_LENGTH": "1",
+      "MAX_RETRANSMISSION_SCAN_LENGTH": "1",
+      "LAST_RETRANSMISSION_SCAN_TIME": "0",
+      "MAX_RETRANSMISSION_SCAN_TIME": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neighbor_id_address": [
+        {
+          "NEIGHBOR_ID": "192.168.5.2",
+          "ADDRESS": "10.225.200.28"
+        },
+        {
+          "NEIGHBOR_ID": "10.0.0.2",
+          "ADDRESS": "10.0.0.2"
+        }
+      ],
+      "dr_neighbor_id": [
+        {
+          "DR": "10.225.200.28",
+          "NEIGHBOR_ID": "10.225.200.30"
+        },
+        {
+          "DR": "10.0.0.1",
+          "NEIGHBOR_ID": "10.0.0.2"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Neighbor 192.168.5.2, interface address 10.225.200.28\n    In the area 0 via interface GigabitEthernet1/0/0\n    Neighbor priority is 1, State is FULL, 6 state changes\n    DR is 10.225.200.28 BDR is 10.225.200.30\n    Options is 0x42\n    LLS Options is 0x1 (LR), last OOB-Resync 00:03:08 ago\n    Dead timer due in 00:00:36\n    Neighbor is up for 00:09:46\n   Index 1/1, retransmission queue length 0, number of retransmission 1\n    First 0x0(0)/0x0(0) Next 0x0(0)/0x0(0)\n    Last retransmission scan length is 1, maximum is 1\n    Last retransmission scan time is 0 msec, maximum is 0 msec\n\nNeighbor 10.0.0.2, interface address 10.0.0.2\n    In the area 0 via interface FastEthernet0/0\n    Neighbor priority is 1, State is FULL, 6 state changes\n    DR is 10.0.0.1 BDR is 10.0.0.2\n    Options is 0x52\n    Dead timer due in 00:00:39\n    Neighbor is up for 00:03:15\n    Index 1/1, retransmission queue length 0, number of retransmission 1\n    First 0x0(0)/0x0(0) Next 0x0(0)/0x0(0)\n    Last retransmission scan length is 1, maximum is 1\n    Last retransmission scan time is 0 msec, maximum is 0 msec\n",
+  "textfsm_template": "Value NEIGHBOR_ID (\\S+)\nValue ADDRESS (\\S+)\nValue AREA (\\S+)\nValue INTERFACE (\\S+)\nValue PRIORITY (\\d+)\nValue STATE (\\S+/\\s+-|\\S+)\nValue STATE_CHANGES (\\d+)\nValue DR (\\S+)\nValue BDR (\\S+)\nValue OPTIONS (0[xX][0-9a-fA-F]+)\nValue LLS_OPTIONS (.+?(?=,))\nValue LAST_OOB_RESYNC (\\d+:\\d+:\\d+)\nValue DEAD_TIME (\\d+:\\d+:\\d+)\nValue UP_TIME (\\d+:\\d+:\\d+)\nValue RQ_INDEX (\\d+/\\d+)\nValue RQ_LENGTH (\\d+)\nValue RETRANSMISSION_NUMBER (\\d+)\nValue FIRST_PACKET (\\S+)\nValue NEXT_PACKET (\\S+)\nValue LAST_RETRANSMISSION_SCAN_LENGTH (\\d+)\nValue MAX_RETRANSMISSION_SCAN_LENGTH (\\d+)\nValue LAST_RETRANSMISSION_SCAN_TIME (\\d+)\nValue MAX_RETRANSMISSION_SCAN_TIME (\\d+)\n\nStart\n  ^\\s*Neighbor\\s\\S+,\\sinterface\\saddress\\s\\S+\\s*$$ -> Continue.Record\n  ^\\s*Neighbor\\s${NEIGHBOR_ID},\\sinterface\\saddress\\s${ADDRESS}\\s*$$\n  ^\\s*In\\sthe\\sarea\\s${AREA}\\svia\\sinterface\\s${INTERFACE}\\s*$$\n  ^\\s*Neighbor\\spriority\\sis\\s${PRIORITY},\\sState\\sis\\s${STATE},\\s+${STATE_CHANGES}\\sstate\\schanges\\s*$$\n  ^\\s*DR\\sis\\s${DR}\\sBDR\\sis\\s${BDR}\\s*$$\n  ^\\s*Options\\sis\\s${OPTIONS}\\s*$$\n  ^\\s*LLS\\sOptions\\sis\\s${LLS_OPTIONS},\\slast\\sOOB-Resync\\s${LAST_OOB_RESYNC}\\sago\\s*$$\n  ^\\s*Dead\\stimer\\sdue\\sin\\s${DEAD_TIME}\\s*$$\n  ^\\s*Neighbor\\sis\\sup\\sfor\\s${UP_TIME}\\s*$$\n  ^\\s*Index\\s${RQ_INDEX},\\sretransmission\\squeue\\slength\\s${RQ_LENGTH},\\snumber\\sof\\sretransmission\\s${RETRANSMISSION_NUMBER}\\s*$$\n  ^\\s*First\\s${FIRST_PACKET}\\sNext\\s${NEXT_PACKET}\\s*$$\n  ^\\s*Last\\sretransmission\\sscan\\slength\\sis\\s${LAST_RETRANSMISSION_SCAN_LENGTH},\\smaximum\\sis\\s${MAX_RETRANSMISSION_SCAN_LENGTH}\\s*$$\n  ^\\s*Last\\sretransmission\\sscan\\stime\\sis\\s${LAST_RETRANSMISSION_SCAN_TIME}\\smsec,\\smaximum\\sis\\s${MAX_RETRANSMISSION_SCAN_TIME}\\smsec\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

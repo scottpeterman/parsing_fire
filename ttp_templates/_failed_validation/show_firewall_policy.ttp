@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show firewall policy
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="policy_id_from_zone_to_zone_src_addr_dst_addr_action_status">
+{{POLICY_ID | re("\\d+")}} {{FROM_ZONE}} {{TO_ZONE}} {{SRC_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{DST_ADDR}} {{ACTION}} {{STATUS | ORPHRASE}}
+</group>

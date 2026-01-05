@@ -1,0 +1,98 @@
+{
+  "command": "show alarms counters",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.1666666666666667,
+  "textfsm_rows": 6,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"alarm_severity_description_counter\">\n{{ALARM}} {{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{DESCRIPTION | ORPHRASE}} {{COUNTER | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ALARM": "PortDown",
+      "SEVERITY": "Critical",
+      "DESCRIPTION": "Port is down",
+      "COUNTER": "3"
+    },
+    {
+      "ALARM": "HighTemperature",
+      "SEVERITY": "Major",
+      "DESCRIPTION": "Temperature too high",
+      "COUNTER": "5"
+    },
+    {
+      "ALARM": "PowerSupplyFailure",
+      "SEVERITY": "Critical",
+      "DESCRIPTION": "Power supply failure",
+      "COUNTER": "2"
+    },
+    {
+      "ALARM": "FanFailure",
+      "SEVERITY": "Major",
+      "DESCRIPTION": "Fan failure",
+      "COUNTER": "1"
+    },
+    {
+      "ALARM": "LinkFlap",
+      "SEVERITY": "Warning",
+      "DESCRIPTION": "Link is flapping",
+      "COUNTER": "12"
+    },
+    {
+      "ALARM": "FECError",
+      "SEVERITY": "Minor",
+      "DESCRIPTION": "FEC error detected",
+      "COUNTER": "7"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "alarm_severity_description_counter": [
+        {
+          "ALARM": "Alarm",
+          "SEVERITY": "Severity",
+          "DESCRIPTION": "Description",
+          "COUNTER": "Counter"
+        },
+        {
+          "ALARM": "PortDown",
+          "SEVERITY": "Critical",
+          "DESCRIPTION": "Port is down",
+          "COUNTER": "3"
+        },
+        {
+          "ALARM": "HighTemperature",
+          "SEVERITY": "Major",
+          "DESCRIPTION": "Temperature too high",
+          "COUNTER": "5"
+        },
+        {
+          "ALARM": "PowerSupplyFailure",
+          "SEVERITY": "Critical",
+          "DESCRIPTION": "Power supply failure",
+          "COUNTER": "2"
+        },
+        {
+          "ALARM": "FanFailure",
+          "SEVERITY": "Major",
+          "DESCRIPTION": "Fan failure",
+          "COUNTER": "1"
+        },
+        {
+          "ALARM": "LinkFlap",
+          "SEVERITY": "Warning",
+          "DESCRIPTION": "Link is flapping",
+          "COUNTER": "12"
+        },
+        {
+          "ALARM": "FECError",
+          "SEVERITY": "Minor",
+          "DESCRIPTION": "FEC error detected",
+          "COUNTER": "7"
+        }
+      ]
+    }
+  ],
+  "cli_content": "--------------------------------------------------------------------------------\nAlarm                      Severity   Description              Counter\n--------------------------------------------------------------------------------\nPortDown                   Critical   Port is down                3\nHighTemperature            Major      Temperature too high        5\nPowerSupplyFailure         Critical   Power supply failure        2\nFanFailure                 Major      Fan failure                 1\nLinkFlap                   Warning    Link is flapping            12\nFECError                   Minor      FEC error detected          7\n--------------------------------------------------------------------------------\n",
+  "textfsm_template": "Value ALARM (\\S+)\nValue SEVERITY (\\S+)\nValue DESCRIPTION (.+?)\nValue COUNTER (\\d+)\n\nStart\n  ^\\s*Alarm\\s+Severity\\s+Description\\s+Counter\\s*$$\n  ^\\s*${ALARM}\\s+${SEVERITY}\\s+${DESCRIPTION}\\s+${COUNTER}\\s*$$ -> Record"
+}

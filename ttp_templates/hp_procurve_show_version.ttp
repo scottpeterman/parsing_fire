@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_procurve_show_version
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="compilation_fips_mode_model_reboot_cause">
+ArubaOS (MODEL: {{MODEL}}), Version {{VERSION | ORPHRASE}}
+Compiled on {{COMPILATION | ORPHRASE}}
+FIPS Mode :{{FIPS_MODE | ORPHRASE}}
+AP uptime is {{UPTIME | ORPHRASE}}
+Reboot Time and Cause: {{REBOOT_CAUSE | ORPHRASE}}
+</group>

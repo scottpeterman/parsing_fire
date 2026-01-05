@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_eigrp_topology
+# Source: ntc
+# TextFSM rows: 7
+# TTP rows: 8
+# Match ratio: 1.14
+
+<group name="process_id_router_id">
+EIGRP-IPv4 Topology Table for AS({{PROCESS_ID | re("\\d+")}})/ID({{ROUTER_ID | ORPHRASE}})
+<group name="code_fd_network">
+{{CODE}} {{NETWORK}}/{{PREFIX_LENGTH}}, {{SUCCESSORS}} successors, FD is {{FD | ORPHRASE}}
+</group>
+</group>

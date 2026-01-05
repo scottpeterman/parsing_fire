@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_inventory
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="pid_vid_sn">
+PID: {{PID}} , VID: {{VID}} , SN: {{SN | ORPHRASE}}
+</group>

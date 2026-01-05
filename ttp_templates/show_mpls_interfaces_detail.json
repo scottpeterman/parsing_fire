@@ -1,0 +1,58 @@
+{
+  "command": "show mpls interfaces detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"interface_interface_role_label_advertisement_mode_ldp\">\n  MTU: {{MTU | ORPHRASE}}\n  Label Distribution Protocol: {{LDP | ORPHRASE}}\n  Label Advertisement Mode: {{LABEL_ADVERTISEMENT_MODE | ORPHRASE}}\nInterface: {{INTERFACE | ORPHRASE}}\n  MPLS Status: {{MPLS_STATUS | ORPHRASE}}\n  Interface Role: {{INTERFACE_ROLE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Ethernet1/2",
+      "MPLS_STATUS": "Enabled",
+      "MTU": "1500",
+      "LDP": "TDP",
+      "LABEL_ADVERTISEMENT_MODE": "Downstream On Demand",
+      "INTERFACE_ROLE": "Core"
+    },
+    {
+      "INTERFACE": "Ethernet1/3",
+      "MPLS_STATUS": "Disabled",
+      "MTU": "1500",
+      "LDP": "LDP",
+      "LABEL_ADVERTISEMENT_MODE": "Downstream On Demand",
+      "INTERFACE_ROLE": "Access"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_interface_role_label_advertisement_mode_ldp": [
+        {
+          "MPLS_STATUS": "Enabled",
+          "INTERFACE": "Ethernet1/2",
+          "INTERFACE_ROLE": "Provider Edge",
+          "LABEL_ADVERTISEMENT_MODE": "Downstream Unsolicited",
+          "LDP": "LDP",
+          "MTU": "1500"
+        },
+        {
+          "MPLS_STATUS": "Disabled",
+          "INTERFACE": "Ethernet1/3",
+          "INTERFACE_ROLE": "Core",
+          "LABEL_ADVERTISEMENT_MODE": "Downstream On Demand",
+          "LDP": "TDP",
+          "MTU": "1500"
+        },
+        {
+          "INTERFACE_ROLE": "Access",
+          "LABEL_ADVERTISEMENT_MODE": "Downstream On Demand",
+          "LDP": "LDP",
+          "MTU": "1500"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface: Ethernet1/1\n  MPLS Status: Enabled\n  MTU: 1500\n  Label Distribution Protocol: LDP\n  Label Advertisement Mode: Downstream Unsolicited\n  Interface Role: Provider Edge\n\nInterface: Ethernet1/2\n  MPLS Status: Enabled\n  MTU: 1500\n  Label Distribution Protocol: TDP\n  Label Advertisement Mode: Downstream On Demand\n  Interface Role: Core\n\nInterface: Ethernet1/3\n  MPLS Status: Disabled\n  MTU: 1500\n  Label Distribution Protocol: LDP\n  Label Advertisement Mode: Downstream On Demand\n  Interface Role: Access\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue MPLS_STATUS (\\S+)\nValue MTU (\\d+)\nValue LDP (\\S+)\nValue LABEL_ADVERTISEMENT_MODE (.+)\nValue INTERFACE_ROLE (\\S+)\n\nStart\n  ^Interface:\\s+${INTERFACE}\\s*$$\n  ^\\s*MPLS Status:\\s+${MPLS_STATUS}\\s*$$\n  ^\\s*MTU:\\s+${MTU}\\s*$$\n  ^\\s*Label Distribution Protocol:\\s+${LDP}\\s*$$\n  ^\\s*Label Advertisement Mode:\\s+${LABEL_ADVERTISEMENT_MODE}\\s*$$\n  ^\\s*Interface Role:\\s+${INTERFACE_ROLE}\\s*$$ -> Record"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_procurve_show_arp
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 2
+# Match ratio: 0.67
+
+<group name="ip_address_mac_address_type_port">
+  {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{TYPE | ORPHRASE}} {{PORT | re("\\d+")}}
+</group>

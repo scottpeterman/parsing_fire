@@ -1,0 +1,85 @@
+{
+  "command": "huawei_vrp_display_traffic-filter_applied-record",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.375,
+  "textfsm_rows": 8,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"instance_type\">\n{{INSTANCE_TYPE | ORPHRASE}}                   Direction  AppliedRecord       \n<group name=\"acl_name_direction_instance\">\n{{INSTANCE}} {{DIRECTION}} acl name {{ACL_NAME | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INSTANCE_TYPE": "Interface",
+      "INSTANCE": "Vlanif1",
+      "DIRECTION": "inbound",
+      "ACL_NAME": "ACL_Test"
+    },
+    {
+      "INSTANCE_TYPE": "Interface",
+      "INSTANCE": "Vlanif1",
+      "DIRECTION": "outbound",
+      "IP_VERSION": "ipv6",
+      "ACL_NAME": "MyACL_IPv6"
+    },
+    {
+      "INSTANCE_TYPE": "Interface",
+      "INSTANCE": "Vlanif3",
+      "DIRECTION": "inbound",
+      "ACL_NB": "3998"
+    },
+    {
+      "INSTANCE_TYPE": "Interface",
+      "INSTANCE": "Vlanif3",
+      "DIRECTION": "inbound",
+      "IP_VERSION": "ipv6",
+      "ACL_NAME": "MyACL_IPv6"
+    },
+    {
+      "INSTANCE_TYPE": "Interface",
+      "INSTANCE": "Wlan-Bss0",
+      "DIRECTION": "outbound",
+      "IP_VERSION": "IPv4",
+      "ACL_NB": "4000"
+    },
+    {
+      "INSTANCE_TYPE": "Interface",
+      "INSTANCE": "Wlan-Bss1",
+      "DIRECTION": "outbound",
+      "IP_VERSION": "IPv4",
+      "ACL_NB": "4000"
+    },
+    {
+      "INSTANCE_TYPE": "Traffic profile",
+      "INSTANCE": "p1",
+      "DIRECTION": "inbound",
+      "IP_VERSION": "IPv4",
+      "ACL_NB": "3000"
+    },
+    {
+      "INSTANCE_TYPE": "Traffic profile",
+      "INSTANCE": "p2",
+      "DIRECTION": "outbound",
+      "IP_VERSION": "IPv6",
+      "ACL_NB": "3001"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "instance_type": [
+        {
+          "INSTANCE_TYPE": "Interface",
+          "acl_name_direction_instance": {
+            "INSTANCE": "Vlanif1",
+            "DIRECTION": "inbound",
+            "ACL_NAME": "ACL_Test"
+          }
+        },
+        {
+          "INSTANCE_TYPE": "Traffic profile"
+        }
+      ]
+    }
+  ],
+  "cli_content": "-----------------------------------------------------------\nInterface                   Direction  AppliedRecord       \n-----------------------------------------------------------\nVlanif1                     inbound    acl name ACL_Test\nVlanif1                     outbound   ipv6 acl name MyACL_IPv6\nVlanif3                     inbound    acl 3998\nVlanif3                     inbound    ipv6 acl name MyACL_IPv6\nWlan-Bss0                   outbound   IPv4 ACL 4000\nWlan-Bss1                   outbound   IPv4 ACL 4000\n-----------------------------------------------------------             \nTotal:6                                                                         \n-----------------------------------------------------------             \nTraffic profile             Direction  AppliedRecord                    \n-----------------------------------------------------------             \np1                          inbound    IPv4 ACL 3000                         \np2                          outbound   IPv6 ACL 3001                    \n-----------------------------------------------------------             \nTotal:2 \n",
+  "textfsm_template": "Value Filldown INSTANCE_TYPE (Interface|Traffic profile)\nValue Required INSTANCE (\\S+)\nValue Required DIRECTION (inbound|outbound)\nValue IP_VERSION ((ip|IP)v(4|6))\nValue ACL_NB (\\d+)\nValue ACL_NAME (\\S+)\n\nStart\n  ^-+ -> Next\n  ^\\s*${INSTANCE_TYPE}\\s+Direction\\s+AppliedRecord\\s*$$\n  ^\\s*${INSTANCE}\\s+${DIRECTION}\\s+(${IP_VERSION}\\s+)?(ACL|acl)\\s+name\\s+${ACL_NAME} -> Record\n  ^\\s*${INSTANCE}\\s+${DIRECTION}\\s+(${IP_VERSION}\\s+)?(ACL|acl)\\s+${ACL_NB} -> Record\n  ^\\s*Total:\\d+\\s*$$ -> Next\n  ^.*$$ -> Error\n"
+}

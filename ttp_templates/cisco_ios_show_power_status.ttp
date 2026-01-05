@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_power_status
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 4
+# Match ratio: 0.67
+
+<group name="fan_sensor_inline_status_model">
+PS2-2                         220V   {{FAN_SENSOR | ORPHRASE}}         
+<group name="ps_status_type">
+{{PS}} PWR-C45-4200ACV {{TYPE | ORPHRASE}} {{STATUS | ORPHRASE}} good good 
+</group>
+</group>

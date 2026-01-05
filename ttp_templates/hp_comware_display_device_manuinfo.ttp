@@ -1,0 +1,22 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_comware_display_device_manuinfo
+# Source: ntc
+# TextFSM rows: 14
+# TTP rows: 124
+# Match ratio: 8.86
+
+<group name="slot_type_chassis_id">
+ {{SLOT_TYPE}} {{CHASSIS_ID | ORPHRASE}}
+</group>
+<group name="device_serial_number">
+ DEVICE_SERIAL_NUMBER : {{DEVICE_SERIAL_NUMBER | ORPHRASE}}
+</group>
+<group name="device_name">
+ DEVICE_NAME : {{DEVICE_NAME | ORPHRASE}}
+</group>
+<group name="manufacturing_date">
+ MANUFACTURING_DATE : {{MANUFACTURING_DATE | ORPHRASE}}
+</group>
+<group name="slot_type_slot_id">
+{{SLOT_TYPE}} {{SLOT_ID | ORPHRASE}}
+</group>

@@ -1,0 +1,52 @@
+{
+  "command": "edgecore_show_system",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"address_auth_enabled_auth_login_contact\">\nSystem Description: {{DESCRIPTION | ORPHRASE}}\nSystem OID String: {{OID | ORPHRASE}}\n System Up Time:  {{UPTIME | ORPHRASE}}\n System Name:  {{HOSTNAME | ORPHRASE}}\n System Location:  {{LOCATION | ORPHRASE}}\n System Contact:  {{CONTACT | ORPHRASE}}\n MAC Address (Unit1):  {{ADDRESS | ORPHRASE}}\n Web Server:  {{SERVER_STATUS | ORPHRASE}}\n Web Server Port:  {{SERVER_PORT | ORPHRASE}}\n Web Secure Server Port:  {{SECURE_SERVER_PORT | ORPHRASE}}\n Telnet Server Port:  {{TELNET_SERVER_PORT | ORPHRASE}}\n Authentication Login:  {{AUTH_LOGIN | ORPHRASE}}\n Jumbo Frame:  {{JUMBO_FRAME_STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DESCRIPTION": "Layer2+ Fast Ethernet Standalone Switch ES3526XA",
+      "OID": "1.3.6.1.4.1.259.8.1.5",
+      "UPTIME": "56 days, 21 hours, 46 minutes, and 56.65 seconds",
+      "HOSTNAME": "DMIT-EdgeCore-near-side-0",
+      "LOCATION": "1428 Elm Street",
+      "CONTACT": "[NONE]",
+      "ADDRESS": "00-12-34-56-78-90",
+      "SERVER_STATUS": "Enabled",
+      "SERVER_PORT": "80",
+      "SECURE_SERVER_STATUS": "Enabled",
+      "SECURE_SERVER_PORT": "443",
+      "TELNET_SERVER_STATUS": "Enable",
+      "TELNET_SERVER_PORT": "23",
+      "AUTH_LOGIN": "Local RADIUS None",
+      "AUTH_ENABLED": "Local RADIUS None",
+      "JUMBO_FRAME_STATUS": "Disabled",
+      "POST_RESULTS": "DUMMY Test 1 ................. PASS, UART Loopback Test ........... PASS, DRAM Test .................... PASS, I2C Bus Initialization ....... PASS"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "address_auth_enabled_auth_login_contact": {
+        "JUMBO_FRAME_STATUS": "Disabled",
+        "AUTH_LOGIN": "Local RADIUS None",
+        "TELNET_SERVER_PORT": "23",
+        "SECURE_SERVER_PORT": "443",
+        "SERVER_PORT": "80",
+        "SERVER_STATUS": "Enabled",
+        "ADDRESS": "00-12-34-56-78-90",
+        "CONTACT": "[NONE]",
+        "LOCATION": "1428 Elm Street",
+        "HOSTNAME": "DMIT-EdgeCore-near-side-0",
+        "UPTIME": "56 days, 21 hours, 46 minutes, and 56.65 seconds",
+        "OID": "1.3.6.1.4.1.259.8.1.5",
+        "DESCRIPTION": "Layer2+ Fast Ethernet Standalone Switch ES3526XA"
+      }
+    }
+  ],
+  "cli_content": "System Description: Layer2+ Fast Ethernet Standalone Switch ES3526XA\nSystem OID String: 1.3.6.1.4.1.259.8.1.5\nSystem Information\n System Up Time:          56 days, 21 hours, 46 minutes, and 56.65 seconds\n System Name:             DMIT-EdgeCore-near-side-0\n System Location:         1428 Elm Street\n System Contact:          [NONE]\n MAC Address (Unit1):     00-12-34-56-78-90\n Web Server:              Enabled\n Web Server Port:         80\n Web Secure Server:       Enabled\n Web Secure Server Port:  443\n Telnet Server:           Enable\n Telnet Server Port:      23\n Authentication Login:     Local RADIUS None\n Authentication Enabled:    Local RADIUS None\n Jumbo Frame:             Disabled\n\n POST Result:\nDUMMY Test 1 ................. PASS\nUART Loopback Test ........... PASS\nDRAM Test .................... PASS\nI2C Bus Initialization ....... PASS\n\nDone All Pass.\n",
+  "textfsm_template": "Value DESCRIPTION (.*)\nValue OID (\\d+(\\.\\d+)*)\nValue UPTIME (.*)\nValue HOSTNAME (\\S+)\nValue LOCATION (.*)\nValue CONTACT (.*)\nValue ADDRESS ([a-zA-Z0-9]{2}(?:-[a-zA-Z0-9]{2}){5})\nValue SERVER_STATUS (\\S+)\nValue SERVER_PORT (\\d+)\nValue SECURE_SERVER_STATUS (\\S+)\nValue SECURE_SERVER_PORT (\\d+)\nValue TELNET_SERVER_STATUS (\\S+)\nValue TELNET_SERVER_PORT (\\d+)\nValue AUTH_LOGIN (.*)\nValue AUTH_ENABLED (.*)\nValue JUMBO_FRAME_STATUS (\\S+)\nValue List POST_RESULTS (.*)\n\nStart\n  ^\\s*System\\s+Description:\\s+${DESCRIPTION}\\s*$$\n  ^\\s*System\\s+OID\\s+String:\\s+${OID}\\s*$$\n  ^\\s*System\\s+Information\\s*$$ -> SystemInfo\n  ^\\s*$$\n  ^. -> Error\n\nSystemInfo\n  ^\\s*System\\s+Up\\s+Time:\\s+${UPTIME}\\s*$$\n  ^\\s*System\\s+Name:\\s+${HOSTNAME}\\s*$$\n  ^\\s*System\\s+Location:\\s+${LOCATION}\\s*$$\n  ^\\s*System\\s+Contact:\\s+${CONTACT}\\s*$$\n  ^\\s*MAC\\s+Address\\s+\\(Unit\\d+\\):\\s+${ADDRESS}\\s*$$\n  ^\\s*Web\\s+Server:\\s+${SERVER_STATUS}\\s*$$\n  ^\\s*Web\\s+Server\\s+Port:\\s+${SERVER_PORT}\\s*$$\n  ^\\s*Web\\s+Secure\\s+Server:\\s+${SECURE_SERVER_STATUS}\\s*$$\n  ^\\s*Web\\s+Secure\\s+Server\\s+Port:\\s+${SECURE_SERVER_PORT}\\s*$$\n  ^\\s*Telnet\\s+Server:\\s+${TELNET_SERVER_STATUS}\\s*$$\n  ^\\s*Telnet\\s+Server\\s+Port:\\s+${TELNET_SERVER_PORT}\\s*$$\n  ^\\s*Authentication\\s+Login:\\s+${AUTH_LOGIN}\\s*$$\n  ^\\s*Authentication\\s+Enabled:\\s+${AUTH_ENABLED}\\s*$$\n  ^\\s*Jumbo\\s+Frame:\\s+${JUMBO_FRAME_STATUS}\\s*$$\n  ^\\s*POST\\s+Result:\\s*$$ -> PostResults\n  ^\\s*$$\n  ^. -> Error\n\nPostResults\n  ^\\s*Done\\s+All\\s+Pass.\\s*$$\n  ^\\s*$$\n  ^\\s*${POST_RESULTS}\\s*$$ -> PostResults\n  ^. -> Error\n"
+}

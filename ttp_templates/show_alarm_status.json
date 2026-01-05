@@ -1,0 +1,68 @@
+{
+  "command": "show alarm status",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"alarm_id_severity_description_timestamp\">\n{{ALARM_ID | re(\"\\\\d+\")}} {{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{DESCRIPTION | ORPHRASE}} {{TIMESTAMP | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ALARM_ID": "1",
+      "SEVERITY": "Critical",
+      "DESCRIPTION": "High temperature detected",
+      "TIMESTAMP": "2023-10-12 09:14:23"
+    },
+    {
+      "ALARM_ID": "2",
+      "SEVERITY": "Major",
+      "DESCRIPTION": "Power supply failure",
+      "TIMESTAMP": "2023-10-12 08:57:10"
+    },
+    {
+      "ALARM_ID": "3",
+      "SEVERITY": "Minor",
+      "DESCRIPTION": "Fan speed warning",
+      "TIMESTAMP": "2023-10-11 20:32:45"
+    },
+    {
+      "ALARM_ID": "4",
+      "SEVERITY": "Warning",
+      "DESCRIPTION": "Voltage fluctuation",
+      "TIMESTAMP": "2023-10-11 18:15:00"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "alarm_id_severity_description_timestamp": [
+        {
+          "ALARM_ID": "1",
+          "SEVERITY": "Critical",
+          "DESCRIPTION": "High temperature detected",
+          "TIMESTAMP": "2023-10-12 09:14:23"
+        },
+        {
+          "ALARM_ID": "2",
+          "SEVERITY": "Major",
+          "DESCRIPTION": "Power supply failure",
+          "TIMESTAMP": "2023-10-12 08:57:10"
+        },
+        {
+          "ALARM_ID": "3",
+          "SEVERITY": "Minor",
+          "DESCRIPTION": "Fan speed warning",
+          "TIMESTAMP": "2023-10-11 20:32:45"
+        },
+        {
+          "ALARM_ID": "4",
+          "SEVERITY": "Warning",
+          "DESCRIPTION": "Voltage fluctuation",
+          "TIMESTAMP": "2023-10-11 18:15:00"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Alarm ID  Severity  Description                               Timestamp           \n1         Critical  High temperature detected                 2023-10-12 09:14:23\n2         Major     Power supply failure                      2023-10-12 08:57:10\n3         Minor     Fan speed warning                         2023-10-11 20:32:45\n4         Warning   Voltage fluctuation                       2023-10-11 18:15:00\n",
+  "textfsm_template": "Value ALARM_ID (\\d+)\nValue SEVERITY (\\S+)\nValue DESCRIPTION (.+?)\nValue TIMESTAMP (\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2})\n\nStart\n  ^Alarm\\s+ID\\s+Severity\\s+Description\\s+Timestamp\\s*$$\n  ^\\s*${ALARM_ID}\\s+${SEVERITY}\\s+${DESCRIPTION}\\s+${TIMESTAMP}\\s*$$ -> Record"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show logging
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="date_time_log_level_component_interface_message">
+{{DATE | ORPHRASE}} {{TIME}}: %{{LOG_LEVEL}}-{{COMPONENT}}: Interface {{INTERFACE}}, {{MESSAGE | ORPHRASE}}
+</group>

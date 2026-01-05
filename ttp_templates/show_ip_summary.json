@@ -1,0 +1,90 @@
+{
+  "command": "show ip summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"route_source_networks_subnets_overhead_memory_bytes\">\n{{ROUTE_SOURCE}} {{NETWORKS}} {{SUBNETS}} {{OVERHEAD | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{MEMORY_BYTES | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ROUTE_SOURCE": "connected",
+      "NETWORKS": "2",
+      "SUBNETS": "0",
+      "OVERHEAD": "0",
+      "MEMORY_BYTES": "2400"
+    },
+    {
+      "ROUTE_SOURCE": "static",
+      "NETWORKS": "0",
+      "SUBNETS": "0",
+      "OVERHEAD": "0",
+      "MEMORY_BYTES": "0"
+    },
+    {
+      "ROUTE_SOURCE": "ospf",
+      "NETWORKS": "5",
+      "SUBNETS": "5",
+      "OVERHEAD": "0",
+      "MEMORY_BYTES": "9600"
+    },
+    {
+      "ROUTE_SOURCE": "bgp",
+      "NETWORKS": "3",
+      "SUBNETS": "2",
+      "OVERHEAD": "0",
+      "MEMORY_BYTES": "6400"
+    },
+    {
+      "ROUTE_SOURCE": "eigrp",
+      "NETWORKS": "4",
+      "SUBNETS": "3",
+      "OVERHEAD": "0",
+      "MEMORY_BYTES": "7200"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "route_source_networks_subnets_overhead_memory_bytes": [
+        {
+          "ROUTE_SOURCE": "connected",
+          "NETWORKS": "2",
+          "SUBNETS": "0",
+          "OVERHEAD": "0",
+          "MEMORY_BYTES": "2400"
+        },
+        {
+          "ROUTE_SOURCE": "static",
+          "NETWORKS": "0",
+          "SUBNETS": "0",
+          "OVERHEAD": "0",
+          "MEMORY_BYTES": "0"
+        },
+        {
+          "ROUTE_SOURCE": "ospf",
+          "NETWORKS": "5",
+          "SUBNETS": "5",
+          "OVERHEAD": "0",
+          "MEMORY_BYTES": "9600"
+        },
+        {
+          "ROUTE_SOURCE": "bgp",
+          "NETWORKS": "3",
+          "SUBNETS": "2",
+          "OVERHEAD": "0",
+          "MEMORY_BYTES": "6400"
+        },
+        {
+          "ROUTE_SOURCE": "eigrp",
+          "NETWORKS": "4",
+          "SUBNETS": "3",
+          "OVERHEAD": "0",
+          "MEMORY_BYTES": "7200"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Route Source    Networks    Subnets     Overhead    Memory (bytes)\nconnected       2           0           0           2400\nstatic          0           0           0           0\nospf            5           5           0           9600\nbgp             3           2           0           6400\neigrp           4           3           0           7200\n",
+  "textfsm_template": "Value ROUTE_SOURCE (\\S+)\nValue NETWORKS (\\d+)\nValue SUBNETS (\\d+)\nValue OVERHEAD (\\d+)\nValue MEMORY_BYTES (\\d+)\n\nStart\n  ^Route\\s+Source\\s+Networks\\s+Subnets\\s+Overhead\\s+Memory\\s+\\(bytes\\)\\s*$$\n  ^${ROUTE_SOURCE}\\s+${NETWORKS}\\s+${SUBNETS}\\s+${OVERHEAD}\\s+${MEMORY_BYTES}\\s*$$ -> Record"
+}

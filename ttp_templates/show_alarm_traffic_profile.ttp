@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show alarm traffic profile
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="traffic_profile_alerts_raised_alerts_cleared_active_alerts">
+{{TRAFFIC_PROFILE}} {{ALERTS_RAISED}} {{ALERTS_CLEARED}} {{ACTIVE_ALERTS | ORPHRASE}}
+</group>

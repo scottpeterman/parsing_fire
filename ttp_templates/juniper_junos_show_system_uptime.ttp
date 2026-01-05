@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: juniper_junos_show_system_uptime
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="year_boot_month_boot_day_boot_time_timezone_users">
+System booted: {{YEAR}}-{{BOOT_MONTH}}-{{BOOT_DAY}} {{BOOT_TIME}} {{TIMEZONE | ORPHRASE}} ({{USERS}}2w0d 19:16 ago)
+</group>

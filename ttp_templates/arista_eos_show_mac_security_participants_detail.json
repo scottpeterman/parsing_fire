@@ -1,0 +1,102 @@
+{
+  "command": "arista_eos_show_mac_security_participants_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.5,
+  "textfsm_rows": 4,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"interface\">\nInterface: {{INTERFACE | ORPHRASE}}\n<group name=\"default_elected_self_success\">\n      Elected self: {{ELECTED_SELF | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Ethernet4/15/1",
+      "CKN": "cd1df125ffbd3027abe6068fcbfdchanged91af15c274998046ca547",
+      "MESSAGE_ID": "changed0975adf202e94acf2",
+      "ELECTED_SELF": "True",
+      "SUCCESS": "True",
+      "PRINCIPAL": "False",
+      "DEFAULT": "True",
+      "KEY_SERVER_SCI": "28:00:3a:69:06:cc::999",
+      "SAK_TRANSMIT": "False",
+      "LLPN_EXHAUSTION": "0",
+      "DISTRIBUTED_KEY_ID": "None",
+      "LIVE_PEER_LIST": "['changed0fd8d6b694b42be37f5']",
+      "POTENTIAL_PEER_LIST": "[]"
+    },
+    {
+      "INTERFACE": "Ethernet4/15/1",
+      "CKN": "e9cae93c91ef6c62afbb9fffd2fa32380achangede0f6348a8a6e1bb205be4d",
+      "MESSAGE_ID": "changed77f1f42e246ef05b",
+      "ELECTED_SELF": "True",
+      "SUCCESS": "True",
+      "PRINCIPAL": "True",
+      "DEFAULT": "False",
+      "KEY_SERVER_SCI": "28:1b:22:69:36:cc::333",
+      "SAK_TRANSMIT": "True",
+      "LLPN_EXHAUSTION": "0",
+      "DISTRIBUTED_KEY_ID": "changed2577f1f42e246ef05b:46",
+      "LIVE_PEER_LIST": "['changed4341200ff8e76821da']",
+      "POTENTIAL_PEER_LIST": "[]"
+    },
+    {
+      "INTERFACE": "Ethernet5/13/1",
+      "CKN": "cd1df125ffbd3027abe6068fcbfd31f0changed58e91af15c274998046ca547",
+      "MESSAGE_ID": "1860e9c0c1d2b4877fa78b77",
+      "ELECTED_SELF": "True",
+      "SUCCESS": "True",
+      "PRINCIPAL": "False",
+      "DEFAULT": "True",
+      "KEY_SERVER_SCI": "28:22:1b:69:32:d4::111",
+      "SAK_TRANSMIT": "False",
+      "LLPN_EXHAUSTION": "0",
+      "DISTRIBUTED_KEY_ID": "None",
+      "LIVE_PEER_LIST": "['2071783e6e9b09640a2eee89']",
+      "POTENTIAL_PEER_LIST": "[]"
+    },
+    {
+      "INTERFACE": "Ethernet5/13/1",
+      "CKN": "e9cae93c91ef6c62afbb9fffd2fa323changedd6e0f6348a8a6e1bb205be4d",
+      "MESSAGE_ID": "changedf1e9662b5a94eac3",
+      "ELECTED_SELF": "True",
+      "SUCCESS": "True",
+      "PRINCIPAL": "True",
+      "DEFAULT": "False",
+      "KEY_SERVER_SCI": "28:11:3a:69:32:d4::111",
+      "SAK_TRANSMIT": "True",
+      "LLPN_EXHAUSTION": "0",
+      "DISTRIBUTED_KEY_ID": "dec1a8dchanged5a94eac3:46",
+      "LIVE_PEER_LIST": "['changedbe5869ab7cb6fa2c5cb1c']",
+      "POTENTIAL_PEER_LIST": "[]"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface": [
+        {
+          "INTERFACE": "Ethernet4/15/1",
+          "default_elected_self_success": [
+            {
+              "ELECTED_SELF": "True"
+            },
+            {
+              "ELECTED_SELF": "True"
+            }
+          ]
+        },
+        {
+          "INTERFACE": "Ethernet5/13/1",
+          "default_elected_self_success": [
+            {
+              "ELECTED_SELF": "True"
+            },
+            {
+              "ELECTED_SELF": "True"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface: Ethernet4/15/1\n    CKN: cd1df125ffbd3027abe6068fcbfdchanged91af15c274998046ca547\n      Message ID: changed0975adf202e94acf2\n      Elected self: True\n      Success: True\n      Principal: False\n      Default: True\n      KeyServer SCI: 28:00:3a:69:06:cc::999\n      SAK transmit: False\n      LLPN exhaustion: 0\n      Distributed key identifier: None\n      Live peer list: ['changed0fd8d6b694b42be37f5']\n      Potential peer list: []\n\n    CKN: e9cae93c91ef6c62afbb9fffd2fa32380achangede0f6348a8a6e1bb205be4d\n      Message ID: changed77f1f42e246ef05b\n      Elected self: True\n      Success: True\n      Principal: True\n      Default: False\n      KeyServer SCI: 28:1b:22:69:36:cc::333\n      SAK transmit: True\n      LLPN exhaustion: 0\n      Distributed key identifier: changed2577f1f42e246ef05b:46\n      Live peer list: ['changed4341200ff8e76821da']\n      Potential peer list: []\n\nInterface: Ethernet5/13/1\n    CKN: cd1df125ffbd3027abe6068fcbfd31f0changed58e91af15c274998046ca547\n      Message ID: 1860e9c0c1d2b4877fa78b77\n      Elected self: True\n      Success: True\n      Principal: False\n      Default: True\n      KeyServer SCI: 28:22:1b:69:32:d4::111\n      SAK transmit: False\n      LLPN exhaustion: 0\n      Distributed key identifier: None\n      Live peer list: ['2071783e6e9b09640a2eee89']\n      Potential peer list: []\n\n    CKN: e9cae93c91ef6c62afbb9fffd2fa323changedd6e0f6348a8a6e1bb205be4d\n      Message ID: changedf1e9662b5a94eac3\n      Elected self: True\n      Success: True\n      Principal: True\n      Default: False\n      KeyServer SCI: 28:11:3a:69:32:d4::111\n      SAK transmit: True\n      LLPN exhaustion: 0\n      Distributed key identifier: dec1a8dchanged5a94eac3:46\n      Live peer list: ['changedbe5869ab7cb6fa2c5cb1c']\n      Potential peer list: []",
+  "textfsm_template": "Value Filldown INTERFACE (\\S+)\nValue CKN (\\S+)\nValue MESSAGE_ID (\\S+)\nValue ELECTED_SELF (\\S+)\nValue SUCCESS (\\S+)\nValue PRINCIPAL (\\S+)\nValue DEFAULT (\\S+)\nValue KEY_SERVER_SCI (\\S+)\nValue SAK_TRANSMIT (\\S+)\nValue LLPN_EXHAUSTION (\\S+)\nValue DISTRIBUTED_KEY_ID (\\S+)\nValue LIVE_PEER_LIST (\\S+)\nValue POTENTIAL_PEER_LIST (\\S+)\n\nStart\n  ^Interface:\\s+${INTERFACE} -> Ckn1\n\nCkn1\n  ^\\s+CKN:\\s+${CKN}\n  ^\\s+Message ID:\\s+${MESSAGE_ID}\n  ^\\s+Elected self:\\s+${ELECTED_SELF}\n  ^\\s+Success:\\s+${SUCCESS}\n  ^\\s+Principal:\\s+${PRINCIPAL}\n  ^\\s+Default:\\s+${DEFAULT}\n  ^\\s+KeyServer SCI:\\s+${KEY_SERVER_SCI}\n  ^\\s+SAK transmit:\\s+${SAK_TRANSMIT}\n  ^\\s+LLPN exhaustion:\\s+${LLPN_EXHAUSTION}\n  ^\\s+Distributed key identifier:\\s+${DISTRIBUTED_KEY_ID}\n  ^\\s+Live peer list:\\s+${LIVE_PEER_LIST}\n  ^\\s+Potential peer list:\\s+${POTENTIAL_PEER_LIST} -> Record\n  ^\\s+$$\n  ^$$ -> Ckn2\n  ^.* -> Error \"LINE NOT FOUND\"\n \nCkn2\n  ^\\s+CKN:\\s+${CKN}\n  ^\\s+Message ID:\\s+${MESSAGE_ID}\n  ^\\s+Elected self:\\s+${ELECTED_SELF}\n  ^\\s+Success:\\s+${SUCCESS}\n  ^\\s+Principal:\\s+${PRINCIPAL}\n  ^\\s+Default:\\s+${DEFAULT}\n  ^\\s+KeyServer SCI:\\s+${KEY_SERVER_SCI}\n  ^\\s+SAK transmit:\\s+${SAK_TRANSMIT}\n  ^\\s+LLPN exhaustion:\\s+${LLPN_EXHAUSTION}\n  ^\\s+Distributed key identifier:\\s+${DISTRIBUTED_KEY_ID}\n  ^\\s+Live peer list:\\s+${LIVE_PEER_LIST}\n  ^\\s+Potential peer list:\\s+${POTENTIAL_PEER_LIST} -> Record\n  ^\\s+$$\n  ^$$ -> Start\n  ^.* -> Error \"LINE NOT FOUND\"\n  \nEOF"
+}

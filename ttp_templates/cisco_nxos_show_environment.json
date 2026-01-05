@@ -1,0 +1,134 @@
+{
+  "command": "cisco_nxos_show_environment",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 7,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"power_supply_power_supply_model_power_supply_output_power_supply_input_power_supply_capacity_power_supply_status\">\n{{POWER_SUPPLY}} {{POWER_SUPPLY_MODEL}} {{POWER_SUPPLY_OUTPUT}} W {{POWER_SUPPLY_INPUT}} W {{POWER_SUPPLY_CAPACITY}} W {{POWER_SUPPLY_STATUS | ORPHRASE}}\n</group>\n<group name=\"temperature_module_temperature_sensor_temperature_major_thresh_temperature_minor_thresh_temperature_current_temperature_status\">\n{{TEMPERATURE_MODULE | re(\"\\\\d+\")}} {{TEMPERATURE_SENSOR}} {{TEMPERATURE_MAJOR_THRESH}} {{TEMPERATURE_MINOR_THRESH}} {{TEMPERATURE_CURRENT}} {{TEMPERATURE_STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "POWER_SUPPLY": "1",
+      "POWER_SUPPLY_MODEL": "N9K-PAC-650W",
+      "POWER_SUPPLY_OUTPUT": "101",
+      "POWER_SUPPLY_INPUT": "103",
+      "POWER_SUPPLY_CAPACITY": "650",
+      "POWER_SUPPLY_STATUS": "Ok"
+    },
+    {
+      "POWER_SUPPLY": "2",
+      "POWER_SUPPLY_MODEL": "N9K-PAC-650W",
+      "POWER_SUPPLY_OUTPUT": "96",
+      "POWER_SUPPLY_INPUT": "102",
+      "POWER_SUPPLY_CAPACITY": "650",
+      "POWER_SUPPLY_STATUS": "Ok"
+    },
+    {
+      "TEMPERATURE_MODULE": "1",
+      "TEMPERATURE_SENSOR": "FRONT",
+      "TEMPERATURE_MAJOR_THRESH": "70",
+      "TEMPERATURE_MINOR_THRESH": "42",
+      "TEMPERATURE_CURRENT": "24",
+      "TEMPERATURE_STATUS": "Ok"
+    },
+    {
+      "TEMPERATURE_MODULE": "1",
+      "TEMPERATURE_SENSOR": "BACK",
+      "TEMPERATURE_MAJOR_THRESH": "80",
+      "TEMPERATURE_MINOR_THRESH": "70",
+      "TEMPERATURE_CURRENT": "26",
+      "TEMPERATURE_STATUS": "Ok"
+    },
+    {
+      "TEMPERATURE_MODULE": "1",
+      "TEMPERATURE_SENSOR": "CPU",
+      "TEMPERATURE_MAJOR_THRESH": "90",
+      "TEMPERATURE_MINOR_THRESH": "80",
+      "TEMPERATURE_CURRENT": "42",
+      "TEMPERATURE_STATUS": "Ok"
+    },
+    {
+      "TEMPERATURE_MODULE": "1",
+      "TEMPERATURE_SENSOR": "TD2-1",
+      "TEMPERATURE_MAJOR_THRESH": "105",
+      "TEMPERATURE_MINOR_THRESH": "90",
+      "TEMPERATURE_CURRENT": "35",
+      "TEMPERATURE_STATUS": "Ok"
+    },
+    {
+      "TEMPERATURE_MODULE": "1",
+      "TEMPERATURE_SENSOR": "NS-1",
+      "TEMPERATURE_MAJOR_THRESH": "105",
+      "TEMPERATURE_MINOR_THRESH": "90",
+      "TEMPERATURE_CURRENT": "37",
+      "TEMPERATURE_STATUS": "Ok"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "power_supply_power_supply_model_power_supply_output_power_supply_input_power_supply_capacity_power_supply_status": [
+        {
+          "POWER_SUPPLY": "1",
+          "POWER_SUPPLY_MODEL": "N9K-PAC-650W",
+          "POWER_SUPPLY_OUTPUT": "101",
+          "POWER_SUPPLY_INPUT": "103",
+          "POWER_SUPPLY_CAPACITY": "650",
+          "POWER_SUPPLY_STATUS": "Ok"
+        },
+        {
+          "POWER_SUPPLY": "2",
+          "POWER_SUPPLY_MODEL": "N9K-PAC-650W",
+          "POWER_SUPPLY_OUTPUT": "96",
+          "POWER_SUPPLY_INPUT": "102",
+          "POWER_SUPPLY_CAPACITY": "650",
+          "POWER_SUPPLY_STATUS": "Ok"
+        }
+      ],
+      "temperature_module_temperature_sensor_temperature_major_thresh_temperature_minor_thresh_temperature_current_temperature_status": [
+        {
+          "TEMPERATURE_MODULE": "1",
+          "TEMPERATURE_SENSOR": "FRONT",
+          "TEMPERATURE_MAJOR_THRESH": "70",
+          "TEMPERATURE_MINOR_THRESH": "42",
+          "TEMPERATURE_CURRENT": "24",
+          "TEMPERATURE_STATUS": "Ok"
+        },
+        {
+          "TEMPERATURE_MODULE": "1",
+          "TEMPERATURE_SENSOR": "BACK",
+          "TEMPERATURE_MAJOR_THRESH": "80",
+          "TEMPERATURE_MINOR_THRESH": "70",
+          "TEMPERATURE_CURRENT": "26",
+          "TEMPERATURE_STATUS": "Ok"
+        },
+        {
+          "TEMPERATURE_MODULE": "1",
+          "TEMPERATURE_SENSOR": "CPU",
+          "TEMPERATURE_MAJOR_THRESH": "90",
+          "TEMPERATURE_MINOR_THRESH": "80",
+          "TEMPERATURE_CURRENT": "42",
+          "TEMPERATURE_STATUS": "Ok"
+        },
+        {
+          "TEMPERATURE_MODULE": "1",
+          "TEMPERATURE_SENSOR": "TD2-1",
+          "TEMPERATURE_MAJOR_THRESH": "105",
+          "TEMPERATURE_MINOR_THRESH": "90",
+          "TEMPERATURE_CURRENT": "35",
+          "TEMPERATURE_STATUS": "Ok"
+        },
+        {
+          "TEMPERATURE_MODULE": "1",
+          "TEMPERATURE_SENSOR": "NS-1",
+          "TEMPERATURE_MAJOR_THRESH": "105",
+          "TEMPERATURE_MINOR_THRESH": "90",
+          "TEMPERATURE_CURRENT": "37",
+          "TEMPERATURE_STATUS": "Ok"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Power Supply:\nVoltage: 12 Volts\nPower                             Actual      Actual        Total\nSupply    Model                   Output      Input      Capacity    Status\n                                (Watts )    (Watts )     (Watts )\n-------  -------------------  ----------  ----------  ----------  --------------\n1        N9K-PAC-650W              101 W       103 W       650 W     Ok\n2        N9K-PAC-650W               96 W       102 W       650 W     Ok\n\n\nPower Usage Summary:\n--------------------\nPower Supply redundancy mode (configured)                PS-Redundant\nPower Supply redundancy mode (operational)               PS-Redundant\n\nTotal Power Capacity (based on configured mode)             650.00 W\nTotal Grid-A (first half of PS slots) Power Capacity        650.00 W\nTotal Grid-B (second half of PS slots) Power Capacity       650.00 W\nTotal Power of all Inputs (cumulative)                     1300.00 W\nTotal Power Output (actual draw)                            197.00 W\nTotal Power Input (actual draw)                             206.00 W\nTotal Power Allocated (budget)                                N/A\nTotal Power Available for additional modules                  N/A\n\nFan:\n---------------------------------------------------------------------------\nFan             Model                Hw     Direction       Status\n---------------------------------------------------------------------------\nFan1(sys_fan1)  N9K-C9300-FAN2       --     front-to-back   Ok\nFan2(sys_fan2)  N9K-C9300-FAN2       --     front-to-back   Ok\nFan3(sys_fan3)  N9K-C9300-FAN2       --     front-to-back   Ok\nFan_in_PS1      --                   --     front-to-back   Ok\nFan_in_PS2      --                   --     front-to-back   Ok\nFan Zone Speed: Zone 1: 0x80\nFan Air Filter : NotSupported\n\n\nTemperature:\n--------------------------------------------------------------------\nModule   Sensor        MajorThresh   MinorThres   CurTemp     Status\n                       (Celsius)     (Celsius)    (Celsius)\n--------------------------------------------------------------------\n1        FRONT           70              42          24         Ok\n1        BACK            80              70          26         Ok\n1        CPU             90              80          42         Ok\n1        TD2-1           105             90          35         Ok\n1        NS-1            105             90          37         Ok\n\n",
+  "textfsm_template": "Value POWER_SUPPLY (\\d+)\nValue POWER_SUPPLY_MODEL (\\S+)\nValue POWER_SUPPLY_OUTPUT (\\d+)\nValue POWER_SUPPLY_INPUT (\\d+)\nValue POWER_SUPPLY_CAPACITY (\\d+)\nValue POWER_SUPPLY_STATUS (\\w+)\nValue FAN (Fan\\S+)\nValue FAN_STATUS (\\S+)\nValue TEMPERATURE_MODULE (\\d+)\nValue TEMPERATURE_SENSOR ([^\\s\\(\\)]+)\nValue TEMPERATURE_MAJOR_THRESH (\\d+)\nValue TEMPERATURE_MINOR_THRESH (\\d+)\nValue TEMPERATURE_CURRENT (\\d+)\nValue TEMPERATURE_STATUS (\\S+)\n\nStart\n  # Note: 2020-12 this template is broken, mashing 3 tables into one.\n  ^Power Supply:\\s*$$ -> Power\n  ^Fan:\\s*$$ -> Fan\n  ^Temperature:\\s*$$ -> Temperature\n  #^Fan\\s+Model\\s+Hw\\s+(Direction\\s+)?Status -> Fan\n\nPower\n  #Capture Power with only Out\n  ^Power\\s+Actual\\s+Total\n  ^${POWER_SUPPLY}\\s+${POWER_SUPPLY_MODEL}\\s+${POWER_SUPPLY_OUTPUT}\\s+\\w+\\s+${POWER_SUPPLY_CAPACITY}\\s+\\w+\\s+${POWER_SUPPLY_STATUS}\\s*$$ -> Record\n  #\n  # Capture Power with Out and In\n  ^Power\\s+Actual\\s+Actual\\s+Total\n  ^${POWER_SUPPLY}\\s+${POWER_SUPPLY_MODEL}\\s+${POWER_SUPPLY_OUTPUT}\\s+\\w+\\s+${POWER_SUPPLY_INPUT}\\s+\\w+\\s+${POWER_SUPPLY_CAPACITY}\\s+\\w+\\s+${POWER_SUPPLY_STATUS}\\s*$$ -> Record\n  #\n  # Done with Power section back to Start\n  ^Module\\s+Model\\s+Draw\\s+Allocated\\s+Status\\s* -> Start\n  ^Power\\s+Usage\\s+Summary: -> Start\n  #\n  # Skip junk in Power section\n  ^Voltage:\\s+\\d+\\s+Volts\n  ^\\s*$$ -> Start\n  ^Supply\\s+Model\\s+Output\\s+Capacity\\s+Status\n  ^Supply\\s+Model\\s+Output\\s+Input\\s+Capacity\\s+Status\n  ^\\s+\\(Watts\\s\\)\\s+\n  ^-+\\s+-+\n  ^. -> Error\n\nFan\n  ^\\s*Fan\\s+Model\\s+Hw\\s+Status\n  ^${FAN}\\s+\\S+\\s+\\S+\\s+${FAN_STATUS}\\s*$$ -> Record\n  ^\\s*Fan\\s+Model\\s+Hw\\s+Direction\\s+Status\n  ^${FAN}\\s+\\S+\\s+\\S+\\s+\\S+\\s+${FAN_STATUS}\\s*$$ -> Record\n  #\n  # Blank line back to Start\n  ^\\s*$$ -> Start\n  #\n  # Fan Ignore\n  ^Fan\\s+Zone\\s+Speed\\s*:\n  ^Fan\\sAir\\sFilter\\s:\n  ^-+\\s*$$\n  ^. -> Error\n\nTemperature\n  ^Module\\s+Sensor\\s+MajorThresh\\s+MinorThres\\s+CurTemp\\s+Status\n  ^${TEMPERATURE_MODULE}\\s+${TEMPERATURE_SENSOR}(\\s*\\(\\S+\\))?\\s+${TEMPERATURE_MAJOR_THRESH}\\s+${TEMPERATURE_MINOR_THRESH}\\s+${TEMPERATURE_CURRENT}\\s+${TEMPERATURE_STATUS}\\s* -> Record\n  ^\\s*\\(Celsius\\)\\s+\\(Celsius\\)\n  ^-+\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

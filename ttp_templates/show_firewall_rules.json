@@ -1,0 +1,84 @@
+{
+  "command": "show firewall rules",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.6,
+  "textfsm_rows": 5,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"rule_id_source_address_destination_address_service_action_status\">\n{{RULE_ID | re(\"\\\\d+\")}} {{SOURCE_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{DESTINATION_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{SERVICE}} {{ACTION}} {{STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "RULE_ID": "1",
+      "SOURCE_ADDRESS": "192.168.1.10",
+      "DESTINATION_ADDRESS": "10.0.0.1",
+      "SERVICE": "HTTP",
+      "ACTION": "Allow",
+      "STATUS": "Active"
+    },
+    {
+      "RULE_ID": "2",
+      "SOURCE_ADDRESS": "172.16.0.5",
+      "DESTINATION_ADDRESS": "192.168.1.1",
+      "SERVICE": "HTTPS",
+      "ACTION": "Block",
+      "STATUS": "Inactive"
+    },
+    {
+      "RULE_ID": "3",
+      "SOURCE_ADDRESS": "Any",
+      "DESTINATION_ADDRESS": "10.10.10.10",
+      "SERVICE": "ICMP",
+      "ACTION": "Allow",
+      "STATUS": "Active"
+    },
+    {
+      "RULE_ID": "4",
+      "SOURCE_ADDRESS": "192.168.2.2",
+      "DESTINATION_ADDRESS": "172.16.1.1",
+      "SERVICE": "SSH",
+      "ACTION": "Allow",
+      "STATUS": "Active"
+    },
+    {
+      "RULE_ID": "5",
+      "SOURCE_ADDRESS": "Any",
+      "DESTINATION_ADDRESS": "Any",
+      "SERVICE": "DNS",
+      "ACTION": "Block",
+      "STATUS": "Active"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "rule_id_source_address_destination_address_service_action_status": [
+        {
+          "RULE_ID": "1",
+          "SOURCE_ADDRESS": "192.168.1.10",
+          "DESTINATION_ADDRESS": "10.0.0.1",
+          "SERVICE": "HTTP",
+          "ACTION": "Allow",
+          "STATUS": "Active"
+        },
+        {
+          "RULE_ID": "2",
+          "SOURCE_ADDRESS": "172.16.0.5",
+          "DESTINATION_ADDRESS": "192.168.1.1",
+          "SERVICE": "HTTPS",
+          "ACTION": "Block",
+          "STATUS": "Inactive"
+        },
+        {
+          "RULE_ID": "4",
+          "SOURCE_ADDRESS": "192.168.2.2",
+          "DESTINATION_ADDRESS": "172.16.1.1",
+          "SERVICE": "SSH",
+          "ACTION": "Allow",
+          "STATUS": "Active"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Rule ID   Source Address       Destination Address  Service         Action   Status\n1         192.168.1.10         10.0.0.1             HTTP            Allow    Active\n2         172.16.0.5           192.168.1.1          HTTPS           Block    Inactive\n3         Any                  10.10.10.10          ICMP            Allow    Active\n4         192.168.2.2          172.16.1.1           SSH             Allow    Active\n5         Any                  Any                  DNS             Block    Active\n",
+  "textfsm_template": "Value RULE_ID (\\d+)\nValue SOURCE_ADDRESS (\\S+)\nValue DESTINATION_ADDRESS (\\S+)\nValue SERVICE (\\S+)\nValue ACTION (\\S+)\nValue STATUS (\\S+)\n\nStart\n  ^Rule\\sID\\s+Source\\sAddress\\s+Destination\\sAddress\\s+Service\\s+Action\\s+Status\\s*$$\n  ^\\s*${RULE_ID}\\s+${SOURCE_ADDRESS}\\s+${DESTINATION_ADDRESS}\\s+${SERVICE}\\s+${ACTION}\\s+${STATUS}\\s*$$ -> Record"
+}

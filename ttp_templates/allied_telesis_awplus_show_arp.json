@@ -1,0 +1,48 @@
+{
+  "command": "allied_telesis_awplus_show_arp",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"ip_address_mac_address_interface_port_type\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{INTERFACE}} {{PORT}} {{TYPE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP_ADDRESS": "192.168.254.251",
+      "MAC_ADDRESS": "0000.cd37.06aa",
+      "TYPE": "dynamic",
+      "INTERFACE": "vlan954",
+      "PORT": "sa1"
+    },
+    {
+      "IP_ADDRESS": "192.168.254.250",
+      "MAC_ADDRESS": "0000.cd37.06bb",
+      "TYPE": "dynamic",
+      "INTERFACE": "vlan954",
+      "PORT": "sa1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_address_mac_address_interface_port_type": [
+        {
+          "IP_ADDRESS": "192.168.254.251",
+          "MAC_ADDRESS": "0000.cd37.06aa",
+          "INTERFACE": "vlan954",
+          "PORT": "sa1",
+          "TYPE": "dynamic"
+        },
+        {
+          "IP_ADDRESS": "192.168.254.250",
+          "MAC_ADDRESS": "0000.cd37.06bb",
+          "INTERFACE": "vlan954",
+          "PORT": "sa1",
+          "TYPE": "dynamic"
+        }
+      ]
+    }
+  ],
+  "cli_content": " IP Address      MAC Address     Interface    Port        Type\n192.168.254.251 0000.cd37.06aa  vlan954      sa1         dynamic\n192.168.254.250 0000.cd37.06bb  vlan954      sa1         dynamic",
+  "textfsm_template": "Value Required IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue Required MAC_ADDRESS (\\S+)\nValue TYPE (\\S+)\nValue INTERFACE (\\S+)\nValue PORT (\\S+)\n\nStart\n  ^.*IP\\s+Address\\s+MAC\\s+Address\\s+Interface\\s+Port\\s+Type\n  ^.*IP\\s+Address\\s+LL\\s+Address\\s+Interface\\s+Port\\s+Type\n  ^${IP_ADDRESS}\\s+${MAC_ADDRESS}\\s+${INTERFACE}\\s+${PORT}\\s+${TYPE} -> Record\n  ^. -> Error\n"
+}

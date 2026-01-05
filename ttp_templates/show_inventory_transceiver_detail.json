@@ -1,0 +1,51 @@
+{
+  "command": "show inventory transceiver detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"connector_datecode_encoding_identifier\">\nSlot {{SLOT | ORPHRASE}}:\n  Transceiver {{TRANSCEIVER | ORPHRASE}}\n  Model:  {{MODEL | ORPHRASE}}\n  Type:  {{TYPE | ORPHRASE}}\n  Connector:  {{CONNECTOR | ORPHRASE}}\n  Encoding:  {{ENCODING | ORPHRASE}}\n  Wavelength:  {{WAVELENGTH | ORPHRASE}}\n  TransferRate:  {{TRANSFERRATE | ORPHRASE}}\n  Length:  {{LENGTH | ORPHRASE}}\n  Vendor:  {{VENDOR | ORPHRASE}}\n  SerialNumber:  {{SERIALNUMBER | ORPHRASE}}\n  Identifier:  {{IDENTIFIER | ORPHRASE}}\n  DateCode:  {{DATECODE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SLOT": "1",
+      "TRANSCEIVER": "1/1",
+      "MODEL": "ABCD-1234-F1",
+      "TYPE": "SFP+",
+      "CONNECTOR": "LC",
+      "ENCODING": "64B66B",
+      "WAVELENGTH": "850nm",
+      "TRANSFERRATE": "10Gb/s",
+      "LENGTH": "300m",
+      "VENDOR": "OpticVendor",
+      "SERIALNUMBER": "ZXY1234567",
+      "IDENTIFIER": "SFP/SFP+",
+      "DATECODE": "2022-03-01"
+    },
+    {
+      "TRANSCEIVER": "1/2",
+      "MODEL": "XYZ-5678-T1",
+      "TYPE": "QSFP+",
+      "CONNECTOR": "MPO",
+      "ENCODING": "256QAM",
+      "WAVELENGTH": "1550nm",
+      "TRANSFERRATE": "40Gb/s",
+      "LENGTH": "10km",
+      "VENDOR": "FiberTech",
+      "SERIALNUMBER": "ABC7890123",
+      "IDENTIFIER": "QSFP/QSFP+",
+      "DATECODE": "2021-11-15"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "connector_datecode_encoding_identifier": {
+        "TRANSCEIVER": "1/1",
+        "SLOT": "1"
+      }
+    }
+  ],
+  "cli_content": "Slot 1:\n  Transceiver 1/1\n    Model:          ABCD-1234-F1\n    Type:           SFP+\n    Connector:      LC\n    Encoding:       64B66B\n    Wavelength:     850nm\n    TransferRate:   10Gb/s\n    Length:         300m\n    Vendor:         OpticVendor\n    SerialNumber:   ZXY1234567\n    Identifier:     SFP/SFP+\n    DateCode:       2022-03-01\n\n  Transceiver 1/2\n    Model:          XYZ-5678-T1\n    Type:           QSFP+\n    Connector:      MPO\n    Encoding:       256QAM\n    Wavelength:     1550nm\n    TransferRate:   40Gb/s\n    Length:         10km\n    Vendor:         FiberTech\n    SerialNumber:   ABC7890123\n    Identifier:     QSFP/QSFP+\n    DateCode:       2021-11-15\n",
+  "textfsm_template": "Value SLOT (\\S+)\nValue TRANSCEIVER (\\S+\\/\\S+)\nValue MODEL (\\S+)\nValue TYPE (\\S+)\nValue CONNECTOR (\\S+)\nValue ENCODING (\\S+)\nValue WAVELENGTH (\\d+nm)\nValue TRANSFERRATE (\\d+Gb\\/s)\nValue LENGTH (\\d+\\w+)\nValue VENDOR (\\S+)\nValue SERIALNUMBER (\\S+)\nValue IDENTIFIER (\\S+)\nValue DATECODE (\\d{4}-\\d{2}-\\d{2})\n\nStart\n  ^Slot\\s+${SLOT}:\n  ^\\s+Transceiver\\s+${TRANSCEIVER}\n  ^\\s+Model:\\s+${MODEL}\n  ^\\s+Type:\\s+${TYPE}\n  ^\\s+Connector:\\s+${CONNECTOR}\n  ^\\s+Encoding:\\s+${ENCODING}\n  ^\\s+Wavelength:\\s+${WAVELENGTH}\n  ^\\s+TransferRate:\\s+${TRANSFERRATE}\n  ^\\s+Length:\\s+${LENGTH}\n  ^\\s+Vendor:\\s+${VENDOR}\n  ^\\s+SerialNumber:\\s+${SERIALNUMBER}\n  ^\\s+Identifier:\\s+${IDENTIFIER}\n  ^\\s+DateCode:\\s+${DATECODE} -> Record"
+}

@@ -1,0 +1,18 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_version
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="config_register_hardware_hostname_release">
+Cisco IOS Software, C180X Software ({{SOFTWARE_IMAGE}}), Version {{VERSION | re("[\\d\\.\\(\\)A-Za-z]+")}}, RELEASE SOFTWARE ({{RELEASE | ORPHRASE}})
+Copyright (c) 1986-{{UPTIME_WEEKS | ORPHRASE}}06 by Cisco {{ROMMON | ORPHRASE}}s, Inc.
+{{HOSTNAME | re("\\S+")}} uptime is {{UPTIME | ORPHRASE}}
+System returned to ROM by {{RELOAD_REASON | ORPHRASE}}
+System restarted at {{RESTARTED | ORPHRASE}}
+System image file is "flash:{{RUNNING_IMAGE | ORPHRASE}}"
+Cisco {{HARDWARE | ORPHRASE}} (MPC8500) processor (revision 0x400) with 118784K/12288K bytes of memory.
+Processor board ID {{SERIAL | ORPHRASE}}, with hardware revision 0000
+Configuration register is {{CONFIG_REGISTER | ORPHRASE}}
+</group>

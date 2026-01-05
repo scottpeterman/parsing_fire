@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_interface_status
+# Source: ntc
+# TextFSM rows: 7
+# TTP rows: 2
+# Match ratio: 0.29
+
+<group name="port_name_status_vlan_id_duplex_speed_type">
+{{PORT}} {{NAME | re(".*\\w.*")}} {{STATUS | ORPHRASE}} {{VLAN_ID}} {{DUPLEX}} {{SPEED}} {{TYPE | ORPHRASE}}
+</group>
+<group name="port_name_status_vlan_id_duplex_speed">
+{{PORT}} {{NAME | re(".*\\w.*")}} {{STATUS | ORPHRASE}} {{VLAN_ID | re("\\d+")}} {{DUPLEX}} {{SPEED | ORPHRASE}}
+</group>

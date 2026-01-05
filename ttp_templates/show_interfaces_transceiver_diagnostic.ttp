@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show interfaces transceiver diagnostic
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="port_temperature_voltage_current_tx_power_rx_power">
+{{PORT}} {{TEMPERATURE}} {{VOLTAGE}} {{CURRENT}} {{TX_POWER}} {{RX_POWER | ORPHRASE}}
+</group>

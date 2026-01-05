@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show connections
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="session_id_src_address_dst_address_state_duration">
+{{SESSION_ID | re("\\d+")}} {{SRC_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{DST_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATE | ORPHRASE}} {{DURATION | ORPHRASE}}
+</group>

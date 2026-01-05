@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: dell_force10_show_ip_interface_brief
+# Source: ntc
+# TextFSM rows: 54
+# TTP rows: 55
+# Match ratio: 1.02
+
+<group name="interface_ip_address_ok_method_status_proto">
+{{INTERFACE | ORPHRASE}} {{IP_ADDRESS}} {{OK}} {{METHOD}} {{STATUS | ORPHRASE}} {{PROTO | ORPHRASE}}
+</group>

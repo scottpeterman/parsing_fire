@@ -1,0 +1,57 @@
+{
+  "command": "cisco_wlc_ssh_show_interface_summary",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"name_port_vlan_id_ip_address_type_ap_mgr_guest\">\n{{NAME}} {{PORT | re(\"\\\\d+\")}} {{VLAN_ID}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{TYPE}} {{AP_MGR}} {{GUEST | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INT_COUNT": "3",
+      "NAME": "management",
+      "PORT": "1",
+      "VLAN_ID": "untagged",
+      "IP_ADDRESS": "192.168.1.11",
+      "TYPE": "Static",
+      "AP_MGR": "Yes",
+      "GUEST": "N/A"
+    },
+    {
+      "INT_COUNT": "3",
+      "NAME": "service-port",
+      "PORT": "N/A",
+      "VLAN_ID": "N/A",
+      "IP_ADDRESS": "11.1.1.1",
+      "TYPE": "Static",
+      "AP_MGR": "No",
+      "GUEST": "N/A"
+    },
+    {
+      "INT_COUNT": "3",
+      "NAME": "virtual",
+      "PORT": "N/A",
+      "VLAN_ID": "N/A",
+      "IP_ADDRESS": "1.1.1.1",
+      "TYPE": "Static",
+      "AP_MGR": "No",
+      "GUEST": "N/A"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name_port_vlan_id_ip_address_type_ap_mgr_guest": {
+        "NAME": "management",
+        "PORT": "1",
+        "VLAN_ID": "untagged",
+        "IP_ADDRESS": "192.168.1.11",
+        "TYPE": "Static",
+        "AP_MGR": "Yes",
+        "GUEST": "N/A"
+      }
+    }
+  ],
+  "cli_content": "\n\n Number of Interfaces.......................... 3\n\nInterface Name                   Port Vlan Id  IP Address      Type    Ap Mgr Guest\n-------------------------------- ---- -------- --------------- ------- ------ -----\nmanagement                       1    untagged 192.168.1.11    Static  Yes    N/A  \nservice-port                     N/A  N/A      11.1.1.1        Static  No     N/A  \nvirtual                          N/A  N/A      1.1.1.1         Static  No     N/A  \n",
+  "textfsm_template": "Value Filldown INT_COUNT (\\d+)\nValue Required NAME (\\S+)\nValue PORT (\\S+)\nValue VLAN_ID (\\S+)\nValue IP_ADDRESS (([\\d1-9]+\\.?){4})\nValue TYPE (\\S+)\nValue AP_MGR (\\S+)\nValue GUEST (\\S+)\n\nStart\n  ^\\s*Number\\sof\\sInterfaces\\.*\\s${INT_COUNT}s*$$\n  ^Interface\\s+Name\\s+Port\\s+Vlan\\s+Id\\s+IP\\s+Address\\s+Type\\s+Ap\\s+Mgr\\s+Guest -> Type_One\n  ^\\s*$$\n  ^. -> Error\n\nType_One\n  ^-+\\s\n  ^${NAME}\\s\\s+${PORT}\\s+${VLAN_ID}\\s+${IP_ADDRESS}\\s+${TYPE}\\s+${AP_MGR}\\s+${GUEST} -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

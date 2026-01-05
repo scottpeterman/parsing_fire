@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show directory
+# Source: chatgpt
+# TextFSM rows: 12
+# TTP rows: 8
+# Match ratio: 0.67
+
+<group name="permissions_size_date_filename">
+    2 {{PERMISSIONS}} {{SIZE}} {{DATE | ORPHRASE}} {{FILENAME | ORPHRASE}}
+</group>

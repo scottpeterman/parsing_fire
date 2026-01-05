@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_ping
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="sent_qty_sent_type_destination_timeout">
+Sending {{SENT_QTY}}, {{SENT_TYPE | ORPHRASE}} to {{DESTINATION | ORPHRASE}}, timeout is {{TIMEOUT}} seconds:
+</group>

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: checkpoint_gaia_show_ntp_servers
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="ip_address_type_version">
+{{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{TYPE}} {{VERSION | ORPHRASE}} 
+</group>

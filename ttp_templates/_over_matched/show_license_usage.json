@@ -1,0 +1,134 @@
+{
+  "command": "show license usage",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.1111111111111112,
+  "textfsm_rows": 9,
+  "ttp_rows": 10,
+  "ttp_template": "<group name=\"feature_usage_entitlement_status\">\n{{FEATURE | ORPHRASE}} {{USAGE}} {{ENTITLEMENT}} {{STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FEATURE": "Firewall",
+      "USAGE": "5",
+      "ENTITLEMENT": "Yes",
+      "STATUS": "Active"
+    },
+    {
+      "FEATURE": "VPN",
+      "USAGE": "2",
+      "ENTITLEMENT": "Yes",
+      "STATUS": "Active"
+    },
+    {
+      "FEATURE": "IPS",
+      "USAGE": "0",
+      "ENTITLEMENT": "No",
+      "STATUS": "Inactive"
+    },
+    {
+      "FEATURE": "App Control",
+      "USAGE": "1",
+      "ENTITLEMENT": "Yes",
+      "STATUS": "Active"
+    },
+    {
+      "FEATURE": "Web Filtering",
+      "USAGE": "0",
+      "ENTITLEMENT": "Yes",
+      "STATUS": "Active"
+    },
+    {
+      "FEATURE": "Antivirus",
+      "USAGE": "3",
+      "ENTITLEMENT": "Yes",
+      "STATUS": "Active"
+    },
+    {
+      "FEATURE": "Advanced Malware Protection",
+      "USAGE": "1",
+      "ENTITLEMENT": "Yes",
+      "STATUS": "Active"
+    },
+    {
+      "FEATURE": "SSL Decryption",
+      "USAGE": "0",
+      "ENTITLEMENT": "No",
+      "STATUS": "Inactive"
+    },
+    {
+      "FEATURE": "Sandboxing",
+      "USAGE": "1",
+      "ENTITLEMENT": "Yes",
+      "STATUS": "Active"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "feature_usage_entitlement_status": [
+        {
+          "FEATURE": "Feature",
+          "USAGE": "Usage",
+          "ENTITLEMENT": "Entitlement",
+          "STATUS": "Status"
+        },
+        {
+          "FEATURE": "Firewall",
+          "USAGE": "5",
+          "ENTITLEMENT": "Yes",
+          "STATUS": "Active"
+        },
+        {
+          "FEATURE": "VPN",
+          "USAGE": "2",
+          "ENTITLEMENT": "Yes",
+          "STATUS": "Active"
+        },
+        {
+          "FEATURE": "IPS",
+          "USAGE": "0",
+          "ENTITLEMENT": "No",
+          "STATUS": "Inactive"
+        },
+        {
+          "FEATURE": "App Control",
+          "USAGE": "1",
+          "ENTITLEMENT": "Yes",
+          "STATUS": "Active"
+        },
+        {
+          "FEATURE": "Web Filtering",
+          "USAGE": "0",
+          "ENTITLEMENT": "Yes",
+          "STATUS": "Active"
+        },
+        {
+          "FEATURE": "Antivirus",
+          "USAGE": "3",
+          "ENTITLEMENT": "Yes",
+          "STATUS": "Active"
+        },
+        {
+          "FEATURE": "Advanced Malware Protection",
+          "USAGE": "1",
+          "ENTITLEMENT": "Yes",
+          "STATUS": "Active"
+        },
+        {
+          "FEATURE": "SSL Decryption",
+          "USAGE": "0",
+          "ENTITLEMENT": "No",
+          "STATUS": "Inactive"
+        },
+        {
+          "FEATURE": "Sandboxing",
+          "USAGE": "1",
+          "ENTITLEMENT": "Yes",
+          "STATUS": "Active"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Feature                      Usage    Entitlement      Status\n-------------------------------------------------------------------------\nFirewall                     5        Yes              Active\nVPN                          2        Yes              Active\nIPS                          0        No               Inactive\nApp Control                  1        Yes              Active\nWeb Filtering                0        Yes              Active\nAntivirus                    3        Yes              Active\nAdvanced Malware Protection  1        Yes              Active\nSSL Decryption               0        No               Inactive\nSandboxing                   1        Yes              Active\n",
+  "textfsm_template": "Value FEATURE (.+?)\nValue USAGE (\\d+)\nValue ENTITLEMENT (\\S+)\nValue STATUS (\\S+)\n\nStart\n  ^\\s*Feature\\s+Usage\\s+Entitlement\\s+Status\\s*$$\n  ^-+\\s*$$\n  ^\\s*${FEATURE}\\s+${USAGE}\\s+${ENTITLEMENT}\\s+${STATUS}\\s*$$ -> Record"
+}

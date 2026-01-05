@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: aruba_aoscx_show_bgp_all-vrfs_all_summary
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 2
+# Match ratio: 0.50
+
+<group name="af_vrf">
+VRF : {{VRF | ORPHRASE}}
+<group name="admin_status_neighbour_remote_as">
+ {{NEIGHBOUR}} {{REMOTE_AS}} 0 0 00h:00m:00s {{STATE | ORPHRASE}} {{ADMIN_STATUS | ORPHRASE}}
+</group>
+</group>

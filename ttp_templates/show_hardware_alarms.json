@@ -1,0 +1,68 @@
+{
+  "command": "show hardware alarms",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"id_description_severity_state\">\n{{ID | re(\"\\\\d+\")}} {{DESCRIPTION | ORPHRASE}} {{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{STATE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ID": "1",
+      "DESCRIPTION": "Power Supply Failure",
+      "SEVERITY": "Major",
+      "STATE": "Active"
+    },
+    {
+      "ID": "2",
+      "DESCRIPTION": "Fan Failure",
+      "SEVERITY": "Critical",
+      "STATE": "Inactive"
+    },
+    {
+      "ID": "3",
+      "DESCRIPTION": "Temperature Threshold Exceeded",
+      "SEVERITY": "Minor",
+      "STATE": "Active"
+    },
+    {
+      "ID": "4",
+      "DESCRIPTION": "Voltage Out of Range",
+      "SEVERITY": "Major",
+      "STATE": "Inactive"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "id_description_severity_state": [
+        {
+          "ID": "1",
+          "DESCRIPTION": "Power Supply Failure",
+          "SEVERITY": "Major",
+          "STATE": "Active"
+        },
+        {
+          "ID": "2",
+          "DESCRIPTION": "Fan Failure",
+          "SEVERITY": "Critical",
+          "STATE": "Inactive"
+        },
+        {
+          "ID": "3",
+          "DESCRIPTION": "Temperature Threshold Exceeded",
+          "SEVERITY": "Minor",
+          "STATE": "Active"
+        },
+        {
+          "ID": "4",
+          "DESCRIPTION": "Voltage Out of Range",
+          "SEVERITY": "Major",
+          "STATE": "Inactive"
+        }
+      ]
+    }
+  ],
+  "cli_content": "ID    Description                               Severity    State\n----  -----------------------------------------  ----------  ------\n1     Power Supply Failure                      Major        Active\n2     Fan Failure                               Critical     Inactive\n3     Temperature Threshold Exceeded            Minor        Active\n4     Voltage Out of Range                      Major        Inactive\n",
+  "textfsm_template": "Value ID (\\d+)\nValue DESCRIPTION (.+)\nValue SEVERITY (\\w+)\nValue STATE (\\w+)\n\nStart\n  ^ID\\s+Description\\s+Severity\\s+State\\s*$$\n  ^----+\\s+-----------------------------------------+\\s+----------+\\s+------\\s*$$\n  ^\\s*${ID}\\s+${DESCRIPTION}\\s+${SEVERITY}\\s+${STATE}\\s*$$ -> Record\n"
+}

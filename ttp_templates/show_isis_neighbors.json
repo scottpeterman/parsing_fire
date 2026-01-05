@@ -1,0 +1,92 @@
+{
+  "command": "show isis neighbors",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"system_id_interface_level_state_uptime_hold_time_circuit_id\">\n{{SYSTEM_ID}} {{INTERFACE}} {{LEVEL}} {{STATE | ORPHRASE}} {{UPTIME | ORPHRASE}} {{HOLD_TIME}} Up {{CIRCUIT_ID | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SYSTEM_ID": "R1",
+      "INTERFACE": "Ethernet0/0/0.10",
+      "LEVEL": "1",
+      "UPTIME": "2d12h",
+      "HOLD_TIME": "21",
+      "STATE": "Up",
+      "CIRCUIT_ID": "00"
+    },
+    {
+      "SYSTEM_ID": "R2",
+      "INTERFACE": "Ethernet0/0/1.20",
+      "LEVEL": "2",
+      "UPTIME": "3h25m",
+      "HOLD_TIME": "22",
+      "STATE": "Up",
+      "CIRCUIT_ID": "02"
+    },
+    {
+      "SYSTEM_ID": "R3",
+      "INTERFACE": "Ethernet0/0/2.30",
+      "LEVEL": "1",
+      "UPTIME": "4d3h55m",
+      "HOLD_TIME": "19",
+      "STATE": "Up",
+      "CIRCUIT_ID": "01"
+    },
+    {
+      "SYSTEM_ID": "R4",
+      "INTERFACE": "Ethernet0/0/3.40",
+      "LEVEL": "2",
+      "UPTIME": "6h30m",
+      "HOLD_TIME": "18",
+      "STATE": "Up",
+      "CIRCUIT_ID": "03"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "system_id_interface_level_state_uptime_hold_time_circuit_id": [
+        {
+          "SYSTEM_ID": "R1",
+          "INTERFACE": "Ethernet0/0/0.10",
+          "LEVEL": "1",
+          "STATE": "Up",
+          "UPTIME": "2d12h",
+          "HOLD_TIME": "21",
+          "CIRCUIT_ID": "00"
+        },
+        {
+          "SYSTEM_ID": "R2",
+          "INTERFACE": "Ethernet0/0/1.20",
+          "LEVEL": "2",
+          "STATE": "Up",
+          "UPTIME": "3h25m",
+          "HOLD_TIME": "22",
+          "CIRCUIT_ID": "02"
+        },
+        {
+          "SYSTEM_ID": "R3",
+          "INTERFACE": "Ethernet0/0/2.30",
+          "LEVEL": "1",
+          "STATE": "Up",
+          "UPTIME": "4d3h55m",
+          "HOLD_TIME": "19",
+          "CIRCUIT_ID": "01"
+        },
+        {
+          "SYSTEM_ID": "R4",
+          "INTERFACE": "Ethernet0/0/3.40",
+          "LEVEL": "2",
+          "STATE": "Up",
+          "UPTIME": "6h30m",
+          "HOLD_TIME": "18",
+          "CIRCUIT_ID": "03"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IS-IS Neighbors:\nSystem Id      Interface             L Level    Uptime   Hold Time  State       Circuit Id\nR1             Ethernet0/0/0.10      1  Up      2d12h    21         Up          00\nR2             Ethernet0/0/1.20      2  Up      3h25m    22         Up          02\nR3             Ethernet0/0/2.30      1  Up      4d3h55m  19         Up          01\nR4             Ethernet0/0/3.40      2  Up      6h30m    18         Up          03\n",
+  "textfsm_template": "Value SYSTEM_ID (\\S+)\nValue INTERFACE (\\S+)\nValue LEVEL (\\d+)\nValue UPTIME (\\S+)\nValue HOLD_TIME (\\d+)\nValue STATE (\\S+)\nValue CIRCUIT_ID (\\S+)\n\nStart\n  ^System\\s+Id\\s+Interface\\s+L\\s+Level\\s+Uptime\\s+Hold\\s+Time\\s+State\\s+Circuit\\s+Id\\s*$$\n  ^\\s*${SYSTEM_ID}\\s+${INTERFACE}\\s+${LEVEL}\\s+(Up|Down)\\s+${UPTIME}\\s+${HOLD_TIME}\\s+${STATE}\\s+${CIRCUIT_ID}\\s*$$ -> Record"
+}

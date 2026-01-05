@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_procurve_show_port-security
+# Source: ntc
+# TextFSM rows: 52
+# TTP rows: 52
+# Match ratio: 1.00
+
+<group name="port_learn_mode_action_eavesdrop_prevention">
+  {{PORT | re("\\d+")}} {{LEARN_MODE}} | {{ACTION | ORPHRASE}} {{EAVESDROP_PREVENTION | ORPHRASE}}
+</group>

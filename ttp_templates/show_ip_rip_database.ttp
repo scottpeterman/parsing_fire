@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip rip database
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 8
+# Match ratio: 2.00
+
+<group name="code_network_nexthop_metric">
+{{CODE}} {{NETWORK | ORPHRASE}} {{NEXTHOP}} {{METRIC}} 
+</group>
+<group name="code_network_nexthop_metric_local_pref_weight">
+{{CODE}} {{NETWORK}} {{NEXTHOP}} {{METRIC}} {{LOCAL_PREF}} {{WEIGHT | ORPHRASE}}
+</group>

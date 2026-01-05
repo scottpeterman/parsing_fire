@@ -1,0 +1,32 @@
+{
+  "command": "brocade_fastiron_show_lldp_neighbors",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"neighbor_name_local_interface_holdtime_capabilities_neighbor_interface\">\n{{NEIGHBOR_NAME}} {{LOCAL_INTERFACE}} {{HOLDTIME}} {{CAPABILITIES}} {{NEIGHBOR_INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR_NAME": "core-sw01",
+      "LOCAL_INTERFACE": "Gi1/3",
+      "HOLDTIME": "120",
+      "CAPABILITIES": "B,R",
+      "NEIGHBOR_INTERFACE": "Gi0/3"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neighbor_name_local_interface_holdtime_capabilities_neighbor_interface": {
+        "NEIGHBOR_NAME": "core-sw01",
+        "LOCAL_INTERFACE": "Gi1/3",
+        "HOLDTIME": "120",
+        "CAPABILITIES": "B,R",
+        "NEIGHBOR_INTERFACE": "Gi0/3"
+      }
+    }
+  ],
+  "cli_content": "Capability codes:\n    (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device\n    (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other\nDevice ID           Local Intf     Hold-time  Capability      Port ID\ncore-sw01           Gi1/3          120        B,R             Gi0/3\nTotal entries displayed: 1\n",
+  "textfsm_template": "Value Required NEIGHBOR_NAME (\\S+)\nValue Required LOCAL_INTERFACE (\\S+)\nValue Required HOLDTIME (\\d+)\nValue Required CAPABILITIES (\\S+)\nValue Required NEIGHBOR_INTERFACE (\\S+) \n\nStart\n  ^Capability.*\n  ^\\s+\\(.*\n  ^Device\\s+ID\\s+Local\\s+Intf\\s+Hold-time\\s+Capability\\s+Port\\s+ID\\s*$$\n  ^${NEIGHBOR_NAME}\\s+${LOCAL_INTERFACE}\\s+${HOLDTIME}\\s+${CAPABILITIES}\\s+${NEIGHBOR_INTERFACE} -> Record\n  ^Total.*\n  ^\\s*$$\n  ^. -> Error\n"
+}

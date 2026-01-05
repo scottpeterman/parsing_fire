@@ -1,0 +1,84 @@
+{
+  "command": "show climate all",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.6,
+  "textfsm_rows": 5,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"interface_protocol_address_ok_method_status\">\n{{INTERFACE}} {{PROTOCOL}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{OK}} {{METHOD}} {{STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Et1",
+      "PROTOCOL": "Layer3",
+      "ADDRESS": "192.168.1.2",
+      "OK": "YES",
+      "METHOD": "manual",
+      "STATUS": "up"
+    },
+    {
+      "INTERFACE": "Et2",
+      "PROTOCOL": "Layer2",
+      "ADDRESS": "unassigned",
+      "OK": "YES",
+      "METHOD": "unset",
+      "STATUS": "down"
+    },
+    {
+      "INTERFACE": "Et3",
+      "PROTOCOL": "Layer3",
+      "ADDRESS": "192.168.1.3",
+      "OK": "YES",
+      "METHOD": "manual",
+      "STATUS": "up"
+    },
+    {
+      "INTERFACE": "Et4",
+      "PROTOCOL": "Layer3",
+      "ADDRESS": "10.0.0.2",
+      "OK": "YES",
+      "METHOD": "manual",
+      "STATUS": "down"
+    },
+    {
+      "INTERFACE": "Et5",
+      "PROTOCOL": "Layer2",
+      "ADDRESS": "unassigned",
+      "OK": "YES",
+      "METHOD": "unset",
+      "STATUS": "down"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_protocol_address_ok_method_status": [
+        {
+          "INTERFACE": "Et1",
+          "PROTOCOL": "Layer3",
+          "ADDRESS": "192.168.1.2",
+          "OK": "YES",
+          "METHOD": "manual",
+          "STATUS": "up"
+        },
+        {
+          "INTERFACE": "Et3",
+          "PROTOCOL": "Layer3",
+          "ADDRESS": "192.168.1.3",
+          "OK": "YES",
+          "METHOD": "manual",
+          "STATUS": "up"
+        },
+        {
+          "INTERFACE": "Et4",
+          "PROTOCOL": "Layer3",
+          "ADDRESS": "10.0.0.2",
+          "OK": "YES",
+          "METHOD": "manual",
+          "STATUS": "down"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              Protocol    Address        OK?  Method Status\nEt1                    Layer3      192.168.1.2    YES  manual  up\nEt2                    Layer2      unassigned     YES  unset   down\nEt3                    Layer3      192.168.1.3    YES  manual  up\nEt4                    Layer3      10.0.0.2       YES  manual  down\nEt5                    Layer2      unassigned     YES  unset   down\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue PROTOCOL (\\S+)\nValue ADDRESS (\\S+)\nValue OK (\\S+)\nValue METHOD (\\S+)\nValue STATUS (administratively down|up|down)\n\nStart\n  ^Interface\\s+Protocol\\s+Address\\s+OK\\?\\s+Method\\s+Status\\s*$$\n  ^${INTERFACE}\\s+${PROTOCOL}\\s+${ADDRESS}\\s+${OK}\\s+${METHOD}\\s+${STATUS}\\s*$$ -> Record"
+}

@@ -1,0 +1,40 @@
+{
+  "command": "show logging configuration",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"host_protocol_port\">\nLogging host {{HOST | re(\"\\\\S+\")}} {{PROTOCOL}} port {{PORT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "HOST": "10.10.10.1",
+      "PROTOCOL": "TCP",
+      "PORT": "514"
+    },
+    {
+      "HOST": "10.10.10.2",
+      "PROTOCOL": "UDP",
+      "PORT": "514"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "host_protocol_port": [
+        {
+          "HOST": "10.10.10.1",
+          "PROTOCOL": "TCP",
+          "PORT": "514"
+        },
+        {
+          "HOST": "10.10.10.2",
+          "PROTOCOL": "UDP",
+          "PORT": "514"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Logging facility level: local7: informational\nLogging console enable\nLogging monitor level: informational\nLogging buffer size: 4096\nLogging buffer enable\nLogging host 10.10.10.1 TCP port 514\nLogging host 10.10.10.2 UDP port 514\n",
+  "textfsm_template": "Value FACILITY (\\S+)\nValue CONSOLE (\\S+)\nValue MONITOR_LEVEL (\\S+)\nValue BUFFER_SIZE (\\d+)\nValue BUFFER (\\S+)\nValue HOST (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue PROTOCOL (\\S+)\nValue PORT (\\d+)\n\nStart\n  ^Logging\\s+facility\\s+level:\\s+${FACILITY}:\\s+\\S+\\s*$$ -> Record\n  ^Logging\\s+console\\s+${CONSOLE}\\s*$$ -> Record\n  ^Logging\\s+monitor\\s+level:\\s+${MONITOR_LEVEL}\\s*$$ -> Record\n  ^Logging\\s+buffer\\s+size:\\s+${BUFFER_SIZE}\\s*$$ -> Record\n  ^Logging\\s+buffer\\s+${BUFFER}\\s*$$ -> Record\n  ^Logging\\s+host\\s+${HOST}\\s+${PROTOCOL}\\s+port\\s+${PORT}\\s*$$ -> Record"
+}

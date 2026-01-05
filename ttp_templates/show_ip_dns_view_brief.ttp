@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip dns view brief
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="view_name_method_zone_origin_zone_type">
+{{VIEW_NAME}} {{METHOD}} {{ZONE_ORIGIN | ORPHRASE}} {{ZONE_TYPE}}
+</group>

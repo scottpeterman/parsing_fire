@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nvfis_show_running-config_system_time
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="backup_ntp_server_backup_ntp_server_type_preferred_ntp_server_preferred_ntp_server_type">
+system time timezone {{TIMEZONE | ORPHRASE}}
+system time ntp preferred_server {{PREFERRED_NTP_SERVER | ORPHRASE}}
+system time ntp backup_server {{BACKUP_NTP_SERVER | ORPHRASE}}
+system time ntp preferred_server_type {{PREFERRED_NTP_SERVER_TYPE | ORPHRASE}}
+</group>

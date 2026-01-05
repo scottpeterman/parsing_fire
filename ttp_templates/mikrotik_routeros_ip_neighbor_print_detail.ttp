@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_ip_neighbor_print_detail
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="number_interface_ip_address_ipv4_address_mac_address_identity_platform_version_unpack_age_uptime_software_id_board_interface_name_system_description_system_caps_system_caps_enabled">
+ {{NUMBER}} interface={{INTERFACE}} address={{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} address4={{IPV4_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} mac-address={{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} identity="{{IDENTITY}}" platform="{{PLATFORM}}" version="{{VERSION | ORPHRASE}}" unpack={{UNPACK}} age={{AGE}} uptime={{UPTIME | ORPHRASE}} software-id="{{SOFTWARE_ID}}" board="{{BOARD}}" interface-name="{{INTERFACE_NAME}}" system-description="{{SYSTEM_DESCRIPTION | ORPHRASE}}" system-caps={{SYSTEM_CAPS}} system-caps-enabled={{SYSTEM_CAPS_ENABLED | ORPHRASE}}
+</group>

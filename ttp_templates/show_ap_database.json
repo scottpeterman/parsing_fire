@@ -1,0 +1,90 @@
+{
+  "command": "show ap database",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"ap_name_group_name_ip_address_status_clients\">\n{{AP_NAME}} {{GROUP_NAME}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATUS | ORPHRASE}} {{CLIENTS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "AP_NAME": "AP1",
+      "GROUP_NAME": "default-group",
+      "IP_ADDRESS": "10.10.10.1",
+      "STATUS": "Up",
+      "CLIENTS": "25"
+    },
+    {
+      "AP_NAME": "AP2",
+      "GROUP_NAME": "default-group",
+      "IP_ADDRESS": "10.10.10.2",
+      "STATUS": "Down",
+      "CLIENTS": "0"
+    },
+    {
+      "AP_NAME": "AP3",
+      "GROUP_NAME": "custom-group",
+      "IP_ADDRESS": "10.10.10.3",
+      "STATUS": "Up",
+      "CLIENTS": "18"
+    },
+    {
+      "AP_NAME": "AP4",
+      "GROUP_NAME": "custom-group",
+      "IP_ADDRESS": "10.10.10.4",
+      "STATUS": "Up",
+      "CLIENTS": "30"
+    },
+    {
+      "AP_NAME": "AP5",
+      "GROUP_NAME": "custom-group",
+      "IP_ADDRESS": "10.10.10.5",
+      "STATUS": "Down",
+      "CLIENTS": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ap_name_group_name_ip_address_status_clients": [
+        {
+          "AP_NAME": "AP1",
+          "GROUP_NAME": "default-group",
+          "IP_ADDRESS": "10.10.10.1",
+          "STATUS": "Up",
+          "CLIENTS": "25"
+        },
+        {
+          "AP_NAME": "AP2",
+          "GROUP_NAME": "default-group",
+          "IP_ADDRESS": "10.10.10.2",
+          "STATUS": "Down",
+          "CLIENTS": "0"
+        },
+        {
+          "AP_NAME": "AP3",
+          "GROUP_NAME": "custom-group",
+          "IP_ADDRESS": "10.10.10.3",
+          "STATUS": "Up",
+          "CLIENTS": "18"
+        },
+        {
+          "AP_NAME": "AP4",
+          "GROUP_NAME": "custom-group",
+          "IP_ADDRESS": "10.10.10.4",
+          "STATUS": "Up",
+          "CLIENTS": "30"
+        },
+        {
+          "AP_NAME": "AP5",
+          "GROUP_NAME": "custom-group",
+          "IP_ADDRESS": "10.10.10.5",
+          "STATUS": "Down",
+          "CLIENTS": "0"
+        }
+      ]
+    }
+  ],
+  "cli_content": "AP Name                 Group Name      IP Address       Status     Clients  \n--------------------------------------------------------------------------------\nAP1                     default-group   10.10.10.1       Up         25\nAP2                     default-group   10.10.10.2       Down       0\nAP3                     custom-group    10.10.10.3       Up         18\nAP4                     custom-group    10.10.10.4       Up         30\nAP5                     custom-group    10.10.10.5       Down       0\n",
+  "textfsm_template": "Value AP_NAME (\\S+)\nValue GROUP_NAME (\\S+)\nValue IP_ADDRESS (\\S+)\nValue STATUS (\\S+)\nValue CLIENTS (\\d+)\n\nStart\n  ^AP\\sName\\s+Group\\sName\\s+IP\\sAddress\\s+Status\\s+Clients\n  ^-+\n  ^${AP_NAME}\\s+${GROUP_NAME}\\s+${IP_ADDRESS}\\s+${STATUS}\\s+${CLIENTS}\\s*$$ -> Record"
+}

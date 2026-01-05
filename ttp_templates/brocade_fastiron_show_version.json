@@ -1,0 +1,55 @@
+{
+  "command": "brocade_fastiron_show_version",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"start_time_start_timezone_start_day_start_month_start_date_start_year\">\nThe system started at {{START_TIME}} {{START_TIMEZONE}} {{START_DAY}} {{START_MONTH}} {{START_DATE}} {{START_YEAR | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SWITCH_ID": "1, 2, 3, 4, 5, 6",
+      "SW_BIN": "ICX64S08030h.bin, ICX64S08030h.bin, ICX64S08030h.bin, ICX64S08030h.bin, ICX64S08030h.bin, ICX64S08030h.bin",
+      "SW_VERSION": "08.0.30hT311, 08.0.30hT311, 08.0.30hT311, 08.0.30hT311, 08.0.30hT311, 08.0.30hT311",
+      "BOOT_MONITOR_VERSION": "10.1.05T310 (kxz10105)",
+      "HW": "Stackable ICX6450-48-HPOE",
+      "SLOT": "1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2",
+      "MODEL": "ICX6450-48P, ICX6450-SFP-Plus, ICX6450-48P, ICX6450-SFP-Plus, ICX6450-48P, ICX6450-SFP-Plus, ICX6450-48P, ICX6450-SFP-Plus, ICX6450-48P, ICX6450-SFP-Plus, ICX6450-48P, ICX6450-SFP-Plus",
+      "POE": "POE, POE, POE, POE, POE, POE",
+      "PORTS": "48, 4, 48, 4, 48, 4, 48, 4, 48, 4, 48, 4",
+      "MODULE_TYPE": "Management, 40G, Management, 40G, Management, 40G, Management, 40G, Management, 40G, Management, 40G",
+      "SERIAL": "BZT3217M025, BZT3217M033, BZT3217M036, BZT3217M038, BZT3215M02V, BZT3217M02G",
+      "LICENSE": "BASE_SOFT_PACKAGE, BASE_SOFT_PACKAGE, BASE_SOFT_PACKAGE, BASE_SOFT_PACKAGE, BASE_SOFT_PACKAGE, BASE_SOFT_PACKAGE",
+      "FLASH": "65536",
+      "FLASH_MEASUREMENT": "KB",
+      "RAM": "512",
+      "RAM_MEASUREMENT": "MB",
+      "UPTIME_DAYS": "730, 707, 707, 707, 707, 730",
+      "UPTIME_HOURS": "11, 8, 8, 8, 8, 10",
+      "UPTIME_MINUTES": "13, 13, 13, 13, 59",
+      "UPTIME_SECONDS": "11, 32, 32, 32, 31, 40",
+      "START_TIME": "15:56:16",
+      "START_TIMEZONE": "Pacific",
+      "START_DAY": "Fri",
+      "START_MONTH": "Jul",
+      "START_DATE": "08",
+      "START_YEAR": "2016",
+      "RELOAD_REASON": "cold start"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "start_time_start_timezone_start_day_start_month_start_date_start_year": {
+        "START_TIME": "15:56:16",
+        "START_TIMEZONE": "Pacific",
+        "START_DAY": "Fri",
+        "START_MONTH": "Jul",
+        "START_DATE": "08",
+        "START_YEAR": "2016"
+      }
+    }
+  ],
+  "cli_content": "show version\n\n  Copyright (c) 1996-2016 Brocade Communications Systems, Inc. All rights reserved.\n    UNIT 1: compiled on May 19 2016 at 01:15:45 labeled as ICX64S08030h\n\t\t(8500344 bytes) from Primary ICX64S08030h.bin\n        SW: Version 08.0.30hT311\n    UNIT 2: compiled on May 19 2016 at 01:15:45 labeled as ICX64S08030h\n \t\t(8500344 bytes) from Primary ICX64S08030h.bin\n        SW: Version 08.0.30hT311\n    UNIT 3: compiled on May 19 2016 at 01:15:45 labeled as ICX64S08030h\n \t\t(8500344 bytes) from Primary ICX64S08030h.bin\n        SW: Version 08.0.30hT311\n    UNIT 4: compiled on May 19 2016 at 01:15:45 labeled as ICX64S08030h\n \t\t(8500344 bytes) from Primary ICX64S08030h.bin\n        SW: Version 08.0.30hT311\n    UNIT 5: compiled on May 19 2016 at 01:15:45 labeled as ICX64S08030h\n \t\t(8500344 bytes) from Primary ICX64S08030h.bin\n        SW: Version 08.0.30hT311\n    UNIT 6: compiled on May 19 2016 at 01:15:45 labeled as ICX64S08030h\n \t\t(8500344 bytes) from Primary ICX64S08030h.bin\n        SW: Version 08.0.30hT311\n  Boot-Monitor Image size = 786944, Version:10.1.05T310 (kxz10105)\n  HW: Stackable ICX6450-48-HPOE\n==========================================================================\nUNIT 1: SL 1: ICX6450-48P POE 48-port Management Module\n \t Serial  #: BZT3217M025\n \t License: BASE_SOFT_PACKAGE   (LID: dbvIHGMoFHK)\n \t P-ENGINE  0: type DEF0, rev 01\n \t P-ENGINE  1: type DEF0, rev 01\n==========================================================================\nUNIT 1: SL 2: ICX6450-SFP-Plus 4port 40G Module\n==========================================================================\nUNIT 2: SL 1: ICX6450-48P POE 48-port Management Module\n \t Serial  #: BZT3217M033\n \t License: BASE_SOFT_PACKAGE   (LID: dbvIHGMoFII)\n \t P-ENGINE  0: type DEF0, rev 01\n \t P-ENGINE  1: type DEF0, rev 01\n==========================================================================\nUNIT 2: SL 2: ICX6450-SFP-Plus 4port 40G Module\n==========================================================================\nUNIT 3: SL 1: ICX6450-48P POE 48-port Management Module\n \t Serial  #: BZT3217M036\n \t License: BASE_SOFT_PACKAGE   (LID: dbvIHGMoFIL)\n \t P-ENGINE  0: type DEF0, rev 01\n \t P-ENGINE  1: type DEF0, rev 01\n\n==========================================================================\nUNIT 3: SL 2: ICX6450-SFP-Plus 4port 40G Module\n==========================================================================\nUNIT 4: SL 1: ICX6450-48P POE 48-port Management Module\n \t Serial  #: BZT3217M038\n \t License: BASE_SOFT_PACKAGE   (LID: dbvIHGMoFIN)\n \t P-ENGINE  0: type DEF0, rev 01\n \t P-ENGINE  1: type DEF0, rev 01\n==========================================================================\nUNIT 4: SL 2: ICX6450-SFP-Plus 4port 40G Module\n==========================================================================\nUNIT 5: SL 1: ICX6450-48P POE 48-port Management Module\n \t Serial  #: BZT3215M02V\n \t License: BASE_SOFT_PACKAGE   (LID: dbvIHGKoFHx)\n \t P-ENGINE  0: type DEF0, rev 01\n \t P-ENGINE  1: type DEF0, rev 01\n==========================================================================\nUNIT 5: SL 2: ICX6450-SFP-Plus 4port 40G Module\n==========================================================================\nUNIT 6: SL 1: ICX6450-48P POE 48-port Management Module\n \t Serial  #: BZT3217M02G\n \t License: BASE_SOFT_PACKAGE   (LID: dbvIHGMoFHi)\n \t P-ENGINE  0: type DEF0, rev 01\n \t P-ENGINE  1: type DEF0, rev 01\n==========================================================================\nUNIT 6: SL 2: ICX6450-SFP-Plus 4port 40G Module\n==========================================================================\n\n  800 MHz ARM processor ARMv5TE, 400 MHz bus\n65536 KB flash memory\n  512 MB DRAM\nSTACKID 1  system uptime is 730 day(s) 11 hour(s) 11 second(s)\nSTACKID 2  system uptime is 707 day(s) 8 hour(s) 13 minute(s) 32 second(s)\nSTACKID 3  system uptime is 707 day(s) 8 hour(s) 13 minute(s) 32 second(s)\nSTACKID 4  system uptime is 707 day(s) 8 hour(s) 13 minute(s) 32 second(s)\nSTACKID 5  system uptime is 707 day(s) 8 hour(s) 13 minute(s) 31 second(s)\nSTACKID 6  system uptime is 730 day(s) 10 hour(s) 59 minute(s) 40 second(s)\nThe system started at 15:56:16 Pacific Fri Jul 08 2016\n\n The system : started=cold start\nMy stack unit ID = 1, bootup role = active\n",
+  "textfsm_template": "Value List SWITCH_ID (\\d+)\nValue List SW_BIN (\\S+)\nValue List SW_VERSION (\\S+)\nValue BOOT_MONITOR_VERSION (.*)\nValue HW (.*)\nValue List SLOT (\\d+)\nValue List MODEL (\\S+)\nValue List POE (POE)\nValue List PORTS (\\d+)\nValue List MODULE_TYPE (\\S+)\nValue List SERIAL (\\S+$)\nValue List LICENSE (\\S+)\nValue FLASH (\\d+)\nValue FLASH_MEASUREMENT (\\S+)\nValue RAM (\\d+)\nValue RAM_MEASUREMENT (\\S+)\nValue List UPTIME_DAYS (\\d+)\nValue List UPTIME_HOURS (\\d+)\nValue List UPTIME_MINUTES (\\d+)\nValue List UPTIME_SECONDS (\\d+)\nValue START_TIME (\\d+:\\d+:\\d+)\nValue START_TIMEZONE (\\S+)\nValue START_DAY (\\S+)\nValue START_MONTH (\\S+)\nValue START_DATE (\\d+)\nValue START_YEAR (\\d+)\nValue RELOAD_REASON (.+?)\n\nStart\n  ^show\\s+version\n  ^\\s+UNIT\\s+${SWITCH_ID}\n  ^\\s+\\(.+?\\)\\s+from\\s+\\S+\\s+${SW_BIN}\\s*$$\n  ^\\s*SW:\\s+Version\\s+${SW_VERSION}\n  ^\\s*Boot-Monitor.*,\\s+Version:${BOOT_MONITOR_VERSION}\\s*$$\n  ^\\s*HW:\\s+${HW}\\s*$$\n  ^\\s+Copyright\n  ^\\s*$$\n  ^=+\\s*$$ -> Hardware\n  ^. -> Error\n\nHardware\n  ^UNIT\\s+\\d+:\\s+SL\\s+${SLOT}:\\s+${MODEL}\\s+(?:${POE}\\s+|)${PORTS}(?:-|)port\\s+${MODULE_TYPE}\\s+Module\\s*$$\n  ^\\s+Serial\\s+#:\\s+${SERIAL}\\s*$$\n  ^\\s+License:\\s+${LICENSE}\n  ^.*ENGINE\n  ^=\n  ^.+uptime\\s+is\\s+(?:${UPTIME_DAYS}\\s+day\\(s\\)\\s+|)(?:${UPTIME_HOURS}\\s+hour\\(s\\)\\s+|)(?:${UPTIME_MINUTES}\\s+minute\\(s\\)\\s+|)(?:${UPTIME_SECONDS}\\s+second\\(s\\)|)\n  ^${FLASH}\\s+${FLASH_MEASUREMENT}\\s+flash\n  ^\\s+${RAM}\\s+${RAM_MEASUREMENT}.+RAM\n  ^.+started\\s+at\\s+${START_TIME}\\s+${START_TIMEZONE}\\s+${START_DAY}\\s+${START_MONTH}\\s+${START_DATE}\\s+${START_YEAR}\n  ^\\s+The\\s+system\\s+:\\s+started=${RELOAD_REASON}\\s*$$\n  ^\\s*$$\n  ^.+processor\n  ^My\\s+stack\n  ^. -> Error\n"
+}

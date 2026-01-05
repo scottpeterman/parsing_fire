@@ -1,0 +1,80 @@
+{
+  "command": "show ip dns view cache",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"type_ttl_data\">\n{{DOM{{TYPE}}IN_NAME}} A {{TTL}} {{DATA | ORPHRASE}}\n</group>\n<group name=\"domain_name_type_ttl_data\">\n{{DOMAIN_NAME}} {{TYPE}} {{TTL | ORPHRASE}} {{DATA}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DOMAIN_NAME": "example.com.",
+      "TYPE": "A",
+      "TTL": "3789",
+      "DATA": "93.184.216.34"
+    },
+    {
+      "DOMAIN_NAME": "example.org.",
+      "TYPE": "A",
+      "TTL": "7200",
+      "DATA": "93.184.216.34"
+    },
+    {
+      "DOMAIN_NAME": "example.net.",
+      "TYPE": "A",
+      "TTL": "3200",
+      "DATA": "93.184.216.34"
+    },
+    {
+      "DOMAIN_NAME": "sub.example.com.",
+      "TYPE": "CNAME",
+      "TTL": "2500",
+      "DATA": "example.com."
+    },
+    {
+      "DOMAIN_NAME": "anotherexample.com.",
+      "TYPE": "A",
+      "TTL": "6500",
+      "DATA": "198.51.100.14"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "domain_name_type_ttl_data": [
+        {
+          "DOMAIN_NAME": "example.com.",
+          "TYPE": "A",
+          "TTL": "3789",
+          "DATA": "93.184.216.34"
+        },
+        {
+          "DOMAIN_NAME": "example.org.",
+          "TYPE": "A",
+          "TTL": "7200",
+          "DATA": "93.184.216.34"
+        },
+        {
+          "DOMAIN_NAME": "example.net.",
+          "TYPE": "A",
+          "TTL": "3200",
+          "DATA": "93.184.216.34"
+        },
+        {
+          "DOMAIN_NAME": "sub.example.com.",
+          "TYPE": "CNAME",
+          "TTL": "2500",
+          "DATA": "example.com."
+        },
+        {
+          "DOMAIN_NAME": "anotherexample.com.",
+          "TYPE": "A",
+          "TTL": "6500",
+          "DATA": "198.51.100.14"
+        }
+      ]
+    }
+  ],
+  "cli_content": "DNS Client Cache:\nDomain Name                               Type       TTL       Data\n---------------------------------------------------------------\nexample.com.                              A          3789      93.184.216.34\nexample.org.                              A          7200      93.184.216.34\nexample.net.                              A          3200      93.184.216.34\nsub.example.com.                          CNAME      2500      example.com.\nanotherexample.com.                       A          6500      198.51.100.14\n---------------------------------------------------------------\n\n",
+  "textfsm_template": "Value DOMAIN_NAME (\\S+)\nValue TYPE (\\S+)\nValue TTL (\\d+)\nValue DATA ([\\d\\.]+|\\S+)\n\nStart\n  ^\\s*Domain Name\\s+Type\\s+TTL\\s+Data\\s*$$\n  ^\\s*[-]+\\s*$$\n  ^\\s*${DOMAIN_NAME}\\s+${TYPE}\\s+${TTL}\\s+${DATA}\\s*$$ -> Record"
+}

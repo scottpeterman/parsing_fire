@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show dnszone query
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="additional_answers_authority_flags">
+fqdn: {{FQDN | ORPHRASE}}
+qlen: {{QLEN | ORPHRASE}}
+flags: {{FLAGS | ORPHRASE}}
+ipindex: {{IPINDEX | ORPHRASE}}
+questions: {{QUESTIONS | ORPHRASE}}
+</group>

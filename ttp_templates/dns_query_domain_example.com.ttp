@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: dns query domain example.com
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="dns_address_dns_server_domain_name_ip_address">
+Server:  {{DNS_SERVER | ORPHRASE}}
+Address:  {{DNS_ADDRESS | ORPHRASE}}
+Name:  {{DOMAIN_NAME | ORPHRASE}}
+Address: {{IP_ADDRESS | ORPHRASE}}
+</group>

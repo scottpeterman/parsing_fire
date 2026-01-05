@@ -1,0 +1,46 @@
+{
+  "command": "show crypto ipsec sa detail",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 1,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"path_mtu_ip_mtu_pfs\">\n     path mtu {{PATH_MTU}}, ip mtu {{IP_MTU}}, ip mtu idb {{I{{PFS}}TERFACE | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "GigabitEthernet0/0",
+      "CRYPTO_MAP_TAG": "VPN-MAP",
+      "LOCAL_ADDR": "192.168.1.1",
+      "LOCAL_IDENT_ADDR": "10.0.0.1",
+      "LOCAL_IDENT_MASK": "255.255.255.0",
+      "LOCAL_IDENT_PROT": "47",
+      "LOCAL_IDENT_PORT": "0",
+      "REMOTE_IDENT_ADDR": "172.16.0.1",
+      "REMOTE_IDENT_MASK": "255.255.255.0",
+      "REMOTE_IDENT_PROT": "47",
+      "REMOTE_IDENT_PORT": "0",
+      "CURRENT_PEER": "172.16.0.2",
+      "CURRENT_PEER_PORT": "500",
+      "DECAPS": "50",
+      "SEND_ERRORS": "0",
+      "LOCAL_CRYPTO_ENDPT": "192.168.2.1",
+      "REMOTE_CRYPTO_ENDPT": "172.16.0.3",
+      "PATH_MTU": "1500",
+      "IP_MTU": "1500",
+      "IP_MTU_IDB": "GigabitEthernet0/0",
+      "OUTBOUND_SPI": "0xABCDEF01(2882400001)",
+      "PFS": "N",
+      "DH_GROUP": "none",
+      "INBOUND_SPI": "0x87654321(2271560481)",
+      "IN_USE_SETTINGS": "{Tunnel,",
+      "IN_CONN_ID": "54321",
+      "IN_CRYPTO_MAP": "VPN-MAP"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "interface: GigabitEthernet0/0\n    Crypto map tag: VPN-MAP, local addr: 192.168.1.1\n\n   protected vrf: (none)\n   local ident (addr/mask/prot/port): (10.0.0.1/255.255.255.0/47/0)\n   remote ident (addr/mask/prot/port): (172.16.0.1/255.255.255.0/47/0)\n   current_peer 172.16.0.2 port 500\n     PERMIT, flags={origin_is_acl,}\n    #pkts encaps: 100, #pkts encrypt: 100, #pkts digest: 100\n    #pkts decaps: 50, #pkts decrypt: 50, #pkts verify: 50\n    #pkts compressed: 0, #pkts decompressed: 0\n    #pkts not compressed: 0, #pkts compr. failed: 0\n    #pkts not decompressed: 0, #pkts decompress failed: 0\n    #send errors 0, #recv errors 0\n\n     local crypto endpt.: 192.168.2.1, remote crypto endpt.: 172.16.0.3\n     path mtu 1500, ip mtu 1500, ip mtu idb GigabitEthernet0/0\n     current outbound spi: 0xABCDEF01(2882400001)\n     PFS (Y/N): N, DH group: none\n\n     inbound esp sas:\n      spi: 0x12345678(305419896)\n        transform: esp-256-aes esp-sha256-hmac  ,\n        in use settings ={Tunnel, }\n        conn id: 12345, flow_id: CSR:1, sibling_flags FFFFFFFF80000048\n        flow_ip=tun id:12345, sibling_ip tun id:0\n        crypto map: VPN-MAP\n\n     outbound esp sas:\n      spi: 0x87654321(2271560481)\n        transform: esp-256-aes esp-sha256-hmac  ,\n        in use settings ={Tunnel, }\n        conn id: 54321, flow_id: CSR:2, sibling_flags FFFFFFFF80000048\n        flow_ip=tun id:54321, sibling_ip tun id:0\n        crypto map: VPN-MAP\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue CRYPTO_MAP_TAG (\\S+)\nValue LOCAL_ADDR (\\S+)\nValue LOCAL_IDENT_ADDR (\\S+)\nValue LOCAL_IDENT_MASK (\\S+)\nValue LOCAL_IDENT_PROT (\\S+)\nValue LOCAL_IDENT_PORT (\\S+)\nValue REMOTE_IDENT_ADDR (\\S+)\nValue REMOTE_IDENT_MASK (\\S+)\nValue REMOTE_IDENT_PROT (\\S+)\nValue REMOTE_IDENT_PORT (\\S+)\nValue CURRENT_PEER (\\S+)\nValue CURRENT_PEER_PORT (\\S+)\nValue ENCAPS (\\d+)\nValue ENCRYPT (\\d+)\nValue DIGEST (\\d+)\nValue DECAPS (\\d+)\nValue DECRYPT (\\d+)\nValue VERIFY (\\d+)\nValue SEND_ERRORS (\\d+)\nValue RECV_ERRORS (\\d+)\nValue LOCAL_CRYPTO_ENDPT (\\S+)\nValue REMOTE_CRYPTO_ENDPT (\\S+)\nValue PATH_MTU (\\d+)\nValue IP_MTU (\\d+)\nValue IP_MTU_IDB (\\S+)\nValue OUTBOUND_SPI (\\S+)\nValue PFS (\\S+)\nValue DH_GROUP (\\S+)\nValue INBOUND_SPI (\\S+)\nValue IN_TRANSFORM (\\S+)\nValue IN_USE_SETTINGS (\\S+)\nValue IN_CONN_ID (\\d+)\nValue IN_FLOW_ID (\\S+)\nValue IN_CRYPTO_MAP (\\S+)\nValue OUT_COORD_SPI (\\S+)\nValue OUT_TRANSFORM (\\S+)\nValue OUT_USE_SETTINGS (\\S+)\nValue OUT_CONN_ID (\\d+)\nValue OUT_FLOW_ID (\\S+)\nValue OUT_CRYPTO_MAP (\\S+)\n\nStart\n  ^\\s*interface:\\s*${INTERFACE}\n  ^\\s*Crypto\\smap\\stag:\\s*${CRYPTO_MAP_TAG},\\slocal\\saddr:\\s*${LOCAL_ADDR}\n  ^\\s*local\\sident\\s\\(addr\\/mask\\/prot\\/port\\):\\s*\\(${LOCAL_IDENT_ADDR}\\/${LOCAL_IDENT_MASK}\\/${LOCAL_IDENT_PROT}\\/${LOCAL_IDENT_PORT}\\)\n  ^\\s*remote\\sident\\s\\(addr\\/mask\\/prot\\/port\\):\\s*\\(${REMOTE_IDENT_ADDR}\\/${REMOTE_IDENT_MASK}\\/${REMOTE_IDENT_PROT}\\/${REMOTE_IDENT_PORT}\\)\n  ^\\s*current_peer\\s*${CURRENT_PEER}\\sport\\s*${CURRENT_PEER_PORT}\n  ^\\s*#pkts\\sembedded\\:\\s*${ENCAPS},\n  ^\\s*#pkts\\sencrypt\\:\\s*${ENCRYPT},\n  ^\\s*#pkts\\sdigest\\:\\s*${DIGEST},\n  ^\\s*#pkts\\sdecaps\\:\\s*${DECAPS},\n  ^\\s*#pkts\\sdecrypt\\:\\s*${DECRYPT},\n  ^\\s*#pkts\\sverify\\:\\s*${VERIFY}\n  ^\\s*#send\\serrors\\s*${SEND_ERRORS},\n  ^\\s*#recv\\serrors\\s*${RECV_ERRORS},\n  ^\\s*local\\scrypto\\sendpt.:\\s*${LOCAL_CRYPTO_ENDPT},\\sremote\\scrypto\\sendpt.:\\s*${REMOTE_CRYPTO_ENDPT}\n  ^\\s*path\\smtu\\s*${PATH_MTU},\\sip\\smtu\\s*${IP_MTU},\\sip\\smtu\\sidb\\s*${IP_MTU_IDB}\n  ^\\s*current\\soutbound\\sspi:\\s*${OUTBOUND_SPI}\n  ^\\s*PFS\\s\\(Y\\/N\\):\\s*${PFS},\\sDH\\sgroup:\\s*${DH_GROUP}\n  ^\\s*inbound\\sesp\\ssas\\:\n  ^\\s*spi:\\s*${INBOUND_SPI}\n  ^\\s*transform:\\s*${IN_TRANSFORM},,\n  ^\\s*in\\suse\\ssettings\\s=${IN_USE_SETTINGS}\n  ^\\s*conn\\sid:\\s*${IN_CONN_ID},\n  ^\\s*flow_id:\\s*${IN_FLOW_ID},\n  ^\\s*crypto\\smap:\\s*${IN_CRYPTO_MAP}\n  ^\\s*outbound\\sesp\\ssas\\:\n  ^\\s*spi:\\s*${OUT_COORD_SPI}\n  ^\\s*transform:\\s*${OUT_TRANSFORM},,\n  ^\\s*in\\suse\\ssettings\\s=${OUT_USE_SETTINGS}\n  ^\\s*conn\\sid:\\s*${OUT_CONN_ID},\n  ^\\s*flow_id:\\s*${OUT_FLOW_ID},\n  ^\\s*crypto\\smap:\\s*${OUT_CRYPTO_MAP}"
+}

@@ -1,0 +1,141 @@
+{
+  "command": "cisco_wlc_ssh_show_port_summary",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5714285714285714,
+  "textfsm_rows": 7,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"port_type_stp_status_admin_mode_physical_mode_physical_status_link_status_link_trap_poe\">\n{{PORT | re(\"\\\\d+\")}} {{TYPE}} {{STP_STATUS | ORPHRASE}} {{ADMIN_MODE}} {{PHYSICAL_MODE}} {{PHYSICAL_STATUS | ORPHRASE}} {{LINK_STATUS | ORPHRASE}} {{LINK_TRAP}} {{POE | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "1",
+      "TYPE": "Normal",
+      "STP_STATUS": "Forw",
+      "ADMIN_MODE": "Enable",
+      "PHYSICAL_MODE": "Auto",
+      "PHYSICAL_STATUS": "1000 Full",
+      "LINK_STATUS": "Up",
+      "LINK_TRAP": "Enable",
+      "POE": "N/A"
+    },
+    {
+      "PORT": "2",
+      "TYPE": "Normal",
+      "STP_STATUS": "Disa",
+      "ADMIN_MODE": "Disable",
+      "PHYSICAL_MODE": "Auto",
+      "PHYSICAL_STATUS": "Auto",
+      "LINK_STATUS": "Down",
+      "LINK_TRAP": "Enable",
+      "POE": "N/A"
+    },
+    {
+      "PORT": "3",
+      "TYPE": "Normal",
+      "STP_STATUS": "Disa",
+      "ADMIN_MODE": "Disable",
+      "PHYSICAL_MODE": "Auto",
+      "PHYSICAL_STATUS": "Auto",
+      "LINK_STATUS": "Down",
+      "LINK_TRAP": "Enable",
+      "POE": "Disable"
+    },
+    {
+      "PORT": "4",
+      "TYPE": "Normal",
+      "STP_STATUS": "Forw",
+      "ADMIN_MODE": "Enable",
+      "PHYSICAL_MODE": "Auto",
+      "PHYSICAL_STATUS": "1000 Full",
+      "LINK_STATUS": "Up",
+      "LINK_TRAP": "Enable",
+      "POE": "Enable  (Power Off)"
+    },
+    {
+      "PORT": "5",
+      "TYPE": "Normal",
+      "STP_STATUS": "Disa",
+      "ADMIN_MODE": "Enable",
+      "PHYSICAL_MODE": "Auto",
+      "PHYSICAL_STATUS": "Auto",
+      "LINK_STATUS": "Down",
+      "LINK_TRAP": "Enable",
+      "POE": "N/A"
+    },
+    {
+      "PORT": "RP",
+      "TYPE": "Normal",
+      "STP_STATUS": "Forw",
+      "ADMIN_MODE": "Enable",
+      "PHYSICAL_MODE": "Auto",
+      "PHYSICAL_STATUS": "Auto",
+      "LINK_STATUS": "Up",
+      "LINK_TRAP": "Enable",
+      "POE": "N/A"
+    },
+    {
+      "PORT": "SP",
+      "TYPE": "Normal",
+      "STP_STATUS": "Disa",
+      "ADMIN_MODE": "Enable",
+      "PHYSICAL_MODE": "Auto",
+      "PHYSICAL_STATUS": "Auto",
+      "LINK_STATUS": "Down",
+      "LINK_TRAP": "Enable",
+      "POE": "N/A"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_type_stp_status_admin_mode_physical_mode_physical_status_link_status_link_trap_poe": [
+        {
+          "PORT": "1",
+          "TYPE": "Normal",
+          "STP_STATUS": "Forw",
+          "ADMIN_MODE": "Enable",
+          "PHYSICAL_MODE": "Auto",
+          "PHYSICAL_STATUS": "1000 Full",
+          "LINK_STATUS": "Up",
+          "LINK_TRAP": "Enable",
+          "POE": "N/A"
+        },
+        {
+          "PORT": "2",
+          "TYPE": "Normal",
+          "STP_STATUS": "Disa",
+          "ADMIN_MODE": "Disable",
+          "PHYSICAL_MODE": "Auto",
+          "PHYSICAL_STATUS": "Auto",
+          "LINK_STATUS": "Down",
+          "LINK_TRAP": "Enable",
+          "POE": "N/A"
+        },
+        {
+          "PORT": "3",
+          "TYPE": "Normal",
+          "STP_STATUS": "Disa",
+          "ADMIN_MODE": "Disable",
+          "PHYSICAL_MODE": "Auto",
+          "PHYSICAL_STATUS": "Auto",
+          "LINK_STATUS": "Down",
+          "LINK_TRAP": "Enable",
+          "POE": "Disable"
+        },
+        {
+          "PORT": "5",
+          "TYPE": "Normal",
+          "STP_STATUS": "Disa",
+          "ADMIN_MODE": "Enable",
+          "PHYSICAL_MODE": "Auto",
+          "PHYSICAL_STATUS": "Auto",
+          "LINK_STATUS": "Down",
+          "LINK_TRAP": "Enable",
+          "POE": "N/A"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\n           STP   Admin   Physical   Physical   Link   Link\nPr  Type   Stat   Mode     Mode      Status   Status  Trap     POE    \n-- ------- ---- ------- ---------- ---------- ------ ------- ---------\n1  Normal  Forw Enable  Auto       1000 Full  Up     Enable  N/A     \n2  Normal  Disa Disable Auto       Auto       Down   Enable  N/A     \n3  Normal  Disa Disable Auto       Auto       Down   Enable  Disable \n4  Normal  Forw Enable  Auto       1000 Full  Up     Enable  Enable  (Power Off) \n5  Normal  Disa Enable  Auto       Auto       Down   Enable  N/A     \nRP Normal  Forw Enable  Auto       Auto       Up     Enable  N/A     \nSP Normal  Disa Enable  Auto       Auto       Down   Enable  N/A     \n",
+  "textfsm_template": "Value PORT (\\S+)\nValue TYPE (\\S+)\nValue STP_STATUS (\\S+)\nValue ADMIN_MODE (\\S+)\nValue PHYSICAL_MODE (\\w+\\s?\\w+)\nValue PHYSICAL_STATUS (\\w+\\s?\\w+)\nValue LINK_STATUS (\\S+)\nValue LINK_TRAP (\\S+)\nValue POE (\\S+(\\s+\\S+\\s+\\S+)?)\n\nStart\n  ^\\s+STP\\s+Admin\\s+(Physical\\s+){2}\\s*(Link\\s*){2}\\s*$$\n  ^\\s*Pr\\s+Type\\s+Stat\\s+(Mode\\s+){2}\\s*(Status\\s+){2}\\s*Trap\\s+POE\\s*$$\n  #\n  # Port Status and Modes (after the dashed line)\n  ^\\s*[-\\s]+$$ -> Port_Status\n  ^\\s*$$\n  ^. -> Error\n\nPort_Status\n  ^\\s*${PORT}\\s+${TYPE}\\s+${STP_STATUS}\\s+${ADMIN_MODE}\\s+${PHYSICAL_MODE}\\s+${PHYSICAL_STATUS}\\s+${LINK_STATUS}\\s+${LINK_TRAP}\\s+${POE}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

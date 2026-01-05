@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip ospf neighbor
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="neighbor_id_priority_state_dead_time_address_interface">
+{{NEIGHBOR_ID}} {{PRIORITY}} {{STATE | ORPHRASE}} {{DEAD_TIME}} {{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{INTERFACE | ORPHRASE}}
+</group>

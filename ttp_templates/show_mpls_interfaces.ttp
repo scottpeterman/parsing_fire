@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show mpls interfaces
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="interface_enabled_status_bandwidth">
+{{INTERFACE}} {{ENABLED}} {{STATUS | ORPHRASE}} {{BANDWIDTH | ORPHRASE}} 
+</group>

@@ -1,0 +1,68 @@
+{
+  "command": "show adjacency ato",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"destination_type_next_hop_age_interface_state\">\n{{DESTINATION}} {{TYPE}} {{NEXT_HOP}} {{AGE}} {{INTERFACE}} {{STATE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DESTINATION": "192.168.10.0/24",
+      "TYPE": "ok",
+      "NEXT_HOP": "10.0.0.1",
+      "AGE": "00:05:34",
+      "INTERFACE": "FastEthernet0/0",
+      "STATE": "Active"
+    },
+    {
+      "DESTINATION": "10.0.0.0/8",
+      "TYPE": "ok",
+      "NEXT_HOP": "10.0.0.2",
+      "AGE": "01:12:15",
+      "INTERFACE": "FastEthernet0/1",
+      "STATE": "Active"
+    },
+    {
+      "DESTINATION": "172.16.0.0/16",
+      "TYPE": "failover",
+      "NEXT_HOP": "10.0.0.3",
+      "AGE": "03:20:45",
+      "INTERFACE": "FastEthernet0/2",
+      "STATE": "Backup"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "destination_type_next_hop_age_interface_state": [
+        {
+          "DESTINATION": "192.168.10.0/24",
+          "TYPE": "ok",
+          "NEXT_HOP": "10.0.0.1",
+          "AGE": "00:05:34",
+          "INTERFACE": "FastEthernet0/0",
+          "STATE": "Active"
+        },
+        {
+          "DESTINATION": "10.0.0.0/8",
+          "TYPE": "ok",
+          "NEXT_HOP": "10.0.0.2",
+          "AGE": "01:12:15",
+          "INTERFACE": "FastEthernet0/1",
+          "STATE": "Active"
+        },
+        {
+          "DESTINATION": "172.16.0.0/16",
+          "TYPE": "failover",
+          "NEXT_HOP": "10.0.0.3",
+          "AGE": "03:20:45",
+          "INTERFACE": "FastEthernet0/2",
+          "STATE": "Backup"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Destination         Type       Next Hop       Age  Interface         State\n192.168.10.0/24     ok         10.0.0.1       00:05:34  FastEthernet0/0  Active\n10.0.0.0/8          ok         10.0.0.2       01:12:15  FastEthernet0/1  Active\n172.16.0.0/16       failover   10.0.0.3       03:20:45  FastEthernet0/2  Backup\n",
+  "textfsm_template": "Value DESTINATION (\\S+)\nValue TYPE (\\S+)\nValue NEXT_HOP (\\S+)\nValue AGE (\\S+)\nValue INTERFACE (\\S+)\nValue STATE (\\S+)\n\nStart\n  ^\\s*Destination\\s+Type\\s+Next\\sHop\\s+Age\\s+Interface\\s+State\\s*$$\n  ^\\s*${DESTINATION}\\s+${TYPE}\\s+${NEXT_HOP}\\s+${AGE}\\s+${INTERFACE}\\s+${STATE}\\s*$$ -> Record"
+}

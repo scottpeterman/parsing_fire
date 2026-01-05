@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show bridge address-table
+# Source: chatgpt
+# TextFSM rows: 6
+# TTP rows: 6
+# Match ratio: 1.00
+
+<group name="vlan_mac_address_type_ports">
+   {{VLAN | re("\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{TYPE}} {{PORTS | ORPHRASE}}
+</group>

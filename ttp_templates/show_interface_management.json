@@ -1,0 +1,41 @@
+{
+  "command": "show interface management",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"hardware_address_rx_traffic_tx_traffic\">\n  Hardware is {{HARDWARE}}, address is {{ADDRESS | ORPHRASE}} (bia {{RX_TRAFFIC}}{{TX_TRAFFIC}}a1.b2c3.d4e5)\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Management1",
+      "STATUS": "enabled",
+      "LINE_PROTOCOL": "up",
+      "HARDWARE": "Ethernet",
+      "ADDRESS": "00a1.b2c3.d4e5",
+      "DESCRIPTION": "Management Interface",
+      "IP_ADDRESS": "192.168.1.10/24",
+      "MTU": "1500",
+      "IP_MTU": "1500",
+      "RX_TRAFFIC": "0",
+      "TX_TRAFFIC": "0",
+      "INPUT_RATE": "1000 bits/sec",
+      "INPUT_PACKETS": "2 packets/sec",
+      "OUTPUT_RATE": "2000 bits/sec",
+      "OUTPUT_PACKETS": "3 packets/sec"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "hardware_address_rx_traffic_tx_traffic": {
+        "HARDWARE": "Ethernet",
+        "ADDRESS": "00a1.b2c3.d4e5",
+        "RX_TRAFFIC": "0",
+        "TX_TRAFFIC": "0"
+      }
+    }
+  ],
+  "cli_content": "Interface Management1 is enabled, line protocol is up\n  Hardware is Ethernet, address is 00a1.b2c3.d4e5 (bia 00a1.b2c3.d4e5)\n  Description: Management Interface\n  Internet address is 192.168.1.10/24\n  MTU 1500 bytes, IP MTU 1500 bytes\n  Unidirectional traffic, rx: 0, tx: 0\n  Last clearing of \"show interface\" counters never\n  5 minute input rate 1000 bits/sec, 2 packets/sec\n  5 minute output rate 2000 bits/sec, 3 packets/sec\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue STATUS (enabled|disabled)\nValue LINE_PROTOCOL (up|down)\nValue HARDWARE (\\S+)\nValue ADDRESS (\\S+)\nValue DESCRIPTION (.*)\nValue IP_ADDRESS (\\S+\\/\\d+)\nValue MTU (\\d+)\nValue IP_MTU (\\d+)\nValue RX_TRAFFIC (\\d+)\nValue TX_TRAFFIC (\\d+)\nValue INPUT_RATE (\\d+ bits/sec)\nValue INPUT_PACKETS (\\d+ packets/sec)\nValue OUTPUT_RATE (\\d+ bits/sec)\nValue OUTPUT_PACKETS (\\d+ packets/sec)\n\nStart\n  ^Interface\\s+${INTERFACE}\\s+is\\s+${STATUS},\\s+line\\s+protocol\\s+is\\s+${LINE_PROTOCOL}\\s*$$\n  ^\\s+Hardware\\s+is\\s+${HARDWARE},\\s+address\\s+is\\s+${ADDRESS}\\s+.*$$\n  ^\\s+Description:\\s+${DESCRIPTION}\\s*$$\n  ^\\s+Internet\\s+address\\s+is\\s+${IP_ADDRESS}\\s*$$\n  ^\\s+MTU\\s+${MTU}\\s+bytes,\\s+IP\\s+MTU\\s+${IP_MTU}\\s+bytes\\s*$$\n  ^\\s+Unidirectional\\s+traffic,\\s+rx:\\s+${RX_TRAFFIC},\\s+tx:\\s+${TX_TRAFFIC}\\s*$$\n  ^\\s+Last\\s+clearing\\s+of\\s+\"show\\s+interface\"\\s+counters\\s+never\\s*$$\n  ^\\s+5\\s+minute\\s+input\\s+rate\\s+${INPUT_RATE},\\s+${INPUT_PACKETS}\\s*$$\n  ^\\s+5\\s+minute\\s+output\\s+rate\\s+${OUTPUT_RATE},\\s+${OUTPUT_PACKETS}\\s*$$ -> Record"
+}

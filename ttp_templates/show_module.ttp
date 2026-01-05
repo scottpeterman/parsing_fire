@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show module
+# Source: chatgpt
+# TextFSM rows: 6
+# TTP rows: 6
+# Match ratio: 1.00
+
+<group name="mod_ports_module_type_model_status">
+{{MOD}} {{PORTS | re("\\d+")}} {{MODULE_TYPE | ORPHRASE}} {{MODEL}} {{STATUS | ORPHRASE}}
+</group>

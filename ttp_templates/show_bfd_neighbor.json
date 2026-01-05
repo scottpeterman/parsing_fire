@@ -1,0 +1,76 @@
+{
+  "command": "show bfd neighbor",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"peer_ip_peer_id_my_id_state_interface\">\n{{PEER_IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{PEER_ID | re(\"\\\\d+\")}} {{MY_ID | re(\"\\\\d+\")}} {{STATE | ORPHRASE}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PEER_IP": "192.168.1.1",
+      "PEER_ID": "1",
+      "MY_ID": "1",
+      "STATE": "Up",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "PEER_IP": "10.0.0.2",
+      "PEER_ID": "2",
+      "MY_ID": "2",
+      "STATE": "Down",
+      "INTERFACE": "Ethernet1/2"
+    },
+    {
+      "PEER_IP": "172.16.0.1",
+      "PEER_ID": "3",
+      "MY_ID": "3",
+      "STATE": "Up",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "PEER_IP": "192.168.2.1",
+      "PEER_ID": "4",
+      "MY_ID": "4",
+      "STATE": "Down",
+      "INTERFACE": "Ethernet1/4"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "peer_ip_peer_id_my_id_state_interface": [
+        {
+          "PEER_IP": "192.168.1.1",
+          "PEER_ID": "1",
+          "MY_ID": "1",
+          "STATE": "Up",
+          "INTERFACE": "Ethernet1/1"
+        },
+        {
+          "PEER_IP": "10.0.0.2",
+          "PEER_ID": "2",
+          "MY_ID": "2",
+          "STATE": "Down",
+          "INTERFACE": "Ethernet1/2"
+        },
+        {
+          "PEER_IP": "172.16.0.1",
+          "PEER_ID": "3",
+          "MY_ID": "3",
+          "STATE": "Up",
+          "INTERFACE": "Ethernet1/3"
+        },
+        {
+          "PEER_IP": "192.168.2.1",
+          "PEER_ID": "4",
+          "MY_ID": "4",
+          "STATE": "Down",
+          "INTERFACE": "Ethernet1/4"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Bfd Sessions for vrf: default\n----------------------------------------------------------------------\nPeer IP Address   Peer-ld MY-ld State     Interface\n192.168.1.1       1       1     Up        Ethernet1/1\n10.0.0.2          2       2     Down      Ethernet1/2\n172.16.0.1        3       3     Up        Ethernet1/3\n192.168.2.1       4       4     Down      Ethernet1/4\n----------------------------------------------------------------------\nTotal sessions: 4\n",
+  "textfsm_template": "Value PEER_IP (\\S+)\nValue PEER_ID (\\d+)\nValue MY_ID (\\d+)\nValue STATE (\\S+)\nValue INTERFACE (\\S+)\n\nStart\n  ^Peer IP Address\\s+Peer-ld\\s+MY-ld\\s+State\\s+Interface\\s*$$\n  ^${PEER_IP}\\s+${PEER_ID}\\s+${MY_ID}\\s+${STATE}\\s+${INTERFACE}\\s*$$ -> Record"
+}

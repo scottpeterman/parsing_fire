@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: juniper_junos_show_arp_no-resolve
+# Source: ntc
+# TextFSM rows: 9
+# TTP rows: 9
+# Match ratio: 1.00
+
+<group name="mac_address_ip_address_interface_flags">
+{{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{INTERFACE}} {{FLAGS | ORPHRASE}}
+</group>

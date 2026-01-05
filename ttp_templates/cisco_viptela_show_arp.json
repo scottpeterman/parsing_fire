@@ -1,0 +1,146 @@
+{
+  "command": "cisco_viptela_show_arp",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 7,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"vpn_name_ip_address_mac_address_state_idle_timer_uptime\">\n{{VPN}} {{NAME}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{STATE | ORPHRASE}} {{IDLE_TIMER}} {{UPTIME | ORPHRASE}}\n</group>\n<group name=\"vpn_name_ip_address_mac_address_state_uptime\">\n{{VPN}} {{NAME}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{MAC_ADDRESS | re(\"[0{{IDLE_TIMER | re(\".*\\\\w.*\")}}9a-fA-F:.-]+\")}} {{STATE | ORPHRASE}} - {{UPTIME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VPN": "0",
+      "NAME": "eth0",
+      "IP_ADDRESS": "10.10.20.70",
+      "MAC_ADDRESS": "00:50:56:bf:a0:d3",
+      "STATE": "dynamic",
+      "IDLE_TIMER": "0:00:11:33",
+      "UPTIME": "0:00:08:28"
+    },
+    {
+      "VPN": "0",
+      "NAME": "eth0",
+      "IP_ADDRESS": "10.10.20.80",
+      "MAC_ADDRESS": "00:50:56:bf:ec:bb",
+      "STATE": "dynamic",
+      "IDLE_TIMER": "0:00:11:27",
+      "UPTIME": "0:00:08:34"
+    },
+    {
+      "VPN": "0",
+      "NAME": "eth0",
+      "IP_ADDRESS": "10.10.20.90",
+      "MAC_ADDRESS": "00:50:56:bf:63:f7",
+      "STATE": "static",
+      "IDLE_TIMER": "-",
+      "UPTIME": "0:01:09:17"
+    },
+    {
+      "VPN": "0",
+      "NAME": "eth0",
+      "IP_ADDRESS": "10.10.20.173",
+      "MAC_ADDRESS": "00:00:00:00:00:00",
+      "STATE": "dynamic",
+      "IDLE_TIMER": "0:00:01:11",
+      "UPTIME": "0:00:18:49"
+    },
+    {
+      "VPN": "0",
+      "NAME": "eth0",
+      "IP_ADDRESS": "10.10.20.178",
+      "MAC_ADDRESS": "52:54:00:17:8e:2a",
+      "STATE": "dynamic",
+      "IDLE_TIMER": "0:00:19:59",
+      "UPTIME": "0:00:39:46"
+    },
+    {
+      "VPN": "0",
+      "NAME": "eth0",
+      "IP_ADDRESS": "10.10.20.181",
+      "MAC_ADDRESS": "52:54:00:03:cb:4c",
+      "STATE": "dynamic",
+      "IDLE_TIMER": "0:00:13:39",
+      "UPTIME": "0:00:06:22"
+    },
+    {
+      "VPN": "0",
+      "NAME": "eth0",
+      "IP_ADDRESS": "10.10.20.254",
+      "MAC_ADDRESS": "00:50:56:bf:6e:98",
+      "STATE": "dynamic",
+      "IDLE_TIMER": "0:00:11:44",
+      "UPTIME": "0:00:08:17"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vpn_name_ip_address_mac_address_state_idle_timer_uptime": [
+        {
+          "VPN": "0",
+          "NAME": "eth0",
+          "IP_ADDRESS": "10.10.20.70",
+          "MAC_ADDRESS": "00:50:56:bf:a0:d3",
+          "STATE": "dynamic",
+          "IDLE_TIMER": "0:00:11:33",
+          "UPTIME": "0:00:08:28"
+        },
+        {
+          "VPN": "0",
+          "NAME": "eth0",
+          "IP_ADDRESS": "10.10.20.80",
+          "MAC_ADDRESS": "00:50:56:bf:ec:bb",
+          "STATE": "dynamic",
+          "IDLE_TIMER": "0:00:11:27",
+          "UPTIME": "0:00:08:34"
+        },
+        {
+          "VPN": "0",
+          "NAME": "eth0",
+          "IP_ADDRESS": "10.10.20.90",
+          "MAC_ADDRESS": "00:50:56:bf:63:f7",
+          "STATE": "static",
+          "IDLE_TIMER": "-",
+          "UPTIME": "0:01:09:17"
+        },
+        {
+          "VPN": "0",
+          "NAME": "eth0",
+          "IP_ADDRESS": "10.10.20.173",
+          "MAC_ADDRESS": "00:00:00:00:00:00",
+          "STATE": "dynamic",
+          "IDLE_TIMER": "0:00:01:11",
+          "UPTIME": "0:00:18:49"
+        },
+        {
+          "VPN": "0",
+          "NAME": "eth0",
+          "IP_ADDRESS": "10.10.20.178",
+          "MAC_ADDRESS": "52:54:00:17:8e:2a",
+          "STATE": "dynamic",
+          "IDLE_TIMER": "0:00:19:59",
+          "UPTIME": "0:00:39:46"
+        },
+        {
+          "VPN": "0",
+          "NAME": "eth0",
+          "IP_ADDRESS": "10.10.20.181",
+          "MAC_ADDRESS": "52:54:00:03:cb:4c",
+          "STATE": "dynamic",
+          "IDLE_TIMER": "0:00:13:39",
+          "UPTIME": "0:00:06:22"
+        },
+        {
+          "VPN": "0",
+          "NAME": "eth0",
+          "IP_ADDRESS": "10.10.20.254",
+          "MAC_ADDRESS": "00:50:56:bf:6e:98",
+          "STATE": "dynamic",
+          "IDLE_TIMER": "0:00:11:44",
+          "UPTIME": "0:00:08:17"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\n     IF\nVPN  NAME  IP            MAC                STATE    IDLE TIMER  UPTIME\n-----------------------------------------------------------------------------\n0    eth0  10.10.20.70   00:50:56:bf:a0:d3  dynamic  0:00:11:33  0:00:08:28\n0    eth0  10.10.20.80   00:50:56:bf:ec:bb  dynamic  0:00:11:27  0:00:08:34\n0    eth0  10.10.20.90   00:50:56:bf:63:f7  static   -           0:01:09:17\n0    eth0  10.10.20.173  00:00:00:00:00:00  dynamic  0:00:01:11  0:00:18:49\n0    eth0  10.10.20.178  52:54:00:17:8e:2a  dynamic  0:00:19:59  0:00:39:46\n0    eth0  10.10.20.181  52:54:00:03:cb:4c  dynamic  0:00:13:39  0:00:06:22\n0    eth0  10.10.20.254  00:50:56:bf:6e:98  dynamic  0:00:11:44  0:00:08:17",
+  "textfsm_template": "Value VPN (\\d+)\nValue NAME (\\S+)\nValue IP_ADDRESS (\\S+)\nValue MAC_ADDRESS (\\S+)\nValue STATE (\\S+)\nValue IDLE_TIMER (\\S+)\nValue UPTIME (\\S+)\n\nStart\n  ^\\s*IF\n  ^\\s*VPN\\s+NAME\\s+IP\\s+MAC\\s+STATE\\s+IDLE\\s+TIMER\\s+UPTIME\n  ^-+\n  ^\\s*${VPN}\\s+${NAME}\\s+${IP_ADDRESS}\\s+${MAC_ADDRESS}\\s+${STATE}\\s+${IDLE_TIMER}\\s+${UPTIME} -> Record\n  ^. -> Error"
+}

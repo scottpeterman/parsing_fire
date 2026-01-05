@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show high-availability status
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="configuration_failover_mode_interface_last_failover_reason">
+High Availability Configuration: {{CONFIGURATION | ORPHRASE}}
+Failover Mode: {{FAILOVER_MODE | ORPHRASE}}
+Last Failover Reason: {{LAST_FAILOVER_REASON | ORPHRASE}}
+Last Failover Time: {{LAST_FAILOVER_TIME | ORPHRASE}}
+PO1  {{STATE | ORPHRASE}}
+{{INTERFACE | ORPHRASE}}  Up
+</group>

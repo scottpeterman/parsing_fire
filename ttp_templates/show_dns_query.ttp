@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show dns query
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="address_name_query_id_query_time">
+Query ID: {{QUERY_ID | ORPHRASE}}
+Server:  {{SERVER | ORPHRASE}}
+Address:  {{SERVER_ADDRESS | ORPHRASE}}
+Name:  {{NAME | ORPHRASE}}
+Address 1: {{ADDRESS | ORPHRASE}}
+Query time: {{QUERY_TIME | ORPHRASE}}
+</group>

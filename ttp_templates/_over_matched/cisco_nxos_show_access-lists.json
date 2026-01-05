@@ -1,0 +1,494 @@
+{
+  "command": "cisco_nxos_show_access-lists",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.206896551724138,
+  "textfsm_rows": 29,
+  "ttp_rows": 35,
+  "ttp_template": "<group name=\"name\">\nIP access list {{NAME | ORPHRASE}}\n<group name=\"action_destination_protocol\">\n        {{SN | re(\"\\\\w+\")}} {{ACTION}} {{PROTOCOL}} {{SOURCE | ORPHRASE}} {{DESTINATION | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "acl-test",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "ip",
+      "SOURCE": "1.1.1.1/32",
+      "DESTINATION": "any"
+    },
+    {
+      "NAME": "acl-test",
+      "SN": "20",
+      "ACTION": "permit",
+      "PROTOCOL": "ip",
+      "SOURCE": "1.1.1.1/24",
+      "DESTINATION": "any",
+      "MODIFIER": "ttl 200"
+    },
+    {
+      "NAME": "acl-test",
+      "SN": "30",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SOURCE": "any",
+      "PORT": "neq finger",
+      "DESTINATION": "any",
+      "MODIFIER": "ack psh rst fin"
+    },
+    {
+      "NAME": "acl-test",
+      "SN": "40",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SOURCE": "1.1.1.1/32",
+      "RANGE": "time bgp",
+      "DESTINATION": "any"
+    },
+    {
+      "NAME": "acl-test",
+      "SN": "50",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SOURCE": "1.1.1.1/32",
+      "DESTINATION": "addrgroup TEST"
+    },
+    {
+      "NAME": "acl-test",
+      "SN": "60",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SOURCE": "addrgroup TEST-START",
+      "DESTINATION": "addrgroup TEST_FINISH"
+    },
+    {
+      "NAME": "copp-system-p-acl-eigrp",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "eigrp",
+      "SOURCE": "any",
+      "DESTINATION": "any"
+    },
+    {
+      "NAME": "copp-system-p-acl-hsrp",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SOURCE": "any",
+      "DESTINATION": "224.0.0.0/24",
+      "MODIFIER": "eq 1985"
+    },
+    {
+      "NAME": "copp-system-p-acl-hsrp6",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SOURCE": "any",
+      "DESTINATION": "ff02::66/128",
+      "MODIFIER": "eq 2029"
+    },
+    {
+      "NAME": "copp-system-p-acl-icmp6-msgs",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "MODIFIER": "router-advertisement"
+    },
+    {
+      "NAME": "copp-system-p-acl-icmp6-msgs",
+      "SN": "20",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "MODIFIER": "router-solicitation"
+    },
+    {
+      "NAME": "copp-system-p-acl-mac-cdp-udld-vtp",
+      "SN": "10",
+      "ACTION": "permit",
+      "SOURCE": "any",
+      "DESTINATION": "0100.0ccc.cccc 0000.0000.0000"
+    },
+    {
+      "NAME": "copp-system-p-acl-mac-cfsoe",
+      "SN": "10",
+      "ACTION": "permit",
+      "SOURCE": "any",
+      "DESTINATION": "0180.c200.000e 0000.0000.0000",
+      "MODIFIER": "0x8843"
+    },
+    {
+      "NAME": "copp-system-p-acl-mac-l2-tunnel",
+      "SN": "10",
+      "ACTION": "permit",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "MODIFIER": "0x8840"
+    },
+    {
+      "NAME": "copp-system-p-acl-mac-l3-isis",
+      "SN": "10",
+      "ACTION": "permit",
+      "SOURCE": "any",
+      "DESTINATION": "0180.c200.0015 0000.0000.0000"
+    },
+    {
+      "NAME": "copp-system-p-acl-mac-l3-isis",
+      "SN": "20",
+      "ACTION": "permit",
+      "SOURCE": "any",
+      "DESTINATION": "0180.c200.0014 0000.0000.0000"
+    },
+    {
+      "NAME": "copp-system-p-acl-mac-lacp",
+      "SN": "10",
+      "ACTION": "permit",
+      "SOURCE": "any",
+      "DESTINATION": "0180.c200.0002 0000.0000.0000",
+      "MODIFIER": "0x8809"
+    },
+    {
+      "NAME": "copp-system-p-acl-mac-lldp",
+      "SN": "10",
+      "ACTION": "permit",
+      "SOURCE": "any",
+      "DESTINATION": "0180.c200.000e 0000.0000.0000",
+      "MODIFIER": "0x88cc"
+    },
+    {
+      "NAME": "copp-system-p-acl-mac-sdp-srp",
+      "SN": "10",
+      "ACTION": "permit",
+      "SOURCE": "any",
+      "DESTINATION": "0180.c200.000e 0000.0000.0000",
+      "MODIFIER": "0x3401"
+    },
+    {
+      "NAME": "copp-system-p-acl-pim6",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "pim",
+      "SOURCE": "any",
+      "DESTINATION": "ff02::d/128"
+    },
+    {
+      "NAME": "copp-system-p-acl-pim6",
+      "SN": "20",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "MODIFIER": "eq pim-auto-rp"
+    },
+    {
+      "NAME": "copp-system-p-acl-pim6-reg",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "pim",
+      "SOURCE": "any",
+      "DESTINATION": "any"
+    },
+    {
+      "NAME": "copp-system-p-acl-ptp",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SOURCE": "any",
+      "DESTINATION": "224.0.1.129/32",
+      "MODIFIER": "eq 319"
+    },
+    {
+      "NAME": "copp-system-p-acl-ptp",
+      "SN": "20",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SOURCE": "any",
+      "DESTINATION": "224.0.1.129/32",
+      "MODIFIER": "eq 320"
+    },
+    {
+      "NAME": "copp-system-p-acl-radius",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "MODIFIER": "eq 1812"
+    },
+    {
+      "NAME": "copp-system-p-acl-rip6",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SOURCE": "any",
+      "DESTINATION": "ff02::9/64",
+      "MODIFIER": "eq 521"
+    },
+    {
+      "NAME": "copp-system-p-acl-traceroute",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "MODIFIER": "ttl-exceeded"
+    },
+    {
+      "NAME": "copp-system-p-acl-vrrp6",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "ipv6",
+      "SOURCE": "any",
+      "DESTINATION": "ff02::12/128"
+    },
+    {
+      "NAME": "mac_acl_test",
+      "SN": "10",
+      "ACTION": "permit",
+      "SOURCE": "000e.000e.000e 000e.000e.000e",
+      "DESTINATION": "00aa.00aa.00aa 00aa.00ae.00ac",
+      "MODIFIER": "aarp cos 0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name": [
+        {
+          "NAME": "acl-test",
+          "action_destination_protocol": [
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "ip",
+              "SOURCE": "1.1.1.1/32",
+              "DESTINATION": "any"
+            },
+            {
+              "SN": "20",
+              "ACTION": "permit",
+              "PROTOCOL": "ip",
+              "SOURCE": "1.1.1.1/24",
+              "DESTINATION": "any ttl 200"
+            },
+            {
+              "SN": "30",
+              "ACTION": "permit",
+              "PROTOCOL": "tcp",
+              "SOURCE": "any",
+              "DESTINATION": "neq finger any ack psh rst fin"
+            },
+            {
+              "SN": "40",
+              "ACTION": "permit",
+              "PROTOCOL": "tcp",
+              "SOURCE": "1.1.1.1/32",
+              "DESTINATION": "range time bgp any"
+            },
+            {
+              "SN": "50",
+              "ACTION": "permit",
+              "PROTOCOL": "tcp",
+              "SOURCE": "1.1.1.1/32",
+              "DESTINATION": "addrgroup TEST"
+            },
+            {
+              "SN": "60",
+              "ACTION": "permit",
+              "PROTOCOL": "tcp",
+              "SOURCE": "addrgroup",
+              "DESTINATION": "TEST-START addrgroup TEST_FINISH"
+            }
+          ]
+        },
+        {
+          "NAME": "copp-system-p-acl-eigrp",
+          "action_destination_protocol": {
+            "SN": "10",
+            "ACTION": "permit",
+            "PROTOCOL": "eigrp",
+            "SOURCE": "any",
+            "DESTINATION": "any"
+          }
+        },
+        {
+          "NAME": "copp-system-p-acl-hsrp",
+          "action_destination_protocol": [
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "udp",
+              "SOURCE": "any",
+              "DESTINATION": "224.0.0.0/24 eq 1985"
+            },
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "udp",
+              "SOURCE": "any",
+              "DESTINATION": "ff02::66/128 eq 2029"
+            },
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "icmp",
+              "SOURCE": "any",
+              "DESTINATION": "any router-advertisement"
+            },
+            {
+              "SN": "20",
+              "ACTION": "permit",
+              "PROTOCOL": "icmp",
+              "SOURCE": "any",
+              "DESTINATION": "any router-solicitation"
+            },
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "any",
+              "SOURCE": "0100.0ccc.cccc",
+              "DESTINATION": "0000.0000.0000"
+            },
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "any",
+              "SOURCE": "0180.c200.000e",
+              "DESTINATION": "0000.0000.0000 0x8843"
+            },
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "any",
+              "SOURCE": "any",
+              "DESTINATION": "0x8840"
+            },
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "any",
+              "SOURCE": "0180.c200.0015",
+              "DESTINATION": "0000.0000.0000"
+            },
+            {
+              "SN": "20",
+              "ACTION": "permit",
+              "PROTOCOL": "any",
+              "SOURCE": "0180.c200.0014",
+              "DESTINATION": "0000.0000.0000"
+            },
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "any",
+              "SOURCE": "0180.c200.0002",
+              "DESTINATION": "0000.0000.0000 0x8809"
+            },
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "any",
+              "SOURCE": "0180.c200.000e",
+              "DESTINATION": "0000.0000.0000 0x88cc"
+            },
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "any",
+              "SOURCE": "0180.c200.000e",
+              "DESTINATION": "0000.0000.0000 0x3401"
+            },
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "pim",
+              "SOURCE": "any",
+              "DESTINATION": "ff02::d/128"
+            },
+            {
+              "SN": "20",
+              "ACTION": "permit",
+              "PROTOCOL": "udp",
+              "SOURCE": "any",
+              "DESTINATION": "any eq pim-auto-rp"
+            },
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "pim",
+              "SOURCE": "any",
+              "DESTINATION": "any"
+            }
+          ]
+        },
+        {
+          "NAME": "copp-system-p-acl-ptp",
+          "action_destination_protocol": [
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "udp",
+              "SOURCE": "any",
+              "DESTINATION": "224.0.1.129/32 eq 319"
+            },
+            {
+              "SN": "20",
+              "ACTION": "permit",
+              "PROTOCOL": "udp",
+              "SOURCE": "any",
+              "DESTINATION": "224.0.1.129/32 eq 320"
+            }
+          ]
+        },
+        {
+          "NAME": "copp-system-p-acl-radius",
+          "action_destination_protocol": [
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "udp",
+              "SOURCE": "any",
+              "DESTINATION": "any eq 1812"
+            },
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "udp",
+              "SOURCE": "any",
+              "DESTINATION": "ff02::9/64 eq 521"
+            }
+          ]
+        },
+        {
+          "NAME": "copp-system-p-acl-traceroute",
+          "action_destination_protocol": [
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "icmp",
+              "SOURCE": "any",
+              "DESTINATION": "any ttl-exceeded"
+            },
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "ipv6",
+              "SOURCE": "any",
+              "DESTINATION": "ff02::12/128"
+            },
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "000e.000e.000e",
+              "SOURCE": "000e.000e.000e",
+              "DESTINATION": "00aa.00aa.00aa 00aa.00ae.00ac aarp cos 0"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "cli_content": "IP access list acl-test\n        10 permit ip 1.1.1.1/32 any\n        20 permit ip 1.1.1.1/24 any ttl 200\n        30 permit tcp any neq finger any ack psh rst fin\n        40 permit tcp 1.1.1.1/32 range time bgp any\n        50 permit tcp 1.1.1.1/32 addrgroup TEST\n        60 permit tcp addrgroup TEST-START addrgroup TEST_FINISH\nIP access list copp-system-p-acl-eigrp\n        10 permit eigrp any any\nIP access list copp-system-p-acl-hsrp\n        10 permit udp any 224.0.0.0/24 eq 1985\nIPv6 access list copp-system-p-acl-hsrp6\n        10 permit udp any ff02::66/128 eq 2029\nIPv6 access list copp-system-p-acl-icmp6-msgs\n        10 permit icmp any any router-advertisement\n        20 permit icmp any any router-solicitation\nMAC access list copp-system-p-acl-mac-cdp-udld-vtp\n        10 permit any 0100.0ccc.cccc 0000.0000.0000\nMAC access list copp-system-p-acl-mac-cfsoe\n        10 permit any 0180.c200.000e 0000.0000.0000 0x8843\nMAC access list copp-system-p-acl-mac-l2-tunnel\n        10 permit any any 0x8840\nMAC access list copp-system-p-acl-mac-l3-isis\n        10 permit any 0180.c200.0015 0000.0000.0000\n        20 permit any 0180.c200.0014 0000.0000.0000\nMAC access list copp-system-p-acl-mac-lacp\n        10 permit any 0180.c200.0002 0000.0000.0000 0x8809\nMAC access list copp-system-p-acl-mac-lldp\n        10 permit any 0180.c200.000e 0000.0000.0000 0x88cc\nMAC access list copp-system-p-acl-mac-sdp-srp\n        10 permit any 0180.c200.000e 0000.0000.0000 0x3401\nIPv6 access list copp-system-p-acl-pim6\n        10 permit pim any ff02::d/128\n        20 permit udp any any eq pim-auto-rp\nIPv6 access list copp-system-p-acl-pim6-reg\n        10 permit pim any any\nIP access list copp-system-p-acl-ptp\n        10 permit udp any 224.0.1.129/32 eq 319\n        20 permit udp any 224.0.1.129/32 eq 320\nIP access list copp-system-p-acl-radius\n        10 permit udp any any eq 1812\nIPv6 access list copp-system-p-acl-rip6\n        10 permit udp any ff02::9/64 eq 521\nIP access list copp-system-p-acl-traceroute\n        10 permit icmp any any ttl-exceeded\nIPv6 access list copp-system-p-acl-vrrp6\n        10 permit ipv6 any ff02::12/128\nMAC access list mac_acl_test\n        10 permit 000e.000e.000e 000e.000e.000e 00aa.00aa.00aa 00aa.00ae.00ac aarp cos 0\n\n",
+  "textfsm_template": "# NX-OS ACL structure is quite complex and includes IP, IPv6 and MAC ACL types.\n#\n# IP/IPv6 ACL:\n# \tSEQUENCE_NUMBER ACTION PROTOCOL SOURCE [PORT id] [RANGE start finish] DESTINATION [MODIFIER]\n#\n# MAC ACL:\n#\tSEQUENCE_NUMBER ACTION SOURCE DESTINATION [MODIFIER]\n#\nValue Filldown NAME (.*)\nValue Required SN (\\d+)\nValue ACTION (\\w+)\nValue PROTOCOL ([^any][\\w+\\d+]+)\n# SOURCE RegEx must be able to catch both MAC and IP addresses including masks. 'any' and 'address group' are possible too.\nValue SOURCE ([\\w+\\d+]+\\.[\\w+\\d+]+\\.[\\w+\\d+]+\\s[\\w+\\d+]+\\.[\\w+\\d+]+\\.[\\w+\\d+]+|any|\\d+\\.\\d+\\.\\d+\\.\\d+/\\d+|addrgroup\\s\\S+|\\S+)\n# RANGE RegEx catches the first and last protocol to match in the interval range.\nValue RANGE (\\S+\\s\\S+)\n# We can specify protocols to match. 'eq', 'gt', 'lt' and 'neq' are supported.\nValue PORT (eq\\s\\S+|gt\\s\\S+|lt\\s\\S+|neq\\s\\S+)\n# SOURCE RegEx must be able to catch both MAC and IP addresses including masks. 'any' and 'address group' are possible too.\nValue DESTINATION ([\\w+\\d+]+\\.[\\w+\\d+]+\\.[\\w+\\d+]+\\s[\\w+\\d+]+\\.[\\w+\\d+]+\\.[\\w+\\d+]+|any|\\d+\\.\\d+\\.\\d+\\.\\d+/\\d+|addrgroup\\s\\S+|\\S+)\n# What it remains is some ACL modifier used to do fancy stuff.\nValue MODIFIER (.*)\nValue REMARK (.*)\n\nStart\n  # ACL name is matched not starting with space. FILLDOWN, other line's inherit last NAME\n  ^[^\\s].*\\slist\\s+${NAME}$$\n  # Catch remarks as uniq type, capture Action first and then Action=remark\n  ^\\s+${SN}\\s+${ACTION}\\s -> Continue\n  ^\\s+${SN}\\s+remark\\s${REMARK}$$ -> Record\n  # This line matches all the possible combination of fields specifed above.\n  ^\\s+${SN}\\s+${ACTION}(\\s+${PROTOCOL})*\\s+${SOURCE}(\\s+${PORT})*(\\s+range\\s${RANGE})*\\s+${DESTINATION}(\\s+${MODIFIER})* -> Record\n  # Drop lines we are not interested in\n  ^\\s+statistics per-entry\n  ^\\s*$$\n  ^. -> Error"
+}

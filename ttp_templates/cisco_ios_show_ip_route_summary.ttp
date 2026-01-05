@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_route_summary
+# Source: ntc
+# TextFSM rows: 8
+# TTP rows: 10
+# Match ratio: 1.25
+
+<group name="name">
+IP routing table name is {{NAME | ORPHRASE}}
+<group name="memory_networks_overhead">
+{{ROUTE_SOURCE | ORPHRASE}} {{NETWORKS}} {{SUBNETS}} {{REPLICATES}} {{OVERHEAD | re("[\\d\\.\\(\\)A-Za-z]+")}} {{MEMORY | ORPHRASE}}
+</group>
+</group>

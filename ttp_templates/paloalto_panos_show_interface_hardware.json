@@ -1,0 +1,436 @@
+{
+  "command": "paloalto_panos_show_interface_hardware",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 26,
+  "ttp_rows": 26,
+  "ttp_template": "<group name=\"interface_id_speed_duplex_state_mac_address\">\n{{INTERFACE}} {{ID | re(\"\\\\d+\")}} {{SPEED}}/{{DUPLEX}}/{{STATE | ORPHRASE}} {{MAC_ADDRESS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "ethernet1/1",
+      "ID": "64",
+      "SPEED": "1000",
+      "DUPLEX": "full",
+      "STATE": "up",
+      "MAC_ADDRESS": "c4:24:56:d7:30:40"
+    },
+    {
+      "INTERFACE": "ethernet1/2",
+      "ID": "65",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:41"
+    },
+    {
+      "INTERFACE": "ethernet1/3",
+      "ID": "66",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:42"
+    },
+    {
+      "INTERFACE": "ethernet1/4",
+      "ID": "67",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:43"
+    },
+    {
+      "INTERFACE": "ethernet1/5",
+      "ID": "68",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:44"
+    },
+    {
+      "INTERFACE": "ethernet1/6",
+      "ID": "69",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:45"
+    },
+    {
+      "INTERFACE": "ethernet1/7",
+      "ID": "70",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:46"
+    },
+    {
+      "INTERFACE": "ethernet1/8",
+      "ID": "71",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:47"
+    },
+    {
+      "INTERFACE": "ethernet1/9",
+      "ID": "72",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:48"
+    },
+    {
+      "INTERFACE": "ethernet1/10",
+      "ID": "73",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:49"
+    },
+    {
+      "INTERFACE": "ethernet1/11",
+      "ID": "74",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:4a"
+    },
+    {
+      "INTERFACE": "ethernet1/12",
+      "ID": "75",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:4b"
+    },
+    {
+      "INTERFACE": "ethernet1/13",
+      "ID": "76",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:4c"
+    },
+    {
+      "INTERFACE": "ethernet1/14",
+      "ID": "77",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:4d"
+    },
+    {
+      "INTERFACE": "ethernet1/15",
+      "ID": "78",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:4e"
+    },
+    {
+      "INTERFACE": "ethernet1/16",
+      "ID": "79",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:4f"
+    },
+    {
+      "INTERFACE": "ethernet1/17",
+      "ID": "80",
+      "SPEED": "10000",
+      "DUPLEX": "full",
+      "STATE": "up",
+      "MAC_ADDRESS": "c4:24:56:d7:30:50"
+    },
+    {
+      "INTERFACE": "ethernet1/18",
+      "ID": "81",
+      "SPEED": "10000",
+      "DUPLEX": "full",
+      "STATE": "up",
+      "MAC_ADDRESS": "c4:24:56:d7:30:51"
+    },
+    {
+      "INTERFACE": "ethernet1/19",
+      "ID": "82",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:52"
+    },
+    {
+      "INTERFACE": "ethernet1/20",
+      "ID": "83",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:53"
+    },
+    {
+      "INTERFACE": "ha1-a",
+      "ID": "5",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "08:66:1f:02:04:a2"
+    },
+    {
+      "INTERFACE": "ha1-b",
+      "ID": "7",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:07"
+    },
+    {
+      "INTERFACE": "vlan",
+      "ID": "1",
+      "SPEED": "[n/a]",
+      "DUPLEX": "[n/a]",
+      "STATE": "up",
+      "MAC_ADDRESS": "c4:24:56:d7:30:01"
+    },
+    {
+      "INTERFACE": "loopback",
+      "ID": "3",
+      "SPEED": "[n/a]",
+      "DUPLEX": "[n/a]",
+      "STATE": "up",
+      "MAC_ADDRESS": "c4:24:56:d7:30:03"
+    },
+    {
+      "INTERFACE": "tunnel",
+      "ID": "4",
+      "SPEED": "[n/a]",
+      "DUPLEX": "[n/a]",
+      "STATE": "up",
+      "MAC_ADDRESS": "c4:24:56:d7:30:04"
+    },
+    {
+      "INTERFACE": "hsci",
+      "ID": "8",
+      "SPEED": "ukn",
+      "DUPLEX": "ukn",
+      "STATE": "down(autoneg)",
+      "MAC_ADDRESS": "c4:24:56:d7:30:08"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_id_speed_duplex_state_mac_address": [
+        {
+          "INTERFACE": "ethernet1/1",
+          "ID": "64",
+          "SPEED": "1000",
+          "DUPLEX": "full",
+          "STATE": "up",
+          "MAC_ADDRESS": "c4:24:56:d7:30:40"
+        },
+        {
+          "INTERFACE": "ethernet1/2",
+          "ID": "65",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:41"
+        },
+        {
+          "INTERFACE": "ethernet1/3",
+          "ID": "66",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:42"
+        },
+        {
+          "INTERFACE": "ethernet1/4",
+          "ID": "67",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:43"
+        },
+        {
+          "INTERFACE": "ethernet1/5",
+          "ID": "68",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:44"
+        },
+        {
+          "INTERFACE": "ethernet1/6",
+          "ID": "69",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:45"
+        },
+        {
+          "INTERFACE": "ethernet1/7",
+          "ID": "70",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:46"
+        },
+        {
+          "INTERFACE": "ethernet1/8",
+          "ID": "71",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:47"
+        },
+        {
+          "INTERFACE": "ethernet1/9",
+          "ID": "72",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:48"
+        },
+        {
+          "INTERFACE": "ethernet1/10",
+          "ID": "73",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:49"
+        },
+        {
+          "INTERFACE": "ethernet1/11",
+          "ID": "74",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:4a"
+        },
+        {
+          "INTERFACE": "ethernet1/12",
+          "ID": "75",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:4b"
+        },
+        {
+          "INTERFACE": "ethernet1/13",
+          "ID": "76",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:4c"
+        },
+        {
+          "INTERFACE": "ethernet1/14",
+          "ID": "77",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:4d"
+        },
+        {
+          "INTERFACE": "ethernet1/15",
+          "ID": "78",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:4e"
+        },
+        {
+          "INTERFACE": "ethernet1/16",
+          "ID": "79",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:4f"
+        },
+        {
+          "INTERFACE": "ethernet1/17",
+          "ID": "80",
+          "SPEED": "10000",
+          "DUPLEX": "full",
+          "STATE": "up",
+          "MAC_ADDRESS": "c4:24:56:d7:30:50"
+        },
+        {
+          "INTERFACE": "ethernet1/18",
+          "ID": "81",
+          "SPEED": "10000",
+          "DUPLEX": "full",
+          "STATE": "up",
+          "MAC_ADDRESS": "c4:24:56:d7:30:51"
+        },
+        {
+          "INTERFACE": "ethernet1/19",
+          "ID": "82",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:52"
+        },
+        {
+          "INTERFACE": "ethernet1/20",
+          "ID": "83",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:53"
+        },
+        {
+          "INTERFACE": "ha1-a",
+          "ID": "5",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "08:66:1f:02:04:a2"
+        },
+        {
+          "INTERFACE": "ha1-b",
+          "ID": "7",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:07"
+        },
+        {
+          "INTERFACE": "vlan",
+          "ID": "1",
+          "SPEED": "[n/a]/[n",
+          "DUPLEX": "a]",
+          "STATE": "up",
+          "MAC_ADDRESS": "c4:24:56:d7:30:01"
+        },
+        {
+          "INTERFACE": "loopback",
+          "ID": "3",
+          "SPEED": "[n/a]/[n",
+          "DUPLEX": "a]",
+          "STATE": "up",
+          "MAC_ADDRESS": "c4:24:56:d7:30:03"
+        },
+        {
+          "INTERFACE": "tunnel",
+          "ID": "4",
+          "SPEED": "[n/a]/[n",
+          "DUPLEX": "a]",
+          "STATE": "up",
+          "MAC_ADDRESS": "c4:24:56:d7:30:04"
+        },
+        {
+          "INTERFACE": "hsci",
+          "ID": "8",
+          "SPEED": "ukn",
+          "DUPLEX": "ukn",
+          "STATE": "down(autoneg)",
+          "MAC_ADDRESS": "c4:24:56:d7:30:08"
+        }
+      ]
+    }
+  ],
+  "cli_content": "total configured hardware interfaces: 26\n\nname                    id    speed/duplex/state        mac address\n--------------------------------------------------------------------------------\nethernet1/1             64    1000/full/up              c4:24:56:d7:30:40\nethernet1/2             65    ukn/ukn/down(autoneg)     c4:24:56:d7:30:41\nethernet1/3             66    ukn/ukn/down(autoneg)     c4:24:56:d7:30:42\nethernet1/4             67    ukn/ukn/down(autoneg)     c4:24:56:d7:30:43\nethernet1/5             68    ukn/ukn/down(autoneg)     c4:24:56:d7:30:44\nethernet1/6             69    ukn/ukn/down(autoneg)     c4:24:56:d7:30:45\nethernet1/7             70    ukn/ukn/down(autoneg)     c4:24:56:d7:30:46\nethernet1/8             71    ukn/ukn/down(autoneg)     c4:24:56:d7:30:47\nethernet1/9             72    ukn/ukn/down(autoneg)     c4:24:56:d7:30:48\nethernet1/10            73    ukn/ukn/down(autoneg)     c4:24:56:d7:30:49\nethernet1/11            74    ukn/ukn/down(autoneg)     c4:24:56:d7:30:4a\nethernet1/12            75    ukn/ukn/down(autoneg)     c4:24:56:d7:30:4b\nethernet1/13            76    ukn/ukn/down(autoneg)     c4:24:56:d7:30:4c\nethernet1/14            77    ukn/ukn/down(autoneg)     c4:24:56:d7:30:4d\nethernet1/15            78    ukn/ukn/down(autoneg)     c4:24:56:d7:30:4e\nethernet1/16            79    ukn/ukn/down(autoneg)     c4:24:56:d7:30:4f\nethernet1/17            80    10000/full/up             c4:24:56:d7:30:50\nethernet1/18            81    10000/full/up             c4:24:56:d7:30:51\nethernet1/19            82    ukn/ukn/down(autoneg)     c4:24:56:d7:30:52\nethernet1/20            83    ukn/ukn/down(autoneg)     c4:24:56:d7:30:53\nha1-a                   5     ukn/ukn/down(autoneg)     08:66:1f:02:04:a2\nha1-b                   7     ukn/ukn/down(autoneg)     c4:24:56:d7:30:07\nvlan                    1     [n/a]/[n/a]/up            c4:24:56:d7:30:01\nloopback                3     [n/a]/[n/a]/up            c4:24:56:d7:30:03\ntunnel                  4     [n/a]/[n/a]/up            c4:24:56:d7:30:04\nhsci                    8     ukn/ukn/down(autoneg)     c4:24:56:d7:30:08\n\naggregation groups: 0",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue ID (\\S+)\nValue SPEED (\\[n/a\\]|\\S+)\nValue DUPLEX (\\[n/a\\]|\\S+)\nValue STATE (\\S+)\nValue MAC_ADDRESS ([a-fA-F0-9]{2}(\\:[a-fA-F0-9]{2}){5})\n\nStart\n  ^${INTERFACE}\\s+${ID}\\s+${SPEED}/${DUPLEX}/${STATE}\\s+${MAC_ADDRESS} -> Record\n"
+}

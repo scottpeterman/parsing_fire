@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: fortinet_get_router_info_routing-table_all
+# Source: ntc
+# TextFSM rows: 10
+# TTP rows: 19
+# Match ratio: 1.90
+
+<group name="type_destination_distance_metric_gateway_interface_last_time_update">
+{{TYPE | ORPHRASE}} {{DESTINATION}} [{{DISTANCE}}/{{METRIC}}] via {{GATEWAY | ORPHRASE}}, {{INTERFACE}}, {{LAST_TIME_UPDATE | ORPHRASE}}
+</group>
+<group name="type_destination_distance_metric_gateway_interface">
+{{TYPE | ORPHRASE}} {{DESTINATION}} [{{DISTANCE}}/{{METRIC}}] via {{GATEWAY | ORPHRASE}}, {{INTERFACE | ORPHRASE}}
+</group>
+<group name="type_destination_gateway_interface">
+{{TYPE | ORPHRASE}} {{DESTINATION}} {{GATEWAY | ORPHRASE}}, {{INTERFACE | ORPHRASE}}
+</group>

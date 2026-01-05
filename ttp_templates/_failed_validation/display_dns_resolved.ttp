@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: display dns resolved
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="type_address_ttl">
+{{HOSTN{{TYPE}}ME | re("\\S+")}} A {{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{TTL | ORPHRASE}}
+</group>

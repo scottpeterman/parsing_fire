@@ -1,0 +1,43 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_ip_firewall_filter_print_all_without-paging
+# Source: ntc
+# TextFSM rows: 23
+# TTP rows: 21
+# Match ratio: 0.91
+
+<group name="index_comment">
+ {{INDEX}} ;;; {{COMMENT | ORPHRASE}}
+</group>
+<group name="chain_action_connection_state_in_interface_out_interface">
+      chain={{CHAIN}} action={{ACTION}} connection-state={{CONNECTION_STATE | ORPHRASE}} in-interface={{IN_INTERFACE}} out-interface={{OUT_INTERFACE | ORPHRASE}} 
+</group>
+<group name="index_chain_action_dst_address">
+ {{INDEX}} chain={{CHAIN}} action={{ACTION}} dst-address={{DST_ADDRESS | ORPHRASE}} 
+</group>
+<group name="chain_action_protocol_dst_port_comment">
+      chain={{CHAIN}} action={{ACTION}} protocol={{PROTOCOL}} dst-port={{DST_PORT}} log-prefix="{{COMMENT | ORPHRASE}}" 
+</group>
+<group name="index_chain_action_protocol">
+ {{INDEX}} chain={{CHAIN}} action={{ACTION}} protocol={{PROTOCOL | ORPHRASE}} 
+</group>
+<group name="chain_action_protocol_src_address_list_dst_port">
+      chain={{CHAIN}} action={{ACTION}} protocol={{PROTOCOL}} src-address-list={{SRC_ADDRESS_LIST}} dst-port={{DST_PORT | ORPHRASE}} 
+</group>
+<group name="chain_action_hw_offload_connection_state">
+      chain={{CHAIN}} action={{ACTION}} hw-offload={{HW_OFFLOAD}} connection-state={{CONNECTION_STATE | ORPHRASE}}
+</group>
+<group name="chain_action_connection_state_connection_nat_state_in_interface_list">
+      chain={{CHAIN}} action={{ACTION}} connection-state={{CONNECTION_STATE | ORPHRASE}} connection-nat-state={{CONNECTION_NAT_STATE | ORPHRASE}} in-interface-list={{IN_INTERFACE_LIST | ORPHRASE}} 
+</group>
+<group name="chain_connection_state">
+      chain={{CHAIN}} action=accept connection-state={{CONNECTION_STATE | ORPHRASE}},untracked 
+</group>
+<group name="index_chain_connection_state_src_mac_address">
+{{INDEX}} chain={{CHAIN}} connection-state={{CONNECTION_STATE | ORPHRASE}} src-mac-address={{SRC_MAC_ADDRESS | ORPHRASE}}
+</group>
+<group name="chain_action_in_interface">
+      chain={{CHAIN}} action={{ACTION}} in-interface={{IN_INTERFACE | ORPHRASE}} 
+</group>
+<group name="index_chain_action_in_interface">
+{{INDEX}} chain={{CHAIN}} action={{ACTION}} in-interface={{IN_INTERFACE | ORPHRASE}} log-prefix=""
+</group>

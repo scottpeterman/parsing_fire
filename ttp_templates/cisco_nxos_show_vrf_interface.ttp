@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_vrf_interface
+# Source: ntc
+# TextFSM rows: 18
+# TTP rows: 18
+# Match ratio: 1.00
+
+<group name="interface_name_id_origin">
+{{INTERFACE}} {{NAME}} {{ID | re("\\d+")}} {{ORIGIN | ORPHRASE}}
+</group>

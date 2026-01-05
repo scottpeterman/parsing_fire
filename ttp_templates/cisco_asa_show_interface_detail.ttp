@@ -1,0 +1,22 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_interface_detail
+# Source: ntc
+# TextFSM rows: 24
+# TTP rows: 82
+# Match ratio: 3.42
+
+<group name="hardware_type_bandwidth_delay">
+  Hardware is {{HARDWARE_TYPE | ORPHRASE}}, BW {{BANDWIDTH | ORPHRASE}}, DLY {{DELAY | ORPHRASE}}
+</group>
+<group name="link_status_duplex_protocol_status_bandwidth">
+        Auto-D{{LINK_STATUS | ORPHRASE}}lex({{DUPLEX}}-d{{PROTOCOL_STATUS | ORPHRASE}}lex), Auto-Speed({{BANDWIDTH | ORPHRASE}})
+</group>
+<group name="duplex_link_status_bandwidth">
+        ({{DUPLEX}}-d{{LINK_STATUS | ORPHRASE}}lex), ({{BANDWIDTH | ORPHRASE}})
+</group>
+<group name="flowcontrol_in_flowcontrol_out">
+        Input flow control is {{FLOWCONTROL_IN}}, output flow control is {{FLOWCONTROL_OUT | ORPHRASE}}
+</group>
+<group name="interface_link_status_protocol_status">
+Interface {{INTERFACE}} "", is {{LINK_STATUS | ORPHRASE}}, line protocol is {{PROTOCOL_STATUS | ORPHRASE}}
+</group>

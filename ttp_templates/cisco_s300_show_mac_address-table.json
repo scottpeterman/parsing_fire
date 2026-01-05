@@ -1,0 +1,102 @@
+{
+  "command": "cisco_s300_show_mac_address-table",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.07692307692307693,
+  "textfsm_rows": 13,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"vlan_id_destination_address_destination_port_type\">\n     {{VLAN_ID | re(\"\\\\d+\")}} {{DESTINATION_ADDRESS}} {{DESTINATION_PORT | re(\"\\\\d+\")}} {{TYPE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DESTINATION_ADDRESS": "00:08:32:0f:00:61",
+      "TYPE": "self",
+      "VLAN_ID": "1",
+      "DESTINATION_PORT": "0"
+    },
+    {
+      "DESTINATION_ADDRESS": "00:1d:9c:a1:46:86",
+      "TYPE": "dynamic",
+      "VLAN_ID": "300",
+      "DESTINATION_PORT": "gi7"
+    },
+    {
+      "DESTINATION_ADDRESS": "00:1d:9c:a1:50:0a",
+      "TYPE": "dynamic",
+      "VLAN_ID": "300",
+      "DESTINATION_PORT": "gi8"
+    },
+    {
+      "DESTINATION_ADDRESS": "00:1d:9c:a1:5b:a6",
+      "TYPE": "dynamic",
+      "VLAN_ID": "300",
+      "DESTINATION_PORT": "gi9"
+    },
+    {
+      "DESTINATION_ADDRESS": "e4:90:69:aa:58:44",
+      "TYPE": "dynamic",
+      "VLAN_ID": "300",
+      "DESTINATION_PORT": "gi28"
+    },
+    {
+      "DESTINATION_ADDRESS": "00:00:bc:39:be:03",
+      "TYPE": "dynamic",
+      "VLAN_ID": "400",
+      "DESTINATION_PORT": "gi1"
+    },
+    {
+      "DESTINATION_ADDRESS": "00:0e:f0:4b:30:02",
+      "TYPE": "dynamic",
+      "VLAN_ID": "400",
+      "DESTINATION_PORT": "gi2"
+    },
+    {
+      "DESTINATION_ADDRESS": "00:0e:f0:4b:30:13",
+      "TYPE": "dynamic",
+      "VLAN_ID": "400",
+      "DESTINATION_PORT": "gi2"
+    },
+    {
+      "DESTINATION_ADDRESS": "00:0e:f0:5a:19:f1",
+      "TYPE": "dynamic",
+      "VLAN_ID": "400",
+      "DESTINATION_PORT": "gi27"
+    },
+    {
+      "DESTINATION_ADDRESS": "00:0e:f0:5a:1a:10",
+      "TYPE": "dynamic",
+      "VLAN_ID": "400",
+      "DESTINATION_PORT": "gi3"
+    },
+    {
+      "DESTINATION_ADDRESS": "00:1d:9c:cd:69:5c",
+      "TYPE": "dynamic",
+      "VLAN_ID": "400",
+      "DESTINATION_PORT": "gi1"
+    },
+    {
+      "DESTINATION_ADDRESS": "f4:54:33:91:ea:3a",
+      "TYPE": "dynamic",
+      "VLAN_ID": "400",
+      "DESTINATION_PORT": "gi2"
+    },
+    {
+      "DESTINATION_ADDRESS": "f4:54:33:a8:f0:0a",
+      "TYPE": "dynamic",
+      "VLAN_ID": "400",
+      "DESTINATION_PORT": "gi3"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_id_destination_address_destination_port_type": {
+        "VLAN_ID": "1",
+        "DESTINATION_ADDRESS": "00:08:32:0f:00:61",
+        "DESTINATION_PORT": "0",
+        "TYPE": "self"
+      }
+    }
+  ],
+  "cli_content": "Flags: I - Internal usage VLAN\nAging time is 300 sec\n\n    Vlan          Mac Address         Port       Type\n------------ --------------------- ---------- ----------\n     1         00:08:32:0f:00:61       0         self\n    300        00:1d:9c:a1:46:86      gi7      dynamic\n    300        00:1d:9c:a1:50:0a      gi8      dynamic\n    300        00:1d:9c:a1:5b:a6      gi9      dynamic\n    300        e4:90:69:aa:58:44      gi28     dynamic\n    400        00:00:bc:39:be:03      gi1      dynamic\n    400        00:0e:f0:4b:30:02      gi2      dynamic\n    400        00:0e:f0:4b:30:13      gi2      dynamic\n    400        00:0e:f0:5a:19:f1      gi27     dynamic\n    400        00:0e:f0:5a:1a:10      gi3      dynamic\n    400        00:1d:9c:cd:69:5c      gi1      dynamic\n    400        f4:54:33:91:ea:3a      gi2      dynamic\n    400        f4:54:33:a8:f0:0a      gi3      dynamic\n",
+  "textfsm_template": "Value DESTINATION_ADDRESS ((\\w\\w:){5}\\w\\w)\nValue TYPE (dynamic|self)\nValue VLAN_ID (\\w+)\nValue DESTINATION_PORT (\\S+)\n\nStart\n  ^Flags\n  ^Aging\n  ^\\s+Vlan\\s+Mac\\s+Address\\s+Port\\s+Type -> Begin\n  ^\\s*$$\n  ^. -> Error\n\nBegin\n  ^-+\n  ^\\s+${VLAN_ID}\\s+${DESTINATION_ADDRESS}\\s+${DESTINATION_PORT}\\s+${TYPE} -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

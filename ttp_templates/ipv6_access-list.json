@@ -1,0 +1,98 @@
+{
+  "command": "ipv6 access-list",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.6666666666666665,
+  "textfsm_rows": 3,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"seq_action_protocol_source_destination\">\n    {{SEQ}} {{ACTION}} {{PROTOCOL}} {{SOURCE | ORPHRASE}} {{DESTINATION}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LIST_NAME": "my-acl",
+      "SEQ": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "ipv6",
+      "SOURCE": "any",
+      "DESTINATION": "any"
+    },
+    {
+      "SEQ": "30",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SOURCE": "2001:db8:85a3::8a2e:370:7335/128",
+      "DESTINATION": "any"
+    },
+    {
+      "SEQ": "40",
+      "ACTION": "deny",
+      "PROTOCOL": "ipv6",
+      "SOURCE": "any",
+      "DESTINATION": "any"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "seq_action_protocol_source_destination": [
+        {
+          "SEQ": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "ipv6",
+          "SOURCE": "any",
+          "DESTINATION": "any"
+        },
+        {
+          "SEQ": "20",
+          "ACTION": "deny",
+          "PROTOCOL": "tcp",
+          "SOURCE": "host 2001:db8:85a3::8a2e:370:7334 any eq",
+          "DESTINATION": "80"
+        },
+        {
+          "SEQ": "30",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SOURCE": "2001:db8:85a3::8a2e:370:7335/128",
+          "DESTINATION": "any"
+        },
+        {
+          "SEQ": "40",
+          "ACTION": "deny",
+          "PROTOCOL": "ipv6",
+          "SOURCE": "any",
+          "DESTINATION": "any"
+        },
+        {
+          "SEQ": "5",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SOURCE": "any host",
+          "DESTINATION": "2001:db8:85a3::8a2e:370:7336"
+        },
+        {
+          "SEQ": "15",
+          "ACTION": "deny",
+          "PROTOCOL": "udp",
+          "SOURCE": "any host 2001:db8:85a3::8a2e:370:7337 eq",
+          "DESTINATION": "53"
+        },
+        {
+          "SEQ": "25",
+          "ACTION": "permit",
+          "PROTOCOL": "ipv6",
+          "SOURCE": "host 2001:db8:85a3::8a2e:370:7338",
+          "DESTINATION": "any"
+        },
+        {
+          "SEQ": "35",
+          "ACTION": "deny",
+          "PROTOCOL": "tcp",
+          "SOURCE": "any any eq",
+          "DESTINATION": "22"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IPv6 access list my-acl\n    10 permit ipv6 any any\n    20 deny tcp host 2001:db8:85a3::8a2e:370:7334 any eq 80\n    30 permit udp 2001:db8:85a3::8a2e:370:7335/128 any\n    40 deny ipv6 any any\nIPv6 access list test-acl\n    5 permit icmp any host 2001:db8:85a3::8a2e:370:7336\n    15 deny udp any host 2001:db8:85a3::8a2e:370:7337 eq 53\n    25 permit ipv6 host 2001:db8:85a3::8a2e:370:7338 any\n    35 deny tcp any any eq 22\n",
+  "textfsm_template": "Value LIST_NAME (\\S+)\nValue SEQ (\\d+)\nValue ACTION (\\S+)\nValue PROTOCOL (\\S+)\nValue SOURCE (\\S+)\nValue DESTINATION (\\S+)\n\nStart\n  ^IPv6\\saccess\\slist\\s${LIST_NAME} -> AccessList\n\nAccessList\n  ^\\s*${SEQ}\\s+${ACTION}\\s+${PROTOCOL}\\s+${SOURCE}\\s+${DESTINATION}\\s*$$ -> Record\n  ^\\s*IPv6\\s+access\\s+list -> Start"
+}

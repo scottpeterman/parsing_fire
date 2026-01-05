@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show dns
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="answer_dns_server_query_query_status">
+Querying DNS Server: {{DNS_SERVER | ORPHRASE}}
+Request Time:  {{REQUEST_TIME | ORPHRASE}}
+Query:  {{QUERY | ORPHRASE}}
+Response Time:  {{RESPONSE_TIME | ORPHRASE}}
+Answer:  {{ANSWER | ORPHRASE}}
+Query Status:  {{QUERY_STATUS | ORPHRASE}}
+</group>

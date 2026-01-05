@@ -1,0 +1,14 @@
+# TTP Template - FAILED VALIDATION
+# Original command: linux_ip_address_show
+# Source: ntc
+# Error: TTP parse error: not well-formed (invalid token): line 3, column 37
+
+<group name="id_interface_flags_mtu_qdisc_state_group_qlen">
+{{ID | re("\\d+")}}: {{INTERFACE}}: <{{FLAGS}}> mtu {{MTU}} qdisc {{QDISC}} state {{STATE | ORPHRASE}} group {{GROUP}} qlen {{QLEN | ORPHRASE}}
+</group>
+<group name="id_interface_flags_mtu_qdisc_state_group">
+{{ID | re("\\d+")}}: {{INTERFACE}}: <{{FLAGS}}> mtu {{MTU}} qdisc {{QDISC}} state {{STATE | ORPHRASE}} group {{GROUP | ORPHRASE}}
+</group>
+<group name="id_interface_flags_mtu_qdisc_master_state_group_qlen">
+{{ID | re("\\d+")}}: {{INTERFACE}}: <{{FLAGS}}> mtu {{MTU}} qdisc {{QDISC}} master {{MASTER}} state {{STATE | ORPHRASE}} group {{GROUP}} qlen {{QLEN | ORPHRASE}}
+</group>

@@ -1,0 +1,22 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_ip_bgp
+# Source: ntc
+# TextFSM rows: 41
+# TTP rows: 92
+# Match ratio: 2.24
+
+<group name="status_path_selection_route_source_network_next_hop_local_pref_weight_origin">
+{{STATUS | ORPHRASE}}{{PATH_SELECTION | re(".*\\w.*")}}{{ROUTE_SOURCE}}{{NETWORK}} {{NEXT_HOP}} {{LOCAL_PREF}} {{WEIGHT}} {{ORIGIN | ORPHRASE}}
+</group>
+<group name="status_route_source_network_next_hop_weight_as_path_origin">
+{{STATUS | ORPHRASE}} {{ROUTE_SOURCE}}{{NETWORK}} {{NEXT_HOP}} {{WEIGHT}} {{AS_PATH | ORPHRASE}} {{ORIGIN | ORPHRASE}}
+</group>
+<group name="status_path_selection_next_hop_weight_as_path_origin">
+{{STATUS | ORPHRASE}}{{PATH_SELECTION | r{{ROUTE_SOURCE}}(".*\\w.*")}}e {{NEXT_HOP}} {{WEIGHT}} {{AS_PATH | ORPHRASE}} {{ORIGIN | ORPHRASE}}
+</group>
+<group name="status_path_selection_network_next_hop_weight_as_path_origin">
+{{STATUS | ORPHRASE}}{{PATH_SELECTION | r{{ROUTE_SOURCE}}(".*\\w.*")}}e{{NETWORK}} {{NEXT_HOP}} {{WEIGHT}} {{AS_PATH | ORPHRASE}} {{ORIGIN | ORPHRASE}}
+</group>
+<group name="status_route_source_next_hop_weight_as_path_origin">
+{{STATUS | ORPHRASE}} {{ROUTE_SOURCE}} {{NEXT_HOP}} {{WEIGHT}} {{AS_PATH | ORPHRASE}} {{ORIGIN | ORPHRASE}}
+</group>

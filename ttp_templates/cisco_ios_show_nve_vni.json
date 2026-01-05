@@ -1,0 +1,92 @@
+{
+  "command": "cisco_ios_show_nve_vni",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"interface_vni_mcast_group_state_mode_bd_vrf\">\n{{INTERFACE}} {{VNI}} {{MCAST_GROUP}} {{STATE | ORPHRASE}} {{MODE}} {{BD}} CLI {{VRF | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "nve1",
+      "VNI": "10306",
+      "MCAST_GROUP": "N/A",
+      "STATE": "Up",
+      "MODE": "L3CP",
+      "BD": "306",
+      "VRF": "GRY"
+    },
+    {
+      "INTERFACE": "nve1",
+      "VNI": "10303",
+      "MCAST_GROUP": "N/A",
+      "STATE": "Up",
+      "MODE": "L3CP",
+      "BD": "303",
+      "VRF": "AMB"
+    },
+    {
+      "INTERFACE": "nve1",
+      "VNI": "10302",
+      "MCAST_GROUP": "N/A",
+      "STATE": "Up",
+      "MODE": "L3CP",
+      "BD": "302",
+      "VRF": "GRN"
+    },
+    {
+      "INTERFACE": "nve1",
+      "VNI": "10301",
+      "MCAST_GROUP": "N/A",
+      "STATE": "Up",
+      "MODE": "L3CP",
+      "BD": "301",
+      "VRF": "BLU"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_vni_mcast_group_state_mode_bd_vrf": [
+        {
+          "INTERFACE": "nve1",
+          "VNI": "10306",
+          "MCAST_GROUP": "N/A",
+          "STATE": "Up",
+          "MODE": "L3CP",
+          "BD": "306",
+          "VRF": "GRY"
+        },
+        {
+          "INTERFACE": "nve1",
+          "VNI": "10303",
+          "MCAST_GROUP": "N/A",
+          "STATE": "Up",
+          "MODE": "L3CP",
+          "BD": "303",
+          "VRF": "AMB"
+        },
+        {
+          "INTERFACE": "nve1",
+          "VNI": "10302",
+          "MCAST_GROUP": "N/A",
+          "STATE": "Up",
+          "MODE": "L3CP",
+          "BD": "302",
+          "VRF": "GRN"
+        },
+        {
+          "INTERFACE": "nve1",
+          "VNI": "10301",
+          "MCAST_GROUP": "N/A",
+          "STATE": "Up",
+          "MODE": "L3CP",
+          "BD": "301",
+          "VRF": "BLU"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface  VNI        Multicast-group VNI state  Mode  BD    cfg vrf                                         \nnve1       10306   N/A             Up         L3CP  306  CLI GRY                     \nnve1       10303   N/A             Up         L3CP  303  CLI AMB                     \nnve1       10302   N/A             Up         L3CP  302  CLI GRN                                         \nnve1       10301   N/A             Up         L3CP  301  CLI BLU  ",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue VNI (\\d+)\nValue MCAST_GROUP (\\S+)\nValue STATE (Up|Down)\nValue MODE (L2CP|L3CP)\nValue BD (\\d+)\nValue VRF (\\S+)\n\nStart\n  ^Interface\\s+VNI\\s+Multicast-group\\s+VNI\\s+state\\s+Mode\\s+BD\\s+cfg\\s+vrf\\s*$$\n  ^${INTERFACE}\\s+${VNI}\\s+${MCAST_GROUP}\\s+${STATE}\\s+${MODE}\\s+${BD}\\s+CLI\\s+${VRF} -> Record\n  ^\\s*$$\n  ^. -> Error\n  "
+}

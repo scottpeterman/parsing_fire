@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_spanning-tree_root
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="vlan_id_priority_root_id_root_cost_hello_time_max_age_fwd_dly_root_port">
+{{VLAN_ID}} {{PRIORITY}} {{ROOT_ID}} {{ROOT_COST}} {{HELLO_TIME}} {{MAX_AGE}} {{FWD_DLY}} {{ROOT_PORT | ORPHRASE}}
+</group>

@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show interfaces detail
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="description_enabled_interface_ip_address">
+  MAC address: 00:1c:73:42:68:77, MTU: {{MTU | ORPHRASE}}
+  IP address: 192.168.1.1, Subnet mask: {{SUBNET_MASK | ORPHRASE}}
+Interface: {{INTERFACE}}, {{ENABLED}}, Physical link is {{PHY_STATUS | ORPHRASE}}
+  Description: {{DESCRIPTION | ORPHRASE}}
+  MAC address: {{MAC_ADDRESS | ORPHRASE}}, MTU: 1500
+  IP address: {{IP_ADDRESS | ORPHRASE}}, Subnet mask: 255.255.255.0
+  Last link down at: {{LAST_CHANGE | ORPHRASE}}
+</group>

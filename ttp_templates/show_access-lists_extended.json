@@ -1,0 +1,202 @@
+{
+  "command": "show access-lists extended",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 3.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 18,
+  "ttp_template": "<group name=\"seq_action_proto_source_destination_detail\">\n{{SEQ}} {{ACTION}} {{PROTO}} {{SOURCE}} {{DESTINATION}} {{DETAIL | ORPHRASE}}\n</group>\n<group name=\"seq_action_proto_source_detail\">\n{{SEQ}} {{ACTION}} {{PROTO}} {{SOURCE | ORPHRASE}} {{DETAIL}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LIST_ID": "100",
+      "SEQ": "10",
+      "ACTION": "permit",
+      "PROTO": "ip",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "DETAIL": "log"
+    },
+    {
+      "SEQ": "20",
+      "ACTION": "deny",
+      "PROTO": "ip",
+      "SOURCE": "192.168.1.0",
+      "DESTINATION": "0.0.0.255",
+      "DETAIL": "any"
+    },
+    {
+      "LIST_ID": "101",
+      "SEQ": "10",
+      "ACTION": "permit",
+      "PROTO": "ip",
+      "SOURCE": "any",
+      "DETAIL": "any"
+    },
+    {
+      "SEQ": "30",
+      "ACTION": "permit",
+      "PROTO": "icmp",
+      "SOURCE": "any",
+      "DETAIL": "any"
+    },
+    {
+      "LIST_ID": "102",
+      "SEQ": "10",
+      "ACTION": "deny",
+      "PROTO": "ip",
+      "SOURCE": "any",
+      "DESTINATION": "10.10.10.0",
+      "DETAIL": "0.0.0.255"
+    },
+    {
+      "SEQ": "20",
+      "ACTION": "permit",
+      "PROTO": "ip",
+      "SOURCE": "any",
+      "DETAIL": "any"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "seq_action_proto_source_destination_detail": [
+        {
+          "SEQ": "10",
+          "ACTION": "permit",
+          "PROTO": "ip",
+          "SOURCE": "any",
+          "DESTINATION": "any",
+          "DETAIL": "log"
+        },
+        {
+          "SEQ": "20",
+          "ACTION": "deny",
+          "PROTO": "ip",
+          "SOURCE": "192.168.1.0",
+          "DESTINATION": "0.0.0.255",
+          "DETAIL": "any"
+        },
+        {
+          "SEQ": "30",
+          "ACTION": "permit",
+          "PROTO": "tcp",
+          "SOURCE": "host",
+          "DESTINATION": "10.0.0.1",
+          "DETAIL": "eq 80 any"
+        },
+        {
+          "SEQ": "40",
+          "ACTION": "deny",
+          "PROTO": "udp",
+          "SOURCE": "any",
+          "DESTINATION": "any",
+          "DETAIL": "eq 53"
+        },
+        {
+          "SEQ": "20",
+          "ACTION": "permit",
+          "PROTO": "tcp",
+          "SOURCE": "any",
+          "DESTINATION": "any",
+          "DETAIL": "eq 443"
+        },
+        {
+          "SEQ": "10",
+          "ACTION": "deny",
+          "PROTO": "ip",
+          "SOURCE": "any",
+          "DESTINATION": "10.10.10.0",
+          "DETAIL": "0.0.0.255"
+        }
+      ],
+      "seq_action_proto_source_detail": [
+        {
+          "SEQ": "Extended",
+          "ACTION": "IP",
+          "PROTO": "access",
+          "SOURCE": "list",
+          "DETAIL": "100"
+        },
+        {
+          "SEQ": "10",
+          "ACTION": "permit",
+          "PROTO": "ip",
+          "SOURCE": "any any",
+          "DETAIL": "log"
+        },
+        {
+          "SEQ": "20",
+          "ACTION": "deny",
+          "PROTO": "ip",
+          "SOURCE": "192.168.1.0 0.0.0.255",
+          "DETAIL": "any"
+        },
+        {
+          "SEQ": "30",
+          "ACTION": "permit",
+          "PROTO": "tcp",
+          "SOURCE": "host 10.0.0.1 eq 80",
+          "DETAIL": "any"
+        },
+        {
+          "SEQ": "40",
+          "ACTION": "deny",
+          "PROTO": "udp",
+          "SOURCE": "any any eq",
+          "DETAIL": "53"
+        },
+        {
+          "SEQ": "Extended",
+          "ACTION": "IP",
+          "PROTO": "access",
+          "SOURCE": "list",
+          "DETAIL": "101"
+        },
+        {
+          "SEQ": "10",
+          "ACTION": "permit",
+          "PROTO": "ip",
+          "SOURCE": "any",
+          "DETAIL": "any"
+        },
+        {
+          "SEQ": "20",
+          "ACTION": "permit",
+          "PROTO": "tcp",
+          "SOURCE": "any any eq",
+          "DETAIL": "443"
+        },
+        {
+          "SEQ": "30",
+          "ACTION": "permit",
+          "PROTO": "icmp",
+          "SOURCE": "any",
+          "DETAIL": "any"
+        },
+        {
+          "SEQ": "Extended",
+          "ACTION": "IP",
+          "PROTO": "access",
+          "SOURCE": "list",
+          "DETAIL": "102"
+        },
+        {
+          "SEQ": "10",
+          "ACTION": "deny",
+          "PROTO": "ip",
+          "SOURCE": "any 10.10.10.0",
+          "DETAIL": "0.0.0.255"
+        },
+        {
+          "SEQ": "20",
+          "ACTION": "permit",
+          "PROTO": "ip",
+          "SOURCE": "any",
+          "DETAIL": "any"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Extended IP access list 100\n10 permit ip any any log\n20 deny ip 192.168.1.0 0.0.0.255 any\n30 permit tcp host 10.0.0.1 eq 80 any\n40 deny udp any any eq 53\n\nExtended IP access list 101\n10 permit ip any any\n20 permit tcp any any eq 443\n30 permit icmp any any\n\nExtended IP access list 102\n10 deny ip any 10.10.10.0 0.0.0.255\n20 permit ip any any\n",
+  "textfsm_template": "Value LIST_ID (\\d+)\nValue SEQ (\\d+)\nValue ACTION (permit|deny)\nValue PROTO (\\S+)\nValue SOURCE (\\S+)\nValue DESTINATION (\\S+)\nValue DETAIL (\\S+)\n\nStart\n  ^Extended\\s+IP\\s+access\\s+list\\s+${LIST_ID}\\s*$$\n  ^\\s*${SEQ}\\s+${ACTION}\\s+${PROTO}\\s+${SOURCE}\\s+${DESTINATION}\\s+${DETAIL}\\s*$$ -> Record\n  ^\\s*${SEQ}\\s+${ACTION}\\s+${PROTO}\\s+${SOURCE}\\s+${DETAIL}\\s*$$ -> Record\n  ^\\s*${SEQ}\\s+${ACTION}\\s+${PROTO}\\s+${SOURCE}\\s+${DESTINATION}\\s*$$ -> Record"
+}

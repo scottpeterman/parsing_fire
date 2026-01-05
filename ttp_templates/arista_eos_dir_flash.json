@@ -1,0 +1,140 @@
+{
+  "command": "arista_eos_dir_flash",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.36363636363636365,
+  "textfsm_rows": 11,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"file_system\">\nDirectory of {{FILE_SYSTEM | ORPHRASE}}\n<group name=\"date_time_name_permissions\">\n       {{PERMISSIONS}} {{SIZE}} {{DATE_TIME | ORPHRASE}} {{NAME | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FILE_SYSTEM": "flash:/",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "591941836",
+      "DATE_TIME": "Aug 2  2017",
+      "NAME": "EOS-4.18.3.1F.swi",
+      "TOTAL_SIZE": "3519041536",
+      "TOTAL_FREE": "1725112320"
+    },
+    {
+      "FILE_SYSTEM": "flash:/",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "609823300",
+      "DATE_TIME": "Feb 14 02:03",
+      "NAME": "EOS-4.19.5M.swi",
+      "TOTAL_SIZE": "3519041536",
+      "TOTAL_FREE": "1725112320"
+    },
+    {
+      "FILE_SYSTEM": "flash:/",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "29",
+      "DATE_TIME": "Aug 23  2017",
+      "NAME": "boot-config",
+      "TOTAL_SIZE": "3519041536",
+      "TOTAL_FREE": "1725112320"
+    },
+    {
+      "FILE_SYSTEM": "flash:/",
+      "PERMISSIONS": "drwx",
+      "SIZE": "4096",
+      "DATE_TIME": "Aug 23  2017",
+      "NAME": "debug",
+      "TOTAL_SIZE": "3519041536",
+      "TOTAL_FREE": "1725112320"
+    },
+    {
+      "FILE_SYSTEM": "flash:/",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "0",
+      "DATE_TIME": "Apr 15  2017",
+      "NAME": "enable3px",
+      "TOTAL_SIZE": "3519041536",
+      "TOTAL_FREE": "1725112320"
+    },
+    {
+      "FILE_SYSTEM": "flash:/",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "19",
+      "DATE_TIME": "Apr 15  2017",
+      "NAME": "enable3px.key",
+      "TOTAL_SIZE": "3519041536",
+      "TOTAL_FREE": "1725112320"
+    },
+    {
+      "FILE_SYSTEM": "flash:/",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "31",
+      "DATE_TIME": "Apr 15  2017",
+      "NAME": "kickstart-config",
+      "TOTAL_SIZE": "3519041536",
+      "TOTAL_FREE": "1725112320"
+    },
+    {
+      "FILE_SYSTEM": "flash:/",
+      "PERMISSIONS": "drwx",
+      "SIZE": "4096",
+      "DATE_TIME": "Apr 3 10:29",
+      "NAME": "persist",
+      "TOTAL_SIZE": "3519041536",
+      "TOTAL_FREE": "1725112320"
+    },
+    {
+      "FILE_SYSTEM": "flash:/",
+      "PERMISSIONS": "drwx",
+      "SIZE": "4096",
+      "DATE_TIME": "Apr 15  2017",
+      "NAME": "schedule",
+      "TOTAL_SIZE": "3519041536",
+      "TOTAL_FREE": "1725112320"
+    },
+    {
+      "FILE_SYSTEM": "flash:/",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "20530",
+      "DATE_TIME": "Jan 18 22:46",
+      "NAME": "startup-config",
+      "TOTAL_SIZE": "3519041536",
+      "TOTAL_FREE": "1725112320"
+    },
+    {
+      "FILE_SYSTEM": "flash:/",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "13",
+      "DATE_TIME": "Aug 23  2017",
+      "NAME": "zerotouch-config",
+      "TOTAL_SIZE": "3519041536",
+      "TOTAL_FREE": "1725112320"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "file_system": {
+        "FILE_SYSTEM": "flash:/",
+        "date_time_name_permissions": [
+          {
+            "PERMISSIONS": "-rwx",
+            "SIZE": "609823300",
+            "DATE_TIME": "Feb 14 02:03",
+            "NAME": "EOS-4.19.5M.swi"
+          },
+          {
+            "PERMISSIONS": "drwx",
+            "SIZE": "4096",
+            "DATE_TIME": "Apr 3 10:29",
+            "NAME": "persist"
+          },
+          {
+            "PERMISSIONS": "-rwx",
+            "SIZE": "20530",
+            "DATE_TIME": "Jan 18 22:46",
+            "NAME": "startup-config"
+          }
+        ]
+      }
+    }
+  ],
+  "cli_content": "Directory of flash:/\n\n       -rwx   591941836            Aug 2  2017  EOS-4.18.3.1F.swi\n       -rwx   609823300           Feb 14 02:03  EOS-4.19.5M.swi\n       -rwx          29           Aug 23  2017  boot-config\n       drwx        4096           Aug 23  2017  debug\n       -rwx           0           Apr 15  2017  enable3px\n       -rwx          19           Apr 15  2017  enable3px.key\n       -rwx          31           Apr 15  2017  kickstart-config\n       drwx        4096            Apr 3 10:29  persist\n       drwx        4096           Apr 15  2017  schedule\n       -rwx       20530           Jan 18 22:46  startup-config\n       -rwx          13           Aug 23  2017  zerotouch-config\n\n3519041536 bytes total (1725112320 bytes free)\n",
+  "textfsm_template": "Value Filldown FILE_SYSTEM (\\S+)\nValue PERMISSIONS (\\S+)\nValue SIZE (\\d+)\nValue DATE_TIME (\\S+\\s+\\d+\\s+((\\d+)|(\\d+:\\d+)))\nValue NAME (\\S+)\nValue Fillup TOTAL_SIZE (\\d+)\nValue Fillup TOTAL_FREE (\\d+)\n\nStart\n  ^Directory of\\s+${FILE_SYSTEM} -> DIR\n\nDIR\n  ^\\s+${PERMISSIONS}\\s+${SIZE}\\s+${DATE_TIME}\\s+${NAME} -> Record\n  ^${TOTAL_SIZE}\\s+\\S+\\s+\\S+\\s+\\(${TOTAL_FREE}\\s+\\S+\\s+\\S+\\)\n  ^\\s+$$\n  ^$$\n  ^.* -> Error \"LINE NOT FOUND\"\n\nEOF\n"
+}

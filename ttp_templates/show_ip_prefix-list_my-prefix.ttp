@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip prefix-list my-prefix
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="seq_action_network">
+   seq {{SEQ}} {{ACTION}} {{NETWORK | ORPHRASE}}
+</group>

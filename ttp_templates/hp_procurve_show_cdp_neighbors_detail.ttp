@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_procurve_show_cdp_neighbors_detail
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="platform">
+  Platform : {{PLATFORM | ORPHRASE}} 
+</group>

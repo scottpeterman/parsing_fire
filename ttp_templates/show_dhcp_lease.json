@@ -1,0 +1,80 @@
+{
+  "command": "show dhcp lease",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"interface_ip_address_lease_expiry_client_id\">\n{{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{LEASE_EXPIRY | ORPHRASE}} {{CLIENT_ID | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Vlan1",
+      "IP_ADDRESS": "192.168.1.10",
+      "LEASE_EXPIRY": "2023-10-01 12:00:00",
+      "CLIENT_ID": "00:1A:2B:3C:4D:5E"
+    },
+    {
+      "INTERFACE": "Vlan2",
+      "IP_ADDRESS": "192.168.2.10",
+      "LEASE_EXPIRY": "2023-10-02 08:30:00",
+      "CLIENT_ID": "00:6F:7G:8H:9I:0J"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/0",
+      "IP_ADDRESS": "192.168.3.10",
+      "LEASE_EXPIRY": "2023-10-01 09:45:00",
+      "CLIENT_ID": "00:11:22:33:44:55"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/1",
+      "IP_ADDRESS": "192.168.4.10",
+      "LEASE_EXPIRY": "2023-10-01 15:00:00",
+      "CLIENT_ID": "00:AA:BB:CC:DD:EE"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/2",
+      "IP_ADDRESS": "192.168.5.10",
+      "LEASE_EXPIRY": "2023-10-02 11:00:00",
+      "CLIENT_ID": "00:00:5A:5B:5C:5D"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_lease_expiry_client_id": [
+        {
+          "INTERFACE": "Vlan1",
+          "IP_ADDRESS": "192.168.1.10",
+          "LEASE_EXPIRY": "2023-10-01 12:00:00",
+          "CLIENT_ID": "00:1A:2B:3C:4D:5E"
+        },
+        {
+          "INTERFACE": "Vlan2",
+          "IP_ADDRESS": "192.168.2.10",
+          "LEASE_EXPIRY": "2023-10-02 08:30:00",
+          "CLIENT_ID": "00:6F:7G:8H:9I:0J"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/0",
+          "IP_ADDRESS": "192.168.3.10",
+          "LEASE_EXPIRY": "2023-10-01 09:45:00",
+          "CLIENT_ID": "00:11:22:33:44:55"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/1",
+          "IP_ADDRESS": "192.168.4.10",
+          "LEASE_EXPIRY": "2023-10-01 15:00:00",
+          "CLIENT_ID": "00:AA:BB:CC:DD:EE"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/2",
+          "IP_ADDRESS": "192.168.5.10",
+          "LEASE_EXPIRY": "2023-10-02 11:00:00",
+          "CLIENT_ID": "00:00:5A:5B:5C:5D"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface                IP Address      Lease Expiry             Client ID/MAC Address\nVlan1                    192.168.1.10    2023-10-01 12:00:00      00:1A:2B:3C:4D:5E\nVlan2                    192.168.2.10    2023-10-02 08:30:00      00:6F:7G:8H:9I:0J\nGigabitEthernet0/0       192.168.3.10    2023-10-01 09:45:00      00:11:22:33:44:55\nGigabitEthernet0/1       192.168.4.10    2023-10-01 15:00:00      00:AA:BB:CC:DD:EE\nGigabitEthernet0/2       192.168.5.10    2023-10-02 11:00:00      00:00:5A:5B:5C:5D\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue LEASE_EXPIRY (\\S+ \\d+:\\d+:\\d+)\nValue CLIENT_ID (\\S+)\n\nStart\n  ^\\s*Interface\\s+IP Address\\s+Lease Expiry\\s+Client ID/MAC Address\\s*$$\n  ^\\s*${INTERFACE}\\s+${IP_ADDRESS}\\s+${LEASE_EXPIRY}\\s+${CLIENT_ID}\\s*$$ -> Record\n"
+}

@@ -1,0 +1,618 @@
+{
+  "command": "hp_comware_display_device_manuinfo",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 8.857142857142858,
+  "textfsm_rows": 14,
+  "ttp_rows": 124,
+  "ttp_template": "<group name=\"slot_type_chassis_id\">\n {{SLOT_TYPE}} {{CHASSIS_ID | ORPHRASE}}\n</group>\n<group name=\"device_serial_number\">\n DEVICE_SERIAL_NUMBER : {{DEVICE_SERIAL_NUMBER | ORPHRASE}}\n</group>\n<group name=\"device_name\">\n DEVICE_NAME : {{DEVICE_NAME | ORPHRASE}}\n</group>\n<group name=\"manufacturing_date\">\n MANUFACTURING_DATE : {{MANUFACTURING_DATE | ORPHRASE}}\n</group>\n<group name=\"slot_type_slot_id\">\n{{SLOT_TYPE}} {{SLOT_ID | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CHASSIS_ID": "1",
+      "SLOT_TYPE": "Chassis",
+      "SLOT_ID": "self",
+      "DEVICE_NAME": "LS-12511-X-AC",
+      "DEVICE_SERIAL_NUMBER": "11111111111111110000",
+      "MANUFACTURING_DATE": "2014-06-13",
+      "VENDOR_NAME": "H3C",
+      "MAC_ADDRESS": "AAAA-AAAA-355F"
+    },
+    {
+      "CHASSIS_ID": "1",
+      "SLOT_TYPE": "Slot",
+      "SLOT_ID": "0",
+      "DEVICE_NAME": "LSXM1TGS24EB1",
+      "DEVICE_SERIAL_NUMBER": "11111111111111110000",
+      "MANUFACTURING_DATE": "2014-05-03",
+      "VENDOR_NAME": "H3C",
+      "MAC_ADDRESS": "AAAA-AAAA-D46C"
+    },
+    {
+      "CHASSIS_ID": "1",
+      "SLOT_TYPE": "Slot",
+      "SLOT_ID": "2",
+      "DEVICE_NAME": "LSXM1TGS24EB1",
+      "DEVICE_SERIAL_NUMBER": "11111111111111110000",
+      "MANUFACTURING_DATE": "2014-05-03",
+      "VENDOR_NAME": "H3C",
+      "MAC_ADDRESS": "AAAA-AAAA-D4FC"
+    },
+    {
+      "CHASSIS_ID": "1",
+      "SLOT_TYPE": "Fan",
+      "SLOT_ID": "1",
+      "DEVICE_NAME": "LSXM110FAN",
+      "DEVICE_SERIAL_NUMBER": "11111111111111110000",
+      "MANUFACTURING_DATE": "2014-06-14",
+      "VENDOR_NAME": "H3C",
+      "MAC_ADDRESS": "NONE"
+    },
+    {
+      "CHASSIS_ID": "1",
+      "SLOT_TYPE": "Fan",
+      "SLOT_ID": "2",
+      "DEVICE_NAME": "LSXM110FAN",
+      "DEVICE_SERIAL_NUMBER": "11111111111111110000",
+      "MANUFACTURING_DATE": "2014-06-14",
+      "VENDOR_NAME": "H3C",
+      "MAC_ADDRESS": "NONE"
+    },
+    {
+      "CHASSIS_ID": "1",
+      "SLOT_TYPE": "Power",
+      "SLOT_ID": "1",
+      "DEVICE_NAME": "LSTM2PSRA",
+      "DEVICE_SERIAL_NUMBER": "11111111111111110000",
+      "MANUFACTURING_DATE": "2014-06-10",
+      "VENDOR_NAME": "H3C"
+    },
+    {
+      "CHASSIS_ID": "1",
+      "SLOT_TYPE": "Power",
+      "SLOT_ID": "2",
+      "DEVICE_NAME": "LSTM2PSRA",
+      "DEVICE_SERIAL_NUMBER": "11111111111111110000",
+      "MANUFACTURING_DATE": "2014-05-23",
+      "VENDOR_NAME": "H3C"
+    },
+    {
+      "CHASSIS_ID": "2",
+      "SLOT_TYPE": "Chassis",
+      "SLOT_ID": "self",
+      "DEVICE_NAME": "LS-12511-X-AC",
+      "DEVICE_SERIAL_NUMBER": "11111111111111110000",
+      "MANUFACTURING_DATE": "2014-06-13",
+      "VENDOR_NAME": "H3C",
+      "MAC_ADDRESS": "AAAA-AAAA-355F"
+    },
+    {
+      "CHASSIS_ID": "2",
+      "SLOT_TYPE": "Slot",
+      "SLOT_ID": "0",
+      "DEVICE_NAME": "LSXM1TGS24EB1",
+      "DEVICE_SERIAL_NUMBER": "11111111111111110000",
+      "MANUFACTURING_DATE": "2014-05-03",
+      "VENDOR_NAME": "H3C",
+      "MAC_ADDRESS": "AAAA-AAAA-D46C"
+    },
+    {
+      "CHASSIS_ID": "2",
+      "SLOT_TYPE": "Slot",
+      "SLOT_ID": "2",
+      "DEVICE_NAME": "LSXM1TGS24EB1",
+      "DEVICE_SERIAL_NUMBER": "11111111111111110000",
+      "MANUFACTURING_DATE": "2014-05-03",
+      "VENDOR_NAME": "H3C",
+      "MAC_ADDRESS": "AAAA-AAAA-D4FC"
+    },
+    {
+      "CHASSIS_ID": "2",
+      "SLOT_TYPE": "Fan",
+      "SLOT_ID": "1",
+      "DEVICE_NAME": "LSXM110FAN",
+      "DEVICE_SERIAL_NUMBER": "11111111111111110000",
+      "MANUFACTURING_DATE": "2014-06-14",
+      "VENDOR_NAME": "H3C",
+      "MAC_ADDRESS": "NONE"
+    },
+    {
+      "CHASSIS_ID": "2",
+      "SLOT_TYPE": "Fan",
+      "SLOT_ID": "2",
+      "DEVICE_NAME": "LSXM110FAN",
+      "DEVICE_SERIAL_NUMBER": "11111111111111110000",
+      "MANUFACTURING_DATE": "2014-06-14",
+      "VENDOR_NAME": "H3C",
+      "MAC_ADDRESS": "NONE"
+    },
+    {
+      "CHASSIS_ID": "2",
+      "SLOT_TYPE": "Power",
+      "SLOT_ID": "1",
+      "DEVICE_NAME": "LSTM2PSRA",
+      "DEVICE_SERIAL_NUMBER": "11111111111111110000",
+      "MANUFACTURING_DATE": "2014-06-10",
+      "VENDOR_NAME": "H3C"
+    },
+    {
+      "CHASSIS_ID": "2",
+      "SLOT_TYPE": "Power",
+      "SLOT_ID": "2",
+      "DEVICE_NAME": "LSTM2PSRA",
+      "DEVICE_SERIAL_NUMBER": "11111111111111110000",
+      "MANUFACTURING_DATE": "2014-05-23",
+      "VENDOR_NAME": "H3C"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "slot_type_chassis_id": [
+        {
+          "SLOT_TYPE": "Chassis",
+          "CHASSIS_ID": "1"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_NAME",
+          "CHASSIS_ID": ": LS-12511-X-AC"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_SERIAL_NUMBER",
+          "CHASSIS_ID": ": 11111111111111110000"
+        },
+        {
+          "SLOT_TYPE": "MAC_ADDRESS",
+          "CHASSIS_ID": ": AAAA-AAAA-355F"
+        },
+        {
+          "SLOT_TYPE": "MANUFACTURING_DATE",
+          "CHASSIS_ID": ": 2014-06-13"
+        },
+        {
+          "SLOT_TYPE": "VENDOR_NAME",
+          "CHASSIS_ID": ": H3C"
+        },
+        {
+          "SLOT_TYPE": "Slot",
+          "CHASSIS_ID": "0"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_NAME",
+          "CHASSIS_ID": ": LSXM1TGS24EB1"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_SERIAL_NUMBER",
+          "CHASSIS_ID": ": 11111111111111110000"
+        },
+        {
+          "SLOT_TYPE": "MAC_ADDRESS",
+          "CHASSIS_ID": ": AAAA-AAAA-D46C"
+        },
+        {
+          "SLOT_TYPE": "MANUFACTURING_DATE",
+          "CHASSIS_ID": ": 2014-05-03"
+        },
+        {
+          "SLOT_TYPE": "VENDOR_NAME",
+          "CHASSIS_ID": ": H3C"
+        },
+        {
+          "SLOT_TYPE": "Slot",
+          "CHASSIS_ID": "2"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_NAME",
+          "CHASSIS_ID": ": LSXM1TGS24EB1"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_SERIAL_NUMBER",
+          "CHASSIS_ID": ": 11111111111111110000"
+        },
+        {
+          "SLOT_TYPE": "MAC_ADDRESS",
+          "CHASSIS_ID": ": AAAA-AAAA-D4FC"
+        },
+        {
+          "SLOT_TYPE": "MANUFACTURING_DATE",
+          "CHASSIS_ID": ": 2014-05-03"
+        },
+        {
+          "SLOT_TYPE": "VENDOR_NAME",
+          "CHASSIS_ID": ": H3C"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_NAME",
+          "CHASSIS_ID": ": LSXM110FAN"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_SERIAL_NUMBER",
+          "CHASSIS_ID": ": 11111111111111110000"
+        },
+        {
+          "SLOT_TYPE": "MAC_ADDRESS",
+          "CHASSIS_ID": ": NONE"
+        },
+        {
+          "SLOT_TYPE": "MANUFACTURING_DATE",
+          "CHASSIS_ID": ": 2014-06-14"
+        },
+        {
+          "SLOT_TYPE": "VENDOR_NAME",
+          "CHASSIS_ID": ": H3C"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_NAME",
+          "CHASSIS_ID": ": LSXM110FAN"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_SERIAL_NUMBER",
+          "CHASSIS_ID": ": 11111111111111110000"
+        },
+        {
+          "SLOT_TYPE": "MAC_ADDRESS",
+          "CHASSIS_ID": ": NONE"
+        },
+        {
+          "SLOT_TYPE": "MANUFACTURING_DATE",
+          "CHASSIS_ID": ": 2014-06-14"
+        },
+        {
+          "SLOT_TYPE": "VENDOR_NAME",
+          "CHASSIS_ID": ": H3C"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_NAME",
+          "CHASSIS_ID": ": LSTM2PSRA"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_SERIAL_NUMBER",
+          "CHASSIS_ID": ": 11111111111111110000"
+        },
+        {
+          "SLOT_TYPE": "MANUFACTURING_DATE",
+          "CHASSIS_ID": ": 2014-06-10"
+        },
+        {
+          "SLOT_TYPE": "VENDOR_NAME",
+          "CHASSIS_ID": ": H3C"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_NAME",
+          "CHASSIS_ID": ": LSTM2PSRA"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_SERIAL_NUMBER",
+          "CHASSIS_ID": ": 11111111111111110000"
+        },
+        {
+          "SLOT_TYPE": "MANUFACTURING_DATE",
+          "CHASSIS_ID": ": 2014-05-23"
+        },
+        {
+          "SLOT_TYPE": "VENDOR_NAME",
+          "CHASSIS_ID": ": H3C"
+        },
+        {
+          "SLOT_TYPE": "Chassis",
+          "CHASSIS_ID": "2"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_NAME",
+          "CHASSIS_ID": ": LS-12511-X-AC"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_SERIAL_NUMBER",
+          "CHASSIS_ID": ": 11111111111111110000"
+        },
+        {
+          "SLOT_TYPE": "MAC_ADDRESS",
+          "CHASSIS_ID": ": AAAA-AAAA-355F"
+        },
+        {
+          "SLOT_TYPE": "MANUFACTURING_DATE",
+          "CHASSIS_ID": ": 2014-06-13"
+        },
+        {
+          "SLOT_TYPE": "VENDOR_NAME",
+          "CHASSIS_ID": ": H3C"
+        },
+        {
+          "SLOT_TYPE": "Slot",
+          "CHASSIS_ID": "0"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_NAME",
+          "CHASSIS_ID": ": LSXM1TGS24EB1"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_SERIAL_NUMBER",
+          "CHASSIS_ID": ": 11111111111111110000"
+        },
+        {
+          "SLOT_TYPE": "MAC_ADDRESS",
+          "CHASSIS_ID": ": AAAA-AAAA-D46C"
+        },
+        {
+          "SLOT_TYPE": "MANUFACTURING_DATE",
+          "CHASSIS_ID": ": 2014-05-03"
+        },
+        {
+          "SLOT_TYPE": "VENDOR_NAME",
+          "CHASSIS_ID": ": H3C"
+        },
+        {
+          "SLOT_TYPE": "Slot",
+          "CHASSIS_ID": "2"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_NAME",
+          "CHASSIS_ID": ": LSXM1TGS24EB1"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_SERIAL_NUMBER",
+          "CHASSIS_ID": ": 11111111111111110000"
+        },
+        {
+          "SLOT_TYPE": "MAC_ADDRESS",
+          "CHASSIS_ID": ": AAAA-AAAA-D4FC"
+        },
+        {
+          "SLOT_TYPE": "MANUFACTURING_DATE",
+          "CHASSIS_ID": ": 2014-05-03"
+        },
+        {
+          "SLOT_TYPE": "VENDOR_NAME",
+          "CHASSIS_ID": ": H3C"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_NAME",
+          "CHASSIS_ID": ": LSXM110FAN"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_SERIAL_NUMBER",
+          "CHASSIS_ID": ": 11111111111111110000"
+        },
+        {
+          "SLOT_TYPE": "MAC_ADDRESS",
+          "CHASSIS_ID": ": NONE"
+        },
+        {
+          "SLOT_TYPE": "MANUFACTURING_DATE",
+          "CHASSIS_ID": ": 2014-06-14"
+        },
+        {
+          "SLOT_TYPE": "VENDOR_NAME",
+          "CHASSIS_ID": ": H3C"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_NAME",
+          "CHASSIS_ID": ": LSXM110FAN"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_SERIAL_NUMBER",
+          "CHASSIS_ID": ": 11111111111111110000"
+        },
+        {
+          "SLOT_TYPE": "MAC_ADDRESS",
+          "CHASSIS_ID": ": NONE"
+        },
+        {
+          "SLOT_TYPE": "MANUFACTURING_DATE",
+          "CHASSIS_ID": ": 2014-06-14"
+        },
+        {
+          "SLOT_TYPE": "VENDOR_NAME",
+          "CHASSIS_ID": ": H3C"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_NAME",
+          "CHASSIS_ID": ": LSTM2PSRA"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_SERIAL_NUMBER",
+          "CHASSIS_ID": ": 11111111111111110000"
+        },
+        {
+          "SLOT_TYPE": "MANUFACTURING_DATE",
+          "CHASSIS_ID": ": 2014-06-10"
+        },
+        {
+          "SLOT_TYPE": "VENDOR_NAME",
+          "CHASSIS_ID": ": H3C"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_NAME",
+          "CHASSIS_ID": ": LSTM2PSRA"
+        },
+        {
+          "SLOT_TYPE": "DEVICE_SERIAL_NUMBER",
+          "CHASSIS_ID": ": 11111111111111110000"
+        },
+        {
+          "SLOT_TYPE": "MANUFACTURING_DATE",
+          "CHASSIS_ID": ": 2014-05-23"
+        },
+        {
+          "SLOT_TYPE": "VENDOR_NAME",
+          "CHASSIS_ID": ": H3C"
+        }
+      ],
+      "device_serial_number": [
+        {
+          "DEVICE_SERIAL_NUMBER": "11111111111111110000"
+        },
+        {
+          "DEVICE_SERIAL_NUMBER": "11111111111111110000"
+        },
+        {
+          "DEVICE_SERIAL_NUMBER": "11111111111111110000"
+        },
+        {
+          "DEVICE_SERIAL_NUMBER": "11111111111111110000"
+        },
+        {
+          "DEVICE_SERIAL_NUMBER": "11111111111111110000"
+        },
+        {
+          "DEVICE_SERIAL_NUMBER": "11111111111111110000"
+        },
+        {
+          "DEVICE_SERIAL_NUMBER": "11111111111111110000"
+        },
+        {
+          "DEVICE_SERIAL_NUMBER": "11111111111111110000"
+        },
+        {
+          "DEVICE_SERIAL_NUMBER": "11111111111111110000"
+        },
+        {
+          "DEVICE_SERIAL_NUMBER": "11111111111111110000"
+        },
+        {
+          "DEVICE_SERIAL_NUMBER": "11111111111111110000"
+        },
+        {
+          "DEVICE_SERIAL_NUMBER": "11111111111111110000"
+        },
+        {
+          "DEVICE_SERIAL_NUMBER": "11111111111111110000"
+        },
+        {
+          "DEVICE_SERIAL_NUMBER": "11111111111111110000"
+        }
+      ],
+      "device_name": [
+        {
+          "DEVICE_NAME": "LS-12511-X-AC"
+        },
+        {
+          "DEVICE_NAME": "LSXM1TGS24EB1"
+        },
+        {
+          "DEVICE_NAME": "LSXM1TGS24EB1"
+        },
+        {
+          "DEVICE_NAME": "LSXM110FAN"
+        },
+        {
+          "DEVICE_NAME": "LSXM110FAN"
+        },
+        {
+          "DEVICE_NAME": "LSTM2PSRA"
+        },
+        {
+          "DEVICE_NAME": "LSTM2PSRA"
+        },
+        {
+          "DEVICE_NAME": "LS-12511-X-AC"
+        },
+        {
+          "DEVICE_NAME": "LSXM1TGS24EB1"
+        },
+        {
+          "DEVICE_NAME": "LSXM1TGS24EB1"
+        },
+        {
+          "DEVICE_NAME": "LSXM110FAN"
+        },
+        {
+          "DEVICE_NAME": "LSXM110FAN"
+        },
+        {
+          "DEVICE_NAME": "LSTM2PSRA"
+        },
+        {
+          "DEVICE_NAME": "LSTM2PSRA"
+        }
+      ],
+      "manufacturing_date": [
+        {
+          "MANUFACTURING_DATE": "2014-06-13"
+        },
+        {
+          "MANUFACTURING_DATE": "2014-05-03"
+        },
+        {
+          "MANUFACTURING_DATE": "2014-05-03"
+        },
+        {
+          "MANUFACTURING_DATE": "2014-06-14"
+        },
+        {
+          "MANUFACTURING_DATE": "2014-06-14"
+        },
+        {
+          "MANUFACTURING_DATE": "2014-06-10"
+        },
+        {
+          "MANUFACTURING_DATE": "2014-05-23"
+        },
+        {
+          "MANUFACTURING_DATE": "2014-06-13"
+        },
+        {
+          "MANUFACTURING_DATE": "2014-05-03"
+        },
+        {
+          "MANUFACTURING_DATE": "2014-05-03"
+        },
+        {
+          "MANUFACTURING_DATE": "2014-06-14"
+        },
+        {
+          "MANUFACTURING_DATE": "2014-06-14"
+        },
+        {
+          "MANUFACTURING_DATE": "2014-06-10"
+        },
+        {
+          "MANUFACTURING_DATE": "2014-05-23"
+        }
+      ],
+      "slot_type_slot_id": [
+        {
+          "SLOT_TYPE": "Chassis",
+          "SLOT_ID": "self"
+        },
+        {
+          "SLOT_TYPE": "Fan",
+          "SLOT_ID": "1"
+        },
+        {
+          "SLOT_TYPE": "Fan",
+          "SLOT_ID": "2"
+        },
+        {
+          "SLOT_TYPE": "Power",
+          "SLOT_ID": "1"
+        },
+        {
+          "SLOT_TYPE": "Power",
+          "SLOT_ID": "2"
+        },
+        {
+          "SLOT_TYPE": "Chassis",
+          "SLOT_ID": "self"
+        },
+        {
+          "SLOT_TYPE": "Fan",
+          "SLOT_ID": "1"
+        },
+        {
+          "SLOT_TYPE": "Fan",
+          "SLOT_ID": "2"
+        },
+        {
+          "SLOT_TYPE": "Power",
+          "SLOT_ID": "1"
+        },
+        {
+          "SLOT_TYPE": "Power",
+          "SLOT_ID": "2"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\n Chassis 1\nChassis self\n DEVICE_NAME          : LS-12511-X-AC\n DEVICE_SERIAL_NUMBER : 11111111111111110000\n MAC_ADDRESS          : AAAA-AAAA-355F\n MANUFACTURING_DATE   : 2014-06-13\n VENDOR_NAME          : H3C\n\n Slot 0\n DEVICE_NAME          : LSXM1TGS24EB1\n DEVICE_SERIAL_NUMBER : 11111111111111110000\n MAC_ADDRESS          : AAAA-AAAA-D46C\n MANUFACTURING_DATE   : 2014-05-03\n VENDOR_NAME          : H3C\n\n Slot 2\n DEVICE_NAME          : LSXM1TGS24EB1\n DEVICE_SERIAL_NUMBER : 11111111111111110000\n MAC_ADDRESS          : AAAA-AAAA-D4FC\n MANUFACTURING_DATE   : 2014-05-03\n VENDOR_NAME          : H3C\n\nFan 1\n DEVICE_NAME          : LSXM110FAN\n DEVICE_SERIAL_NUMBER : 11111111111111110000\n MAC_ADDRESS          : NONE\n MANUFACTURING_DATE   : 2014-06-14\n VENDOR_NAME          : H3C\n\nFan 2\n DEVICE_NAME          : LSXM110FAN\n DEVICE_SERIAL_NUMBER : 11111111111111110000\n MAC_ADDRESS          : NONE\n MANUFACTURING_DATE   : 2014-06-14\n VENDOR_NAME          : H3C\n\nPower 1\n DEVICE_NAME          : LSTM2PSRA\n DEVICE_SERIAL_NUMBER : 11111111111111110000\n MANUFACTURING_DATE   : 2014-06-10\n VENDOR_NAME          : H3C\n\nPower 2\n DEVICE_NAME          : LSTM2PSRA\n DEVICE_SERIAL_NUMBER : 11111111111111110000\n MANUFACTURING_DATE   : 2014-05-23\n VENDOR_NAME          : H3C\n\n Chassis 2\nChassis self\n DEVICE_NAME          : LS-12511-X-AC\n DEVICE_SERIAL_NUMBER : 11111111111111110000\n MAC_ADDRESS          : AAAA-AAAA-355F\n MANUFACTURING_DATE   : 2014-06-13\n VENDOR_NAME          : H3C\n\n Slot 0\n DEVICE_NAME          : LSXM1TGS24EB1\n DEVICE_SERIAL_NUMBER : 11111111111111110000\n MAC_ADDRESS          : AAAA-AAAA-D46C\n MANUFACTURING_DATE   : 2014-05-03\n VENDOR_NAME          : H3C\n\n Slot 2\n DEVICE_NAME          : LSXM1TGS24EB1\n DEVICE_SERIAL_NUMBER : 11111111111111110000\n MAC_ADDRESS          : AAAA-AAAA-D4FC\n MANUFACTURING_DATE   : 2014-05-03\n VENDOR_NAME          : H3C\n\nFan 1\n DEVICE_NAME          : LSXM110FAN\n DEVICE_SERIAL_NUMBER : 11111111111111110000\n MAC_ADDRESS          : NONE\n MANUFACTURING_DATE   : 2014-06-14\n VENDOR_NAME          : H3C\n\nFan 2\n DEVICE_NAME          : LSXM110FAN\n DEVICE_SERIAL_NUMBER : 11111111111111110000\n MAC_ADDRESS          : NONE\n MANUFACTURING_DATE   : 2014-06-14\n VENDOR_NAME          : H3C\n\nPower 1\n DEVICE_NAME          : LSTM2PSRA\n DEVICE_SERIAL_NUMBER : 11111111111111110000\n MANUFACTURING_DATE   : 2014-06-10\n VENDOR_NAME          : H3C\n\nPower 2\n DEVICE_NAME          : LSTM2PSRA\n DEVICE_SERIAL_NUMBER : 11111111111111110000\n MANUFACTURING_DATE   : 2014-05-23\n VENDOR_NAME          : H3C",
+  "textfsm_template": "Value Filldown CHASSIS_ID (\\d+)\nValue Required SLOT_TYPE (Slot|Subslot|Fan|Power|Chassis)\nValue SLOT_ID (\\d+|self)\nValue DEVICE_NAME (.+)\nValue DEVICE_SERIAL_NUMBER (\\S+)\nValue MANUFACTURING_DATE (\\S+)\nValue VENDOR_NAME (\\S+)\nValue MAC_ADDRESS (\\S+)\n\n\nStart\n  ^\\s*Chassis\\s+${CHASSIS_ID}\n  ^\\s*${SLOT_TYPE}\\s+${SLOT_ID}\n  ^\\s*DEVICE_ID\n  ^\\s*The\\s+operation\\s+is\\s+not\\s+supported\\s+ -> Record Start\n  ^\\s*DEVICE_NAME\\s*:\\s*${DEVICE_NAME}\n  ^\\s*DEVICE_SERIAL_NUMBER\\s*:\\s*${DEVICE_SERIAL_NUMBER}\n  ^\\s*MAC_ADDRESS\\s*:\\s*${MAC_ADDRESS}\n  ^\\s*MANUFACTURING_DATE\\s*:\\s*${MANUFACTURING_DATE}\n  ^\\s*VENDOR_NAME\\s*:\\s*${VENDOR_NAME} -> Record Start\n  ^\\s*$$\n  ^. -> Error\n"
+}

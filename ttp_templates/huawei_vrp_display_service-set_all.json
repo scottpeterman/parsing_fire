@@ -1,0 +1,50 @@
+{
+  "command": "huawei_vrp_display_service-set_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"id_name_ssid\">\n  {{ID | re(\"\\\\d+\")}} {{NAME | ORPHRASE}} {{SSID}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ID": "0",
+      "NAME": "Livebox_5ad8",
+      "SSID": "Livebox_5ad8"
+    },
+    {
+      "ID": "1",
+      "NAME": "Livebox_5ad8__5G",
+      "SSID": "Livebox_5ad8"
+    },
+    {
+      "ID": "2",
+      "NAME": "Profile_my_guest_wifi",
+      "SSID": "my_guest_wifi"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "id_name_ssid": [
+        {
+          "ID": "0",
+          "NAME": "Livebox_5ad8",
+          "SSID": "Livebox_5ad8"
+        },
+        {
+          "ID": "1",
+          "NAME": "Livebox_5ad8__5G",
+          "SSID": "Livebox_5ad8"
+        },
+        {
+          "ID": "2",
+          "NAME": "Profile_my_guest_wifi",
+          "SSID": "my_guest_wifi"
+        }
+      ]
+    }
+  ],
+  "cli_content": "  ----------------------------------------------------------------------------\n  ID      Name                            SSID\n  0       Livebox_5ad8                    Livebox_5ad8                     \n  1       Livebox_5ad8__5G                Livebox_5ad8                     \n  2       Profile_my_guest_wifi           my_guest_wifi                    \n  ----------------------------------------------------------------------------\n  Total: 3\n",
+  "textfsm_template": "Value ID (\\d+)\nValue NAME (\\w+)\nValue SSID (\\w+)\n\nStart\n  ^\\s*-+ -> Next\n  ^\\s*ID.+$$ -> Next\n  ^\\s*${ID}\\s+${NAME}\\s+${SSID}\\s*$$ -> Record\n  ^\\s*Total:.+$$ -> Next\n  ^.*$$ -> Error\n"
+}

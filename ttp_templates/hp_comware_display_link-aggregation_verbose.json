@@ -1,0 +1,48 @@
+{
+  "command": "hp_comware_display_link-aggregation_verbose",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"aggregation_mode_creation_mode_interface_loadsharing\">\nLoadsharing Type: {{LOADSHARING | ORPHRASE}} -- Loadsharing, NonS -- Non-Loadsharing \nCreation Mode: {{CREATION_MODE | ORPHRASE}}\nAggregation Mode: {{AGGREGATION_MODE | ORPHRASE}}\nAggregate Interface: {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Bridge-Aggregation10",
+      "CREATION_MODE": "Manual",
+      "AGGREGATION_MODE": "Dynamic",
+      "LOADSHARING": "Shar",
+      "LOCAL_INTERFACES": "XGE1/0/0/1(R), XGE1/0/0/2, XGE2/0/0/1, XGE2/0/0/2",
+      "REMOTE_INTERFACES": "XGE1/0/0/1, XGE1/0/0/2, XGE2/0/0/1, XGE2/0/0/2"
+    },
+    {
+      "INTERFACE": "Bridge-Aggregation20",
+      "CREATION_MODE": "Manual",
+      "AGGREGATION_MODE": "Dynamic",
+      "LOADSHARING": "Shar",
+      "LOCAL_INTERFACES": "XGE1/0/0/5(R), XGE1/0/0/6, XGE2/0/0/5, XGE2/0/0/6",
+      "REMOTE_INTERFACES": "XGE1/0/0/5, XGE1/0/0/6, XGE2/0/0/5, XGE2/0/0/6"
+    },
+    {
+      "INTERFACE": "Bridge-Aggregation30",
+      "CREATION_MODE": "Manual",
+      "AGGREGATION_MODE": "Dynamic",
+      "LOADSHARING": "Shar",
+      "LOCAL_INTERFACES": "XGE1/0/0/9(R), XGE1/0/0/10, XGE2/0/0/9, XGE2/0/0/10",
+      "REMOTE_INTERFACES": "XGE1/0/0/9, XGE1/0/0/10, XGE2/0/0/9, XGE2/0/0/10"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "aggregation_mode_creation_mode_interface_loadsharing": {
+        "AGGREGATION_MODE": "Dynamic",
+        "CREATION_MODE": "Manual",
+        "INTERFACE": "Bridge-Aggregation10",
+        "LOADSHARING": "Shar"
+      }
+    }
+  ],
+  "cli_content": "Loadsharing Type: Shar -- Loadsharing, NonS -- Non-Loadsharing \nPort Status: S -- Selected, U -- Unselected, I -- Individual \nPort: A -- Auto port, M -- Management port, R -- Reference port \nFlags:  A -- LACP_Activity, B -- LACP_Timeout, C -- Aggregation, \n        D -- Synchronization, E -- Collecting, F -- Distributing, \n        G -- Defaulted, H -- Expired \n\nAggregate Interface: Bridge-Aggregation10\nCreation Mode: Manual\nAggregation Mode: Dynamic\nLoadsharing Type: Shar\nManagement VLANs: None\nSystem ID: 0x8000, 7848-5933-6485\nLocal: \n  Port                Status   Priority Index    Oper-Key               Flag\n  XGE1/0/0/1(R)       S        32768    1        1                      {ACDEF}\n  XGE1/0/0/2          S        32768    6        1                      {ACDEF}\n  XGE2/0/0/1          S        32768    11       1                      {ACDEF}\n  XGE2/0/0/2          S        32768    16       1                      {ACDEF}\nRemote: \n  Actor               Priority Index    Oper-Key SystemID               Flag   \n  XGE1/0/0/1          32768    47       9        0x8000, aaaa-bbbb-8be8 {ACDEF}\n  XGE1/0/0/2          32768    252      9        0x8000, aaaa-bbbb-8be8 {ACDEF}\n  XGE2/0/0/1          32768    48       9        0x8000, aaaa-bbbb-8be8 {ACDEF}\n  XGE2/0/0/2          32768    253      9        0x8000, aaaa-bbbb-8be8 {ACDEF}\n\nAggregate Interface: Bridge-Aggregation20\nCreation Mode: Manual\nAggregation Mode: Dynamic\nLoadsharing Type: Shar\nManagement VLANs: None\nSystem ID: 0x8000, 7848-5933-6485\nLocal: \n  Port                Status   Priority Index    Oper-Key               Flag\n  XGE1/0/0/5(R)       S        32768    2        2                      {ACDEF}\n  XGE1/0/0/6          S        32768    7        2                      {ACDEF}\n  XGE2/0/0/5          S        32768    12       2                      {ACDEF}\n  XGE2/0/0/6          S        32768    17       2                      {ACDEF}\nRemote: \n  Actor               Priority Index    Oper-Key SystemID               Flag   \n  XGE1/0/0/5          32768    47       13       0x8000, bcea-fa0d-b0e0 {ACDEF}\n  XGE1/0/0/6          32768    48       13       0x8000, bcea-fa0d-b0e0 {ACDEF}\n  XGE2/0/0/5          32768    252      13       0x8000, bcea-fa0d-b0e0 {ACDEF}\n  XGE2/0/0/6          32768    253      13       0x8000, bcea-fa0d-b0e0 {ACDEF}\n\nAggregate Interface: Bridge-Aggregation30\nCreation Mode: Manual\nAggregation Mode: Dynamic\nLoadsharing Type: Shar\nManagement VLANs: None\nSystem ID: 0x8000, 7848-5933-6485\nLocal: \n  Port                Status   Priority Index    Oper-Key               Flag\n  XGE1/0/0/9(R)       S        32768    3        3                      {ACDEF}\n  XGE1/0/0/10         S        32768    8        3                      {ACDEF}\n  XGE2/0/0/9          S        32768    13       3                      {ACDEF}\n  XGE2/0/0/10         S        32768    18       3                      {ACDEF}\nRemote: \n  Actor               Priority Index    Oper-Key SystemID               Flag   \n  XGE1/0/0/9          32768    252      13       0x8000, bcea-fa0d-c7d8 {ACDEF}\n  XGE1/0/0/10         32768    253      13       0x8000, bcea-fa0d-c7d8 {ACDEF}\n  XGE2/0/0/9          32768    47       13       0x8000, bcea-fa0d-c7d8 {ACDEF}\n  XGE2/0/0/10         32768    48       13       0x8000, bcea-fa0d-c7d8 {ACDEF}\n",
+  "textfsm_template": "Value Required INTERFACE (\\S+)\nValue CREATION_MODE (.+)\nValue AGGREGATION_MODE (.+)\nValue LOADSHARING (.+)\nValue List LOCAL_INTERFACES (\\S+)\nValue List REMOTE_INTERFACES (\\S+)\n\nStart\n  ^Aggregat\\S+\\s+Interface:\\s+${INTERFACE}\n  ^Creation\\s+Mode:\\s+${CREATION_MODE}\n  ^Aggregation\\s+Mode:\\s+${AGGREGATION_MODE}\n  ^Loadsharing\\s+Type:\\s+${LOADSHARING}\n  ^Local: -> LocalPorts\n  ^\\s*$$ ^. -> Error\n\nLocalPorts\n  ^\\s+Port\n  ^\\s*---\n  ^\\s+${LOCAL_INTERFACES}\\s+.*\n  # Start of remote block port\n  ^Remote: -> RemotePorts\n  ^. -> Error\n  ^\\s*$$ ^. -> Error\n\nRemotePorts\n  ^\\s+Actor\n  ^\\s*---\n  ^\\s+${REMOTE_INTERFACES}\\s+.*\n  # New item, restart from the beginning\n  ^Aggregat -> Continue.Record\n  ^Aggregat\\S+\\s+Interface:\\s+${INTERFACE} -> Start\n  ^. -> Error\n  ^\\s*$$ ^. -> Error\n"
+}

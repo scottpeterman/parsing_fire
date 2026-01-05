@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_comware_display_counters_bound_interface
+# Source: ntc
+# TextFSM rows: 8
+# TTP rows: 8
+# Match ratio: 1.00
+
+<group name="interface_packets_total_packets_broadcast_packets_multicast_packets_error">
+{{INTERFACE}} {{PACKETS_TOTAL}} {{PACKETS_BROADCAST}} {{PACKETS_MULTICAST | ORPHRASE}} {{PACKETS_ERROR}}
+</group>

@@ -1,0 +1,33 @@
+{
+  "command": "show ha-state",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"ha_config_sync_ha_heartbeat_status_ha_mode_ha_peer_ip\">\nHA State: {{HA_STATE | ORPHRASE}}\nHA Mode: {{HA_MODE | ORPHRASE}}\nHA Peer IP: {{HA_PEER_IP | ORPHRASE}}\nHA Peer State: {{HA_PEER_STATE | ORPHRASE}}\nHA Config Sync: {{HA_CONFIG_SYNC | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "HA_STATE": "active",
+      "HA_MODE": "HA A/A",
+      "HA_PEER_IP": "192.168.1.2",
+      "HA_PEER_STATE": "standby",
+      "HA_CONFIG_SYNC": "enabled",
+      "HA_HEARTBEAT_STATUS": "active"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ha_config_sync_ha_heartbeat_status_ha_mode_ha_peer_ip": {
+        "HA_CONFIG_SYNC": "enabled",
+        "HA_PEER_STATE": "standby",
+        "HA_PEER_IP": "192.168.1.2",
+        "HA_MODE": "HA A/A",
+        "HA_STATE": "active"
+      }
+    }
+  ],
+  "cli_content": "HA State: active\nHA Mode: HA A/A\nHA Peer IP: 192.168.1.2\nHA Peer State: standby\nHA Config Sync: enabled\nHA Heartbeat Status: active\n",
+  "textfsm_template": "Value HA_STATE (\\S+)\nValue HA_MODE (.+)\nValue HA_PEER_IP (\\S+)\nValue HA_PEER_STATE (\\S+)\nValue HA_CONFIG_SYNC (\\S+)\nValue HA_HEARTBEAT_STATUS (\\S+)\n\nStart\n  ^\\s*HA State:\\s+${HA_STATE}\\s*$$\n  ^\\s*HA Mode:\\s+${HA_MODE}\\s*$$\n  ^\\s*HA Peer IP:\\s+${HA_PEER_IP}\\s*$$\n  ^\\s*HA Peer State:\\s+${HA_PEER_STATE}\\s*$$\n  ^\\s*HA Config Sync:\\s+${HA_CONFIG_SYNC}\\s*$$\n  ^\\s*HA Heartbeat Status:\\s+${HA_HEARTBEAT_STATUS}\\s*$$ -> Record"
+}

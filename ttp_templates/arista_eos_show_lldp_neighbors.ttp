@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_lldp_neighbors
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="local_interface_neighbor_name_neighbor_interface">
+{{LOCAL_INTERFACE}} {{NEIGHBOR_NAME}} {{NEIGHBOR_INTERFACE | ORPHRASE}} 120
+</group>

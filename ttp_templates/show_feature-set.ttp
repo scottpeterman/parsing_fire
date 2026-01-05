@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show feature-set
+# Source: chatgpt
+# TextFSM rows: 12
+# TTP rows: 12
+# Match ratio: 1.00
+
+<group name="feature_status_description">
+{{FEATURE}} {{STATUS | ORPHRASE}} {{DESCRIPTION | ORPHRASE}}
+</group>

@@ -1,0 +1,126 @@
+{
+  "command": "show ospf database",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 7,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"link_id_adv_router_age_seq_checksum_link_count\">\n  {{LINK_ID}} {{ADV_ROUTER}} {{AGE}} {{SEQ}} {{CHECKSUM | ORPHRASE}} {{LINK_COUNT | re(\"\\\\d+\")}}\n</group>\n<group name=\"link_id_adv_router_age_seq_checksum\">\n  {{LINK_ID}} {{ADV_ROUTER}} {{AGE}} {{SEQ}} {{CHECKSUM | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LINK_ID": "10.0.0.1",
+      "ADV_ROUTER": "10.0.0.1",
+      "AGE": "3600",
+      "SEQ": "0x80000005",
+      "CHECKSUM": "0x0d6a5c",
+      "LINK_COUNT": "3"
+    },
+    {
+      "LINK_ID": "10.0.0.2",
+      "ADV_ROUTER": "10.0.0.2",
+      "AGE": "1234",
+      "SEQ": "0x8000001b",
+      "CHECKSUM": "0x0d7cec",
+      "LINK_COUNT": "3"
+    },
+    {
+      "LINK_ID": "10.0.0.3",
+      "ADV_ROUTER": "10.0.0.3",
+      "AGE": "5678",
+      "SEQ": "0x80000010",
+      "CHECKSUM": "0x0dcda4",
+      "LINK_COUNT": "1"
+    },
+    {
+      "LINK_ID": "10.0.1.1",
+      "ADV_ROUTER": "10.0.0.1",
+      "AGE": "40",
+      "SEQ": "0x80000003",
+      "CHECKSUM": "0x006a31"
+    },
+    {
+      "LINK_ID": "10.0.1.2",
+      "ADV_ROUTER": "10.0.0.2",
+      "AGE": "1460",
+      "SEQ": "0x80000006",
+      "CHECKSUM": "0x004711"
+    },
+    {
+      "LINK_ID": "10.1.0.0",
+      "ADV_ROUTER": "10.0.0.1",
+      "AGE": "300",
+      "SEQ": "0x80000002",
+      "CHECKSUM": "0x00a73b"
+    },
+    {
+      "LINK_ID": "10.1.1.0",
+      "ADV_ROUTER": "10.0.0.2",
+      "AGE": "2510",
+      "SEQ": "0x80000001",
+      "CHECKSUM": "0x00ab41"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "link_id_adv_router_age_seq_checksum_link_count": [
+        {
+          "LINK_ID": "10.0.0.1",
+          "ADV_ROUTER": "10.0.0.1",
+          "AGE": "3600",
+          "SEQ": "0x80000005",
+          "CHECKSUM": "0x0d6a5c",
+          "LINK_COUNT": "3"
+        },
+        {
+          "LINK_ID": "10.0.0.2",
+          "ADV_ROUTER": "10.0.0.2",
+          "AGE": "1234",
+          "SEQ": "0x8000001b",
+          "CHECKSUM": "0x0d7cec",
+          "LINK_COUNT": "3"
+        },
+        {
+          "LINK_ID": "10.0.0.3",
+          "ADV_ROUTER": "10.0.0.3",
+          "AGE": "5678",
+          "SEQ": "0x80000010",
+          "CHECKSUM": "0x0dcda4",
+          "LINK_COUNT": "1"
+        }
+      ],
+      "link_id_adv_router_age_seq_checksum": [
+        {
+          "LINK_ID": "10.0.1.1",
+          "ADV_ROUTER": "10.0.0.1",
+          "AGE": "40",
+          "SEQ": "0x80000003",
+          "CHECKSUM": "0x006a31"
+        },
+        {
+          "LINK_ID": "10.0.1.2",
+          "ADV_ROUTER": "10.0.0.2",
+          "AGE": "1460",
+          "SEQ": "0x80000006",
+          "CHECKSUM": "0x004711"
+        },
+        {
+          "LINK_ID": "10.1.0.0",
+          "ADV_ROUTER": "10.0.0.1",
+          "AGE": "300",
+          "SEQ": "0x80000002",
+          "CHECKSUM": "0x00a73b"
+        },
+        {
+          "LINK_ID": "10.1.1.0",
+          "ADV_ROUTER": "10.0.0.2",
+          "AGE": "2510",
+          "SEQ": "0x80000001",
+          "CHECKSUM": "0x00ab41"
+        }
+      ]
+    }
+  ],
+  "cli_content": "            OSPF Router with ID (10.0.0.1) (Process ID 1)\n\n                Router Link States (Area 0)\n\n  Link ID         ADV Router      Age         Seq#       Checksum Link count\n  10.0.0.1        10.0.0.1        3600        0x80000005 0x0d6a5c  3\n  10.0.0.2        10.0.0.2        1234        0x8000001b 0x0d7cec  3\n  10.0.0.3        10.0.0.3        5678        0x80000010 0x0dcda4  1\n\n                Net Link States (Area 0)\n\n  Link ID         ADV Router      Age         Seq#       Checksum\n  10.0.1.1        10.0.0.1        40          0x80000003 0x006a31\n  10.0.1.2        10.0.0.2        1460        0x80000006 0x004711\n\n                Summary Net Link States (Area 1)\n\n  Link ID         ADV Router      Age         Seq#       Checksum\n  10.1.0.0        10.0.0.1        300         0x80000002 0x00a73b\n  10.1.1.0        10.0.0.2        2510        0x80000001 0x00ab41\n",
+  "textfsm_template": "Value LINK_ID (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue ADV_ROUTER (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue AGE (\\d+)\nValue SEQ (\\S+)\nValue CHECKSUM (\\S+)\nValue LINK_COUNT (\\d+)\n\nStart\n  ^\\s*Link\\s+ID\\s+ADV\\s+Router\\s+Age\\s+Seq#\\s+Checksum\\s+Link\\s+count\\s*$$\n  ^\\s*${LINK_ID}\\s+${ADV_ROUTER}\\s+${AGE}\\s+${SEQ}\\s+${CHECKSUM}\\s+${LINK_COUNT}\\s*$$ -> Record\n  ^\\s*${LINK_ID}\\s+${ADV_ROUTER}\\s+${AGE}\\s+${SEQ}\\s+${CHECKSUM}\\s*$$ -> Record"
+}

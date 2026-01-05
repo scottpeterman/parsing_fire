@@ -1,0 +1,17 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_fex_id
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="description_extender_model_extender_serial_fabric_interface">
+FEX: {{FEX}} Description: {{DESCRIPTION}}  state: {{STATE | ORPHRASE}}
+  FEX version: {{VERSION | ORPHRASE}} [Switch version: 7.2(1)N1(1)]
+  Extender Serial: {{EXTENDER_SERIAL | ORPHRASE}}
+  Extender Model: {{EXTENDER_MODEL}},  Part No: {{PART_NO | ORPHRASE}}
+  Pinning-mode: {{PINNING_MODE | ORPHRASE}}    Max-links: 1
+  Fabric port for control traffic: {{FABRIC_PORT | ORPHRASE}}
+  FCoE Admin: {{FCOE_ADMIN | ORPHRASE}}
+  FCoE Oper: {{FCOE_OPER | ORPHRASE}}
+</group>

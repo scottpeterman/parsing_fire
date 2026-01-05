@@ -1,0 +1,41 @@
+{
+  "command": "brocade_fastiron_show_trunk",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"id_link1_link2_port1\">\nTrunk ID: {{ID | ORPHRASE}}\nPorts  5  {{PORT2 | ORPHRASE}}  \nLink_Status  {{LINK1 | ORPHRASE}}  {{LINK2}}  \nport_state  {{STATE1 | ORPHRASE}} {{STATE2 | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ID": "5",
+      "PORT1": "5",
+      "PORT2": "23",
+      "LINK1": "active",
+      "LINK2": "active",
+      "STATE1": "Forward",
+      "STATE2": "Forward"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "id_link1_link2_port1": [
+        {
+          "PORT2": "23",
+          "ID": "5"
+        },
+        {
+          "STATE1": "Forward",
+          "STATE2": "Forward",
+          "LINK1": "active",
+          "LINK2": "active",
+          "PORT2": "23",
+          "ID": "5"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nConfigured trunks:\n\nTrunk ID: 5\nHw Trunk ID: 1\nPorts_Configured: 2\nPrimary Port Monitored: Jointly\n\nPorts         5       23      \nPort Names    none    none    \nPort_Status   enable  enable  \nMonitor       off     off     \nRx Mirr Port  N/A     N/A     \nTx Mirr Port  N/A     N/A     \nMonitor Dir   N/A     N/A     \n\nOperational trunks:\n\nTrunk ID: 5\nHw Trunk ID: 1\nDuplex: Full\nSpeed: 1G\nTag: Yes\nPriority: level0                                                  \nActive Ports: 2\n\nPorts         5       23      \nLink_Status   active  active  \nport_state    Forward Forward \nLACP_Status   ready   ready   \n",
+  "textfsm_template": "Value Filldown ID ([0-9\\/]+)\nValue Required PORT1 ([0-9\\/]+)\nValue PORT2 ([0-9\\/]+)\nValue PORT3 ([0-9\\/]+)\nValue PORT4 ([0-9\\/]+)\nValue PORT5 ([0-9\\/]+)\nValue PORT6 ([0-9\\/]+)\nValue PORT7 ([0-9\\/]+)\nValue PORT8 ([0-9\\/]+)\nValue LINK1 (\\w+)\nValue LINK2 (\\w+)\nValue LINK3 (\\w+)\nValue LINK4 (\\w+)\nValue LINK5 (\\w+)\nValue LINK6 (\\w+)\nValue LINK7 (\\w+)\nValue LINK8 (\\w+)\nValue STATE1 (\\w+)\nValue STATE2 (\\w+)\nValue STATE3 (\\w+)\nValue STATE4 (\\w+)\nValue STATE5 (\\w+)\nValue STATE6 (\\w+)\nValue STATE7 (\\w+)\nValue STATE8 (\\w+)\n\nStart\n  ^Operational trunks: -> BODY\n\nBODY\n  ^$$ -> Continue.Record\n  ^Trunk ID: ${ID}\n  ^Active Ports: 2 -> CASE2\n  ^Active Ports: 3 -> CASE3\n  ^Active Ports: 4 -> CASE4\n  ^Active Ports: 5 -> CASE5\n  ^Active Ports: 6 -> CASE6\n  ^Active Ports: 7 -> CASE7\n  ^Active Ports: 8 -> CASE8\n\nCASE2\n  ^Ports\\s+Link_Status -> ICX\n  ^Ports\\s+${PORT1}\\s+${PORT2}\n  ^Link_Status\\s+${LINK1}\\s+${LINK2}\n  ^port_state\\s+${STATE1}\\s+${STATE2} -> BODY\n\nCASE3\n  ^Ports\\s+Link_Status -> ICX    \n  ^Ports\\s+${PORT1}\\s+${PORT2}\\s+${PORT3}\n  ^Link_Status\\s+${LINK1}\\s+${LINK2}\\s+${LINK3}\n  ^port_state\\s+${STATE1}\\s+${STATE2}\\s+${STATE3} -> BODY\n\nCASE4\n  ^Ports\\s+Link_Status -> ICX    \n  ^Ports\\s+${PORT1}\\s+${PORT2}\\s+${PORT3}\\s+${PORT4}\n  ^Link_Status\\s+${LINK1}\\s+${LINK2}\\s+${LINK3}\\s+${LINK4}\n  ^port_state\\s+${STATE1}\\s+${STATE2}\\s+${STATE3}\\s+${STATE4} -> BODY\n\nCASE5\n  ^Ports\\s+Link_Status -> ICX    \n  ^Ports\\s+${PORT1}\\s+${PORT2}\\s+${PORT3}\\s+${PORT4}\\s+${PORT5}\n  ^Link_Status\\s+${LINK1}\\s+${LINK2}\\s+${LINK3}\\s+${LINK4}\\s+${LINK5}\n  ^port_state\\s+${STATE1}\\s+${STATE2}\\s+${STATE3}\\s+${STATE4}\\s+${STATE5} -> BODY\n\nCASE6\n  ^Ports\\s+Link_Status -> ICX    \n  ^Ports\\s+${PORT1}\\s+${PORT2}\\s+${PORT3}\\s+${PORT4}\\s+${PORT5}\\s+${PORT6}\n  ^Link_Status\\s+${LINK1}\\s+${LINK2}\\s+${LINK3}\\s+${LINK4}\\s+${LINK5}\\s+${LINK6}\n  ^port_state\\s+${STATE1}\\s+${STATE2}\\s+${STATE3}\\s+${STATE4}\\s+${STATE5}\\s+${STATE6} -> BODY\n\nCASE7\n  ^Ports\\s+Link_Status -> ICX    \n  ^Ports\\s+${PORT1}\\s+${PORT2}\\s+${PORT3}\\s+${PORT4}\\s+${PORT5}\\s+${PORT6}\\s+${PORT7}\n  ^Link_Status\\s+${LINK1}\\s+${LINK2}\\s+${LINK3}\\s+${LINK4}\\s+${LINK5}\\s+${LINK6}\\s+${LINK7}\n  ^port_state\\s+${STATE1}\\s+${STATE2}\\s+${STATE3}\\s+${STATE4}\\s+${STATE5}\\s+${STATE6}\\s+${STATE7} -> BODY\n\nCASE8\n  ^Ports\\s+Link_Status -> ICX    \n  ^Ports\\s+${PORT1}\\s+${PORT2}\\s+${PORT3}\\s+${PORT4}\\s+${PORT5}\\s+${PORT6}\\s+${PORT7}\\s+${PORT8}\n  ^Link_Status\\s+${LINK1}\\s+${LINK2}\\s+${LINK3}\\s+${LINK4}\\s+${LINK5}\\s+${LINK6}\\s+${LINK7}\\s+${LINK8}\n  ^port_state\\s+${STATE1}\\s+${STATE2}\\s+${STATE3}\\s+${STATE4}\\s+${STATE5}\\s+${STATE6}\\s+${STATE7}\\s+${STATE8} -> BODY\n\nICX\n  ^${PORT1}\\s+${LINK1}\\s+${STATE1} -> ICX2\n\nICX2\n  ^${PORT2}\\s+${LINK2}\\s+${STATE2} -> ICX3\n\nICX3\n  ^${PORT3}\\s+${LINK3}\\s+${STATE3} -> ICX4\n\nICX4\n  ^${PORT4}\\s+${LINK4}\\s+${STATE4} -> ICX5\n\nICX5\n  ^${PORT5}\\s+${LINK5}\\s+${STATE5} -> ICX6\n\nICX6 \n  ^${PORT6}\\s+${LINK6}\\s+${STATE6} -> ICX7\n\nICX7\n  ^${PORT7}\\s+${LINK7}\\s+${STATE7} -> ICX8\n\nICX8\n  ^${PORT8}\\s+${LINK8}\\s+${STATE8} -> BODY\n\n"
+}

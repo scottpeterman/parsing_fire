@@ -1,0 +1,44 @@
+{
+  "command": "cisco_nxos_show_ip_pim_rp_vrf_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"bsr_candidate_policy\">\nBSR RP Candidate policy: {{BSR_CANDIDATE_POLICY | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VRF": "default",
+      "BSR": "disabled",
+      "AUTO_RP": "disabled",
+      "BSR_CANDIDATE_POLICY": "None",
+      "BSR_POLICY": "None",
+      "AUTO_RP_ANNOUNCE_POLICY": "None",
+      "AUTO_RP_DISCOVERY_POLICY": "None"
+    },
+    {
+      "VRF": "red",
+      "BSR": "disabled",
+      "AUTO_RP": "disabled",
+      "BSR_CANDIDATE_POLICY": "None",
+      "BSR_POLICY": "None",
+      "AUTO_RP_ANNOUNCE_POLICY": "None",
+      "AUTO_RP_DISCOVERY_POLICY": "None"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "bsr_candidate_policy": [
+        {
+          "BSR_CANDIDATE_POLICY": "None"
+        },
+        {
+          "BSR_CANDIDATE_POLICY": "None"
+        }
+      ]
+    }
+  ],
+  "cli_content": "PIM RP Status Information for VRF \"default\"\nBSR disabled\nAuto-RP disabled\nBSR RP Candidate policy: None\nBSR RP policy: None\nAuto-RP Announce policy: None\nAuto-RP Discovery policy: None\n\n\nPIM RP Status Information for VRF \"red\"\nBSR disabled\nAuto-RP disabled\nBSR RP Candidate policy: None\nBSR RP policy: None\nAuto-RP Announce policy: None\nAuto-RP Discovery policy: None\n\n\n",
+  "textfsm_template": "Value VRF (\\S+)\nValue BSR (\\S+)\nValue AUTO_RP (\\S+)\nValue BSR_CANDIDATE_POLICY (\\S+)\nValue BSR_POLICY (\\S+)\nValue AUTO_RP_ANNOUNCE_POLICY (\\S+)\nValue AUTO_RP_DISCOVERY_POLICY (\\S+)\n\nStart\n  ^\\s*PIM RP Status Information for VRF \"${VRF}\"\\s*$$\n  ^\\s*BSR ${BSR}\\s*$$\n  ^\\s*Auto-RP ${AUTO_RP}\\s*$$\n  ^\\s*BSR RP Candidate policy: ${BSR_CANDIDATE_POLICY}\\s*$$\n  ^\\s*BSR RP policy: ${BSR_POLICY}\\s*$$\n  ^\\s*Auto-RP Announce policy: ${AUTO_RP_ANNOUNCE_POLICY}\\s*$$\n  ^\\s*Auto-RP Discovery policy: ${AUTO_RP_DISCOVERY_POLICY}\\s*$$ -> Record\n  ^. -> Error\n"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_bfd_neighbors_details
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 6
+# Match ratio: 1.00
+
+<group name="our_addr_neighbor_addr_local_discrim_remote_discrim_remote_heard_holddown_multiplier_state_interface">
+{{OUR_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{NEIGHBOR_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{LOCAL_DISCRIM}}/{{REMOTE_DISCRIM}} {{REMOTE_HEARD}} {{HOLDDOWN}} ({{MULTIPLIER}} ) {{STATE | ORPHRASE}} {{INTERFACE | ORPHRASE}} 
+</group>

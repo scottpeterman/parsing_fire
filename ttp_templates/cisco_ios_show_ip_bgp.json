@@ -1,0 +1,132 @@
+{
+  "command": "cisco_ios_show_ip_bgp",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 8,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"status_path_selection_network_next_hop_metric_weight_origin\">\n {{STATUS | ORPHRASE}}{{PATH_SELECTION | re(\".*\\\\w.*\")}} {{NETWORK}} {{NEXT_HOP}} {{METRIC}} {{WEIGHT}} {{ORIGIN | ORPHRASE}}\n</group>\n<group name=\"status_path_selection_network_next_hop_metric_weight_as_path_origin\">\n {{STATUS | ORPHRASE}}{{PATH_SELECTION | re(\".*\\\\w.*\")}} {{NETWORK}} {{NEXT_HOP}} {{METRIC}} {{WEIGHT}} {{AS_PATH}} {{ORIGIN | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "STATUS": "*",
+      "PATH_SELECTION": ">",
+      "NETWORK": "10.101.1.0/24",
+      "NEXT_HOP": "0.0.0.0",
+      "METRIC": "0",
+      "WEIGHT": "32768",
+      "ORIGIN": "i"
+    },
+    {
+      "STATUS": "*",
+      "PATH_SELECTION": ">",
+      "NETWORK": "10.101.2.0/24",
+      "NEXT_HOP": "0.0.0.0",
+      "METRIC": "0",
+      "WEIGHT": "32768",
+      "ORIGIN": "i"
+    },
+    {
+      "STATUS": "*",
+      "PATH_SELECTION": ">",
+      "NETWORK": "10.101.3.0/24",
+      "NEXT_HOP": "0.0.0.0",
+      "METRIC": "0",
+      "WEIGHT": "32768",
+      "ORIGIN": "i"
+    },
+    {
+      "STATUS": "*",
+      "PATH_SELECTION": ">",
+      "NETWORK": "10.101.4.0/24",
+      "NEXT_HOP": "0.0.0.0",
+      "METRIC": "0",
+      "WEIGHT": "32768",
+      "ORIGIN": "i"
+    },
+    {
+      "STATUS": "*",
+      "PATH_SELECTION": ">",
+      "NETWORK": "10.102.1.0/24",
+      "NEXT_HOP": "10.10.10.2",
+      "METRIC": "0",
+      "WEIGHT": "0",
+      "AS_PATH": "102",
+      "ORIGIN": "i"
+    },
+    {
+      "STATUS": "*",
+      "PATH_SELECTION": ">",
+      "NETWORK": "10.102.2.0/24",
+      "NEXT_HOP": "10.10.10.2",
+      "METRIC": "0",
+      "WEIGHT": "0",
+      "AS_PATH": "102",
+      "ORIGIN": "i"
+    },
+    {
+      "STATUS": "*",
+      "PATH_SELECTION": ">",
+      "NETWORK": "10.102.3.0/24",
+      "NEXT_HOP": "10.10.10.2",
+      "METRIC": "0",
+      "WEIGHT": "0",
+      "AS_PATH": "102",
+      "ORIGIN": "i"
+    },
+    {
+      "STATUS": "*",
+      "PATH_SELECTION": ">",
+      "NETWORK": "10.102.4.0/24",
+      "NEXT_HOP": "10.10.10.2",
+      "METRIC": "0",
+      "WEIGHT": "0",
+      "AS_PATH": "102",
+      "ORIGIN": "i"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "status_path_selection_network_next_hop_metric_weight_origin": [
+        {
+          "STATUS": "*>",
+          "PATH_SELECTION": "  10.102.1.0/24   ",
+          "NETWORK": "10.10.10.2",
+          "NEXT_HOP": "0",
+          "METRIC": "0",
+          "WEIGHT": "102",
+          "ORIGIN": "i"
+        },
+        {
+          "STATUS": "*>",
+          "PATH_SELECTION": "  10.102.2.0/24   ",
+          "NETWORK": "10.10.10.2",
+          "NEXT_HOP": "0",
+          "METRIC": "0",
+          "WEIGHT": "102",
+          "ORIGIN": "i"
+        },
+        {
+          "STATUS": "*>",
+          "PATH_SELECTION": "  10.102.3.0/24   ",
+          "NETWORK": "10.10.10.2",
+          "NEXT_HOP": "0",
+          "METRIC": "0",
+          "WEIGHT": "102",
+          "ORIGIN": "i"
+        },
+        {
+          "STATUS": "*>",
+          "PATH_SELECTION": "  10.102.4.0/24   ",
+          "NETWORK": "10.10.10.2",
+          "NEXT_HOP": "0",
+          "METRIC": "0",
+          "WEIGHT": "102",
+          "ORIGIN": "i"
+        }
+      ]
+    }
+  ],
+  "cli_content": "BGP table version is 9, local router ID is 10.101.1.1\nStatus codes: s suppressed, d damped, h history, * valid, > best, i - internal, \n              r RIB-failure, S Stale, m multipath, b backup-path, f RT-Filter, \n              x best-external, a additional-path, c RIB-compressed, \nOrigin codes: i - IGP, e - EGP, ? - incomplete\nRPKI validation codes: V valid, I invalid, N Not found\n\n     Network          Next Hop            Metric LocPrf Weight Path\n *>  10.101.1.0/24    0.0.0.0                  0         32768 i\n *>  10.101.2.0/24    0.0.0.0                  0         32768 i\n *>  10.101.3.0/24    0.0.0.0                  0         32768 i\n *>  10.101.4.0/24    0.0.0.0                  0         32768 i\n *>  10.102.1.0/24    10.10.10.2               0             0 102 i\n *>  10.102.2.0/24    10.10.10.2               0             0 102 i\n *>  10.102.3.0/24    10.10.10.2               0             0 102 i\n *>  10.102.4.0/24    10.10.10.2               0             0 102 i\n",
+  "textfsm_template": "Value Filldown STATUS ([bdhimrsSx*>])\nValue Filldown PATH_SELECTION ([bdhimrsSx*> ])\nValue Filldown ROUTE_SOURCE ([bdhimrsSx*> ])\nValue Filldown NETWORK (\\S{0,18})\nValue Required NEXT_HOP (\\S{0,15})\nValue Filldown METRIC (\\S{0,10})\nValue LOCAL_PREF (\\S{0,6})\nValue WEIGHT (\\S{0,6})\nValue AS_PATH (.*?)\nValue ORIGIN ([ie\\?])\n\nStart\n  # Since using mostly position, play it safe and ensure we see header first\n  ^\\s+Network\\s+Next Hop\\s+Metric\\s+LocPrf\\s+Weight\\s+Path -> Bgp_table\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n\nBgp_table\n  # Account for show ip bgp vpnv4 vrf command\n  ^Route\\s+Distinguisher\n  #\n  #\n  # Match if subnet is 17,18 characters long, creates two lines\n  # Example: *>i 10.104.192.208/29\n  ^\\s{0,1}${STATUS}${PATH_SELECTION}${ROUTE_SOURCE}\\s{0,2}(?=${NETWORK}).{17,18}$$ -> Next\n  #\n  #\n  # Compliment to previous, status, path_selection, route_source, network is filldown.\n  # Example:                     200.200.186.194          0    100  50000 64801 64808 64608 64601 64787 i\n  ^\\s{20,25}(?=${NEXT_HOP}).{15}\\s(?=\\s{0,10}${METRIC}).{10}\\s(?=\\s{0,6}${LOCAL_PREF}).{6}\\s(?=\\s{0,6}${WEIGHT}).{6}\\s*${AS_PATH}\\s*${ORIGIN}$$ -> Record\n  #\n  #\n  # Match first when there is no network, since previous line had it already (compliment and filldown below)\n  # Example: *>                  0.0.0.0                  0         32768 i\n  ^\\s{0,1}${STATUS}${PATH_SELECTION}${ROUTE_SOURCE}\\s{0,2}\\s{16}\\s(?=${NEXT_HOP}).{15}\\s(?=\\s{0,10}${METRIC}).{10}\\s(?=\\s{0,6}${LOCAL_PREF}).{6}\\s(?=\\s{0,6}${WEIGHT}).{6}\\s*${AS_PATH}\\s*${ORIGIN}$$ -> Record\n  #\n  #\n  # Full normal example. metric, and as_path might not exist, regex defaults to blank line.\n  # Example: * i172.16.1.0/24    172.16.1.2               0    100      0 i\n  ^\\s{0,1}${STATUS}${PATH_SELECTION}${ROUTE_SOURCE}\\s{0,2}(?=${NETWORK}).{16}\\s(?=${NEXT_HOP}).{15}\\s(?=\\s{0,10}${METRIC}).{10}\\s(?=\\s{0,6}${LOCAL_PREF}).{6}\\s(?=\\s{0,6}${WEIGHT}).{6}\\s*${AS_PATH}\\s*${ORIGIN}$$ -> Record\n\n\nEOF\n"
+}

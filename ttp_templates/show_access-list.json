@@ -1,0 +1,101 @@
+{
+  "command": "show access-list",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"seq_action_protocol_src_src_wild_dst_dst_wild_details\">\n    {{SEQ}} {{ACTION}} {{PROTOCOL}} {{SRC}} {{SRC_WILD}} {{DST}} {{DST_WILD}} {{DETAILS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LIST": "100",
+      "SEQ": "20",
+      "ACTION": "deny",
+      "PROTOCOL": "ip",
+      "SRC": "192.168.1.0",
+      "SRC_WILD": "0.0.0.255",
+      "DST": "any",
+      "DST_WILD": "(5",
+      "DETAILS": "matches)"
+    },
+    {
+      "SEQ": "30",
+      "ACTION": "permit",
+      "PROTOCOL": "ip",
+      "SRC": "10.0.0.0",
+      "SRC_WILD": "0.0.0.255",
+      "DST": "any",
+      "DST_WILD": "(15",
+      "DETAILS": "matches)"
+    },
+    {
+      "SEQ": "40",
+      "ACTION": "deny",
+      "PROTOCOL": "tcp",
+      "SRC": "any",
+      "SRC_WILD": "any",
+      "DST": "eq",
+      "DST_WILD": "23",
+      "DETAILS": "(1 match)"
+    },
+    {
+      "SEQ": "50",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC": "any",
+      "SRC_WILD": "any",
+      "DST": "eq",
+      "DST_WILD": "www",
+      "DETAILS": "(8 matches)"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "seq_action_protocol_src_src_wild_dst_dst_wild_details": [
+        {
+          "SEQ": "20",
+          "ACTION": "deny",
+          "PROTOCOL": "ip",
+          "SRC": "192.168.1.0",
+          "SRC_WILD": "0.0.0.255",
+          "DST": "any",
+          "DST_WILD": "(5",
+          "DETAILS": "matches)"
+        },
+        {
+          "SEQ": "30",
+          "ACTION": "permit",
+          "PROTOCOL": "ip",
+          "SRC": "10.0.0.0",
+          "SRC_WILD": "0.0.0.255",
+          "DST": "any",
+          "DST_WILD": "(15",
+          "DETAILS": "matches)"
+        },
+        {
+          "SEQ": "40",
+          "ACTION": "deny",
+          "PROTOCOL": "tcp",
+          "SRC": "any",
+          "SRC_WILD": "any",
+          "DST": "eq",
+          "DST_WILD": "23",
+          "DETAILS": "(1 match)"
+        },
+        {
+          "SEQ": "50",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC": "any",
+          "SRC_WILD": "any",
+          "DST": "eq",
+          "DST_WILD": "www",
+          "DETAILS": "(8 matches)"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Extended IP access list 100\n    10 permit ip any any (10 matches)\n    20 deny ip 192.168.1.0 0.0.0.255 any (5 matches)\n    30 permit ip 10.0.0.0 0.0.0.255 any (15 matches)\n    40 deny tcp any any eq 23 (1 match)\n    50 permit tcp any any eq www (8 matches)\n",
+  "textfsm_template": "Value LIST (\\d+)\nValue SEQ (\\d+)\nValue ACTION (\\S+)\nValue PROTOCOL (\\S+)\nValue SRC (\\S+)\nValue SRC_WILD (\\S+)\nValue DST (\\S+)\nValue DST_WILD (\\S+)\nValue DETAILS (.*)\n\nStart\n  ^Extended\\s+IP\\s+access\\s+list\\s+${LIST}$$\n  ^\\s*${SEQ}\\s+${ACTION}\\s+${PROTOCOL}\\s+${SRC}\\s+${SRC_WILD}\\s+${DST}\\s+${DST_WILD}\\s+${DETAILS}\\s*$$ -> Record"
+}

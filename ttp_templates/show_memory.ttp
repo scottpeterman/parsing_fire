@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show memory
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 6
+# Match ratio: 2.00
+
+<group name="component_used_free_total_utilization">
+{{COMPONENT | ORPHRASE}} {{USED | ORPHRASE}} {{FREE | ORPHRASE}} {{TOTAL | ORPHRASE}} {{UTILIZATION | ORPHRASE}}
+</group>

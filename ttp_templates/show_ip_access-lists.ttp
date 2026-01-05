@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip access-lists
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="seq_num_action_src_addr_src_wildcard">
+    {{SEQ_NUM}} {{ACTION}} {{SRC_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{SRC_WILDCARD | ORPHRASE}}
+</group>
+<group name="seq_num_action_protocol_src_addr_src_wildcard_dest_addr_dest_wildcard_port">
+    {{SEQ_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{SRC_WILDCARD}} {{DEST_ADDR}} {{DEST_WILDCARD}} {{PORT | ORPHRASE}}
+</group>

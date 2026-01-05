@@ -1,0 +1,84 @@
+{
+  "command": "show interfaces transceiver diagnostic",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"port_temperature_voltage_current_tx_power_rx_power\">\n{{PORT}} {{TEMPERATURE}} {{VOLTAGE}} {{CURRENT}} {{TX_POWER}} {{RX_POWER | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "Gi1/0/1",
+      "TEMPERATURE": "37.5C",
+      "VOLTAGE": "3.30V",
+      "CURRENT": "6.10mA",
+      "TX_POWER": "-2.0dBm",
+      "RX_POWER": "-15.0dBm"
+    },
+    {
+      "PORT": "Gi1/0/2",
+      "TEMPERATURE": "38.0C",
+      "VOLTAGE": "3.28V",
+      "CURRENT": "5.90mA",
+      "TX_POWER": "-1.5dBm",
+      "RX_POWER": "-14.5dBm"
+    },
+    {
+      "PORT": "Gi1/0/3",
+      "TEMPERATURE": "36.8C",
+      "VOLTAGE": "3.32V",
+      "CURRENT": "6.20mA",
+      "TX_POWER": "-2.1dBm",
+      "RX_POWER": "-15.2dBm"
+    },
+    {
+      "PORT": "Gi1/0/4",
+      "TEMPERATURE": "39.0C",
+      "VOLTAGE": "3.29V",
+      "CURRENT": "6.00mA",
+      "TX_POWER": "-1.8dBm",
+      "RX_POWER": "-14.8dBm"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_temperature_voltage_current_tx_power_rx_power": [
+        {
+          "PORT": "Gi1/0/1",
+          "TEMPERATURE": "37.5C",
+          "VOLTAGE": "3.30V",
+          "CURRENT": "6.10mA",
+          "TX_POWER": "-2.0dBm",
+          "RX_POWER": "-15.0dBm"
+        },
+        {
+          "PORT": "Gi1/0/2",
+          "TEMPERATURE": "38.0C",
+          "VOLTAGE": "3.28V",
+          "CURRENT": "5.90mA",
+          "TX_POWER": "-1.5dBm",
+          "RX_POWER": "-14.5dBm"
+        },
+        {
+          "PORT": "Gi1/0/3",
+          "TEMPERATURE": "36.8C",
+          "VOLTAGE": "3.32V",
+          "CURRENT": "6.20mA",
+          "TX_POWER": "-2.1dBm",
+          "RX_POWER": "-15.2dBm"
+        },
+        {
+          "PORT": "Gi1/0/4",
+          "TEMPERATURE": "39.0C",
+          "VOLTAGE": "3.29V",
+          "CURRENT": "6.00mA",
+          "TX_POWER": "-1.8dBm",
+          "RX_POWER": "-14.8dBm"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Port       Temperature  Voltage  Current  TX Power  RX Power\nGi1/0/1    37.5C        3.30V    6.10mA   -2.0dBm   -15.0dBm\nGi1/0/2    38.0C        3.28V    5.90mA   -1.5dBm   -14.5dBm\nGi1/0/3    36.8C        3.32V    6.20mA   -2.1dBm   -15.2dBm\nGi1/0/4    39.0C        3.29V    6.00mA   -1.8dBm   -14.8dBm\n",
+  "textfsm_template": "Value PORT (\\S+)\nValue TEMPERATURE (\\S+C)\nValue VOLTAGE (\\S+V)\nValue CURRENT (\\S+mA)\nValue TX_POWER (\\S+dBm)\nValue RX_POWER (\\S+dBm)\n\nStart\n  ^Port\\s+Temperature\\s+Voltage\\s+Current\\s+TX\\s+Power\\s+RX\\s+Power\\s*$$\n  ^\\s*${PORT}\\s+${TEMPERATURE}\\s+${VOLTAGE}\\s+${CURRENT}\\s+${TX_POWER}\\s+${RX_POWER}\\s*$$ -> Record"
+}

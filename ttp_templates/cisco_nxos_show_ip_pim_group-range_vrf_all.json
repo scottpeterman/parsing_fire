@@ -1,0 +1,56 @@
+{
+  "command": "cisco_nxos_show_ip_pim_group-range_vrf_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"vrf\">\nPIM Group-Range Configuration for VRF \"{{VRF | ORPHRASE}}\"\n<group name=\"action_group_range_mode\">\n{{GROUP_RANGE}} {{ACTION}} {{MODE}} - - {{ORIGIN | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VRF": "default",
+      "GROUP_RANGE": "224.0.0.0/8",
+      "ACTION": "Accept",
+      "MODE": "SSM",
+      "RP_ADDRESS": "-",
+      "SHARED_TREE_RANGE": "-",
+      "ORIGIN": "Local"
+    },
+    {
+      "VRF": "red",
+      "GROUP_RANGE": "224.0.0.0/8",
+      "ACTION": "Accept",
+      "MODE": "SSM",
+      "RP_ADDRESS": "-",
+      "SHARED_TREE_RANGE": "-",
+      "ORIGIN": "Local"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vrf": [
+        {
+          "VRF": "default",
+          "action_group_range_mode": {
+            "GROUP_RANGE": "224.0.0.0/8",
+            "ACTION": "Accept",
+            "MODE": "SSM",
+            "ORIGIN": "Local"
+          }
+        },
+        {
+          "VRF": "red",
+          "action_group_range_mode": {
+            "GROUP_RANGE": "224.0.0.0/8",
+            "ACTION": "Accept",
+            "MODE": "SSM",
+            "ORIGIN": "Local"
+          }
+        }
+      ]
+    }
+  ],
+  "cli_content": "PIM Group-Range Configuration for VRF \"default\"\nGroup-range        Action Mode  RP-address      Shrd-tree-range   Origin\n224.0.0.0/8        Accept SSM   -               -                 Local\n\nPIM Group-Range Configuration for VRF \"red\"\nGroup-range        Action Mode  RP-address      Shrd-tree-range   Origin\n224.0.0.0/8        Accept SSM   -               -                 Local\n\n",
+  "textfsm_template": "Value Filldown VRF (\\S+)\nValue Required GROUP_RANGE (\\d+\\.\\d+\\.\\d+\\.\\d+/\\d+)\nValue ACTION (\\S+)\nValue MODE (\\S+)\nValue RP_ADDRESS (\\S+)\nValue SHARED_TREE_RANGE (\\S+)\nValue ORIGIN (\\S+)\n\n\nStart\n  ^\\s*PIM Group-Range Configuration for VRF \"${VRF}\"\\s*$$\n  ^\\s*Group-range\\s+Action\\s+Mode\\s+RP-address\\s+Shrd-tree-range\\s+Origin\\s*$$\n  ^\\s*${GROUP_RANGE}\\s+${ACTION}\\s+${MODE}\\s+${RP_ADDRESS}\\s+${SHARED_TREE_RANGE}\\s+${ORIGIN}\\s*$$ -> Record\n  ^. -> Error\n"
+}

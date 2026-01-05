@@ -1,0 +1,92 @@
+{
+  "command": "show mpls interface brief",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.8,
+  "textfsm_rows": 5,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"interface_ip_address_enable_tunnels_up_tunnels_uplink_tunnels_down\">\n{{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{ENABLE}} {{TUNNELS_UP | ORPHRASE}}/{{TUNNELS_UPLINK}}/{{TUNNELS_DOWN}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Loopback0",
+      "IP_ADDRESS": "10.0.0.1",
+      "ENABLE": "Yes",
+      "TUNNELS_UP": "2",
+      "TUNNELS_UPLINK": "2",
+      "TUNNELS_DOWN": "0"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/0",
+      "IP_ADDRESS": "192.168.1.1",
+      "ENABLE": "Yes",
+      "TUNNELS_UP": "5",
+      "TUNNELS_UPLINK": "5",
+      "TUNNELS_DOWN": "0"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/1",
+      "IP_ADDRESS": "192.168.2.1",
+      "ENABLE": "Yes",
+      "TUNNELS_UP": "4",
+      "TUNNELS_UPLINK": "4",
+      "TUNNELS_DOWN": "0"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/2",
+      "IP_ADDRESS": "unassigned",
+      "ENABLE": "No",
+      "TUNNELS_UP": "0",
+      "TUNNELS_UPLINK": "0",
+      "TUNNELS_DOWN": "0"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/3",
+      "IP_ADDRESS": "10.0.0.2",
+      "ENABLE": "Yes",
+      "TUNNELS_UP": "3",
+      "TUNNELS_UPLINK": "3",
+      "TUNNELS_DOWN": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_enable_tunnels_up_tunnels_uplink_tunnels_down": [
+        {
+          "INTERFACE": "Loopback0",
+          "IP_ADDRESS": "10.0.0.1",
+          "ENABLE": "Yes",
+          "TUNNELS_UP": "2",
+          "TUNNELS_UPLINK": "2",
+          "TUNNELS_DOWN": "0"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/0",
+          "IP_ADDRESS": "192.168.1.1",
+          "ENABLE": "Yes",
+          "TUNNELS_UP": "5",
+          "TUNNELS_UPLINK": "5",
+          "TUNNELS_DOWN": "0"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/1",
+          "IP_ADDRESS": "192.168.2.1",
+          "ENABLE": "Yes",
+          "TUNNELS_UP": "4",
+          "TUNNELS_UPLINK": "4",
+          "TUNNELS_DOWN": "0"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/3",
+          "IP_ADDRESS": "10.0.0.2",
+          "ENABLE": "Yes",
+          "TUNNELS_UP": "3",
+          "TUNNELS_UPLINK": "3",
+          "TUNNELS_DOWN": "0"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              IP-Address      Enable  Tunnels up/uplink/down\nLoopback0              10.0.0.1        Yes     2/2/0\nGigabitEthernet0/0     192.168.1.1     Yes     5/5/0\nGigabitEthernet0/1     192.168.2.1     Yes     4/4/0\nGigabitEthernet0/2     unassigned      No      0/0/0\nGigabitEthernet0/3     10.0.0.2        Yes     3/3/0\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue IP_ADDRESS (\\S+)\nValue ENABLE (\\S+)\nValue TUNNELS_UP (\\d+)\nValue TUNNELS_UPLINK (\\d+)\nValue TUNNELS_DOWN (\\d+)\n\nStart\n  ^\\s*Interface\\s+IP-Address\\s+Enable\\s+Tunnels up/uplink/down\\s*$$\n  ^\\s*${INTERFACE}\\s+${IP_ADDRESS}\\s+${ENABLE}\\s+${TUNNELS_UP}/${TUNNELS_UPLINK}/${TUNNELS_DOWN}\\s*$$ -> Record"
+}

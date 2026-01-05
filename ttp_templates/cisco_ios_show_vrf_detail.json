@@ -1,0 +1,54 @@
+{
+  "command": "cisco_ios_show_vrf_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"vrf_rd_vpn_id\">\nVRF {{VRF}} (VRF Id = 1); default RD {{RD | ORPHRASE}}; default VPNID {{VPN_ID | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VRF": "Management",
+      "RD": "<not set>",
+      "VPN_ID": "<not set>",
+      "INTERFACES": "Gi1"
+    },
+    {
+      "VRF": "testr",
+      "RD": "65000:42",
+      "RT_IMPORT": "65000:43, 65000:44",
+      "RT_EXPORT": "65000:42",
+      "VPN_ID": "<not set>"
+    },
+    {
+      "VRF": "test2",
+      "RD": "<not set>",
+      "VPN_ID": "<not set>",
+      "DESCRIPTION": "test2 description"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vrf_rd_vpn_id": [
+        {
+          "VRF": "Management",
+          "RD": "<not set>",
+          "VPN_ID": "<not set>"
+        },
+        {
+          "VRF": "testr",
+          "RD": "65000:42",
+          "VPN_ID": "<not set>"
+        },
+        {
+          "VRF": "test2",
+          "RD": "<not set>",
+          "VPN_ID": "<not set>"
+        }
+      ]
+    }
+  ],
+  "cli_content": "VRF Management (VRF Id = 1); default RD <not set>; default VPNID <not set>\n  Old CLI format, supports IPv4 only\n  Flags: 0x8\n  Interfaces:\n    Gi1                     \nAddress family ipv4 unicast (Table ID = 0x1):\n  Flags: 0x0\n  No Export VPN route-target communities\n  No Import VPN route-target communities\n  No import route-map\n  No global export route-map\n  No export route-map\n  VRF label distribution protocol: not configured\n  VRF label allocation mode: per-prefix\nAddress family ipv6 unicast not active\nAddress family ipv4 multicast not active\nAddress family ipv6 multicast not active\n\nVRF testr (VRF Id = 2); default RD 65000:42; default VPNID <not set>\n  Old CLI format, supports IPv4 only\n  Flags: 0xC\n  No interfaces\nAddress family ipv4 unicast (Table ID = 0x2):\n  Flags: 0x0\n  Export VPN route-target communities\n    RT:65000:42             \n  Import VPN route-target communities\n    RT:65000:43 \n    RT:65000:44             \n  No import route-map\n  No global export route-map\n  No export route-map\n  VRF label distribution protocol: not configured\n  VRF label allocation mode: per-prefix\nAddress family ipv6 unicast not active\nAddress family ipv4 multicast not active\nAddress family ipv6 multicast not active\n\nVRF test2 (VRF Id = 3); default RD <not set>; default VPNID <not set>\n  Description: test2 description\n  Old CLI format, supports IPv4 only\n  Flags: 0x8\n  No interfaces\nAddress family ipv4 unicast (Table ID = 0x3):\n  Flags: 0x0\n  No Export VPN route-target communities\n  No Import VPN route-target communities\n  No import route-map\n  No global export route-map\n  No export route-map\n  VRF label distribution protocol: not configured\n  VRF label allocation mode: per-prefix\nAddress family ipv6 unicast not active\nAddress family ipv4 multicast not active\nAddress family ipv6 multicast not active\n\n",
+  "textfsm_template": "Value VRF (\\S+)\nValue RD (\\S+|<not set>)\nValue List RT_IMPORT (\\S+)\nValue List RT_EXPORT (\\S+)\nValue VPN_ID (\\S+|<not set>)\nValue DESCRIPTION ([\\S\\s]+)\nValue List INTERFACES ([\\w\\./-]+)\n\nStart\n  ^\\s*VRF\\s.+default\\sRD\\s.+;\\sdefault\\sVPNID\\s.+$$ -> Continue.Record\n  ^\\s*Old\\sCLI\\sformat,\\ssupports\\s\\S+\\sonly\n  ^\\s*Flags:\\s\\S+\n  ^\\s*\\s*VRF\\s${VRF}\\s.+;\\sdefault\\sRD\\s${RD};\\sdefault\\sVPNID\\s${VPN_ID}\\s*$$\n  ^\\s*\\s*Description:\\s${DESCRIPTION}\n  ^\\s*No\\sinterfaces.*\\s*$$\n  ^\\s*Interfaces:+s*$$ -> Interfaces\n  ^\\s*Flags:\\s\\S+\n  ^\\s*Export\\sVPN.*\\s*$$ -> Rt_Export\n  ^\\s*Import\\sVPN.*\\s*$$ -> Rt_Import\n  ^\\s*No\\sExport.*\\s*$$\n  ^\\s*No\\sImport.*\\s*$$\n  ^\\s*No\\simport.*\\s*$$\n  ^\\s*No\\sexport.*\\s*$$\n  ^\\s*No\\sglobal.*\\s*$$\n  ^\\s*VRF\\slabel.*\\s*$$\n  ^\\s*Address\\sfamily.*\\s*$$\n  ^\\s*New\\sCLI\\sformat.*\\s*$$\n  ^\\s*Old\\sCLI\\sformat.*\\s*$$\n  ^. -> Error\n\nInterfaces\n  ^\\s*${INTERFACES}\\s*$$\n  ^\\s*Address\\sfamily.+$$ -> Start\n  \nRt_Export\n  ^\\s*RT:${RT_EXPORT}\\s*$$\n  ^\\s*(Import\\sVPN.*|No\\simport\\sroute-map)+\\s*$$ -> Rt_Import\n\nRt_Import\n  ^\\s*RT:${RT_IMPORT}\\s*$$\n  ^\\s*No\\simport\\sroute-map\\s*$$ -> Start\n  \n"
+}

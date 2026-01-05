@@ -1,0 +1,74 @@
+{
+  "command": "show hardware status",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"model_number\">\n  Model Number {{MODEL_NUMBER | ORPHRASE}}\n</group>\n<group name=\"serial_number\">\n  Serial Number {{SERIAL_NUMBER | re(\"\\\\w+\")}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SLOT": "1",
+      "DESCRIPTION": "Supervisor",
+      "MODEL_NUMBER": "ASR1001-X",
+      "SERIAL_NUMBER": "JAE12345678",
+      "HARDWARE_REVISION": "1.0"
+    },
+    {
+      "SLOT": "2",
+      "DESCRIPTION": "Route Processor",
+      "MODEL_NUMBER": "ASR1001-X-RP",
+      "SERIAL_NUMBER": "FGH98765432",
+      "HARDWARE_REVISION": "1.0"
+    },
+    {
+      "SLOT": "3",
+      "DESCRIPTION": "Power Supply",
+      "MODEL_NUMBER": "PWR-3KW-AC",
+      "SERIAL_NUMBER": "ABC12345678",
+      "HARDWARE_REVISION": "N/A"
+    },
+    {
+      "SLOT": "4",
+      "DESCRIPTION": "Fan Tray",
+      "MODEL_NUMBER": "ASR1001-X-FAN",
+      "SERIAL_NUMBER": "XYZ12345678",
+      "HARDWARE_REVISION": "N/A"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "model_number": [
+        {
+          "MODEL_NUMBER": "ASR1001-X"
+        },
+        {
+          "MODEL_NUMBER": "ASR1001-X-RP"
+        },
+        {
+          "MODEL_NUMBER": "PWR-3KW-AC"
+        },
+        {
+          "MODEL_NUMBER": "ASR1001-X-FAN"
+        }
+      ],
+      "serial_number": [
+        {
+          "SERIAL_NUMBER": "JAE12345678"
+        },
+        {
+          "SERIAL_NUMBER": "FGH98765432"
+        },
+        {
+          "SERIAL_NUMBER": "ABC12345678"
+        },
+        {
+          "SERIAL_NUMBER": "XYZ12345678"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Hardware Inventory\n\nSlot 1:\n  Description        Supervisor\n  Model Number       ASR1001-X\n  Serial Number      JAE12345678\n  Hardware Revision  1.0\n\nSlot 2:\n  Description        Route Processor\n  Model Number       ASR1001-X-RP\n  Serial Number      FGH98765432\n  Hardware Revision  1.0\n\nSlot 3:\n  Description        Power Supply\n  Model Number       PWR-3KW-AC\n  Serial Number      ABC12345678\n  Hardware Revision  N/A\n\nSlot 4:\n  Description        Fan Tray\n  Model Number       ASR1001-X-FAN\n  Serial Number      XYZ12345678\n  Hardware Revision  N/A\n",
+  "textfsm_template": "Value SLOT (\\d+)\nValue DESCRIPTION (.+)\nValue MODEL_NUMBER (\\S+)\nValue SERIAL_NUMBER (\\S+)\nValue HARDWARE_REVISION (\\S+)\n\nStart\n  ^\\s*Slot\\s+${SLOT}:\\s*$$\n  ^\\s*Description\\s+${DESCRIPTION}\\s*$$\n  ^\\s*Model Number\\s+${MODEL_NUMBER}\\s*$$\n  ^\\s*Serial Number\\s+${SERIAL_NUMBER}\\s*$$\n  ^\\s*Hardware Revision\\s+${HARDWARE_REVISION}\\s*$$ -> Record"
+}

@@ -1,0 +1,49 @@
+{
+  "command": "show ip bgp vrf all summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"as_inq_msent_msgrcvd\">\nRouter identifier 1{{INQ | ORPHRASE}}.{{OUTQ}}.0.1, local AS number 65001\nBGP table version is {{TBLVER | ORPHRASE}}, main routing table version 7\n{{STATE_PFXRCVD | ORPHRASE}} BGP AS-PATH entries using 72 bytes of memory\n192.168.0.2  {{VER | ORPHRASE}} 65002  10  20  7  0  0 00:05:12  2\n{{NEIGHBOR}}  4 {{AS}}  {{MSGRCVD}}  {{MSENT}}  7  0  0 {{UPTIME | ORPHRASE}}  3\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR": "192.168.0.2",
+      "VER": "4",
+      "AS": "65002",
+      "MSGRCVD": "10",
+      "MSENT": "20",
+      "TBLVER": "7",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPTIME": "00:05:12",
+      "STATE_PFXRCVD": "2"
+    },
+    {
+      "NEIGHBOR": "192.168.0.3",
+      "VER": "4",
+      "AS": "65003",
+      "MSGRCVD": "15",
+      "MSENT": "25",
+      "TBLVER": "7",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPTIME": "00:10:25",
+      "STATE_PFXRCVD": "3"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "as_inq_msent_msgrcvd": {
+        "VER": "4",
+        "STATE_PFXRCVD": "3",
+        "TBLVER": "7",
+        "INQ": "0",
+        "OUTQ": "0"
+      }
+    }
+  ],
+  "cli_content": "BGP summary information for VRF all\nRouter identifier 10.0.0.1, local AS number 65001\nBGP table version is 7, main routing table version 7\n5 network entries using 600 bytes of memory\n5 path entries using 200 bytes of memory\n120 BGP path attribute entries using 7200 bytes of memory\n3 BGP AS-PATH entries using 72 bytes of memory\n0 BGP route-map cache entries using 0 bytes of memory\n0 BGP filter-list cache entries using 0 bytes of memory\nBGP using 8072 total bytes of memory\nBGP activity 5/0 prefixes, 5/0 paths, scan interval 60 secs\n\nNeighbor        V    AS MsgRcvd MsgSent TblVer InQ OutQ Up/Down  State/PfxRcd\n192.168.0.2     4 65002      10      20       7    0    0 00:05:12        2\n192.168.0.3     4 65003      15      25       7    0    0 00:10:25        3\n",
+  "textfsm_template": "Value NEIGHBOR (\\S+)\nValue VER (\\d+)\nValue AS (\\d+)\nValue MSGRCVD (\\d+)\nValue MSENT (\\d+)\nValue TBLVER (\\d+)\nValue INQ (\\d+)\nValue OUTQ (\\d+)\nValue UPTIME (\\d+:\\d+:\\d+)\nValue STATE_PFXRCVD (\\d+)\n\nStart\n  ^\\s*Neighbor\\s+V\\s+AS\\s+MsgRcvd\\s+MsgSent\\s+TblVer\\s+InQ\\s+OutQ\\s+Up/Down\\s+State/PfxRcd\\s*$$\n  ^\\s*${NEIGHBOR}\\s+${VER}\\s+${AS}\\s+${MSGRCVD}\\s+${MSENT}\\s+${TBLVER}\\s+${INQ}\\s+${OUTQ}\\s+${UPTIME}\\s+${STATE_PFXRCVD}\\s*$$ -> Record"
+}

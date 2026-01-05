@@ -1,0 +1,58 @@
+{
+  "command": "cisco_asa_show_failover",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"interfaces_interfaces_status_interfaces_state\">\n                  Interface {{INTERFACES}} (10.10.20.21): {{INTERFACES_STATUS | ORPHRASE}} ({{INTERFACES_STATE | ORPHRASE}})\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "STATE": "On",
+      "ROLE": "Primary",
+      "LAN_INTF_NAME": "failover",
+      "LAN_INTF": "GigabitEthernet0/5",
+      "LAN_INTF_STATE": "up",
+      "SW_VERSION": "8.6(1)2",
+      "SW_VERSION_MATE": "8.6(1)2",
+      "LAST_FAILOVER_TIME": "19:14:57",
+      "LAST_FAILOVER_TIMEZONE": "UTC",
+      "LAST_FAILOVER_MONTH": "Oct",
+      "LAST_FAILOVER_DAY": "17",
+      "LAST_FAILOVER_YEAR": "2018",
+      "SERVICE_STATE": "Active",
+      "SERVICE_STATE_MATE": "Failed",
+      "SSP_SLOT": "0, 1",
+      "SSP_MODEL": "ASA5512, IPS5512",
+      "SSP_STATUS": "Up, Up/Up",
+      "SSP_SLOT_MATE": "0, 1",
+      "SSP_MODEL_MATE": "ASA5512, IPS5512",
+      "SSP_STATUS_MATE": "Up, Unresponsive/Up",
+      "INTERFACES": "management",
+      "INTERFACES_STATUS": "Normal",
+      "INTERFACES_STATE": "Monitored",
+      "INTERFACES_MATE": "management",
+      "INTERFACES_STATUS_MATE": "Normal",
+      "INTERFACES_STATE_MATE": "Monitored"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interfaces_interfaces_status_interfaces_state": [
+        {
+          "INTERFACES": "management",
+          "INTERFACES_STATUS": "Normal",
+          "INTERFACES_STATE": "Monitored"
+        },
+        {
+          "INTERFACES": "management",
+          "INTERFACES_STATUS": "Normal",
+          "INTERFACES_STATE": "Monitored"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Failover On\nFailover unit Primary\nFailover LAN Interface: failover GigabitEthernet0/5 (up)\nUnit Poll frequency 1 seconds, holdtime 15 seconds\nInterface Poll frequency 5 seconds, holdtime 25 seconds\nInterface Policy 1\nMonitored Interfaces 1 of 114 maximum\nVersion: Ours 8.6(1)2, Mate 8.6(1)2\nLast Failover at: 19:14:57 UTC Oct 17 2018\n        This host: Primary - Active\n                Active time: 1400954 (sec)\n                slot 0: ASA5512 hw/sw rev (1.0/8.6(1)2) status (Up Sys)\n                  Interface management (10.10.20.21): Normal (Monitored)\n                slot 1: IPS5512 hw/sw rev (N/A/7.2(1)E4) status (Up/Up)\n                  IPS, 7.2(1)E4, Up\n        Other host: Secondary - Failed\n                Active time: 5065841 (sec)\n                slot 0: ASA5512 hw/sw rev (1.0/8.6(1)2) status (Up Sys)\n                  Interface management (10.10.20.22): Normal (Monitored)\n                slot 1: IPS5512 hw/sw rev (N/A/) status (Unresponsive/Up)\n\nStateful Failover Logical Update Statistics\n        Link : failover GigabitEthernet0/5 (up)\n        Stateful Obj    xmit       xerr       rcv        rerr\n        General         870845     0          898543     0\n        sys cmd         862300     0          862300     0\n        up time         0          0          0          0\n        RPC services    0          0          0          0\n        TCP conn        0          0          0          0\n        UDP conn        0          0          0          0\n        ARP tbl         8544       0          36243      0\n        Xlate_Timeout   0          0          0          0\n        IPv6 ND tbl     0          0          0          0\n        VPN IKEv1 SA    0          0          0          0\n        VPN IKEv1 P2    0          0          0          0\n        VPN IKEv2 SA    0          0          0          0\n        VPN IKEv2 P2    0          0          0          0\n        VPN CTCP upd    0          0          0          0\n        VPN SDI upd     0          0          0          0\n        VPN DHCP upd    0          0          0          0\n        SIP Session     0          0          0          0\n        Route Session   0          0          0          0\n        User-Identity   1          0          0          0\n\n        Logical Update Queue Information\n                        Cur     Max     Total\n        Recv Q:         0       11      6808699\n        Xmit Q:         0       29      2505264\n",
+  "textfsm_template": "Value STATE (\\S+)\nValue ROLE (\\S+)\nValue LAN_INTF_NAME (\\S+)\nValue LAN_INTF (\\S+)\nValue LAN_INTF_STATE (\\S+)\nValue SW_VERSION (\\S+)\nValue SW_VERSION_MATE (\\S+)\nValue List FAILOVER_GROUP (\\d+)\nValue List LAST_FAILOVER_TIME (\\d+:\\d+:\\d+)\nValue List LAST_FAILOVER_TIMEZONE (\\S+)\nValue List LAST_FAILOVER_MONTH (\\w+)\nValue List LAST_FAILOVER_DAY (\\d+)\nValue List LAST_FAILOVER_YEAR (\\d+)\nValue List SERVICE_STATE (.*?)\nValue List SERVICE_STATE_MATE (.*?)\nValue List SSP_SLOT (\\d+)\nValue List SSP_MODEL (\\S+)\nValue List SSP_STATUS (\\S+)\nValue List SSP_SLOT_MATE (\\d+)\nValue List SSP_MODEL_MATE (\\S+)\nValue List SSP_STATUS_MATE (\\S+)\nValue List INTERFACES_CONTEXT (\\S+)\nValue List INTERFACES (\\S+)\nValue List INTERFACES_STATUS (.+?)\nValue List INTERFACES_STATE (\\S+)\nValue List INTERFACES_CONTEXT_MATE (\\S+)\nValue List INTERFACES_MATE (\\S+)\nValue List INTERFACES_STATUS_MATE (.+?)\nValue List INTERFACES_STATE_MATE (\\S+)\n\nStart\n  ^Failover\\s+${STATE}\\s*$$\n  ^Failover\\s+unit\\s+${ROLE}\\s*$$\n  ^Failover\\s+LAN\\s+Interface:\\s+${LAN_INTF_NAME}\\s+${LAN_INTF}\\s+\\(${LAN_INTF_STATE}\\)\\s*$$\n  ^Version:\\s+Ours\\s+${SW_VERSION},\\s+Mate\\s+${SW_VERSION_MATE}\\s*$$\n  ^(?:Group\\s+${FAILOVER_GROUP}\\s+|)[Ll]ast\\s+[Ff]ailover\\s+at:\\s+${LAST_FAILOVER_TIME}\\s+${LAST_FAILOVER_TIMEZONE}\\s+${LAST_FAILOVER_MONTH}\\s+${LAST_FAILOVER_DAY}\\s+${LAST_FAILOVER_YEAR}\\s*$$\n  ^\\s*This\\s+host:.+?-\\s+${SERVICE_STATE}\\s*$$ -> ThisHost\n  ^\\s*This\\s+host:\\s+\\S+\\s*$$ -> ThisHost\n  ^Reconnect\\s+timeout\n  ^Unit\\s+Poll\\s+frequency\n  ^Interface\\s+Poll\\s+frequency\n  ^Interface\\s+Policy\n  ^Monitored\\s+Interfaces\n  ^MAC\\s+Address\\s+Move\\s+Notification\\s+Interval\n  ^Serial\\s+Number\n  ^failover\\s+replication\n  ^\\s*$$\n  ^. -> Error\n\nThisHost\n  ^Group\\s+\\d+\\s+State:\\s*${SERVICE_STATE}\\s*$$\n  ^\\s*Active\\s+time\n  ^\\s*slot\\s+${SSP_SLOT}:\\s+${SSP_MODEL}\\s+.+?status\\s+\\(${SSP_STATUS}.*?\\)\\s*$$\n  ^\\s*(${INTERFACES_CONTEXT}\\s+|)Interface\\s+${INTERFACES}.+?:\\s+${INTERFACES_STATUS}(?:\\s+\\(${INTERFACES_STATE}\\)|)\\s*$$\n  # Service module has different line\n  ^\\s*\\S+,\\s+\\S+,\\s+\\S+\\s*$$\n  ^\\s*Other\\s+host:.+?-\\s+${SERVICE_STATE_MATE}\\s*$$ -> OtherHost\n  ^\\s*Other\\s+host:\\s+\\S+\\s*$$ -> OtherHost\n  ^\\s*slot\\s+\\d+:\\s+empty\\s*$$\n  ^\\s+\\<omited\\s+output\\>\n  ^\\s+IPS\n  ^\\s*ASA\\s+FirePOWER\n  ^\\s*$$\n  ^. -> Error\n\nOtherHost\n  ^Group\\s+\\d+\\s+State:\\s*${SERVICE_STATE_MATE}\\s*$$\n  ^\\s*Active\\s+time\n  ^\\s*slot\\s+${SSP_SLOT_MATE}:\\s+${SSP_MODEL_MATE}\\s+.+?status\\s+\\(${SSP_STATUS_MATE}.*?\\)\\s*$$\n  ^\\s*(${INTERFACES_CONTEXT_MATE}\\s+|)Interface\\s+${INTERFACES_MATE}.+?:\\s+${INTERFACES_STATUS_MATE}(?:\\s+\\(${INTERFACES_STATE_MATE}\\)|)\\s*$$\n  # Service module has different line\n  ^\\s*\\S+,\\s+\\S+,\\s+\\S+\\s*$$\n  ^\\s*slot\\s+\\d+:\\s+empty\\s*$$\n  ^\\s+\\<omited\\s+output\\>\n  ^\\s+IPS\n  ^\\s*ASA\\s+FirePOWER\n  ^Stateful\\s+Failover\\s+Logical\\s+Update\\s+Statistics\\s*$$ -> Stats\n  ^\\s*$$\n  ^. -> Error\n\nStats\n  ^Link\\s*:\\s+\n  ^Stateful\\s+Obj\\s+xmit\\s+xerr\\s+rcv\\s+rerr\\s*$$\n  ^.+?\\d+\\s+\\d+\\s+\\d+\\s+\\d+\\s*$$\n  ^Logical\\s+Update\\s+Queue\\s+Information\\s*$$\n  ^Cur\\s+Max\\s+Total\\s*$$\n  ^.+?:\\s+\\d+\\s+\\d+\\s+\\d+\\s*$$\n"
+}

@@ -1,0 +1,56 @@
+{
+  "command": "show ip dns view brief",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"view_name_method_zone_origin_zone_type\">\n{{VIEW_NAME}} {{METHOD}} {{ZONE_ORIGIN | ORPHRASE}} {{ZONE_TYPE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VIEW_NAME": "default",
+      "METHOD": "static",
+      "ZONE_ORIGIN": "none",
+      "ZONE_TYPE": "default"
+    },
+    {
+      "VIEW_NAME": "internal",
+      "METHOD": "static",
+      "ZONE_ORIGIN": "corp.local",
+      "ZONE_TYPE": "primary"
+    },
+    {
+      "VIEW_NAME": "external",
+      "METHOD": "static",
+      "ZONE_ORIGIN": "ext.local",
+      "ZONE_TYPE": "secondary"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "view_name_method_zone_origin_zone_type": [
+        {
+          "VIEW_NAME": "default",
+          "METHOD": "static",
+          "ZONE_ORIGIN": "none",
+          "ZONE_TYPE": "default"
+        },
+        {
+          "VIEW_NAME": "internal",
+          "METHOD": "static",
+          "ZONE_ORIGIN": "corp.local",
+          "ZONE_TYPE": "primary"
+        },
+        {
+          "VIEW_NAME": "external",
+          "METHOD": "static",
+          "ZONE_ORIGIN": "ext.local",
+          "ZONE_TYPE": "secondary"
+        }
+      ]
+    }
+  ],
+  "cli_content": "DNS View Name      Method      Zone Origin       Zone Type\ndefault            static      none              default\ninternal           static      corp.local        primary\nexternal           static      ext.local         secondary\n",
+  "textfsm_template": "Value VIEW_NAME (\\S+)\nValue METHOD (\\S+)\nValue ZONE_ORIGIN (\\S+)\nValue ZONE_TYPE (\\S+)\n\nStart\n  ^\\s*DNS View Name\\s+Method\\s+Zone Origin\\s+Zone Type\\s*$$\n  ^\\s*${VIEW_NAME}\\s+${METHOD}\\s+${ZONE_ORIGIN}\\s+${ZONE_TYPE}\\s*$$ -> Record"
+}

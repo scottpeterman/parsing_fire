@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_mpls_l2transport_vc
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="interface_local_circuit_dest_address_vc_id_status">
+{{INTERFACE}} {{LOCAL_CIRCUIT | ORPHRASE}} {{DEST_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{VC_ID | re("\\d+")}} {{STATUS | ORPHRASE}}
+</group>

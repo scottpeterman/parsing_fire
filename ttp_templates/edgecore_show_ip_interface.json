@@ -1,0 +1,30 @@
+{
+  "command": "edgecore_show_ip_interface",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"addr_mode_interface_ip_netmask\">\n IP Address and Netmask:  {{IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{NETMASK}} on {{INTERFACE | ORPHRASE}},\n Address Mode:  {{ADDR_MODE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP": "10.255.5.55",
+      "NETMASK": "255.255.0.0",
+      "INTERFACE": "VLAN 255",
+      "ADDR_MODE": "User specified"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "addr_mode_interface_ip_netmask": {
+        "ADDR_MODE": "User specified",
+        "IP": "10.255.5.55",
+        "NETMASK": "255.255.0.0",
+        "INTERFACE": "VLAN 255"
+      }
+    }
+  ],
+  "cli_content": " IP Address and Netmask:  10.255.5.55 255.255.0.0 on VLAN 255,\n Address Mode:            User specified\n",
+  "textfsm_template": "Value IP (\\S+)\nValue NETMASK (\\S+)\nValue INTERFACE (.*)\nValue ADDR_MODE (.*)\n\nStart\n  ^\\s*IP\\s+Address\\s+and\\s+Netmask:.*$$ -> Continue.Record\n  ^\\s*IP\\s+Address\\s+and\\s+Netmask:\\s+${IP}\\s+${NETMASK}\\s+on\\s+${INTERFACE},\\s*$$\n  ^\\s*Address\\s+Mode:\\s+${ADDR_MODE}\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

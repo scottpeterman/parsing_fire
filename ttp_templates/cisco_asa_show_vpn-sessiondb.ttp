@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_vpn-sessiondb
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="totals_active_totals_cumulative">
+Totals : {{TOTALS_ACTIVE}} : {{TOTALS_CUMULATIVE}}
+</group>

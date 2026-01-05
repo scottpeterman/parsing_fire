@@ -1,0 +1,38 @@
+{
+  "command": "show mpls l3vpn vrf",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"interfaces_next_hop_rd_route\">\nVRF: {{VRF_NAME | ORPHRASE}}\n Route Distinguisher: {{RD | ORPHRASE}}\n  - {{INTERFACES | ORPHRASE}}\n  {{ROUTE}} -> {{NEXT_HOP | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VRF_NAME": "Customer-1",
+      "RD": "65000:1",
+      "INTERFACES": "GigabitEthernet1/0/1"
+    },
+    {
+      "VRF_NAME": "Customer-2",
+      "RD": "65000:2",
+      "INTERFACES": "GigabitEthernet1/0/3"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interfaces_next_hop_rd_route": [
+        {
+          "RD": "65000:1",
+          "VRF_NAME": "Customer-1"
+        },
+        {
+          "RD": "65000:2",
+          "VRF_NAME": "Customer-2"
+        }
+      ]
+    }
+  ],
+  "cli_content": "VRF: Customer-1\n Route Distinguisher: 65000:1\n Interfaces:\n   - GigabitEthernet1/0/1\n   - GigabitEthernet1/0/2\n Routes:\n   10.10.10.0/24 -> next hop 192.168.1.1\n   10.20.20.0/24 -> next hop 192.168.1.2\n\nVRF: Customer-2\n Route Distinguisher: 65000:2\n Interfaces:\n   - GigabitEthernet1/0/3\n Routes:\n   172.16.0.0/16 -> next hop 192.168.1.3\n",
+  "textfsm_template": "Value VRF_NAME (\\S+)\nValue RD (\\d+:\\d+)\nValue INTERFACES (.+)\nValue ROUTE (.+)\nValue NEXT_HOP (next hop \\d+\\.\\d+\\.\\d+\\.\\d+)\n\nStart\n  ^VRF:\\s+${VRF_NAME}\\s*$$\n  ^\\s*Route\\s+Distinguisher:\\s+${RD}\\s*$$\n  ^\\s*Interfaces:\\s*$$\n  ^\\s*-\\s+${INTERFACES}\\s* -> Continue.Record\n  ^\\s*Routes:\\s*$$\n  ^\\s*${ROUTE}\\s+->\\s+${NEXT_HOP}\\s*$$ -> Continue.Record"
+}

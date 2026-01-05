@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_port_summary
+# Source: ntc
+# TextFSM rows: 7
+# TTP rows: 4
+# Match ratio: 0.57
+
+<group name="port_type_stp_status_admin_mode_physical_mode_physical_status_link_status_link_trap_poe">
+{{PORT | re("\\d+")}} {{TYPE}} {{STP_STATUS | ORPHRASE}} {{ADMIN_MODE}} {{PHYSICAL_MODE}} {{PHYSICAL_STATUS | ORPHRASE}} {{LINK_STATUS | ORPHRASE}} {{LINK_TRAP}} {{POE | ORPHRASE}} 
+</group>

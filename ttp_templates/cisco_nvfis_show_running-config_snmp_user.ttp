@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nvfis_show_running-config_snmp_user
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="auth_key_auth_protocol_priv_key_priv_protocol">
+ user-version  {{VERSION | ORPHRASE}}
+ auth-protocol {{AUTH_PROTOCOL | ORPHRASE}}
+ priv-protocol {{PRIV_PROTOCOL | ORPHRASE}}
+snmp user {{USERNAME | ORPHRASE}}
+ user-group  {{USER_GROUP | ORPHRASE}}
+ auth-key  {{AUTH_KEY | ORPHRASE}}
+</group>

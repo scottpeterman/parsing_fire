@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_procurve_show_ip_route
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 8
+# Match ratio: 2.00
+
+<group name="destination_gateway_vlan_name_type_metric_distance">
+  {{DESTINATION}} {{GATEWAY}} {{VLAN_NAME | re("\\d+")}} {{TYPE}} {{METRIC | ORPHRASE}} {{DISTANCE}}
+</group>
+<group name="destination_gateway_type_metric_distance">
+  {{DESTINATION}} {{GATEWAY}} {{TYPE | ORPHRASE}} {{METRIC}} {{DISTANCE}}
+</group>
+<group name="destination_type_metric_distance">
+  {{DESTINATION}} {{TYPE | ORPHRASE}} {{METRIC}} {{DISTANCE}} 
+</group>

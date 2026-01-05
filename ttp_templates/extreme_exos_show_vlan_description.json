@@ -1,0 +1,390 @@
+{
+  "command": "extreme_exos_show_vlan_description",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 37,
+  "ttp_rows": 37,
+  "ttp_template": "<group name=\"vlan_name_vlan_id_description\">\n{{VLAN_NAME}} {{VLAN_ID | re(\"\\\\d+\")}} {{DESCRIPTION | ORPHRASE}}\n</group>\n<group name=\"description_vlan_id\">\n{{V{{DESCRIPTION | ORPHRASE}}_NAME | ORPHRASE}} {{VLAN_ID | re(\"\\\\d+\")}} LAN\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN_NAME": "Mgmt",
+      "VLAN_ID": "4095",
+      "DESCRIPTION": "Management VLAN"
+    },
+    {
+      "VLAN_NAME": "VLAN0002",
+      "VLAN_ID": "2",
+      "DESCRIPTION": "sw-3"
+    },
+    {
+      "VLAN_NAME": "VLAN0003",
+      "VLAN_ID": "3",
+      "DESCRIPTION": "VLAN0003"
+    },
+    {
+      "VLAN_NAME": "VLAN0004",
+      "VLAN_ID": "4",
+      "DESCRIPTION": "VLAN0004"
+    },
+    {
+      "VLAN_NAME": "VLAN0005",
+      "VLAN_ID": "5",
+      "DESCRIPTION": "tech"
+    },
+    {
+      "VLAN_NAME": "VLAN0006",
+      "VLAN_ID": "6",
+      "DESCRIPTION": "zr"
+    },
+    {
+      "VLAN_NAME": "VLAN0008",
+      "VLAN_ID": "8",
+      "DESCRIPTION": "VLAN0008"
+    },
+    {
+      "VLAN_NAME": "VLAN0009",
+      "VLAN_ID": "9",
+      "DESCRIPTION": "VGWsubnet1"
+    },
+    {
+      "VLAN_NAME": "VLAN0010",
+      "VLAN_ID": "10",
+      "DESCRIPTION": "LAN"
+    },
+    {
+      "VLAN_NAME": "VLAN0011",
+      "VLAN_ID": "11",
+      "DESCRIPTION": "dsl-Internet"
+    },
+    {
+      "VLAN_NAME": "VLAN0012",
+      "VLAN_ID": "12",
+      "DESCRIPTION": "VLAN0012"
+    },
+    {
+      "VLAN_NAME": "VLAN0013",
+      "VLAN_ID": "13",
+      "DESCRIPTION": "VLAN0013"
+    },
+    {
+      "VLAN_NAME": "VLAN0014",
+      "VLAN_ID": "14",
+      "DESCRIPTION": "VLAN0014"
+    },
+    {
+      "VLAN_NAME": "VLAN0015",
+      "VLAN_ID": "15",
+      "DESCRIPTION": "l3-sw-3"
+    },
+    {
+      "VLAN_NAME": "VLAN0016",
+      "VLAN_ID": "16",
+      "DESCRIPTION": "l3sw-2-6"
+    },
+    {
+      "VLAN_NAME": "VLAN0017",
+      "VLAN_ID": "17",
+      "DESCRIPTION": "VLAN0017"
+    },
+    {
+      "VLAN_NAME": "VLAN0018",
+      "VLAN_ID": "18",
+      "DESCRIPTION": "VLAN0018"
+    },
+    {
+      "VLAN_NAME": "VLAN0019",
+      "VLAN_ID": "19",
+      "DESCRIPTION": "VLAN0019"
+    },
+    {
+      "VLAN_NAME": "VLAN0020",
+      "VLAN_ID": "20",
+      "DESCRIPTION": "NNI-TEST-QnQ"
+    },
+    {
+      "VLAN_NAME": "VLAN0021",
+      "VLAN_ID": "21",
+      "DESCRIPTION": "VLAN0021"
+    },
+    {
+      "VLAN_NAME": "VLAN0022",
+      "VLAN_ID": "22",
+      "DESCRIPTION": "VLAN0022"
+    },
+    {
+      "VLAN_NAME": "VLAN0023",
+      "VLAN_ID": "23",
+      "DESCRIPTION": "TEST_EXFO"
+    },
+    {
+      "VLAN_NAME": "VLAN0024",
+      "VLAN_ID": "24",
+      "DESCRIPTION": "VLAN0024"
+    },
+    {
+      "VLAN_NAME": "VLAN0025",
+      "VLAN_ID": "25",
+      "DESCRIPTION": "VLAN0025"
+    },
+    {
+      "VLAN_NAME": "VLAN0026",
+      "VLAN_ID": "26",
+      "DESCRIPTION": "VLAN0026"
+    },
+    {
+      "VLAN_NAME": "VLAN0027",
+      "VLAN_ID": "27",
+      "DESCRIPTION": "VLAN0027"
+    },
+    {
+      "VLAN_NAME": "VLAN0028",
+      "VLAN_ID": "28",
+      "DESCRIPTION": "VLAN0028"
+    },
+    {
+      "VLAN_NAME": "VLAN0029",
+      "VLAN_ID": "29",
+      "DESCRIPTION": "VLAN0029"
+    },
+    {
+      "VLAN_NAME": "VLAN0030",
+      "VLAN_ID": "30",
+      "DESCRIPTION": "VLAN0030"
+    },
+    {
+      "VLAN_NAME": "VLAN0031",
+      "VLAN_ID": "31",
+      "DESCRIPTION": "VLAN0031"
+    },
+    {
+      "VLAN_NAME": "VLAN0032",
+      "VLAN_ID": "32",
+      "DESCRIPTION": "user VOIP"
+    },
+    {
+      "VLAN_NAME": "VLAN0033",
+      "VLAN_ID": "33",
+      "DESCRIPTION": "VLAN0033"
+    },
+    {
+      "VLAN_NAME": "VLAN0034",
+      "VLAN_ID": "34",
+      "DESCRIPTION": "VLAN0034"
+    },
+    {
+      "VLAN_NAME": "VLAN0035",
+      "VLAN_ID": "35",
+      "DESCRIPTION": "VLAN0035"
+    },
+    {
+      "VLAN_NAME": "VLAN0036",
+      "VLAN_ID": "36",
+      "DESCRIPTION": "VLAN0036"
+    },
+    {
+      "VLAN_NAME": "VLAN0037",
+      "VLAN_ID": "37",
+      "DESCRIPTION": "VLAN0037"
+    },
+    {
+      "VLAN_NAME": "VLAN0038",
+      "VLAN_ID": "38",
+      "DESCRIPTION": "SS_voip"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_name_vlan_id_description": [
+        {
+          "VLAN_NAME": "Mgmt",
+          "VLAN_ID": "4095",
+          "DESCRIPTION": "Management VLAN"
+        },
+        {
+          "VLAN_NAME": "VLAN0002",
+          "VLAN_ID": "2",
+          "DESCRIPTION": "sw-3"
+        },
+        {
+          "VLAN_NAME": "VLAN0003",
+          "VLAN_ID": "3",
+          "DESCRIPTION": "VLAN0003"
+        },
+        {
+          "VLAN_NAME": "VLAN0004",
+          "VLAN_ID": "4",
+          "DESCRIPTION": "VLAN0004"
+        },
+        {
+          "VLAN_NAME": "VLAN0005",
+          "VLAN_ID": "5",
+          "DESCRIPTION": "tech"
+        },
+        {
+          "VLAN_NAME": "VLAN0006",
+          "VLAN_ID": "6",
+          "DESCRIPTION": "zr"
+        },
+        {
+          "VLAN_NAME": "VLAN0008",
+          "VLAN_ID": "8",
+          "DESCRIPTION": "VLAN0008"
+        },
+        {
+          "VLAN_NAME": "VLAN0009",
+          "VLAN_ID": "9",
+          "DESCRIPTION": "VGWsubnet1"
+        },
+        {
+          "VLAN_NAME": "VLAN0010",
+          "VLAN_ID": "10",
+          "DESCRIPTION": "LAN"
+        },
+        {
+          "VLAN_NAME": "VLAN0011",
+          "VLAN_ID": "11",
+          "DESCRIPTION": "dsl-Internet"
+        },
+        {
+          "VLAN_NAME": "VLAN0012",
+          "VLAN_ID": "12",
+          "DESCRIPTION": "VLAN0012"
+        },
+        {
+          "VLAN_NAME": "VLAN0013",
+          "VLAN_ID": "13",
+          "DESCRIPTION": "VLAN0013"
+        },
+        {
+          "VLAN_NAME": "VLAN0014",
+          "VLAN_ID": "14",
+          "DESCRIPTION": "VLAN0014"
+        },
+        {
+          "VLAN_NAME": "VLAN0015",
+          "VLAN_ID": "15",
+          "DESCRIPTION": "l3-sw-3"
+        },
+        {
+          "VLAN_NAME": "VLAN0016",
+          "VLAN_ID": "16",
+          "DESCRIPTION": "l3sw-2-6"
+        },
+        {
+          "VLAN_NAME": "VLAN0017",
+          "VLAN_ID": "17",
+          "DESCRIPTION": "VLAN0017"
+        },
+        {
+          "VLAN_NAME": "VLAN0018",
+          "VLAN_ID": "18",
+          "DESCRIPTION": "VLAN0018"
+        },
+        {
+          "VLAN_NAME": "VLAN0019",
+          "VLAN_ID": "19",
+          "DESCRIPTION": "VLAN0019"
+        },
+        {
+          "VLAN_NAME": "VLAN0020",
+          "VLAN_ID": "20",
+          "DESCRIPTION": "NNI-TEST-QnQ"
+        },
+        {
+          "VLAN_NAME": "VLAN0021",
+          "VLAN_ID": "21",
+          "DESCRIPTION": "VLAN0021"
+        },
+        {
+          "VLAN_NAME": "VLAN0022",
+          "VLAN_ID": "22",
+          "DESCRIPTION": "VLAN0022"
+        },
+        {
+          "VLAN_NAME": "VLAN0023",
+          "VLAN_ID": "23",
+          "DESCRIPTION": "TEST_EXFO"
+        },
+        {
+          "VLAN_NAME": "VLAN0024",
+          "VLAN_ID": "24",
+          "DESCRIPTION": "VLAN0024"
+        },
+        {
+          "VLAN_NAME": "VLAN0025",
+          "VLAN_ID": "25",
+          "DESCRIPTION": "VLAN0025"
+        },
+        {
+          "VLAN_NAME": "VLAN0026",
+          "VLAN_ID": "26",
+          "DESCRIPTION": "VLAN0026"
+        },
+        {
+          "VLAN_NAME": "VLAN0027",
+          "VLAN_ID": "27",
+          "DESCRIPTION": "VLAN0027"
+        },
+        {
+          "VLAN_NAME": "VLAN0028",
+          "VLAN_ID": "28",
+          "DESCRIPTION": "VLAN0028"
+        },
+        {
+          "VLAN_NAME": "VLAN0029",
+          "VLAN_ID": "29",
+          "DESCRIPTION": "VLAN0029"
+        },
+        {
+          "VLAN_NAME": "VLAN0030",
+          "VLAN_ID": "30",
+          "DESCRIPTION": "VLAN0030"
+        },
+        {
+          "VLAN_NAME": "VLAN0031",
+          "VLAN_ID": "31",
+          "DESCRIPTION": "VLAN0031"
+        },
+        {
+          "VLAN_NAME": "VLAN0032",
+          "VLAN_ID": "32",
+          "DESCRIPTION": "user VOIP"
+        },
+        {
+          "VLAN_NAME": "VLAN0033",
+          "VLAN_ID": "33",
+          "DESCRIPTION": "VLAN0033"
+        },
+        {
+          "VLAN_NAME": "VLAN0034",
+          "VLAN_ID": "34",
+          "DESCRIPTION": "VLAN0034"
+        },
+        {
+          "VLAN_NAME": "VLAN0035",
+          "VLAN_ID": "35",
+          "DESCRIPTION": "VLAN0035"
+        },
+        {
+          "VLAN_NAME": "VLAN0036",
+          "VLAN_ID": "36",
+          "DESCRIPTION": "VLAN0036"
+        },
+        {
+          "VLAN_NAME": "VLAN0037",
+          "VLAN_ID": "37",
+          "DESCRIPTION": "VLAN0037"
+        },
+        {
+          "VLAN_NAME": "VLAN0038",
+          "VLAN_ID": "38",
+          "DESCRIPTION": "SS_voip"
+        }
+      ]
+    }
+  ],
+  "cli_content": "-------------------------------------------------------------------------------\nName            VID  Description\n-------------------------------------------------------------------------------\nDefault         1\nMgmt            4095 Management VLAN\nVLAN0002        2    sw-3\nVLAN0003        3    VLAN0003\nVLAN0004        4    VLAN0004\nVLAN0005        5    tech\nVLAN0006        6    zr\nVLAN0007        7\nVLAN0008        8    VLAN0008\nVLAN0009        9    VGWsubnet1\nVLAN0010        10   LAN\nVLAN0011        11   dsl-Internet\nVLAN0012        12   VLAN0012\nVLAN0013        13   VLAN0013\nVLAN0014        14   VLAN0014\nVLAN0015        15   l3-sw-3\nVLAN0016        16   l3sw-2-6\nVLAN0017        17   VLAN0017\nVLAN0018        18   VLAN0018\nVLAN0019        19   VLAN0019\nVLAN0020        20   NNI-TEST-QnQ\nVLAN0021        21   VLAN0021\nVLAN0022        22   VLAN0022\nVLAN0023        23   TEST_EXFO\nVLAN0024        24   VLAN0024\nVLAN0025        25   VLAN0025\nVLAN0026        26   VLAN0026\nVLAN0027        27   VLAN0027\nVLAN0028        28   VLAN0028\nVLAN0029        29   VLAN0029\nVLAN0030        30   VLAN0030\nVLAN0031        31   VLAN0031\nVLAN0032        32   user VOIP\nVLAN0033        33   VLAN0033\nVLAN0034        34   VLAN0034\nVLAN0035        35   VLAN0035\nVLAN0036        36   VLAN0036\nVLAN0037        37   VLAN0037\nVLAN0038        38   SS_voip\nVLAN0248        248\n-------------------------------------------------------------------------------\n\n> Indicates description string truncated past 57 characters\n\nTotal number of VLAN(s) : 3469\n",
+  "textfsm_template": "Value VLAN_NAME (\\S+)\nValue VLAN_ID (\\d+)\nValue DESCRIPTION (.*)\n\nStart\n  ^(\\s*=+)+\\s*$$\n  ^\\s*Name\\s+VID\\s+Description\\s*$$ -> VlanTable\n  ^\\s*\n  ^. -> Error\n\nVlanTable\n  ^(\\s*=+)+\\s*$$\n  ^\\s*${VLAN_NAME}\\s+${VLAN_ID}(?:\\s+${DESCRIPTION})?\\s*$$ -> Record\n  ^\\s*>\\s+Indicates\\s+description\\s+string\\s+truncated\\s+past\\s+\\d+\\s+characters\\s*$$\n  ^\\s*Total\\s+number\\s+of\\s+VLAN\\(s\\)\\s*:\\s*\\d+\\s*$$\n  ^\\s*\n  ^. -> Error\n"
+}

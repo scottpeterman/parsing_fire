@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show interfaces transceivers
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="port_type_product_serial_number_vid_pid_temperature_voltage">
+{{PORT}} {{TYPE}} {{PRODUCT | ORPHRASE}} {{SERIAL_NUMBER | re("\\w+")}} {{VID}} {{PID}} {{TEMPERATURE}} {{VOLTAGE | ORPHRASE}}
+</group>
+<group name="port_pid_product_serial_number_vid_temperature_voltage">
+{{PORT}} {{T{{PID}}PE}} {{PRODUCT | ORPHRASE}} {{SERIAL_NUMBER | re("\\w+")}} {{VID}} Y {{TEMPERATURE}} {{VOLTAGE | ORPHRASE}}
+</group>
+<group name="port_type_product_serial_number_pid_temperature_voltage">
+{{PORT}} {{TYPE}} {{PRODUCT | ORPHRASE}} {{SERIAL_NUMBER | re("\\w+")}} {{{{PID}}ID}} V {{TEMPERATURE}} {{VOLTAGE | ORPHRASE}}
+</group>

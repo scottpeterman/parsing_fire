@@ -1,0 +1,33 @@
+{
+  "command": "show ipv6 interface",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"interface_link_local_address_mtu\">\n  MTU is {{MTU | ORPHRASE}} bytes\n{{INTERFACE | ORPHRASE}} [down/down]\n  IPv6 is enabled, link-local address is {{LINK_LOCAL_ADDRESS | ORPHRASE}} [down]\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Ethernet1/2",
+      "LINK_LOCAL_ADDRESS": "FE80::2E0:54FF:FE90:BE8E",
+      "MTU": "1500"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_link_local_address_mtu": [
+        {
+          "LINK_LOCAL_ADDRESS": "FE80::2E0:54FF:FE90:BE8E",
+          "INTERFACE": "Ethernet1/2",
+          "MTU": "1500"
+        },
+        {
+          "MTU": "1500"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Ethernet1/1 [up/up]\n  IPv6 is enabled, link-local address is FE80::2E0:54FF:FE90:BE8D [up]\n  Global unicast addresses:\n    2001:DB8::1, subnet is 2001:DB8::/64\n  Joined group addresses:\n    FF02::1:FF00:1\n    FF02::1\n  MTU is 1500 bytes\n  ICMP redirects are enabled\n  ICMP unreachables are always sent\nEthernet1/2 [down/down]\n  IPv6 is enabled, link-local address is FE80::2E0:54FF:FE90:BE8E [down]\n  Global unicast addresses:\n    2001:DB8::2, subnet is 2001:DB8::/64\n  Joined group addresses:\n    FF02::1:FF00:2\n    FF02::1\n  MTU is 1500 bytes\n  ICMP redirects are enabled\n  ICMP unreachables are always sent\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue LINK_STATUS (\\S+)\nValue LINE_PROTOCOL (\\S+)\nValue LINK_LOCAL_ADDRESS (\\S+)\nValue GLOBAL_UNICAST_ADDRESS (\\S+)\nValue MTU (\\d+)\n\nStart\n  ^\\s*${INTERFACE}\\s*\\[\\s*(\\w+)/(\\w+)\\s*\\]$$\n  ^\\s*IPv6 is enabled, link-local address is\\s*${LINK_LOCAL_ADDRESS}\\s*\\[(\\w+)\\]$$\n  ^\\s*Global unicast addresses:$$\n  ^\\s*${GLOBAL_UNICAST_ADDRESS}\\s*,\\s*subnet\\s*is\\s*[\\w:]+$$\n  ^\\s*MTU is\\s*${MTU}\\s*bytes$$"
+}

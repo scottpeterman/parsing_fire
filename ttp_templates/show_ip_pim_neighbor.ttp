@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip pim neighbor
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="neighbor_interface_uptime_expires">
+{{NEIGHBOR}} {{INTERFACE}} {{UPTIME | ORPHRASE}} {{EXPIRES | ORPHRASE}}
+</group>

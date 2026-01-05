@@ -1,0 +1,116 @@
+{
+  "command": "cisco_ios_show_nve_peers",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"interface_vni_type_peer_mac_address_state\">\n{{INTERFACE}} {{VNI}} {{TYPE}} {{PEER}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} 1033 {{STATE | ORPHRASE}} A/M 6d22h\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "nve1",
+      "VNI": "1033",
+      "TYPE": "L3CP",
+      "PEER": "192.168.111.81",
+      "MAC_ADDRESS": "0200.c0a8.433c",
+      "STATE": "UP"
+    },
+    {
+      "INTERFACE": "nve1",
+      "VNI": "1033",
+      "TYPE": "L3CP",
+      "PEER": "192.168.111.48",
+      "MAC_ADDRESS": "cc7f.76a5.3c56",
+      "STATE": "UP"
+    },
+    {
+      "INTERFACE": "nve1",
+      "VNI": "1031",
+      "TYPE": "L3CP",
+      "PEER": "192.168.111.81",
+      "MAC_ADDRESS": "0200.c0a8.433c",
+      "STATE": "UP"
+    },
+    {
+      "INTERFACE": "nve1",
+      "VNI": "1031",
+      "TYPE": "L3CP",
+      "PEER": "192.168.111.48",
+      "MAC_ADDRESS": "cc7f.76a5.3c56",
+      "STATE": "UP"
+    },
+    {
+      "INTERFACE": "nve1",
+      "VNI": "1032",
+      "TYPE": "L3CP",
+      "PEER": "192.168.111.48",
+      "MAC_ADDRESS": "cc7f.76a5.3c56",
+      "STATE": "UP"
+    },
+    {
+      "INTERFACE": "nve1",
+      "VNI": "1036",
+      "TYPE": "L3CP",
+      "PEER": "192.168.111.48",
+      "MAC_ADDRESS": "cc7f.76a5.3c56",
+      "STATE": "UP"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_vni_type_peer_mac_address_state": [
+        {
+          "INTERFACE": "nve1",
+          "VNI": "1033",
+          "TYPE": "L3CP",
+          "PEER": "192.168.111.81",
+          "MAC_ADDRESS": "0200.c0a8.433c",
+          "STATE": "UP"
+        },
+        {
+          "INTERFACE": "nve1",
+          "VNI": "1033",
+          "TYPE": "L3CP",
+          "PEER": "192.168.111.48",
+          "MAC_ADDRESS": "cc7f.76a5.3c56",
+          "STATE": "UP"
+        },
+        {
+          "INTERFACE": "nve1",
+          "VNI": "1031",
+          "TYPE": "L3CP",
+          "PEER": "192.168.111.81",
+          "MAC_ADDRESS": "0200.c0a8.433c",
+          "STATE": "UP"
+        },
+        {
+          "INTERFACE": "nve1",
+          "VNI": "1031",
+          "TYPE": "L3CP",
+          "PEER": "192.168.111.48",
+          "MAC_ADDRESS": "cc7f.76a5.3c56",
+          "STATE": "UP"
+        },
+        {
+          "INTERFACE": "nve1",
+          "VNI": "1032",
+          "TYPE": "L3CP",
+          "PEER": "192.168.111.48",
+          "MAC_ADDRESS": "cc7f.76a5.3c56",
+          "STATE": "UP"
+        },
+        {
+          "INTERFACE": "nve1",
+          "VNI": "1036",
+          "TYPE": "L3CP",
+          "PEER": "192.168.111.48",
+          "MAC_ADDRESS": "cc7f.76a5.3c56",
+          "STATE": "UP"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface  VNI      Type Peer-IP          RMAC/Num_RTs   eVNI     state flags UP time\nnve1       1033 L3CP 192.168.111.81   0200.c0a8.433c 1033   UP   A/M 6d22h\nnve1       1033 L3CP 192.168.111.48   cc7f.76a5.3c56 1033   UP   A/M 6d22h\nnve1       1031 L3CP 192.168.111.81   0200.c0a8.433c 1031   UP   A/M 6d22h\nnve1       1031 L3CP 192.168.111.48   cc7f.76a5.3c56 1031   UP   A/M 6d22h\nnve1       1032 L3CP 192.168.111.48   cc7f.76a5.3c56 1032   UP   A/M 6d22h\nnve1       1036 L3CP 192.168.111.48   cc7f.76a5.3c56 1036   UP   A/M 6d22h\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue VNI (\\d+)\nValue TYPE (L2CP|L3CP)\nValue PEER (\\d+.\\d+.\\d+.\\d+)\nValue MAC_ADDRESS ([0-9a-fA-F]{4}\\.[0-9a-fA-F]{4}\\.[0-9a-fA-F]{4})\nValue STATE (UP|DOWN)\n\nStart\n  ^Interface\\s+VNI\\s+Type\\s+Peer-IP\\s+RMAC/Num_RTs\\s+eVNI\\s+state\\s+flags\\s+UP\\s+time\\s*$$\n  ^${INTERFACE}\\s+${VNI}\\s+${TYPE}\\s+${PEER}\\s+${MAC_ADDRESS}\\s+\\d+\\s+${STATE} -> Record\n  ^\\s*$$\n  ^. -> Error\n  "
+}

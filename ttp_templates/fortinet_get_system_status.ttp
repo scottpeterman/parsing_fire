@@ -1,0 +1,32 @@
+# TTP Template auto-generated from TextFSM
+# Original command: fortinet_get_system_status
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="app_db_bios_version_botnet_db_branch_point">
+Version: {{VERSION | ORPHRASE}}
+Virus-DB: {{VIRUS_DB | ORPHRASE}}
+Extended DB: {{EXTENDED_DB | ORPHRASE}}
+IPS-DB: {{IPS_DB | ORPHRASE}}
+IPS-ETDB: {{IPS_ETDB | ORPHRASE}}
+APP-DB: {{APP_DB | ORPHRASE}}
+Serial-Number: {{SERIAL_NUMBER | ORPHRASE}}
+IPS Malicious URL Database: {{IPS_MALICIOUS_URL_DATABASE | ORPHRASE}}
+Botnet DB: {{BOTNET_DB | ORPHRASE}}
+BIOS version: {{BIOS_VERSION | ORPHRASE}}
+System Part-Number: {{SYSTEM_PART_NUMBER | ORPHRASE}}
+Log hard disk: {{LOG_HARD_DISK | ORPHRASE}}
+Hostname: {{HOSTNAME | ORPHRASE}} 
+Operation Mode: {{OPERATION_MODE | ORPHRASE}}
+Current virtual domain: {{CURRENT_VIRTUAL_DOMAIN | ORPHRASE}}
+Virtual domains status: {{VIRTUAL_DOMAINS_STATUS | ORPHRASE}}
+Virtual domain configuration: {{VIRTUAL_DOMAIN_CONFIGURATION | ORPHRASE}}
+FIPS-CC mode: {{FIPS_CC_MODE | ORPHRASE}}
+Current HA mode: {{CURRENT_HA_MODE | ORPHRASE}}
+Cluster uptime: {{CLUSTER_UPTIME | ORPHRASE}}
+Cluster state change time: {{CLUSTER_STATE_CHANGE_TIME | ORPHRASE}}
+FortiOS x86-64: {{FORTIOS_X86_64 | ORPHRASE}}
+System time: {{SYSTEM_TIME | ORPHRASE}}
+</group>

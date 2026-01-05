@@ -1,0 +1,11 @@
+# TTP Template - FAILED VALIDATION
+# Original command: huawei_smartax_display_mac-address
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="service_port_index_type_mac_mac_type_fsp_ont_id_gem_index_vlan_id">
+       {{SERVICE_PORT_INDEX | re("\\d+")}} - {{TYPE}} {{MAC | re("[0-9a-fA-F:.-]+")}} {{MAC_TYPE | re("[0-9a-fA-F:.-]+")}} {{FSP | ORPHRASE}} {{ONT_ID | re("\\d+")}} {{GEM_INDEX}} {{VLAN_ID | re("\\d+")}}
+</group>
+<group name="type_mac_mac_type_fsp_vlan_id">
+       - - {{TYPE}} {{MAC | re("[0-9a-fA-F:.-]+")}} {{MAC_TYPE | re("[0-9a-fA-F:.-]+")}} {{FSP | ORPHRASE}} - - {{VLAN_ID | re("\\d+")}}
+</group>

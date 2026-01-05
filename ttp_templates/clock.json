@@ -1,0 +1,30 @@
+{
+  "command": "clock",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"time_timezone_day_date\">\n{{TIME}} {{TIMEZONE}} {{DAY}} {{DATE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TIME": "10:15:30.123",
+      "TIMEZONE": "UTC",
+      "DAY": "Mon",
+      "DATE": "May 15 2023"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "time_timezone_day_date": {
+        "TIME": "10:15:30.123",
+        "TIMEZONE": "UTC",
+        "DAY": "Mon",
+        "DATE": "May 15 2023"
+      }
+    }
+  ],
+  "cli_content": "10:15:30.123 UTC Mon May 15 2023\n",
+  "textfsm_template": "Value TIME (\\d{2}:\\d{2}:\\d{2}\\.\\d{3})\nValue TIMEZONE (\\S+)\nValue DAY (\\w{3})\nValue DATE (\\w{3} \\d{1,2} \\d{4})\n\nStart\n  ^\\s*${TIME} ${TIMEZONE} ${DAY} ${DATE}\\s*$$ -> Record"
+}

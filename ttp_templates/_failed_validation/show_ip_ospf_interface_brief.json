@@ -1,0 +1,62 @@
+{
+  "command": "show ip ospf interface brief",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 5,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"interface_pid_area_state_cost_nbrs\">\n{{INTERFACE}} {{PID | re(\"\\\\d+\")}} {{AREA}} {{IP_AD{{STATE | ORPHRASE}}ESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{COST}} DR {{NBRS | ORPHRASE}}\n</group>\n<group name=\"interface_pid_area_ip_address_cost_state_nbrs\">\n{{INTERFACE}} {{PID | re(\"\\\\d+\")}} {{AREA}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{COST}} {{STATE | ORPHRASE}} {{NBRS | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Gi0/0",
+      "PID": "1",
+      "AREA": "0",
+      "IP_ADDRESS": "192.168.0.1/24",
+      "COST": "1",
+      "STATE": "DR",
+      "NBRS": "1/1"
+    },
+    {
+      "INTERFACE": "Gi0/1",
+      "PID": "1",
+      "AREA": "0",
+      "IP_ADDRESS": "10.10.10.1/24",
+      "COST": "1",
+      "STATE": "BDR",
+      "NBRS": "1/1"
+    },
+    {
+      "INTERFACE": "Gi0/2",
+      "PID": "1",
+      "AREA": "0",
+      "IP_ADDRESS": "172.16.0.1/16",
+      "COST": "1",
+      "STATE": "BDR",
+      "NBRS": "0/1"
+    },
+    {
+      "INTERFACE": "Gi0/3",
+      "PID": "1",
+      "AREA": "1",
+      "IP_ADDRESS": "192.168.1.1/24",
+      "COST": "1",
+      "STATE": "DR",
+      "NBRS": "1/1"
+    },
+    {
+      "INTERFACE": "Gi0/4",
+      "PID": "2",
+      "AREA": "2",
+      "IP_ADDRESS": "10.10.20.1/24",
+      "COST": "10",
+      "STATE": "DR",
+      "NBRS": "0/0"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Interface    PID   Area            IP Address/Mask    Cost  State Nbrs F/C\nGi0/0        1     0               192.168.0.1/24     1     DR    1/1\nGi0/1        1     0               10.10.10.1/24      1     BDR   1/1\nGi0/2        1     0               172.16.0.1/16      1     BDR   0/1\nGi0/3        1     1               192.168.1.1/24     1     DR    1/1\nGi0/4        2     2               10.10.20.1/24      10    DR    0/0\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue PID (\\d+)\nValue AREA (\\d+)\nValue IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+\\/\\d+)\nValue COST (\\d+)\nValue STATE (\\S+)\nValue NBRS (\\d+/\\d+)\n\nStart\n  ^\\s*Interface\\s+PID\\s+Area\\s+IP\\s+Address/Mask\\s+Cost\\s+State\\s+Nbrs\\s+F/C\\s*$$\n  ^\\s*${INTERFACE}\\s+${PID}\\s+${AREA}\\s+${IP_ADDRESS}\\s+${COST}\\s+${STATE}\\s+${NBRS}\\s*$$ -> Record"
+}

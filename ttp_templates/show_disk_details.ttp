@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show disk details
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="filesystem_size_used_avail_use_percent_mounted_on">
+{{FILESYSTEM}} {{SIZE}} {{USED}} {{AVAIL}} {{USE_PERCENT | ORPHRASE}} {{MOUNTED_ON | re(".*\\w.*")}}
+</group>

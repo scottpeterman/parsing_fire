@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_snmp_community
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 5
+# Match ratio: 1.67
+
+<group name="name">
+Community name: {{NAME | ORPHRASE}}
+</group>

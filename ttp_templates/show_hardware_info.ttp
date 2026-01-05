@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show hardware info
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="cpu_cores_hardware_version_memory_model">
+Model:  {{MODEL | ORPHRASE}}
+Serial Number:  {{SERIAL_NUMBER | ORPHRASE}}
+Hardware Version:  {{HARDWARE_VERSION | ORPHRASE}}
+Software Version:  {{SOFTWARE_VERSION | ORPHRASE}}
+System Uptime:  {{SYSTEM_UPTIME | ORPHRASE}}
+Memory:  {{MEMORY | ORPHRASE}} MB
+</group>

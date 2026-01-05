@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_cdp_neighbors_detail
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="capabilities_local_interface_mgmt_address_neighbor_description">
+Device ID: {{NEIGHBOR_NAME | ORPHRASE}}
+  IP address: {{MGMT_ADDRESS | ORPHRASE}}
+Platform: {{PLATFORM | ORPHRASE}},  Capabilities: {{CAPABILITIES | ORPHRASE}} 
+Interface: {{LOCAL_INTERFACE}},  Port ID (outgoing port): {{NEIGHBOR_INTERFACE | ORPHRASE}}
+{{NEIGHBOR_DESCRIPTION | ORPHRASE}}
+</group>

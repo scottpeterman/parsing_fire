@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_smartax_display_ont_snmp-profile_0_all
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="ont_id_snmp_profile_id_snmp_profile_name">
+       {{ONT_ID | re("\\d+")}} {{SNMP_PROFILE_ID | re("\\d+")}} {{SNMP_PROFILE_NAME | ORPHRASE}}
+</group>

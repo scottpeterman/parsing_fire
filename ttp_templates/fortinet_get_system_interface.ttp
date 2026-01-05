@@ -1,0 +1,25 @@
+# TTP Template auto-generated from TextFSM
+# Original command: fortinet_get_system_interface
+# Source: ntc
+# TextFSM rows: 25
+# TTP rows: 25
+# Match ratio: 1.00
+
+<group name="name_mode_ip_address_netmask_status_netbios_forward_type_netflow_sampler_sflow_sampler_src_check_explicit_web_proxy_explicit_ftp_proxy_proxy_captive_portal_mtu_override_wccp_drop_overlapped_fragment_drop_fragment">
+name: {{NAME}} mode: {{MODE}} ip: {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{NETMASK}} status: {{STATUS | ORPHRASE}} netbios-forward: {{NETBIOS_FORWARD}} type: {{TYPE}} netflow-sampler: {{NETFLOW_SAMPLER}} sflow-sampler: {{SFLOW_SAMPLER}} src-check: {{SRC_CHECK | ORPHRASE}} explicit-web-proxy: {{EXPLICIT_WEB_PROXY}} explicit-ftp-proxy: {{EXPLICIT_FTP_PROXY}} proxy-captive-portal: {{PROXY_CAPTIVE_PORTAL}} mtu-override: {{MTU_OVERRIDE | re("[\\d\\.\\(\\)A-Za-z]+")}} wccp: {{WCCP}} drop-overlapped-fragment: {{DROP_OVERLAPPED_FRAGMENT | re("[\\d\\.\\(\\)A-Za-z]+")}} drop-fragment: {{DROP_FRAGMENT}}
+</group>
+<group name="name_status_type">
+name: {{NAME}} status: {{STATUS | ORPHRASE}} type: {{TYPE | ORPHRASE}}
+</group>
+<group name="name_ip_address_netmask_status_netbios_forward_type_netflow_sampler_sflow_sampler_src_check_explicit_web_proxy_explicit_ftp_proxy_proxy_captive_portal_wccp">
+name: {{NAME}} ip: {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{NETMASK}} status: {{STATUS | ORPHRASE}} netbios-forward: {{NETBIOS_FORWARD}} type: {{TYPE}} netflow-sampler: {{NETFLOW_SAMPLER}} sflow-sampler: {{SFLOW_SAMPLER}} src-check: {{SRC_CHECK | ORPHRASE}} explicit-web-proxy: {{EXPLICIT_WEB_PROXY}} explicit-ftp-proxy: {{EXPLICIT_FTP_PROXY}} proxy-captive-portal: {{PROXY_CAPTIVE_PORTAL}} wccp: {{WCCP}}
+</group>
+<group name="name_ip_address_netmask_status_type_netflow_sampler_sflow_sampler_src_check_explicit_web_proxy_explicit_ftp_proxy_proxy_captive_portal">
+name: {{NAME}} ip: {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{NETMASK}} status: {{STATUS | ORPHRASE}} type: {{TYPE}} netflow-sampler: {{NETFLOW_SAMPLER}} sflow-sampler: {{SFLOW_SAMPLER}} src-check: {{SRC_CHECK | ORPHRASE}} explicit-web-proxy: {{EXPLICIT_WEB_PROXY}} explicit-ftp-proxy: {{EXPLICIT_FTP_PROXY}} proxy-captive-portal: {{PROXY_CAPTIVE_PORTAL}}
+</group>
+<group name="name_ip_address_netmask_status_netbios_forward_type_netflow_sampler_sflow_sampler_src_check_explicit_web_proxy_explicit_ftp_proxy_proxy_captive_portal_mtu_override_wccp">
+name: {{NAME}} ip: {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{NETMASK}} status: {{STATUS | ORPHRASE}} netbios-forward: {{NETBIOS_FORWARD}} type: {{TYPE}} netflow-sampler: {{NETFLOW_SAMPLER}} sflow-sampler: {{SFLOW_SAMPLER}} src-check: {{SRC_CHECK | ORPHRASE}} explicit-web-proxy: {{EXPLICIT_WEB_PROXY}} explicit-ftp-proxy: {{EXPLICIT_FTP_PROXY}} proxy-captive-portal: {{PROXY_CAPTIVE_PORTAL}} mtu-override: {{MTU_OVERRIDE | re("[\\d\\.\\(\\)A-Za-z]+")}} wccp: {{WCCP}}
+</group>
+<group name="name_mode_ip_address_netmask_status_netbios_forward_type_netflow_sampler_sflow_sampler_src_check_explicit_web_proxy_explicit_ftp_proxy_proxy_captive_portal_switch_controller_feature_mtu_override_wccp_drop_overlapped_fragment_drop_fragment">
+name: {{NAME}} mode: {{MODE}} ip: {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{NETMASK}} status: {{STATUS | ORPHRASE}} netbios-forward: {{NETBIOS_FORWARD}} type: {{TYPE}} netflow-sampler: {{NETFLOW_SAMPLER}} sflow-sampler: {{SFLOW_SAMPLER}} src-check: {{SRC_CHECK}} explicit-web-proxy: {{EXPLICIT_WEB_PROXY}} explicit-ftp-proxy: {{EXPLICIT_FTP_PROXY}} proxy-captive-portal: {{PROXY_CAPTIVE_PORTAL}} switch-controller-feature: {{SWITCH_CONTROLLER_FEATURE | ORPHRASE}} mtu-override: {{MTU_OVERRIDE | re("[\\d\\.\\(\\)A-Za-z]+")}} wccp: {{WCCP}} drop-overlapped-fragment: {{DROP_OVERLAPPED_FRAGMENT | re("[\\d\\.\\(\\)A-Za-z]+")}} drop-fragment: {{DROP_FRAGMENT}}
+</group>

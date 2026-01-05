@@ -1,0 +1,46 @@
+{
+  "command": "mikrotik_routeros_tool_speed-test_address",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"ping_min_ping_avg_ping_max\">\n    ping-min-avg-max: {{PING_MIN}} / {{PING_AVG}} / {{PING_MAX | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ADDRESS": "192.168.88.1",
+      "STATUS": "tcp upload",
+      "TIME_REMAINING": "23s",
+      "PING_MIN": "52.4ms",
+      "PING_AVG": "86.1ms",
+      "PING_MAX": "246ms",
+      "JITTER_MIN": "12us",
+      "JITTER_AVG": "21.3ms",
+      "JITTER_MAX": "158ms",
+      "LOSS": "0% (0/200)",
+      "TCP_DOWNLOAD_BW": "921Mbps",
+      "TCP_DOWNLOAD_LOCAL_CPU": "30",
+      "TCP_UPLOAD_BW": "920Mbps",
+      "TCP_UPLOAD_LOCAL_CPU": "30",
+      "TCP_UPLOAD_REMOTE_CPU": "25",
+      "UDP_DOWNLOAD_BW": "917Mbps",
+      "UDP_DOWNLOAD_LOCAL_CPU": "6",
+      "UDP_DOWNLOAD_REMOTE_CPU": "21",
+      "UDP_UPLOAD_BW": "916Mbps",
+      "UDP_UPLOAD_LOCAL_CPU": "20",
+      "UDP_UPLOAD_REMOTE_CPU": "6"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ping_min_ping_avg_ping_max": {
+        "PING_MIN": "52.4ms",
+        "PING_AVG": "86.1ms",
+        "PING_MAX": "246ms"
+      }
+    }
+  ],
+  "cli_content": "address: 192.168.88.1\n              status: tcp upload\n      time-remaining: 23s\n    ping-min-avg-max: 52.4ms / 86.1ms / 246ms\n  jitter-min-avg-max: 12us / 21.3ms / 158ms\n                loss: 0% (0/200)\n        tcp-download: 921Mbps local-cpu-load:30%\n          tcp-upload: 920Mbps local-cpu-load:30% remote-cpu-load:25%\n        udp-download: 917Mbps local-cpu-load:6% remote-cpu-load:21%\n          udp-upload: 916Mbps local-cpu-load:20% remote-cpu-load:6%\n",
+  "textfsm_template": "Value ADDRESS (\\S+)\nValue STATUS (.*)\nValue TIME_REMAINING (\\d+\\w+)\nValue PING_MIN (\\S+)\nValue PING_AVG (\\S+)\nValue PING_MAX (\\S+)\nValue JITTER_MIN (\\S+)\nValue JITTER_AVG (\\S+)\nValue JITTER_MAX (\\S+)\nValue LOSS (\\d+%\\s*\\(\\d+/\\d+\\))\nValue TCP_DOWNLOAD_BW (\\S+)\nValue TCP_DOWNLOAD_LOCAL_CPU (\\d+)\nValue TCP_DOWNLOAD_REMOTE_CPU (\\d+)\nValue TCP_UPLOAD_BW (\\S+)\nValue TCP_UPLOAD_LOCAL_CPU (\\d+)\nValue TCP_UPLOAD_REMOTE_CPU (\\d+)\nValue UDP_DOWNLOAD_BW (\\S+)\nValue UDP_DOWNLOAD_LOCAL_CPU (\\d+)\nValue UDP_DOWNLOAD_REMOTE_CPU (\\d+)\nValue UDP_UPLOAD_BW (\\S+)\nValue UDP_UPLOAD_LOCAL_CPU (\\d+)\nValue UDP_UPLOAD_REMOTE_CPU (\\d+)\n\nStart\n  ^\\s*address:\\s*${ADDRESS}\\s*$$\n  ^\\s*status:\\s*${STATUS}\\s*$$\n  ^\\s*time-remaining:\\s*${TIME_REMAINING}\\s*$$\n  ^\\s*ping-min-avg-max:\\s*${PING_MIN}\\s+/\\s+${PING_AVG}\\s+/\\s+${PING_MAX}\\s*$$\n  ^\\s*jitter-min-avg-max:\\s*${JITTER_MIN}\\s+/\\s+${JITTER_AVG}\\s+/\\s+${JITTER_MAX}\\s*$$\n  ^\\s*loss:\\s*${LOSS}\\s*$$\n  ^\\s*tcp-download:\\s*${TCP_DOWNLOAD_BW}(\\s+local-cpu-load:\\s*${TCP_DOWNLOAD_LOCAL_CPU}%)?(\\s+remote-cpu-load:\\s*${TCP_DOWNLOAD_REMOTE_CPU}%)?\\s*$$\n  ^\\s*tcp-upload:\\s*${TCP_UPLOAD_BW}(\\s+local-cpu-load:\\s*${TCP_UPLOAD_LOCAL_CPU}%)?(\\s+remote-cpu-load:\\s*${TCP_UPLOAD_REMOTE_CPU}%)?\\s*$$\n  ^\\s*udp-download:\\s*${UDP_DOWNLOAD_BW}(\\s+local-cpu-load:\\s*${UDP_DOWNLOAD_LOCAL_CPU}%)?(\\s+remote-cpu-load:\\s*${UDP_DOWNLOAD_REMOTE_CPU}%)?\\s*$$\n  ^\\s*udp-upload:\\s*${UDP_UPLOAD_BW}(\\s+local-cpu-load:\\s*${UDP_UPLOAD_LOCAL_CPU}%)?(\\s+remote-cpu-load:\\s*${UDP_UPLOAD_REMOTE_CPU}%)?\\s*$$\n  ^\\s*--\\s+\\[Q\\s+quit\\|D\\s+dump\\|C-z\\s+pause\\]\\s*$$\n  ^\\s*--\\s+\\[Q\\s+quit\\|C-z\\s+pause\\]\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

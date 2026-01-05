@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_running-config_partition_access-list
+# Source: ntc
+# TextFSM rows: 83
+# TTP rows: 2
+# Match ratio: 0.02
+
+<group name="acl_type">
+ip access-list {{ACL_TYPE | ORPHRASE}} sample
+<group name="action_dst_host_dst_port">
+ {{ACTION}} {{PROTOCOL}} host {{SRC_HOST | re("\\S+")}} host {{DST_HOST | re("\\S+")}} {{DST_PORT_MATCH}} {{DST_PORT | ORPHRASE}}
+</group>
+</group>

@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: ping 192.0.2.
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="ttl_seq_time">
+{{TTL}} bytes from {{SEQ}}92.0.2.1: icmp_seq=1 ttl=64 time={{TIME | ORPHRASE}} ms
+</group>
+<group name="rt_min_rt_avg_rt_max_rt_mdev">
+rtt min/avg/max/mdev = {{RT_MIN}}/{{RT_AVG}}/{{RT_MAX}}/{{RT_MDEV | ORPHRASE}} ms
+</group>

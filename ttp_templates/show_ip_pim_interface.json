@@ -1,0 +1,116 @@
+{
+  "command": "show ip pim interface",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"interface_pim_enabled_nbr_count_dr_address_state_bidir_capable\">\n{{INTERFACE}} {{PIM_ENABLED}} {{NBR_COUNT | re(\"\\\\d+\")}} {{DR_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATE | ORPHRASE}} {{BIDIR_CAPABLE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Vlan1",
+      "PIM_ENABLED": "yes",
+      "NBR_COUNT": "0",
+      "DR_ADDRESS": "192.168.1.1",
+      "STATE": "up",
+      "BIDIR_CAPABLE": "no"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/0",
+      "PIM_ENABLED": "yes",
+      "NBR_COUNT": "5",
+      "DR_ADDRESS": "10.1.1.1",
+      "STATE": "up",
+      "BIDIR_CAPABLE": "yes"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/1",
+      "PIM_ENABLED": "yes",
+      "NBR_COUNT": "3",
+      "DR_ADDRESS": "10.2.2.1",
+      "STATE": "up",
+      "BIDIR_CAPABLE": "no"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/2",
+      "PIM_ENABLED": "no",
+      "NBR_COUNT": "0",
+      "DR_ADDRESS": "0.0.0.0",
+      "STATE": "down",
+      "BIDIR_CAPABLE": "no"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/3",
+      "PIM_ENABLED": "yes",
+      "NBR_COUNT": "2",
+      "DR_ADDRESS": "10.3.3.1",
+      "STATE": "up",
+      "BIDIR_CAPABLE": "yes"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/4",
+      "PIM_ENABLED": "yes",
+      "NBR_COUNT": "4",
+      "DR_ADDRESS": "10.4.4.1",
+      "STATE": "up",
+      "BIDIR_CAPABLE": "yes"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_pim_enabled_nbr_count_dr_address_state_bidir_capable": [
+        {
+          "INTERFACE": "Vlan1",
+          "PIM_ENABLED": "yes",
+          "NBR_COUNT": "0",
+          "DR_ADDRESS": "192.168.1.1",
+          "STATE": "up",
+          "BIDIR_CAPABLE": "no"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/0",
+          "PIM_ENABLED": "yes",
+          "NBR_COUNT": "5",
+          "DR_ADDRESS": "10.1.1.1",
+          "STATE": "up",
+          "BIDIR_CAPABLE": "yes"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/1",
+          "PIM_ENABLED": "yes",
+          "NBR_COUNT": "3",
+          "DR_ADDRESS": "10.2.2.1",
+          "STATE": "up",
+          "BIDIR_CAPABLE": "no"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/2",
+          "PIM_ENABLED": "no",
+          "NBR_COUNT": "0",
+          "DR_ADDRESS": "0.0.0.0",
+          "STATE": "down",
+          "BIDIR_CAPABLE": "no"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/3",
+          "PIM_ENABLED": "yes",
+          "NBR_COUNT": "2",
+          "DR_ADDRESS": "10.3.3.1",
+          "STATE": "up",
+          "BIDIR_CAPABLE": "yes"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/4",
+          "PIM_ENABLED": "yes",
+          "NBR_COUNT": "4",
+          "DR_ADDRESS": "10.4.4.1",
+          "STATE": "up",
+          "BIDIR_CAPABLE": "yes"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              PIM Enabled  Nbr Count    DR Address       State    Bidir Capable\nVlan1                  yes          0            192.168.1.1      up       no\nGigabitEthernet0/0     yes          5            10.1.1.1         up       yes\nGigabitEthernet0/1     yes          3            10.2.2.1         up       no\nGigabitEthernet0/2     no           0            0.0.0.0          down     no\nGigabitEthernet0/3     yes          2            10.3.3.1         up       yes\nGigabitEthernet0/4     yes          4            10.4.4.1         up       yes\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue PIM_ENABLED (yes|no)\nValue NBR_COUNT (\\d+)\nValue DR_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue STATE (up|down)\nValue BIDIR_CAPABLE (yes|no)\n\nStart\n  ^\\s*Interface\\s+PIM Enabled\\s+Nbr Count\\s+DR Address\\s+State\\s+Bidir Capable\\s*$$\n  ^\\s*${INTERFACE}\\s+${PIM_ENABLED}\\s+${NBR_COUNT}\\s+${DR_ADDRESS}\\s+${STATE}\\s+${BIDIR_CAPABLE}\\s*$$ -> Record"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip multicast
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 2
+# Match ratio: 0.50
+
+<group name="group_address_interface_source_address_timeout">
+{{GROUP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{INTERFACE}} {{SOURCE_ADDRESS | re(".*\\w.*")}} {{TIMEOUT | ORPHRASE}}
+</group>

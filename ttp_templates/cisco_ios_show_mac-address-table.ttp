@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_mac-address-table
+# Source: ntc
+# TextFSM rows: 17
+# TTP rows: 5
+# Match ratio: 0.29
+
+<group name="vlan_id_destination_address_type_destination_port">
+ {{VLAN_ID}} {{DESTINATION_ADDRESS}} {{TYPE}} {{DESTINATION_PORT | ORPHRASE}}
+</group>

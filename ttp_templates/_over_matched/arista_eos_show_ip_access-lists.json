@@ -1,0 +1,236 @@
+{
+  "command": "arista_eos_show_ip_access-lists",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 12,
+  "ttp_rows": 16,
+  "ttp_template": "<group name=\"name\">\nIP Access List {{NAME | ORPHRASE}}\n<group name=\"action_destination_protocol\">\n        {{SN | re(\"\\\\w+\")}} {{ACTION}} {{PROTOCOL}} {{SOURCE | ORPHRASE}} {{DESTINATION | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "TEST_1",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "ip",
+      "SOURCE": "host 10.0.0.1",
+      "DESTINATION": "10.0.0.0/24"
+    },
+    {
+      "NAME": "default-control-plane-acl",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SOURCE": "any",
+      "DESTINATION": "any"
+    },
+    {
+      "NAME": "default-control-plane-acl",
+      "SN": "20",
+      "ACTION": "permit",
+      "PROTOCOL": "ip",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "MODIFIER": "tracked"
+    },
+    {
+      "NAME": "default-control-plane-acl",
+      "SN": "30",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "MODIFIER": "eq bfd ttl eq 255"
+    },
+    {
+      "NAME": "default-control-plane-acl",
+      "SN": "50",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "MODIFIER": "eq ssh telnet www snmp bgp https msdp"
+    },
+    {
+      "NAME": "default-control-plane-acl",
+      "SN": "60",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "MODIFIER": "eq bootps bootpc snmp rip ntp"
+    },
+    {
+      "NAME": "default-control-plane-acl",
+      "SN": "70",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "MODIFIER": "range 5900 5910"
+    },
+    {
+      "NAME": "test2",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "ip",
+      "SOURCE": "1.1.1.0/30",
+      "DESTINATION": "any",
+      "MODIFIER": "fragments log"
+    },
+    {
+      "NAME": "test2",
+      "SN": "20",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SOURCE": "111.11.11.0/24",
+      "PORT_MODIFIER": "eq",
+      "PORT_RANGE": "www z39-50",
+      "DESTINATION": "10.0.0.0/24",
+      "MODIFIER": "urg ttl eq 30"
+    },
+    {
+      "NAME": "test3",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SOURCE": "any",
+      "PORT_MODIFIER": "range",
+      "PORT_RANGE": "www ups",
+      "DESTINATION": "any",
+      "MODIFIER": "ack"
+    },
+    {
+      "NAME": "test3",
+      "SN": "20",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SOURCE": "any",
+      "PORT_MODIFIER": "eq",
+      "PORT_RANGE": "www ups telnet time tunnel uucp vmnet",
+      "DESTINATION": "host 10.10.10.10",
+      "MODIFIER": "ack"
+    },
+    {
+      "NAME": "test3",
+      "SN": "30",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SOURCE": "any",
+      "PORT_MODIFIER": "eq",
+      "PORT_RANGE": "www ups telnet vmnet",
+      "DESTINATION": "any",
+      "MODIFIER": "log"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name": [
+        {
+          "NAME": "TEST_1",
+          "action_destination_protocol": {
+            "SN": "10",
+            "ACTION": "permit",
+            "PROTOCOL": "ip",
+            "SOURCE": "host",
+            "DESTINATION": "10.0.0.1 10.0.0.0/24"
+          }
+        },
+        {
+          "NAME": "default-control-plane-acl [readonly]",
+          "action_destination_protocol": [
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "icmp",
+              "SOURCE": "any",
+              "DESTINATION": "any"
+            },
+            {
+              "SN": "20",
+              "ACTION": "permit",
+              "PROTOCOL": "ip",
+              "SOURCE": "any",
+              "DESTINATION": "any tracked"
+            },
+            {
+              "SN": "30",
+              "ACTION": "permit",
+              "PROTOCOL": "udp",
+              "SOURCE": "any",
+              "DESTINATION": "any eq bfd ttl eq 255"
+            },
+            {
+              "SN": "50",
+              "ACTION": "permit",
+              "PROTOCOL": "tcp",
+              "SOURCE": "any",
+              "DESTINATION": "any eq ssh telnet www snmp bgp https msdp"
+            },
+            {
+              "SN": "60",
+              "ACTION": "permit",
+              "PROTOCOL": "udp",
+              "SOURCE": "any",
+              "DESTINATION": "any eq bootps bootpc snmp rip ntp"
+            },
+            {
+              "SN": "70",
+              "ACTION": "permit",
+              "PROTOCOL": "tcp",
+              "SOURCE": "any",
+              "DESTINATION": "any range 5900 5910"
+            }
+          ]
+        },
+        {
+          "NAME": "test2",
+          "action_destination_protocol": [
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "ip",
+              "SOURCE": "1.1.1.0/30",
+              "DESTINATION": "any fragments log"
+            },
+            {
+              "SN": "20",
+              "ACTION": "permit",
+              "PROTOCOL": "tcp",
+              "SOURCE": "111.11.11.0/24",
+              "DESTINATION": "eq www z39-50 10.0.0.0/24 urg ttl eq 30"
+            }
+          ]
+        },
+        {
+          "NAME": "test3",
+          "action_destination_protocol": [
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "tcp",
+              "SOURCE": "any",
+              "DESTINATION": "range www ups any ack"
+            },
+            {
+              "SN": "20",
+              "ACTION": "permit",
+              "PROTOCOL": "tcp",
+              "SOURCE": "any",
+              "DESTINATION": "eq www ups telnet time tunnel uucp vmnet host 10.10.10.10 ack"
+            },
+            {
+              "SN": "30",
+              "ACTION": "permit",
+              "PROTOCOL": "tcp",
+              "SOURCE": "any",
+              "DESTINATION": "eq www ups telnet vmnet any log"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "cli_content": "IP Access List TEST_1\n        10 permit ip host 10.0.0.1 10.0.0.0/24\n\nIP Access List default-control-plane-acl [readonly]\n        statistics per-entry\n        10 permit icmp any any\n        20 permit ip any any tracked\n        30 permit udp any any eq bfd ttl eq 255\n        50 permit tcp any any eq ssh telnet www snmp bgp https msdp\n        60 permit udp any any eq bootps bootpc snmp rip ntp\n        70 permit tcp any any range 5900 5910\n        \nIP Access List test2\n        10 permit ip 1.1.1.0/30 any fragments log\n        20 permit tcp 111.11.11.0/24 eq www z39-50 10.0.0.0/24 urg ttl eq 30\n        \nIP Access List test3\n        10 permit tcp any range www ups any ack\n        20 permit tcp any eq www ups telnet time tunnel uucp vmnet host 10.10.10.10 ack\n        30 permit tcp any eq www ups telnet vmnet any log\n",
+  "textfsm_template": "Value Filldown NAME (\\S+)\nValue Required SN (\\d+)\nValue ACTION (\\w+)\nValue PROTOCOL ([^any][\\w+\\d+]+)\nValue SOURCE (host\\s\\d+\\.\\d+\\.\\d+\\.\\d+|any|\\d+\\.\\d+\\.\\d+\\.\\d+/\\d+)\nValue PORT_MODIFIER (eq|gt|lt|neq|range)\nValue PORT_RANGE ([(\\S+\\s\\S+)]+)\nValue DESTINATION (host\\s\\d+\\.\\d+\\.\\d+\\.\\d+|any|\\d+\\.\\d+\\.\\d+\\.\\d+/\\d+) \nValue MODIFIER (.*)\n\nStart\n  ^.*List\\s+${NAME}(\\s+\\[readonly\\])* \n  ^\\s+${SN}\\s+${ACTION}\\s+${PROTOCOL}\\s+${SOURCE}(\\s+${PORT_MODIFIER})*(\\s${PORT_RANGE})*\\s+${DESTINATION}(\\s+${MODIFIER})* -> Record\n\n"
+}

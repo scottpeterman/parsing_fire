@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: checkpoint_gaia_show_version_all
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="architecture_build_kernel_version">
+Product version Check Point Gaia {{VERSION | ORPHRASE}}
+OS build {{BUILD | ORPHRASE}}
+OS kernel version {{KERNEL | ORPHRASE}}
+OS edition {{ARCHITECTURE | ORPHRASE}}-bit
+</group>

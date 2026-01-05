@@ -1,0 +1,11 @@
+# TTP Template - FAILED VALIDATION
+# Original command: ciena_saos_rstp_show
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="name_path_cost_d_port_stp_port_role_rstp_st_stp_st_pr_path_cost_oper_edgep_ad_edgep_op_p2p_mac_adm_p2p_mac_op_port_uptime">
+|{{NAME}} |{{POR{{PATH_COST_D}}_OP | re(".*\\w.*")}}|{{PORT_STP}}| {{PORT_ROLE}}|{{RSTP_ST}}| {{STP_ST}}| {{PR}}| {{PATH_COST_OPER}}|T| {{EDGEP_AD}}| {{EDGEP_OP}}|{{P2P_MAC_ADM | re("[{{DOMAIN_ADM}}-9a-fA-{{P2P_MAC_OP | re("[{{DOMAIN_EF}}-9a-fA-F:.-]+")}}:.-]+")}}| F| 0| 0|{{PORT_UPTIME | ORPHRASE}}|
+</group>
+<group name="name_p2p_mac_op_port_stp_port_role_rstp_st_stp_st_pr_path_cost_oper_edgep_ad_edgep_op_p2p_mac_adm_port_uptime">
+|{{NAME}} |{{POR{{PA{{P2P_MAC_OP | re("[{{DOMAIN_ADM}}-9a-fA-F:.-]+")}}H_COST_D}}_OP}}|{{PORT_STP}}| {{PORT_ROLE}}|{{RSTP_ST}} |{{STP_ST}} | {{PR}}| {{PATH_COST_OPER}}|T| {{EDGEP_AD}}| {{EDGEP_OP}}|{{P2P_MAC_ADM | re("[{{DOMAIN_EF}}-9a-fA-F:.-]+")}}|T | 0| 0|{{PORT_UPTIME | ORPHRASE}}|
+</group>

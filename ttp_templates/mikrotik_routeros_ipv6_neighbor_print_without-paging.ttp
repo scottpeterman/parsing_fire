@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_ipv6_neighbor_print_without-paging
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="index_ipv6_address_interface_mac_address_status">
+ {{INDEX}} address={{IPV6_ADDRESS}} interface={{INTERFACE}} mac-address={{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} status="{{STATUS | ORPHRASE}}" 
+</group>
+<group name="index_flags_ipv6_address_interface_mac_address_status">
+ {{INDEX}} {{FLAGS}} address={{IPV6_ADDRESS}} interface={{INTERFACE}} mac-address={{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} status="{{STATUS | ORPHRASE}}" 
+</group>
+<group name="index_ipv6_address_interface_status">
+ {{INDEX}} address={{IPV6_ADDRESS}} interface={{INTERFACE}} status="{{STATUS | ORPHRASE}}"
+</group>

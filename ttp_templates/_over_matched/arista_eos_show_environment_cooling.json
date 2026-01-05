@@ -1,0 +1,604 @@
+{
+  "command": "arista_eos_show_environment_cooling",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0526315789473684,
+  "textfsm_rows": 38,
+  "ttp_rows": 40,
+  "ttp_template": "<group name=\"airflow_ambient_temp_sys_cooling_status\">\nSystem cooling status is: {{SYS_COOLING_STATUS | ORPHRASE}}\n<group name=\"actual_speed_config_speed_fan\">\n{{FAN}} {{STATUS | ORPHRASE}} {{CONFIG_SPEED}} {{ACTUAL_SPEED | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FAN": "1/1",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "34%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "1/2",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "35%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "1/3",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "35%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "1/4",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "34%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "1/5",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "34%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "2/1",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "34%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "2/2",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "34%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "2/3",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "35%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "2/4",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "34%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "2/5",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "35%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "3/1",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "35%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "3/2",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "34%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "3/3",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "34%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "3/4",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "35%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "3/5",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "34%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "4/1",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "34%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "4/2",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "34%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "4/3",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "35%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "4/4",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "35%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "4/5",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "34%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "5/1",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "35%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "5/2",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "34%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "5/3",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "35%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "5/4",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "34%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "5/5",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "34%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "6/1",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "35%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "6/2",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "34%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "6/3",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "35%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "6/4",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "35%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "6/5",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "35%",
+      "ACTUAL_SPEED": "34%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "PowerSupply1/1",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "70%",
+      "ACTUAL_SPEED": "70%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "PowerSupply2/1",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "70%",
+      "ACTUAL_SPEED": "69%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "PowerSupply3/1",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "70%",
+      "ACTUAL_SPEED": "70%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "PowerSupply4/1",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "70%",
+      "ACTUAL_SPEED": "69%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "PowerSupply5",
+      "STATUS": "Not Inserted",
+      "CONFIG_SPEED": "N/A",
+      "ACTUAL_SPEED": "N/A",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "PowerSupply6/1",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "70%",
+      "ACTUAL_SPEED": "69%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "PowerSupply7/1",
+      "STATUS": "Ok",
+      "CONFIG_SPEED": "70%",
+      "ACTUAL_SPEED": "70%",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    },
+    {
+      "FAN": "PowerSupply8",
+      "STATUS": "Not Inserted",
+      "CONFIG_SPEED": "N/A",
+      "ACTUAL_SPEED": "N/A",
+      "SYS_COOLING_STATUS": "Ok",
+      "AMBIENT_TEMP": "22C",
+      "AIRFLOW": "front-to-back"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "airflow_ambient_temp_sys_cooling_status": {
+        "actual_speed_config_speed_fan": [
+          {
+            "FAN": "System",
+            "STATUS": "cooling",
+            "CONFIG_SPEED": "status",
+            "ACTUAL_SPEED": "is: Ok"
+          },
+          {
+            "FAN": "----------------",
+            "STATUS": "---------------",
+            "CONFIG_SPEED": "----------------",
+            "ACTUAL_SPEED": "----------------"
+          },
+          {
+            "FAN": "1/1",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "34%"
+          },
+          {
+            "FAN": "1/2",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "35%"
+          },
+          {
+            "FAN": "1/3",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "35%"
+          },
+          {
+            "FAN": "1/4",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "34%"
+          },
+          {
+            "FAN": "1/5",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "34%"
+          },
+          {
+            "FAN": "2/1",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "34%"
+          },
+          {
+            "FAN": "2/2",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "34%"
+          },
+          {
+            "FAN": "2/3",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "35%"
+          },
+          {
+            "FAN": "2/4",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "34%"
+          },
+          {
+            "FAN": "2/5",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "35%"
+          },
+          {
+            "FAN": "3/1",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "35%"
+          },
+          {
+            "FAN": "3/2",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "34%"
+          },
+          {
+            "FAN": "3/3",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "34%"
+          },
+          {
+            "FAN": "3/4",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "35%"
+          },
+          {
+            "FAN": "3/5",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "34%"
+          },
+          {
+            "FAN": "4/1",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "34%"
+          },
+          {
+            "FAN": "4/2",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "34%"
+          },
+          {
+            "FAN": "4/3",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "35%"
+          },
+          {
+            "FAN": "4/4",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "35%"
+          },
+          {
+            "FAN": "4/5",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "34%"
+          },
+          {
+            "FAN": "5/1",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "35%"
+          },
+          {
+            "FAN": "5/2",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "34%"
+          },
+          {
+            "FAN": "5/3",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "35%"
+          },
+          {
+            "FAN": "5/4",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "34%"
+          },
+          {
+            "FAN": "5/5",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "34%"
+          },
+          {
+            "FAN": "6/1",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "35%"
+          },
+          {
+            "FAN": "6/2",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "34%"
+          },
+          {
+            "FAN": "6/3",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "35%"
+          },
+          {
+            "FAN": "6/4",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "35%"
+          },
+          {
+            "FAN": "6/5",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "35%",
+            "ACTUAL_SPEED": "34%"
+          },
+          {
+            "FAN": "PowerSupply1/1",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "70%",
+            "ACTUAL_SPEED": "70%"
+          },
+          {
+            "FAN": "PowerSupply2/1",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "70%",
+            "ACTUAL_SPEED": "69%"
+          },
+          {
+            "FAN": "PowerSupply3/1",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "70%",
+            "ACTUAL_SPEED": "70%"
+          },
+          {
+            "FAN": "PowerSupply4/1",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "70%",
+            "ACTUAL_SPEED": "69%"
+          },
+          {
+            "FAN": "PowerSupply5",
+            "STATUS": "Not Inserted",
+            "CONFIG_SPEED": "N/A",
+            "ACTUAL_SPEED": "N/A"
+          },
+          {
+            "FAN": "PowerSupply6/1",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "70%",
+            "ACTUAL_SPEED": "69%"
+          },
+          {
+            "FAN": "PowerSupply7/1",
+            "STATUS": "Ok",
+            "CONFIG_SPEED": "70%",
+            "ACTUAL_SPEED": "70%"
+          },
+          {
+            "FAN": "PowerSupply8",
+            "STATUS": "Not Inserted",
+            "CONFIG_SPEED": "N/A",
+            "ACTUAL_SPEED": "N/A"
+          }
+        ]
+      }
+    }
+  ],
+  "cli_content": "System cooling status is: Ok\nAmbient temperature: 22C\nAirflow: front-to-back\nFan              Status          Configured Speed     Actual Speed\n---------------- --------------- ---------------- ----------------\n1/1              Ok                           35%              34%\n1/2              Ok                           35%              35%\n1/3              Ok                           35%              35%\n1/4              Ok                           35%              34%\n1/5              Ok                           35%              34%\n2/1              Ok                           35%              34%\n2/2              Ok                           35%              34%\n2/3              Ok                           35%              35%\n2/4              Ok                           35%              34%\n2/5              Ok                           35%              35%\n3/1              Ok                           35%              35%\n3/2              Ok                           35%              34%\n3/3              Ok                           35%              34%\n3/4              Ok                           35%              35%\n3/5              Ok                           35%              34%\n4/1              Ok                           35%              34%\n4/2              Ok                           35%              34%\n4/3              Ok                           35%              35%\n4/4              Ok                           35%              35%\n4/5              Ok                           35%              34%\n5/1              Ok                           35%              35%\n5/2              Ok                           35%              34%\n5/3              Ok                           35%              35%\n5/4              Ok                           35%              34%\n5/5              Ok                           35%              34%\n6/1              Ok                           35%              35%\n6/2              Ok                           35%              34%\n6/3              Ok                           35%              35%\n6/4              Ok                           35%              35%\n6/5              Ok                           35%              34%\nPowerSupply1/1   Ok                           70%              70%\nPowerSupply2/1   Ok                           70%              69%\nPowerSupply3/1   Ok                           70%              70%\nPowerSupply4/1   Ok                           70%              69%\nPowerSupply5     Not Inserted                 N/A              N/A\nPowerSupply6/1   Ok                           70%              69%\nPowerSupply7/1   Ok                           70%              70%\nPowerSupply8     Not Inserted                 N/A              N/A",
+  "textfsm_template": "Value Required FAN (\\S+)\nValue STATUS (\\S+\\s?\\S+)\nValue CONFIG_SPEED (\\S+)\nValue ACTUAL_SPEED (\\S+)\nValue Filldown SYS_COOLING_STATUS (\\S+)\nValue Filldown AMBIENT_TEMP (\\S+)\nValue Filldown AIRFLOW (\\S+)\n\nStart\n  ^System\\scooling\\sstatus\\sis:\\s${SYS_COOLING_STATUS}\n  ^Ambient\\stemperature:\\s${AMBIENT_TEMP}\n  ^Airflow:\\s${AIRFLOW}\n  ^Fan\\s+Status\\s+Configured\\sSpeed\\s+Actual\\sSpeed\n  ^-+\\s+-+\\s+-+\\s+-+\n  ^${FAN}\\s+${STATUS}\\s+${CONFIG_SPEED}\\%?\\s+${ACTUAL_SPEED}\\%? -> Record\n  ^\\s+$$\n  ^$$\n  ^.* -> Error \"LINE NOT FOUND\""
+}

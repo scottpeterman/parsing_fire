@@ -1,0 +1,28 @@
+# TTP Template auto-generated from TextFSM
+# Original command: brocade_fastiron_show_interfaces
+# Source: ntc
+# TextFSM rows: 85
+# TTP rows: 372
+# Match ratio: 4.38
+
+<group name="interface_inputbitssec_intstate_protostate">
+{{interface | ORPHRASE}}{{inputbitssec}} is {{intstate | ORPHRASE}}, line protocol is {{protostate | ORPHRASE}} 
+</group>
+<group name="loadinterval_outputbitssec_outputpacketssec_outputpercentutilization">
+  {{loadinterval}} second output rate: {{outputbitssec}} bits/sec, {{outputpacketssec}} packets/sec, {{outputpercentutilization | ORPHRASE}}% utilization
+</group>
+<group name="confspeed_actualspeed_intstate_protostate_actualduplex">
+  Configured speed {{confspeed}}, actual {{actualspeed}}, configured d{{intstate | ORPHRASE}}lex {{confd{{protostate | ORPHRASE}}lex}}, actual {{actualduplex | ORPHRASE}}
+</group>
+<group name="untaggedvlan_hardwaretype_inputbroadcasts_queue5queued_flowcontrolopstate">
+{{untaggedvlan | re("\\d+")}}{{hardwaretype}}{{inputbroadcasts}}/3/{{queue5queued}} is {{flowcontrolopstate | ORPHRASE}}, line protocol is down 
+</group>
+<group name="interface_intstate_protostate">
+{{interface | ORPHRASE}} is {{intstate | ORPHRASE}}, line protocol is {{protostate | ORPHRASE}} 
+</group>
+<group name="interface_inputnobuffers_flowcontrolnegconfig">
+{{interface | ORPHRASE}}{{inputnobuffers}} is {{flowcontrolnegconfig | ORPHRASE}}, line protocol is down 
+</group>
+<group name="loadinterval_inputbitssec_inputpacketssec_inputpercentutilization">
+  {{loadinterval}} second input rate: {{inputbitssec}} bits/sec, {{inputpacketssec}} packets/sec, {{inputpercentutilization | ORPHRASE}}% utilization
+</group>

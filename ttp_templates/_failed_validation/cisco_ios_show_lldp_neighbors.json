@@ -1,0 +1,23 @@
+{
+  "command": "cisco_ios_show_lldp_neighbors",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 1,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"capabilities_local_interface_neighbor_interface_neighbor_name\">\n  ({{CAPABILITIES | ORPHRASE}}) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device\n{{NEIGHBOR_NAME}}{{LOCAL_INTERFACE}}  120  R  {{NEIGHBOR_INTERFACE | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR_NAME": "long_name_swt.josh-v",
+      "LOCAL_INTERFACE": "Gi0/2",
+      "CAPABILITIES": "R",
+      "NEIGHBOR_INTERFACE": "Gi0/0"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Capability codes:\n    (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device\n    (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other\n\nDevice ID           Local Intf     Hold-time  Capability      Port ID\nlong_name_swt.josh-vGi0/2          120        R               Gi0/0\n\nTotal entries displayed: 1\n",
+  "textfsm_template": "Value Required NEIGHBOR_NAME (.{0,20}(?<! ))\nValue Required LOCAL_INTERFACE (\\S+)\nValue CAPABILITIES (\\S*)\nValue Required NEIGHBOR_INTERFACE (\\S+)\n\nStart\n  ^Device.*ID -> LLDP\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n\nLLDP\n  ^${NEIGHBOR_NAME}\\s*${LOCAL_INTERFACE}\\s+\\d+\\s+${CAPABILITIES}\\s+${NEIGHBOR_INTERFACE} -> Record\n  ^${NEIGHBOR_NAME}\n  ^\\s+${LOCAL_INTERFACE}\\s+\\d+\\s+${CAPABILITIES}\\s+${NEIGHBOR_INTERFACE} -> Record\n"
+}

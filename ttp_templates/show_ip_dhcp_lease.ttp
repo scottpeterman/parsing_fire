@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip dhcp lease
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="ip_address_hardware_address_lease_expiration">
+{{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{HARDWARE_ADDRESS}} {{LEASE_EXPIRATION | ORPHRASE}}
+</group>

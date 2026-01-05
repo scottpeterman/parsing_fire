@@ -1,0 +1,76 @@
+{
+  "command": "cisco_nxos_show_module",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"module_ports_type_model_status\">\n{{MODULE | re(\"\\\\d+\")}} {{PORTS | re(\"\\\\d+\")}} {{TYPE | ORPHRASE}} {{MODEL}} {{STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "MODULE": "1",
+      "PORTS": "0",
+      "TYPE": "NX-OSv Supervisor Module",
+      "MODEL": "N7K-SUP1",
+      "STATUS": "active *"
+    },
+    {
+      "MODULE": "2",
+      "PORTS": "48",
+      "TYPE": "NX-OSv Ethernet Module",
+      "MODEL": "N7K-F248XP-25",
+      "STATUS": "ok"
+    },
+    {
+      "MODULE": "3",
+      "PORTS": "48",
+      "TYPE": "NX-OSv Ethernet Module",
+      "MODEL": "N7K-F248XP-25",
+      "STATUS": "ok"
+    },
+    {
+      "MODULE": "4",
+      "PORTS": "48",
+      "TYPE": "NX-OSv Ethernet Module",
+      "MODEL": "N7K-F248XP-25",
+      "STATUS": "ok"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "module_ports_type_model_status": [
+        {
+          "MODULE": "1",
+          "PORTS": "0",
+          "TYPE": "NX-OSv Supervisor Module",
+          "MODEL": "N7K-SUP1",
+          "STATUS": "active *"
+        },
+        {
+          "MODULE": "2",
+          "PORTS": "48",
+          "TYPE": "NX-OSv Ethernet Module",
+          "MODEL": "N7K-F248XP-25",
+          "STATUS": "ok"
+        },
+        {
+          "MODULE": "3",
+          "PORTS": "48",
+          "TYPE": "NX-OSv Ethernet Module",
+          "MODEL": "N7K-F248XP-25",
+          "STATUS": "ok"
+        },
+        {
+          "MODULE": "4",
+          "PORTS": "48",
+          "TYPE": "NX-OSv Ethernet Module",
+          "MODEL": "N7K-F248XP-25",
+          "STATUS": "ok"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Mod  Ports  Module-Type                         Model              Status\n---  -----  ----------------------------------- ------------------ ----------\n1    0      NX-OSv Supervisor Module            N7K-SUP1           active *\n2    48     NX-OSv Ethernet Module              N7K-F248XP-25      ok\n3    48     NX-OSv Ethernet Module              N7K-F248XP-25      ok\n4    48     NX-OSv Ethernet Module              N7K-F248XP-25      ok\n\nMod  Sw               Hw      World-Wide-Name(s) (WWN)\n---  ---------------  ------  --------------------------------------------------\n1    7.3(1)D1(0.10)   0.0     --\n2    NA               0.0     --\n3    NA               0.0     --\n4    NA               0.0     --\n\n\nMod  MAC-Address(es)                         Serial-Num\n---  --------------------------------------  ----------\n1    2c-c2-60-17-d7-60 to 2c-c2-60-17-df-5f  TM6017D760B\n2    02-00-0c-00-02-00 to 02-00-0c-00-02-7f  TM6017D760C\n3    02-00-0c-00-03-00 to 02-00-0c-00-03-7f  TM6017D760D\n4    02-00-0c-00-04-00 to 02-00-0c-00-04-7f  TM6017D760E\n\n* this terminal session\n",
+  "textfsm_template": "Value MODULE (\\d+)\nValue PORTS (\\d+)\nValue TYPE (\\S+(\\s+\\S+)+)\nValue MODEL (\\S+)\nValue STATUS (ok|active \\*|ha-standby|powered-dn|powered-up)\n\nStart\n  ^Xbar\\s+Ports\\s+Module-Type\\s+Model\\s+Status -> Fail\n  ^${MODULE}\\s+${PORTS}\\s+${TYPE}\\s+${MODEL}\\s+${STATUS} -> Record\n  ^${MODULE}\\s+${PORTS}\\s+${TYPE}\\s+${STATUS} -> Record\n\nFail\n  ^.* -> NoRecord\n"
+}

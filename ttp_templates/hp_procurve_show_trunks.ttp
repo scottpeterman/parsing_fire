@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_procurve_show_trunks
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="local_port_int_name_int_type_trunk_trunk_type">
+  {{LOCAL_PORT | re("\\d+")}} | {{INT_NAME | ORPHRASE}} {{INT_TYPE}} | {{TRUNK}} {{TRUNK_TYPE | ORPHRASE}} 
+</group>

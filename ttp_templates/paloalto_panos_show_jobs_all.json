@@ -1,0 +1,148 @@
+{
+  "command": "paloalto_panos_show_jobs_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 8,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"enqueued_id_type_status_result_completed\">\n{{ENQUEUED | ORPHRASE}} {{ID | re(\"\\\\d+\")}} {{TYPE}} {{STATUS | ORPHRASE}} {{RESULT}} {{COMPLETED | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ENQUEUED": "2016/04/28 03:05:24",
+      "ID": "2341",
+      "TYPE": "FqdnRefresh",
+      "STATUS": "FIN",
+      "RESULT": "OK",
+      "COMPLETED": "03:05:41"
+    },
+    {
+      "ENQUEUED": "2016/04/28 02:35:05",
+      "ID": "2340",
+      "TYPE": "FqdnRefresh",
+      "STATUS": "FIN",
+      "RESULT": "OK",
+      "COMPLETED": "02:35:22"
+    },
+    {
+      "ENQUEUED": "2016/04/28 02:05:03",
+      "ID": "2339",
+      "TYPE": "FqdnRefresh",
+      "STATUS": "FIN",
+      "RESULT": "OK",
+      "COMPLETED": "02:05:21"
+    },
+    {
+      "ENQUEUED": "2016/04/28 01:35:01",
+      "ID": "2338",
+      "TYPE": "FqdnRefresh",
+      "STATUS": "FIN",
+      "RESULT": "OK",
+      "COMPLETED": "01:35:01"
+    },
+    {
+      "ENQUEUED": "2016/04/28 01:04:43",
+      "ID": "2337",
+      "TYPE": "FqdnRefresh",
+      "STATUS": "FIN",
+      "RESULT": "OK",
+      "COMPLETED": "01:05:00"
+    },
+    {
+      "ENQUEUED": "2016/04/28 01:01:43",
+      "ID": "2336",
+      "TYPE": "Antivirus",
+      "STATUS": "FIN",
+      "RESULT": "OK",
+      "COMPLETED": "01:02:26"
+    },
+    {
+      "ENQUEUED": "2016/04/28 01:00:09",
+      "ID": "2335",
+      "TYPE": "Install",
+      "STATUS": "FIN",
+      "RESULT": "OK",
+      "COMPLETED": "01:01:43"
+    },
+    {
+      "ENQUEUED": "2016/04/28 01:00:06",
+      "ID": "2334",
+      "TYPE": "Downld",
+      "STATUS": "FIN",
+      "RESULT": "OK",
+      "COMPLETED": "01:00:08"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "enqueued_id_type_status_result_completed": [
+        {
+          "ENQUEUED": "2016/04/28 03:05:24",
+          "ID": "2341",
+          "TYPE": "FqdnRefresh",
+          "STATUS": "FIN",
+          "RESULT": "OK",
+          "COMPLETED": "03:05:41"
+        },
+        {
+          "ENQUEUED": "2016/04/28 02:35:05",
+          "ID": "2340",
+          "TYPE": "FqdnRefresh",
+          "STATUS": "FIN",
+          "RESULT": "OK",
+          "COMPLETED": "02:35:22"
+        },
+        {
+          "ENQUEUED": "2016/04/28 02:05:03",
+          "ID": "2339",
+          "TYPE": "FqdnRefresh",
+          "STATUS": "FIN",
+          "RESULT": "OK",
+          "COMPLETED": "02:05:21"
+        },
+        {
+          "ENQUEUED": "2016/04/28 01:35:01",
+          "ID": "2338",
+          "TYPE": "FqdnRefresh",
+          "STATUS": "FIN",
+          "RESULT": "OK",
+          "COMPLETED": "01:35:01"
+        },
+        {
+          "ENQUEUED": "2016/04/28 01:04:43",
+          "ID": "2337",
+          "TYPE": "FqdnRefresh",
+          "STATUS": "FIN",
+          "RESULT": "OK",
+          "COMPLETED": "01:05:00"
+        },
+        {
+          "ENQUEUED": "2016/04/28 01:01:43",
+          "ID": "2336",
+          "TYPE": "Antivirus",
+          "STATUS": "FIN",
+          "RESULT": "OK",
+          "COMPLETED": "01:02:26"
+        },
+        {
+          "ENQUEUED": "2016/04/28 01:00:09",
+          "ID": "2335",
+          "TYPE": "Install",
+          "STATUS": "FIN",
+          "RESULT": "OK",
+          "COMPLETED": "01:01:43"
+        },
+        {
+          "ENQUEUED": "2016/04/28 01:00:06",
+          "ID": "2334",
+          "TYPE": "Downld",
+          "STATUS": "FIN",
+          "RESULT": "OK",
+          "COMPLETED": "01:00:08"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Enqueued                     ID             Type    Status Result Completed \n--------------------------------------------------------------------------\n2016/04/28 03:05:24        2341      FqdnRefresh       FIN     OK 03:05:41  \n2016/04/28 02:35:05        2340      FqdnRefresh       FIN     OK 02:35:22  \n2016/04/28 02:05:03        2339      FqdnRefresh       FIN     OK 02:05:21  \n2016/04/28 01:35:01        2338      FqdnRefresh       FIN     OK 01:35:01  \n2016/04/28 01:04:43        2337      FqdnRefresh       FIN     OK 01:05:00  \n2016/04/28 01:01:43        2336        Antivirus       FIN     OK 01:02:26  \n2016/04/28 01:00:09        2335          Install       FIN     OK 01:01:43  \n2016/04/28 01:00:06        2334           Downld       FIN     OK 01:00:08  \n\n",
+  "textfsm_template": "Value ENQUEUED (\\S+\\s+\\S+?)\nValue DEQUEUED (\\S+)\nValue ID (\\d+)\nValue TYPE (\\w+)\nValue STATUS (\\w+)\nValue RESULT (\\w+)\nValue COMPLETED (\\S+)\n\nStart\n#  ^${ENQUEUED}\\s+\\S+\\s+${ID}\\s+${TYPE}\\s+${STATUS}\\s+${RESULT}\\s+${COMPLETED} -> Record\n  ^${ENQUEUED}\\s+${ID}\\s+${TYPE}\\s+${STATUS}\\s+${RESULT}\\s+${COMPLETED} -> Record\n  ^${ENQUEUED}\\s+${DEQUEUED}\\s+${ID}\\s+${TYPE}\\s+${STATUS}\\s+${RESULT}\\s+${COMPLETED} -> Record\n"
+}

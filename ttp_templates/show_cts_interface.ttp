@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show cts interface
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="cts_last_change_cts_status_enforcement_ep_policy">
+SGT/SGPN Enforcement: {{ENFORCEMENT | ORPHRASE}}
+Endpoint Policy Attribute: {{EP_POLICY | ORPHRASE}} 
+Last Policy Download Status: {{LAST_POLICY_STATUS | ORPHRASE}}
+Interface: {{INTERFACE | ORPHRASE}}
+Status: {{CTS_STATUS | ORPHRASE}}
+Last Status Change: {{CTS_LAST_CHANGE | ORPHRASE}}
+</group>

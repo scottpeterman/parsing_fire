@@ -1,0 +1,83 @@
+{
+  "command": "show mlag interface",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"interface_localstate_peerstate_consistency_activeports\">\n{{INTERFACE}} {{LOCALSTATE | ORPHRASE}} {{PEERSTATE | ORPHRASE}} {{CONSISTENCY}} {{ACTIVEPORTS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Port-Channel1",
+      "LOCALSTATE": "active",
+      "PEERSTATE": "active",
+      "CONSISTENCY": "success",
+      "ACTIVEPORTS": "2"
+    },
+    {
+      "INTERFACE": "Port-Channel2",
+      "LOCALSTATE": "active",
+      "PEERSTATE": "inactive",
+      "CONSISTENCY": "failed",
+      "ACTIVEPORTS": "1"
+    },
+    {
+      "INTERFACE": "Port-Channel3",
+      "LOCALSTATE": "inactive",
+      "PEERSTATE": "inactive",
+      "CONSISTENCY": "n/a",
+      "ACTIVEPORTS": "0"
+    },
+    {
+      "INTERFACE": "Port-Channel4",
+      "LOCALSTATE": "active",
+      "PEERSTATE": "active",
+      "CONSISTENCY": "success",
+      "ACTIVEPORTS": "4"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_localstate_peerstate_consistency_activeports": [
+        {
+          "INTERFACE": "Interface",
+          "LOCALSTATE": "LocalState",
+          "PEERSTATE": "PeerState",
+          "CONSISTENCY": "Consistency",
+          "ACTIVEPORTS": "ActivePorts"
+        },
+        {
+          "INTERFACE": "Port-Channel1",
+          "LOCALSTATE": "active",
+          "PEERSTATE": "active",
+          "CONSISTENCY": "success",
+          "ACTIVEPORTS": "2"
+        },
+        {
+          "INTERFACE": "Port-Channel2",
+          "LOCALSTATE": "active",
+          "PEERSTATE": "inactive",
+          "CONSISTENCY": "failed",
+          "ACTIVEPORTS": "1"
+        },
+        {
+          "INTERFACE": "Port-Channel3",
+          "LOCALSTATE": "inactive",
+          "PEERSTATE": "inactive",
+          "CONSISTENCY": "n/a",
+          "ACTIVEPORTS": "0"
+        },
+        {
+          "INTERFACE": "Port-Channel4",
+          "LOCALSTATE": "active",
+          "PEERSTATE": "active",
+          "CONSISTENCY": "success",
+          "ACTIVEPORTS": "4"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface      LocalState     PeerState      Consistency    ActivePorts\nPort-Channel1  active         active         success        2\nPort-Channel2  active         inactive       failed         1\nPort-Channel3  inactive       inactive       n/a            0\nPort-Channel4  active         active         success        4\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue LOCALSTATE (\\S+)\nValue PEERSTATE (\\S+)\nValue CONSISTENCY (\\S+)\nValue ACTIVEPORTS (\\d+)\n\nStart\n  ^Interface\\s+LocalState\\s+PeerState\\s+Consistency\\s+ActivePorts\\s*$$\n  ^${INTERFACE}\\s+${LOCALSTATE}\\s+${PEERSTATE}\\s+${CONSISTENCY}\\s+${ACTIVEPORTS}\\s*$$ -> Record"
+}

@@ -1,0 +1,220 @@
+{
+  "command": "broadcom_icos_show_vlan_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 20,
+  "ttp_rows": 20,
+  "ttp_template": "<group name=\"vlan_id_vlan_name_type\">\n{{VLAN_ID | re(\"\\\\d+\")}} {{VLAN_NAME}} {{TYPE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN_ID": "1",
+      "VLAN_NAME": "default",
+      "TYPE": "Default"
+    },
+    {
+      "VLAN_ID": "1",
+      "VLAN_NAME": "VLAN0001",
+      "TYPE": "Static"
+    },
+    {
+      "VLAN_ID": "2",
+      "VLAN_NAME": "VLAN0002",
+      "TYPE": "Static"
+    },
+    {
+      "VLAN_ID": "3",
+      "VLAN_NAME": "VLAN0003",
+      "TYPE": "Static"
+    },
+    {
+      "VLAN_ID": "4",
+      "VLAN_NAME": "VLAN0004",
+      "TYPE": "Static"
+    },
+    {
+      "VLAN_ID": "5",
+      "VLAN_NAME": "VLAN0005",
+      "TYPE": "Static"
+    },
+    {
+      "VLAN_ID": "6",
+      "VLAN_NAME": "VLAN0006",
+      "TYPE": "Static"
+    },
+    {
+      "VLAN_ID": "7",
+      "VLAN_NAME": "VLAN0007",
+      "TYPE": "Static"
+    },
+    {
+      "VLAN_ID": "8",
+      "VLAN_NAME": "VLAN0008",
+      "TYPE": "Static"
+    },
+    {
+      "VLAN_ID": "9",
+      "VLAN_NAME": "VLAN0009",
+      "TYPE": "Static"
+    },
+    {
+      "VLAN_ID": "10",
+      "VLAN_NAME": "VLAN0010",
+      "TYPE": "Static"
+    },
+    {
+      "VLAN_ID": "100",
+      "VLAN_NAME": "VLAN0100",
+      "TYPE": "Static"
+    },
+    {
+      "VLAN_ID": "200",
+      "VLAN_NAME": "VLAN0200",
+      "TYPE": "Static"
+    },
+    {
+      "VLAN_ID": "300",
+      "VLAN_NAME": "VLAN0300",
+      "TYPE": "Static"
+    },
+    {
+      "VLAN_ID": "400",
+      "VLAN_NAME": "VLAN0400",
+      "TYPE": "Static"
+    },
+    {
+      "VLAN_ID": "500",
+      "VLAN_NAME": "VLAN0500",
+      "TYPE": "Static"
+    },
+    {
+      "VLAN_ID": "600",
+      "VLAN_NAME": "VLAN0600",
+      "TYPE": "Static"
+    },
+    {
+      "VLAN_ID": "700",
+      "VLAN_NAME": "VLAN0700",
+      "TYPE": "Static"
+    },
+    {
+      "VLAN_ID": "800",
+      "VLAN_NAME": "VLAN0800",
+      "TYPE": "Static"
+    },
+    {
+      "VLAN_ID": "999",
+      "VLAN_NAME": "VLAN0999",
+      "TYPE": "Static"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_id_vlan_name_type": [
+        {
+          "VLAN_ID": "1",
+          "VLAN_NAME": "default",
+          "TYPE": "Default"
+        },
+        {
+          "VLAN_ID": "1",
+          "VLAN_NAME": "VLAN0001",
+          "TYPE": "Static"
+        },
+        {
+          "VLAN_ID": "2",
+          "VLAN_NAME": "VLAN0002",
+          "TYPE": "Static"
+        },
+        {
+          "VLAN_ID": "3",
+          "VLAN_NAME": "VLAN0003",
+          "TYPE": "Static"
+        },
+        {
+          "VLAN_ID": "4",
+          "VLAN_NAME": "VLAN0004",
+          "TYPE": "Static"
+        },
+        {
+          "VLAN_ID": "5",
+          "VLAN_NAME": "VLAN0005",
+          "TYPE": "Static"
+        },
+        {
+          "VLAN_ID": "6",
+          "VLAN_NAME": "VLAN0006",
+          "TYPE": "Static"
+        },
+        {
+          "VLAN_ID": "7",
+          "VLAN_NAME": "VLAN0007",
+          "TYPE": "Static"
+        },
+        {
+          "VLAN_ID": "8",
+          "VLAN_NAME": "VLAN0008",
+          "TYPE": "Static"
+        },
+        {
+          "VLAN_ID": "9",
+          "VLAN_NAME": "VLAN0009",
+          "TYPE": "Static"
+        },
+        {
+          "VLAN_ID": "10",
+          "VLAN_NAME": "VLAN0010",
+          "TYPE": "Static"
+        },
+        {
+          "VLAN_ID": "100",
+          "VLAN_NAME": "VLAN0100",
+          "TYPE": "Static"
+        },
+        {
+          "VLAN_ID": "200",
+          "VLAN_NAME": "VLAN0200",
+          "TYPE": "Static"
+        },
+        {
+          "VLAN_ID": "300",
+          "VLAN_NAME": "VLAN0300",
+          "TYPE": "Static"
+        },
+        {
+          "VLAN_ID": "400",
+          "VLAN_NAME": "VLAN0400",
+          "TYPE": "Static"
+        },
+        {
+          "VLAN_ID": "500",
+          "VLAN_NAME": "VLAN0500",
+          "TYPE": "Static"
+        },
+        {
+          "VLAN_ID": "600",
+          "VLAN_NAME": "VLAN0600",
+          "TYPE": "Static"
+        },
+        {
+          "VLAN_ID": "700",
+          "VLAN_NAME": "VLAN0700",
+          "TYPE": "Static"
+        },
+        {
+          "VLAN_ID": "800",
+          "VLAN_NAME": "VLAN0800",
+          "TYPE": "Static"
+        },
+        {
+          "VLAN_ID": "999",
+          "VLAN_NAME": "VLAN0999",
+          "TYPE": "Static"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nVLAN ID VLAN Name                        VLAN Type\n------- -------------------------------- -------------------\n1       default                          Default\n1       VLAN0001                         Static\n2       VLAN0002                         Static\n3       VLAN0003                         Static\n4       VLAN0004                         Static\n5       VLAN0005                         Static\n6       VLAN0006                         Static\n7       VLAN0007                         Static\n8       VLAN0008                         Static\n9       VLAN0009                         Static\n10      VLAN0010                         Static\n100     VLAN0100                         Static\n200     VLAN0200                         Static\n300     VLAN0300                         Static\n400     VLAN0400                         Static\n500     VLAN0500                         Static\n600     VLAN0600                         Static\n700     VLAN0700                         Static\n800     VLAN0800                         Static\n999     VLAN0999                         Static\n",
+  "textfsm_template": "Value VLAN_ID (\\d+)\nValue VLAN_NAME (\\S+)\nValue TYPE (\\S+)\n\n\nStart\n  # Captures show vlan brief for:\n  # Accton AS4610-54P, Accton AS5610-52X, Quanta LY2R, Quanta LB9, DNI AG3448P-R   \n  # Raw data is the same in the case of all those devices\n  ^\\s*VLAN\\s+ID\\s+VLAN\\s+Name\\s+VLAN\\s+Type$$\n  ^-+\n  ^\\s*${VLAN_ID}\\s+${VLAN_NAME}\\s+${TYPE} -> Record\n  ^\\s*$$\n  ^. -> Error"
+}

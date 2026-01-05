@@ -1,0 +1,80 @@
+{
+  "command": "cisco_ios_show_isdn_status",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"tei_ces_sapi_l2_state\">\n        TEI = {{TEI}}, Ces = {{CES}}, SAPI = {{SAPI}}, State = {{L2_STATE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ISDN_SWITCHTYPE": "primary-ni",
+      "INTERFACE": "Serial0/2/0:23",
+      "L1_STATUS": "ACTIVE",
+      "TEI": "0",
+      "CES": "1",
+      "SAPI": "0",
+      "L2_STATE": "MULTIPLE_FRAME_ESTABLISHED",
+      "L3_ACTIVE_CALLS": "1",
+      "ACTIVE_DSL_CCBS": "1",
+      "FREE_CHANNEL_MASK": "0x803FFFFF",
+      "L2_DISCARDS": "0",
+      "L2_SESSION_ID": "10"
+    },
+    {
+      "ISDN_SWITCHTYPE": "primary-ni",
+      "INTERFACE": "Serial0/2/1:23",
+      "L1_STATUS": "ACTIVE",
+      "TEI": "0",
+      "CES": "1",
+      "SAPI": "0",
+      "L2_STATE": "MULTIPLE_FRAME_ESTABLISHED",
+      "L3_ACTIVE_CALLS": "0",
+      "ACTIVE_DSL_CCBS": "0",
+      "FREE_CHANNEL_MASK": "0x807FFFFF",
+      "L2_DISCARDS": "0",
+      "L2_SESSION_ID": "6"
+    },
+    {
+      "ISDN_SWITCHTYPE": "primary-ni",
+      "INTERFACE": "Serial0/3/0:23",
+      "L1_STATUS": "ACTIVE",
+      "TEI": "0",
+      "CES": "1",
+      "SAPI": "0",
+      "L2_STATE": "MULTIPLE_FRAME_ESTABLISHED",
+      "L3_ACTIVE_CALLS": "0",
+      "ACTIVE_DSL_CCBS": "0",
+      "FREE_CHANNEL_MASK": "0x807FFFFF",
+      "L2_DISCARDS": "0",
+      "L2_SESSION_ID": "1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "tei_ces_sapi_l2_state": [
+        {
+          "TEI": "0",
+          "CES": "1",
+          "SAPI": "0",
+          "L2_STATE": "MULTIPLE_FRAME_ESTABLISHED"
+        },
+        {
+          "TEI": "0",
+          "CES": "1",
+          "SAPI": "0",
+          "L2_STATE": "MULTIPLE_FRAME_ESTABLISHED"
+        },
+        {
+          "TEI": "0",
+          "CES": "1",
+          "SAPI": "0",
+          "L2_STATE": "MULTIPLE_FRAME_ESTABLISHED"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Global ISDN Switchtype = primary-ni\nISDN Serial0/2/0:23 interface\n        dsl 0, interface ISDN Switchtype = primary-ni\n    Layer 1 Status:\n        ACTIVE\n    Layer 2 Status:\n        TEI = 0, Ces = 1, SAPI = 0, State = MULTIPLE_FRAME_ESTABLISHED\n    Layer 3 Status:\n        1 Active Layer 3 Call(s)\n        CCB:callid=97E3, sapi=0, ces=0, B-chan=23, calltype=VOICE\n    Active dsl 0 CCBs = 1\n    The Free Channel Mask:  0x803FFFFF\n    Number of L2 Discards = 0, L2 Session ID = 10\nISDN Serial0/2/1:23 interface\n        dsl 1, interface ISDN Switchtype = primary-ni\n    Layer 1 Status:\n        ACTIVE\n    Layer 2 Status:\n        TEI = 0, Ces = 1, SAPI = 0, State = MULTIPLE_FRAME_ESTABLISHED\n    Layer 3 Status:\n        0 Active Layer 3 Call(s)\n    Active dsl 1 CCBs = 0\n    The Free Channel Mask:  0x807FFFFF\n    Number of L2 Discards = 0, L2 Session ID = 6\nISDN Serial0/3/0:23 interface\n        dsl 2, interface ISDN Switchtype = primary-ni\n    Layer 1 Status:\n        ACTIVE\n    Layer 2 Status:\n        TEI = 0, Ces = 1, SAPI = 0, State = MULTIPLE_FRAME_ESTABLISHED\n    Layer 3 Status:\n        0 Active Layer 3 Call(s)\n    Active dsl 2 CCBs = 0\n    The Free Channel Mask:  0x807FFFFF\n    Number of L2 Discards = 0, L2 Session ID = 1\n    Total Allocated ISDN CCBs = 1\n",
+  "textfsm_template": "Value ISDN_SWITCHTYPE ([A-Za-z-]+)\nValue Required INTERFACE ([A-Za-z0-9\\/\\:]+)\nValue L1_STATUS (DEACTIVATED|SHUTDOWN|ACTIVE)\nValue TEI (\\d+)\nValue CES (\\d+)\nValue SAPI (\\d+)\nValue L2_STATE ([A-Za-z_]+)\nValue L3_ACTIVE_CALLS (\\d+)\nValue ACTIVE_DSL_CCBS (\\d+)\nValue FREE_CHANNEL_MASK (\\w+)\nValue L2_DISCARDS (\\d+)\nValue L2_SESSION_ID (\\d+)\n\n\nStart\n  ^ISDN ${INTERFACE} interface\n  ^\\s+dsl \\d+, interface ISDN Switchtype = ${ISDN_SWITCHTYPE}\n  ^\\s+Layer 1 Status:\n  ^\\s+${L1_STATUS}\n  ^\\s+Layer 2 Status:\n  ^\\s+TEI =\\s+${TEI}, Ces =\\s+${CES}, SAPI =\\s+${SAPI}, State =\\s+${L2_STATE}\n  ^\\s+Layer 3 Status:\n  ^\\s+${L3_ACTIVE_CALLS} Active Layer 3 Call\\(s\\)\n  ^\\s+Active dsl \\d+ CCBs =\\s+${ACTIVE_DSL_CCBS}\n  ^\\s+The Free Channel Mask:\\s+${FREE_CHANNEL_MASK}\n  ^\\s+Number of L2 Discards =\\s+${L2_DISCARDS}, L2 Session ID =\\s+${L2_SESSION_ID} -> Record\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n"
+}

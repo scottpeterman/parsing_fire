@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: fortinet_get_router_info_bgp_summary
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="bgp_neigh_neigh_as_up_down_state_pfxrcd">
+{{BGP_NEIGH}} 4 {{NEIGH_AS}} 43173 43182 0 0 0 {{UP_DOWN}} {{STATE_PFXRCD | ORPHRASE}} 
+</group>
+<group name="bgp_neigh_neigh_as_state_pfxrcd_up_down">
+{{BGP_NEIGH}} 4 {{NEIGH_AS}} {{STATE_PFXRCD | ORPHRASE}}07081 107168 12 0 0 {{UP_DOWN | ORPHRASE}} 1
+</group>

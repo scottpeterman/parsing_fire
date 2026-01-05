@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_running-config_partition_route-map
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="route_map_name_sequence">
+route-map {{ROUTE_MAP_NAME}} permit {{SEQUENCE | ORPHRASE}}
+</group>

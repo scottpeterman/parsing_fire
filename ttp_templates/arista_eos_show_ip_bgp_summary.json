@@ -1,0 +1,66 @@
+{
+  "command": "arista_eos_show_ip_bgp_summary",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.6666666666666666,
+  "textfsm_rows": 3,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"local_as_router_id_vrf\">\nBGP summary information for VRF {{VRF | ORPHRASE}}\n<group name=\"in_queue_msg_rcvd_msg_sent\">\nRouter identifier 1{{MSG_RCVD | ORPHRASE}}.{{MSG_SENT}}.65.72, local AS number 64911\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ROUTER_ID": "10.0.65.72",
+      "LOCAL_AS": "64911",
+      "VRF": "default",
+      "BGP_NEIGH": "10.10.128.0",
+      "NEIGH_AS": "65292",
+      "MSG_RCVD": "0",
+      "MSG_SENT": "0",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "79d05h",
+      "STATE": "Active"
+    },
+    {
+      "ROUTER_ID": "10.0.65.72",
+      "LOCAL_AS": "64911",
+      "VRF": "default",
+      "BGP_NEIGH": "10.106.0.153",
+      "NEIGH_AS": "64832",
+      "MSG_RCVD": "0",
+      "MSG_SENT": "0",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "79d05h",
+      "STATE": "Idle(NoIf)"
+    },
+    {
+      "ROUTER_ID": "10.0.65.72",
+      "LOCAL_AS": "64911",
+      "VRF": "default",
+      "BGP_NEIGH": "10.106.0.157",
+      "NEIGH_AS": "64833",
+      "MSG_RCVD": "114056",
+      "MSG_SENT": "118481",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "79d05h",
+      "STATE": "Estab",
+      "STATE_PFXRCD": "1",
+      "STATE_PFXACC": "1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "local_as_router_id_vrf": {
+        "VRF": "default",
+        "in_queue_msg_rcvd_msg_sent": {
+          "MSG_RCVD": "0",
+          "MSG_SENT": "0"
+        }
+      }
+    }
+  ],
+  "cli_content": "BGP summary information for VRF default\nRouter identifier 10.0.65.72, local AS number 64911\nNeighbor Status Codes: m - Under maintenance\n  Neighbor         V  AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State  PfxRcd PfxAcc\n  10.10.128.0      4  65292              0         0    0    0   79d05h Active        \n  10.106.0.153     4  64832              0         0    0    0   79d05h Idle(NoIf)        \n  10.106.0.157     4  64833         114056    118481    0    0   79d05h Estab  1      1\n",
+  "textfsm_template": "Value Filldown ROUTER_ID (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue Filldown LOCAL_AS (\\d+)\nValue Filldown VRF (\\S+)\nValue DESCRIPTION (\\S+|.+?)\nValue Required BGP_NEIGH (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue NEIGH_AS (\\d+|\\d+\\.\\d+)\nValue MSG_RCVD (\\d+)\nValue MSG_SENT (\\d+)\nValue IN_QUEUE (\\d+)\nValue OUT_QUEUE (\\d+)\nValue UP_DOWN (\\S+)\nValue STATE (\\S+)\nValue STATE_PFXRCD (\\d+)\nValue STATE_PFXACC (\\d+)\n\nStart\n  ^BGP.+?VRF\\s+${VRF}\\s*$$\n  ^\\s*Neighbor\\s+V\\s+AS\\s+MsgRcvd\\s+MsgSent\\s+InQ\\s+OutQ\\s+Up/Down\\s+State/PfxRcd\\s*$$\n  ^\\s*Neighbor\\s+V\\s+AS\\s+MsgRcvd\\s+MsgSent\\s+InQ\\s+OutQ\\s+Up/Down\\s+State\\s+PfxRcd\\s*$$\n  ^\\s*Neighbor\\s+V\\s+AS\\s+MsgRcvd\\s+MsgSent\\s+InQ\\s+OutQ\\s+Up/Down\\s+State\\s+PfxRcd\\s+PfxAcc\\s*$$\n  ^\\s*Description\\s+Neighbor\\s+V\\s+AS\\s+MsgRcvd\\s+MsgSent\\s+InQ\\s+OutQ\\s+Up/Down\\s+State\\s+PfxRcd\\s+PfxAcc\\s*$$\n  ^.+\\s+${ROUTER_ID},\\s+[Ll]ocal\\s+[Aa][Ss]\\s+[Nn]umber\\s+${LOCAL_AS}\n  ^\\s+${BGP_NEIGH}\\s+\\d+\\s+${NEIGH_AS}\\s+${MSG_RCVD}\\s+${MSG_SENT}\\s+${IN_QUEUE}\\s+${OUT_QUEUE}\\s+${UP_DOWN}\\s+${STATE}\\s+${STATE_PFXRCD}\\s+${STATE_PFXACC} -> Record\n  ^\\s+${DESCRIPTION}\\s+${BGP_NEIGH}\\s+\\d+\\s+${NEIGH_AS}\\s+${MSG_RCVD}\\s+${MSG_SENT}\\s+${IN_QUEUE}\\s+${OUT_QUEUE}\\s+${UP_DOWN}\\s+${STATE}\\s+${STATE_PFXRCD}\\s+${STATE_PFXACC} -> Record\n  ^\\s+${BGP_NEIGH}\\s+\\d+\\s+${NEIGH_AS}\\s+${MSG_RCVD}\\s+${MSG_SENT}\\s+${IN_QUEUE}\\s+${OUT_QUEUE}\\s+${UP_DOWN}\\s+${STATE}\\s+ -> Record\n  ^\\s+${BGP_NEIGH}\\s+\\d+\\s+${NEIGH_AS}\\s+${MSG_RCVD}\\s+${MSG_SENT}\\s+${IN_QUEUE}\\s+${OUT_QUEUE}\\s+${UP_DOWN}\\s+${STATE}\\s* -> Record\n  ^${BGP_NEIGH}\\s+\\d+\\s+${NEIGH_AS}\\s+${MSG_RCVD}\\s+${MSG_SENT}\\s+${IN_QUEUE}\\s+${OUT_QUEUE}\\s+${UP_DOWN}\\s+${STATE}\\s+${STATE_PFXRCD} -> Record\n  ^${BGP_NEIGH}\\s+\\d+\\s+${NEIGH_AS}\\s+${MSG_RCVD}\\s+${MSG_SENT}\\s+${IN_QUEUE}\\s+${OUT_QUEUE}\\s+${UP_DOWN}\\s+${STATE_PFXRCD} -> Record\n  ^Neighbor\\s+Status\\s+Codes:\n  ^\\s*$$\n  ^. -> Error\n"
+}

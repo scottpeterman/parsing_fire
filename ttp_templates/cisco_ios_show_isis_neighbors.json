@@ -1,0 +1,110 @@
+{
+  "command": "cisco_ios_show_isis_neighbors",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"system_id_type_interface_ip_address_state_hold_time_circuit_id\">\n{{SYSTEM_ID}} {{TYPE}} {{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATE | ORPHRASE}} {{HOLD_TIME}} {{CIRCUIT_ID | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SYSTEM_ID": "vMX1",
+      "TYPE": "L1",
+      "INTERFACE": "Gi2",
+      "IP_ADDRESS": "10.1.2.1",
+      "STATE": "UP",
+      "HOLD_TIME": "19",
+      "CIRCUIT_ID": "XRv3.03"
+    },
+    {
+      "SYSTEM_ID": "vMX1",
+      "TYPE": "L2",
+      "INTERFACE": "Gi2",
+      "IP_ADDRESS": "10.1.2.1",
+      "STATE": "UP",
+      "HOLD_TIME": "24",
+      "CIRCUIT_ID": "XRv3.03"
+    },
+    {
+      "SYSTEM_ID": "XRv3",
+      "TYPE": "L1",
+      "INTERFACE": "Gi2",
+      "IP_ADDRESS": "10.1.2.3",
+      "STATE": "UP",
+      "HOLD_TIME": "8",
+      "CIRCUIT_ID": "XRv3.03"
+    },
+    {
+      "SYSTEM_ID": "XRv3",
+      "TYPE": "L2",
+      "INTERFACE": "Gi2",
+      "IP_ADDRESS": "10.1.2.3",
+      "STATE": "UP",
+      "HOLD_TIME": "7",
+      "CIRCUIT_ID": "XRv3.03"
+    },
+    {
+      "SYSTEM_ID": "vEOS4",
+      "TYPE": "L2",
+      "INTERFACE": "Gi3",
+      "IP_ADDRESS": "10.2.4.4",
+      "STATE": "UP",
+      "HOLD_TIME": "23",
+      "CIRCUIT_ID": "0F"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "system_id_type_interface_ip_address_state_hold_time_circuit_id": [
+        {
+          "SYSTEM_ID": "vMX1",
+          "TYPE": "L1",
+          "INTERFACE": "Gi2",
+          "IP_ADDRESS": "10.1.2.1",
+          "STATE": "UP",
+          "HOLD_TIME": "19",
+          "CIRCUIT_ID": "XRv3.03"
+        },
+        {
+          "SYSTEM_ID": "vMX1",
+          "TYPE": "L2",
+          "INTERFACE": "Gi2",
+          "IP_ADDRESS": "10.1.2.1",
+          "STATE": "UP",
+          "HOLD_TIME": "24",
+          "CIRCUIT_ID": "XRv3.03"
+        },
+        {
+          "SYSTEM_ID": "XRv3",
+          "TYPE": "L1",
+          "INTERFACE": "Gi2",
+          "IP_ADDRESS": "10.1.2.3",
+          "STATE": "UP",
+          "HOLD_TIME": "8",
+          "CIRCUIT_ID": "XRv3.03"
+        },
+        {
+          "SYSTEM_ID": "XRv3",
+          "TYPE": "L2",
+          "INTERFACE": "Gi2",
+          "IP_ADDRESS": "10.1.2.3",
+          "STATE": "UP",
+          "HOLD_TIME": "7",
+          "CIRCUIT_ID": "XRv3.03"
+        },
+        {
+          "SYSTEM_ID": "vEOS4",
+          "TYPE": "L2",
+          "INTERFACE": "Gi3",
+          "IP_ADDRESS": "10.2.4.4",
+          "STATE": "UP",
+          "HOLD_TIME": "23",
+          "CIRCUIT_ID": "0F"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nSystem Id       Type Interface     IP Address      State Holdtime Circuit Id\nvMX1            L1   Gi2           10.1.2.1        UP    19       XRv3.03\nvMX1            L2   Gi2           10.1.2.1        UP    24       XRv3.03\nXRv3            L1   Gi2           10.1.2.3        UP    8        XRv3.03\nXRv3            L2   Gi2           10.1.2.3        UP    7        XRv3.03\nvEOS4           L2   Gi3           10.2.4.4        UP    23       0F\n",
+  "textfsm_template": "Value SYSTEM_ID ((\\d+.\\d+.\\d+)|\\S+)\nValue TYPE (L\\d)\nValue INTERFACE (\\S+)\nValue IP_ADDRESS (\\d+.\\d+.\\d+.\\d+)\nValue STATE (\\S+)\nValue HOLD_TIME (\\d+)\nValue CIRCUIT_ID (\\S+)\n\nStart\n  ^${SYSTEM_ID}\\s+${TYPE}\\s+${INTERFACE}\\s+${IP_ADDRESS}\\s+${STATE}\\s+${HOLD_TIME}\\s+${CIRCUIT_ID} -> Record\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n"
+}

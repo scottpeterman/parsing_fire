@@ -1,0 +1,66 @@
+{
+  "command": "huawei_smartax_display_board",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"slot_id_boardname_status\">\n  {{SLOT_ID | re(\"\\\\d+\")}} {{BOARDNAME}} {{STATUS | ORPHRASE}} \n</group>\n<group name=\"slot_id_boardname_status_subtype_0\">\n  {{SLOT_ID | re(\"\\\\d+\")}} {{BOARDNAME}} {{STATUS | ORPHRASE}} {{SUBTYPE_0 | ORPHRASE}} \n</group>\n<group name=\"slot_id_boardname_status_subtype_0_online_offline\">\n  {{SLOT_ID | re(\"\\\\d+\")}} {{BOARDNAME}} {{STATUS | ORPHRASE}} {{SUBTYPE_0}} {{ONLINE_OFFLINE | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SLOT_ID": "0",
+      "BOARDNAME": "A123ABCD",
+      "STATUS": "Normal"
+    },
+    {
+      "SLOT_ID": "2",
+      "BOARDNAME": "A123ABCDE",
+      "STATUS": "Normal"
+    },
+    {
+      "SLOT_ID": "3",
+      "BOARDNAME": "A123ABCDE",
+      "STATUS": "Active_normal",
+      "SUBTYPE_0": "CPCF"
+    },
+    {
+      "SLOT_ID": "4",
+      "BOARDNAME": "A123ABCDE",
+      "STATUS": "Standby_failed",
+      "SUBTYPE_0": "CPCF",
+      "ONLINE_OFFLINE": "Offline"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "slot_id_boardname_status": [
+        {
+          "SLOT_ID": "0",
+          "BOARDNAME": "A123ABCD",
+          "STATUS": "Normal"
+        },
+        {
+          "SLOT_ID": "2",
+          "BOARDNAME": "A123ABCDE",
+          "STATUS": "Normal"
+        }
+      ],
+      "slot_id_boardname_status_subtype_0": {
+        "SLOT_ID": "3",
+        "BOARDNAME": "A123ABCDE",
+        "STATUS": "Active_normal",
+        "SUBTYPE_0": "CPCF"
+      },
+      "slot_id_boardname_status_subtype_0_online_offline": {
+        "SLOT_ID": "4",
+        "BOARDNAME": "A123ABCDE",
+        "STATUS": "Standby_failed",
+        "SUBTYPE_0": "CPCF",
+        "ONLINE_OFFLINE": "Offline"
+      }
+    }
+  ],
+  "cli_content": "  -------------------------------------------------------------------------\n  SlotID  BoardName  Status          SubType0 SubType1    Online/Offline\n  -------------------------------------------------------------------------\n  0       A123ABCD   Normal                           \n  1     \n  2       A123ABCDE  Normal                           \n  3       A123ABCDE  Active_normal   CPCF             \n  4       A123ABCDE  Standby_failed  CPCF                 Offline  \n  5     \n  -------------------------------------------------------------------------",
+  "textfsm_template": "Value Key SLOT_ID (\\d+)\nValue BOARDNAME (\\w*)\nValue STATUS (\\S*)\nValue SUBTYPE_0 ([A-Z]{0,8})\nValue SUBTYPE_1 ([A-Z]{0,8})\nValue ONLINE_OFFLINE ((Online|Offline)?)\n\n\nStart\n  ^\\s+SlotID\\s+BoardName\\s+Status\\s+SubType0\\s+SubType1\\s+Online\\/Offline\n  ^\\s+${SLOT_ID}\\s+${BOARDNAME}\\s+${STATUS}\\s+${SUBTYPE_0}\\s+${SUBTYPE_1}\\s+${ONLINE_OFFLINE} -> Record\n  ^\\s+-\n  ^. -> Error"
+}

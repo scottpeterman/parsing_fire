@@ -1,0 +1,107 @@
+{
+  "command": "huawei_vrp_display_arp_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.6,
+  "textfsm_rows": 5,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"ip_address_mac_address_type_interface\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{TYPE | ORPHRASE}} {{INTERFACE | ORPHRASE}}\n</group>\n<group name=\"ip_address_mac_address_expire_type_interface\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{EXPIRE}} {{TYPE | ORPHRASE}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP_ADDRESS": "192.168.1.253",
+      "MAC_ADDRESS": "b076-1b65-6a40",
+      "TYPE": "I -",
+      "INTERFACE": "MEth0/0/1"
+    },
+    {
+      "IP_ADDRESS": "10.10.10.1",
+      "MAC_ADDRESS": "b076-1b65-6a4b",
+      "TYPE": "I -",
+      "INTERFACE": "Vlanif10"
+    },
+    {
+      "IP_ADDRESS": "10.10.10.2",
+      "MAC_ADDRESS": "b8d6-f6ff-739b",
+      "EXPIRE": "17",
+      "TYPE": "D-0",
+      "INTERFACE": "XGE0/0/1"
+    },
+    {
+      "IP_ADDRESS": "10.10.20.1",
+      "MAC_ADDRESS": "b076-1b65-6a46",
+      "TYPE": "I -",
+      "INTERFACE": "Vlanif20"
+    },
+    {
+      "IP_ADDRESS": "10.10.20.2",
+      "MAC_ADDRESS": "b8d6-f6ff-7396",
+      "EXPIRE": "17",
+      "TYPE": "D-0",
+      "INTERFACE": "XGE0/0/1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_address_mac_address_type_interface": [
+        {
+          "IP_ADDRESS": "192.168.1.253",
+          "MAC_ADDRESS": "b076-1b65-6a40",
+          "TYPE": "I -",
+          "INTERFACE": "MEth0/0/1"
+        },
+        {
+          "IP_ADDRESS": "10.10.10.1",
+          "MAC_ADDRESS": "b076-1b65-6a4b",
+          "TYPE": "I -",
+          "INTERFACE": "Vlanif10"
+        },
+        {
+          "IP_ADDRESS": "10.10.20.1",
+          "MAC_ADDRESS": "b076-1b65-6a46",
+          "TYPE": "I -",
+          "INTERFACE": "Vlanif20"
+        }
+      ],
+      "ip_address_mac_address_expire_type_interface": [
+        {
+          "IP_ADDRESS": "192.168.1.253",
+          "MAC_ADDRESS": "b076-1b65-6a40",
+          "EXPIRE": "I",
+          "TYPE": "-",
+          "INTERFACE": "MEth0/0/1"
+        },
+        {
+          "IP_ADDRESS": "10.10.10.1",
+          "MAC_ADDRESS": "b076-1b65-6a4b",
+          "EXPIRE": "I",
+          "TYPE": "-",
+          "INTERFACE": "Vlanif10"
+        },
+        {
+          "IP_ADDRESS": "10.10.10.2",
+          "MAC_ADDRESS": "b8d6-f6ff-739b",
+          "EXPIRE": "17",
+          "TYPE": "D-0",
+          "INTERFACE": "XGE0/0/1"
+        },
+        {
+          "IP_ADDRESS": "10.10.20.1",
+          "MAC_ADDRESS": "b076-1b65-6a46",
+          "EXPIRE": "I",
+          "TYPE": "-",
+          "INTERFACE": "Vlanif20"
+        },
+        {
+          "IP_ADDRESS": "10.10.20.2",
+          "MAC_ADDRESS": "b8d6-f6ff-7396",
+          "EXPIRE": "17",
+          "TYPE": "D-0",
+          "INTERFACE": "XGE0/0/1"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IP ADDRESS      MAC ADDRESS     EXPIRE(M) TYPE        INTERFACE   VPN-INSTANCE\n                                    VLAN/CEVLAN(SIP/DIP)\n------------------------------------------------------------------------------\n192.168.1.253   b076-1b65-6a40            I -         MEth0/0/1\n10.10.10.1      b076-1b65-6a4b            I -         Vlanif10\n10.10.10.2      b8d6-f6ff-739b  17        D-0         XGE0/0/1\n                                            10/-\n10.10.20.1      b076-1b65-6a46            I -         Vlanif20\n10.10.20.2      b8d6-f6ff-7396  17        D-0         XGE0/0/1\n                                            20/-\n------------------------------------------------------------------------------\nTotal:5         Dynamic:2       Static:0     Interface:3\n",
+  "textfsm_template": "Value Required IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue Required MAC_ADDRESS (\\S+)\nValue EXPIRE (\\d+)\nValue Required TYPE (\\S+\\s\\S+|\\S+)\nValue Required INTERFACE (\\S+)\nValue VPN_INSTANCE (\\S+)\n\nStart\n  ^IP\\s+ADDRESS\\s+MAC\\s+ADDRESS\\s+EXPIRE\\S+\\s+TYPE\\s+INTERFACE\\s+VPN-INSTANCE\n  ^\\s+VLAN\\/CEVLAN\n  ^-+\n  ^${IP_ADDRESS}\\s+${MAC_ADDRESS}\\s+${EXPIRE}?\\s+${TYPE}\\s+${INTERFACE}(\\s+)?${VPN_INSTANCE}?$$ -> Record\n  ^\\s+(\\d+)\\/(\\S+)\n  ^Total:(\\d+)\\s+Dynamic:(\\d+)\\s+Static:(\\d+)\\s+Interface:(\\d+)\n  ^Redirect:(\\d+)\n  ^\\s*$$\n  ^. -> Error\n"
+}

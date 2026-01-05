@@ -1,0 +1,116 @@
+{
+  "command": "show alarms current",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 8,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"alarm_id_type_status_description\">\n{{ALARM_ID | re(\"\\\\d+\")}} {{TYPE}} {{STATUS | ORPHRASE}} {{DESCRIPTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ALARM_ID": "1",
+      "TYPE": "Critical",
+      "STATUS": "Active",
+      "DESCRIPTION": "Link Down on GigabitEthernet3/1"
+    },
+    {
+      "ALARM_ID": "2",
+      "TYPE": "Major",
+      "STATUS": "Active",
+      "DESCRIPTION": "High temperature detected"
+    },
+    {
+      "ALARM_ID": "3",
+      "TYPE": "Minor",
+      "STATUS": "Clear",
+      "DESCRIPTION": "Power supply 2 failure"
+    },
+    {
+      "ALARM_ID": "4",
+      "TYPE": "Major",
+      "STATUS": "Active",
+      "DESCRIPTION": "Fan module 2 failure"
+    },
+    {
+      "ALARM_ID": "5",
+      "TYPE": "Critical",
+      "STATUS": "Active",
+      "DESCRIPTION": "Memory usage above threshold"
+    },
+    {
+      "ALARM_ID": "6",
+      "TYPE": "Major",
+      "STATUS": "Clear",
+      "DESCRIPTION": "Interface error count high on GigabitEthernet2/0"
+    },
+    {
+      "ALARM_ID": "7",
+      "TYPE": "Warning",
+      "STATUS": "Active",
+      "DESCRIPTION": "Optical module not detected"
+    },
+    {
+      "ALARM_ID": "8",
+      "TYPE": "Minor",
+      "STATUS": "Active",
+      "DESCRIPTION": "BGP neighbor down"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "alarm_id_type_status_description": [
+        {
+          "ALARM_ID": "1",
+          "TYPE": "Critical",
+          "STATUS": "Active",
+          "DESCRIPTION": "Link Down on GigabitEthernet3/1"
+        },
+        {
+          "ALARM_ID": "2",
+          "TYPE": "Major",
+          "STATUS": "Active",
+          "DESCRIPTION": "High temperature detected"
+        },
+        {
+          "ALARM_ID": "3",
+          "TYPE": "Minor",
+          "STATUS": "Clear",
+          "DESCRIPTION": "Power supply 2 failure"
+        },
+        {
+          "ALARM_ID": "4",
+          "TYPE": "Major",
+          "STATUS": "Active",
+          "DESCRIPTION": "Fan module 2 failure"
+        },
+        {
+          "ALARM_ID": "5",
+          "TYPE": "Critical",
+          "STATUS": "Active",
+          "DESCRIPTION": "Memory usage above threshold"
+        },
+        {
+          "ALARM_ID": "6",
+          "TYPE": "Major",
+          "STATUS": "Clear",
+          "DESCRIPTION": "Interface error count high on GigabitEthernet2/0"
+        },
+        {
+          "ALARM_ID": "7",
+          "TYPE": "Warning",
+          "STATUS": "Active",
+          "DESCRIPTION": "Optical module not detected"
+        },
+        {
+          "ALARM_ID": "8",
+          "TYPE": "Minor",
+          "STATUS": "Active",
+          "DESCRIPTION": "BGP neighbor down"
+        }
+      ]
+    }
+  ],
+  "cli_content": "================================================================================\nAlarms - Global\n================================================================================\nID      Type        Status     Description\n--------------------------------------------------------------------------------\n1       Critical    Active     Link Down on GigabitEthernet3/1\n2       Major       Active     High temperature detected\n3       Minor       Clear      Power supply 2 failure\n4       Major       Active     Fan module 2 failure\n5       Critical    Active     Memory usage above threshold\n6       Major       Clear      Interface error count high on GigabitEthernet2/0\n7       Warning     Active     Optical module not detected\n8       Minor       Active     BGP neighbor down\n\n",
+  "textfsm_template": "Value ALARM_ID (\\d+)\nValue TYPE (\\w+)\nValue STATUS (\\w+)\nValue DESCRIPTION (.+)\n\nStart\n  ^\\s*ID\\s+Type\\s+Status\\s+Description\\s*$$\n  ^\\s*${ALARM_ID}\\s+${TYPE}\\s+${STATUS}\\s+${DESCRIPTION}\\s*$$ -> Record"
+}

@@ -1,0 +1,82 @@
+{
+  "command": "show interfaces ethernet",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"port_description_vlan_duplex_speed_type\">\n{{PORT}} {{DESCRIPTION | ORPHRASE}} {{VLAN | re(\"\\\\d+\")}} {{DUPLEX}} {{SPEED}} {{TYPE | ORPHRASE}}\n</group>\n<group name=\"port_vlan_duplex_speed_type\">\n{{PORT}} {{VLAN | re(\"\\\\d+\")}} {{DUPLEX}} {{SPEED}} {{TYPE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "ch1",
+      "DESCRIPTION": "Connection to SW1",
+      "VLAN": "10",
+      "DUPLEX": "Full",
+      "SPEED": "1G",
+      "TYPE": "1000BASE-T"
+    },
+    {
+      "PORT": "ch2",
+      "DESCRIPTION": "Connection to SW2",
+      "VLAN": "20",
+      "DUPLEX": "Full",
+      "SPEED": "10G",
+      "TYPE": "10GBASE-SR"
+    },
+    {
+      "PORT": "ch3",
+      "VLAN": "30",
+      "DUPLEX": "Half",
+      "SPEED": "100M",
+      "TYPE": "100BASE-T"
+    },
+    {
+      "PORT": "ch4",
+      "DESCRIPTION": "User Access",
+      "VLAN": "40",
+      "DUPLEX": "Full",
+      "SPEED": "1G",
+      "TYPE": "1000BASE-T"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_description_vlan_duplex_speed_type": [
+        {
+          "PORT": "ch1",
+          "DESCRIPTION": "Connection to SW1",
+          "VLAN": "10",
+          "DUPLEX": "Full",
+          "SPEED": "1G",
+          "TYPE": "1000BASE-T"
+        },
+        {
+          "PORT": "ch2",
+          "DESCRIPTION": "Connection to SW2",
+          "VLAN": "20",
+          "DUPLEX": "Full",
+          "SPEED": "10G",
+          "TYPE": "10GBASE-SR"
+        },
+        {
+          "PORT": "ch4",
+          "DESCRIPTION": "User Access",
+          "VLAN": "40",
+          "DUPLEX": "Full",
+          "SPEED": "1G",
+          "TYPE": "1000BASE-T"
+        }
+      ],
+      "port_vlan_duplex_speed_type": {
+        "PORT": "ch3",
+        "VLAN": "30",
+        "DUPLEX": "Half",
+        "SPEED": "100M",
+        "TYPE": "100BASE-T"
+      }
+    }
+  ],
+  "cli_content": "Port      Description       VLAN  Duplex Speed Type\n--------- ----------------- ----- ------ ----- ------\nch1       Connection to SW1   10    Full  1G    1000BASE-T\nch2       Connection to SW2   20    Full  10G   10GBASE-SR\nch3                          30    Half  100M  100BASE-T\nch4       User Access         40    Full  1G    1000BASE-T\n",
+  "textfsm_template": "Value PORT (\\S+)\nValue DESCRIPTION (.+)\nValue VLAN (\\d+)\nValue DUPLEX (\\S+)\nValue SPEED (\\S+)\nValue TYPE (\\S+)\n\nStart\n  ^Port\\s+Description\\s+VLAN\\s+Duplex\\s+Speed\\s+Type\\s*$$\n  ^${PORT}\\s+${DESCRIPTION}\\s+${VLAN}\\s+${DUPLEX}\\s+${SPEED}\\s+${TYPE}\\s*$$ -> Record"
+}

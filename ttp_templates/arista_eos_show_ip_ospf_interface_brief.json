@@ -1,0 +1,174 @@
+{
+  "command": "arista_eos_show_ip_ospf_interface_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 7,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"interface_instance_vrf_area_state_prefix_length_cost_neighbors\">\n   {{INTERFACE}} {{INSTANCE}} {{VRF}} {{AREA}} {{IP_AD{{STATE | ORPHRASE}}ESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{PREFIX_LENGTH}} {{COST}} DR {{NEIGHBORS}}\n</group>\n<group name=\"interface_instance_vrf_area_ip_address_prefix_length_cost_state_neighbors\">\n   {{INTERFACE}} {{INSTANCE}} {{VRF}} {{AREA}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{PREFIX_LENGTH}} {{COST}} {{STATE | ORPHRASE}} {{NEIGHBORS}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Lo0",
+      "INSTANCE": "1",
+      "VRF": "default",
+      "AREA": "0.0.0.10",
+      "IP_ADDRESS": "192.0.2.1",
+      "PREFIX_LENGTH": "32",
+      "COST": "10",
+      "STATE": "DR",
+      "NEIGHBORS": "0"
+    },
+    {
+      "INTERFACE": "Vl100",
+      "INSTANCE": "1",
+      "VRF": "default",
+      "AREA": "0.0.0.10",
+      "IP_ADDRESS": "192.0.2.1",
+      "PREFIX_LENGTH": "32",
+      "COST": "10",
+      "STATE": "DR",
+      "NEIGHBORS": "0"
+    },
+    {
+      "INTERFACE": "Vl200",
+      "INSTANCE": "1",
+      "VRF": "default",
+      "AREA": "0.0.0.10",
+      "IP_ADDRESS": "192.0.2.1",
+      "PREFIX_LENGTH": "32",
+      "COST": "10",
+      "STATE": "DR",
+      "NEIGHBORS": "0"
+    },
+    {
+      "INTERFACE": "Et10",
+      "INSTANCE": "1",
+      "VRF": "default",
+      "AREA": "0.0.0.10",
+      "IP_ADDRESS": "192.0.2.1",
+      "PREFIX_LENGTH": "32",
+      "COST": "10",
+      "STATE": "DR",
+      "NEIGHBORS": "0"
+    },
+    {
+      "INTERFACE": "Et20/1",
+      "INSTANCE": "1",
+      "VRF": "default",
+      "AREA": "0.0.0.10",
+      "IP_ADDRESS": "192.0.2.1",
+      "PREFIX_LENGTH": "32",
+      "COST": "50",
+      "STATE": "P2P",
+      "NEIGHBORS": "1"
+    },
+    {
+      "INTERFACE": "Et20/1.10",
+      "INSTANCE": "2",
+      "VRF": "mgmtVrf",
+      "AREA": "0.0.0.0",
+      "IP_ADDRESS": "192.0.2.1",
+      "PREFIX_LENGTH": "32",
+      "COST": "10",
+      "STATE": "P2P",
+      "NEIGHBORS": "1"
+    },
+    {
+      "INTERFACE": "Po1.10",
+      "INSTANCE": "2",
+      "VRF": "mgmtVrf",
+      "AREA": "0.0.0.0",
+      "IP_ADDRESS": "192.0.2.1",
+      "PREFIX_LENGTH": "32",
+      "COST": "10",
+      "STATE": "P2P",
+      "NEIGHBORS": "1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_instance_vrf_area_ip_address_prefix_length_cost_state_neighbors": [
+        {
+          "INTERFACE": "Lo0",
+          "INSTANCE": "1",
+          "VRF": "default",
+          "AREA": "0.0.0.10",
+          "IP_ADDRESS": "192.0.2.1",
+          "PREFIX_LENGTH": "32",
+          "COST": "10",
+          "STATE": "DR",
+          "NEIGHBORS": "0"
+        },
+        {
+          "INTERFACE": "Vl100",
+          "INSTANCE": "1",
+          "VRF": "default",
+          "AREA": "0.0.0.10",
+          "IP_ADDRESS": "192.0.2.1",
+          "PREFIX_LENGTH": "32",
+          "COST": "10",
+          "STATE": "DR",
+          "NEIGHBORS": "0"
+        },
+        {
+          "INTERFACE": "Vl200",
+          "INSTANCE": "1",
+          "VRF": "default",
+          "AREA": "0.0.0.10",
+          "IP_ADDRESS": "192.0.2.1",
+          "PREFIX_LENGTH": "32",
+          "COST": "10",
+          "STATE": "DR",
+          "NEIGHBORS": "0"
+        },
+        {
+          "INTERFACE": "Et10",
+          "INSTANCE": "1",
+          "VRF": "default",
+          "AREA": "0.0.0.10",
+          "IP_ADDRESS": "192.0.2.1",
+          "PREFIX_LENGTH": "32",
+          "COST": "10",
+          "STATE": "DR",
+          "NEIGHBORS": "0"
+        },
+        {
+          "INTERFACE": "Et20/1",
+          "INSTANCE": "1",
+          "VRF": "default",
+          "AREA": "0.0.0.10",
+          "IP_ADDRESS": "192.0.2.1",
+          "PREFIX_LENGTH": "32",
+          "COST": "50",
+          "STATE": "P2P",
+          "NEIGHBORS": "1"
+        },
+        {
+          "INTERFACE": "Et20/1.10",
+          "INSTANCE": "2",
+          "VRF": "mgmtVrf",
+          "AREA": "0.0.0.0",
+          "IP_ADDRESS": "192.0.2.1",
+          "PREFIX_LENGTH": "32",
+          "COST": "10",
+          "STATE": "P2P",
+          "NEIGHBORS": "1"
+        },
+        {
+          "INTERFACE": "Po1.10",
+          "INSTANCE": "2",
+          "VRF": "mgmtVrf",
+          "AREA": "0.0.0.0",
+          "IP_ADDRESS": "192.0.2.1",
+          "PREFIX_LENGTH": "32",
+          "COST": "10",
+          "STATE": "P2P",
+          "NEIGHBORS": "1"
+        }
+      ]
+    }
+  ],
+  "cli_content": "   Interface    Instance VRF        Area            IP Address         Cost  State      Nbrs\n   Lo0          1        default    0.0.0.10        192.0.2.1/32       10    DR         0\n   Vl100        1        default    0.0.0.10        192.0.2.1/32       10    DR         0\n   Vl200        1        default    0.0.0.10        192.0.2.1/32       10    DR         0\n   Et10         1        default    0.0.0.10        192.0.2.1/32       10    DR         0\n   Et20/1       1        default    0.0.0.10        192.0.2.1/32       50    P2P        1\n   Et20/1.10    2        mgmtVrf    0.0.0.0         192.0.2.1/32       10    P2P        1\n   Po1.10       2        mgmtVrf    0.0.0.0         192.0.2.1/32       10    P2P        1",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue INSTANCE (\\d+)\nValue VRF (\\S+)\nValue AREA (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue PREFIX_LENGTH (\\d+)\nValue COST (\\d+)\nValue STATE (\\S+)\nValue NEIGHBORS (\\d+)\n\nStart\n  ^\\s*Interface\\s+Instance VRF\\s+Area\\s+IP Address\\s+Cost\\s+State\\s+Nbrs\\s*$$\n  ^\\s*${INTERFACE}\\s+${INSTANCE}\\s+${VRF}\\s+${AREA}\\s+${IP_ADDRESS}\\/${PREFIX_LENGTH}\\s+${COST}\\s+${STATE}\\s+${NEIGHBORS}\\s*$$ -> Record\n"
+}

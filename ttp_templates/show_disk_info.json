@@ -1,0 +1,69 @@
+{
+  "command": "show disk info",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"disk_number_size_used_available_use_percent\">\n{{DISK_NUMBER}} {{SIZE}} {{USED}} {{AVAILABLE}} {{USE_PERCENT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DISK_NUMBER": "disk1",
+      "SIZE": "4096MB",
+      "USED": "1024MB",
+      "AVAILABLE": "3072MB",
+      "USE_PERCENT": "25%"
+    },
+    {
+      "DISK_NUMBER": "disk2",
+      "SIZE": "8192MB",
+      "USED": "2048MB",
+      "AVAILABLE": "6144MB",
+      "USE_PERCENT": "25%"
+    },
+    {
+      "DISK_NUMBER": "disk3",
+      "SIZE": "2048MB",
+      "USED": "512MB",
+      "AVAILABLE": "1536MB",
+      "USE_PERCENT": "25%"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "disk_number_size_used_available_use_percent": [
+        {
+          "DISK_NUMBER": "----------",
+          "SIZE": "------",
+          "USED": "------",
+          "AVAILABLE": "---------",
+          "USE_PERCENT": "------"
+        },
+        {
+          "DISK_NUMBER": "disk1",
+          "SIZE": "4096MB",
+          "USED": "1024MB",
+          "AVAILABLE": "3072MB",
+          "USE_PERCENT": "25%"
+        },
+        {
+          "DISK_NUMBER": "disk2",
+          "SIZE": "8192MB",
+          "USED": "2048MB",
+          "AVAILABLE": "6144MB",
+          "USE_PERCENT": "25%"
+        },
+        {
+          "DISK_NUMBER": "disk3",
+          "SIZE": "2048MB",
+          "USED": "512MB",
+          "AVAILABLE": "1536MB",
+          "USE_PERCENT": "25%"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Disk Number      Size       Used     Available     Use%\n----------      ------      ------   ---------    ------\ndisk1           4096MB      1024MB     3072MB      25%\ndisk2           8192MB      2048MB     6144MB      25%\ndisk3           2048MB       512MB     1536MB      25%\n",
+  "textfsm_template": "Value DISK_NUMBER (\\S+)\nValue SIZE (\\S+)\nValue USED (\\S+)\nValue AVAILABLE (\\S+)\nValue USE_PERCENT (\\d+%)\n\nStart\n  ^\\s*Disk Number\\s+Size\\s+Used\\s+Available\\s+Use%\\s*$$\n  ^\\s*${DISK_NUMBER}\\s+${SIZE}\\s+${USED}\\s+${AVAILABLE}\\s+${USE_PERCENT}\\s*$$ -> Record\n"
+}

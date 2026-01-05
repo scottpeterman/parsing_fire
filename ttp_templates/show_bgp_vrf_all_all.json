@@ -1,0 +1,90 @@
+{
+  "command": "show bgp vrf all all",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"network_next_hop_metric_loc_pref_weight_path\">\n*> {{NETWORK}} {{NEXT_HOP}} {{METRIC}} {{LOC_PREF}} {{WEIGHT}} {{PATH | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VRF": "vrf1",
+      "BGP_TABLE_VERSION": "3",
+      "LOCAL_ROUTER_ID": "192.168.1.1",
+      "NETWORK": "10.1.1.0/24",
+      "NEXT_HOP": "192.168.2.1",
+      "METRIC": "0",
+      "LOC_PREF": "100",
+      "WEIGHT": "0",
+      "PATH": "65001 i"
+    },
+    {
+      "NETWORK": "10.2.2.0/24",
+      "NEXT_HOP": "192.168.3.1",
+      "METRIC": "0",
+      "LOC_PREF": "100",
+      "WEIGHT": "0",
+      "PATH": "65002 i"
+    },
+    {
+      "VRF": "vrf2",
+      "BGP_TABLE_VERSION": "5",
+      "LOCAL_ROUTER_ID": "192.168.2.1",
+      "NETWORK": "172.16.1.0/24",
+      "NEXT_HOP": "192.168.4.1",
+      "METRIC": "0",
+      "LOC_PREF": "100",
+      "WEIGHT": "0",
+      "PATH": "65003 i"
+    },
+    {
+      "NETWORK": "172.16.2.0/24",
+      "NEXT_HOP": "192.168.5.1",
+      "METRIC": "0",
+      "LOC_PREF": "100",
+      "WEIGHT": "0",
+      "PATH": "65004 i"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "network_next_hop_metric_loc_pref_weight_path": [
+        {
+          "NETWORK": "10.1.1.0/24",
+          "NEXT_HOP": "192.168.2.1",
+          "METRIC": "0",
+          "LOC_PREF": "100",
+          "WEIGHT": "0",
+          "PATH": "65001 i"
+        },
+        {
+          "NETWORK": "10.2.2.0/24",
+          "NEXT_HOP": "192.168.3.1",
+          "METRIC": "0",
+          "LOC_PREF": "100",
+          "WEIGHT": "0",
+          "PATH": "65002 i"
+        },
+        {
+          "NETWORK": "172.16.1.0/24",
+          "NEXT_HOP": "192.168.4.1",
+          "METRIC": "0",
+          "LOC_PREF": "100",
+          "WEIGHT": "0",
+          "PATH": "65003 i"
+        },
+        {
+          "NETWORK": "172.16.2.0/24",
+          "NEXT_HOP": "192.168.5.1",
+          "METRIC": "0",
+          "LOC_PREF": "100",
+          "WEIGHT": "0",
+          "PATH": "65004 i"
+        }
+      ]
+    }
+  ],
+  "cli_content": "VRF: vrf1\nBGP routing table information for VRF vrf1, address family IPv4 Unicast\nBGP table version is 3, Local Router ID is 192.168.1.1\nStatus codes: s suppressed, d dampened, h history, * valid, > best, i - internal\nOrigin codes: i - IGP, e - EGP, ? - incomplete\n\n   Network          Next Hop            Metric LocPrf Weight Path\n*> 10.1.1.0/24      192.168.2.1              0          100      0 65001 i\n*> 10.2.2.0/24      192.168.3.1              0          100      0 65002 i\n\nVRF: vrf2\nBGP routing table information for VRF vrf2, address family IPv4 Unicast\nBGP table version is 5, Local Router ID is 192.168.2.1\nStatus codes: s suppressed, d dampened, h history, * valid, > best, i - internal\nOrigin codes: i - IGP, e - EGP, ? - incomplete\n\n   Network          Next Hop            Metric LocPrf Weight Path\n*> 172.16.1.0/24    192.168.4.1              0          100      0 65003 i\n*> 172.16.2.0/24    192.168.5.1              0          100      0 65004 i\n",
+  "textfsm_template": "Value VRF (\\S+)\nValue BGP_TABLE_VERSION (\\d+)\nValue LOCAL_ROUTER_ID (\\S+)\nValue NETWORK (\\S+)\nValue NEXT_HOP (\\S+)\nValue METRIC (\\d+)\nValue LOC_PREF (\\d+)\nValue WEIGHT (\\d+)\nValue PATH (\\S.*)\n\nStart\n  ^VRF:\\s+${VRF}\\s*$$\n  ^BGP routing table information for VRF\\s+${VRF},\\s+address\\s+family\\s+.*$$\n  ^BGP table version is\\s+${BGP_TABLE_VERSION},\\s+Local Router ID is\\s+${LOCAL_ROUTER_ID}\\s*$$\n  ^\\s*Network\\s+Next Hop\\s+Metric\\s+LocPrf\\s+Weight\\s+Path\\s*$$\n  ^\\s*[*]>?\\s+${NETWORK}\\s+${NEXT_HOP}\\s+${METRIC}\\s+${LOC_PREF}\\s+${WEIGHT}\\s+${PATH}\\s*$$ -> Record"
+}

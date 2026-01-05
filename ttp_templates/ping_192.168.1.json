@@ -1,0 +1,76 @@
+{
+  "command": "ping 192.168.1.",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"bytes_ip_icmp_seq_ttl_time\">\n{{BYTES}} bytes from {{IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}: icmp_seq={{ICMP_SEQ}} ttl={{TTL}} time={{TIME | ORPHRASE}} ms\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ICMP_SEQ": "1",
+      "BYTES": "64",
+      "IP": "192.168.1.1",
+      "TTL": "64",
+      "TIME": "0.045"
+    },
+    {
+      "ICMP_SEQ": "2",
+      "BYTES": "64",
+      "IP": "192.168.1.1",
+      "TTL": "64",
+      "TIME": "0.040"
+    },
+    {
+      "ICMP_SEQ": "3",
+      "BYTES": "64",
+      "IP": "192.168.1.1",
+      "TTL": "64",
+      "TIME": "0.035"
+    },
+    {
+      "ICMP_SEQ": "4",
+      "BYTES": "64",
+      "IP": "192.168.1.1",
+      "TTL": "64",
+      "TIME": "0.050"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "bytes_ip_icmp_seq_ttl_time": [
+        {
+          "BYTES": "64",
+          "IP": "192.168.1.1",
+          "ICMP_SEQ": "1",
+          "TTL": "64",
+          "TIME": "0.045"
+        },
+        {
+          "BYTES": "64",
+          "IP": "192.168.1.1",
+          "ICMP_SEQ": "2",
+          "TTL": "64",
+          "TIME": "0.040"
+        },
+        {
+          "BYTES": "64",
+          "IP": "192.168.1.1",
+          "ICMP_SEQ": "3",
+          "TTL": "64",
+          "TIME": "0.035"
+        },
+        {
+          "BYTES": "64",
+          "IP": "192.168.1.1",
+          "ICMP_SEQ": "4",
+          "TTL": "64",
+          "TIME": "0.050"
+        }
+      ]
+    }
+  ],
+  "cli_content": "PING 192.168.1.1 (192.168.1.1) 56(84) bytes of data.\n64 bytes from 192.168.1.1: icmp_seq=1 ttl=64 time=0.045 ms\n64 bytes from 192.168.1.1: icmp_seq=2 ttl=64 time=0.040 ms\n64 bytes from 192.168.1.1: icmp_seq=3 ttl=64 time=0.035 ms\n64 bytes from 192.168.1.1: icmp_seq=4 ttl=64 time=0.050 ms\n\n--- 192.168.1.1 ping statistics ---\n4 packets transmitted, 4 received, 0% packet loss, time 3060ms\nrtt min/avg/max/mdev = 0.035/0.042/0.050/0.007 ms\n",
+  "textfsm_template": "Value ICMP_SEQ (\\d+)\nValue BYTES (\\d+)\nValue IP (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue TTL (\\d+)\nValue TIME (\\d+\\.\\d+)\n\nStart\n  ^${BYTES}\\s+bytes\\s+from\\s+${IP}:\\s+icmp_seq=${ICMP_SEQ}\\s+ttl=${TTL}\\s+time=${TIME}\\s+ms -> Record\n\nEnd"
+}

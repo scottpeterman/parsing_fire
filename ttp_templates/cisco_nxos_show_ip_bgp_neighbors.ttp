@@ -1,0 +1,55 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_ip_bgp_neighbors
+# Source: ntc
+# TextFSM rows: 59
+# TTP rows: 689
+# Match ratio: 11.68
+
+<group name="neighbor_asn_notifications_count_sent">
+BGP neighbor is {{NEIGHBOR}}, remote AS {{ASN | ORPHRASE}}, ibgp link, Peer index {{NOTIFICATIONS_COUNT_SENT | re("\\d+")}}
+</group>
+<group name="total_bytes_count_sent_total_bytes_count_rcvd">
+  Total bytes: {{TOTAL_BYTES_COUNT_SENT | re("\\d+")}} {{TOTAL_BYTES_COUNT_RCVD | ORPHRASE}}
+</group>
+<group name="neighbor_asn">
+BGP neighbor is {{NEIGHBOR}}, remote AS {{ASN | ORPHRASE}}, ibgp link, Peer index 3
+</group>
+<group name="total_mess_count_sent_total_mess_count_rcvd">
+  Total: {{TOTAL_MESS_COUNT_SENT | re("\\d+")}} {{TOTAL_MESS_COUNT_RCVD | ORPHRASE}}
+</group>
+<group name="ext_nh_cap_restart_time_adv">
+  Restart time {{EXT_NH_CAP | ORPHRASE}} to peer: {{RESTART_TIME_ADV}} seconds
+</group>
+<group name="last_reset_consumed_mem_conn_dropped">
+  Last read {{LAST_RESET}}, hold time = {{CONSUMED_MEM}}, keepalive interval is 6{{CONN_DROPPED | ORPHRASE}} seconds
+</group>
+<group name="neighbor_asn_conn_estab">
+BGP neighbor is {{NEIGHBOR}}, remote AS {{ASN | ORPHRASE}}, ebgp link, Peer index {{CONN_ESTAB}}2
+</group>
+<group name="neighbor_asn_conn_dropped">
+BGP neighbor is {{NEIGHBOR}}, remote AS {{ASN | ORPHRASE}}, ebgp link, Peer index 2{{CONN_DROPPED}}
+</group>
+<group name="remote_ip_remote_port">
+  Foreign host: {{REMOTE_IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}, Foreign port: {{REMOTE_PORT | ORPHRASE}}
+</group>
+<group name="updates_count_sent_updates_count_rcvd">
+  Updates: {{UPDATES_COUNT_SENT | re("\\d+")}} {{UPDATES_COUNT_RCVD | ORPHRASE}}
+</group>
+<group name="table_version_conn_dropped">
+  BGP table version {{TABLE_VERSION | ORPHRASE}}, neighbor version {{CONN_DROPPED | ORPHRASE}}
+</group>
+<group name="localhost_ip_localhost_port">
+  Local host: {{LOCALHOST_IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}, Local port: {{LOCALHOST_PORT | ORPHRASE}}
+</group>
+<group name="neighbor_asn_accepted_paths_conn_dropped">
+BGP neighbor is {{NEIGHBOR}}, remote AS {{ASN | re("\\w+")}}, ebgp link, Peer index {{ACCEPTED_PATHS}}{{CONN_DROPPED | ORPHRASE}}
+</group>
+<group name="neighbor_asn_accepted_paths">
+BGP neighbor is {{NEIGHBOR}}, remote AS {{ASN | ORPHRASE}}, ebgp link, Peer index 3{{ACCEPTED_PATHS}}
+</group>
+<group name="conn_dropped_updates_count_rcvd_accepted_paths_restart_time_adv">
+  Total: {{CONN_DROPPED}}{{UPDATES_COUNT_RCVD | re("\\d+")}}94{{ACCEPTED_PATHS}}68 {{RESTART_TIME_ADV | ORPHRASE}}4718
+</group>
+<group name="neighbor_asn_local_asn_conn_estab">
+BGP neighbor is {{NEIGHBOR}}, remote AS {{ASN | re("\\w+")}}, local AS {{LOCAL_ASN | ORPHRASE}}, ebgp link, Peer index {{CONN_ESTAB}}
+</group>

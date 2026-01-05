@@ -1,0 +1,60 @@
+{
+  "command": "cisco_ios_show_ip_flow_toptalkers",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"src_intf_src_ipaddr_dst_intf_dst_ipaddr_proto_src_port_dst_port_pkt\">\n{{SRC_INTF}} {{SRC_IPADDR | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{DST_INTF}} {{DST_IPADDR | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{PROTO}} {{SRC_PORT}} {{DST_PORT}} {{PKT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SRC_INTF": "Gi0/2/0.30",
+      "SRC_IPADDR": "10.2.100.83",
+      "SRC_PORT": "07C1",
+      "DST_INTF": "Null",
+      "DST_IPADDR": "224.0.0.2",
+      "PROTO": "11",
+      "DST_PORT": "07C1",
+      "PKT": "414"
+    },
+    {
+      "SRC_INTF": "Gi0/2/0.40",
+      "SRC_IPADDR": "10.2.100.99",
+      "SRC_PORT": "07C1",
+      "DST_INTF": "Null",
+      "DST_IPADDR": "224.0.0.2",
+      "PROTO": "11",
+      "DST_PORT": "07C1",
+      "PKT": "410"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "src_intf_src_ipaddr_dst_intf_dst_ipaddr_proto_src_port_dst_port_pkt": [
+        {
+          "SRC_INTF": "Gi0/2/0.30",
+          "SRC_IPADDR": "10.2.100.83",
+          "DST_INTF": "Null",
+          "DST_IPADDR": "224.0.0.2",
+          "PROTO": "11",
+          "SRC_PORT": "07C1",
+          "DST_PORT": "07C1",
+          "PKT": "414"
+        },
+        {
+          "SRC_INTF": "Gi0/2/0.40",
+          "SRC_IPADDR": "10.2.100.99",
+          "DST_INTF": "Null",
+          "DST_IPADDR": "224.0.0.2",
+          "PROTO": "11",
+          "SRC_PORT": "07C1",
+          "DST_PORT": "07C1",
+          "PKT": "410"
+        }
+      ]
+    }
+  ],
+  "cli_content": "SrcIf         SrcIPaddress    DstIf         DstIPaddress    Pr SrcP DstP  Pkts\nGi0/2/0.30    10.2.100.83     Null          224.0.0.2       11 07C1 07C1   414\nGi0/2/0.40    10.2.100.99     Null          224.0.0.2       11 07C1 07C1   410\n",
+  "textfsm_template": "Value SRC_INTF (\\S+)\nValue SRC_IPADDR ([0-9A-Fa-f:\\.]+)\nValue SRC_PORT ([A-Z0-9]+)\nValue DST_INTF (\\S+)\nValue DST_IPADDR ([0-9A-Fa-f:\\.]+)\nValue PROTO ([A-Z0-9]+)\nValue DST_PORT ([A-Z0-9]+)\nValue PKT ([0-9]+)\n\nStart\n  ^${SRC_INTF}\\s+${SRC_IPADDR}\\s+${DST_INTF}\\s+${DST_IPADDR}\\s+${PROTO}\\s+${SRC_PORT}\\s+${DST_PORT}\\s+${PKT} -> Record\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n"
+}

@@ -1,0 +1,83 @@
+{
+  "command": "paloalto_panos_test_security-policy-match",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"application_service\">\n        application/service {{APPLICATION_SERVICE | ORPHRASE}};\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "Allow 10.125.100.58-To-Google DNS",
+      "INDEX": "1",
+      "FROM": "Internal",
+      "SOURCE": "10.125.100.58",
+      "SOURCE_REGION": "none",
+      "TO": "External",
+      "DESTINATION": "8.8.8.8",
+      "DESTINATION_REGION": "none",
+      "USER": "any",
+      "SOURCE_DEVICE": "any",
+      "DESTINATION_DEVICE": "any",
+      "CATEGORY": "any",
+      "APPLICATION_SERVICE": "0:any/tcp/any/59",
+      "ACTION": "allow",
+      "ICMP_UNREACHABLE": "no",
+      "TERMINAL": "yes"
+    },
+    {
+      "NAME": "Allow 10.125.100.58-To-1.1.1.1",
+      "INDEX": "2",
+      "FROM": "Internal",
+      "SOURCE": "10.125.100.58",
+      "SOURCE_REGION": "none",
+      "TO": "External",
+      "DESTINATION": "1.1.1.1",
+      "DESTINATION_REGION": "none",
+      "USER": "any",
+      "SOURCE_DEVICE": "any",
+      "DESTINATION_DEVICE": "any",
+      "CATEGORY": "any",
+      "APPLICATION_SERVICE": "0:any/tcp/any/53",
+      "ACTION": "allow",
+      "ICMP_UNREACHABLE": "no",
+      "TERMINAL": "yes"
+    },
+    {
+      "NAME": "Allow DNS_Objects-To-192.0.2.10",
+      "INDEX": "4",
+      "FROM": "Internal",
+      "SOURCE": "[ 1.1.1.1 8.8.8.8 ]",
+      "SOURCE_REGION": "none",
+      "TO": "External",
+      "DESTINATION": "192.0.2.10",
+      "DESTINATION_REGION": "none",
+      "USER": "any",
+      "SOURCE_DEVICE": "any",
+      "DESTINATION_DEVICE": "any",
+      "CATEGORY": "any",
+      "APPLICATION_SERVICE": "[0:any/tcp/any/53 1:any/tcp/any/54 ]",
+      "ACTION": "allow",
+      "ICMP_UNREACHABLE": "no",
+      "TERMINAL": "yes"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "application_service": [
+        {
+          "APPLICATION_SERVICE": "0:any/tcp/any/59"
+        },
+        {
+          "APPLICATION_SERVICE": "0:any/tcp/any/53"
+        },
+        {
+          "APPLICATION_SERVICE": "[0:any/tcp/any/53 1:any/tcp/any/54 ]"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\"Allow 10.125.100.58-To-Google DNS; index: 1\" {\n        from Internal;\n        source 10.125.100.58;\n        source-region none;\n        to External;\n        destination 8.8.8.8;\n        destination-region none;\n        user any;\n        source-device any;\n        destinataion-device any;\n        category any;\n        application/service 0:any/tcp/any/59;\n        action allow;\n        icmp-unreachable: no\n        terminal yes;\n}\n\n\"Allow 10.125.100.58-To-1.1.1.1; index: 2\" {\n        from Internal;\n        source 10.125.100.58;\n        source-region none;\n        to External;\n        destination 1.1.1.1;\n        destination-region none;\n        user any;\n        source-device any;\n        destinataion-device any;\n        category any;\n        application/service 0:any/tcp/any/53;\n        action allow;\n        icmp-unreachable: no\n        terminal yes;\n}\n\n\"Allow DNS_Objects-To-192.0.2.10; index: 4\" {\n        from Internal;\n        source [ 1.1.1.1 8.8.8.8 ];\n        source-region none;\n        to External;\n        destination 192.0.2.10;\n        destination-region none;\n        user any;\n        source-device any;\n        destinataion-device any;\n        category any;\n        application/service [0:any/tcp/any/53 1:any/tcp/any/54 ];\n        action allow;\n        icmp-unreachable: no\n        terminal yes;\n}",
+  "textfsm_template": "Value Required NAME (.*?)\nValue Required INDEX (\\d+)\nValue FROM (\\S+)\nValue SOURCE (\\S+|\\[.*\\])\nValue SOURCE_REGION (\\S+)\nValue TO (\\S+)\nValue DESTINATION (\\S+|\\[.*\\])\nValue DESTINATION_REGION (\\S+)\nValue USER (\\S+)\nValue SOURCE_DEVICE (\\S+)\nValue DESTINATION_DEVICE (\\S+)\nValue CATEGORY (\\S+)\nValue APPLICATION_SERVICE (\\S+|\\[.*\\])\nValue ACTION (\\S+)\nValue ICMP_UNREACHABLE (\\S+)\nValue TERMINAL (\\S+)\n\nStart\n  ^\\\"${NAME};\\s+index:\\s+${INDEX}.\\s+{\n  ^\\s+from\\s+${FROM};\n  ^\\s+source\\s+${SOURCE};\n  ^\\s+source-region\\s+${SOURCE_REGION}; \n  ^\\s+to\\s+${TO};\n  ^\\s+destination\\s+${DESTINATION};\n  ^\\s+destination-region\\s+${DESTINATION_REGION};\n  ^\\s+user\\s+${USER};\n  ^\\s+source-device\\s+${SOURCE_DEVICE};\n  ^\\s+destinataion-device\\s+${DESTINATION_DEVICE};\n  ^\\s+category\\s+${CATEGORY};\n  ^\\s+application/service\\s+${APPLICATION_SERVICE};\n  ^\\s+action\\s+${ACTION};\n  ^\\s+icmp-unreachable:\\s+${ICMP_UNREACHABLE}\n  ^\\s+terminal\\s+${TERMINAL};\n  ^} -> Record\n  ^\\s*$$\n  ^. -> Error"
+}

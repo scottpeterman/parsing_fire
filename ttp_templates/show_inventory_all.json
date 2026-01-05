@@ -1,0 +1,68 @@
+{
+  "command": "show inventory all",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"pid_vid_sn\">\nPID: {{PID}} , VID: {{VID}} , SN: {{SN | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CHASSIS_NAME": "\"Chassis\"",
+      "CHASSIS_DESCR": "\"Cisco Catalyst 9300 Series Switch\"",
+      "PID": "C9300-24T",
+      "VID": "V02",
+      "SN": "FCW2132L0SG"
+    },
+    {
+      "CHASSIS_NAME": "\"Power Supply Module 0\"",
+      "CHASSIS_DESCR": "\"Cisco Catalyst 9300 Series 350W DC Power Supply\"",
+      "PID": "PWR-C1-350WDC",
+      "VID": "V01",
+      "SN": "LIT21310XYZ"
+    },
+    {
+      "CHASSIS_NAME": "\"Power Supply Module 1\"",
+      "CHASSIS_DESCR": "\"Cisco Catalyst 9300 Series 715W AC Power Supply\"",
+      "PID": "PWR-C1-715WAC",
+      "VID": "V01",
+      "SN": "DCC21320ABC"
+    },
+    {
+      "CHASSIS_NAME": "\"Fan Tray\"",
+      "CHASSIS_DESCR": "\"Cisco Catalyst 9300 Series Fan Tray\"",
+      "PID": "C9300-FAN",
+      "VID": "V01",
+      "SN": "FAN21345DEF"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "pid_vid_sn": [
+        {
+          "PID": "C9300-24T",
+          "VID": "V02",
+          "SN": "FCW2132L0SG"
+        },
+        {
+          "PID": "PWR-C1-350WDC",
+          "VID": "V01",
+          "SN": "LIT21310XYZ"
+        },
+        {
+          "PID": "PWR-C1-715WAC",
+          "VID": "V01",
+          "SN": "DCC21320ABC"
+        },
+        {
+          "PID": "C9300-FAN",
+          "VID": "V01",
+          "SN": "FAN21345DEF"
+        }
+      ]
+    }
+  ],
+  "cli_content": "NAME: \"Chassis\", DESCR: \"Cisco Catalyst 9300 Series Switch\"\nPID: C9300-24T      , VID: V02  , SN: FCW2132L0SG\n\nNAME: \"Power Supply Module 0\", DESCR: \"Cisco Catalyst 9300 Series 350W DC Power Supply\"\nPID: PWR-C1-350WDC  , VID: V01  , SN: LIT21310XYZ\n\nNAME: \"Power Supply Module 1\", DESCR: \"Cisco Catalyst 9300 Series 715W AC Power Supply\"\nPID: PWR-C1-715WAC  , VID: V01  , SN: DCC21320ABC\n\nNAME: \"Fan Tray\", DESCR: \"Cisco Catalyst 9300 Series Fan Tray\"\nPID: C9300-FAN      , VID: V01  , SN: FAN21345DEF\n",
+  "textfsm_template": "Value CHASSIS_NAME (\\\"[\\w\\s]+\\\"|\\S+)\nValue CHASSIS_DESCR (\\\"[\\w\\s]+\\\"|\\S+)\nValue PID (\\S+)\nValue VID (\\S+|\\s*)\nValue SN (\\S+)\n\nStart\n  ^NAME:\\s+${CHASSIS_NAME}\\s*,\\s+DESCR:\\s+${CHASSIS_DESCR}$$\n  ^PID:\\s+${PID}\\s*,\\s+VID:\\s+${VID}\\s*,\\s+SN:\\s+${SN}$$ -> Record"
+}

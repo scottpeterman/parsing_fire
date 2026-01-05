@@ -1,0 +1,1158 @@
+{
+  "command": "huawei_vrp_display_interface",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 3.4473684210526314,
+  "textfsm_rows": 38,
+  "ttp_rows": 131,
+  "ttp_template": "<group name=\"interface_link_status\">\n{{INTERFACE}} current state : {{LINK_STATUS | ORPHRASE}}\n</group>\n<group name=\"protocol_status\">\nLine protocol current state : {{PROTOCOL_STATUS | ORPHRASE}}\n</group>\n<group name=\"port_type_mtu\">\n{{PORT_TYPE}} Port,The Maximum Transmit Unit is {{MTU | ORPHRASE}}\n</group>\n<group name=\"interface_pvid_link_status\">\n{{INTERFACE}}{{PVID | re(\"\\\\d+\")}} current state : {{LINK_STATUS | ORPHRASE}}\n</group>\n<group name=\"interface_link_status_pvid\">\n{{INTERFACE}} {{LINK_STATUS | ORPHRASE}} {{PVID | re(\"\\\\d+\")}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Eth-Trunk0",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:41:56",
+      "AGGREGATED_INTERFACES": "40GE0/0/1, 40GE0/0/2"
+    },
+    {
+      "INTERFACE": "LoopBack1",
+      "LINK_STATUS": "UP",
+      "PROTOCOL_STATUS": "UP (spoofing)",
+      "PORT_TYPE": "Route",
+      "MTU": "1500",
+      "INTERNET_ADDRESS": "169.254.1.1/32",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:41:56"
+    },
+    {
+      "INTERFACE": "MEth0/0/1",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Route",
+      "MTU": "1500",
+      "INTERNET_ADDRESS": "192.168.1.253/24",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:44:55",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:41:56",
+      "SPEED": "10",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "HALF",
+      "NEGOTIATION": "ENABLE"
+    },
+    {
+      "INTERFACE": "NULL0",
+      "LINK_STATUS": "UP",
+      "PROTOCOL_STATUS": "UP (spoofing)",
+      "PORT_TYPE": "Route",
+      "MTU": "1500",
+      "INTERNET_PROTOCOL": "disabled",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:41:56"
+    },
+    {
+      "INTERFACE": "Vlanif1",
+      "LINK_STATUS": "UP",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Route",
+      "MTU": "1500",
+      "INTERNET_PROTOCOL": "disabled",
+      "HARDWARE_ADDRESS": "b076-1b65-6a42",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:00"
+    },
+    {
+      "INTERFACE": "Vlanif10",
+      "LINK_STATUS": "UP",
+      "PROTOCOL_STATUS": "UP",
+      "PORT_TYPE": "Route",
+      "MTU": "1500",
+      "INTERNET_ADDRESS": "10.10.10.1/24",
+      "HARDWARE_ADDRESS": "b076-1b65-6a4b",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:00"
+    },
+    {
+      "INTERFACE": "Vlanif20",
+      "LINK_STATUS": "UP",
+      "PROTOCOL_STATUS": "UP",
+      "PORT_TYPE": "Route",
+      "MTU": "1500",
+      "INTERNET_ADDRESS": "10.10.20.1/24",
+      "HARDWARE_ADDRESS": "b076-1b65-6a46",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:00"
+    },
+    {
+      "INTERFACE": "Vlanif30",
+      "LINK_STATUS": "UP",
+      "PROTOCOL_STATUS": "UP",
+      "PORT_TYPE": "Route",
+      "MTU": "1500",
+      "INTERNET_ADDRESS": "10.10.30.1/24",
+      "HARDWARE_ADDRESS": "b076-1b65-6a56",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:00"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/1",
+      "LINK_STATUS": "UP",
+      "PROTOCOL_STATUS": "UP",
+      "PORT_TYPE": "Switch",
+      "PVID": "10",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "2023-11-22 16:20:13",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:21",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:00",
+      "PORT_MODE": "COMMON FIBER, Transceiver: 1000_BASE_LX_SFP",
+      "SPEED": "1000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "ENABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/2",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "2023-11-22 16:10:46",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 16:19:55",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:04",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/3",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:22",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:04",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/4",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:22",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:04",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/5",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:23",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:08",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/6",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:23",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:08",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/7",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:24",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:12",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/8",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:24",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:12",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/9",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:25",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:16",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/10",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:25",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:16",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/11",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:26",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:20",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/12",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:26",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:20",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/13",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:27",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:24",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/14",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:27",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:24",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/15",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:28",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:28",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/16",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:28",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:28",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/17",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:29",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:32",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/18",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:29",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:32",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/19",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:30",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:32",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/20",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:30",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:36",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/21",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:31",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:36",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/22",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:31",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:40",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/23",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:32",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:40",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "XGigabitEthernet0/0/24",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:32",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:44",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "10000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "40GE0/0/1",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:32",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:44",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "40000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "40GE0/0/2",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:33",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:48",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "40000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "40GE0/0/3",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:34",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:48",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "40000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "40GE0/0/4",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:34",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:52",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "40000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "40GE0/0/5",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:35",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:52",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "40000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    },
+    {
+      "INTERFACE": "40GE0/0/6",
+      "LINK_STATUS": "DOWN",
+      "PROTOCOL_STATUS": "DOWN",
+      "PORT_TYPE": "Switch",
+      "PVID": "1",
+      "MTU": "9216",
+      "HARDWARE_ADDRESS": "b076-1b65-6a40",
+      "LAST_PHYSICAL_UP_TIME": "-",
+      "LAST_PHYSICAL_DOWN_TIME": "2023-11-22 15:45:36",
+      "CURRENT_SYSTEM_TIME": "2023-11-22 16:42:56",
+      "PORT_MODE": "COMMON FIBER",
+      "SPEED": "40000",
+      "LOOPBACK": "NONE",
+      "DUPLEX": "FULL",
+      "NEGOTIATION": "DISABLE"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_link_status": [
+        {
+          "INTERFACE": "Eth-Trunk0",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "LoopBack1",
+          "LINK_STATUS": "UP"
+        },
+        {
+          "INTERFACE": "MEth0/0/1",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "NULL0",
+          "LINK_STATUS": "UP"
+        },
+        {
+          "INTERFACE": "Vlanif1",
+          "LINK_STATUS": "UP"
+        },
+        {
+          "INTERFACE": "Vlanif10",
+          "LINK_STATUS": "UP"
+        },
+        {
+          "INTERFACE": "Vlanif20",
+          "LINK_STATUS": "UP"
+        },
+        {
+          "INTERFACE": "Vlanif30",
+          "LINK_STATUS": "UP"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/1",
+          "LINK_STATUS": "UP"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/2",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/3",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/4",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/5",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/6",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/7",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/8",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/9",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/10",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/11",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/12",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/13",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/14",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/15",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/16",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/17",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/18",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/19",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/20",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/21",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/22",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/23",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/24",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "40GE0/0/1",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "40GE0/0/2",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "40GE0/0/3",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "40GE0/0/4",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "40GE0/0/5",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "40GE0/0/6",
+          "LINK_STATUS": "DOWN"
+        }
+      ],
+      "protocol_status": [
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "UP (spoofing)"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "UP (spoofing)"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "UP"
+        },
+        {
+          "PROTOCOL_STATUS": "UP"
+        },
+        {
+          "PROTOCOL_STATUS": "UP"
+        },
+        {
+          "PROTOCOL_STATUS": "UP"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        },
+        {
+          "PROTOCOL_STATUS": "DOWN"
+        }
+      ],
+      "port_type_mtu": [
+        {
+          "PORT_TYPE": "Route",
+          "MTU": "1500"
+        },
+        {
+          "PORT_TYPE": "Route",
+          "MTU": "1500"
+        },
+        {
+          "PORT_TYPE": "Route",
+          "MTU": "1500"
+        },
+        {
+          "PORT_TYPE": "Route",
+          "MTU": "1500"
+        },
+        {
+          "PORT_TYPE": "Route",
+          "MTU": "1500"
+        },
+        {
+          "PORT_TYPE": "Route",
+          "MTU": "1500"
+        }
+      ],
+      "interface_pvid_link_status": [
+        {
+          "INTERFACE": "Eth-Trunk",
+          "PVID": "0",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "LoopBack",
+          "PVID": "1",
+          "LINK_STATUS": "UP"
+        },
+        {
+          "INTERFACE": "MEth0/0/",
+          "PVID": "1",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "NULL",
+          "PVID": "0",
+          "LINK_STATUS": "UP"
+        },
+        {
+          "INTERFACE": "Vlanif",
+          "PVID": "1",
+          "LINK_STATUS": "UP"
+        },
+        {
+          "INTERFACE": "Vlanif1",
+          "PVID": "0",
+          "LINK_STATUS": "UP"
+        },
+        {
+          "INTERFACE": "Vlanif2",
+          "PVID": "0",
+          "LINK_STATUS": "UP"
+        },
+        {
+          "INTERFACE": "Vlanif3",
+          "PVID": "0",
+          "LINK_STATUS": "UP"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/",
+          "PVID": "1",
+          "LINK_STATUS": "UP"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/",
+          "PVID": "2",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/",
+          "PVID": "3",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/",
+          "PVID": "4",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/",
+          "PVID": "5",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/",
+          "PVID": "6",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/",
+          "PVID": "7",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/",
+          "PVID": "8",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/",
+          "PVID": "9",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/1",
+          "PVID": "0",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/1",
+          "PVID": "1",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/1",
+          "PVID": "2",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/1",
+          "PVID": "3",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/1",
+          "PVID": "4",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/1",
+          "PVID": "5",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/1",
+          "PVID": "6",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/1",
+          "PVID": "7",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/1",
+          "PVID": "8",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/1",
+          "PVID": "9",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/2",
+          "PVID": "0",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/2",
+          "PVID": "1",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/2",
+          "PVID": "2",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/2",
+          "PVID": "3",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "XGigabitEthernet0/0/2",
+          "PVID": "4",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "40GE0/0/",
+          "PVID": "1",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "40GE0/0/",
+          "PVID": "2",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "40GE0/0/",
+          "PVID": "3",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "40GE0/0/",
+          "PVID": "4",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "40GE0/0/",
+          "PVID": "5",
+          "LINK_STATUS": "DOWN"
+        },
+        {
+          "INTERFACE": "40GE0/0/",
+          "PVID": "6",
+          "LINK_STATUS": "DOWN"
+        }
+      ],
+      "interface_link_status_pvid": [
+        {
+          "INTERFACE": "40GE0/0/1",
+          "LINK_STATUS": "DOWN",
+          "PVID": "1"
+        },
+        {
+          "INTERFACE": "40GE0/0/2",
+          "LINK_STATUS": "UP",
+          "PVID": "1"
+        },
+        {
+          "INTERFACE": "The",
+          "LINK_STATUS": "Number of Ports in Trunk :",
+          "PVID": "1"
+        },
+        {
+          "INTERFACE": "The",
+          "LINK_STATUS": "Number of UP Ports in Trunk :",
+          "PVID": "0"
+        },
+        {
+          "INTERFACE": "Route",
+          "LINK_STATUS": "Port,The Maximum Transmit Unit is",
+          "PVID": "1500"
+        },
+        {
+          "INTERFACE": "Route",
+          "LINK_STATUS": "Port,The MTU is",
+          "PVID": "1500"
+        },
+        {
+          "INTERFACE": "Route",
+          "LINK_STATUS": "Port,The Maximum Transmit Unit is",
+          "PVID": "1500"
+        },
+        {
+          "INTERFACE": "Route",
+          "LINK_STATUS": "Port,The Maximum Transmit Unit is",
+          "PVID": "1500"
+        },
+        {
+          "INTERFACE": "Route",
+          "LINK_STATUS": "Port,The Maximum Transmit Unit is",
+          "PVID": "1500"
+        },
+        {
+          "INTERFACE": "Route",
+          "LINK_STATUS": "Port,The Maximum Transmit Unit is",
+          "PVID": "1500"
+        },
+        {
+          "INTERFACE": "Route",
+          "LINK_STATUS": "Port,The Maximum Transmit Unit is",
+          "PVID": "1500"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Eth-Trunk0 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, Hash arithmetic : According to SIP-XOR-DIP,Maximal BW: 40G, Current BW: 0M, The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nCurrent system time: 2023-11-22 16:41:56\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n  Frames:                           0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Jabbers:                          0,  Fragments:                           0\n  Runts:                            0,  DropEvents:                          0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  Collisions:                       0,  ExcessiveCollisions:                 0\n  Late Collisions:                  0,  Deferreds:                           0\n  Buffers Purged:                   0\n\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n-----------------------------------------------------\nPortName                      Status      Weight\n-----------------------------------------------------\n40GE0/0/1                     DOWN        1\n40GE0/0/2                     UP          1\n-----------------------------------------------------\nThe Number of Ports in Trunk : 1\nThe Number of UP Ports in Trunk : 0\n\nLoopBack1 current state : UP\nLine protocol current state : UP (spoofing)\nDescription:\nRoute Port,The Maximum Transmit Unit is 1500\nInternet Address is 169.254.1.1/32\nPhysical is Loopback\nCurrent system time: 2023-11-22 16:41:56\n    Last 300 seconds input rate 0 bits/sec, 0 packets/sec\n    Last 300 seconds output rate 0 bits/sec, 0 packets/sec\n    Realtime 44 seconds input rate 0 bits/sec, 0 packets/sec\n    Realtime 44 seconds output rate 0 bits/sec, 0 packets/sec\n    Input: 0 packets,0 bytes\n           0 unicast,0 broadcast,0 multicast\n           0 errors,0 unknownprotocol\n    Output:0 packets,0 bytes\n           0 unicast,0 broadcast,0 multicast\n           0 errors\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nMEth0/0/1 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nRoute Port,The MTU is 1500\nInternet Address is 192.168.1.253/24\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:44:55\nCurrent system time: 2023-11-22 16:41:56\nSpeed : 10,      Loopback: NONE\nDuplex: HALF,   Negotiation: ENABLE\n\nLast 300 seconds input rate:  0 bits/sec, 0 packets/sec\nLast 300 seconds output rate: 0 bits/sec, 0 packets/sec\n\nInput:  0 Packets, 0 Bytes\n  Unicast:                          0,  Multicast:                        0\n  Broadcast:                        0\n  Oversize:                         0,  Undersize:                        0\n  FCS:                              0,  Pause:                            0\n\nOutput: 0 Packets, 0 Bytes\n  Unicast:                          0,  Multicast:                        0\n  Broadcast:                        0\n  Oversize:                         0,  Defer:                            0\n  FCS:                              0,  Pause:                            0\n  Collision:                        0\n\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nNULL0 current state : UP\nLine protocol current state : UP (spoofing)\nDescription:\nRoute Port,The Maximum Transmit Unit is 1500\nInternet protocol processing : disabled\nPhysical is NULL DEV\nCurrent system time: 2023-11-22 16:41:56\n    Last 300 seconds input rate 0 bits/sec, 0 packets/sec\n    Last 300 seconds output rate 0 bits/sec, 0 packets/sec\n    Realtime 42 seconds input rate 0 bits/sec, 0 packets/sec\n    Realtime 42 seconds output rate 0 bits/sec, 0 packets/sec\n    Input: 0 packets,0 bytes\n           0 unicast,0 broadcast,0 multicast\n           0 errors,0 unknownprotocol\n    Output:0 packets,0 bytes\n           0 unicast,0 broadcast,0 multicast\n           0 errors\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nVlanif1 current state : UP\nLine protocol current state : DOWN\nDescription:\nRoute Port,The Maximum Transmit Unit is 1500\nInternet protocol processing : disabled\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a42\nCurrent system time: 2023-11-22 16:42:00\n    Input bandwidth utilization  : --\n    Output bandwidth utilization : --\n\nVlanif10 current state : UP\nLine protocol current state : UP\nLast line protocol up time : 2023-11-22 16:26:05\nDescription:\nRoute Port,The Maximum Transmit Unit is 1500\nInternet Address is 10.10.10.1/24\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a4b\nCurrent system time: 2023-11-22 16:42:00\n    Input bandwidth utilization  : --\n    Output bandwidth utilization : --\n\nVlanif20 current state : UP\nLine protocol current state : UP\nLast line protocol up time : 2023-11-22 16:26:53\nDescription:\nRoute Port,The Maximum Transmit Unit is 1500\nInternet Address is 10.10.20.1/24\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a46\nCurrent system time: 2023-11-22 16:42:00\n    Input bandwidth utilization  : --\n    Output bandwidth utilization : --\n\nVlanif30 current state : UP\nLine protocol current state : UP\nLast line protocol up time : 2023-11-22 16:26:54\nDescription:\nRoute Port,The Maximum Transmit Unit is 1500\nInternet Address is 10.10.30.1/24\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a56\nCurrent system time: 2023-11-22 16:42:00\n    Input bandwidth utilization  : --\n    Output bandwidth utilization : --\n\nXGigabitEthernet0/0/1 current state : UP\nLine protocol current state : UP\nDescription:\nSwitch Port, Link-type : trunk(configured),\nPVID :   10, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : 2023-11-22 16:20:13\nLast physical down time : 2023-11-22 15:45:21\nCurrent system time: 2023-11-22 16:42:00\nPort Mode: COMMON FIBER, Transceiver: 1000_BASE_LX_SFP\nSpeed : 1000,   Loopback: NONE\nDuplex: FULL,   Negotiation: ENABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 440 bits/sec, 0 packets/sec\nLast 300 seconds output rate 1840 bits/sec, 2 packets/sec\nInput peak rate 27080 bits/sec, Record time: 2023-11-22 16:20:15\nOutput peak rate 20584 bits/sec, Record time: 2023-11-22 16:20:15\n\nInput:  721 packets, 94635 bytes\n  Unicast:                         18,  Multicast:                         410\n  Broadcast:                      293,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  2326 packets, 239211 bytes\n  Unicast:                         25,  Multicast:                        2051\n  Broadcast:                      250,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/2 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : trunk(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : 2023-11-22 16:10:46\nLast physical down time : 2023-11-22 16:19:55\nCurrent system time: 2023-11-22 16:42:04\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 17184 bits/sec, Record time: 2023-11-22 16:10:49\nOutput peak rate 15448 bits/sec, Record time: 2023-11-22 16:10:47\n\nInput:  228 packets, 40797 bytes\n  Unicast:                          0,  Multicast:                          81\n  Broadcast:                      147,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  505 packets, 69120 bytes\n  Unicast:                          0,  Multicast:                         395\n  Broadcast:                      110,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/3 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:22\nCurrent system time: 2023-11-22 16:42:04\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/4 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:22\nCurrent system time: 2023-11-22 16:42:04\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/5 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:23\nCurrent system time: 2023-11-22 16:42:08\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/6 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:23\nCurrent system time: 2023-11-22 16:42:08\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/7 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:24\nCurrent system time: 2023-11-22 16:42:12\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/8 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:24\nCurrent system time: 2023-11-22 16:42:12\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/9 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:25\nCurrent system time: 2023-11-22 16:42:16\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/10 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:25\nCurrent system time: 2023-11-22 16:42:16\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/11 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:26\nCurrent system time: 2023-11-22 16:42:20\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/12 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:26\nCurrent system time: 2023-11-22 16:42:20\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/13 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:27\nCurrent system time: 2023-11-22 16:42:24\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/14 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:27\nCurrent system time: 2023-11-22 16:42:24\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/15 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:28\nCurrent system time: 2023-11-22 16:42:28\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/16 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:28\nCurrent system time: 2023-11-22 16:42:28\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/17 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:29\nCurrent system time: 2023-11-22 16:42:32\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/18 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:29\nCurrent system time: 2023-11-22 16:42:32\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/19 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:30\nCurrent system time: 2023-11-22 16:42:32\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/20 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:30\nCurrent system time: 2023-11-22 16:42:36\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/21 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:31\nCurrent system time: 2023-11-22 16:42:36\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/22 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:31\nCurrent system time: 2023-11-22 16:42:40\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/23 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:32\nCurrent system time: 2023-11-22 16:42:40\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\nXGigabitEthernet0/0/24 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:32\nCurrent system time: 2023-11-22 16:42:44\nPort Mode: COMMON FIBER\nSpeed : 10000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\n40GE0/0/1 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:32\nCurrent system time: 2023-11-22 16:42:44\nPort Mode: COMMON FIBER\nSpeed : 40000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\n40GE0/0/2 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:33\nCurrent system time: 2023-11-22 16:42:48\nPort Mode: COMMON FIBER\nSpeed : 40000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\n40GE0/0/3 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:34\nCurrent system time: 2023-11-22 16:42:48\nPort Mode: COMMON FIBER\nSpeed : 40000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\n40GE0/0/4 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:34\nCurrent system time: 2023-11-22 16:42:52\nPort Mode: COMMON FIBER\nSpeed : 40000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\n40GE0/0/5 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:35\nCurrent system time: 2023-11-22 16:42:52\nPort Mode: COMMON FIBER\nSpeed : 40000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n\n40GE0/0/6 current state : DOWN\nLine protocol current state : DOWN\nDescription:\nSwitch Port, Link-type : access(negotiated),\nPVID :    1, TPID : 8100(Hex), The Maximum Frame Length is 9216\nIP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is b076-1b65-6a40\nLast physical up time   : -\nLast physical down time : 2023-11-22 15:45:36\nCurrent system time: 2023-11-22 16:42:56\nPort Mode: COMMON FIBER\nSpeed : 40000,  Loopback: NONE\nDuplex: FULL,   Negotiation: DISABLE\nMdi   : -,      Flow-control: DISABLE\nLast 300 seconds input rate 0 bits/sec, 0 packets/sec\nLast 300 seconds output rate 0 bits/sec, 0 packets/sec\nInput peak rate 0 bits/sec, Record time: -\nOutput peak rate 0 bits/sec, Record time: -\n\nInput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n  Total Error:                      0\n  CRC:                              0,  Giants:                              0\n  Runts:                            0,  Fragments:                           0\n  Alignments:                       0,  Symbols:                             0\n  Ignoreds:                         0\n\nOutput:  0 packets, 0 bytes\n  Unicast:                          0,  Multicast:                           0\n  Broadcast:                        0,  Jumbo:                               0\n  Discard:                          0,  Pause:                               0\n\n\n    Input bandwidth utilization threshold : 80.00%\n    Output bandwidth utilization threshold: 80.00%\n    Input bandwidth utilization  :    0%\n    Output bandwidth utilization :    0%\n",
+  "textfsm_template": "Value Required INTERFACE (\\S*)\nValue LINK_STATUS (.*)\nValue PROTOCOL_STATUS (\\S*|\\S*\\s+\\(\\w+\\))\nValue INTERFACE_DESCRIPTION (.*)\nValue PORT_TYPE (\\S*)\nValue PVID (\\d+)\nValue MTU (\\d+)\nValue INTERNET_ADDRESS (\\S*)\nValue INTERNET_PROTOCOL (disabled|enabled)\nValue HARDWARE_ADDRESS (\\S{4}-\\S{4}-\\S{4})\nValue LAST_PHYSICAL_UP_TIME (\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}|-)\nValue LAST_PHYSICAL_DOWN_TIME (\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}|-)\nValue CURRENT_SYSTEM_TIME (\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2})\nValue PORT_MODE ([\\S\\s]*)\nValue SPEED (\\d*)\nValue LOOPBACK (\\S*)\nValue DUPLEX (HALF|FULL)\nValue NEGOTIATION (DISABLE|ENABLE)\nValue List AGGREGATED_INTERFACES (\\S+)\n\nStart\n  ^\\S*\\s+current\\s+state\\s+:.*$$ -> Continue.Record\n  ^${INTERFACE}\\s+current\\s+state\\s+:\\s+${LINK_STATUS}\\s*$$\n  ^Line\\s+protocol\\s+current\\s+state\\s+:\\s+${PROTOCOL_STATUS}\\s*$$\n  ^Last\\sline\\sprotocol\\sup\\stime\\s*:\\s+(\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}|-)\\s*$$\n  ^Description:${INTERFACE_DESCRIPTION}\\s*$$\n  ^${PORT_TYPE}\\s+Port,\\s*The\\s+MTU\\s+is\\s+${MTU}\n  ^${PORT_TYPE}\\s+Port,\\s*The\\s+Maximum\\s+Transmit\\s+Unit\\s+is\\s+${MTU}\n  ^${PORT_TYPE}\\s+Port,(\\s+PVID\\s+:\\s*${PVID},)?(\\s*[^,]+,){1,}(\\s+The\\s+Maximum\\s+(Frame\\s+Length|Transmit\\s+Unit)\\s+is\\s+${MTU})?\n  ^PVID\\s*:\\s+${PVID},(\\s*[^,]+,){0,}\\s+The\\s+Maximum\\s+Frame\\s+Length\\s+is\\s+${MTU}\n  ^Internet\\s+Address\\s+is\\s+allocated\\s+by\\s+DHCP,\\s+${INTERNET_ADDRESS}\\s*$$\n  ^Internet\\s+Address\\s+is\\s+negotiated,\\s+${INTERNET_ADDRESS}\\s*$$\n  ^Internet\\s+Address\\s+is\\s+${INTERNET_ADDRESS}\\s*$$\n  ^.*,\\s+Hardware\\s+address\\s+is\\s+${HARDWARE_ADDRESS}\\s*$$\n  ^Internet\\s+protocol\\s+processing\\s+:\\s+${INTERNET_PROTOCOL}\\s*$$\n  ^Encapsulation\\sis\\s.+\\s*$$\n  ^Tunnel\\ssource\\s\\S+\\s\\(.+\\),\\sdestination\\s\\S+\\s*$$\n  ^Tunnel\\sprotocol\\/transport\\sGRE\\/IP,\\skey\\s.+\\s*$$\n  ^keepalive\\s\\S+\\s*$$\n  ^Checksumming\\sof\\spackets\\s\\S+\\s*$$\n  ^Last\\s+physical\\s+up\\s+time\\s*:\\s+${LAST_PHYSICAL_UP_TIME}\\s*\n  ^Last\\s+physical\\s+down\\s+time\\s+:\\s+${LAST_PHYSICAL_DOWN_TIME}\\s*\n  ^IP\\sSending\\sFrames'\\sFormat\\sis\\s\\S+\\s*,\\sHardware\\saddress\\sis\\s\\S+\\s*$$\n  ^Current\\s+system\\s+time:\\s+${CURRENT_SYSTEM_TIME}\\s*\n  ^Modem\\sState:\\s+.+\\s*$$\n  ^Model\\s=\\s+.+\\s*$$\n  ^Current\\sNetwork\\sConnection\\s=\\s.+\\s*$$\n  ^Current\\sRSSI\\s<?=\\s+(-)?\\d+\\sdBm.*$$\n  ^Current\\sSINR\\s([<>])?=\\s+(-)?\\d+\\sdB\\s\\(.+\\)\\s*$$\n  ^\\s+Input\\sbandwidth\\sutilization(\\sthreshold)?\\s*:.*$$\n  ^\\s+Output\\sbandwidth\\sutilization(\\sthreshold)?\\s*:.*$$\n  ^Port\\s+Mode:\\s+${PORT_MODE}\\s*$$\n  ^Speed\\s+:\\s+${SPEED},\\s*Loopback:\\s+${LOOPBACK}\\s*$$\n  ^Duplex:\\s+${DUPLEX},\\s*Negotiation:\\s+${NEGOTIATION}\\s*$$\n  ^Mdi\\s*:\\s+\\S+,\\s*Clock\\s*:\\s+\\S+\\s*$$\n  ^Port\\sPHY\\stype\\s+:\\s+\\S+\\s*$$\n  ^\\s*Last\\s\\d+\\sseconds\\s(input|output)\\srate\\s(\\d+\\sbytes\\/sec(,)?\\s)?\\d+\\sbits\\/sec(,)?\\s\\d+\\spackets\\/sec\\s*$$\n  ^\\s*(Input|Output)\\speak\\srate\\s\\d+\\sbits\\/sec\\s*,\\s*Record\\stime:\\s+.*$$\n  ^Link\\slayer\\sprotocol\\sis.*$$\n  ^LCP\\sinitial\\s*$$\n  ^Physical\\sis.*$$\n  ^Bound\\sto.*$$\n  ^\\s*LCP\\s\\S+,\\s+IPCP\\s\\S+(,\\s+IP6CP\\s\\S+)?\\s*$$\n  ^Packets\\sstatistics:\\s*$$\n  ^\\s+(Input|Output)\\spackets\\s*:\\s*\\d+,\\s+\\d+\\sbytes\\s*$$\n  ^\\s+FCS\\serror\\spackets:\\s*\\d+\\s*$$\n  ^\\s+Address\\serror\\spackets:\\s*\\d+\\s*$$\n  ^\\s+Control\\sfield\\scontrol\\serror\\spackets:\\s*\\d+\\s*$$\n  ^\\s+Control\\sfield\\scontrol\\serror\\spackets:\\s*\\d+\\s*$$\n  ^\\s*(Input|Output)\\s*:\\s*\\d+\\spackets,\\s+\\d+\\sbytes\\s*$$\n  ^\\s+Unicast:\\s+(\\d|-)+,\\s+(Multicast:\\s+\\d+|Ununicast:\\s+(\\d|-)+)\\s*$$\n  ^\\s+Broadcast:\\s+(\\d|-)+,\\s+Jumbo:\\s+(\\d|-)+\\s*$$\n  ^\\s+Discard:\\s+(\\d|-)+,\\s+Total\\sError:\\s+(\\d|-)+\\s*$$\n  ^\\s+CRC:\\s+(\\d|-)+,\\s+Giants:\\s+(\\d|-)+\\s*$$\n  ^\\s+Jabbers:\\s+(\\d|-)+,\\s+Throttles:\\s+(\\d|-)+\\s*$$\n  ^\\s+Runts:\\s+(\\d|-)+,\\s+Symbols:\\s+(\\d|-)+\\s*$$\n  ^\\s+Ignoreds:\\s+(\\d|-)+,\\s+Frames:\\s+(\\d|-)+\\s*$$\n  ^\\s+Collisions:\\s+(\\d|-)+,\\s+ExcessiveCollisions:\\s+(\\d|-)+\\s*$$\n  ^\\s+Late\\sCollisions:\\s+(\\d|-)+,\\s+Deferreds:\\s+(\\d|-)+\\s*$$\n  ^\\s+OAM\\sCells:\\s+(\\d|-)+,\\s+ASM\\sCells:\\s+(\\d|-)+\\s*$$\n  ^\\s+Packet\\sErrors:\\s+(\\d|-)+,\\s+Packet\\sDiscards:\\s+(\\d|-)+\\s*$$\n  ^\\s+Cell\\sErrors:\\s+(\\d|-)+\\s*$$\n  ^\\s*Last\\s+\\d+\\s+seconds\n  ^\\s*Input:\\s+\\d+\\s+Packets,\\s+\\d+\\s+Bytes\n  ^\\s*Output:\\s+\\d+\\s+Packets,\\s+\\d+\\s+Bytes\n  ^\\s*Mdi\\s+:\\s+\n  ^-{6}\n  ^PortName -> Trunk\n  ^\\s+\n  ^. -> Error\n\nTrunk\n  ^-{6}\n  ^${AGGREGATED_INTERFACES}\\s+\\S+\\s+\\d+\\s*$$\n  ^The\\s+Number\\s+of\\s+Ports\\s+in\\s+Trunk\\s*:\\s*\\d+\\s*$$\n  ^The\\s+Number\\s+of\\s+UP\\s+Ports\\s+in\\s+Trunk\\s*:\\s*\\d+\\s*$$\n  ^\\s*$$ -> Start\n  ^. -> Error\n"
+}

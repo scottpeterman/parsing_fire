@@ -1,0 +1,183 @@
+{
+  "command": "cisco_asa_show_interface",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.5,
+  "textfsm_rows": 6,
+  "ttp_rows": 9,
+  "ttp_template": "<group name=\"link_status_duplex_bandwidth\">\n        Full-D{{LINK_STATUS | ORPHRASE}}lex({{DUPLEX}}), Auto-Speed({{BANDWIDTH | ORPHRASE}})\n</group>\n<group name=\"interface_interface_zone_link_status_protocol_status\">\nInterface {{INTERFACE}} \"{{INTERFACE_ZONE}}\", is {{LINK_STATUS | ORPHRASE}}, line protocol is {{PROTOCOL_STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "GigabitEthernet0/0",
+      "INTERFACE_ZONE": "outside",
+      "LINK_STATUS": "up",
+      "PROTOCOL_STATUS": "up",
+      "HARDWARE_TYPE": "i82540EM rev03",
+      "BANDWIDTH": "1000 Mbps",
+      "DELAY": "10 usec",
+      "DUPLEX": "Full-duplex",
+      "SPEED": "1000 Mbps",
+      "DESCRIPTION": "to iosv-1",
+      "MAC_ADDRESS": "fa16.3eb0.c3d3",
+      "MTU": "1500",
+      "IP_ADDRESS": "10.0.0.5",
+      "NETMASK": "255.255.255.252",
+      "ONEMIN_IN_PPS": "0",
+      "ONEMIN_IN_RATE": "0",
+      "ONEMIN_OUT_PPS": "0",
+      "ONEMIN_OUT_RATE": "0",
+      "ONEMIN_DROP_RATE": "0",
+      "FIVEMIN_IN_PPS": "0",
+      "FIVEMIN_IN_RATE": "0",
+      "FIVEMIN_OUT_PPS": "0",
+      "FIVEMIN_OUT_RATE": "0",
+      "FIVEMIN_DROP_RATE": "0"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/1",
+      "INTERFACE_ZONE": "outside-1",
+      "LINK_STATUS": "up",
+      "PROTOCOL_STATUS": "up",
+      "HARDWARE_TYPE": "i82540EM rev03",
+      "BANDWIDTH": "1000 Mbps",
+      "DELAY": "10 usec",
+      "DUPLEX": "Full-duplex",
+      "SPEED": "1000 Mbps",
+      "DESCRIPTION": "to iosv-2",
+      "MAC_ADDRESS": "fa16.3ed1.7e26",
+      "MTU": "1500",
+      "IP_ADDRESS": "10.0.0.13",
+      "NETMASK": "255.255.255.252",
+      "ONEMIN_IN_PPS": "0",
+      "ONEMIN_IN_RATE": "0",
+      "ONEMIN_OUT_PPS": "0",
+      "ONEMIN_OUT_RATE": "0",
+      "ONEMIN_DROP_RATE": "0",
+      "FIVEMIN_IN_PPS": "0",
+      "FIVEMIN_IN_RATE": "0",
+      "FIVEMIN_OUT_PPS": "0",
+      "FIVEMIN_OUT_RATE": "0",
+      "FIVEMIN_DROP_RATE": "0"
+    },
+    {
+      "INTERFACE": "Management0/0",
+      "INTERFACE_ZONE": "mgmt",
+      "LINK_STATUS": "up",
+      "PROTOCOL_STATUS": "up",
+      "HARDWARE_TYPE": "i82540EM rev03",
+      "BANDWIDTH": "1000 Mbps",
+      "DELAY": "10 usec",
+      "DUPLEX": "Full-duplex",
+      "SPEED": "1000 Mbps",
+      "DESCRIPTION": "OOB Management",
+      "MAC_ADDRESS": "fa16.3e1c.d1c3",
+      "MTU": "1500",
+      "IP_ADDRESS": "172.16.1.222",
+      "NETMASK": "255.255.255.0",
+      "ONEMIN_IN_PPS": "1",
+      "ONEMIN_IN_RATE": "79",
+      "ONEMIN_OUT_PPS": "1",
+      "ONEMIN_OUT_RATE": "117",
+      "ONEMIN_DROP_RATE": "0",
+      "FIVEMIN_IN_PPS": "0",
+      "FIVEMIN_IN_RATE": "91",
+      "FIVEMIN_OUT_PPS": "0",
+      "FIVEMIN_OUT_RATE": "11",
+      "FIVEMIN_DROP_RATE": "0"
+    },
+    {
+      "INTERFACE": "DMZ",
+      "INTERFACE_ZONE": "DMZ",
+      "LINK_STATUS": "up",
+      "PROTOCOL_STATUS": "up",
+      "DESCRIPTION": "DMZ (Vl3)",
+      "MAC_ADDRESS": "fa16.3eb0.c3d3",
+      "MTU": "1500",
+      "IP_ADDRESS": "10.6.2.1",
+      "NETMASK": "255.255.255.0"
+    },
+    {
+      "INTERFACE": "outside",
+      "INTERFACE_ZONE": "outside-3",
+      "LINK_STATUS": "up",
+      "PROTOCOL_STATUS": "up",
+      "DESCRIPTION": "outside(Vl2)",
+      "MAC_ADDRESS": "fa16.3eb0.c3d3",
+      "MTU": "1500",
+      "IP_ADDRESS": "10.12.16.237",
+      "NETMASK": "255.255.255.248"
+    },
+    {
+      "INTERFACE": "inside",
+      "INTERFACE_ZONE": "inside",
+      "LINK_STATUS": "up",
+      "PROTOCOL_STATUS": "up",
+      "MAC_ADDRESS": "fa16.3eb0.c3d3",
+      "MTU": "1500",
+      "IP_ADDRESS": "10.6.10.1",
+      "NETMASK": "255.255.255.0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "link_status_duplex_bandwidth": [
+        {
+          "LINK_STATUS": "up",
+          "DUPLEX": "Full-duplex",
+          "BANDWIDTH": "1000 Mbps"
+        },
+        {
+          "LINK_STATUS": "up",
+          "DUPLEX": "Full-duplex",
+          "BANDWIDTH": "1000 Mbps"
+        },
+        {
+          "LINK_STATUS": "up",
+          "DUPLEX": "Full-duplex",
+          "BANDWIDTH": "1000 Mbps"
+        }
+      ],
+      "interface_interface_zone_link_status_protocol_status": [
+        {
+          "INTERFACE": "GigabitEthernet0/0",
+          "INTERFACE_ZONE": "outside",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/1",
+          "INTERFACE_ZONE": "outside-1",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up"
+        },
+        {
+          "INTERFACE": "Management0/0",
+          "INTERFACE_ZONE": "mgmt",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up"
+        },
+        {
+          "INTERFACE": "DMZ",
+          "INTERFACE_ZONE": "DMZ",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up"
+        },
+        {
+          "INTERFACE": "outside",
+          "INTERFACE_ZONE": "outside-3",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up"
+        },
+        {
+          "INTERFACE": "inside",
+          "INTERFACE_ZONE": "inside",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface GigabitEthernet0/0 \"outside\", is up, line protocol is up\n  Hardware is i82540EM rev03, BW 1000 Mbps, DLY 10 usec\n        Full-Duplex(Full-duplex), Auto-Speed(1000 Mbps)\n        Input flow control is unsupported, output flow control is off\n        Description: to iosv-1\n        MAC address fa16.3eb0.c3d3, MTU 1500\n        IP address 10.0.0.5, subnet mask 255.255.255.252\n        2 packets input, 0 bytes, 0 no buffer\n        Received 0 broadcasts, 0 runts, 0 giants\n        0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort\n        0 pause input, 0 resume input\n        0 L2 decode drops\n        1 packets output, 0 bytes, 0 underruns\n        0 pause output, 0 resume output\n        0 output errors, 0 collisions, 2 interface resets\n        0 late collisions, 0 deferred\n        0 input reset drops, 0 output reset drops\n        input queue (blocks free curr/low): hardware (511/511)\n        output queue (blocks free curr/low): hardware (511/511)\n  Traffic Statistics for \"outside\":\n        2 packets input, 381 bytes\n        1 packets output, 28 bytes\n        2 packets dropped\n      1 minute input rate 0 pkts/sec,  0 bytes/sec\n      1 minute output rate 0 pkts/sec,  0 bytes/sec\n      1 minute drop rate, 0 pkts/sec\n      5 minute input rate 0 pkts/sec,  0 bytes/sec\n      5 minute output rate 0 pkts/sec,  0 bytes/sec\n      5 minute drop rate, 0 pkts/sec\nInterface GigabitEthernet0/1 \"outside-1\", is up, line protocol is up\n  Hardware is i82540EM rev03, BW 1000 Mbps, DLY 10 usec\n        Full-Duplex(Full-duplex), Auto-Speed(1000 Mbps)\n        Input flow control is unsupported, output flow control is off\n        Description: to iosv-2\n        MAC address fa16.3ed1.7e26, MTU 1500\n        IP address 10.0.0.13, subnet mask 255.255.255.252\n        2 packets input, 0 bytes, 0 no buffer\n        Received 0 broadcasts, 0 runts, 0 giants\n        0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort\n        0 pause input, 0 resume input\n        0 L2 decode drops\n        1 packets output, 0 bytes, 0 underruns\n        0 pause output, 0 resume output\n        0 output errors, 0 collisions, 1 interface resets\n        0 late collisions, 0 deferred\n        0 input reset drops, 0 output reset drops\n        input queue (blocks free curr/low): hardware (509/509)\n        output queue (blocks free curr/low): hardware (511/510)\n  Traffic Statistics for \"outside-1\":\n        2 packets input, 381 bytes\n        1 packets output, 28 bytes\n        2 packets dropped\n      1 minute input rate 0 pkts/sec,  0 bytes/sec\n      1 minute output rate 0 pkts/sec,  0 bytes/sec\n      1 minute drop rate, 0 pkts/sec\n      5 minute input rate 0 pkts/sec,  0 bytes/sec\n      5 minute output rate 0 pkts/sec,  0 bytes/sec\n      5 minute drop rate, 0 pkts/sec\nInterface Management0/0 \"mgmt\", is up, line protocol is up\n  Hardware is i82540EM rev03, BW 1000 Mbps, DLY 10 usec\n        Full-Duplex(Full-duplex), Auto-Speed(1000 Mbps)\n        Input flow control is unsupported, output flow control is off\n        Description: OOB Management\n        MAC address fa16.3e1c.d1c3, MTU 1500\n        IP address 172.16.1.222, subnet mask 255.255.255.0\n        119798 packets input, 0 bytes, 0 no buffer\n        Received 0 broadcasts, 0 runts, 0 giants\n        0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort\n        0 pause input, 0 resume input\n        0 L2 decode drops\n        107180 packets output, 0 bytes, 0 underruns\n        0 pause output, 0 resume output\n        0 output errors, 0 collisions, 1 interface resets\n        0 late collisions, 0 deferred\n        77 input reset drops, 0 output reset drops\n        input queue (blocks free curr/low): hardware (462/426)\n        output queue (blocks free curr/low): hardware (509/464)\n  Traffic Statistics for \"mgmt\":\n        119720 packets input, 72808618 bytes\n        107180 packets output, 33059275 bytes\n        28855 packets dropped\n      1 minute input rate 1 pkts/sec,  79 bytes/sec\n      1 minute output rate 1 pkts/sec,  117 bytes/sec\n      1 minute drop rate, 0 pkts/sec\n      5 minute input rate 0 pkts/sec,  91 bytes/sec\n      5 minute output rate 0 pkts/sec,  11 bytes/sec\n      5 minute drop rate, 0 pkts/sec\n        Management-only interface. Blocked 0 through-the-device packets\nInterface DMZ \"DMZ\", is up, line protocol is up\n        Description: DMZ (Vl3)\n        MAC address fa16.3eb0.c3d3, MTU 1500\n        IP address 10.6.2.1, subnet mask 255.255.255.0\n  Traffic Statistics for \"DMZ\":\n        10797302304 packets input, 7672861881962 bytes\n        4822409435 packets output, 1511083097851 bytes\n        868027 packets dropped\nInterface outside \"outside-3\", is up, line protocol is up\n        Description: outside(Vl2)\n        MAC address fa16.3eb0.c3d3, MTU 1500\n        IP address 10.12.16.237, subnet mask 255.255.255.248\n  Traffic Statistics for \"outside-3\":\n        668040831 packets input, 193650939031 bytes\n        700470696 packets output, 316092320235 bytes\n        26397124 packets dropped\nInterface inside \"inside\", is up, line protocol is up\n        MAC address fa16.3eb0.c3d3, MTU 1500\n        IP address 10.6.10.1, subnet mask 255.255.255.0\n  Traffic Statistics for \"inside\":\n        7645054611 packets input, 2415587779568 bytes\n        4906203211 packets output, 778812612541 bytes\n        32105760 packets dropped\n",
+  "textfsm_template": "Value Required INTERFACE (\\S+)\nValue INTERFACE_ZONE (.+?)\nValue LINK_STATUS (.+?)\nValue PROTOCOL_STATUS (.*)\nValue HARDWARE_TYPE (Virtual Tunnel|EtherChannel/LACP|[\\w ]+)\nValue BANDWIDTH (\\d+\\s+\\w+)\nValue DELAY (\\d+\\s+\\w+)\nValue DUPLEX (\\w+\\-\\w+)\nValue SPEED (\\d+\\w+\\s\\w+)\nValue DESCRIPTION (.*)\nValue BONDED_PORT (.+?)\nValue BONDED_PORT_MEMBERS (.*)\nValue MAC_ADDRESS ([a-zA-Z0-9]+.[a-zA-Z0-9]+.[a-zA-Z0-9]+)\nValue MTU (\\d+)\nValue VLAN_ID (\\d+)\nValue IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue NETMASK (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue ONEMIN_IN_PPS (\\d+)\nValue ONEMIN_IN_RATE (\\d+)\nValue ONEMIN_OUT_PPS (\\d+)\nValue ONEMIN_OUT_RATE (\\d+)\nValue ONEMIN_DROP_RATE (\\d+)\nValue FIVEMIN_IN_PPS (\\d+)\nValue FIVEMIN_IN_RATE (\\d+)\nValue FIVEMIN_OUT_PPS (\\d+)\nValue FIVEMIN_OUT_RATE (\\d+)\nValue FIVEMIN_DROP_RATE (\\d+)\nValue TUNNEL_SOURCE_INTERFACE (\\w+|\\w+\\s\\w+)\nValue TUNNEL_SOURCE_IP (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue TUNNEL_DESTINATION_IP (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue TUNNEL_MODE (\\w+|\\w+\\s\\w+)\nValue TUNNEL_IPSEC_PROFILE (.*)\n\nStart\n  ^\\s+Tunnel\\s+Interface\\s+Information:\n  ^.*Interface\\s+ -> Continue.Record\n  ^.*Interface\\s+${INTERFACE}\\s+\"${INTERFACE_ZONE}\",\\s+is\\s+${LINK_STATUS},.*protocol\\s+is\\s+${PROTOCOL_STATUS}\n  ^.*Interface\\s+${INTERFACE}.*is\\s+${LINK_STATUS},.*protocol\\s+is\\s+${PROTOCOL_STATUS}\n  ^\\s+Hardware\\s+is\\s+${HARDWARE_TYPE} -> Continue\n  ^.*BW\\s+${BANDWIDTH},\\s+DLY\\s+${DELAY}\n  ^.*\\(${DUPLEX}\\),\\s+Auto-Speed\\(${SPEED}\\)\n  ^.*\\(${DUPLEX}\\),\\s+\\d+\\s+Mbps\\(${SPEED}\\)\n  ^.*\\(${DUPLEX}\\),\\s+\\(${SPEED}\\)\n  ^.*Duplex,\\s+Auto-Speed\n  ^.*Description:\\s+${DESCRIPTION}\n  ^.*VLAN\\s+identifier\\s+${VLAN_ID}\n  ^.*MAC\\s+address\\s+${MAC_ADDRESS},\\s+MTU\\s+${MTU}\n  ^.*MAC\\s+address\\s+${MAC_ADDRESS},\\s+MTU\\s+not\\s+set\n  ^\\s+Available\\s+but\\s+not\\s+configured\\s+via\\s+nameif\n  ^.*MAC\\s+address\\s+N/A,\\s+MTU\\s+${MTU}\n  ^.*IP\\s+address\\s+${IP_ADDRESS},\\s+subnet\\s+mask\\s+${NETMASK}\n  ^.*1\\s+minute\\s+input\\s+rate\\s+${ONEMIN_IN_PPS}\\s+pkts/sec,\\s+${ONEMIN_IN_RATE}\\s+bytes/sec\n  ^.*1\\s+minute\\s+output\\s+rate\\s+${ONEMIN_OUT_PPS}\\s+pkts/sec,\\s+${ONEMIN_OUT_RATE}\\s+bytes/sec\n  ^.*1\\s+minute\\s+drop\\s+rate,\\s+${ONEMIN_DROP_RATE}\n  ^.*5\\s+minute\\s+input\\s+rate\\s+${FIVEMIN_IN_PPS}\\s+pkts/sec,\\s+${FIVEMIN_IN_RATE}\\s+bytes/sec\n  ^.*5\\s+minute\\s+output\\s+rate\\s+${FIVEMIN_OUT_PPS}\\s+pkts/sec,\\s+${FIVEMIN_OUT_RATE}\\s+bytes/sec\n  ^.*5\\s+minute\\s+drop\\s+rate,\\s+${FIVEMIN_DROP_RATE}\n  ^\\s+Active\\s+member\\s+of\\s+${BONDED_PORT}\\s*$$\n  ^\\s+Active:\\s+${BONDED_PORT_MEMBERS}\n  ^\\s+Source\\s+interface:\\s+${TUNNEL_SOURCE_INTERFACE}\\s+IP\\s+address:\\s+${TUNNEL_SOURCE_IP}\n  ^\\s+Destination\\s+IP\\s+address:\\s+${TUNNEL_DESTINATION_IP}\n  ^\\s+Mode:\\s+${TUNNEL_MODE}\\s+IPsec\\s+profile:\\s+${TUNNEL_IPSEC_PROFILE}\n  ^.*Input\\s+flow\\s+control\\s+is\\s+unsupported,\\s+output\\s+flow\\s+control\\s+is\\s+off\n  ^.*\\d+\\s+packets\\s+input,\\s+\\d+\\s+bytes,\\s+\\d+\\s+no\\s+buffer\n  ^.*Received\\s+\\d+\\s+broadcasts,\\s+\\d+\\s+runts,\\s+\\d+\\s+giants\n  ^.*\\d+\\s+input\\s+errors,\\s+\\d+\\s+CRC,\\s+\\d+\\s+frame,\\s+\\d+\\s+overrun,\\s+\\d+\\s+ignored,\\s+\\d+\\s+abort\n  ^.*\\d+\\s+pause\\s+input,\\s+\\d+\\s+resume\\s+input\n  ^.*\\d+\\s+(L2|output)\\s+decode\\s+drops\n  ^.*\\d+\\s+packets\\s+output,\\s+\\d+\\s+bytes,\\s+\\d+\\s+underruns\n  ^.*\\d+\\s+pause\\s+output,\\s+\\d+\\s+resume\\s+output\n  ^.*\\d+\\s+output\\s+errors,\\s+\\d+\\s+collisions,\\s+\\d+\\s+interface\\s+resets\n  ^.*\\d+\\s+late\\s+collisions,\\s+\\d+\\s+deferred\n  ^.*\\d+\\s+input\\s+reset\\s+drops,\\s+\\d+\\s+output\\s+reset\\s+drops\n  ^.*input\\s+queue\\s+\\(blocks\\s+free\\s+curr\\/low\\):\\s+hardware\\s+\\(\\d+\\/\\d+\\)\n  ^.*output\\s+queue\\s+\\(blocks\\s+free\\s+curr\\/low\\):\\s+hardware\\s+\\(\\d+\\/\\d+\\)\n  ^.*Traffic\\s+Statistics\\s+for\\s+\".+?\":\n  ^.*\\d+\\s+packets\\s+input,\\s+\\d+\\s+bytes\n  ^.*\\d+\\s+packets\\s+output,\\s+\\d+\\s+bytes\n  ^.*\\d+\\s+packets\\s+dropped\n  ^.*Management-only\\sinterface\\.\\s+Blocked\\s+\\d+\\s+through-the-device\\s+packets\n  ^.*Input\\s+flow\\s+control\\s+is\\s+unsupported,\\s+output\\s+flow\\s+control\\s+is\\s+unsupported\n  ^.*Available\\s+but\\s+not\\s+configured\\s+via\\s+nameif\n  ^.*IP\\s+address\\s+unassigned\n  ^\\s*\\d+\\s+lost\\s+carrier,\\s+\\d+\\s+no\\s+carrier\n  ^\\s*(input|output)\\s+queue\\s+\\(curr\\/max\\s+packets\\):\\s+hardware\\s+\\(\\d+\\/\\d+\\)\\s+software\\s+\\(\\d+\\/\\d+\\)\n  ^.*input\\s+queue\\s+\\(blocks\\s+free\\s+curr\\/low\\):\\s+hardware\\s+\\(\\d+\\/\\d+\\)\n  ^\\s+Members\\s+in\\s+this\\s+channel:\n  ^.*MAC\\s+address\\s+N/A,\\s+MTU\\s+not\\s+set \n  ^.*\\d+\\s+pause/resume\\s+(input|output)\n  ^.*\\d+\\s+switch\\s+(ingress|egress)\\s+policy\\s+drops\n  ^.*\\d+\\s+rate\\s+limit\\s+drops\n  ^\\s*$$\n  ^. -> Error\n"
+}

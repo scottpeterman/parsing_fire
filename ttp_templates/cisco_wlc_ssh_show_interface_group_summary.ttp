@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_interface_group_summary
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="interface_group_name_total_interfaces_total_wlans_total_ap_groups">
+{{INTERFACE_GROUP_NAME}} {{TOTAL_INTERFACES}} {{TOTAL_WLANS}} {{TOTAL_AP_GROUPS | ORPHRASE}} No
+</group>

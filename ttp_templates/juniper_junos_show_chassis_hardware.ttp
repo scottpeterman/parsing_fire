@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: juniper_junos_show_chassis_hardware
+# Source: ntc
+# TextFSM rows: 12
+# TTP rows: 9
+# Match ratio: 0.75
+
+<group name="cpu_description_cpu_part_cpu_serial_number">
+Routing Engine {{FPC_NUMBER}}          {{FPC_PART | ORPHRASE}}      {{FPC_SERIAL_NUMBER | re("\\w+")}}           RE-S-16{{PIC_NUMBER}}0x8
+<group name="xcvr_description_xcvr_number_xcvr_part">
+    Xcvr {{XCVR_NUMBER}} {{XCVR_VERSION | ORPHRASE}} {{XCVR_PART}} {{XCVR_SERIAL_NUMBER | re("\\w+")}} {{XCVR_DESCRIPTION | ORPHRASE}}
+</group>
+</group>

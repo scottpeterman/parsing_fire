@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_crypto_ipsec_sa
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="crypto_map_tag_interface_local_address">
+interface: {{INTERFACE | ORPHRASE}}
+<group name="fragments_created_inbound_crypto_map_inbound_slot">
+     Crypto map tag: {{INBOUND_CRYPTO_MAP}}, local addr: {{LOCAL_CRYPTO_ENDPOINT | ORPHRASE}}
+</group>
+</group>

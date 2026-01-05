@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_mac_security_interface
+# Source: ntc
+# TextFSM rows: 8
+# TTP rows: 8
+# Match ratio: 1.00
+
+<group name="interface_sci_controlled_port_key_in_use">
+{{INTERFACE}} {{SCI}} {{CONTROLLED_PORT}} {{KEY_IN_USE | ORPHRASE}} 
+</group>

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show alerts counters
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="alert_id_severity_count_description">
+{{ALERT_ID | re("\\d+")}} {{SEVERITY | re("[\\d\\.\\(\\)A-Za-z]+")}} {{COUNT | re("\\d+")}} {{DESCRIPTION | ORPHRASE}}
+</group>

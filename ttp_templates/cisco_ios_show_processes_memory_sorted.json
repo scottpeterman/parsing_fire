@@ -1,0 +1,33 @@
+{
+  "command": "cisco_ios_show_processes_memory_sorted",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"memory_total_memory_used_memory_free\">\nProcessor Pool Total: {{MEMORY_TOTAL}} Used: {{MEMORY_USED}} Free: {{MEMORY_FREE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "MEMORY_TOTAL": "919638648",
+      "MEMORY_USED": "236752096",
+      "MEMORY_FREE": "682886552",
+      "PROCESS_ID": "0, 78, 0, 365, 1, 382, 165, 0, 4, 366, 338, 480, 10",
+      "PROCESS_ALLOCATED": "209299480, 2569666688, 607956496, 3946896, 1583728, 1510464, 2957736, 0, 525856, 381680, 309184, 167752, 4096314696",
+      "PROCESS_FREED": "13474544, 1554280, 428619384, 5680, 3472, 33704, 12304, 0, 23256, 5680, 1640, 448, 4096430632",
+      "PROCESS_HOLDING": "178205704, 27061536, 6374592, 3983160, 1613672, 1506704, 1112904, 657856, 458696, 417944, 361488, 221248, 215576",
+      "PROCESS": "*Init*, IOSD ipc task, *Dead*, EEM ED Syslog, Chunk Manager, EEM Server, CWAN OIR Handler, *MallocLite*, RF Slave Main Th, EEM ED Generic, Crypto IKEv2, MRIB Process, Pool Manager"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "memory_total_memory_used_memory_free": {
+        "MEMORY_TOTAL": "919638648",
+        "MEMORY_USED": "236752096",
+        "MEMORY_FREE": "682886552"
+      }
+    }
+  ],
+  "cli_content": "Processor Pool Total:  919638648 Used:  236752096 Free:  682886552\n lsmpi_io Pool Total:    6295128 Used:    6294296 Free:        832\n\n PID TTY  Allocated      Freed    Holding    Getbufs    Retbufs Process\n   0   0  209299480   13474544  178205704          0          0 *Init*          \n  78   0 2569666688    1554280   27061536          0          0 IOSD ipc task   \n   0   0  607956496  428619384    6374592   17503559          0 *Dead*          \n 365   0    3946896       5680    3983160     849828          0 EEM ED Syslog   \n   1   0    1583728       3472    1613672          0          0 Chunk Manager   \n 382   0    1510464      33704    1506704          0          0 EEM Server      \n 165   0    2957736      12304    1112904          0          0 CWAN OIR Handler\n   0   0          0          0     657856          0          0 *MallocLite*    \n   4   0     525856      23256     458696          0          0 RF Slave Main Th\n 366   0     381680       5680     417944      72316          0 EEM ED Generic  \n 338   0     309184       1640     361488          0          0 Crypto IKEv2    \n 480   0     167752        448     221248          0          0 MRIB Process    \n  10   0 4096314696 4096430632     215576 3914231834 3914277834 Pool Manager    \n\n342936032 Total\n",
+  "textfsm_template": "Value MEMORY_TOTAL (\\d+)\nValue MEMORY_USED (\\d+)\nValue MEMORY_FREE (\\d+)\nValue List PROCESS_ID (\\d+)\nValue List PROCESS_ALLOCATED (\\d+)\nValue List PROCESS_FREED (\\d+)\nValue List PROCESS_HOLDING (\\d+)\nValue List PROCESS (.+?)\n\nStart\n  ^Processor\\s+Pool\\s+Total:\\s+${MEMORY_TOTAL}\\s+Used:\\s+${MEMORY_USED}\\s+Free:\\s+${MEMORY_FREE}\n  ^\\s*lsmpi_io\\s+Pool\n  ^\\s*PID\\s+TTY\\s+Allocated\\s+Freed\\s+Holding\\s+Getbufs\\s+Retbufs\\s+Process\\s*$$ -> Process\n  ^\\s*$$\n  ^. -> Error\n\nProcess\n  ^\\s*${PROCESS_ID}\\s+\\d+\\s+${PROCESS_ALLOCATED}\\s+${PROCESS_FREED}\\s+${PROCESS_HOLDING}\\s+\\d+\\s+\\d+\\s+${PROCESS}\\s*$$\n  ^\\s*\\d+\\s+Total\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

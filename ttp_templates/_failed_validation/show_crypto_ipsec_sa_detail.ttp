@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show crypto ipsec sa detail
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="path_mtu_ip_mtu_pfs">
+     path mtu {{PATH_MTU}}, ip mtu {{IP_MTU}}, ip mtu idb {{I{{PFS}}TERFACE | ORPHRASE}}
+</group>

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show alarms log
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="id_severity_time_component_message">
+{{ID | re("\\d+")}} {{SEVERITY | re("[\\d\\.\\(\\)A-Za-z]+")}} {{TIME | ORPHRASE}} {{COMPONENT}} {{MESSAGE | ORPHRASE}}
+</group>

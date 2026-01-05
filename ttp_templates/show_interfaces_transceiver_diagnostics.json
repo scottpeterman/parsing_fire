@@ -1,0 +1,104 @@
+{
+  "command": "show interfaces transceiver diagnostics",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"port_temperature_voltage_opticaltxpower_opticalrxpower\">\n{{PORT | re(\".*\\\\w.*\")}} {{TEMPERATURE | re(\".*\\\\w.*\")}} {{VOLTAGE | re(\".*\\\\w.*\")}} {{OPTICALTXPOWER | ORPHRASE}} {{OPTICALRXPOWER | re(\".*\\\\w.*\")}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "---------",
+      "TEMPERATURE": "-------------",
+      "VOLTAGE": "-----------",
+      "OPTICALTXPOWER": "---------------",
+      "OPTICALRXPOWER": "---------------"
+    },
+    {
+      "PORT": "Et1/1",
+      "TEMPERATURE": "25.0",
+      "VOLTAGE": "3.3",
+      "OPTICALTXPOWER": "-1.5",
+      "OPTICALRXPOWER": "-2.1"
+    },
+    {
+      "PORT": "Et1/2",
+      "TEMPERATURE": "26.0",
+      "VOLTAGE": "3.3",
+      "OPTICALTXPOWER": "-3.2",
+      "OPTICALRXPOWER": "-5.0"
+    },
+    {
+      "PORT": "Et1/3",
+      "TEMPERATURE": "27.0",
+      "VOLTAGE": "3.2",
+      "OPTICALTXPOWER": "-1.0",
+      "OPTICALRXPOWER": "-1.9"
+    },
+    {
+      "PORT": "Et1/4",
+      "TEMPERATURE": "24.0",
+      "VOLTAGE": "3.3",
+      "OPTICALTXPOWER": "-7.0",
+      "OPTICALRXPOWER": "-8.5"
+    },
+    {
+      "PORT": "Et1/5",
+      "TEMPERATURE": "28.0",
+      "VOLTAGE": "3.3",
+      "OPTICALTXPOWER": "-2.5",
+      "OPTICALRXPOWER": "-3.0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_temperature_voltage_opticaltxpower_opticalrxpower": [
+        {
+          "PORT": "Port     ",
+          "TEMPERATURE": "Temperature  ",
+          "VOLTAGE": "Voltage    ",
+          "OPTICALTXPOWER": "OpticalTXPower",
+          "OPTICALRXPOWER": "OpticalRXPower"
+        },
+        {
+          "PORT": "Et1/1    ",
+          "TEMPERATURE": "25.0         ",
+          "VOLTAGE": "3.3        ",
+          "OPTICALTXPOWER": "-1.5",
+          "OPTICALRXPOWER": "-2.1"
+        },
+        {
+          "PORT": "Et1/2    ",
+          "TEMPERATURE": "26.0         ",
+          "VOLTAGE": "3.3        ",
+          "OPTICALTXPOWER": "-3.2",
+          "OPTICALRXPOWER": "-5.0"
+        },
+        {
+          "PORT": "Et1/3    ",
+          "TEMPERATURE": "27.0         ",
+          "VOLTAGE": "3.2        ",
+          "OPTICALTXPOWER": "-1.0",
+          "OPTICALRXPOWER": "-1.9"
+        },
+        {
+          "PORT": "Et1/4    ",
+          "TEMPERATURE": "24.0         ",
+          "VOLTAGE": "3.3        ",
+          "OPTICALTXPOWER": "-7.0",
+          "OPTICALRXPOWER": "-8.5"
+        },
+        {
+          "PORT": "Et1/5    ",
+          "TEMPERATURE": "28.0         ",
+          "VOLTAGE": "3.3        ",
+          "OPTICALTXPOWER": "-2.5",
+          "OPTICALRXPOWER": "-3.0"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Port      Temperature   Voltage     OpticalTXPower  OpticalRXPower\n          (Celsius)     (Volts)     (dBm)           (dBm)\n--------- ------------- ----------- --------------- ---------------\nEt1/1     25.0          3.3         -1.5            -2.1\nEt1/2     26.0          3.3         -3.2            -5.0\nEt1/3     27.0          3.2         -1.0            -1.9\nEt1/4     24.0          3.3         -7.0            -8.5\nEt1/5     28.0          3.3         -2.5            -3.0\n",
+  "textfsm_template": "Value PORT (\\S+)\nValue TEMPERATURE (\\S+)\nValue VOLTAGE (\\S+)\nValue OPTICALTXPOWER (\\S+)\nValue OPTICALRXPOWER (\\S+)\n\nStart\n  ^\\s*Port\\s+Temperature\\s+Voltage\\s+OpticalTXPower\\s+OpticalRXPower\\s*$$\n  ^(\\s*Temperature\\s+\\(Celsius\\))?\\s*(Voltage\\s+\\(Volts\\))?\\s*(\\(dBm\\))?\\s*(\\(dBm\\))?\\s*$$ \n  ^\\s*${PORT}\\s+${TEMPERATURE}\\s+${VOLTAGE}\\s+${OPTICALTXPOWER}\\s+${OPTICALRXPOWER}\\s*$$ -> Record"
+}

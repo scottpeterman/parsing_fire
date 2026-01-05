@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_ip_dhcp-server_lease_print_terse_without-paging
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 4
+# Match ratio: 1.33
+
+<group name="index_comment_address_mac_address_client_id_server_dhcp_option_status_expires_after_last_seen_active_address_active_mac_address_active_client_id_active_server_host_name">
+ {{INDEX}} comment={{COMMENT}} address={{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} mac-address={{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} client-id={{CLIENT_ID}} address-lists="" server={{SERVER | re("[\\d\\.\\(\\)A-Za-z]+")}} dhcp-option={{DHCP_OPTION}} status={{STATUS | ORPHRASE}} expires-after={{EXPIRES_AFTER}} last-seen={{LAST_SEEN}} active-address={{ACTIVE_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} active-mac-address={{ACTIVE_MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} active-client-id={{ACTIVE_CLIENT_ID}} active-server={{ACTIVE_SERVER | re("[\\d\\.\\(\\)A-Za-z]+")}} host-name={{HOST_NAME | ORPHRASE}} 
+</group>
+<group name="index_comment_address_mac_address_client_id_server_status_expires_after_last_seen_active_address_active_mac_address_active_client_id_active_server_host_name">
+ {{INDEX}} comment={{COMMENT}} address={{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} mac-address={{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} client-id={{CLIENT_ID}} address-lists="" server={{SERVER | re("[\\d\\.\\(\\)A-Za-z]+")}} dhcp-option="" status={{STATUS | ORPHRASE}} expires-after={{EXPIRES_AFTER}} last-seen={{LAST_SEEN}} active-address={{ACTIVE_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} active-mac-address={{ACTIVE_MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} active-client-id={{ACTIVE_CLIENT_ID}} active-server={{ACTIVE_SERVER | re("[\\d\\.\\(\\)A-Za-z]+")}} host-name={{HOST_NAME | ORPHRASE}} 
+</group>
+<group name="index_comment_address_mac_address_server_status_expires_after_last_seen_active_address_active_mac_address_active_client_id_active_server_host_name">
+ {{INDEX}} comment={{COMMENT}} address={{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} mac-address={{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} address-lists="" server={{SERVER | re("[\\d\\.\\(\\)A-Za-z]+")}} dhcp-option="" status={{STATUS | ORPHRASE}} expires-after={{EXPIRES_AFTER}} last-seen={{LAST_SEEN}} active-address={{ACTIVE_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} active-mac-address={{ACTIVE_MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} active-client-id={{ACTIVE_CLIENT_ID}} active-server={{ACTIVE_SERVER | re("[\\d\\.\\(\\)A-Za-z]+")}} host-name={{HOST_NAME | ORPHRASE}} 
+</group>

@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_mac_security_participants_detail
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 6
+# Match ratio: 1.50
+
+<group name="interface">
+Interface: {{INTERFACE | ORPHRASE}}
+<group name="default_elected_self_success">
+      Elected self: {{ELECTED_SELF | ORPHRASE}}
+</group>
+</group>

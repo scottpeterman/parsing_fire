@@ -1,0 +1,354 @@
+{
+  "command": "cisco_ios_show_access-list",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.2105263157894737,
+  "textfsm_rows": 19,
+  "ttp_rows": 23,
+  "ttp_template": "<group name=\"name_type\">\n{{TYPE}} IP access list {{NAME | ORPHRASE}}\n<group name=\"action_destination_protocol\">\n    {{SN | re(\"\\\\w+\")}} {{ACTION}} {{PROTOCOL}} {{SOURCE | ORPHRASE}} {{DESTINATION | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "Virtual-Access1.1#1",
+      "TYPE": "Extended",
+      "SN": "20",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SOURCE": "host 1.1.1.1",
+      "DESTINATION": "any"
+    },
+    {
+      "NAME": "Virtual-Access1.1#1",
+      "TYPE": "Extended",
+      "SN": "30",
+      "ACTION": "deny",
+      "PROTOCOL": "ip",
+      "SOURCE": "host 44.33.66.36",
+      "DESTINATION": "host 1.1.1.1"
+    },
+    {
+      "NAME": "Virtual-Access1.1#1",
+      "TYPE": "Extended",
+      "SN": "40",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SOURCE": "any",
+      "DESTINATION": "host 1.1.1.1"
+    },
+    {
+      "NAME": "Virtual-Access1.1#2",
+      "TYPE": "Extended",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "igmp",
+      "SOURCE": "any",
+      "DESTINATION": "host 13.1.1.2"
+    },
+    {
+      "NAME": "Virtual-Access1.1#2",
+      "TYPE": "Extended",
+      "SN": "20",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SOURCE": "host 13.1.1.2",
+      "DESTINATION": "any"
+    },
+    {
+      "NAME": "102",
+      "TYPE": "Extended",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SOURCE": "any",
+      "OPERATOR_SOURCE_PORT": "eq",
+      "SOURCE_PORT": "ftp",
+      "DESTINATION": "host 192.168.1.100"
+    },
+    {
+      "NAME": "102",
+      "TYPE": "Extended",
+      "SN": "20",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SOURCE": "any",
+      "OPERATOR_SOURCE_PORT": "gt",
+      "SOURCE_PORT": "1024",
+      "DESTINATION": "host 192.168.1.100"
+    },
+    {
+      "NAME": "VLAN-TEST",
+      "TYPE": "Extended",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "ip",
+      "SOURCE": "any",
+      "DESTINATION": "any"
+    },
+    {
+      "NAME": "VLAN-TEST",
+      "TYPE": "Extended",
+      "SN": "20",
+      "ACTION": "deny",
+      "PROTOCOL": "ip",
+      "SOURCE": "any",
+      "DESTINATION": "any"
+    },
+    {
+      "NAME": "1",
+      "TYPE": "Standard",
+      "SN": "10",
+      "ACTION": "permit",
+      "SOURCE": "10.1.2.3",
+      "MODIFIER": "log"
+    },
+    {
+      "NAME": "1",
+      "TYPE": "Standard",
+      "SN": "20",
+      "ACTION": "deny",
+      "SOURCE": "10.1.1.1"
+    },
+    {
+      "NAME": "1",
+      "TYPE": "Standard",
+      "SN": "30",
+      "ACTION": "deny",
+      "SOURCE": "192.168.1.0, wildcard bits 0.0.0.255"
+    },
+    {
+      "NAME": "1",
+      "TYPE": "Standard",
+      "SN": "40",
+      "ACTION": "deny",
+      "SOURCE": "any",
+      "MODIFIER": "log"
+    },
+    {
+      "NAME": "ciao",
+      "TYPE": "Extended",
+      "SN": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SOURCE": "any",
+      "OPERATOR_SOURCE_PORT": "eq",
+      "SOURCE_PORT": "www whois uucp domain ident",
+      "DESTINATION": "host 10.10.10.10",
+      "MODIFIER": "tos normal"
+    },
+    {
+      "NAME": "ciao",
+      "TYPE": "Extended",
+      "SN": "20",
+      "ACTION": "deny",
+      "PROTOCOL": "tcp",
+      "SOURCE": "any",
+      "OPERATOR_SOURCE_PORT": "eq",
+      "SOURCE_PORT": "www",
+      "DESTINATION": "any",
+      "MODIFIER": "log"
+    },
+    {
+      "NAME": "ciao",
+      "TYPE": "Extended",
+      "SN": "30",
+      "ACTION": "deny",
+      "PROTOCOL": "tcp",
+      "SOURCE": "any",
+      "OPERATOR_SOURCE_PORT": "range",
+      "SOURCE_PORT": "www domain",
+      "DESTINATION": "10.10.10.10 0.0.0.255"
+    },
+    {
+      "NAME": "10",
+      "TYPE": "Standard",
+      "SN": "10",
+      "ACTION": "permit",
+      "SOURCE": "192.168.1.0, wildcard bits 0.0.0.255",
+      "MATCHES": "5177"
+    },
+    {
+      "NAME": "10",
+      "TYPE": "Standard",
+      "SN": "16",
+      "ACTION": "deny",
+      "PROTOCOL": "udp",
+      "SOURCE": "host 192.168.1.3",
+      "OPERATOR_SOURCE_PORT": "range",
+      "SOURCE_PORT": "12 15",
+      "DESTINATION": "host 192.168.2.12"
+    },
+    {
+      "NAME": "10",
+      "TYPE": "Standard",
+      "SN": "17",
+      "ACTION": "deny",
+      "PROTOCOL": "tcp",
+      "SOURCE": "host 192.168.1.12",
+      "OPERATOR_SOURCE_PORT": "eq",
+      "OPERATOR_DESTINATION_PORT": "eq",
+      "SOURCE_PORT": "12",
+      "DESTINATION_PORT": "40",
+      "DESTINATION": "host 192.168.2.30"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name_type": [
+        {
+          "TYPE": "Extended",
+          "NAME": "Virtual-Access1.1#1",
+          "action_destination_protocol": [
+            {
+              "SN": "20",
+              "ACTION": "permit",
+              "PROTOCOL": "icmp",
+              "SOURCE": "host",
+              "DESTINATION": "1.1.1.1 any"
+            },
+            {
+              "SN": "30",
+              "ACTION": "deny",
+              "PROTOCOL": "ip",
+              "SOURCE": "host",
+              "DESTINATION": "44.33.66.36 host 1.1.1.1"
+            },
+            {
+              "SN": "40",
+              "ACTION": "permit",
+              "PROTOCOL": "udp",
+              "SOURCE": "any",
+              "DESTINATION": "host 1.1.1.1"
+            }
+          ]
+        },
+        {
+          "TYPE": "Extended",
+          "NAME": "Virtual-Access1.1#2",
+          "action_destination_protocol": [
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "igmp",
+              "SOURCE": "any",
+              "DESTINATION": "host 13.1.1.2"
+            },
+            {
+              "SN": "20",
+              "ACTION": "permit",
+              "PROTOCOL": "icmp",
+              "SOURCE": "host",
+              "DESTINATION": "13.1.1.2 any"
+            }
+          ]
+        },
+        {
+          "TYPE": "Extended",
+          "NAME": "102",
+          "action_destination_protocol": [
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "tcp",
+              "SOURCE": "any",
+              "DESTINATION": "host 192.168.1.100 eq ftp"
+            },
+            {
+              "SN": "20",
+              "ACTION": "permit",
+              "PROTOCOL": "tcp",
+              "SOURCE": "any",
+              "DESTINATION": "host 192.168.1.100 gt 1024"
+            }
+          ]
+        },
+        {
+          "TYPE": "Extended",
+          "NAME": "VLAN-TEST",
+          "action_destination_protocol": [
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "ip",
+              "SOURCE": "any",
+              "DESTINATION": "any"
+            },
+            {
+              "SN": "20",
+              "ACTION": "deny",
+              "PROTOCOL": "ip",
+              "SOURCE": "any",
+              "DESTINATION": "any"
+            }
+          ]
+        },
+        {
+          "TYPE": "Standard",
+          "NAME": "1",
+          "action_destination_protocol": {
+            "SN": "30",
+            "ACTION": "deny",
+            "PROTOCOL": "192.168.1.0,",
+            "SOURCE": "wildcard",
+            "DESTINATION": "bits 0.0.0.255"
+          }
+        },
+        {
+          "TYPE": "Extended",
+          "NAME": "ciao",
+          "action_destination_protocol": [
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "tcp",
+              "SOURCE": "any",
+              "DESTINATION": "eq www whois uucp domain ident host 10.10.10.10 tos normal"
+            },
+            {
+              "SN": "20",
+              "ACTION": "deny",
+              "PROTOCOL": "tcp",
+              "SOURCE": "any",
+              "DESTINATION": "eq www any log"
+            },
+            {
+              "SN": "30",
+              "ACTION": "deny",
+              "PROTOCOL": "tcp",
+              "SOURCE": "any",
+              "DESTINATION": "range www domain 10.10.10.10 0.0.0.255"
+            }
+          ]
+        },
+        {
+          "TYPE": "Standard",
+          "NAME": "10",
+          "action_destination_protocol": [
+            {
+              "SN": "10",
+              "ACTION": "permit",
+              "PROTOCOL": "192.168.1.0,",
+              "SOURCE": "wildcard",
+              "DESTINATION": "bits 0.0.0.255 (5177 matches)"
+            },
+            {
+              "SN": "16",
+              "ACTION": "deny",
+              "PROTOCOL": "udp",
+              "SOURCE": "host",
+              "DESTINATION": "192.168.1.3 host 192.168.2.12 range 12 15"
+            },
+            {
+              "SN": "17",
+              "ACTION": "deny",
+              "PROTOCOL": "tcp",
+              "SOURCE": "host",
+              "DESTINATION": "192.168.1.12 eq 12 host 192.168.2.30 eq 40"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "cli_content": "Extended IP access list Virtual-Access1.1#1\n    20 permit icmp host 1.1.1.1 any\n    30 deny ip host 44.33.66.36 host 1.1.1.1\n    40 permit udp any host 1.1.1.1\nExtended IP access list Virtual-Access1.1#2\n    10 permit igmp any host 13.1.1.2\n    20 permit icmp host 13.1.1.2 any\nExtended IP access list 102\n    10 permit tcp any host 192.168.1.100 eq ftp\n    20 permit tcp any host 192.168.1.100 gt 1024\nExtended IP access list VLAN-TEST\n    10 permit ip any any\n    20 deny ip any any\nStandard IP access list 1\n    10 permit 10.1.2.3 log\n    20 deny   10.1.1.1\n    30 deny   192.168.1.0, wildcard bits 0.0.0.255\n    40 deny   any log\nExtended IP access list ciao\n    10 permit tcp any eq www whois uucp domain ident host 10.10.10.10 tos normal\n    20 deny tcp any eq www any log\n    30 deny tcp any range www domain 10.10.10.10 0.0.0.255\nStandard IP access list 10\n    10 permit 192.168.1.0, wildcard bits 0.0.0.255 (5177 matches)\n    16 deny udp host 192.168.1.3 host 192.168.2.12 range 12 15\n    17 deny tcp host 192.168.1.12 eq 12 host 192.168.2.30 eq 40\n",
+  "textfsm_template": "# IOS ACL structure is quite complex.\n# \n# Extended IP ACL:\n# \tSEQUENCE_NUMBER ACTION PROTOCOL SOURCE [PORT id] [RANGE start finish] DESTINATION [MODIFIER]\n#\n# Standard ACL:\n#\tSEQUENCE_NUMBER ACTION SOURCE DESTINATION [MODIFIER]\n#\t \n#\nValue Filldown NAME (\\S+)\nValue Filldown TYPE (\\S+)\nValue Required SN (\\d+)\nValue ACTION (\\w+)\nValue PROTOCOL (\\w+)\n#\n# SOURCE RegEx must be able to catch every possible source combination including masks. 'any' and 'host' and 'wildcard bits' are possible too.\n#\nValue SOURCE (host\\s\\d+\\.\\d+\\.\\d+\\.\\d+|any|\\d+\\.\\d+\\.\\d+\\.\\d+\\s\\d+\\.\\d+\\.\\d+\\.\\d+|\\d+\\.\\d+\\.\\d+\\.\\d+,\\s+wildcard bits\\s\\d+\\.\\d+\\.\\d+\\.\\d+|\\d+\\.\\d+\\.\\d+\\.\\d+)\n#\n# We can specify protocols to match. 'eq', 'gt', 'lt', 'range' and 'neq' are supported.\n#\nValue OPERATOR_SOURCE_PORT (eq|gt|lt|neq|range)\nValue OPERATOR_DESTINATION_PORT (eq|gt|lt|neq|range)\n#\n# This can be either a single port or a list.\n#\nValue SOURCE_PORT ([\\s\\S]+)\nValue DESTINATION_PORT ([\\s\\S]+)\n#\n# DESTINATION RegEx must be able to catch every possible source combination including masks. 'any' and 'host' and 'wildcard bits' are possible too.\n# \nValue DESTINATION (host\\s\\d+\\.\\d+\\.\\d+\\.\\d+|any|\\d+\\.\\d+\\.\\d+\\.\\d+\\s\\d+\\.\\d+\\.\\d+\\.\\d+|\\d+\\.\\d+\\.\\d+\\.\\d+,\\s+wildcard bits\\s\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue MODIFIER (log|tos normal|eq ftp|gt 1024)\nValue MATCHES (\\d+)\n\nStart\n  ^${TYPE}.*list\\s+${NAME}\n  ^\\s*${SN}\\s+${ACTION}\\s+${PROTOCOL}\\s+${SOURCE}\\s+${OPERATOR_SOURCE_PORT}\\s${SOURCE_PORT}\\s${DESTINATION}\\s${OPERATOR_DESTINATION_PORT}\\s${DESTINATION_PORT} -> Record\n  ^\\s*${SN}\\s+${ACTION}\\s+${PROTOCOL}\\s+${SOURCE}\\s+${DESTINATION}(\\s+${OPERATOR_SOURCE_PORT})*(\\s${SOURCE_PORT})* -> Record\n  ^\\s*${SN}\\s+${ACTION}\\s+${PROTOCOL}\\s+${SOURCE}(\\s+${OPERATOR_SOURCE_PORT})*(\\s${SOURCE_PORT})*\\s+${DESTINATION}(\\s+${MODIFIER})*(\\s\\(*(\\s\\(${MATCHES}\\smatches\\))*\\smatches\\))* -> Record\n  ^\\s*${SN}\\s+${ACTION}\\s+${SOURCE}(\\s+${MODIFIER})*(\\s\\(${MATCHES}\\smatches\\))* -> Record\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n"
+}

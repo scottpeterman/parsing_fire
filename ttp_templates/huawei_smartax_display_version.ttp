@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_smartax_display_version
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="olt_version_patch_product">
+  PATCH   : {{PATCH | ORPHRASE}}
+<group name="data_area_a_version_data_area_b_version_program_area_a_version">
+  VERSION : {{PROGRAM_AREA_A_VERSION | ORPHRASE}}
+</group>
+</group>

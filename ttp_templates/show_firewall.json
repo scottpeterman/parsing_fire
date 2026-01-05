@@ -1,0 +1,92 @@
+{
+  "command": "show firewall",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"rule_action_source_destination_service_state\">\n{{RULE}} {{ACTION}} {{SOURCE}} {{DESTINATION}} {{SERVICE}} {{STATE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "RULE": "1",
+      "ACTION": "allow",
+      "SOURCE": "192.168.1.0/24",
+      "DESTINATION": "10.0.0.0/8",
+      "SERVICE": "tcp/80",
+      "STATE": "active"
+    },
+    {
+      "RULE": "2",
+      "ACTION": "deny",
+      "SOURCE": "any",
+      "DESTINATION": "192.168.1.1",
+      "SERVICE": "udp/53",
+      "STATE": "active"
+    },
+    {
+      "RULE": "3",
+      "ACTION": "allow",
+      "SOURCE": "10.10.10.0/24",
+      "DESTINATION": "172.16.0.0/16",
+      "SERVICE": "icmp",
+      "STATE": "active"
+    },
+    {
+      "RULE": "4",
+      "ACTION": "allow",
+      "SOURCE": "any",
+      "DESTINATION": "10.20.30.0/24",
+      "SERVICE": "tcp/22",
+      "STATE": "inactive"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "rule_action_source_destination_service_state": [
+        {
+          "RULE": "Rule",
+          "ACTION": "Action",
+          "SOURCE": "Source",
+          "DESTINATION": "Destination",
+          "SERVICE": "Service",
+          "STATE": "State"
+        },
+        {
+          "RULE": "1",
+          "ACTION": "allow",
+          "SOURCE": "192.168.1.0/24",
+          "DESTINATION": "10.0.0.0/8",
+          "SERVICE": "tcp/80",
+          "STATE": "active"
+        },
+        {
+          "RULE": "2",
+          "ACTION": "deny",
+          "SOURCE": "any",
+          "DESTINATION": "192.168.1.1",
+          "SERVICE": "udp/53",
+          "STATE": "active"
+        },
+        {
+          "RULE": "3",
+          "ACTION": "allow",
+          "SOURCE": "10.10.10.0/24",
+          "DESTINATION": "172.16.0.0/16",
+          "SERVICE": "icmp",
+          "STATE": "active"
+        },
+        {
+          "RULE": "4",
+          "ACTION": "allow",
+          "SOURCE": "any",
+          "DESTINATION": "10.20.30.0/24",
+          "SERVICE": "tcp/22",
+          "STATE": "inactive"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Rule    Action     Source               Destination          Service    State\n1       allow      192.168.1.0/24       10.0.0.0/8           tcp/80     active\n2       deny       any                  192.168.1.1          udp/53     active\n3       allow      10.10.10.0/24        172.16.0.0/16        icmp       active\n4       allow      any                  10.20.30.0/24        tcp/22     inactive\n",
+  "textfsm_template": "Value RULE (\\d+)\nValue ACTION (\\S+)\nValue SOURCE (\\S+)\nValue DESTINATION (\\S+)\nValue SERVICE (\\S+)\nValue STATE (\\S+)\n\nStart\n  ^\\s*Rule\\s+Action\\s+Source\\s+Destination\\s+Service\\s+State\\s*$$\n  ^\\s*${RULE}\\s+${ACTION}\\s+${SOURCE}\\s+${DESTINATION}\\s+${SERVICE}\\s+${STATE}\\s*$$ -> Record"
+}

@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_mlag
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="domain_interface_peer_addr_peer_link">
+domain-id  :  {{DOMAIN | ORPHRASE}}
+local-interface  :  {{INTERFACE | ORPHRASE}}
+peer-address  :  {{PEER_ADDR | ORPHRASE}}
+peer-link  :  {{PEER_LINK | ORPHRASE}}
+state  :  {{STATE | ORPHRASE}}
+</group>

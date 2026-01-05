@@ -1,0 +1,140 @@
+{
+  "command": "show feature-set",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 12,
+  "ttp_rows": 12,
+  "ttp_template": "<group name=\"feature_status_description\">\n{{FEATURE}} {{STATUS | ORPHRASE}} {{DESCRIPTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FEATURE": "Feature",
+      "STATUS": "Name",
+      "DESCRIPTION": "Status     Description"
+    },
+    {
+      "FEATURE": "fex",
+      "STATUS": "enabled",
+      "DESCRIPTION": "FEX support"
+    },
+    {
+      "FEATURE": "vpc",
+      "STATUS": "enabled",
+      "DESCRIPTION": "Virtual Port Channel"
+    },
+    {
+      "FEATURE": "fabricpath",
+      "STATUS": "disabled",
+      "DESCRIPTION": "Cisco FabricPath support"
+    },
+    {
+      "FEATURE": "otv",
+      "STATUS": "disabled",
+      "DESCRIPTION": "Cisco Overlay Transport Virtualization"
+    },
+    {
+      "FEATURE": "@fex",
+      "STATUS": "enabled",
+      "DESCRIPTION": "Fabric Extender"
+    },
+    {
+      "FEATURE": "evb",
+      "STATUS": "disabled",
+      "DESCRIPTION": "Edge Virtual Bridging"
+    },
+    {
+      "FEATURE": "fcoe",
+      "STATUS": "enabled",
+      "DESCRIPTION": "Fibre Channel over Ethernet"
+    },
+    {
+      "FEATURE": "@vpc",
+      "STATUS": "enabled",
+      "DESCRIPTION": "Virtual Port Channel"
+    },
+    {
+      "FEATURE": "@trm",
+      "STATUS": "disabled",
+      "DESCRIPTION": "Topology Resolution Module"
+    },
+    {
+      "FEATURE": "@qos",
+      "STATUS": "enabled",
+      "DESCRIPTION": "Quality of Service"
+    },
+    {
+      "FEATURE": "@sst",
+      "STATUS": "disabled",
+      "DESCRIPTION": "Smart Switchable Topo"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "feature_status_description": [
+        {
+          "FEATURE": "-----------",
+          "STATUS": "------",
+          "DESCRIPTION": "-----------"
+        },
+        {
+          "FEATURE": "fex",
+          "STATUS": "enabled",
+          "DESCRIPTION": "FEX support"
+        },
+        {
+          "FEATURE": "vpc",
+          "STATUS": "enabled",
+          "DESCRIPTION": "Virtual Port Channel"
+        },
+        {
+          "FEATURE": "fabricpath",
+          "STATUS": "disabled",
+          "DESCRIPTION": "Cisco FabricPath support"
+        },
+        {
+          "FEATURE": "otv",
+          "STATUS": "disabled",
+          "DESCRIPTION": "Cisco Overlay Transport Virtualization"
+        },
+        {
+          "FEATURE": "@fex",
+          "STATUS": "enabled",
+          "DESCRIPTION": "Fabric Extender"
+        },
+        {
+          "FEATURE": "evb",
+          "STATUS": "disabled",
+          "DESCRIPTION": "Edge Virtual Bridging"
+        },
+        {
+          "FEATURE": "fcoe",
+          "STATUS": "enabled",
+          "DESCRIPTION": "Fibre Channel over Ethernet"
+        },
+        {
+          "FEATURE": "@vpc",
+          "STATUS": "enabled",
+          "DESCRIPTION": "Virtual Port Channel"
+        },
+        {
+          "FEATURE": "@trm",
+          "STATUS": "disabled",
+          "DESCRIPTION": "Topology Resolution Module"
+        },
+        {
+          "FEATURE": "@qos",
+          "STATUS": "enabled",
+          "DESCRIPTION": "Quality of Service"
+        },
+        {
+          "FEATURE": "@sst",
+          "STATUS": "disabled",
+          "DESCRIPTION": "Smart Switchable Topo"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Feature Name      Status     Description\n-----------      ------     -----------\nfex               enabled    FEX support\nvpc               enabled    Virtual Port Channel\nfabricpath        disabled   Cisco FabricPath support\notv               disabled   Cisco Overlay Transport Virtualization\n@fex               enabled    Fabric Extender\nevb               disabled   Edge Virtual Bridging\nfcoe              enabled    Fibre Channel over Ethernet\n@vpc               enabled    Virtual Port Channel\n@trm              disabled   Topology Resolution Module\n@qos              enabled    Quality of Service\n@sst              disabled   Smart Switchable Topo\n",
+  "textfsm_template": "Value FEATURE (\\S+)\nValue STATUS (\\S+)\nValue DESCRIPTION (.+)\n\nStart\n  ^[ \\-]+ -> Start\n  ^\\s*${FEATURE}\\s+${STATUS}\\s+${DESCRIPTION}\\s*$$ -> Record"
+}

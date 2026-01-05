@@ -1,0 +1,41 @@
+{
+  "command": "ps -e",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 4,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"pid_tty_time_cmd\">\n    {{PID | re(\"\\\\d+\")}} {{TTY | re(\".*\\\\w.*\")}} {{TIME}} {{CMD | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "PID": "1",
+      "TTY": "?",
+      "TIME": "00:00:01",
+      "CMD": "init"
+    },
+    {
+      "PID": "123",
+      "TTY": "?",
+      "TIME": "00:00:05",
+      "CMD": "kthread"
+    },
+    {
+      "PID": "456",
+      "TTY": "pts/0",
+      "TIME": "00:00:02",
+      "CMD": "bash"
+    },
+    {
+      "PID": "789",
+      "TTY": "pts/1",
+      "TIME": "00:00:01",
+      "CMD": "sshd"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "  PID TTY          TIME CMD\n    1 ?        00:00:01 init\n  123 ?        00:00:05 kthread\n  456 pts/0    00:00:02 bash\n  789 pts/1    00:00:01 sshd\n",
+  "textfsm_template": "Value PID (\\d+)\nValue TTY (\\S+)\nValue TIME (\\S+)\nValue CMD (\\S+)\n\nStart\n  ^\\s*PID\\s+TTY\\s+TIME\\s+CMD\\s*$$\n  ^\\s*${PID}\\s+${TTY}\\s+${TIME}\\s+${CMD}\\s*$$ -> Record"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: ipv6 access-list
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 8
+# Match ratio: 2.67
+
+<group name="seq_action_protocol_source_destination">
+    {{SEQ}} {{ACTION}} {{PROTOCOL}} {{SOURCE | ORPHRASE}} {{DESTINATION}}
+</group>

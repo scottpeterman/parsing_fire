@@ -1,0 +1,69 @@
+{
+  "command": "show cts int",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.75,
+  "textfsm_rows": 4,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"interface_cts_status_policy_peer_ip_acl_name\">\n{{INTERFACE}} {{CTS_STATUS | ORPHRASE}} {{POLICY}} {{PEER_IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{ACL_NAME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Gi0/1",
+      "CTS_STATUS": "enabled",
+      "POLICY": "ENABLED",
+      "PEER_IP": "10.1.1.1",
+      "ACL_NAME": "cts-acl"
+    },
+    {
+      "INTERFACE": "Gi0/2",
+      "CTS_STATUS": "disabled",
+      "POLICY": "DISABLED",
+      "PEER_IP": "--",
+      "ACL_NAME": "--"
+    },
+    {
+      "INTERFACE": "Gi0/3",
+      "CTS_STATUS": "enabled",
+      "POLICY": "ENABLED",
+      "PEER_IP": "10.1.1.2",
+      "ACL_NAME": "cts-acl"
+    },
+    {
+      "INTERFACE": "Gi0/4",
+      "CTS_STATUS": "enabled",
+      "POLICY": "ENABLED",
+      "PEER_IP": "10.1.1.3",
+      "ACL_NAME": "--"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_cts_status_policy_peer_ip_acl_name": [
+        {
+          "INTERFACE": "Gi0/1",
+          "CTS_STATUS": "enabled",
+          "POLICY": "ENABLED",
+          "PEER_IP": "10.1.1.1",
+          "ACL_NAME": "cts-acl"
+        },
+        {
+          "INTERFACE": "Gi0/3",
+          "CTS_STATUS": "enabled",
+          "POLICY": "ENABLED",
+          "PEER_IP": "10.1.1.2",
+          "ACL_NAME": "cts-acl"
+        },
+        {
+          "INTERFACE": "Gi0/4",
+          "CTS_STATUS": "enabled",
+          "POLICY": "ENABLED",
+          "PEER_IP": "10.1.1.3",
+          "ACL_NAME": "--"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface       CTS Status      Policy       Peer IP_CoA    ACL Name\nGi0/1           enabled         ENABLED      10.1.1.1      cts-acl\nGi0/2           disabled        DISABLED     --            --\nGi0/3           enabled         ENABLED      10.1.1.2      cts-acl\nGi0/4           enabled         ENABLED      10.1.1.3      --\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue CTS_STATUS (enabled|disabled)\nValue POLICY (ENABLED|DISABLED)\nValue PEER_IP (\\S+|\\-\\-)\nValue ACL_NAME (\\S+|\\-\\-)\n\nStart\n  ^Interface\\s+CTS\\s+Status\\s+Policy\\s+Peer\\s+IP_CoA\\s+ACL\\s+Name\\s*$$\n  ^${INTERFACE}\\s+${CTS_STATUS}\\s+${POLICY}\\s+${PEER_IP}\\s+${ACL_NAME}\\s*$$ -> Record"
+}

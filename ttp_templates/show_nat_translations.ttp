@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show nat translations
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 4
+# Match ratio: 1.33
+
+<group name="proto_inside_global_inside_local_outside_local_outside_global">
+{{PROTO}} {{INSIDE_GLOBAL}} {{INSIDE_LOCAL}} {{OUTSIDE_LOCAL | ORPHRASE}} {{OUTSIDE_GLOBAL}}
+</group>

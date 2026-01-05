@@ -1,0 +1,200 @@
+{
+  "command": "show bgp vpnv4 unicast all summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 10,
+  "ttp_template": "<group name=\"neighbor_version_as_number_msg_rcvd_msg_sent_table_version_inq_outq_uptime_state_pfxrcd\">\n{{NEIGHBOR}} {{VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{AS_NUMBER}} {{MSG_RCVD}} {{MSG_SENT}} {{TABLE_VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{INQ}} {{OUTQ}} {{UPTIME | ORPHRASE}} {{STATE_PFXRCD | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR": "10.255.255.1",
+      "VERSION": "4",
+      "AS_NUMBER": "65001",
+      "MSG_RCVD": "23",
+      "MSG_SENT": "37",
+      "TABLE_VERSION": "31",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPTIME": "00:05:13",
+      "STATE_PFXRCD": "2"
+    },
+    {
+      "NEIGHBOR": "10.255.255.2",
+      "VERSION": "4",
+      "AS_NUMBER": "65001",
+      "MSG_RCVD": "25",
+      "MSG_SENT": "37",
+      "TABLE_VERSION": "31",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPTIME": "00:07:22",
+      "STATE_PFXRCD": "3"
+    },
+    {
+      "NEIGHBOR": "10.255.255.3",
+      "VERSION": "4",
+      "AS_NUMBER": "65002",
+      "MSG_RCVD": "28",
+      "MSG_SENT": "37",
+      "TABLE_VERSION": "31",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPTIME": "00:09:43",
+      "STATE_PFXRCD": "4"
+    },
+    {
+      "NEIGHBOR": "10.255.255.4",
+      "VERSION": "4",
+      "AS_NUMBER": "65003",
+      "MSG_RCVD": "21",
+      "MSG_SENT": "37",
+      "TABLE_VERSION": "31",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPTIME": "00:03:12",
+      "STATE_PFXRCD": "5"
+    },
+    {
+      "NEIGHBOR": "10.255.255.5",
+      "VERSION": "4",
+      "AS_NUMBER": "65004",
+      "MSG_RCVD": "24",
+      "MSG_SENT": "37",
+      "TABLE_VERSION": "31",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPTIME": "00:04:15",
+      "STATE_PFXRCD": "6"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neighbor_version_as_number_msg_rcvd_msg_sent_table_version_inq_outq_uptime_state_pfxrcd": [
+        {
+          "NEIGHBOR": "BGP",
+          "VERSION": "table",
+          "AS_NUMBER": "version",
+          "MSG_RCVD": "is",
+          "MSG_SENT": "31,",
+          "TABLE_VERSION": "main",
+          "INQ": "routing",
+          "OUTQ": "table",
+          "UPTIME": "version",
+          "STATE_PFXRCD": "31"
+        },
+        {
+          "NEIGHBOR": "8/8",
+          "VERSION": "BGP",
+          "AS_NUMBER": "path/bestpath",
+          "MSG_RCVD": "attribute",
+          "MSG_SENT": "entries",
+          "TABLE_VERSION": "using",
+          "INQ": "1152",
+          "OUTQ": "bytes",
+          "UPTIME": "of",
+          "STATE_PFXRCD": "memory"
+        },
+        {
+          "NEIGHBOR": "1",
+          "VERSION": "BGP",
+          "AS_NUMBER": "route-map",
+          "MSG_RCVD": "cache",
+          "MSG_SENT": "entries",
+          "TABLE_VERSION": "using",
+          "INQ": "24",
+          "OUTQ": "bytes",
+          "UPTIME": "of",
+          "STATE_PFXRCD": "memory"
+        },
+        {
+          "NEIGHBOR": "0",
+          "VERSION": "BGP",
+          "AS_NUMBER": "filter-list",
+          "MSG_RCVD": "cache",
+          "MSG_SENT": "entries",
+          "TABLE_VERSION": "using",
+          "INQ": "0",
+          "OUTQ": "bytes",
+          "UPTIME": "of",
+          "STATE_PFXRCD": "memory"
+        },
+        {
+          "NEIGHBOR": "Neighbor",
+          "VERSION": "V",
+          "AS_NUMBER": "AS",
+          "MSG_RCVD": "MsgRcvd",
+          "MSG_SENT": "MsgSent",
+          "TABLE_VERSION": "TblVer",
+          "INQ": "InQ",
+          "OUTQ": "OutQ",
+          "UPTIME": "Up/Down",
+          "STATE_PFXRCD": "State/PfxRcd"
+        },
+        {
+          "NEIGHBOR": "10.255.255.1",
+          "VERSION": "4",
+          "AS_NUMBER": "65001",
+          "MSG_RCVD": "23",
+          "MSG_SENT": "37",
+          "TABLE_VERSION": "31",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UPTIME": "00:05:13",
+          "STATE_PFXRCD": "2"
+        },
+        {
+          "NEIGHBOR": "10.255.255.2",
+          "VERSION": "4",
+          "AS_NUMBER": "65001",
+          "MSG_RCVD": "25",
+          "MSG_SENT": "37",
+          "TABLE_VERSION": "31",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UPTIME": "00:07:22",
+          "STATE_PFXRCD": "3"
+        },
+        {
+          "NEIGHBOR": "10.255.255.3",
+          "VERSION": "4",
+          "AS_NUMBER": "65002",
+          "MSG_RCVD": "28",
+          "MSG_SENT": "37",
+          "TABLE_VERSION": "31",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UPTIME": "00:09:43",
+          "STATE_PFXRCD": "4"
+        },
+        {
+          "NEIGHBOR": "10.255.255.4",
+          "VERSION": "4",
+          "AS_NUMBER": "65003",
+          "MSG_RCVD": "21",
+          "MSG_SENT": "37",
+          "TABLE_VERSION": "31",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UPTIME": "00:03:12",
+          "STATE_PFXRCD": "5"
+        },
+        {
+          "NEIGHBOR": "10.255.255.5",
+          "VERSION": "4",
+          "AS_NUMBER": "65004",
+          "MSG_RCVD": "24",
+          "MSG_SENT": "37",
+          "TABLE_VERSION": "31",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UPTIME": "00:04:15",
+          "STATE_PFXRCD": "6"
+        }
+      ]
+    }
+  ],
+  "cli_content": "BGP router identifier 10.255.252.55, local AS number 65000\nBGP table version is 31, main routing table version 31\n48 network entries using 5760 bytes of memory\n48 path entries using 2880 bytes of memory\n8/8 BGP path/bestpath attribute entries using 1152 bytes of memory\n2 BGP AS-PATH entries using 48 bytes of memory\n1 BGP route-map cache entries using 24 bytes of memory\n0 BGP filter-list cache entries using 0 bytes of memory\nBGP using 9768 total bytes of memory\nBGP activity 48/0 prefixes, 48/0 paths, scan interval 60 secs\n\nNeighbor        V          AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down State/PfxRcd\n10.255.255.1    4       65001      23      37       31    0    0 00:05:13        2\n10.255.255.2    4       65001      25      37       31    0    0 00:07:22        3\n10.255.255.3    4       65002      28      37       31    0    0 00:09:43        4\n10.255.255.4    4       65003      21      37       31    0    0 00:03:12        5\n10.255.255.5    4       65004      24      37       31    0    0 00:04:15        6\n",
+  "textfsm_template": "Value NEIGHBOR (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue VERSION (\\d+)\nValue AS_NUMBER (\\d+)\nValue MSG_RCVD (\\d+)\nValue MSG_SENT (\\d+)\nValue TABLE_VERSION (\\d+)\nValue INQ (\\d+)\nValue OUTQ (\\d+)\nValue UPTIME (\\d+:\\d+:\\d+)\nValue STATE_PFXRCD (\\d+)\n\nStart\n  ^Neighbor\\s+V\\s+AS\\s+MsgRcvd\\s+MsgSent\\s+TblVer\\s+InQ\\s+OutQ\\s+Up\\/Down\\s+State\\/PfxRcd\\s*$$\n  ^${NEIGHBOR}\\s+${VERSION}\\s+${AS_NUMBER}\\s+${MSG_RCVD}\\s+${MSG_SENT}\\s+${TABLE_VERSION}\\s+${INQ}\\s+${OUTQ}\\s+${UPTIME}\\s+${STATE_PFXRCD}\\s*$$ -> Record"
+}

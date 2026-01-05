@@ -1,0 +1,97 @@
+{
+  "command": "show alarm all",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.2,
+  "textfsm_rows": 5,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"index_time_type_severity_description\">\n{{INDEX}} {{TIME | ORPHRASE}} {{TYPE}} {{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{DESCRIPTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INDEX": "1",
+      "TIME": "2023-10-12 10:32:45",
+      "TYPE": "Major",
+      "SEVERITY": "Critical",
+      "DESCRIPTION": "Power supply failure"
+    },
+    {
+      "INDEX": "2",
+      "TIME": "2023-10-12 10:40:23",
+      "TYPE": "Minor",
+      "SEVERITY": "Warning",
+      "DESCRIPTION": "Fan speed low"
+    },
+    {
+      "INDEX": "3",
+      "TIME": "2023-10-12 11:05:12",
+      "TYPE": "Major",
+      "SEVERITY": "Critical",
+      "DESCRIPTION": "Link down on interface GigabitEthernet0/1"
+    },
+    {
+      "INDEX": "4",
+      "TIME": "2023-10-12 11:18:45",
+      "TYPE": "Major",
+      "SEVERITY": "Warning",
+      "DESCRIPTION": "High temperature detected"
+    },
+    {
+      "INDEX": "5",
+      "TIME": "2023-10-12 12:00:00",
+      "TYPE": "Minor",
+      "SEVERITY": "Info",
+      "DESCRIPTION": "Self test passed"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "index_time_type_severity_description": [
+        {
+          "INDEX": "Index",
+          "TIME": "Time",
+          "TYPE": "Type",
+          "SEVERITY": "Severity",
+          "DESCRIPTION": "Description"
+        },
+        {
+          "INDEX": "1",
+          "TIME": "2023-10-12 10:32:45",
+          "TYPE": "Major",
+          "SEVERITY": "Critical",
+          "DESCRIPTION": "Power supply failure"
+        },
+        {
+          "INDEX": "2",
+          "TIME": "2023-10-12 10:40:23",
+          "TYPE": "Minor",
+          "SEVERITY": "Warning",
+          "DESCRIPTION": "Fan speed low"
+        },
+        {
+          "INDEX": "3",
+          "TIME": "2023-10-12 11:05:12",
+          "TYPE": "Major",
+          "SEVERITY": "Critical",
+          "DESCRIPTION": "Link down on interface GigabitEthernet0/1"
+        },
+        {
+          "INDEX": "4",
+          "TIME": "2023-10-12 11:18:45",
+          "TYPE": "Major",
+          "SEVERITY": "Warning",
+          "DESCRIPTION": "High temperature detected"
+        },
+        {
+          "INDEX": "5",
+          "TIME": "2023-10-12 12:00:00",
+          "TYPE": "Minor",
+          "SEVERITY": "Info",
+          "DESCRIPTION": "Self test passed"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Index  Time                    Type    Severity  Description\n1      2023-10-12 10:32:45    Major    Critical  Power supply failure\n2      2023-10-12 10:40:23    Minor    Warning   Fan speed low\n3      2023-10-12 11:05:12    Major    Critical  Link down on interface GigabitEthernet0/1\n4      2023-10-12 11:18:45    Major    Warning   High temperature detected\n5      2023-10-12 12:00:00    Minor    Info      Self test passed\n\n",
+  "textfsm_template": "Value INDEX (\\d+)\nValue TIME (\\d+-\\d+-\\d+ \\d+:\\d+:\\d+)\nValue TYPE (\\S+)\nValue SEVERITY (\\S+)\nValue DESCRIPTION (.+)\n\nStart\n  ^\\s*Index\\s+Time\\s+Type\\s+Severity\\s+Description\\s*$$\n  ^\\s*${INDEX}\\s+${TIME}\\s+${TYPE}\\s+${SEVERITY}\\s+${DESCRIPTION}\\s*$$ -> Record"
+}

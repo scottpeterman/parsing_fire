@@ -1,0 +1,25 @@
+{
+  "command": "show cdp neighbor",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 1,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"capability_device_id_holdtime_local_intf\">\n  S - Switch, {{CAPABILITY | ORPHRASE}} - Host, I - IGMP, r - Repeater, P - Phone,\nSwitch1  {{PORT_ID | ORPHRASE}}  155  S I  WS-C3750-24P Gig 1/0/1\n{{DEVICE_ID}}  {{LOCAL_INTF | ORPHRASE}}  {{HOLDTIME}}  H  {{PLATFORM | ORPHRASE}}  Gig 0/0\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "DEVICE_ID": "AP22",
+      "LOCAL_INTF": "Gig 0/2",
+      "HOLDTIME": "144",
+      "CAPABILITY": "H",
+      "PLATFORM": "AIR-AP1850",
+      "PORT_ID": "Gig 0/0"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge\n                   S - Switch, H - Host, I - IGMP, r - Repeater, P - Phone,\n                   D - Remote, C - CVTA, d - Dual port bridge\n                   M - Two-port MAC Relay\n\nDevice ID        Local Intrfce     Holdtme    Capability  Platform  Port ID\nSwitch1          Gig 0/0           155        S I         WS-C3750-24P Gig 1/0/1\nRouter2          Gig 0/1           127        R S I       ISR4331/K9   Gig 2/0/1\nAP22             Gig 0/2           144        H           AIR-AP1850   Gig 0/0\nSwitch3          Gig 0/3           152        S           WS-C2960G-24TS-L  Gig 1/0/1 \n",
+  "textfsm_template": "Value DEVICE_ID (\\S+)\nValue LOCAL_INTF (\\S+ \\d+/\\d+)\nValue HOLDTIME (\\d+)\nValue CAPABILITY (\\S+)\nValue PLATFORM (\\S+)\nValue PORT_ID (\\S+ \\d+/\\d+)\n\nStart\n  ^Device\\sID.*Local\\sIntrfce.*Holdtme.*Capability.*Platform.*Port\\sID\\s*$$\n  ^\\s*${DEVICE_ID}\\s+${LOCAL_INTF}\\s+${HOLDTIME}\\s+${CAPABILITY}\\s+${PLATFORM}\\s+${PORT_ID}\\s*$$ -> Record"
+}

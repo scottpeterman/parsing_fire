@@ -1,0 +1,47 @@
+{
+  "command": "cisco_ios_show_vtp_status",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"device_id_domain_existing_vlan_count_last_modified_date\">\nVTP Version capable  : {{VERSION | ORPHRASE}} to 3\nVTP Domain Name  : {{DOMAIN | ORPHRASE}}\nVTP Pruning Mode  : {{PRUNING | ORPHRASE}}\nDevice ID  : {{DEVICE_ID | ORPHRASE}}\nConfiguration last modified by {{LAST_MODIFIED_SERVER | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} at {{LAST_MODIFIED_DATE | ORPHRASE}}\nLocal updater ID is {{LOCAL_UPDATER_ADDR | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} on interface {{LOCAL_UPDATER_IFACE | ORPHRASE}} (lowest numbered VLAN interface found)\nVTP Operating Mode  : {{MODE | ORPHRASE}}\nMaximum VLANs supported locally  : {{MAX_VLANS | ORPHRASE}}\nNumber of existing VLANs  : {{EXISTING_VLAN_COUNT | ORPHRASE}}\nConfiguration Revision  : {{REVISION_NUMBER | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VERSION": "1",
+      "DOMAIN": "router_vtp",
+      "PRUNING": "Disabled",
+      "TRAPS": "Disabled",
+      "DEVICE_ID": "e05f.dead.beef",
+      "LAST_MODIFIED_SERVER": "10.0.0.1",
+      "LAST_MODIFIED_DATE": "6-12-15 14:06:57",
+      "LOCAL_UPDATER_ADDR": "10.1.1.1",
+      "LOCAL_UPDATER_IFACE": "Vl1",
+      "MODE": "Server",
+      "MAX_VLANS": "1005",
+      "EXISTING_VLAN_COUNT": "20",
+      "REVISION_NUMBER": "38"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "device_id_domain_existing_vlan_count_last_modified_date": {
+        "REVISION_NUMBER": "38",
+        "EXISTING_VLAN_COUNT": "20",
+        "MAX_VLANS": "1005",
+        "MODE": "Server",
+        "LOCAL_UPDATER_ADDR": "10.1.1.1",
+        "LOCAL_UPDATER_IFACE": "Vl1",
+        "LAST_MODIFIED_SERVER": "10.0.0.1",
+        "LAST_MODIFIED_DATE": "6-12-15 14:06:57",
+        "DEVICE_ID": "e05f.dead.beef",
+        "PRUNING": "Disabled",
+        "DOMAIN": "router_vtp",
+        "VERSION": "1"
+      }
+    }
+  ],
+  "cli_content": "VTP Version capable             : 1 to 3\nVTP version running             : 1\nVTP Domain Name                 : router_vtp\nVTP Pruning Mode                : Disabled\nVTP Traps Generation            : Disabled\nDevice ID                       : e05f.dead.beef\nConfiguration last modified by 10.0.0.1 at 6-12-15 14:06:57\nLocal updater ID is 10.1.1.1 on interface Vl1 (lowest numbered VLAN interface found)\n\nFeature VLAN:\n--------------\nVTP Operating Mode                : Server\nMaximum VLANs supported locally   : 1005\nNumber of existing VLANs          : 20\nConfiguration Revision            : 38\nMD5 digest                        : 0xFF 0xFF 0xFF 0xFF 0xFF 0xFF 0xFF 0xFF \n                                    0x89 0x07 0xE4 0x53 0xBA 0xB1 0x1C 0xC1 \n",
+  "textfsm_template": "Value VERSION (\\d)\nValue DOMAIN (\\S+)\nValue PRUNING (\\S+)\nValue TRAPS (\\S+)\nValue DEVICE_ID (\\S+)\nValue LAST_MODIFIED_SERVER (\\d+.\\d+.\\d+.\\d+)\nValue LAST_MODIFIED_DATE (\\d+-\\d+-\\d+\\s\\d+:\\d+:\\d+)\nValue LOCAL_UPDATER_ADDR (\\d+.\\d+.\\d+.\\d+)\nValue LOCAL_UPDATER_IFACE (\\S+)\nValue MODE (\\w+)\nValue MAX_VLANS (\\d+)\nValue EXISTING_VLAN_COUNT (\\d+)\nValue REVISION_NUMBER (\\d+)\n\nStart\n  ^VTP\\s+[v,V]ersion\\s+[r,R]unning\\s+:\\s${VERSION}\n  ^VTP\\s+[d,D]omain\\s+[n,N]ame\\s+:\\s${DOMAIN}\n  ^VTP\\s+[p,P]runing\\s+[m,M]ode\\s+:\\s${PRUNING}\n  ^VTP\\s+[t,T]raps\\s+[g,G]eneration\\s+:\\s${TRAPS}\n  ^[d,D]evice\\s+ID\\s+:\\s${DEVICE_ID}\n  ^\\w+\\s\\w+\\s\\w+\\s\\w+\\s${LAST_MODIFIED_SERVER}\\s\\w+\\s${LAST_MODIFIED_DATE}\n  ^\\w+\\s\\w+\\s\\w+\\s\\w+\\s${LOCAL_UPDATER_ADDR}\\s\\w+\\s\\w+\\s${LOCAL_UPDATER_IFACE}\\s.*\n  ^VTP\\s[o,O]perating\\s[m,M]ode\\s+:\\s${MODE}\n  ^Maximum\\sVLANs\\s[s,S]upported\\s[l,L]ocally\\s+:\\s${MAX_VLANS}\n  ^Number\\sof\\sexisting\\sVLANs\\s+:\\s${EXISTING_VLAN_COUNT}\n  ^Configuration\\s[r,R]evision\\s+:\\s${REVISION_NUMBER} -> Record\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n"
+}

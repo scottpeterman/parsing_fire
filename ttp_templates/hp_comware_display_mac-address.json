@@ -1,0 +1,76 @@
+{
+  "command": "hp_comware_display_mac-address",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"mac_address_vlan_id_state_interface_aging\">\n{{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{VLAN_ID | re(\"\\\\d+\")}} {{STATE | ORPHRASE}} {{INTERFACE}} {{AGING | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "MAC_ADDRESS": "0000-1111-2222",
+      "VLAN_ID": "1",
+      "STATE": "Learned",
+      "INTERFACE": "Bridge-Aggregation1",
+      "AGING": "AGING"
+    },
+    {
+      "MAC_ADDRESS": "fedc-ba09-8765",
+      "VLAN_ID": "10",
+      "STATE": "Learned",
+      "INTERFACE": "GigabitEthernet1/0/20",
+      "AGING": "NOAGED"
+    },
+    {
+      "MAC_ADDRESS": "aaaa-bbbb-cccc",
+      "VLAN_ID": "10",
+      "STATE": "Learned",
+      "INTERFACE": "GigabitEthernet1/0/41",
+      "AGING": "AGING"
+    },
+    {
+      "MAC_ADDRESS": "dead-beef-0042",
+      "VLAN_ID": "20",
+      "STATE": "Learned",
+      "INTERFACE": "GigabitEthernet1/0/10",
+      "AGING": "AGING"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "mac_address_vlan_id_state_interface_aging": [
+        {
+          "MAC_ADDRESS": "0000-1111-2222",
+          "VLAN_ID": "1",
+          "STATE": "Learned",
+          "INTERFACE": "Bridge-Aggregation1",
+          "AGING": "AGING"
+        },
+        {
+          "MAC_ADDRESS": "fedc-ba09-8765",
+          "VLAN_ID": "10",
+          "STATE": "Learned",
+          "INTERFACE": "GigabitEthernet1/0/20",
+          "AGING": "NOAGED"
+        },
+        {
+          "MAC_ADDRESS": "aaaa-bbbb-cccc",
+          "VLAN_ID": "10",
+          "STATE": "Learned",
+          "INTERFACE": "GigabitEthernet1/0/41",
+          "AGING": "AGING"
+        },
+        {
+          "MAC_ADDRESS": "dead-beef-0042",
+          "VLAN_ID": "20",
+          "STATE": "Learned",
+          "INTERFACE": "GigabitEthernet1/0/10",
+          "AGING": "AGING"
+        }
+      ]
+    }
+  ],
+  "cli_content": "MAC ADDR       VLAN ID  STATE          PORT INDEX               AGING TIME(s)\n0000-1111-2222 1        Learned        Bridge-Aggregation1      AGING\nfedc-ba09-8765 10       Learned        GigabitEthernet1/0/20    NOAGED\naaaa-bbbb-cccc 10       Learned        GigabitEthernet1/0/41    AGING\ndead-beef-0042 20       Learned        GigabitEthernet1/0/10    AGING\n",
+  "textfsm_template": "Value MAC_ADDRESS (^[\\d\\w-]+)\nValue VLAN_ID ([\\d]+)\nValue STATE (\\S+)\nValue INTERFACE (\\S+)\nValue AGING (\\S+)\n\nStart\n  ^${MAC_ADDRESS}\\s+${VLAN_ID}\\s+${STATE}\\s+${INTERFACE}\\s+${AGING} -> Record\n"
+}

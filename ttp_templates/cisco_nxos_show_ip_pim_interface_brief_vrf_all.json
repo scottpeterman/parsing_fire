@@ -1,0 +1,73 @@
+{
+  "command": "cisco_nxos_show_ip_pim_interface_brief_vrf_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.6666666666666667,
+  "textfsm_rows": 3,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"vrf\">\nPIM Interface Status for VRF \"{{VRF | ORPHRASE}}\"\n<group name=\"border_interface_interface_ip_address\">\n{{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{PIM_DR_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{NEIGHBOR_COUNT | re(\"\\\\d+\")}} {{BORDER_INTERFACE | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VRF": "default",
+      "INTERFACE": "Vlan100",
+      "IP_ADDRESS": "192.0.2.1",
+      "PIM_DR_ADDRESS": "192.0.2.2",
+      "NEIGHBOR_COUNT": "0",
+      "BORDER_INTERFACE": "no"
+    },
+    {
+      "VRF": "default",
+      "INTERFACE": "Ethernet1/1.10",
+      "IP_ADDRESS": "192.0.2.3",
+      "PIM_DR_ADDRESS": "192.0.2.4",
+      "NEIGHBOR_COUNT": "1",
+      "BORDER_INTERFACE": "no"
+    },
+    {
+      "VRF": "red",
+      "INTERFACE": "Ethernet1/1.20",
+      "IP_ADDRESS": "192.0.2.5",
+      "PIM_DR_ADDRESS": "192.0.2.6",
+      "NEIGHBOR_COUNT": "1",
+      "BORDER_INTERFACE": "no"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vrf": [
+        {
+          "VRF": "default",
+          "border_interface_interface_ip_address": [
+            {
+              "INTERFACE": "Vlan100",
+              "IP_ADDRESS": "192.0.2.1",
+              "PIM_DR_ADDRESS": "192.0.2.2",
+              "NEIGHBOR_COUNT": "0",
+              "BORDER_INTERFACE": "no"
+            },
+            {
+              "INTERFACE": "Ethernet1/1.10",
+              "IP_ADDRESS": "192.0.2.3",
+              "PIM_DR_ADDRESS": "192.0.2.4",
+              "NEIGHBOR_COUNT": "1",
+              "BORDER_INTERFACE": "no"
+            }
+          ]
+        },
+        {
+          "VRF": "red",
+          "border_interface_interface_ip_address": {
+            "INTERFACE": "Ethernet1/1.20",
+            "IP_ADDRESS": "192.0.2.5",
+            "PIM_DR_ADDRESS": "192.0.2.6",
+            "NEIGHBOR_COUNT": "1",
+            "BORDER_INTERFACE": "no"
+          }
+        }
+      ]
+    }
+  ],
+  "cli_content": "PIM Interface Status for VRF \"default\"\nInterface            IP Address      PIM DR Address  Neighbor  Border\n                                                     Count     Interface\nVlan100              192.0.2.1       192.0.2.2       0         no\nEthernet1/1.10       192.0.2.3       192.0.2.4       1         no\n\nPIM Interface Status for VRF \"red\"\nInterface            IP Address      PIM DR Address  Neighbor  Border\n                                                     Count     Interface\nEthernet1/1.20       192.0.2.5       192.0.2.6       1         no\n\n",
+  "textfsm_template": "Value Filldown VRF (\\S+)\nValue Required INTERFACE ([\\w\\./-]+)\nValue IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue PIM_DR_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue NEIGHBOR_COUNT (\\d+)\nValue BORDER_INTERFACE (\\S+)\n\nStart\n  ^\\s*PIM Interface Status for VRF \"${VRF}\"\\s*$$\n  ^\\s*Interface\\s+IP Address\\s+PIM DR Address\\s+Neighbor\\s+Border\\s*$$\n  ^\\s*Count\\s+Interface\\s*$$\n  ^\\s*${INTERFACE}\\s+${IP_ADDRESS}\\s+${PIM_DR_ADDRESS}\\s+${NEIGHBOR_COUNT}\\s+${BORDER_INTERFACE}\\s*$$ -> Record\n  ^. -> Error\n"
+}

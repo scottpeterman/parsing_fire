@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show bfd neighbors detail
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="bfd_interval_bfd_state_detect_multiplier_local_discr">
+Neighbor: {{NEIGHBOR | ORPHRASE}}
+ BFD state: {{BFD_STATE | ORPHRASE}}
+ Neighbor interface: {{NEIGHBOR_INTERFACE | ORPHRASE}}
+ Remote discr: {{REMOTE_DISCR | ORPHRASE}}
+ BFD interval: {{BFD_INTERVAL | ORPHRASE}} ms
+ Detect Multiplier: {{DETECT_MULTIPLIER | ORPHRASE}}
+</group>

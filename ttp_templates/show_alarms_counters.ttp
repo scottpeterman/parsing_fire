@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show alarms counters
+# Source: chatgpt
+# TextFSM rows: 6
+# TTP rows: 7
+# Match ratio: 1.17
+
+<group name="alarm_severity_description_counter">
+{{ALARM}} {{SEVERITY | re("[\\d\\.\\(\\)A-Za-z]+")}} {{DESCRIPTION | ORPHRASE}} {{COUNTER | ORPHRASE}}
+</group>

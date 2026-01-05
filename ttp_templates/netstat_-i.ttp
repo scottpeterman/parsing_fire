@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: netstat -i
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 4
+# Match ratio: 1.33
+
+<group name="iface_mtu_rx_ok_rx_err_rx_drp_rx_ovr_tx_ok_tx_err_tx_drp_tx_ovr_flg">
+{{IFACE}} {{MTU}} {{RX_OK}} {{RX_ERR}} {{RX_DRP}} {{RX_OVR}} {{TX_OK}} {{TX_ERR}} {{TX_DRP}} {{TX_OVR}} {{FLG | ORPHRASE}}
+</group>

@@ -1,0 +1,36 @@
+{
+  "command": "redundancy status",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"configured_mode_hw_mode_last_change_duration_local_role\">\nRedundancy Mode  : {{REDUNDANCY_MODE | ORPHRASE}}\nRedundancy State  : {{LOCAL_ROLE | ORPHRASE}}\nRedundancy State  : {{REDUNDANCY_STATE | ORPHRASE}}\nHardware Mode  : {{HW_MODE | ORPHRASE}}\nLast Redundancy Mode Change  : {{LAST_CHANGE_DURATION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "REDUNDANCY_MODE": "sso",
+      "REDUNDANCY_STATE": "Standby",
+      "HW_MODE": "Duplex",
+      "SW_MODE": "sso",
+      "CONFIGURED_MODE": "sso",
+      "OPERATIONAL_MODE": "sso",
+      "LAST_CHANGE_DURATION": "00:23:15 ago",
+      "SWITCHOVERS": "2",
+      "LOCAL_ROLE": "Active",
+      "PEER_ROLE": "Standby"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "configured_mode_hw_mode_last_change_duration_local_role": {
+        "HW_MODE": "Duplex",
+        "LAST_CHANGE_DURATION": "00:23:15 ago",
+        "LOCAL_ROLE": "Active",
+        "REDUNDANCY_MODE": "sso"
+      }
+    }
+  ],
+  "cli_content": "Redundant System Information :\n------------------------------\nRedundancy Mode   : sso\nRedundancy State  : Active\nRedundancy State  : Standby\nHardware Mode     : Duplex\nSoftware Mode     : sso\nStandby Failures  : 0\nActive Failures   : 0\n=====\n\nConfigured Redundancy Mode     : sso\nOperational Redundancy Mode    : sso\nLast Redundancy Mode Change    : 00:23:15 ago\nSwitchovers since last reload  : 2\n\n-----\nLocal System Status:  Active\nRole Identifier       : Active\nPeer Uptime           : 00:45:56\nActive Time           : 02:15:42\nStandby Failures      : 0\nHardware Mode         : Duplex\nSoftware Mode         : sso\nPeer Software Mode    : sso\nPeer Role             : Standby\n\nPeer System Status:  Standby\nRole Identifier       : Standby\nUptime                : 00:45:56\nActive Time           : 00:45:56\nStandby Failures      : 0\nHardware Mode         : Duplex\nSoftware Mode         : sso\nPeer Software Mode    : sso\nPeer Role             : Active\n\nActive Role Status:\n     In Sync  : Yes\n     Groups   : 2\n\n\nStandby Role Status:\n     In Sync  : Yes\n     Groups   : 2\n\nData Traffic Statistics:\n------------------------\nLost Packets(HW)            : 0\nLost Packets(SW)            : 0\nPackets Sent from Active    : 100\nPackets Recieved on Standby : 90\n\n-----\n\nPeer State Changes:\nStart Time            End Time              Change Reason\n--------------------- --------------------- -------------------\n02:00:22              02:05:44              Switchover\n02:10:50              02:12:30              Manual Change\n04:55:10              04:56:13              Switchover Initiated\n\n",
+  "textfsm_template": "Value REDUNDANCY_MODE (\\w+)\nValue REDUNDANCY_STATE (Active|Standby)\nValue HW_MODE (\\w+)\nValue SW_MODE (\\w+)\nValue CONFIGURED_MODE (\\w+)\nValue OPERATIONAL_MODE (\\w+)\nValue LAST_CHANGE_DURATION (\\d+:\\d+:\\d+ ago)\nValue SWITCHOVERS (\\d+)\nValue LOCAL_ROLE (Active|Standby)\nValue LOCAL_UPTIME (\\S+)\nValue LOCAL_ACTIVE_TIME (\\S+)\nValue PEER_ROLE (Active|Standby)\nValue PEER_UPTIME (\\S+)\nValue PEER_ACTIVE_TIME (\\S+)\nValue IN_SYNC (\\w+)\n\nStart\n ^Redundancy Mode\\s*:\\s*${REDUNDANCY_MODE}\\s*$$\n ^Redundancy State\\s*:\\s*${REDUNDANCY_STATE}\\s*$$\n ^Hardware Mode\\s*:\\s*${HW_MODE}\\s*$$\n ^Software Mode\\s*:\\s*${SW_MODE}\\s*$$\n ^Configured Redundancy Mode\\s*:\\s*${CONFIGURED_MODE}\\s*$$\n ^Operational Redundancy Mode\\s*:\\s*${OPERATIONAL_MODE}\\s*$$\n ^Last Redundancy Mode Change\\s*:\\s*${LAST_CHANGE_DURATION}\\s*$$\n ^Switchovers since last reload\\s*:\\s*${SWITCHOVERS}\\s*$$\n ^Local System Status:\\s*${LOCAL_ROLE}\\s*$$\n ^\\s+Role Identifier\\s*:\\s*${LOCAL_ROLE}\\s*$$\n ^\\s+Peer Uptime\\s*:\\s*${LOCAL_UPTIME}\\s*$$\n ^\\s+Active Time\\s*:\\s*${LOCAL_ACTIVE_TIME}\\s*$$\n ^Peer System Status:\\s*${PEER_ROLE}\\s*$$\n ^\\s+Role Identifier\\s*:\\s*${PEER_ROLE}\\s*$$\n ^\\s+Uptime\\s*:\\s*${PEER_UPTIME}\\s*$$\n ^\\s+Active Time\\s*:\\s*${PEER_ACTIVE_TIME}\\s*$$\n ^In Sync\\s*:\\s*${IN_SYNC}\\s*$$"
+}

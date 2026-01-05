@@ -1,0 +1,171 @@
+{
+  "command": "cisco_ios_show_ip_route_summary",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 8,
+  "ttp_rows": 10,
+  "ttp_template": "<group name=\"name\">\nIP routing table name is {{NAME | ORPHRASE}}\n<group name=\"memory_networks_overhead\">\n{{ROUTE_SOURCE | ORPHRASE}} {{NETWORKS}} {{SUBNETS}} {{REPLICATES}} {{OVERHEAD | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{MEMORY | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ROUTE_SOURCE": "connected",
+      "NAME": "default (0x0)",
+      "NETWORKS": "0",
+      "SUBNETS": "41",
+      "REPLICATES": "0",
+      "OVERHEAD": "3936",
+      "MEMORY": "11808"
+    },
+    {
+      "ROUTE_SOURCE": "static",
+      "NAME": "default (0x0)",
+      "NETWORKS": "0",
+      "SUBNETS": "3",
+      "REPLICATES": "0",
+      "OVERHEAD": "288",
+      "MEMORY": "864"
+    },
+    {
+      "ROUTE_SOURCE": "application",
+      "NAME": "default (0x0)",
+      "NETWORKS": "0",
+      "SUBNETS": "0",
+      "REPLICATES": "0",
+      "OVERHEAD": "0",
+      "MEMORY": "0"
+    },
+    {
+      "ROUTE_SOURCE": "nhrp",
+      "NAME": "default (0x0)",
+      "NETWORKS": "0",
+      "SUBNETS": "0",
+      "REPLICATES": "0",
+      "OVERHEAD": "0",
+      "MEMORY": "0"
+    },
+    {
+      "ROUTE_SOURCE": "eigrp 65329",
+      "NAME": "default (0x0)",
+      "NETWORKS": "3",
+      "SUBNETS": "3013",
+      "REPLICATES": "0",
+      "OVERHEAD": "481920",
+      "MEMORY": "868608"
+    },
+    {
+      "ROUTE_SOURCE": "ospf 20",
+      "NAME": "default (0x0)",
+      "NETWORKS": "1",
+      "SUBNETS": "0",
+      "REPLICATES": "0",
+      "OVERHEAD": "384",
+      "MEMORY": "292"
+    },
+    {
+      "ROUTE_SOURCE": "internal",
+      "NAME": "default (0x0)",
+      "NETWORKS": "24",
+      "MEMORY": "240672"
+    },
+    {
+      "ROUTE_SOURCE": "Total",
+      "NAME": "default (0x0)",
+      "NETWORKS": "28",
+      "SUBNETS": "3057",
+      "REPLICATES": "0",
+      "OVERHEAD": "486528",
+      "MEMORY": "1122244"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name": {
+        "memory_networks_overhead": [
+          {
+            "ROUTE_SOURCE": "IP",
+            "NETWORKS": "routing",
+            "SUBNETS": "table",
+            "REPLICATES": "name",
+            "OVERHEAD": "is",
+            "MEMORY": "default (0x0)"
+          },
+          {
+            "ROUTE_SOURCE": "IP",
+            "NETWORKS": "routing",
+            "SUBNETS": "table",
+            "REPLICATES": "maximum-paths",
+            "OVERHEAD": "is",
+            "MEMORY": "32"
+          },
+          {
+            "ROUTE_SOURCE": "Route Source",
+            "NETWORKS": "Networks",
+            "SUBNETS": "Subnets",
+            "REPLICATES": "Replicates",
+            "OVERHEAD": "Overhead",
+            "MEMORY": "Memory (bytes)"
+          },
+          {
+            "ROUTE_SOURCE": "connected",
+            "NETWORKS": "0",
+            "SUBNETS": "41",
+            "REPLICATES": "0",
+            "OVERHEAD": "3936",
+            "MEMORY": "11808"
+          },
+          {
+            "ROUTE_SOURCE": "static",
+            "NETWORKS": "0",
+            "SUBNETS": "3",
+            "REPLICATES": "0",
+            "OVERHEAD": "288",
+            "MEMORY": "864"
+          },
+          {
+            "ROUTE_SOURCE": "application",
+            "NETWORKS": "0",
+            "SUBNETS": "0",
+            "REPLICATES": "0",
+            "OVERHEAD": "0",
+            "MEMORY": "0"
+          },
+          {
+            "ROUTE_SOURCE": "nhrp",
+            "NETWORKS": "0",
+            "SUBNETS": "0",
+            "REPLICATES": "0",
+            "OVERHEAD": "0",
+            "MEMORY": "0"
+          },
+          {
+            "ROUTE_SOURCE": "eigrp 65329",
+            "NETWORKS": "3",
+            "SUBNETS": "3013",
+            "REPLICATES": "0",
+            "OVERHEAD": "481920",
+            "MEMORY": "868608"
+          },
+          {
+            "ROUTE_SOURCE": "ospf 20",
+            "NETWORKS": "1",
+            "SUBNETS": "0",
+            "REPLICATES": "0",
+            "OVERHEAD": "384",
+            "MEMORY": "292"
+          },
+          {
+            "ROUTE_SOURCE": "Total",
+            "NETWORKS": "28",
+            "SUBNETS": "3057",
+            "REPLICATES": "0",
+            "OVERHEAD": "486528",
+            "MEMORY": "1122244"
+          }
+        ]
+      }
+    }
+  ],
+  "cli_content": "IP routing table name is default (0x0)\nIP routing table maximum-paths is 32\nRoute Source    Networks    Subnets     Replicates  Overhead    Memory (bytes)\nconnected       0           41          0           3936        11808\nstatic          0           3           0           288         864\napplication     0           0           0           0           0\nnhrp            0           0           0           0           0\neigrp 65329     3           3013        0           481920      868608\nospf 20         1           0           0           384         292\n  Intra-area: 0 Inter-area: 0 External-1: 0 External-2: 1\n  NSSA External-1: 0 NSSA External-2: 0\ninternal        24                                              240672\nTotal           28          3057        0           486528      1122244\n",
+  "textfsm_template": "Value Required ROUTE_SOURCE ([^\\s][\\S ]+?)\nValue Filldown NAME (.*)\nValue NETWORKS (\\d*)\nValue SUBNETS (\\d*)\nValue REPLICATES (\\d*)\nValue OVERHEAD (\\d*)\nValue MEMORY (\\d*)\n\nStart\n  # Checking for header\n  ^IP\\s+routing\\s+table\\s+name\\s+is\\s+${NAME}\\s*$$\n  ^IP\\s+routing\\s+table\\s+maximum-paths\\s+is\\s+\\d+\\s*$$\n  ^Route\\s+Source\\s+Networks\\s+Subnets\\s+Overhead\\s+Memory\\s+\\(bytes\\)\\s*$$ -> RouteData1\n  ^Route\\s+Source\\s+Networks\\s+Subnets\\s+Replicates\\s+Overhead\\s+Memory\\s+\\(bytes\\)\\s*$$ -> RouteData2\n  ^\\s*$$\n  ^. -> Error\n\nRouteData1\n  ^${ROUTE_SOURCE}\\s{2,16}${NETWORKS}\\s{1,12}${SUBNETS}\\s{1,12}${OVERHEAD}\\s{1,12}${MEMORY}\\s*$$ -> Record\n  ^\\s+External:\\s+\\d+\\s+Internal:\\s+\\d+\\s+Local:\\s+\\d+\\s*$$\n  ^\\s+Level\\s+1:\\s+\\d+\\s+Level\\s+2:\\s+\\d+\\s+Inter-area:\\s+\\d+\\s*$$\n  ^\\s+Intra-area:\\s+\\d+\\s+Inter-area:\\s+\\d+\\s+External-1:\\s+\\d+\\s+External-2:\\s+\\d+\\s*$$\n  ^\\s+NSSA\\s+External-1:\\s+\\d+\\s+NSSA\\s+External-2:\\s+\\d+\\s*$$\n  ^\\s*$$\n  ^. -> Error\n\nRouteData2\n  ^${ROUTE_SOURCE}\\s{2,16}${NETWORKS}\\s{1,12}${SUBNETS}\\s{1,12}${REPLICATES}\\s{1,12}${OVERHEAD}\\s{1,12}${MEMORY}\\s*$$ -> Record\n  ^\\s+External:\\s+\\d+\\s+Internal:\\s+\\d+\\s+Local:\\s+\\d+\\s*$$\n  ^\\s+Level\\s+1:\\s+\\d+\\s+Level\\s+2:\\s+\\d+\\s+Inter-area:\\s+\\d+\\s*$$\n  ^\\s+Intra-area:\\s+\\d+\\s+Inter-area:\\s+\\d+\\s+External-1:\\s+\\d+\\s+External-2:\\s+\\d+\\s*$$\n  ^\\s+NSSA\\s+External-1:\\s+\\d+\\s+NSSA\\s+External-2:\\s+\\d+\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

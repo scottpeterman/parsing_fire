@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: clock
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="time_timezone_day_date">
+{{TIME}} {{TIMEZONE}} {{DAY}} {{DATE | ORPHRASE}}
+</group>

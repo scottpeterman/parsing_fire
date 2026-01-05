@@ -1,0 +1,30 @@
+{
+  "command": "huawei_vrp_display_version",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"model_product_version_uptime_vrp_version\">\nVRP (R) software, Version {{VRP_VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} ({{PRODUCT_VERSION | ORPHRASE}})\nHuawei {{MODEL}} Router uptime is {{UPTIME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VRP_VERSION": "5.170",
+      "PRODUCT_VERSION": "AR610 V300R019C13SPC200",
+      "MODEL": "AR617VW-LTE4EA",
+      "UPTIME": "0 week, 0 day, 15 hours, 16 minutes"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "model_product_version_uptime_vrp_version": {
+        "MODEL": "AR617VW-LTE4EA",
+        "UPTIME": "0 week, 0 day, 15 hours, 16 minutes",
+        "VRP_VERSION": "5.170",
+        "PRODUCT_VERSION": "AR610 V300R019C13SPC200"
+      }
+    }
+  ],
+  "cli_content": "Huawei Versatile Routing Platform Software\nVRP (R) software, Version 5.170 (AR610 V300R019C13SPC200)\nCopyright (C) 2011-2021 HUAWEI TECH CO., LTD\nHuawei AR617VW-LTE4EA Router uptime is 0 week, 0 day, 15 hours, 16 minutes\n\nMPU 0(Master) : uptime is 0 week, 0 day, 15 hours, 15 minutes\nSDRAM Memory Size    : 1024    M bytes\nFlash 0 Memory Size  : 1024    M bytes\nMPU version information : \n1. PCB      Version  : AR-SRU617 VER.C\n2. MAB      Version  : 0\n3. Board    Type     : AR617VW-LTE4EA\n4. BootROM  Version  : 1\n",
+  "textfsm_template": "Value VRP_VERSION (\\S+)\nValue PRODUCT_VERSION (.+)\nValue MODEL (((?!\\sRouter).)+)\nValue UPTIME (.+)\nValue PATCH_VERSION (\\S+)\n\n\nStart\n  ^Huawei\\s+Versatile\\s+Routing\\s+Platform\\s+Software\n  ^Copyright.+(Huawei|HUAWEI).+\n  ^.*software,\\s+Version\\s+${VRP_VERSION}\\s+\\(${PRODUCT_VERSION}\\)\n  ^Patch\\s+[Vv]ersion\\s*:\\s+${PATCH_VERSION}\\s*$$\n  ^(HUAWEI|Huawei|Quidway)\\s+${MODEL}\\s+(Router\\s+)?uptime\\s+is\\s+${UPTIME}$$\n  ^BKP\\s+\\d+\\s+version\\s+information -> EOF\n  ^\\s*$$ -> EOF\n  ^. -> Error\n"
+}

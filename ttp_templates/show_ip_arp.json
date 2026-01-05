@@ -1,0 +1,116 @@
+{
+  "command": "show ip arp",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"protocol_address_age_hardware_addr_type_interface\">\n{{PROTOCOL}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{AGE}} {{HARDWARE_ADDR}} {{TYPE}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "Internet",
+      "ADDRESS": "10.0.0.1",
+      "AGE": "0",
+      "HARDWARE_ADDR": "00a1.b2c3.d4e5",
+      "TYPE": "ARPA",
+      "INTERFACE": "GigabitEthernet0/1"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "ADDRESS": "10.0.0.2",
+      "AGE": "102",
+      "HARDWARE_ADDR": "00a1.b2c3.d4e6",
+      "TYPE": "ARPA",
+      "INTERFACE": "GigabitEthernet0/1"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "ADDRESS": "10.0.0.3",
+      "AGE": "159",
+      "HARDWARE_ADDR": "00a1.b2c3.d4e7",
+      "TYPE": "ARPA",
+      "INTERFACE": "GigabitEthernet0/1"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "ADDRESS": "10.0.0.4",
+      "AGE": "211",
+      "HARDWARE_ADDR": "00a1.b2c3.d4e8",
+      "TYPE": "ARPA",
+      "INTERFACE": "GigabitEthernet0/2"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "ADDRESS": "10.0.0.5",
+      "AGE": "115",
+      "HARDWARE_ADDR": "00a1.b2c3.d4e9",
+      "TYPE": "ARPA",
+      "INTERFACE": "GigabitEthernet0/2"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "ADDRESS": "10.0.0.6",
+      "AGE": "94",
+      "HARDWARE_ADDR": "00a1.b2c3.d4ea",
+      "TYPE": "ARPA",
+      "INTERFACE": "GigabitEthernet0/3"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "protocol_address_age_hardware_addr_type_interface": [
+        {
+          "PROTOCOL": "Internet",
+          "ADDRESS": "10.0.0.1",
+          "AGE": "0",
+          "HARDWARE_ADDR": "00a1.b2c3.d4e5",
+          "TYPE": "ARPA",
+          "INTERFACE": "GigabitEthernet0/1"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "ADDRESS": "10.0.0.2",
+          "AGE": "102",
+          "HARDWARE_ADDR": "00a1.b2c3.d4e6",
+          "TYPE": "ARPA",
+          "INTERFACE": "GigabitEthernet0/1"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "ADDRESS": "10.0.0.3",
+          "AGE": "159",
+          "HARDWARE_ADDR": "00a1.b2c3.d4e7",
+          "TYPE": "ARPA",
+          "INTERFACE": "GigabitEthernet0/1"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "ADDRESS": "10.0.0.4",
+          "AGE": "211",
+          "HARDWARE_ADDR": "00a1.b2c3.d4e8",
+          "TYPE": "ARPA",
+          "INTERFACE": "GigabitEthernet0/2"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "ADDRESS": "10.0.0.5",
+          "AGE": "115",
+          "HARDWARE_ADDR": "00a1.b2c3.d4e9",
+          "TYPE": "ARPA",
+          "INTERFACE": "GigabitEthernet0/2"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "ADDRESS": "10.0.0.6",
+          "AGE": "94",
+          "HARDWARE_ADDR": "00a1.b2c3.d4ea",
+          "TYPE": "ARPA",
+          "INTERFACE": "GigabitEthernet0/3"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Protocol  Address          Age (min)  Hardware Addr   Type   Interface\nInternet  10.0.0.1               0   00a1.b2c3.d4e5  ARPA   GigabitEthernet0/1\nInternet  10.0.0.2             102   00a1.b2c3.d4e6  ARPA   GigabitEthernet0/1\nInternet  10.0.0.3             159   00a1.b2c3.d4e7  ARPA   GigabitEthernet0/1\nInternet  10.0.0.4             211   00a1.b2c3.d4e8  ARPA   GigabitEthernet0/2\nInternet  10.0.0.5             115   00a1.b2c3.d4e9  ARPA   GigabitEthernet0/2\nInternet  10.0.0.6             94    00a1.b2c3.d4ea  ARPA   GigabitEthernet0/3\n",
+  "textfsm_template": "Value PROTOCOL (\\S+)\nValue ADDRESS (\\S+\\.\\S+\\.\\S+\\.\\S+)\nValue AGE (\\d+)\nValue HARDWARE_ADDR (\\S+)\nValue TYPE (\\S+)\nValue INTERFACE (\\S+)\n\nStart\n  ^\\s*Protocol\\s+Address\\s+Age\\s+\\(min\\)\\s+Hardware\\s+Addr\\s+Type\\s+Interface\\s*$$\n  ^\\s*${PROTOCOL}\\s+${ADDRESS}\\s+${AGE}\\s+${HARDWARE_ADDR}\\s+${TYPE}\\s+${INTERFACE}\\s*$$ -> Record"
+}

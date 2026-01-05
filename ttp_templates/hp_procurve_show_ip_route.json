@@ -1,0 +1,109 @@
+{
+  "command": "hp_procurve_show_ip_route",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"destination_gateway_vlan_name_type_metric_distance\">\n  {{DESTINATION}} {{GATEWAY}} {{VLAN_NAME | re(\"\\\\d+\")}} {{TYPE}} {{METRIC | ORPHRASE}} {{DISTANCE}}\n</group>\n<group name=\"destination_gateway_type_metric_distance\">\n  {{DESTINATION}} {{GATEWAY}} {{TYPE | ORPHRASE}} {{METRIC}} {{DISTANCE}}\n</group>\n<group name=\"destination_type_metric_distance\">\n  {{DESTINATION}} {{TYPE | ORPHRASE}} {{METRIC}} {{DISTANCE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DESTINATION": "0.0.0.0/0",
+      "GATEWAY": "10.11.11.254",
+      "VLAN_NAME": "1111",
+      "TYPE": "static",
+      "METRIC": "250",
+      "DISTANCE": "1"
+    },
+    {
+      "DESTINATION": "10.11.11.0/24",
+      "GATEWAY": "mgmt",
+      "VLAN_NAME": "1111",
+      "TYPE": "connected",
+      "METRIC": "1",
+      "DISTANCE": "0"
+    },
+    {
+      "DESTINATION": "127.0.0.0/8",
+      "GATEWAY": "reject",
+      "TYPE": "static",
+      "METRIC": "0",
+      "DISTANCE": "0"
+    },
+    {
+      "DESTINATION": "127.0.0.1/32",
+      "TYPE": "connected",
+      "METRIC": "1",
+      "DISTANCE": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "destination_gateway_vlan_name_type_metric_distance": [
+        {
+          "DESTINATION": "0.0.0.0/0",
+          "GATEWAY": "10.11.11.254",
+          "VLAN_NAME": "1111",
+          "TYPE": "static",
+          "METRIC": "250",
+          "DISTANCE": "1"
+        },
+        {
+          "DESTINATION": "10.11.11.0/24",
+          "GATEWAY": "mgmt",
+          "VLAN_NAME": "1111",
+          "TYPE": "connected",
+          "METRIC": "1",
+          "DISTANCE": "0"
+        }
+      ],
+      "destination_gateway_type_metric_distance": [
+        {
+          "DESTINATION": "------------------",
+          "GATEWAY": "---------------",
+          "TYPE": "---- --------- ----------",
+          "METRIC": "----------",
+          "DISTANCE": "-----"
+        },
+        {
+          "DESTINATION": "0.0.0.0/0",
+          "GATEWAY": "10.11.11.254",
+          "TYPE": "1111 static",
+          "METRIC": "250",
+          "DISTANCE": "1"
+        },
+        {
+          "DESTINATION": "10.11.11.0/24",
+          "GATEWAY": "mgmt",
+          "TYPE": "1111 connected",
+          "METRIC": "1",
+          "DISTANCE": "0"
+        },
+        {
+          "DESTINATION": "127.0.0.0/8",
+          "GATEWAY": "reject",
+          "TYPE": "static",
+          "METRIC": "0",
+          "DISTANCE": "0"
+        }
+      ],
+      "destination_type_metric_distance": [
+        {
+          "DESTINATION": "------------------",
+          "TYPE": "--------------- ---- --------- ----------",
+          "METRIC": "----------",
+          "DISTANCE": "-----"
+        },
+        {
+          "DESTINATION": "127.0.0.1/32",
+          "TYPE": "connected",
+          "METRIC": "1",
+          "DISTANCE": "0"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\n                                                                                                                                                                                                                                                       IP Route Entries\n\n  Destination        Gateway         VLAN Type      Sub-Type   Metric     Dist.\n  ------------------ --------------- ---- --------- ---------- ---------- -----\n  0.0.0.0/0          10.11.11.254    1111 static               250        1\n  10.11.11.0/24      mgmt            1111 connected            1          0\n  127.0.0.0/8        reject               static               0          0\n  127.0.0.1/32                            connected            1          0    \n",
+  "textfsm_template": "Value DESTINATION ([0-9./]+)\nValue GATEWAY ([0-9.]*|\\S*)\nValue VLAN_NAME (\\d*)\nValue TYPE (\\S+)\nValue SUBTYPE (\\S*)\nValue METRIC (\\d+)\nValue DISTANCE (\\d+)\n\nStart\n  ^.*IP Route Entries\n  ^.*Destination -> Route\n  ^\\s*$$\n  ^. -> Error\n\nRoute\n  ^\\s*----\n  ^\\s*${DESTINATION}\\s+${GATEWAY}\\s+${VLAN_NAME}\\s+${TYPE}\\s+${SUBTYPE}\\s+${METRIC}\\s+${DISTANCE} -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

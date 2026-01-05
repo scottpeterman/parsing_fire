@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_vpc
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="id_port_status">
+{{ID | re("\\d+")}} {{PORT}} {{STATUS | ORPHRASE}} -
+</group>

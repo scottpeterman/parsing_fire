@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show mpls l2transport vc detail
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 4
+# Match ratio: 1.33
+
+<group name="interface_state">
+Local interface: {{INTERFACE | ORPHRASE}} aaaa.34c5.b34d.green {{STATE | ORPHRASE}}
+</group>
+<group name="state_preferred_path">
+    VC status: {{STATE | ORPHRASE}}, Preferred path: {{PREFERRED_PATH | ORPHRASE}}
+</group>

@@ -1,0 +1,116 @@
+{
+  "command": "juniper_junos_show_interfaces",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 8,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"interface_admin_state_link_status\">\nPhysical interface: {{INTERFACE}}, {{ADMIN_STATE | ORPHRASE}}, Physical link is {{LINK_STATUS | ORPHRASE}}\n</group>\n<group name=\"destination_local\">\n        Destination: {{DESTINATION}}, Local: {{LOCAL | ORPHRASE}}, Broadcast: 10.10.199.183\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "ge-0/0/0",
+      "LINK_STATUS": "Up",
+      "ADMIN_STATE": "Enabled",
+      "HARDWARE_TYPE": "Ethernet",
+      "DESCRIPTION": "Test",
+      "MTU": "1514"
+    },
+    {
+      "INTERFACE": "ge-0/0/0.2036",
+      "LINK_STATUS": "Up",
+      "DESTINATION": "10.10.199.176/29",
+      "LOCAL": "10.10.199.180",
+      "MTU": "1500"
+    },
+    {
+      "INTERFACE": "gr-0/0/0",
+      "LINK_STATUS": "Up",
+      "ADMIN_STATE": "Enabled",
+      "HARDWARE_TYPE": "GRE",
+      "MTU": "Unlimited"
+    },
+    {
+      "INTERFACE": "ip-0/0/0",
+      "LINK_STATUS": "Up",
+      "ADMIN_STATE": "Enabled",
+      "HARDWARE_TYPE": "IP-over-IP",
+      "MTU": "Unlimited"
+    },
+    {
+      "INTERFACE": "lsq-0/0/0",
+      "LINK_STATUS": "Up",
+      "ADMIN_STATE": "Enabled",
+      "HARDWARE_TYPE": "LinkService",
+      "MTU": "1504"
+    },
+    {
+      "INTERFACE": "lt-0/0/0",
+      "LINK_STATUS": "Up",
+      "ADMIN_STATE": "Enabled",
+      "HARDWARE_TYPE": "Logical-tunnel",
+      "MTU": "Unlimited"
+    },
+    {
+      "INTERFACE": "mt-0/0/0",
+      "LINK_STATUS": "Up",
+      "ADMIN_STATE": "Enabled",
+      "HARDWARE_TYPE": "GRE",
+      "MTU": "Unlimited"
+    },
+    {
+      "INTERFACE": "sp-0/0/0",
+      "LINK_STATUS": "Up",
+      "ADMIN_STATE": "Enabled",
+      "HARDWARE_TYPE": "Adaptive-Services",
+      "MTU": "9192"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_admin_state_link_status": [
+        {
+          "INTERFACE": "ge-0/0/0",
+          "ADMIN_STATE": "Enabled",
+          "LINK_STATUS": "Up"
+        },
+        {
+          "INTERFACE": "gr-0/0/0",
+          "ADMIN_STATE": "Enabled",
+          "LINK_STATUS": "Up"
+        },
+        {
+          "INTERFACE": "ip-0/0/0",
+          "ADMIN_STATE": "Enabled",
+          "LINK_STATUS": "Up"
+        },
+        {
+          "INTERFACE": "lsq-0/0/0",
+          "ADMIN_STATE": "Enabled",
+          "LINK_STATUS": "Up"
+        },
+        {
+          "INTERFACE": "lt-0/0/0",
+          "ADMIN_STATE": "Enabled",
+          "LINK_STATUS": "Up"
+        },
+        {
+          "INTERFACE": "mt-0/0/0",
+          "ADMIN_STATE": "Enabled",
+          "LINK_STATUS": "Up"
+        },
+        {
+          "INTERFACE": "sp-0/0/0",
+          "ADMIN_STATE": "Enabled",
+          "LINK_STATUS": "Up"
+        }
+      ],
+      "destination_local": {
+        "DESTINATION": "10.10.199.176/29",
+        "LOCAL": "10.10.199.180"
+      }
+    }
+  ],
+  "cli_content": "Physical interface: ge-0/0/0, Enabled, Physical link is Up\n  Interface index: 134, SNMP ifIndex: 502\n  Description: Test\n  Link-level type: Ethernet, MTU: 1514, MRU: 0, LAN-PHY mode,\n  Link-mode: Half-duplex, Speed: 1000mbps, BPDU Error: None,\n  MAC-REWRITE Error: None, Loopback: Disabled, Source filtering: Disabled,\n  Flow control: Enabled, Auto-negotiation: Enabled, Remote fault: Online\n  Device flags   : Present Running\n  Interface flags: SNMP-Traps Internal: 0x4000\n  Link flags     : None\n  CoS queues     : 8 supported, 8 maximum usable queues\n  Current address: 00:0c:29:5e:2c:1a, Hardware address: 00:0c:29:5e:2c:1a\n  Last flapped   : 2016-02-09 13:37:59 UTC (23:39:35 ago)\n  Input rate     : 0 bps (0 pps)\n  Output rate    : 0 bps (0 pps)\n  Active alarms  : None\n  Active defects : None\n  Interface transmit statistics: Disabled\n\n  Logical interface ge-0/0/0.2036 (Index 74) (SNMP ifIndex 535)\n    Flags: Up SNMP-Traps 0x0 VLAN-Tag [ 0x8100.2036 ]  Encapsulation: ENET2\n    Input packets : 12439041\n    Output packets: 2552075\n    Security: Zone: Null\n    Protocol inet, MTU: 1500\n      Flags: Sendbcast-pkt-to-re, Sample-input, Sample-output\n      Addresses, Flags: Is-Preferred Is-Primary\n        Destination: 10.10.199.176/29, Local: 10.10.199.180, Broadcast: 10.10.199.183\n\nPhysical interface: gr-0/0/0, Enabled, Physical link is Up\n  Interface index: 139, SNMP ifIndex: 506\n  Type: GRE, Link-level type: GRE, MTU: Unlimited, Speed: 800mbps\n  Link flags     : Scheduler Keepalives DTE\n  Device flags   : Present Running\n  Interface flags: Point-To-Point\n  Input rate     : 0 bps (0 pps)\n  Output rate    : 0 bps (0 pps)\n\nPhysical interface: ip-0/0/0, Enabled, Physical link is Up\n  Interface index: 140, SNMP ifIndex: 507\n  Type: IPIP, Link-level type: IP-over-IP, MTU: Unlimited, Speed: 800mbps\n  Link flags     : Scheduler Keepalives DTE\n  Device flags   : Present Running\n  Input rate     : 0 bps (0 pps)\n  Output rate    : 0 bps (0 pps)\n\nPhysical interface: lsq-0/0/0, Enabled, Physical link is Up\n  Interface index: 141, SNMP ifIndex: 509\n  Link-level type: LinkService, MTU: 1504\n  Device flags   : Present Running\n  Interface flags: Point-To-Point SNMP-Traps Internal: 0x4000\n  Last flapped   : 2016-02-09 13:37:59 UTC (22:25:23 ago)\n  Input rate     : 0 bps (0 pps)\n  Output rate    : 0 bps (0 pps)\n\nPhysical interface: lt-0/0/0, Enabled, Physical link is Up\n  Interface index: 143, SNMP ifIndex: 510\n  Type: Logical-tunnel, Link-level type: Logical-tunnel, MTU: Unlimited, Speed: 800mbps\n  Device flags   : Present Running\n  Interface flags: Point-To-Point SNMP-Traps Internal: 0x4000\n  Link flags     : None\n  Physical info  : 13\n  Current address: 02:96:14:57:ee:b3, Hardware address: 02:96:14:57:ee:b3\n  Last flapped   : Never\n  Input rate     : 0 bps (0 pps)\n  Output rate    : 0 bps (0 pps)\n\nPhysical interface: mt-0/0/0, Enabled, Physical link is Up\n  Interface index: 142, SNMP ifIndex: 511\n  Type: Multicast-GRE, Link-level type: GRE, MTU: Unlimited, Speed: 800mbps\n  Link flags     : Keepalives DTE\n  Device flags   : Present Running\n  Interface flags: SNMP-Traps\n  Input rate     : 0 bps (0 pps)\n  Output rate    : 0 bps (0 pps)\n\nPhysical interface: sp-0/0/0, Enabled, Physical link is Up\n  Interface index: 138, SNMP ifIndex: 515\n  Type: Adaptive-Services, Link-level type: Adaptive-Services, MTU: 9192, Speed: 800mbps\n  Device Flags   : Present Running\n  Interface flags: Point-To-Point SNMP-Traps Internal: 0x4000\n\n{master:0}\n",
+  "textfsm_template": "Value Required INTERFACE (\\S+)\nValue LINK_STATUS (\\w+)\nValue ADMIN_STATE (\\S+)\nValue HARDWARE_TYPE (\\S+)\nValue DESCRIPTION (\\w+.*)\nValue DESTINATION (\\S+)\nValue LOCAL (\\S+)\nValue MTU (\\d+|Unlimited)\n\nStart\n  ^\\s*\\S+\\s+interface -> Continue.Record\n  ^Physical\\s+interface:\\s+${INTERFACE},\\s+${ADMIN_STATE},\\s+Physical\\s+link\\s+is\\s+${LINK_STATUS}\n  ^.*Description:\\s+${DESCRIPTION}\n  ^.*ype:\\s+${HARDWARE_TYPE},.*MTU:\\s+${MTU}.*\n  ^\\s+Logical\\s+interface\\s+${INTERFACE}\n  ^\\s+Flags:\\s+${LINK_STATUS}\\s+\\S+\\s+\\w+\\s+(\\S+\\s+)*Encapsulation:\n  ^\\s+Protocol\\s+inet.*,\\s+MTU:\\s+${MTU}\n  ^.*Destination:\\s+${DESTINATION},\\s+Local:\\s+${LOCAL},.*\n  ^\\s*$$\n  ^{master:\\d+}\n"
+}

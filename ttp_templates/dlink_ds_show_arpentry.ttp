@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: dlink_ds_show_arpentry
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="interface_ip_address_mac_address_type">
+{{INTERFACE}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{TYPE | ORPHRASE}}
+</group>

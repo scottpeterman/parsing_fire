@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_routing_ospf_neighbor_print_terse_without-paging
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="index_instance_router_id_address_interface_priority_dr_address_backup_dr_address_state_state_changes_ls_retransmits_ls_requests_db_summaries_adjacency">
+ {{INDEX}} instance={{INSTANCE}} router-id={{ROUTER_ID}} address={{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} interface={{INTERFACE}} priority={{PRIORITY}} dr-address={{DR_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} backup-dr-address={{BACKUP_DR_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} state={{STATE | ORPHRASE}} state-changes={{STATE_CHANGES | ORPHRASE}} ls-retransmits={{LS_RETRANSMITS}} ls-requests={{LS_REQUESTS}} db-summaries={{DB_SUMMARIES}} adjacency={{ADJACENCY | ORPHRASE}}
+</group>
+<group name="index_instance_router_id_address_interface_priority_dr_address_backup_dr_address_state_state_changes_ls_retransmits_ls_requests_db_summaries">
+ {{INDEX}} instance={{INSTANCE}} router-id={{ROUTER_ID}} address={{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} interface={{INTERFACE}} priority={{PRIORITY}} dr-address={{DR_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} backup-dr-address={{BACKUP_DR_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} state={{STATE | ORPHRASE}} state-changes={{STATE_CHANGES | ORPHRASE}} ls-retransmits={{LS_RETRANSMITS}} ls-requests={{LS_REQUESTS}} db-summaries={{DB_SUMMARIES}}
+</group>

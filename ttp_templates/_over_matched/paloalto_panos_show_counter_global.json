@@ -1,0 +1,164 @@
+{
+  "command": "paloalto_panos_show_counter_global",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.2857142857142858,
+  "textfsm_rows": 7,
+  "ttp_rows": 9,
+  "ttp_template": "<group name=\"name_value_rate_severity_category_aspect_description\">\n{{NAME}} {{VALUE}} {{RATE}} {{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{CATEGORY}} {{ASPECT}} {{DESCRIPTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "pkt_recv",
+      "VALUE": "29",
+      "RATE": "0",
+      "SEVERITY": "info",
+      "CATEGORY": "packet",
+      "ASPECT": "pktproc",
+      "DESCRIPTION": "Packets received"
+    },
+    {
+      "NAME": "pkt_sent",
+      "VALUE": "21",
+      "RATE": "0",
+      "SEVERITY": "info",
+      "CATEGORY": "packet",
+      "ASPECT": "pktproc",
+      "DESCRIPTION": "Packets transmitted"
+    },
+    {
+      "NAME": "pkt_sock_recv",
+      "VALUE": "1",
+      "RATE": "0",
+      "SEVERITY": "info",
+      "CATEGORY": "packet",
+      "ASPECT": "pktproc",
+      "DESCRIPTION": "Packets received at socket level - delayed counter"
+    },
+    {
+      "NAME": "pkt_lldp_sent",
+      "VALUE": "1",
+      "RATE": "0",
+      "SEVERITY": "info",
+      "CATEGORY": "packet",
+      "ASPECT": "pktproc",
+      "DESCRIPTION": "LLDP Packets transmitted"
+    },
+    {
+      "NAME": "flow_rcv_dot1q_tag_err",
+      "VALUE": "1",
+      "RATE": "0",
+      "SEVERITY": "drop",
+      "CATEGORY": "flow",
+      "ASPECT": "parse",
+      "DESCRIPTION": "Packets dropped: 802.1q tag not configured"
+    },
+    {
+      "NAME": "flow_no_interface",
+      "VALUE": "1",
+      "RATE": "0",
+      "SEVERITY": "drop",
+      "CATEGORY": "flow",
+      "ASPECT": "parse",
+      "DESCRIPTION": "Packets dropped: invalid interface"
+    },
+    {
+      "NAME": "ssl_hsm_up_down_event_rcv",
+      "VALUE": "1",
+      "RATE": "0",
+      "SEVERITY": "info",
+      "CATEGORY": "ssl",
+      "ASPECT": "pktproc",
+      "DESCRIPTION": "The number of HSM up/down events received"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name_value_rate_severity_category_aspect_description": [
+        {
+          "NAME": "Elapsed",
+          "VALUE": "time",
+          "RATE": "since",
+          "SEVERITY": "last",
+          "CATEGORY": "sampling:",
+          "ASPECT": "349.576",
+          "DESCRIPTION": "seconds"
+        },
+        {
+          "NAME": "name",
+          "VALUE": "value",
+          "RATE": "rate",
+          "SEVERITY": "severity",
+          "CATEGORY": "category",
+          "ASPECT": "aspect",
+          "DESCRIPTION": "description"
+        },
+        {
+          "NAME": "pkt_recv",
+          "VALUE": "29",
+          "RATE": "0",
+          "SEVERITY": "info",
+          "CATEGORY": "packet",
+          "ASPECT": "pktproc",
+          "DESCRIPTION": "Packets received"
+        },
+        {
+          "NAME": "pkt_sent",
+          "VALUE": "21",
+          "RATE": "0",
+          "SEVERITY": "info",
+          "CATEGORY": "packet",
+          "ASPECT": "pktproc",
+          "DESCRIPTION": "Packets transmitted"
+        },
+        {
+          "NAME": "pkt_sock_recv",
+          "VALUE": "1",
+          "RATE": "0",
+          "SEVERITY": "info",
+          "CATEGORY": "packet",
+          "ASPECT": "pktproc",
+          "DESCRIPTION": "Packets received at socket level - delayed counter"
+        },
+        {
+          "NAME": "pkt_lldp_sent",
+          "VALUE": "1",
+          "RATE": "0",
+          "SEVERITY": "info",
+          "CATEGORY": "packet",
+          "ASPECT": "pktproc",
+          "DESCRIPTION": "LLDP Packets transmitted"
+        },
+        {
+          "NAME": "flow_rcv_dot1q_tag_err",
+          "VALUE": "1",
+          "RATE": "0",
+          "SEVERITY": "drop",
+          "CATEGORY": "flow",
+          "ASPECT": "parse",
+          "DESCRIPTION": "Packets dropped: 802.1q tag not configured"
+        },
+        {
+          "NAME": "flow_no_interface",
+          "VALUE": "1",
+          "RATE": "0",
+          "SEVERITY": "drop",
+          "CATEGORY": "flow",
+          "ASPECT": "parse",
+          "DESCRIPTION": "Packets dropped: invalid interface"
+        },
+        {
+          "NAME": "ssl_hsm_up_down_event_rcv",
+          "VALUE": "1",
+          "RATE": "0",
+          "SEVERITY": "info",
+          "CATEGORY": "ssl",
+          "ASPECT": "pktproc",
+          "DESCRIPTION": "The number of HSM up/down events received"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Global counters:\nElapsed time since last sampling: 349.576 seconds\n\nname                                   value     rate severity  category  aspect    description\n--------------------------------------------------------------------------------\npkt_recv                                  29        0 info      packet    pktproc   Packets received\npkt_sent                                  21        0 info      packet    pktproc   Packets transmitted\npkt_sock_recv                              1        0 info      packet    pktproc   Packets received at socket level - delayed counter\npkt_lldp_sent                              1        0 info      packet    pktproc   LLDP Packets transmitted\nflow_rcv_dot1q_tag_err                     1        0 drop      flow      parse     Packets dropped: 802.1q tag not configured\nflow_no_interface                          1        0 drop      flow      parse     Packets dropped: invalid interface\nssl_hsm_up_down_event_rcv                  1        0 info      ssl       pktproc   The number of HSM up/down events received\n--------------------------------------------------------------------------------\nTotal counters shown: 7\n--------------------------------------------------------------------------------\n\n",
+  "textfsm_template": "Value NAME (\\S+)\nValue VALUE (\\d+)\nValue RATE (\\d+)\nValue SEVERITY (\\S+)\nValue CATEGORY (\\S+)\nValue ASPECT (\\S+)\nValue DESCRIPTION ([\\S+\\s+]+)\n\nStart\n  ^${NAME}\\s+${VALUE}\\s+${RATE}\\s+${SEVERITY}\\s+${CATEGORY}\\s+${ASPECT}\\s+${DESCRIPTION} -> Record\n"
+}

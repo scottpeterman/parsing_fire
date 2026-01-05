@@ -1,0 +1,80 @@
+{
+  "command": "show ip vrf interfaces",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"interface_vrf_ip_address_status\">\n{{INTERFACE}} {{VRF}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Vlan1",
+      "VRF": "VRF1",
+      "IP_ADDRESS": "192.168.100.1",
+      "STATUS": "up"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/0",
+      "VRF": "Global",
+      "IP_ADDRESS": "192.168.1.1",
+      "STATUS": "up"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/1",
+      "VRF": "VRF2",
+      "IP_ADDRESS": "10.0.0.1",
+      "STATUS": "administratively down"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/2",
+      "VRF": "VRF1",
+      "IP_ADDRESS": "10.0.1.1",
+      "STATUS": "up"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/3",
+      "VRF": "Global",
+      "IP_ADDRESS": "192.168.2.1",
+      "STATUS": "down"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_vrf_ip_address_status": [
+        {
+          "INTERFACE": "Vlan1",
+          "VRF": "VRF1",
+          "IP_ADDRESS": "192.168.100.1",
+          "STATUS": "up"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/0",
+          "VRF": "Global",
+          "IP_ADDRESS": "192.168.1.1",
+          "STATUS": "up"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/1",
+          "VRF": "VRF2",
+          "IP_ADDRESS": "10.0.0.1",
+          "STATUS": "administratively down"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/2",
+          "VRF": "VRF1",
+          "IP_ADDRESS": "10.0.1.1",
+          "STATUS": "up"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/3",
+          "VRF": "Global",
+          "IP_ADDRESS": "192.168.2.1",
+          "STATUS": "down"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              VRF                        IP-Address      Status\nVlan1                  VRF1                       192.168.100.1   up\nGigabitEthernet0/0     Global                     192.168.1.1     up\nGigabitEthernet0/1     VRF2                       10.0.0.1        administratively down\nGigabitEthernet0/2     VRF1                       10.0.1.1        up\nGigabitEthernet0/3     Global                     192.168.2.1     down\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue VRF (\\S+)\nValue IP_ADDRESS (\\S+)\nValue STATUS (up|administratively down|down)\n\nStart\n  ^\\s*Interface\\s+VRF\\s+IP-Address\\s+Status\\s*$$\n  ^\\s*${INTERFACE}\\s+${VRF}\\s+${IP_ADDRESS}\\s+${STATUS}\\s*$$ -> Record\n"
+}

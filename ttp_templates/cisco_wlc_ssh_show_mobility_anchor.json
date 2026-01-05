@@ -1,0 +1,78 @@
+{
+  "command": "cisco_wlc_ssh_show_mobility_anchor",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"wlan_id_ip_address_status_priority\">\n {{WLAN_ID | re(\"\\\\d+\")}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATUS | ORPHRASE}} {{PRIORITY | ORPHRASE}} \n</group>\n<group name=\"wlan_id_ip_address_status\">\n {{WLAN_ID | re(\"\\\\d+\")}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "WLAN_ID": "12",
+      "IP_ADDRESS": "10.0.0.211",
+      "STATUS": "Up",
+      "PRIORITY": "3"
+    },
+    {
+      "WLAN_ID": "12",
+      "IP_ADDRESS": "10.0.0.212",
+      "STATUS": "Up",
+      "PRIORITY": "2"
+    },
+    {
+      "WLAN_ID": "13",
+      "IP_ADDRESS": "10.0.0.212",
+      "STATUS": "Up",
+      "PRIORITY": "2"
+    },
+    {
+      "WLAN_ID": "13",
+      "IP_ADDRESS": "10.0.0.213",
+      "STATUS": "Up",
+      "PRIORITY": "1"
+    },
+    {
+      "WLAN_ID": "99",
+      "IP_ADDRESS": "192.168.180.1",
+      "STATUS": "Down"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "wlan_id_ip_address_status_priority": [
+        {
+          "WLAN_ID": "12",
+          "IP_ADDRESS": "10.0.0.211",
+          "STATUS": "Up",
+          "PRIORITY": "3"
+        },
+        {
+          "WLAN_ID": "12",
+          "IP_ADDRESS": "10.0.0.212",
+          "STATUS": "Up",
+          "PRIORITY": "2"
+        },
+        {
+          "WLAN_ID": "13",
+          "IP_ADDRESS": "10.0.0.212",
+          "STATUS": "Up",
+          "PRIORITY": "2"
+        },
+        {
+          "WLAN_ID": "13",
+          "IP_ADDRESS": "10.0.0.213",
+          "STATUS": "Up",
+          "PRIORITY": "1"
+        }
+      ],
+      "wlan_id_ip_address_status": {
+        "WLAN_ID": "99",
+        "IP_ADDRESS": "192.168.180.1",
+        "STATUS": "Down"
+      }
+    }
+  ],
+  "cli_content": "\nMobility Anchor Export List\n\n\n Priority number, 1=Highest priority and 3=Lowest priority(default). \n\n WLAN ID     IP Address            Status                            Priority\n -------     ---------------       ------                            --------\n 12          10.0.0.211            Up                                  3                                    \n 12          10.0.0.212            Up                                  2                                    \n 13          10.0.0.212            Up                                  2                                    \n 13          10.0.0.213            Up                                  1                                    \n\n GLAN ID     IP Address            Status\n -------     ---------------       ------\n 99          192.168.180.1         Down\n",
+  "textfsm_template": "Value WLAN_ID (\\d+)\nValue IP_ADDRESS (\\S+)\nValue STATUS (\\S+)\nValue PRIORITY ([1-3])\n\nStart\n  ^\\s*WLAN ID\\s+IP Address\\s+Status\\s+Priority\\s*$$ -> Mobility_Anchor\n\nMobility_Anchor\n  # WLAN Mobility Anchor List\n  ^\\s+${WLAN_ID}\\s+${IP_ADDRESS}\\s+${STATUS}\\s+${PRIORITY} -> Record\n  #\n  # also handling the similar Guest LAN (GLAN) output\n  ^\\s+${WLAN_ID}\\s+${IP_ADDRESS}\\s+${STATUS} -> Record\n  #\n  ^\\s*GLAN ID\\s+IP Address\\s+Status\\s*$$\n  ^\\s+[-\\s]+$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

@@ -1,0 +1,69 @@
+{
+  "command": "cisco_nxos_show_vlan",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 6,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"vlan_id_vlan_name_status\">\n{{VLAN_ID | re(\"\\\\d+\")}} {{VLAN_NAME}} {{STATUS | ORPHRASE}} Eth1/2, Eth1/3, Eth1/4, Eth1/5\n</group>\n<group name=\"vlan_id_vlan_name_status_interfaces\">\n{{VLAN_ID | re(\"\\\\d+\")}} {{VLAN_NAME}} {{STATUS | ORPHRASE}} {{INTERFACES | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN_ID": "1",
+      "VLAN_NAME": "default",
+      "STATUS": "active",
+      "INTERFACES": "Eth1/2, Eth1/3, Eth1/4, Eth1/5, Eth1/6, Eth1/7, Eth1/8, Eth1/9, Eth1/10, Eth1/11, Eth1/12, Eth1/13, Eth1/14, Eth1/15, Eth1/16, Eth1/17, Eth1/18, Eth1/19, Eth1/20, Eth1/21, Eth1/22, Eth1/23, Eth1/24, Eth1/25, Eth1/26, Eth1/27, Eth1/28, Eth1/29, Eth1/30, Eth1/31, Eth1/32, Eth1/34, Eth1/35, Eth1/36, Eth1/37, Eth1/38, Eth1/39, Eth1/40, Eth1/41, Eth1/42, Eth1/43, Eth1/44, Eth1/45, Eth1/46, Eth1/47, Eth1/48, Eth2/1, Eth2/2, Eth2/3, Eth2/4, Eth2/5, Eth2/6, Eth2/7, Eth2/8, Eth2/9, Eth2/10, Eth2/11"
+    },
+    {
+      "VLAN_ID": "10",
+      "VLAN_NAME": "WEB",
+      "STATUS": "active"
+    },
+    {
+      "VLAN_ID": "20",
+      "VLAN_NAME": "VLAN0020",
+      "STATUS": "active",
+      "INTERFACES": "Eth2/12"
+    },
+    {
+      "VLAN_ID": "30",
+      "VLAN_NAME": "VLAN0030",
+      "STATUS": "active"
+    },
+    {
+      "VLAN_ID": "40",
+      "VLAN_NAME": "VLAN0040",
+      "STATUS": "active"
+    },
+    {
+      "VLAN_ID": "50",
+      "VLAN_NAME": "VLAN0050",
+      "STATUS": "active"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_id_vlan_name_status": {
+        "VLAN_ID": "1",
+        "VLAN_NAME": "default",
+        "STATUS": "active"
+      },
+      "vlan_id_vlan_name_status_interfaces": [
+        {
+          "VLAN_ID": "1",
+          "VLAN_NAME": "default",
+          "STATUS": "active",
+          "INTERFACES": "Eth1/2, Eth1/3, Eth1/4, Eth1/5"
+        },
+        {
+          "VLAN_ID": "20",
+          "VLAN_NAME": "VLAN0020",
+          "STATUS": "active",
+          "INTERFACES": "Eth2/12"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nVLAN Name                             Status    Ports\n---- -------------------------------- --------- -------------------------------\n1    default                          active    Eth1/2, Eth1/3, Eth1/4, Eth1/5\n                                                Eth1/6, Eth1/7, Eth1/8, Eth1/9\n                                                Eth1/10, Eth1/11, Eth1/12\n                                                Eth1/13, Eth1/14, Eth1/15\n                                                Eth1/16, Eth1/17, Eth1/18\n                                                Eth1/19, Eth1/20, Eth1/21\n                                                Eth1/22, Eth1/23, Eth1/24\n                                                Eth1/25, Eth1/26, Eth1/27\n                                                Eth1/28, Eth1/29, Eth1/30\n                                                Eth1/31, Eth1/32, Eth1/34\n                                                Eth1/35, Eth1/36, Eth1/37\n                                                Eth1/38, Eth1/39, Eth1/40\n                                                Eth1/41, Eth1/42, Eth1/43\n                                                Eth1/44, Eth1/45, Eth1/46\n                                                Eth1/47, Eth1/48, Eth2/1, Eth2/2\n                                                Eth2/3, Eth2/4, Eth2/5, Eth2/6\n                                                Eth2/7, Eth2/8, Eth2/9, Eth2/10\n                                                Eth2/11\n10   WEB                              active\n20   VLAN0020                         active    Eth2/12\n30   VLAN0030                         active\n40   VLAN0040                         active\n50   VLAN0050                         active\n\nVLAN Type         Vlan-mode\n---- -----        ----------\n1    enet         CE\n10   enet         CE\n20   enet         CE\n30   enet         CE\n40   enet         CE\n50   enet         CE\n\nRemote SPAN VLANs\n-------------------------------------------------------------------------------\n\nPrimary  Secondary  Type             Ports\n-------  ---------  ---------------  -------------------------------------------\n\n\n\n",
+  "textfsm_template": "Value Required VLAN_ID (\\d+)\nValue VLAN_NAME (\\S+)\nValue STATUS (\\S+)\nValue List INTERFACES ([\\w\\./]+)\n\nStart\n  ^VLAN\\s+Name\\s+Status\\s+Ports -> VLANS\n  ^VLAN\\s+Type\\s+Vlan-mode\n  ^Remote\\s+SPAN\\s+VLANs\n  ^Primary\\s+Secondary\\s+Type\\s+Ports\n\nVLANS\n  ^\\d+ -> Continue.Record\n  ^${VLAN_ID}\\s+${VLAN_NAME}\\s+${STATUS}\\s*$$\n  ^${VLAN_ID}\\s+${VLAN_NAME}\\s+${STATUS}\\s+${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){3}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){4}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){5}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){6}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){7}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){8}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){9}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){10}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){11}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){12}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){13}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){14}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){15}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){16}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){17}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){18}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){19}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){20}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){21}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){22}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){23}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){24}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){25}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){26}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){27}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){28}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){29}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){30}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){31}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){32}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){33}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){34}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){35}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){36}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){37}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){38}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){39}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){40}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){41}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){42}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){43}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){44}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){45}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){46}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){47}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){48}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){49}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){50}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){51}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){52}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){53}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){54}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){55}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){56}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){57}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){58}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){59}${INTERFACES},* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){60}${INTERFACES},* -> Continue\n  ^\\s+${INTERFACES},* -> Continue\n  ^\\s+\\S+\\s+${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){2}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){3}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){4}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){5}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){6}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){7}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){8}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){9}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){10}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){11}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){12}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){13}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){14}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){15}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){16}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){17}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){18}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){19}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){20}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){21}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){22}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){23}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){24}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){25}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){26}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){27}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){28}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){29}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){30}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){31}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){32}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){33}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){34}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){35}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){36}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){37}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){38}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){39}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){40}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){41}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){42}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){43}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){44}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){45}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){46}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){47}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){48}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){49}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){50}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){51}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){52}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){53}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){54}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){55}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){56}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){57}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){58}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){59}${INTERFACES},* -> Continue\n  ^\\s+(?:\\S+\\s+){60}${INTERFACES},* -> Continue\n  ^\\d+\n  ^\\s+\n  ^-+\n  ^\\S+\\s+[TtYyPpEe]{4} -> Done\n  ^\\s*$$\n  ^. -> Error\n\nDone\n  ^.*"
+}

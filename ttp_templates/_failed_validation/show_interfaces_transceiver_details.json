@@ -1,0 +1,14 @@
+{
+  "command": "show interfaces transceiver details",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 0,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"port_name_type_vendor_part_number_serial_number\">\n{{PORT | re(\".*\\\\w.*\")}} {{NAME | ORPHRASE}} {{TYPE | re(\".*\\\\w.*\")}} {{VENDOR | re(\".*\\\\w.*\")}} {{PART_NUMBER | re(\".*\\\\w.*\")}} {{SERIAL_NUMBER | re(\"\\\\w+\")}}\n</group>",
+  "error": "TTP parsing timed out",
+  "textfsm_parsed": [],
+  "ttp_parsed": [],
+  "cli_content": "Port       Name                Type         Vendor       Part Number    Serial Number\n-------    -----------------   ----------   ----------   -------------   --------------\nether1     SFP+10G-SR          SFP+10GBaseSR   CISCO       X21234-10      ABC123XYZ    \nether2     SFP+10G-SR          SFP+10GBaseSR   CISCO       X21234-10      ABC124XYZ    \nether3     SFP+1000BaseT       SFP+1000BaseT   CISCO       X31234-20      ABC125XYZ    \nether4     SFP+1000BaseT       SFP+1000BaseT   CISCO       X31234-20      ABC126XYZ    \n",
+  "textfsm_template": "Value PORT (\\S+)\nValue NAME ([^\\s]+)\nValue TYPE (\\S+)\nValue VENDOR (\\S+)\nValue PART_NUMBER (\\S+)\nValue SERIAL_NUMBER (\\S+)\n\nStart\n  ^\\s*Port\\s+Name\\s+Type\\s+Vendor\\s+Part Number\\s+Serial Number\\s*$$\n  ^\\s*${PORT}\\s+${NAME}\\s+${TYPE}\\s+${VENDOR}\\s+${PART_NUMBER}\\s+${SERIAL_NUMBER}\\s*$$ -> Record"
+}

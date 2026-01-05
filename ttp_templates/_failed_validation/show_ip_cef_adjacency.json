@@ -1,0 +1,33 @@
+{
+  "command": "show ip cef adjacency",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 2,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"adjacency_id_adjacency_state_adjacency_type_destination_interface\">\n  Adjacency Type: {{ADJACENCY_TYPE | ORPHRASE}}\n  Adjacency State: {{ADJACENCY_STATE | ORPHRASE}}\nForwarding adjacency (adjacency-id {{ADJACENCY_ID | ORPHRASE}})\n  Source Interface: {{SOURCE_INTERFACE | ORPHRASE}}\n  Destination Interface: {{DESTINATION_INTERFACE | ORPHRASE}}\n  Next Hop Address: {{NEXT_HOP | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "ADJACENCY_ID": "100",
+      "SOURCE_INTERFACE": "Ethernet0/0",
+      "DESTINATION_INTERFACE": "Ethernet0/1",
+      "ADJACENCY_TYPE": "Regular",
+      "ADJACENCY_STATE": "Valid, Forwarding",
+      "NEXT_HOP": "192.168.1.1"
+    },
+    {
+      "ADJACENCY_ID": "101",
+      "SOURCE_INTERFACE": "Ethernet0/2",
+      "DESTINATION_INTERFACE": "Ethernet0/3",
+      "ADJACENCY_TYPE": "Regular",
+      "ADJACENCY_STATE": "Valid, Forwarding",
+      "NEXT_HOP": "192.168.2.1"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "IP CEF with switching (Table ID 0x0)\nForwarding adjacency (adjacency-id 100)\n    Source Interface: Ethernet0/0\n    Destination Interface: Ethernet0/1\n    Adjacency Type: Regular\n    Adjacency State: Valid, Forwarding\n    Next Hop Address: 192.168.1.1\nForwarding adjacency (adjacency-id 101)\n    Source Interface: Ethernet0/2\n    Destination Interface: Ethernet0/3\n    Adjacency Type: Regular\n    Adjacency State: Valid, Forwarding\n    Next Hop Address: 192.168.2.1\n",
+  "textfsm_template": "Value ADJACENCY_ID (\\d+)\nValue SOURCE_INTERFACE (\\S+)\nValue DESTINATION_INTERFACE (\\S+)\nValue ADJACENCY_TYPE (\\S+)\nValue ADJACENCY_STATE (\\S+,\\s\\S+)\nValue NEXT_HOP (\\S+)\n\nStart\n  ^Forwarding\\sadjacency\\s\\(adjacency-id\\s${ADJACENCY_ID}\\)\n  ^\\s*Source\\sInterface:\\s${SOURCE_INTERFACE}\n  ^\\s*Destination\\sInterface:\\s${DESTINATION_INTERFACE}\n  ^\\s*Adjacency\\sType:\\s${ADJACENCY_TYPE}\n  ^\\s*Adjacency\\sState:\\s${ADJACENCY_STATE}\n  ^\\s*Next\\sHop\\sAddress:\\s${NEXT_HOP}\\s*$$ -> Record"
+}

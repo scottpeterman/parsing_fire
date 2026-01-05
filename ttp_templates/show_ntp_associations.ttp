@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ntp associations
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 3
+# Match ratio: 0.75
+
+<group name="address_ref_clock_st_when_poll_reach_delay_offset_jitter">
+{{ADDRESS}} {{REF_CLOCK}} {{ST}} {{WHEN}} {{POLL}} {{REACH}} {{DELAY}} {{OFFSET}} {{JITTER | ORPHRASE}}
+</group>

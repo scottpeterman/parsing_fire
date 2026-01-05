@@ -1,0 +1,100 @@
+{
+  "command": "show filesystem",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"filesystem_size_used_avail_capacity_mounted_on\">\n{{FILESYSTEM}} {{SIZE}} {{USED}} {{AVAIL}} {{CAPACITY | ORPHRASE}} {{MOUNTED_ON | re(\".*\\\\w.*\")}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FILESYSTEM": "/dev/sda1",
+      "SIZE": "20G",
+      "USED": "5.1G",
+      "AVAIL": "14G",
+      "CAPACITY": "27%",
+      "MOUNTED_ON": "/"
+    },
+    {
+      "FILESYSTEM": "devtmpfs",
+      "SIZE": "976M",
+      "USED": "0",
+      "AVAIL": "976M",
+      "CAPACITY": "0%",
+      "MOUNTED_ON": "/dev"
+    },
+    {
+      "FILESYSTEM": "tmpfs",
+      "SIZE": "996M",
+      "USED": "0",
+      "AVAIL": "996M",
+      "CAPACITY": "0%",
+      "MOUNTED_ON": "/dev/shm"
+    },
+    {
+      "FILESYSTEM": "tmpfs",
+      "SIZE": "996M",
+      "USED": "124M",
+      "AVAIL": "873M",
+      "CAPACITY": "13%",
+      "MOUNTED_ON": "/run"
+    },
+    {
+      "FILESYSTEM": "tmpfs",
+      "SIZE": "996M",
+      "USED": "0",
+      "AVAIL": "996M",
+      "CAPACITY": "0%",
+      "MOUNTED_ON": "/sys/fs/cgroup"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "filesystem_size_used_avail_capacity_mounted_on": [
+        {
+          "FILESYSTEM": "Filesystem",
+          "SIZE": "Size",
+          "USED": "Used",
+          "AVAIL": "Avail",
+          "CAPACITY": "Capacity",
+          "MOUNTED_ON": "Mounted on"
+        },
+        {
+          "FILESYSTEM": "devtmpfs",
+          "SIZE": "976M",
+          "USED": "0",
+          "AVAIL": "976M",
+          "CAPACITY": "0%",
+          "MOUNTED_ON": "/dev"
+        },
+        {
+          "FILESYSTEM": "tmpfs",
+          "SIZE": "996M",
+          "USED": "0",
+          "AVAIL": "996M",
+          "CAPACITY": "0%",
+          "MOUNTED_ON": "/dev/shm"
+        },
+        {
+          "FILESYSTEM": "tmpfs",
+          "SIZE": "996M",
+          "USED": "124M",
+          "AVAIL": "873M",
+          "CAPACITY": "13%",
+          "MOUNTED_ON": "/run"
+        },
+        {
+          "FILESYSTEM": "tmpfs",
+          "SIZE": "996M",
+          "USED": "0",
+          "AVAIL": "996M",
+          "CAPACITY": "0%",
+          "MOUNTED_ON": "/sys/fs/cgroup"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Filesystem      Size   Used  Avail Capacity  Mounted on\n/dev/sda1        20G   5.1G    14G      27%  /\ndevtmpfs        976M      0   976M       0%  /dev\ntmpfs           996M      0   996M       0%  /dev/shm\ntmpfs           996M   124M   873M      13%  /run\ntmpfs           996M      0   996M       0%  /sys/fs/cgroup\n",
+  "textfsm_template": "Value FILESYSTEM (\\S+)\nValue SIZE (\\S+)\nValue USED (\\S+)\nValue AVAIL (\\S+)\nValue CAPACITY (\\S+)\nValue MOUNTED_ON (\\S+)\n\nStart\n  ^Filesystem\\s+Size\\s+Used\\s+Avail\\s+Capacity\\s+Mounted\\s+on\\s*$$\n  ^${FILESYSTEM}\\s+${SIZE}\\s+${USED}\\s+${AVAIL}\\s+${CAPACITY}\\s+${MOUNTED_ON}\\s*$$ -> Record"
+}

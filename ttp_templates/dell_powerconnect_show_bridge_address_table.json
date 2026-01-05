@@ -1,0 +1,218 @@
+{
+  "command": "dell_powerconnect_show_bridge_address_table",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.2692307692307692,
+  "textfsm_rows": 26,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"vlan_id_destination_address_destination_port_type\">\n   {{VLAN_ID | re(\"\\\\d+\")}} {{DESTINATION_ADDRESS}} {{DESTINATION_PORT}} {{TYPE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DESTINATION_ADDRESS": "00:08:e3:ff:fc:28",
+      "TYPE": "dynamic",
+      "VLAN_ID": "5",
+      "DESTINATION_PORT": "g48"
+    },
+    {
+      "DESTINATION_ADDRESS": "00:13:c6:05:d3:1f",
+      "TYPE": "dynamic",
+      "VLAN_ID": "5",
+      "DESTINATION_PORT": "g48"
+    },
+    {
+      "DESTINATION_ADDRESS": "0c:f5:a4:cf:21:1f",
+      "TYPE": "dynamic",
+      "VLAN_ID": "5",
+      "DESTINATION_PORT": "g48"
+    },
+    {
+      "DESTINATION_ADDRESS": "8c:60:4f:59:90:81",
+      "TYPE": "dynamic",
+      "VLAN_ID": "5",
+      "DESTINATION_PORT": "g44"
+    },
+    {
+      "DESTINATION_ADDRESS": "8c:60:4f:59:98:01",
+      "TYPE": "dynamic",
+      "VLAN_ID": "5",
+      "DESTINATION_PORT": "g43"
+    },
+    {
+      "DESTINATION_ADDRESS": "00:08:e3:ff:fc:28",
+      "TYPE": "dynamic",
+      "VLAN_ID": "12",
+      "DESTINATION_PORT": "g48"
+    },
+    {
+      "DESTINATION_ADDRESS": "00:11:32:7c:0e:ba",
+      "TYPE": "dynamic",
+      "VLAN_ID": "12",
+      "DESTINATION_PORT": "g48"
+    },
+    {
+      "DESTINATION_ADDRESS": "00:08:e3:ff:fc:28",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g48"
+    },
+    {
+      "DESTINATION_ADDRESS": "00:0a:f7:14:c0:92",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g48"
+    },
+    {
+      "DESTINATION_ADDRESS": "00:0a:f7:14:c3:80",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g48"
+    },
+    {
+      "DESTINATION_ADDRESS": "00:0a:f7:38:33:10",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g48"
+    },
+    {
+      "DESTINATION_ADDRESS": "00:0a:f7:6a:56:30",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g48"
+    },
+    {
+      "DESTINATION_ADDRESS": "4c:d9:8f:00:31:7a",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g19"
+    },
+    {
+      "DESTINATION_ADDRESS": "4c:d9:8f:00:33:24",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g17"
+    },
+    {
+      "DESTINATION_ADDRESS": "4c:d9:8f:09:c9:10",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g31"
+    },
+    {
+      "DESTINATION_ADDRESS": "4c:d9:8f:09:c9:16",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g30"
+    },
+    {
+      "DESTINATION_ADDRESS": "4c:d9:8f:09:c9:40",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g37"
+    },
+    {
+      "DESTINATION_ADDRESS": "4c:d9:8f:9f:04:3c",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g48"
+    },
+    {
+      "DESTINATION_ADDRESS": "5c:f9:dd:fd:8b:72",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g12"
+    },
+    {
+      "DESTINATION_ADDRESS": "5c:f9:dd:fd:8c:28",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g38"
+    },
+    {
+      "DESTINATION_ADDRESS": "5c:f9:dd:fd:90:bc",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g11"
+    },
+    {
+      "DESTINATION_ADDRESS": "5c:f9:dd:fd:9a:da",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g10"
+    },
+    {
+      "DESTINATION_ADDRESS": "70:81:05:1d:e6:e2",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g48"
+    },
+    {
+      "DESTINATION_ADDRESS": "70:b5:e8:d5:de:d6",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g13"
+    },
+    {
+      "DESTINATION_ADDRESS": "70:b5:e8:d5:e2:fc",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g2"
+    },
+    {
+      "DESTINATION_ADDRESS": "70:b5:e8:d5:e6:d4",
+      "TYPE": "dynamic",
+      "VLAN_ID": "220",
+      "DESTINATION_PORT": "g1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_id_destination_address_destination_port_type": [
+        {
+          "VLAN_ID": "5",
+          "DESTINATION_ADDRESS": "00:08:e3:ff:fc:28",
+          "DESTINATION_PORT": "g48",
+          "TYPE": "dynamic"
+        },
+        {
+          "VLAN_ID": "5",
+          "DESTINATION_ADDRESS": "00:13:c6:05:d3:1f",
+          "DESTINATION_PORT": "g48",
+          "TYPE": "dynamic"
+        },
+        {
+          "VLAN_ID": "5",
+          "DESTINATION_ADDRESS": "0c:f5:a4:cf:21:1f",
+          "DESTINATION_PORT": "g48",
+          "TYPE": "dynamic"
+        },
+        {
+          "VLAN_ID": "5",
+          "DESTINATION_ADDRESS": "8c:60:4f:59:90:81",
+          "DESTINATION_PORT": "g44",
+          "TYPE": "dynamic"
+        },
+        {
+          "VLAN_ID": "5",
+          "DESTINATION_ADDRESS": "8c:60:4f:59:98:01",
+          "DESTINATION_PORT": "g43",
+          "TYPE": "dynamic"
+        },
+        {
+          "VLAN_ID": "12",
+          "DESTINATION_ADDRESS": "00:08:e3:ff:fc:28",
+          "DESTINATION_PORT": "g48",
+          "TYPE": "dynamic"
+        },
+        {
+          "VLAN_ID": "12",
+          "DESTINATION_ADDRESS": "00:11:32:7c:0e:ba",
+          "DESTINATION_PORT": "g48",
+          "TYPE": "dynamic"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Aging time is 300 sec\n\n  Vlan        Mac Address       Port     Type\n-------- --------------------- ------ ----------\n   5       00:08:e3:ff:fc:28    g48    dynamic\n   5       00:13:c6:05:d3:1f    g48    dynamic\n   5       0c:f5:a4:cf:21:1f    g48    dynamic\n   5       8c:60:4f:59:90:81    g44    dynamic\n   5       8c:60:4f:59:98:01    g43    dynamic\n   12      00:08:e3:ff:fc:28    g48    dynamic\n   12      00:11:32:7c:0e:ba    g48    dynamic\n  220      00:08:e3:ff:fc:28    g48    dynamic\n  220      00:0a:f7:14:c0:92    g48    dynamic\n  220      00:0a:f7:14:c3:80    g48    dynamic\n  220      00:0a:f7:38:33:10    g48    dynamic\n  220      00:0a:f7:6a:56:30    g48    dynamic\n  220      4c:d9:8f:00:31:7a    g19    dynamic\n  220      4c:d9:8f:00:33:24    g17    dynamic\n  220      4c:d9:8f:09:c9:10    g31    dynamic\n  220      4c:d9:8f:09:c9:16    g30    dynamic\n  220      4c:d9:8f:09:c9:40    g37    dynamic\n  220      4c:d9:8f:9f:04:3c    g48    dynamic\n  220      5c:f9:dd:fd:8b:72    g12    dynamic\n  220      5c:f9:dd:fd:8c:28    g38    dynamic\n  220      5c:f9:dd:fd:90:bc    g11    dynamic\n  220      5c:f9:dd:fd:9a:da    g10    dynamic\n  220      70:81:05:1d:e6:e2    g48    dynamic\n  220      70:b5:e8:d5:de:d6    g13    dynamic\n  220      70:b5:e8:d5:e2:fc     g2    dynamic\n  220      70:b5:e8:d5:e6:d4     g1    dynamic\n",
+  "textfsm_template": "Value DESTINATION_ADDRESS ((\\w\\w:){5}\\w\\w)\nValue TYPE (dynamic|self)\nValue VLAN_ID (\\w+)\nValue DESTINATION_PORT (\\S+)\n\nStart\n  ^\\s+Vlan\\s+Mac\\s+Address\\s+Port\\s+Type -> Begin\n\nBegin\n  ^-+\n  ^Aging\n  ^\\s+${VLAN_ID}\\s+${DESTINATION_ADDRESS}\\s+${DESTINATION_PORT}\\s+${TYPE} -> Record\n  ^. -> Error\n"
+}

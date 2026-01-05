@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_dir_flash
+# Source: ntc
+# TextFSM rows: 11
+# TTP rows: 4
+# Match ratio: 0.36
+
+<group name="file_system">
+Directory of {{FILE_SYSTEM | ORPHRASE}}
+<group name="date_time_name_permissions">
+       {{PERMISSIONS}} {{SIZE}} {{DATE_TIME | ORPHRASE}} {{NAME | ORPHRASE}}
+</group>
+</group>

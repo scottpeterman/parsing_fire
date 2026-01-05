@@ -1,0 +1,406 @@
+{
+  "command": "edgecore_show_interfaces_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.7,
+  "textfsm_rows": 10,
+  "ttp_rows": 27,
+  "ttp_template": "<group name=\"interface_name_status_pvid_priority_negotiation_type_trunk\">\n{{INTERFACE | ORPHRASE}} {{NAME}} {{STATUS | ORPHRASE}} {{PVID | re(\"\\\\d+\")}} {{PRIORITY}} {{NEGOTIATION}} {{TYPE}} {{TRUNK | ORPHRASE}}\n</group>\n<group name=\"interface_name_status_pvid_priority_negotiation_speed_duplex_type_trunk\">\n{{INTERFACE | ORPHRASE}} {{NAME}} {{STATUS | ORPHRASE}} {{PVID | re(\"\\\\d+\")}} {{PRIORITY}} {{NEGOTIATION}}-{{SPEED}}{{DUPLEX}} {{TYPE}} {{TRUNK | ORPHRASE}}\n</group>\n<group name=\"interface_status_pvid_priority_negotiation_type_trunk\">\n{{INTERFACE | ORPHRASE}} {{STATUS | ORPHRASE}} {{PVID | re(\"\\\\d+\")}} {{PRIORITY}} {{NEGOTIATION}} {{TYPE}} {{TRUNK | ORPHRASE}}\n</group>\n<group name=\"interface_status_pvid_priority_negotiation_speed_duplex_type_trunk\">\n{{INTERFACE | ORPHRASE}} {{STATUS | ORPHRASE}} {{PVID | re(\"\\\\d+\")}} {{PRIORITY}} {{NEGOTIATION}}-{{SPEED}}{{DUPLEX}} {{TYPE}} {{TRUNK | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Eth 1/ 1",
+      "NAME": "Mikrotik-11.22.33.",
+      "STATUS": "Down",
+      "PVID": "1",
+      "PRIORITY": "0",
+      "NEGOTIATION": "Auto",
+      "TYPE": "100TX",
+      "TRUNK": "None"
+    },
+    {
+      "INTERFACE": "Eth 1/ 2",
+      "NAME": "vl10_toTESTS-PC",
+      "STATUS": "Down",
+      "PVID": "5",
+      "PRIORITY": "0",
+      "NEGOTIATION": "Auto",
+      "TYPE": "100TX",
+      "TRUNK": "None"
+    },
+    {
+      "INTERFACE": "Eth 1/ 3",
+      "NAME": "FortiGateLOL-vl10",
+      "STATUS": "Up",
+      "PVID": "730",
+      "PRIORITY": "0",
+      "NEGOTIATION": "Auto",
+      "SPEED": "100",
+      "DUPLEX": "full",
+      "TYPE": "100TX",
+      "TRUNK": "None"
+    },
+    {
+      "INTERFACE": "Eth 1/ 4",
+      "STATUS": "Down",
+      "PVID": "3010",
+      "PRIORITY": "0",
+      "NEGOTIATION": "Auto",
+      "TYPE": "100TX",
+      "TRUNK": "None"
+    },
+    {
+      "INTERFACE": "Eth 1/ 5",
+      "STATUS": "Down",
+      "PVID": "884",
+      "PRIORITY": "0",
+      "NEGOTIATION": "Auto",
+      "TYPE": "100TX",
+      "TRUNK": "None"
+    },
+    {
+      "INTERFACE": "Eth 1/ 6",
+      "STATUS": "Down",
+      "PVID": "884",
+      "PRIORITY": "0",
+      "NEGOTIATION": "Auto",
+      "TYPE": "100TX",
+      "TRUNK": "None"
+    },
+    {
+      "INTERFACE": "Eth 1/ 7",
+      "NAME": "Phone_Lollink_RNCB",
+      "STATUS": "Up",
+      "PVID": "222",
+      "PRIORITY": "0",
+      "NEGOTIATION": "Auto",
+      "SPEED": "100",
+      "DUPLEX": "full",
+      "TYPE": "100TX",
+      "TRUNK": "None"
+    },
+    {
+      "INTERFACE": "Eth 1/ 8",
+      "STATUS": "Up",
+      "PVID": "222",
+      "PRIORITY": "0",
+      "NEGOTIATION": "Auto",
+      "SPEED": "100",
+      "DUPLEX": "full",
+      "TYPE": "100TX",
+      "TRUNK": "None"
+    },
+    {
+      "INTERFACE": "Eth 1/ 9",
+      "STATUS": "Up",
+      "PVID": "1",
+      "PRIORITY": "0",
+      "NEGOTIATION": "Auto",
+      "SPEED": "1000",
+      "DUPLEX": "full",
+      "TYPE": "1000T",
+      "TRUNK": "None"
+    },
+    {
+      "INTERFACE": "Eth 1/10",
+      "STATUS": "Up",
+      "PVID": "1",
+      "PRIORITY": "0",
+      "NEGOTIATION": "Auto",
+      "SPEED": "1000",
+      "DUPLEX": "full",
+      "TYPE": "1000T",
+      "TRUNK": "None"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_name_status_pvid_priority_negotiation_type_trunk": [
+        {
+          "INTERFACE": "Eth 1/",
+          "NAME": "1",
+          "STATUS": "Mikrotik-11.22.33. Down",
+          "PVID": "1",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/ 2",
+          "NAME": "vl10_toTESTS-PC",
+          "STATUS": "Down",
+          "PVID": "5",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/ 3",
+          "NAME": "FortiGateLOL-vl10",
+          "STATUS": "Up",
+          "PVID": "730",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto-100full",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/",
+          "NAME": "4",
+          "STATUS": "Down",
+          "PVID": "3010",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/",
+          "NAME": "5",
+          "STATUS": "Down",
+          "PVID": "884",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/",
+          "NAME": "6",
+          "STATUS": "Down",
+          "PVID": "884",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/",
+          "NAME": "7",
+          "STATUS": "Phone_Lollink_RNCB Up",
+          "PVID": "222",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto-100full",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/",
+          "NAME": "8",
+          "STATUS": "Up",
+          "PVID": "222",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto-100full",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/",
+          "NAME": "9",
+          "STATUS": "Up",
+          "PVID": "1",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto-1000full",
+          "TYPE": "1000T",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth",
+          "NAME": "1/10",
+          "STATUS": "Up",
+          "PVID": "1",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto-1000full",
+          "TYPE": "1000T",
+          "TRUNK": "None"
+        }
+      ],
+      "interface_name_status_pvid_priority_negotiation_speed_duplex_type_trunk": [
+        {
+          "INTERFACE": "Eth 1/ 3",
+          "NAME": "FortiGateLOL-vl10",
+          "STATUS": "Up",
+          "PVID": "730",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto",
+          "SPEED": "100ful",
+          "DUPLEX": "l",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/",
+          "NAME": "7",
+          "STATUS": "Phone_Lollink_RNCB Up",
+          "PVID": "222",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto",
+          "SPEED": "100ful",
+          "DUPLEX": "l",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/",
+          "NAME": "8",
+          "STATUS": "Up",
+          "PVID": "222",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto",
+          "SPEED": "100ful",
+          "DUPLEX": "l",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/",
+          "NAME": "9",
+          "STATUS": "Up",
+          "PVID": "1",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto",
+          "SPEED": "1000ful",
+          "DUPLEX": "l",
+          "TYPE": "1000T",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth",
+          "NAME": "1/10",
+          "STATUS": "Up",
+          "PVID": "1",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto",
+          "SPEED": "1000ful",
+          "DUPLEX": "l",
+          "TYPE": "1000T",
+          "TRUNK": "None"
+        }
+      ],
+      "interface_status_pvid_priority_negotiation_type_trunk": [
+        {
+          "INTERFACE": "Eth 1/ 1",
+          "STATUS": "Mikrotik-11.22.33. Down",
+          "PVID": "1",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/ 4",
+          "STATUS": "Down",
+          "PVID": "3010",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/ 5",
+          "STATUS": "Down",
+          "PVID": "884",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/ 6",
+          "STATUS": "Down",
+          "PVID": "884",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/ 7",
+          "STATUS": "Phone_Lollink_RNCB Up",
+          "PVID": "222",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto-100full",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/ 8",
+          "STATUS": "Up",
+          "PVID": "222",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto-100full",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/ 9",
+          "STATUS": "Up",
+          "PVID": "1",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto-1000full",
+          "TYPE": "1000T",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/10",
+          "STATUS": "Up",
+          "PVID": "1",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto-1000full",
+          "TYPE": "1000T",
+          "TRUNK": "None"
+        }
+      ],
+      "interface_status_pvid_priority_negotiation_speed_duplex_type_trunk": [
+        {
+          "INTERFACE": "Eth 1/ 7",
+          "STATUS": "Phone_Lollink_RNCB Up",
+          "PVID": "222",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto",
+          "SPEED": "100ful",
+          "DUPLEX": "l",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/ 8",
+          "STATUS": "Up",
+          "PVID": "222",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto",
+          "SPEED": "100ful",
+          "DUPLEX": "l",
+          "TYPE": "100TX",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/ 9",
+          "STATUS": "Up",
+          "PVID": "1",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto",
+          "SPEED": "1000ful",
+          "DUPLEX": "l",
+          "TYPE": "1000T",
+          "TRUNK": "None"
+        },
+        {
+          "INTERFACE": "Eth 1/10",
+          "STATUS": "Up",
+          "PVID": "1",
+          "PRIORITY": "0",
+          "NEGOTIATION": "Auto",
+          "SPEED": "1000ful",
+          "DUPLEX": "l",
+          "TYPE": "1000T",
+          "TRUNK": "None"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface Name               Status   PVID Pri Speed/Duplex  Type         Trunk\n--------- ------------------ -------- ---- --- ------------- ------------ -----\nEth 1/ 1  Mikrotik-11.22.33. Down        1   0 Auto          100TX        None\nEth 1/ 2  vl10_toTESTS-PC    Down        5   0 Auto          100TX        None\nEth 1/ 3  FortiGateLOL-vl10  Up        730   0 Auto-100full  100TX        None\nEth 1/ 4                     Down     3010   0 Auto          100TX        None\nEth 1/ 5                     Down      884   0 Auto          100TX        None\nEth 1/ 6                     Down      884   0 Auto          100TX        None\nEth 1/ 7  Phone_Lollink_RNCB Up        222   0 Auto-100full  100TX        None\nEth 1/ 8                     Up        222   0 Auto-100full  100TX        None\nEth 1/ 9                     Up          1   0 Auto-1000full 1000T        None\nEth 1/10                     Up          1   0 Auto-1000full 1000T        None\n",
+  "textfsm_template": "Value INTERFACE (\\S+\\s+\\d+\\s*/\\s*\\d+)\nValue NAME (.*?)\nValue STATUS (\\S+)\nValue PVID (\\d+)\nValue PRIORITY (\\d+)\nValue NEGOTIATION (Auto)\nValue SPEED (\\d+)\nValue DUPLEX (\\S+)\nValue TYPE (\\S+)\nValue TRUNK (\\S+)\n\nStart\n  ^\\s*Interface\\s+Name\\s+Status\\s+PVID\\s+Pri\\s+Speed/Duplex\\s+Type\\s+Trunk\\s*$$ -> IfacesTable\n  ^\\s*$$\n  ^. -> Error\n\nIfacesTable\n  ^(?:\\s*-+)+\\s*$$\n  ^\\s*${INTERFACE}(?:\\s+${NAME})?\\s+${STATUS}\\s+${PVID}\\s+${PRIORITY}\\s+(${NEGOTIATION}(\\-)?)?(${SPEED})?(${DUPLEX})?\\s+${TYPE}\\s+${TRUNK}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

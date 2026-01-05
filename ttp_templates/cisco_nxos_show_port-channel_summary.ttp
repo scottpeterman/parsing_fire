@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_port-channel_summary
+# Source: ntc
+# TextFSM rows: 20
+# TTP rows: 1
+# Match ratio: 0.05
+
+<group name="bundle_name_bundle_status_bundle_protocol_member_interface">
+131 {{BUNDLE_NAME}}({{BUNDLE_STATUS | OR{{MEMBER_INTERFACE_STATUS | ORPHRASE}}HRASE}}) Eth {{BUNDLE_PROTOCOL}} {{MEMBER_INTERFACE | ORPHRASE}}(P) 
+</group>
+<group name="member_interface_status_bundle_status_bundle_protocol_member_interface">
+136 {{BUN{{MEMBER_INTERFACE_STATUS | ORPHRASE}}LE_NAME}}({{BUNDLE_STATUS | ORPHRASE}}) Eth {{BUNDLE_PROTOCOL}} {{MEMBER_INTERFACE | ORPHRASE}}(D) 
+</group>
+<group name="bundle_name_bundle_status_bundle_protocol">
+200 {{BUNDLE_NAME}}({{BUNDLE_STATUS | ORPHRASE}}) Eth {{BUNDLE_PROTOCOL | ORPHRASE}} Eth1/21(P) Eth1/22(P) 
+</group>

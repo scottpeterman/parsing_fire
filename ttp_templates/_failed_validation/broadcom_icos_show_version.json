@@ -1,0 +1,32 @@
+{
+  "command": "broadcom_icos_show_version",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 1,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"description\">\nSystem Description............................. {{DESCRIPTION | ORPHR{{MAINTENANCE_LEVEL}}SE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "DESCRIPTION": "Data Center Switch Software AS5610-52X, 48x10Gb, 4x40Gb, 3.2.2.42, Linux 3.8.13-rt9-4143e257, U-Boot 2013.01.01-gb4d916c (Jun 06 2017 - 10:45:46) - 3.0.3.15",
+      "SWITCH_TYPE": "Data Center Switch Software AS5610-52X, 48x10Gb, 4x40Gb",
+      "SWITCH_MODEL": "AS5610-52X",
+      "SERIAL": "561052X1727264",
+      "MAINTENANCE_LEVEL": "A",
+      "MANUFACTURER": "0xbc00",
+      "MAC_ADDRESS": "A8:2B:B5:57:CC:8D",
+      "VERSION": "3.2.2.42",
+      "OS_VERSION": "Linux 3.8.13-rt9-4143e257",
+      "NETWORK_PROCESSING_DEVICE": "BCM56846_A1",
+      "CPLD_VERSION": "0x2",
+      "BOARD_REVISION": "0x2",
+      "ADDITIONAL_PACKAGES": "BGP-4, QOS, Multicast, IPv6, Routing, Data Center, OpEN API, Prototype Open API"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "\nSwitch: 1\n\nSystem Description............................. Data Center Switch Software AS5610-52X, 48x10Gb, 4x40Gb, 3.2.2.42, Linux 3.8.13-rt9-4143e257, U-Boot 2013.01.01-gb4d916c (Jun 06 2017 - 10:45:46) - 3.0.3.15\nMachine Type................................... Data Center Switch Software AS5610-52X, 48x10Gb, 4x40Gb\nMachine Model.................................. AS5610-52X\nSerial Number.................................. 561052X1727264\nMaintenance Level.............................. A\nManufacturer................................... 0xbc00\nBurned In MAC Address.......................... A8:2B:B5:57:CC:8D\nSoftware Version............................... 3.2.2.42\nOperating System............................... Linux 3.8.13-rt9-4143e257\nNetwork Processing Device...................... BCM56846_A1\nCPLD version................................... 0x2\nBoard Revision................................. 0x2\nAdditional Packages............................ BGP-4\n                                                QOS\n                                                Multicast\n                                                IPv6\n                                                Routing\n                                                Data Center\n                                                OpEN API\n                                                Prototype Open API\n",
+  "textfsm_template": "Value DESCRIPTION (.+)\nValue SWITCH_TYPE (.+)\nValue SWITCH_MODEL (.+)\nValue SERIAL (.+)\nValue FRU_NUMBER (.+)\nValue PART_NUMBER (.+)\nValue MAINTENANCE_LEVEL (.+)\nValue MANUFACTURER (.+)\nValue MAC_ADDRESS (.+)\nValue VERSION (.+)\nValue OS_VERSION (.+)\nValue NETWORK_PROCESSING_DEVICE (.+)\nValue CPLD_VERSION (.+)\nValue BOARD_REVISION (.+)\nValue List ADDITIONAL_PACKAGES (.+)\n\nStart\n  # Captures show version for:\n  # Accton AS4610-54P, Accton AS5610-52X, Quanta LY2R, Quanta LB9, DNI AG3448P-R   \n  # The following can be an empty value as it doesnt exist in all the models:\n  # FruNumber, PartNumber, CPLDversion, BoardRevision\n  ^\\s*Switch\\s*:\\s*\\d+\\s*$$\n  ^\\s*$$\n  ^\\s*System\\s*Description\\s*\\.+\\s*${DESCRIPTION}$$\n  ^\\s*Machine\\s*Type\\s*\\.+\\s*${SWITCH_TYPE}$$\n  ^\\s*Machine\\s*Model\\s*\\.+\\s*${SWITCH_MODEL}$$\n  ^\\s*Serial\\s*Number\\s*\\.+\\s*${SERIAL}$$\n  ^\\s*FRU\\s*Number\\s*\\.+\\s*${FRU_NUMBER}$$\n  ^\\s*Part\\s*Number\\s*\\.+\\s*${PART_NUMBER}$$\n  ^\\s*Maintenance\\s*Level\\s*\\.+\\s*${MAINTENANCE_LEVEL}$$\n  ^\\s*Manufacturer\\s*\\.+\\s*${MANUFACTURER}$$\n  ^\\s*Burned\\s*In\\s*MAC\\s*Address\\s*\\.+\\s*${MAC_ADDRESS}$$\n  ^\\s*Software\\s*Version\\s*\\.+\\s*${VERSION}$$\n  ^\\s*Operating\\s*System\\s*\\.+\\s*${OS_VERSION}$$\n  ^\\s*Network\\s*Processing\\s*Device\\s*\\.+\\s*${NETWORK_PROCESSING_DEVICE}$$\n  ^\\s*CPLD\\s*version\\s*\\.+\\s*${CPLD_VERSION}$$\n  ^\\s*Board\\s*Revision\\s*\\.+\\s*${BOARD_REVISION}$$\n  ^\\s*Additional\\s*Packages\\s*\\.+\\s*${ADDITIONAL_PACKAGES}$$\n  ^\\s+${ADDITIONAL_PACKAGES}$$\n  ^. -> Error"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: paloalto_panos_test_security-policy-match
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="application_service">
+        application/service {{APPLICATION_SERVICE | ORPHRASE}};
+</group>

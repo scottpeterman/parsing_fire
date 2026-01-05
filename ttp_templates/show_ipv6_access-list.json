@@ -1,0 +1,102 @@
+{
+  "command": "show ipv6 access-list",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"sequence_action_protocol_source_destination_hits\">\n    sequence {{SEQUENCE}} {{ACTION}} {{PROTOCOL}} {{SOURCE}} {{DESTINATION}} (hitcnt={{HITS | ORPHRASE}}) \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LIST_NAME": "ACL_V6_OUT",
+      "SEQUENCE": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "ipv6",
+      "SOURCE": "2001:DB8:1::/64",
+      "DESTINATION": "any",
+      "HITS": "5"
+    },
+    {
+      "SEQUENCE": "20",
+      "ACTION": "permit",
+      "PROTOCOL": "ipv6",
+      "SOURCE": "2001:DB8:2::/64",
+      "DESTINATION": "any",
+      "HITS": "8"
+    },
+    {
+      "SEQUENCE": "30",
+      "ACTION": "deny",
+      "PROTOCOL": "ipv6",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "HITS": "0"
+    },
+    {
+      "LIST_NAME": "ACL_V6_IN",
+      "SEQUENCE": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "ipv6",
+      "SOURCE": "2001:DB8:3::/64",
+      "DESTINATION": "any",
+      "HITS": "10"
+    },
+    {
+      "SEQUENCE": "20",
+      "ACTION": "deny",
+      "PROTOCOL": "ipv6",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "HITS": "2"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "sequence_action_protocol_source_destination_hits": [
+        {
+          "SEQUENCE": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "ipv6",
+          "SOURCE": "2001:DB8:1::/64",
+          "DESTINATION": "any",
+          "HITS": "5"
+        },
+        {
+          "SEQUENCE": "20",
+          "ACTION": "permit",
+          "PROTOCOL": "ipv6",
+          "SOURCE": "2001:DB8:2::/64",
+          "DESTINATION": "any",
+          "HITS": "8"
+        },
+        {
+          "SEQUENCE": "30",
+          "ACTION": "deny",
+          "PROTOCOL": "ipv6",
+          "SOURCE": "any",
+          "DESTINATION": "any",
+          "HITS": "0"
+        },
+        {
+          "SEQUENCE": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "ipv6",
+          "SOURCE": "2001:DB8:3::/64",
+          "DESTINATION": "any",
+          "HITS": "10"
+        },
+        {
+          "SEQUENCE": "20",
+          "ACTION": "deny",
+          "PROTOCOL": "ipv6",
+          "SOURCE": "any",
+          "DESTINATION": "any",
+          "HITS": "2"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IPv6 access list ACL_V6_OUT\n    sequence 10 permit ipv6 2001:DB8:1::/64 any (hitcnt=5) \n    sequence 20 permit ipv6 2001:DB8:2::/64 any (hitcnt=8) \n    sequence 30 deny ipv6 any any (hitcnt=0) \n\nIPv6 access list ACL_V6_IN\n    sequence 10 permit ipv6 2001:DB8:3::/64 any (hitcnt=10) \n    sequence 20 deny ipv6 any any (hitcnt=2) \n",
+  "textfsm_template": "Value LIST_NAME (\\S+)\nValue SEQUENCE (\\d+)\nValue ACTION (\\S+)\nValue PROTOCOL (\\S+)\nValue SOURCE (\\S+)\nValue DESTINATION (\\S+)\nValue HITS (\\d+)\n\nStart\n  ^IPv6\\saccess\\slist\\s${LIST_NAME}\\s*$$\n  ^\\s*sequence\\s${SEQUENCE}\\s${ACTION}\\s${PROTOCOL}\\s${SOURCE}\\s${DESTINATION}\\s\\(hitcnt=${HITS}\\)\\s*$$ -> Record"
+}

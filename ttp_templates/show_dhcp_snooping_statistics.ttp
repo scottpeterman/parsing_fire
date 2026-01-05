@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show dhcp snooping statistics
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="bindings_added_bindings_expired_drop_checksum_drop_other">
+  Total number of DHCP packets received: {{TOTAL_RECEIVED | ORPHRASE}}
+  Total number of DHCP packets dropped: {{TOTAL_DROPPED | ORPHRASE}}
+  Rate limit exceeded: {{DROP_RATE_LIMIT | ORPHRASE}}
+  Invalid checksum: {{DROP_CHECKSUM | ORPHRASE}}
+  Total number of DHCP bindings added: {{BINDINGS_ADDED | ORPHRASE}}
+  Total number of DHCP packets forwarded: {{PACKETS_FORWARDED | ORPHRASE}}
+</group>

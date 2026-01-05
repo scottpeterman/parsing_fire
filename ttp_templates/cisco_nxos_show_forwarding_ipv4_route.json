@@ -1,0 +1,2636 @@
+{
+  "command": "cisco_nxos_show_forwarding_ipv4_route",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.9208333333333333,
+  "textfsm_rows": 240,
+  "ttp_rows": 221,
+  "ttp_template": "<group name=\"ip_address_prefix_length_nexthop_interface\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{PREFIX_LENGTH}} {{NEXTHOP | ORPHRASE}} {{INTERFACE | ORPHRASE}}\n</group>\n<group name=\"ip_address_prefix_length_nexthop\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{PREFIX_LENGTH}} {{NEXTHOP | ORPHRASE}} \n</group>\n<group name=\"ip_address_prefix_length\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{PREFIX_LENGTH | ORPHRASE}} 172.16.90.6 Ethernet1/45 \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP_ADDRESS": "0.0.0.0",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Drop",
+      "INTERFACE": "Null0"
+    },
+    {
+      "IP_ADDRESS": "127.0.0.0",
+      "PREFIX_LENGTH": "8",
+      "NEXTHOP": "Drop",
+      "INTERFACE": "Null0"
+    },
+    {
+      "IP_ADDRESS": "255.255.255.255",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Receive",
+      "INTERFACE": "sup-eth1"
+    },
+    {
+      "IP_ADDRESS": "0.0.0.0",
+      "PREFIX_LENGTH": "0",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.1.88.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.1.90.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "Attached"
+    },
+    {
+      "IP_ADDRESS": "10.1.90.0",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Drop",
+      "INTERFACE": "Null0"
+    },
+    {
+      "IP_ADDRESS": "10.1.90.1",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Receive",
+      "INTERFACE": "sup-eth1"
+    },
+    {
+      "IP_ADDRESS": "10.1.90.101",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Receive",
+      "INTERFACE": "sup-eth1"
+    },
+    {
+      "IP_ADDRESS": "10.1.90.102",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.1.90.102",
+      "INTERFACE": "Vlan1"
+    },
+    {
+      "IP_ADDRESS": "10.1.90.255",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Attached",
+      "INTERFACE": "Vlan1"
+    },
+    {
+      "IP_ADDRESS": "10.5.88.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.5.90.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6, 172.16.90.10",
+      "INTERFACE": "Ethernet1/45, Ethernet1/43"
+    },
+    {
+      "IP_ADDRESS": "10.5.99.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.33",
+      "INTERFACE": "Ethernet1/46"
+    },
+    {
+      "IP_ADDRESS": "10.5.224.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.5.225.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.5.226.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.9.88.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.10.10.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6, 172.16.90.10",
+      "INTERFACE": "Ethernet1/45, Ethernet1/43"
+    },
+    {
+      "IP_ADDRESS": "10.10.15.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.10.22.0",
+      "PREFIX_LENGTH": "25",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.10.29.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.10.38.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.10.39.0",
+      "PREFIX_LENGTH": "26",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.10.39.64",
+      "PREFIX_LENGTH": "26",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.10.39.128",
+      "PREFIX_LENGTH": "26",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.10.39.192",
+      "PREFIX_LENGTH": "26",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.10.50.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.10.55.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.10.56.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.10.88.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.10.90.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6, 172.16.90.10",
+      "INTERFACE": "Ethernet1/45, Ethernet1/43"
+    },
+    {
+      "IP_ADDRESS": "10.10.99.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.33",
+      "INTERFACE": "Ethernet1/46"
+    },
+    {
+      "IP_ADDRESS": "10.10.192.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.10.224.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.10.225.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.10.226.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.10.254.1",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.10.254.2",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.10.255.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.10.255.7",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.10.255.8",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.11.88.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.11.90.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6, 172.16.90.10",
+      "INTERFACE": "Ethernet1/45, Ethernet1/43"
+    },
+    {
+      "IP_ADDRESS": "10.15.88.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.17.88.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.18.88.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.20.88.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.30.88.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.30.112.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "Drop",
+      "INTERFACE": "Null0"
+    },
+    {
+      "IP_ADDRESS": "10.30.113.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.35.29.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.35.44.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.35.45.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.35.46.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.35.88.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.35.90.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.35.192.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.40.88.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.77.100.0",
+      "PREFIX_LENGTH": "28",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.77.100.96",
+      "PREFIX_LENGTH": "28",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.90.88.0",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.100.88.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.100.90.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6, 172.16.90.10",
+      "INTERFACE": "Ethernet1/45, Ethernet1/43"
+    },
+    {
+      "IP_ADDRESS": "10.100.99.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.33",
+      "INTERFACE": "Ethernet1/46"
+    },
+    {
+      "IP_ADDRESS": "10.100.192.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.100.224.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.100.225.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.100.226.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.119.48.0",
+      "PREFIX_LENGTH": "27",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.119.48.32",
+      "PREFIX_LENGTH": "27",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.129.3.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.129.4.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.129.28.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.129.88.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "Attached",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.0",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Drop",
+      "INTERFACE": "Null0"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.1",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Receive",
+      "INTERFACE": "sup-eth1"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.10",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.10",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.11",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.11",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.12",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.12",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.13",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.13",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.14",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.14",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.15",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.15",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.16",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.16",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.17",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.17",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.18",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.18",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.19",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.19",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.20",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.20",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.21",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.21",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.22",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.22",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.23",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.23",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.24",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.24",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.25",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.25",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.26",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.26",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.28",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.28",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.29",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.29",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.30",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.129.90.30",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.90.255",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Attached",
+      "INTERFACE": "Vlan20"
+    },
+    {
+      "IP_ADDRESS": "10.129.91.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.2",
+      "INTERFACE": "Vlan112"
+    },
+    {
+      "IP_ADDRESS": "10.129.92.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6, 172.16.90.10",
+      "INTERFACE": "Ethernet1/45, Ethernet1/43"
+    },
+    {
+      "IP_ADDRESS": "10.129.100.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.129.192.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.129.200.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.129.224.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.129.225.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.129.226.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.129.227.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.129.228.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.129.229.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.129.230.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.150.201.130",
+      "PREFIX_LENGTH": "31",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.150.202.0",
+      "PREFIX_LENGTH": "27",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.150.202.64",
+      "PREFIX_LENGTH": "27",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.150.202.64",
+      "PREFIX_LENGTH": "28",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.150.202.80",
+      "PREFIX_LENGTH": "28",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.152.202.16",
+      "PREFIX_LENGTH": "28",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.200.130.0",
+      "PREFIX_LENGTH": "29",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.222.48.192",
+      "PREFIX_LENGTH": "26",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.249.0.8",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.249.17.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.18.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.37.1",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.37.2",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.37.3",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.37.4",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.37.5",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.37.6",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.38.5",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.38.6",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.38.12",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.38.13",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.38.14",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.38.64",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "Attached",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.38.64",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Drop",
+      "INTERFACE": "Null0"
+    },
+    {
+      "IP_ADDRESS": "10.249.38.65",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.38.66",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Receive",
+      "INTERFACE": "sup-eth1"
+    },
+    {
+      "IP_ADDRESS": "10.249.38.67",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Attached",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.38.68",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.39.36",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.39.50",
+      "PREFIX_LENGTH": "31",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.40.36",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.56.192",
+      "PREFIX_LENGTH": "26",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.249.250.0",
+      "PREFIX_LENGTH": "25",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.253.219",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.253.220",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.253.225",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.253.226",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.253.231",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.253.232",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.253.251",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.254.1",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.249.254.64",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "172.16.90.2",
+      "INTERFACE": "Vlan112"
+    },
+    {
+      "IP_ADDRESS": "10.249.254.68",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.255.120",
+      "PREFIX_LENGTH": "29",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.255.240",
+      "PREFIX_LENGTH": "29",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.249.255.248",
+      "PREFIX_LENGTH": "29",
+      "NEXTHOP": "10.249.38.65",
+      "INTERFACE": "Ethernet1/1"
+    },
+    {
+      "IP_ADDRESS": "10.255.28.1",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.255.88.1",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.255.88.253",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.255.90.1",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Receive",
+      "INTERFACE": "sup-eth1"
+    },
+    {
+      "IP_ADDRESS": "10.255.90.2",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.2",
+      "INTERFACE": "Vlan112"
+    },
+    {
+      "IP_ADDRESS": "10.255.90.3",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.255.90.4",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.10",
+      "INTERFACE": "Ethernet1/43"
+    },
+    {
+      "IP_ADDRESS": "10.255.90.110",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "10.255.99.1",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.33",
+      "INTERFACE": "Ethernet1/46"
+    },
+    {
+      "IP_ADDRESS": "10.255.99.2",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.2",
+      "INTERFACE": "Vlan112"
+    },
+    {
+      "IP_ADDRESS": "10.255.192.1",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.255.192.2",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.255.255.1",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "10.255.255.2",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "68.202.118.148",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "69.203.118.52",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "113.117.128.2",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "117.120.112.118",
+      "PREFIX_LENGTH": "26",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "117.121.132.112",
+      "PREFIX_LENGTH": "26",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "160.44.97.23",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "160.45.98.45",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "172.116.129.4",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "Attached",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "172.116.129.4",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Drop",
+      "INTERFACE": "Null0"
+    },
+    {
+      "IP_ADDRESS": "172.116.129.5",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.29.5",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "172.116.129.6",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Receive",
+      "INTERFACE": "sup-eth1"
+    },
+    {
+      "IP_ADDRESS": "172.116.129.7",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Attached",
+      "INTERFACE": "Ethernet1/3"
+    },
+    {
+      "IP_ADDRESS": "172.116.188.0",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "172.116.188.4",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "172.116.188.8",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "172.116.188.16",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "172.16.90.10",
+      "INTERFACE": "Ethernet1/43"
+    },
+    {
+      "IP_ADDRESS": "172.116.190.0",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "Attached"
+    },
+    {
+      "IP_ADDRESS": "172.116.190.0",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Drop",
+      "INTERFACE": "Null0"
+    },
+    {
+      "IP_ADDRESS": "172.116.190.1",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Receive",
+      "INTERFACE": "sup-eth1"
+    },
+    {
+      "IP_ADDRESS": "172.116.190.2",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.2",
+      "INTERFACE": "Vlan112"
+    },
+    {
+      "IP_ADDRESS": "172.116.190.3",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Attached",
+      "INTERFACE": "Vlan112"
+    },
+    {
+      "IP_ADDRESS": "172.116.190.4",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "Attached",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "172.116.190.4",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Drop",
+      "INTERFACE": "Null0"
+    },
+    {
+      "IP_ADDRESS": "172.116.190.5",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Receive",
+      "INTERFACE": "sup-eth1"
+    },
+    {
+      "IP_ADDRESS": "172.116.190.6",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "172.116.190.7",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Attached",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "172.116.190.8",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "Attached",
+      "INTERFACE": "Ethernet1/43"
+    },
+    {
+      "IP_ADDRESS": "172.116.190.8",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Drop",
+      "INTERFACE": "Null0"
+    },
+    {
+      "IP_ADDRESS": "172.116.190.9",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Receive",
+      "INTERFACE": "sup-eth1"
+    },
+    {
+      "IP_ADDRESS": "172.116.190.10",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.10",
+      "INTERFACE": "Ethernet1/43"
+    },
+    {
+      "IP_ADDRESS": "172.116.190.11",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Attached",
+      "INTERFACE": "Ethernet1/43"
+    },
+    {
+      "IP_ADDRESS": "172.116.190.12",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "172.16.90.2",
+      "INTERFACE": "Vlan112"
+    },
+    {
+      "IP_ADDRESS": "172.116.190.16",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "172.16.90.2",
+      "INTERFACE": "Vlan112"
+    },
+    {
+      "IP_ADDRESS": "172.116.190.20",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "172.16.90.6, 172.16.90.10",
+      "INTERFACE": "Ethernet1/45, Ethernet1/43"
+    },
+    {
+      "IP_ADDRESS": "172.120.93.24",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "172.120.93.28",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "172.16.90.10",
+      "INTERFACE": "Ethernet1/43"
+    },
+    {
+      "IP_ADDRESS": "172.120.93.32",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "Attached",
+      "INTERFACE": "Ethernet1/46"
+    },
+    {
+      "IP_ADDRESS": "172.120.93.32",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Drop",
+      "INTERFACE": "Null0"
+    },
+    {
+      "IP_ADDRESS": "172.120.93.33",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.33",
+      "INTERFACE": "Ethernet1/46"
+    },
+    {
+      "IP_ADDRESS": "172.120.93.34",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Receive",
+      "INTERFACE": "sup-eth1"
+    },
+    {
+      "IP_ADDRESS": "172.120.93.35",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Attached",
+      "INTERFACE": "Ethernet1/46"
+    },
+    {
+      "IP_ADDRESS": "172.120.93.36",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "172.16.90.2",
+      "INTERFACE": "Vlan112"
+    },
+    {
+      "IP_ADDRESS": "172.120.93.0",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "172.16.90.33",
+      "INTERFACE": "Ethernet1/46"
+    },
+    {
+      "IP_ADDRESS": "172.121.135.16",
+      "PREFIX_LENGTH": "30",
+      "NEXTHOP": "Attached",
+      "INTERFACE": "Ethernet1/41"
+    },
+    {
+      "IP_ADDRESS": "172.121.135.16",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Drop",
+      "INTERFACE": "Null0"
+    },
+    {
+      "IP_ADDRESS": "172.212.135.17",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.30.135.17",
+      "INTERFACE": "Ethernet1/41"
+    },
+    {
+      "IP_ADDRESS": "172.213.135.18",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Receive",
+      "INTERFACE": "sup-eth1"
+    },
+    {
+      "IP_ADDRESS": "172.214.135.19",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "Attached",
+      "INTERFACE": "Ethernet1/41"
+    },
+    {
+      "IP_ADDRESS": "172.214.0.0",
+      "PREFIX_LENGTH": "16",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "192.200.54.48",
+      "PREFIX_LENGTH": "28",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "192.200.54.48",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "192.200.54.49",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "192.200.54.50",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "192.200.54.51",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "192.200.54.52",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "192.200.54.53",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "192.200.54.54",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "192.200.54.55",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "192.200.54.56",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "192.200.54.57",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "192.200.54.58",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "192.200.54.59",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "192.200.54.60",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "192.200.54.61",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "192.200.54.62",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.16.90.6",
+      "INTERFACE": "Ethernet1/45"
+    },
+    {
+      "IP_ADDRESS": "203.45.179.33",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.30.135.17",
+      "INTERFACE": "Ethernet1/41"
+    },
+    {
+      "IP_ADDRESS": "203.46.179.34",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP": "172.30.135.17",
+      "INTERFACE": "Ethernet1/41"
+    },
+    {
+      "IP_ADDRESS": "203.72.179.0",
+      "PREFIX_LENGTH": "25",
+      "NEXTHOP": "172.30.135.17",
+      "INTERFACE": "Ethernet1/41"
+    },
+    {
+      "IP_ADDRESS": "203.72.179.128",
+      "PREFIX_LENGTH": "25",
+      "NEXTHOP": "172.30.135.17",
+      "INTERFACE": "Ethernet1/41"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_address_prefix_length_nexthop_interface": [
+        {
+          "IP_ADDRESS": "0.0.0.0",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Drop",
+          "INTERFACE": "Null0"
+        },
+        {
+          "IP_ADDRESS": "127.0.0.0",
+          "PREFIX_LENGTH": "8",
+          "NEXTHOP": "Drop",
+          "INTERFACE": "Null0"
+        },
+        {
+          "IP_ADDRESS": "255.255.255.255",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Receive",
+          "INTERFACE": "sup-eth1"
+        },
+        {
+          "IP_ADDRESS": "0.0.0.0",
+          "PREFIX_LENGTH": "0",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.1.88.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.1.90.0",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Drop",
+          "INTERFACE": "Null0"
+        },
+        {
+          "IP_ADDRESS": "10.1.90.1",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Receive",
+          "INTERFACE": "sup-eth1"
+        },
+        {
+          "IP_ADDRESS": "10.1.90.101",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Receive",
+          "INTERFACE": "sup-eth1"
+        },
+        {
+          "IP_ADDRESS": "10.1.90.102",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.1.90.102",
+          "INTERFACE": "Vlan1"
+        },
+        {
+          "IP_ADDRESS": "10.1.90.255",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Attached",
+          "INTERFACE": "Vlan1"
+        },
+        {
+          "IP_ADDRESS": "10.5.88.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.5.90.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.5.99.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.33",
+          "INTERFACE": "Ethernet1/46"
+        },
+        {
+          "IP_ADDRESS": "10.9.88.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.10.10.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.10.50.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.10.55.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.10.56.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.10.88.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.10.90.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.10.99.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.33",
+          "INTERFACE": "Ethernet1/46"
+        },
+        {
+          "IP_ADDRESS": "10.11.88.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.11.90.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.15.88.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.17.88.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.18.88.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.20.88.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.30.88.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.30.112.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "Drop",
+          "INTERFACE": "Null0"
+        },
+        {
+          "IP_ADDRESS": "10.30.113.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.35.88.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.35.90.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.40.88.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.77.100.96",
+          "PREFIX_LENGTH": "28",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.90.88.0",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.100.88.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.100.90.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.100.99.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.33",
+          "INTERFACE": "Ethernet1/46"
+        },
+        {
+          "IP_ADDRESS": "10.129.88.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "Attached",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.0",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Drop",
+          "INTERFACE": "Null0"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.1",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Receive",
+          "INTERFACE": "sup-eth1"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.10",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.10",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.11",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.11",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.12",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.12",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.13",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.13",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.14",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.14",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.15",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.15",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.16",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.16",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.17",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.17",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.18",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.18",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.19",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.19",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.20",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.20",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.21",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.21",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.22",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.22",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.23",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.23",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.24",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.24",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.25",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.25",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.26",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.26",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.28",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.28",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.29",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.29",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.30",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.129.90.30",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.90.255",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Attached",
+          "INTERFACE": "Vlan20"
+        },
+        {
+          "IP_ADDRESS": "10.129.91.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.2",
+          "INTERFACE": "Vlan112"
+        },
+        {
+          "IP_ADDRESS": "10.129.92.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.249.0.8",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.249.38.64",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "Attached",
+          "INTERFACE": "Ethernet1/1"
+        },
+        {
+          "IP_ADDRESS": "10.249.38.64",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Drop",
+          "INTERFACE": "Null0"
+        },
+        {
+          "IP_ADDRESS": "10.249.38.65",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "10.249.38.65",
+          "INTERFACE": "Ethernet1/1"
+        },
+        {
+          "IP_ADDRESS": "10.249.38.66",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Receive",
+          "INTERFACE": "sup-eth1"
+        },
+        {
+          "IP_ADDRESS": "10.249.38.67",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Attached",
+          "INTERFACE": "Ethernet1/1"
+        },
+        {
+          "IP_ADDRESS": "10.249.56.192",
+          "PREFIX_LENGTH": "26",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.249.254.1",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.249.254.64",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "172.16.90.2",
+          "INTERFACE": "Vlan112"
+        },
+        {
+          "IP_ADDRESS": "10.255.88.1",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.255.88.253",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.255.90.1",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Receive",
+          "INTERFACE": "sup-eth1"
+        },
+        {
+          "IP_ADDRESS": "10.255.90.2",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.2",
+          "INTERFACE": "Vlan112"
+        },
+        {
+          "IP_ADDRESS": "10.255.90.3",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.255.90.4",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.10",
+          "INTERFACE": "Ethernet1/43"
+        },
+        {
+          "IP_ADDRESS": "10.255.90.110",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "10.255.99.1",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.33",
+          "INTERFACE": "Ethernet1/46"
+        },
+        {
+          "IP_ADDRESS": "10.255.99.2",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.2",
+          "INTERFACE": "Vlan112"
+        },
+        {
+          "IP_ADDRESS": "68.202.118.148",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "69.203.118.52",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "113.117.128.2",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "117.121.132.112",
+          "PREFIX_LENGTH": "26",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "172.116.129.4",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "Attached",
+          "INTERFACE": "Ethernet1/3"
+        },
+        {
+          "IP_ADDRESS": "172.116.129.4",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Drop",
+          "INTERFACE": "Null0"
+        },
+        {
+          "IP_ADDRESS": "172.116.129.5",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.29.5",
+          "INTERFACE": "Ethernet1/3"
+        },
+        {
+          "IP_ADDRESS": "172.116.129.6",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Receive",
+          "INTERFACE": "sup-eth1"
+        },
+        {
+          "IP_ADDRESS": "172.116.129.7",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Attached",
+          "INTERFACE": "Ethernet1/3"
+        },
+        {
+          "IP_ADDRESS": "172.116.188.0",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "172.116.188.4",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "172.116.188.8",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "172.116.188.16",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "172.16.90.10",
+          "INTERFACE": "Ethernet1/43"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.0",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Drop",
+          "INTERFACE": "Null0"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.1",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Receive",
+          "INTERFACE": "sup-eth1"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.2",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.2",
+          "INTERFACE": "Vlan112"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.3",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Attached",
+          "INTERFACE": "Vlan112"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.4",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "Attached",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.4",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Drop",
+          "INTERFACE": "Null0"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.5",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Receive",
+          "INTERFACE": "sup-eth1"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.6",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.7",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Attached",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.8",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "Attached",
+          "INTERFACE": "Ethernet1/43"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.8",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Drop",
+          "INTERFACE": "Null0"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.9",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Receive",
+          "INTERFACE": "sup-eth1"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.10",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.10",
+          "INTERFACE": "Ethernet1/43"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.11",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Attached",
+          "INTERFACE": "Ethernet1/43"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.12",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "172.16.90.2",
+          "INTERFACE": "Vlan112"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.16",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "172.16.90.2",
+          "INTERFACE": "Vlan112"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.20",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "172.120.93.24",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "172.120.93.28",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "172.16.90.10",
+          "INTERFACE": "Ethernet1/43"
+        },
+        {
+          "IP_ADDRESS": "172.120.93.32",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "Attached",
+          "INTERFACE": "Ethernet1/46"
+        },
+        {
+          "IP_ADDRESS": "172.120.93.32",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Drop",
+          "INTERFACE": "Null0"
+        },
+        {
+          "IP_ADDRESS": "172.120.93.33",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.33",
+          "INTERFACE": "Ethernet1/46"
+        },
+        {
+          "IP_ADDRESS": "172.120.93.34",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Receive",
+          "INTERFACE": "sup-eth1"
+        },
+        {
+          "IP_ADDRESS": "172.120.93.35",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Attached",
+          "INTERFACE": "Ethernet1/46"
+        },
+        {
+          "IP_ADDRESS": "172.120.93.36",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "172.16.90.2",
+          "INTERFACE": "Vlan112"
+        },
+        {
+          "IP_ADDRESS": "172.120.93.0",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "172.16.90.33",
+          "INTERFACE": "Ethernet1/46"
+        },
+        {
+          "IP_ADDRESS": "172.121.135.16",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "Attached",
+          "INTERFACE": "Ethernet1/41"
+        },
+        {
+          "IP_ADDRESS": "172.121.135.16",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Drop",
+          "INTERFACE": "Null0"
+        },
+        {
+          "IP_ADDRESS": "172.212.135.17",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.30.135.17",
+          "INTERFACE": "Ethernet1/41"
+        },
+        {
+          "IP_ADDRESS": "172.213.135.18",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Receive",
+          "INTERFACE": "sup-eth1"
+        },
+        {
+          "IP_ADDRESS": "172.214.135.19",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "Attached",
+          "INTERFACE": "Ethernet1/41"
+        },
+        {
+          "IP_ADDRESS": "172.214.0.0",
+          "PREFIX_LENGTH": "16",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.48",
+          "PREFIX_LENGTH": "28",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.48",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.49",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.50",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.51",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.52",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.53",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.54",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.55",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.56",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.57",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.58",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.59",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.60",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.61",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.62",
+          "PREFIX_LENGTH": "32",
+          "NEXTHOP": "172.16.90.6",
+          "INTERFACE": "Ethernet1/45"
+        }
+      ],
+      "ip_address_prefix_length_nexthop": [
+        {
+          "IP_ADDRESS": "10.1.90.0",
+          "PREFIX_LENGTH": "24",
+          "NEXTHOP": "Attached"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.0",
+          "PREFIX_LENGTH": "30",
+          "NEXTHOP": "Attached"
+        }
+      ],
+      "ip_address_prefix_length": [
+        {
+          "IP_ADDRESS": "0.0.0.0",
+          "PREFIX_LENGTH": "0"
+        },
+        {
+          "IP_ADDRESS": "10.1.88.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.5.88.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.5.90.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.5.99.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.9.88.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.10.10.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.10.50.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.10.55.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.10.56.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.10.88.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.10.90.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.10.99.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.11.88.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.11.90.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.15.88.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.17.88.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.18.88.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.20.88.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.30.88.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.30.113.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.35.88.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.35.90.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.40.88.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.77.100.96",
+          "PREFIX_LENGTH": "28"
+        },
+        {
+          "IP_ADDRESS": "10.90.88.0",
+          "PREFIX_LENGTH": "30"
+        },
+        {
+          "IP_ADDRESS": "10.100.88.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.100.90.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.100.99.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.129.88.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.129.92.0",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "10.249.0.8",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "10.249.38.65",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "10.249.56.192",
+          "PREFIX_LENGTH": "26"
+        },
+        {
+          "IP_ADDRESS": "10.249.254.1",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "10.255.88.1",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "10.255.88.253",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "10.255.90.3",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "10.255.90.4",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "10.255.90.110",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "10.255.99.1",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "68.202.118.148",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "69.203.118.52",
+          "PREFIX_LENGTH": "24"
+        },
+        {
+          "IP_ADDRESS": "113.117.128.2",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "117.121.132.112",
+          "PREFIX_LENGTH": "26"
+        },
+        {
+          "IP_ADDRESS": "172.116.129.5",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "172.116.188.0",
+          "PREFIX_LENGTH": "30"
+        },
+        {
+          "IP_ADDRESS": "172.116.188.4",
+          "PREFIX_LENGTH": "30"
+        },
+        {
+          "IP_ADDRESS": "172.116.188.8",
+          "PREFIX_LENGTH": "30"
+        },
+        {
+          "IP_ADDRESS": "172.116.188.16",
+          "PREFIX_LENGTH": "30"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.6",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.10",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "172.116.190.20",
+          "PREFIX_LENGTH": "30"
+        },
+        {
+          "IP_ADDRESS": "172.120.93.24",
+          "PREFIX_LENGTH": "30"
+        },
+        {
+          "IP_ADDRESS": "172.120.93.28",
+          "PREFIX_LENGTH": "30"
+        },
+        {
+          "IP_ADDRESS": "172.120.93.33",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "172.120.93.0",
+          "PREFIX_LENGTH": "30"
+        },
+        {
+          "IP_ADDRESS": "172.212.135.17",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "172.214.0.0",
+          "PREFIX_LENGTH": "16"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.48",
+          "PREFIX_LENGTH": "28"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.48",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.49",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.50",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.51",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.52",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.53",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.54",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.55",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.56",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.57",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.58",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.59",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.60",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.61",
+          "PREFIX_LENGTH": "32"
+        },
+        {
+          "IP_ADDRESS": "192.200.54.62",
+          "PREFIX_LENGTH": "32"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IPv4 routes for table default/base\n\n------------------+-----------------------------------------+----------------------+-----------------+-----------------\nPrefix            | Next-hop                                | Interface            | Labels          | Partial Install \n------------------+-----------------------------------------+----------------------+-----------------+-----------------\n0.0.0.0/32           Drop                                      Null0\n127.0.0.0/8          Drop                                      Null0\n255.255.255.255/32   Receive                                   sup-eth1\n0.0.0.0/0            172.16.90.6                               Ethernet1/45        \n10.1.88.0/24         172.16.90.6                               Ethernet1/45        \n10.1.90.0/24         Attached                                  \n10.1.90.0/32         Drop                                      Null0\n10.1.90.1/32         Receive                                   sup-eth1\n10.1.90.101/32       Receive                                   sup-eth1\n10.1.90.102/32       10.1.90.102                               Vlan1               \n10.1.90.255/32       Attached                                  Vlan1\n10.5.88.0/24         172.16.90.6                               Ethernet1/45        \n10.5.90.0/24         172.16.90.6                               Ethernet1/45        \n                     172.16.90.10                              Ethernet1/43        \n10.5.99.0/24         172.16.90.33                              Ethernet1/46        \n*10.5.224.0/24       172.16.29.5                               Ethernet1/3         \n*10.5.225.0/24       172.16.29.5                               Ethernet1/3         \n*10.5.226.0/24       172.16.29.5                               Ethernet1/3         \n10.9.88.0/24         172.16.90.6                               Ethernet1/45        \n10.10.10.0/24        172.16.90.6                               Ethernet1/45        \n                     172.16.90.10                              Ethernet1/43        \n*10.10.15.0/24       172.16.29.5                               Ethernet1/3         \n*10.10.22.0/25       172.16.29.5                               Ethernet1/3         \n*10.10.29.0/24       172.16.29.5                               Ethernet1/3         \n*10.10.38.0/24       172.16.29.5                               Ethernet1/3         \n*10.10.39.0/26       172.16.29.5                               Ethernet1/3         \n*10.10.39.64/26      172.16.29.5                               Ethernet1/3         \n*10.10.39.128/26     172.16.29.5                               Ethernet1/3         \n*10.10.39.192/26     172.16.29.5                               Ethernet1/3         \n10.10.50.0/24        172.16.90.6                               Ethernet1/45        \n10.10.55.0/24        172.16.90.6                               Ethernet1/45        \n10.10.56.0/24        172.16.90.6                               Ethernet1/45        \n10.10.88.0/24        172.16.90.6                               Ethernet1/45        \n10.10.90.0/24        172.16.90.6                               Ethernet1/45        \n                     172.16.90.10                              Ethernet1/43        \n10.10.99.0/24        172.16.90.33                              Ethernet1/46        \n*10.10.192.0/24      172.16.29.5                               Ethernet1/3         \n*10.10.224.0/24      172.16.29.5                               Ethernet1/3         \n*10.10.225.0/24      172.16.29.5                               Ethernet1/3         \n*10.10.226.0/24      172.16.29.5                               Ethernet1/3         \n*10.10.254.1/32      172.16.29.5                               Ethernet1/3         \n*10.10.254.2/32      172.16.29.5                               Ethernet1/3         \n*10.10.255.0/24      172.16.29.5                               Ethernet1/3         \n*10.10.255.7/32      172.16.29.5                               Ethernet1/3         \n*10.10.255.8/32      172.16.29.5                               Ethernet1/3         \n10.11.88.0/24        172.16.90.6                               Ethernet1/45        \n10.11.90.0/24        172.16.90.6                               Ethernet1/45        \n                     172.16.90.10                              Ethernet1/43        \n10.15.88.0/24        172.16.90.6                               Ethernet1/45        \n10.17.88.0/24        172.16.90.6                               Ethernet1/45        \n10.18.88.0/24        172.16.90.6                               Ethernet1/45        \n10.20.88.0/24        172.16.90.6                               Ethernet1/45        \n10.30.88.0/24        172.16.90.6                               Ethernet1/45        \n10.30.112.0/24       Drop                                      Null0\n10.30.113.0/24       172.16.90.6                               Ethernet1/45        \n*10.35.29.0/24       172.16.29.5                               Ethernet1/3         \n*10.35.44.0/24       172.16.29.5                               Ethernet1/3         \n*10.35.45.0/24       172.16.29.5                               Ethernet1/3         \n*10.35.46.0/24       172.16.29.5                               Ethernet1/3         \n10.35.88.0/24        172.16.90.6                               Ethernet1/45        \n10.35.90.0/24        172.16.90.6                               Ethernet1/45        \n*10.35.192.0/24      172.16.29.5                               Ethernet1/3         \n10.40.88.0/24        172.16.90.6                               Ethernet1/45        \n*10.77.100.0/28      10.249.38.65                              Ethernet1/1         \n10.77.100.96/28      172.16.90.6                               Ethernet1/45        \n10.90.88.0/30        172.16.90.6                               Ethernet1/45        \n10.100.88.0/24       172.16.90.6                               Ethernet1/45        \n10.100.90.0/24       172.16.90.6                               Ethernet1/45        \n                     172.16.90.10                              Ethernet1/43        \n10.100.99.0/24       172.16.90.33                              Ethernet1/46        \n*10.100.192.0/24     172.16.29.5                               Ethernet1/3         \n*10.100.224.0/24     172.16.29.5                               Ethernet1/3         \n*10.100.225.0/24     172.16.29.5                               Ethernet1/3         \n*10.100.226.0/24     172.16.29.5                               Ethernet1/3         \n*10.119.48.0/27      172.16.29.5                               Ethernet1/3         \n*10.119.48.32/27     172.16.29.5                               Ethernet1/3         \n*10.129.3.0/24       172.16.29.5                               Ethernet1/3         \n*10.129.4.0/24       172.16.29.5                               Ethernet1/3         \n*10.129.28.0/24      172.16.29.5                               Ethernet1/3         \n10.129.88.0/24       172.16.90.6                               Ethernet1/45        \n10.129.90.0/24       Attached                                  Vlan20\n10.129.90.0/32       Drop                                      Null0\n10.129.90.1/32       Receive                                   sup-eth1\n10.129.90.10/32      10.129.90.10                              Vlan20              \n10.129.90.11/32      10.129.90.11                              Vlan20              \n10.129.90.12/32      10.129.90.12                              Vlan20              \n10.129.90.13/32      10.129.90.13                              Vlan20              \n10.129.90.14/32      10.129.90.14                              Vlan20              \n10.129.90.15/32      10.129.90.15                              Vlan20              \n10.129.90.16/32      10.129.90.16                              Vlan20              \n10.129.90.17/32      10.129.90.17                              Vlan20              \n10.129.90.18/32      10.129.90.18                              Vlan20              \n10.129.90.19/32      10.129.90.19                              Vlan20              \n10.129.90.20/32      10.129.90.20                              Vlan20              \n10.129.90.21/32      10.129.90.21                              Vlan20              \n10.129.90.22/32      10.129.90.22                              Vlan20              \n10.129.90.23/32      10.129.90.23                              Vlan20              \n10.129.90.24/32      10.129.90.24                              Vlan20              \n10.129.90.25/32      10.129.90.25                              Vlan20              \n10.129.90.26/32      10.129.90.26                              Vlan20              \n10.129.90.28/32      10.129.90.28                              Vlan20              \n10.129.90.29/32      10.129.90.29                              Vlan20              \n10.129.90.30/32      10.129.90.30                              Vlan20              \n10.129.90.255/32     Attached                                  Vlan20\n10.129.91.0/24       172.16.90.2                               Vlan112             \n10.129.92.0/24       172.16.90.6                               Ethernet1/45        \n                     172.16.90.10                              Ethernet1/43        \n*10.129.100.0/24     172.16.29.5                               Ethernet1/3         \n*10.129.192.0/24     172.16.29.5                               Ethernet1/3         \n*10.129.200.0/24     172.16.29.5                               Ethernet1/3         \n*10.129.224.0/24     172.16.29.5                               Ethernet1/3         \n*10.129.225.0/24     172.16.29.5                               Ethernet1/3         \n*10.129.226.0/24     172.16.29.5                               Ethernet1/3         \n*10.129.227.0/24     172.16.29.5                               Ethernet1/3         \n*10.129.228.0/24     172.16.29.5                               Ethernet1/3         \n*10.129.229.0/24     172.16.29.5                               Ethernet1/3         \n*10.129.230.0/24     172.16.29.5                               Ethernet1/3         \n*10.150.201.130/31   10.249.38.65                              Ethernet1/1         \n*10.150.202.0/27     10.249.38.65                              Ethernet1/1         \n*10.150.202.64/27    10.249.38.65                              Ethernet1/1         \n*10.150.202.64/28    172.16.29.5                               Ethernet1/3         \n*10.150.202.80/28    10.249.38.65                              Ethernet1/1         \n*10.152.202.16/28    172.16.29.5                               Ethernet1/3         \n*10.200.130.0/29     172.16.29.5                               Ethernet1/3         \n*10.222.48.192/26    172.16.29.5                               Ethernet1/3         \n10.249.0.8/32        172.16.90.6                               Ethernet1/45        \n*10.249.17.0/24      10.249.38.65                              Ethernet1/1         \n*10.249.18.0/24      10.249.38.65                              Ethernet1/1         \n*10.249.37.1/32      10.249.38.65                              Ethernet1/1         \n*10.249.37.2/32      10.249.38.65                              Ethernet1/1         \n*10.249.37.3/32      10.249.38.65                              Ethernet1/1         \n*10.249.37.4/32      10.249.38.65                              Ethernet1/1         \n*10.249.37.5/32      10.249.38.65                              Ethernet1/1         \n*10.249.37.6/32      10.249.38.65                              Ethernet1/1         \n*10.249.38.5/32      10.249.38.65                              Ethernet1/1         \n*10.249.38.6/32      10.249.38.65                              Ethernet1/1         \n*10.249.38.12/30     10.249.38.65                              Ethernet1/1         \n*10.249.38.13/32     10.249.38.65                              Ethernet1/1         \n*10.249.38.14/32     10.249.38.65                              Ethernet1/1         \n10.249.38.64/30      Attached                                  Ethernet1/1\n10.249.38.64/32      Drop                                      Null0\n10.249.38.65/32      10.249.38.65                              Ethernet1/1         \n10.249.38.66/32      Receive                                   sup-eth1\n10.249.38.67/32      Attached                                  Ethernet1/1\n*10.249.38.68/30     10.249.38.65                              Ethernet1/1         \n*10.249.39.36/30     10.249.38.65                              Ethernet1/1         \n*10.249.39.50/31     10.249.38.65                              Ethernet1/1         \n*10.249.40.36/30     10.249.38.65                              Ethernet1/1         \n10.249.56.192/26     172.16.90.6                               Ethernet1/45        \n*10.249.250.0/25     10.249.38.65                              Ethernet1/1         \n*10.249.253.219/32   10.249.38.65                              Ethernet1/1         \n*10.249.253.220/32   10.249.38.65                              Ethernet1/1         \n*10.249.253.225/32   10.249.38.65                              Ethernet1/1         \n*10.249.253.226/32   10.249.38.65                              Ethernet1/1         \n*10.249.253.231/32   10.249.38.65                              Ethernet1/1         \n*10.249.253.232/32   10.249.38.65                              Ethernet1/1         \n*10.249.253.251/32   10.249.38.65                              Ethernet1/1         \n10.249.254.1/32      172.16.90.6                               Ethernet1/45        \n10.249.254.64/30     172.16.90.2                               Vlan112             \n*10.249.254.68/30    10.249.38.65                              Ethernet1/1         \n*10.249.255.120/29   10.249.38.65                              Ethernet1/1         \n*10.249.255.240/29   10.249.38.65                              Ethernet1/1         \n*10.249.255.248/29   10.249.38.65                              Ethernet1/1         \n*10.255.28.1/32      172.16.29.5                               Ethernet1/3         \n10.255.88.1/32       172.16.90.6                               Ethernet1/45        \n10.255.88.253/32     172.16.90.6                               Ethernet1/45        \n10.255.90.1/32       Receive                                   sup-eth1\n10.255.90.2/32       172.16.90.2                               Vlan112             \n10.255.90.3/32       172.16.90.6                               Ethernet1/45        \n10.255.90.4/32       172.16.90.10                              Ethernet1/43        \n10.255.90.110/32     172.16.90.6                               Ethernet1/45        \n10.255.99.1/32       172.16.90.33                              Ethernet1/46        \n10.255.99.2/32       172.16.90.2                               Vlan112             \n*10.255.192.1/32     172.16.29.5                               Ethernet1/3         \n*10.255.192.2/32     172.16.29.5                               Ethernet1/3         \n*10.255.255.1/32     172.16.29.5                               Ethernet1/3         \n*10.255.255.2/32     172.16.29.5                               Ethernet1/3         \n68.202.118.148/32    172.16.90.6                               Ethernet1/45        \n69.203.118.52/24       172.16.90.6                               Ethernet1/45        \n113.117.128.2/32     172.16.90.6                               Ethernet1/45        \n*117.120.112.118/26   172.16.29.5                               Ethernet1/3         \n117.121.132.112/26   172.16.90.6                               Ethernet1/45        \n*160.44.97.23/32     172.16.29.5                               Ethernet1/3         \n*160.45.98.45/32     172.16.29.5                               Ethernet1/3         \n172.116.129.4/30       Attached                                  Ethernet1/3\n172.116.129.4/32       Drop                                      Null0\n172.116.129.5/32       172.16.29.5                               Ethernet1/3         \n172.116.129.6/32       Receive                                   sup-eth1\n172.116.129.7/32       Attached                                  Ethernet1/3\n172.116.188.0/30       172.16.90.6                               Ethernet1/45        \n172.116.188.4/30       172.16.90.6                               Ethernet1/45        \n172.116.188.8/30       172.16.90.6                               Ethernet1/45        \n172.116.188.16/30      172.16.90.10                              Ethernet1/43        \n172.116.190.0/30       Attached                                  \n172.116.190.0/32       Drop                                      Null0\n172.116.190.1/32       Receive                                   sup-eth1\n172.116.190.2/32       172.16.90.2                               Vlan112             \n172.116.190.3/32       Attached                                  Vlan112\n172.116.190.4/30       Attached                                  Ethernet1/45\n172.116.190.4/32       Drop                                      Null0\n172.116.190.5/32       Receive                                   sup-eth1\n172.116.190.6/32       172.16.90.6                               Ethernet1/45        \n172.116.190.7/32       Attached                                  Ethernet1/45\n172.116.190.8/30       Attached                                  Ethernet1/43\n172.116.190.8/32       Drop                                      Null0\n172.116.190.9/32       Receive                                   sup-eth1\n172.116.190.10/32      172.16.90.10                              Ethernet1/43        \n172.116.190.11/32      Attached                                  Ethernet1/43\n172.116.190.12/30      172.16.90.2                               Vlan112             \n172.116.190.16/30      172.16.90.2                               Vlan112             \n172.116.190.20/30      172.16.90.6                               Ethernet1/45        \n                     172.16.90.10                              Ethernet1/43        \n172.120.93.24/30      172.16.90.6                               Ethernet1/45        \n172.120.93.28/30      172.16.90.10                              Ethernet1/43        \n172.120.93.32/30      Attached                                  Ethernet1/46\n172.120.93.32/32      Drop                                      Null0\n172.120.93.33/32      172.16.90.33                              Ethernet1/46        \n172.120.93.34/32      Receive                                   sup-eth1\n172.120.93.35/32      Attached                                  Ethernet1/46\n172.120.93.36/30      172.16.90.2                               Vlan112             \n172.120.93.0/30       172.16.90.33                              Ethernet1/46        \n172.121.135.16/30     Attached                                  Ethernet1/41\n172.121.135.16/32     Drop                                      Null0\n172.212.135.17/32     172.30.135.17                             Ethernet1/41        \n172.213.135.18/32     Receive                                   sup-eth1\n172.214.135.19/32     Attached                                  Ethernet1/41\n172.214.0.0/16        172.16.90.6                               Ethernet1/45        \n192.200.54.48/28      172.16.90.6                               Ethernet1/45        \n192.200.54.48/32      172.16.90.6                               Ethernet1/45        \n192.200.54.49/32      172.16.90.6                               Ethernet1/45        \n192.200.54.50/32      172.16.90.6                               Ethernet1/45        \n192.200.54.51/32      172.16.90.6                               Ethernet1/45        \n192.200.54.52/32      172.16.90.6                               Ethernet1/45        \n192.200.54.53/32      172.16.90.6                               Ethernet1/45        \n192.200.54.54/32      172.16.90.6                               Ethernet1/45        \n192.200.54.55/32      172.16.90.6                               Ethernet1/45        \n192.200.54.56/32      172.16.90.6                               Ethernet1/45        \n192.200.54.57/32      172.16.90.6                               Ethernet1/45        \n192.200.54.58/32      172.16.90.6                               Ethernet1/45        \n192.200.54.59/32      172.16.90.6                               Ethernet1/45        \n192.200.54.60/32      172.16.90.6                               Ethernet1/45        \n192.200.54.61/32      172.16.90.6                               Ethernet1/45        \n192.200.54.62/32      172.16.90.6                               Ethernet1/45        \n*203.45.179.33/32     172.30.135.17                             Ethernet1/41        \n*203.46.179.34/32     172.30.135.17                             Ethernet1/41        \n*203.72.179.0/25     172.30.135.17                             Ethernet1/41        \n*203.72.179.128/25   172.30.135.17                             Ethernet1/41        \n",
+  "textfsm_template": "Value IP_ADDRESS (\\d+(\\.\\d+){3})\nValue PREFIX_LENGTH (\\d{1,2})\nValue Required,List NEXTHOP (Drop|Receive|Attached|\\d+(\\.\\d+){3})\nValue List INTERFACE (\\S+)\n\nStart\n  ^Prefix.*Next.*Interface.*Labels.*Partial.*Install\\s*$$ -> FIB\n  # N5K doesn't have Partial Install field\n  ^Prefix.*Next.*Interface.*Labels\\s*$$ -> FIB\n\nFIB\n  # Start Record on encountering a Prefix, don't substitute any values yet\n  ^\\*?(\\d+\\.\\d+\\.\\d+\\.+\\d+\\/\\d+) -> Continue.Record\n  # Match lines with all Values present, some entries can start with * (for multiple entries in RIB, one in FIB prefixes)\n  ^\\*?${IP_ADDRESS}\\/${PREFIX_LENGTH}\\s+${NEXTHOP}\\s+${INTERFACE}\\s*$$\n  # Match lines which do not have an interface, strange but can exists\n  ^\\*?${IP_ADDRESS}\\/${PREFIX_LENGTH}\\s+${NEXTHOP}\\s*$$\n  # Match lines which have Nexthop and interface, and fill in the list; these are for prefixes which have multiple equal cost paths\n  ^\\s+${NEXTHOP}\\s+${INTERFACE}\\s*$$\n  # Match other lines before erroring out on unknown input lines  \n  ^\\s*$$\n  ^[-+]*$$\n  ^. -> Error\n\n"
+}

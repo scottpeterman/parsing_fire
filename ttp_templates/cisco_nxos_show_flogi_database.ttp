@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_flogi_database
+# Source: ntc
+# TextFSM rows: 21
+# TTP rows: 22
+# Match ratio: 1.05
+
+<group name="interface_vsan_fcid_port_name_node_name">
+{{INTERFACE}} {{VSAN}} {{FCID}} {{PORT_NAME}} {{NODE_NAME | ORPHRASE}}
+</group>

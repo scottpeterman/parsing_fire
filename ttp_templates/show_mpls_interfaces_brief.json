@@ -1,0 +1,76 @@
+{
+  "command": "show mpls interfaces brief",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.6,
+  "textfsm_rows": 5,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"interface_ip_address_id_status_tunnel_state\">\n{{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{ID | re(\"\\\\d+\")}} {{STATUS | ORPHRASE}} {{TUNNEL_STATE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "HundredGigE0/1/0/1",
+      "IP_ADDRESS": "10.1.1.1",
+      "ID": "1000",
+      "STATUS": "up",
+      "TUNNEL_STATE": "up"
+    },
+    {
+      "INTERFACE": "HundredGigE0/1/0/2",
+      "IP_ADDRESS": "unassigned",
+      "ID": "1001",
+      "STATUS": "down",
+      "TUNNEL_STATE": "down"
+    },
+    {
+      "INTERFACE": "TenGigE0/1/2/1",
+      "IP_ADDRESS": "10.2.2.1",
+      "ID": "2000",
+      "STATUS": "up",
+      "TUNNEL_STATE": "up"
+    },
+    {
+      "INTERFACE": "TenGigE0/1/2/2",
+      "IP_ADDRESS": "10.2.2.2",
+      "ID": "2001",
+      "STATUS": "down",
+      "TUNNEL_STATE": "down"
+    },
+    {
+      "INTERFACE": "FortyGigE0/1/3/1",
+      "IP_ADDRESS": "unassigned",
+      "ID": "3000",
+      "STATUS": "up",
+      "TUNNEL_STATE": "admin_down"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_id_status_tunnel_state": [
+        {
+          "INTERFACE": "HundredGigE0/1/0/1",
+          "IP_ADDRESS": "10.1.1.1",
+          "ID": "1000",
+          "STATUS": "up",
+          "TUNNEL_STATE": "up"
+        },
+        {
+          "INTERFACE": "TenGigE0/1/2/1",
+          "IP_ADDRESS": "10.2.2.1",
+          "ID": "2000",
+          "STATUS": "up",
+          "TUNNEL_STATE": "up"
+        },
+        {
+          "INTERFACE": "TenGigE0/1/2/2",
+          "IP_ADDRESS": "10.2.2.2",
+          "ID": "2001",
+          "STATUS": "down",
+          "TUNNEL_STATE": "down"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              IP-Address      ID   Status  TunnelState\nHundredGigE0/1/0/1     10.1.1.1        1000 up      up\nHundredGigE0/1/0/2     unassigned      1001 down    down\nTenGigE0/1/2/1         10.2.2.1        2000 up      up\nTenGigE0/1/2/2         10.2.2.2        2001 down    down\nFortyGigE0/1/3/1       unassigned      3000 up      admin_down\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue IP_ADDRESS (\\S+)\nValue ID (\\d+)\nValue STATUS (up|down)\nValue TUNNEL_STATE (up|down|admin_down)\n\nStart\n  ^\\s*Interface\\s+IP-Address\\s+ID\\s+Status\\s+TunnelState\\s*$$\n  ^\\s*${INTERFACE}\\s+${IP_ADDRESS}\\s+${ID}\\s+${STATUS}\\s+${TUNNEL_STATE}\\s*$$ -> Record"
+}

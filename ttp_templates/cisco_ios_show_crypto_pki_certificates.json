@@ -1,0 +1,120 @@
+{
+  "command": "cisco_ios_show_crypto_pki_certificates",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.6666666666666665,
+  "textfsm_rows": 3,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"certificate_type_serial_number\">\n  {{CERTIFICATE_TYPE | ORPHRASE}} Serial Number (hex): {{SERIAL_NUMBER | ORPHRASE}}\n</group>\n<group name=\"issuer_ou\">\n    ou={{ISSUER_OU | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CERTIFICATE_TYPE": "Certificate",
+      "STATUS": "Available",
+      "SERIAL_NUMBER": "1234567890ABCDEFGHIJK",
+      "CERTIFICATE_USAGE": "General Purpose",
+      "ISSUER_E": "email.address@domain.com",
+      "ISSUER_CN": "CommonName",
+      "ISSUER_OU": "OrganizationalUnit",
+      "ISSUER_O": "Organization",
+      "ISSUER_L": "Locality",
+      "ISSUER_ST": "StateOrProvinceName",
+      "ISSUER_C": "CountryName",
+      "SUBJECT_NAME": "ROUTERNAME.domain.com",
+      "SUBJECT_SERIAL_NUMBER": "1234ABCD",
+      "SUBJECT_HOSTNAME": "ROUTERNAME.domain.com",
+      "CRL_DISTRIBUTION_POINT": "http://cdp.domain.com/crl/issuing-ca.crl",
+      "START_DATE": "09:17:52 UTC Jun 22 2022",
+      "END_DATE": "09:17:52 UTC Jun 22 2023",
+      "RENEW_DATE": "09:19:52 UTC Apr 10 2023",
+      "ASSOCIATED_TRUSTPOINTS": "caserver.domain.com",
+      "STORAGE": "nvram:certfile.cer"
+    },
+    {
+      "CERTIFICATE_TYPE": "CA Certificate",
+      "STATUS": "Available",
+      "SERIAL_NUMBER": "ABCDEFGHIJK1234567890",
+      "CERTIFICATE_USAGE": "Signature",
+      "ISSUER_E": "email.address@domain.com",
+      "ISSUER_CN": "CommonName",
+      "ISSUER_OU": "OrganizationalUnit",
+      "ISSUER_O": "Organization",
+      "ISSUER_L": "Locality",
+      "ISSUER_ST": "StateOrProvinceName",
+      "ISSUER_C": "CountryName",
+      "SUBJECT_E": "email.address@domain.com",
+      "SUBJECT_CN": "CommonName",
+      "SUBJECT_OU": "OrganizationalUnit",
+      "SUBJECT_O": "Organization",
+      "SUBJECT_L": "Locality",
+      "SUBJECT_ST": "StateOrProvinceName",
+      "SUBJECT_C": "CountryName",
+      "CRL_DISTRIBUTION_POINT": "http://cdp.domain.com/crl/issuing-ca.crl",
+      "START_DATE": "00:00:00 UTC Nov 9 2018",
+      "END_DATE": "00:00:00 UTC Nov 9 2028",
+      "ASSOCIATED_TRUSTPOINTS": "caserver.domain.com",
+      "STORAGE": "nvram:certfile.cer"
+    },
+    {
+      "CERTIFICATE_TYPE": "CA Certificate",
+      "STATUS": "Available",
+      "SERIAL_NUMBER": "12345ABCDEFGHIJK67890",
+      "CERTIFICATE_USAGE": "Signature",
+      "ISSUER_E": "email.address@domain.com",
+      "ISSUER_CN": "CommonName",
+      "ISSUER_OU": "OrganizationalUnit",
+      "ISSUER_O": "Organization",
+      "ISSUER_L": "Locality",
+      "ISSUER_ST": "StateOrProvinceName",
+      "ISSUER_C": "CountryName",
+      "SUBJECT_E": "email.address@domain.com",
+      "SUBJECT_CN": "CommonName",
+      "SUBJECT_OU": "OrganizationalUnit",
+      "SUBJECT_O": "Organization",
+      "SUBJECT_L": "Locality",
+      "SUBJECT_ST": "StateOrProvinceName",
+      "SUBJECT_C": "CountryName",
+      "START_DATE": "00:00:00 UTC Nov 5 2018",
+      "END_DATE": "00:00:00 UTC Nov 5 2038",
+      "ASSOCIATED_TRUSTPOINTS": "ROOT-CA",
+      "STORAGE": "nvram:certfile.cer"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "certificate_type_serial_number": [
+        {
+          "CERTIFICATE_TYPE": "Certificate",
+          "SERIAL_NUMBER": "1234567890ABCDEFGHIJK"
+        },
+        {
+          "CERTIFICATE_TYPE": "Certificate",
+          "SERIAL_NUMBER": "ABCDEFGHIJK1234567890"
+        },
+        {
+          "CERTIFICATE_TYPE": "Certificate",
+          "SERIAL_NUMBER": "12345ABCDEFGHIJK67890"
+        }
+      ],
+      "issuer_ou": [
+        {
+          "ISSUER_OU": "OrganizationalUnit"
+        },
+        {
+          "ISSUER_OU": "OrganizationalUnit"
+        },
+        {
+          "ISSUER_OU": "OrganizationalUnit"
+        },
+        {
+          "ISSUER_OU": "OrganizationalUnit"
+        },
+        {
+          "ISSUER_OU": "OrganizationalUnit"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Certificate\n  Status: Available\n  Certificate Serial Number (hex): 1234567890ABCDEFGHIJK\n  Certificate Usage: General Purpose\n  Issuer: \n    e=email.address@domain.com\n    cn=CommonName\n    ou=OrganizationalUnit\n    o=Organization\n    l=Locality\n    st=StateOrProvinceName\n    c=CountryName\n  Subject:\n    Name: ROUTERNAME.domain.com\n    Serial Number: 1234ABCD\n    hostname=ROUTERNAME.domain.com\n    serialNumber=1234ABCD\n  CRL Distribution Points: \n    http://cdp.domain.com/crl/issuing-ca.crl\n  Validity Date: \n    start date: 09:17:52 UTC Jun 22 2022\n    end   date: 09:17:52 UTC Jun 22 2023\n    renew date: 09:19:52 UTC Apr 10 2023\n  Associated Trustpoints: caserver.domain.com \n  Storage: nvram:certfile.cer\n\nCA Certificate\n  Status: Available\n  Certificate Serial Number (hex): ABCDEFGHIJK1234567890\n  Certificate Usage: Signature\n  Issuer: \n    e=email.address@domain.com\n    cn=CommonName\n    ou=OrganizationalUnit\n    o=Organization\n    l=Locality\n    st=StateOrProvinceName\n    c=CountryName\n  Subject: \n    e=email.address@domain.com\n    cn=CommonName\n    ou=OrganizationalUnit\n    o=Organization\n    l=Locality\n    st=StateOrProvinceName\n    c=CountryName\n  CRL Distribution Points: \n    http://cdp.domain.com/crl/issuing-ca.crl\n  Validity Date: \n    start date: 00:00:00 UTC Nov 9 2018\n    end   date: 00:00:00 UTC Nov 9 2028\n  Associated Trustpoints: caserver.domain.com\n  Storage: nvram:certfile.cer\n\nCA Certificate\n  Status: Available\n  Certificate Serial Number (hex): 12345ABCDEFGHIJK67890\n  Certificate Usage: Signature\n  Issuer: \n    e=email.address@domain.com\n    cn=CommonName\n    ou=OrganizationalUnit\n    o=Organization\n    l=Locality\n    st=StateOrProvinceName\n    c=CountryName\n  Subject: \n    e=email.address@domain.com\n    cn=CommonName\n    ou=OrganizationalUnit\n    o=Organization\n    l=Locality\n    st=StateOrProvinceName\n    c=CountryName\n  Validity Date: \n    start date: 00:00:00 UTC Nov 5 2018\n    end   date: 00:00:00 UTC Nov 5 2038\n  Associated Trustpoints: ROOT-CA \n  Storage: nvram:certfile.cer\n",
+  "textfsm_template": "Value Required CERTIFICATE_TYPE ([CA]*\\s*Certificate)\nValue STATUS ([\\s\\S]+?)\nValue SERIAL_NUMBER (\\S+)\nValue CERTIFICATE_USAGE ([\\s\\S]+?)\nValue ISSUER_E (\\S+)\nValue ISSUER_CN ([\\s\\S]+)\nValue ISSUER_OU ([\\s\\S]+)\nValue ISSUER_O ([\\s\\S]+)\nValue ISSUER_L ([\\s\\S]+)\nValue ISSUER_ST ([\\s\\S]+)\nValue ISSUER_C ([\\s\\S]+)\nValue SUBJECT_E (\\S+)\nValue SUBJECT_CN ([\\s\\S]+)\nValue SUBJECT_OU ([\\s\\S]+)\nValue SUBJECT_O ([\\s\\S]+)\nValue SUBJECT_L ([\\s\\S]+)\nValue SUBJECT_ST ([\\s\\S]+)\nValue SUBJECT_C ([\\s\\S]+)\nValue SUBJECT_NAME (\\S+)\nValue SUBJECT_SERIAL_NUMBER (\\S+)\nValue SUBJECT_HOSTNAME (\\S+)\nValue CRL_DISTRIBUTION_POINT (\\S+)\nValue START_DATE ([\\s\\S]+?)\nValue END_DATE ([\\s\\S]+?)\nValue RENEW_DATE ([\\s\\S]+?)\nValue ASSOCIATED_TRUSTPOINTS (\\S+)\nValue STORAGE (\\S+)\n\nStart\n  ^\\s*[CA]*\\s*Certificate\\s*$$ -> Continue.Record\n  ^\\s*${CERTIFICATE_TYPE}\\s*$$\n  ^\\s*Status:\\s*${STATUS}\\s*$$\n  ^\\s*Certificate\\s*Serial\\s*Number\\s*\\(hex\\):\\s*${SERIAL_NUMBER}\\s*$$\n  ^\\s*Certificate\\s*Usage:\\s*${CERTIFICATE_USAGE}\\s*$$\n  ^\\s*Issuer:\\s*$$ -> Issuer\n  ^\\s*start\\s*date:\\s*${START_DATE}\\s*$$\n  ^\\s*end\\s*date:\\s*${END_DATE}\\s*$$\n  ^\\s*renew\\s*date:\\s*${RENEW_DATE}\\s*$$\n  ^\\s*Associated\\s*Trustpoints:\\s*${ASSOCIATED_TRUSTPOINTS}\\s*$$\n  ^\\s*Storage:\\s*${STORAGE}\\s*$$\n  ^\\s*$$\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^. -> Error\n\nIssuer\n  ^\\s*e=${ISSUER_E}\\s*$$\n  ^\\s*cn=${ISSUER_CN}\\s*$$\n  ^\\s*ou=${ISSUER_OU}\\s*$$\n  ^\\s*o=${ISSUER_O}\\s*$$\n  ^\\s*l=${ISSUER_L}\\s*$$\n  ^\\s*st=${ISSUER_ST}\\s*$$\n  ^\\s*c=${ISSUER_C}\\s*$$\n  ^\\s*Subject:\\s*$$ -> Subject\n  ^. -> Error\n\nSubject\n  ^\\s*e=${SUBJECT_E}\\s*$$\n  ^\\s*cn=${SUBJECT_CN}\\s*$$\n  ^\\s*ou=${SUBJECT_OU}\\s*$$\n  ^\\s*o=${SUBJECT_O}\\s*$$\n  ^\\s*l=${SUBJECT_L}\\s*$$\n  ^\\s*st=${SUBJECT_ST}\\s*$$\n  ^\\s*c=${SUBJECT_C}\\s*$$\n  ^\\s*Name:\\s*${SUBJECT_NAME}\\s*$$\n  ^\\s*Serial\\s*Number:\\s*${SUBJECT_SERIAL_NUMBER}\\s*$$\n  ^\\s*serialNumber=\\S+\\s*$$\n  ^\\s*hostname=${SUBJECT_HOSTNAME}\\s*$$\n  ^\\s*CRL Distribution Points:\\s*$$ -> CRLDistPoints\n  ^\\s*Validity\\s*Date:\\s*$$ -> Start\n  ^. -> Error\n\nCRLDistPoints\n  ^\\s*${CRL_DISTRIBUTION_POINT}\\s*$$\n  ^\\s*Validity\\s*Date:\\s*$$ -> Start\n  ^. -> Error\n"
+}

@@ -1,0 +1,19 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_vtp_status
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="device_id_domain_existing_vlan_count_last_modified_date">
+VTP Version capable  : {{VERSION | ORPHRASE}} to 3
+VTP Domain Name  : {{DOMAIN | ORPHRASE}}
+VTP Pruning Mode  : {{PRUNING | ORPHRASE}}
+Device ID  : {{DEVICE_ID | ORPHRASE}}
+Configuration last modified by {{LAST_MODIFIED_SERVER | re("[\\d\\.\\(\\)A-Za-z]+")}} at {{LAST_MODIFIED_DATE | ORPHRASE}}
+Local updater ID is {{LOCAL_UPDATER_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} on interface {{LOCAL_UPDATER_IFACE | ORPHRASE}} (lowest numbered VLAN interface found)
+VTP Operating Mode  : {{MODE | ORPHRASE}}
+Maximum VLANs supported locally  : {{MAX_VLANS | ORPHRASE}}
+Number of existing VLANs  : {{EXISTING_VLAN_COUNT | ORPHRASE}}
+Configuration Revision  : {{REVISION_NUMBER | ORPHRASE}}
+</group>

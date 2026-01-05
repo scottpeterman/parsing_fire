@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_license_usage
+# Source: ntc
+# TextFSM rows: 11
+# TTP rows: 15
+# Match ratio: 1.36
+
+<group name="feature_installed_license_count_status_comments">
+{{FEATURE}} {{INSTALLED}} {{LICENSE_COUNT | re(".*\\w.*")}} {{STATUS | ORPHRASE}} {{COMMENTS | ORPHRASE}}
+</group>
+<group name="feature_installed_license_count_status_expiry_date_comments">
+{{FEATURE}} {{INSTALLED}} {{LICENSE_COUNT | re(".*\\w.*")}} {{STATUS | ORPHRASE}} {{EXPIRY_DATE | ORPHRASE}} {{COMMENTS | ORPHRASE}}
+</group>

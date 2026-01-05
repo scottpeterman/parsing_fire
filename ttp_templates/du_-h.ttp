@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: du -h
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="filesystem_size_used_avail_use_mounted">
+{{FILESYSTEM}} {{SIZE}} {{USED}} {{AVAIL}} {{USE | ORPHRASE}} {{MOUNTED | re(".*\\w.*")}}
+</group>

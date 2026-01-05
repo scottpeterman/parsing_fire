@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_ospf_interface_brief
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="interface_process_area_ip_address_netmask_cost_state_neighbors_fc">
+{{INTERFACE}} {{PROCESS}} {{AREA}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{NETMASK}} {{COST}} {{STATE | ORPHRASE}} {{NEIGHBORS_FC | ORPHRASE}}
+</group>
+<group name="interface_process_area_state_netmask_cost_neighbors_fc">
+{{INTERFACE}} {{PROCESS}} {{AREA}} {{IP_AD{{STATE | ORPHRASE}}ESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{NETMASK}} {{COST}} DR {{NEIGHBORS_FC | ORPHRASE}}
+</group>

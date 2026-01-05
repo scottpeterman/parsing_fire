@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show disk usage
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="fs_blocks_used_available_use_mounted">
+{{FS}} {{BLOCKS}} {{USED}} {{AVAILABLE}} {{USE | ORPHRASE}} {{MOUNTED | re(".*\\w.*")}}
+</group>

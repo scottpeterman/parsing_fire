@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show dns query all
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 3
+# Match ratio: 0.75
+
+<group name="hostname_address_status_latency">
+{{HOSTNAME | re("\\S+")}} {{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATUS | ORPHRASE}} {{LATENCY | ORPHRASE}}
+</group>

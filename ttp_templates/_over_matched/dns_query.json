@@ -1,0 +1,40 @@
+{
+  "command": "dns query",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"address_domain_name_mail_server_priority\">\nDomain Name: {{DOMAIN_NAME | ORPHRASE}}\nAddress:  {{ADDRESS | ORPHRASE}}\nQuery Type:  {{QUERY_TYPE | ORPHRASE}}\nMail Server: {{MAIL_SERVER | ORPHRASE}}\nPriority:  {{PRIORITY | ORPHRASE}}\nTTL:  {{TTL | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "QUERY_TYPE": "MX",
+      "DOMAIN_NAME": "example.com",
+      "ADDRESS": "93.184.216.34",
+      "TTL": "3600",
+      "MAIL_SERVER": "mx1.mail.example.com",
+      "PRIORITY": "10"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "address_domain_name_mail_server_priority": [
+        {
+          "QUERY_TYPE": "MX",
+          "TTL": "3600",
+          "ADDRESS": "93.184.216.34",
+          "DOMAIN_NAME": "example.com"
+        },
+        {
+          "TTL": "1800",
+          "PRIORITY": "10",
+          "MAIL_SERVER": "mx1.mail.example.com",
+          "DOMAIN_NAME": "example.com"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Query Type:  A\nDomain Name: example.com\nAddress:     93.184.216.34\nTTL:         3600\n\nQuery Type:  MX\nDomain Name: example.com\nMail Server: mx1.mail.example.com\nPriority:    10\nTTL:         1800\n",
+  "textfsm_template": "Value QUERY_TYPE (\\S+)\nValue DOMAIN_NAME (\\S+)\nValue ADDRESS (\\S+)\nValue TTL (\\d+)\nValue MAIL_SERVER (\\S+)\nValue PRIORITY (\\d+)\n\nStart\n  ^Query\\s+Type:\\s+${QUERY_TYPE}\\s*$$\n  ^Domain\\s+Name:\\s+${DOMAIN_NAME}\\s*$$\n  ^Address:\\s+${ADDRESS}\\s*$$\n  ^TTL:\\s+${TTL}\\s*$$\n  ^Mail\\s+Server:\\s+${MAIL_SERVER}\\s*$$\n  ^Priority:\\s+${PRIORITY}\\s*$$ -> Record"
+}

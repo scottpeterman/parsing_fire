@@ -1,0 +1,47 @@
+{
+  "command": "huawei_vrp_display_ip_vpn-instance_interface",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"name_id\">\n VPN-Instance Name and ID : {{NAME}}, {{ID | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "cftv",
+      "ID": "1",
+      "INTERFACE_LIST": "Vlanif1823, Vlanif1847, LoopBack5"
+    },
+    {
+      "NAME": "met",
+      "ID": "2",
+      "INTERFACE_LIST": "40GE0/0/3, Vlanif1774, Vlanif1797, LoopBack2, Vlanif1769"
+    },
+    {
+      "NAME": "tel",
+      "ID": "3",
+      "INTERFACE_LIST": "Vlanif755, Vlanif773, Vlanif797, LoopBack1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name_id": [
+        {
+          "NAME": "cftv",
+          "ID": "1"
+        },
+        {
+          "NAME": "met",
+          "ID": "2"
+        },
+        {
+          "NAME": "tel",
+          "ID": "3"
+        }
+      ]
+    }
+  ],
+  "cli_content": " Total VPN-Instances configured      : 3\n\n VPN-Instance Name and ID : cftv, 1\n  Interface Number : 3 \n  Interface list : Vlanif1823, \n                   Vlanif1847, \n                   LoopBack5\n\n VPN-Instance Name and ID : met, 2\n  Interface Number : 5 \n  Interface list : 40GE0/0/3, \n                   Vlanif1774, \n                   Vlanif1797, \n                   LoopBack2, \n                   Vlanif1769\n\n VPN-Instance Name and ID : tel, 3\n  Interface Number : 4 \n  Interface list : Vlanif755, \n                   Vlanif773, \n                   Vlanif797, \n                   LoopBack1\n",
+  "textfsm_template": "Value Required NAME (\\S+)\nValue Required ID (\\d+)\nValue List INTERFACE_LIST ([^,]+)\n\nStart\n  ^\\s*Total\n  ^\\s*$$\n  ^\\s*VPN-Instance -> Continue.Record\n  ^\\s*VPN-Instance\\s+Name\\s+and\\s+ID\\s*:\\s+${NAME}, ${ID}\n  ^\\s+Interface\\s+Number\n  ^\\s+Interface\\s+list\\s*:\\s+${INTERFACE_LIST},*\n  ^\\s{6,}${INTERFACE_LIST},*\n  ^\\s*Total\n  ^\\s*$$\n  ^. -> Error\n"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip msdp summary
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 4
+# Match ratio: 1.33
+
+<group name="peer_connect_state_uptime_sa_messages">
+{{PEER}} {{CONNECT}} {{STATE | ORPHRASE}} {{UPTIME | ORPHRASE}} {{SA_MESSAGES | ORPHRASE}} 
+</group>

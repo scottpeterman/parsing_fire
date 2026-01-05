@@ -1,0 +1,28 @@
+{
+  "command": "show cpu utilization",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"cpu_5sec_cpu_1min_cpu_5min\">\nCPU Utilization for five seconds: {{CPU_5SEC}}; one minute: {{CPU_1MIN}}; five minutes: {{CPU_5MIN | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CPU_5SEC": "8%/7%",
+      "CPU_1MIN": "6%",
+      "CPU_5MIN": "4%"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "cpu_5sec_cpu_1min_cpu_5min": {
+        "CPU_5SEC": "8%/7%",
+        "CPU_1MIN": "6%",
+        "CPU_5MIN": "4%"
+      }
+    }
+  ],
+  "cli_content": "CPU Utilization for five seconds: 8%/7%; one minute: 6%; five minutes: 4%\n",
+  "textfsm_template": "Value CPU_5SEC (\\d+%\\/\\d+%)\nValue CPU_1MIN (\\d+%)\nValue CPU_5MIN (\\d+%)\n\nStart\n  ^CPU\\s+Utilization\\s+for\\s+five\\s+seconds:\\s+${CPU_5SEC};\\s+one\\s+minute:\\s+${CPU_1MIN};\\s+five\\s+minutes:\\s+${CPU_5MIN} -> Record\n###"
+}

@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: ps -ef
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="uid_pid_ppid_c_stime_tty_time_cmd">
+{{UID}} {{PID | re("\\d+")}} {{PPID | re("\\d+")}} {{C}} {{STIME}} {{TTY | re(".*\\w.*")}} {{TIME}} {{CMD | ORPHRASE}}
+</group>

@@ -1,0 +1,24 @@
+# TTP Template auto-generated from TextFSM
+# Original command: avaya_ers_show_sys-info
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="autotopology_base_unit_selection_installed_firmware_installed_license">
+201{{SYS_SERVICES | ORPHRASE}}-09-03 23:45:16 GMT+00:00  
+Operation Mode:  {{OPERATION_MODE | ORPHRASE}}
+MAC Address:  {{MAC_ADDRESS | ORPHRASE}}
+PoE Module FW:  {{POE_MODULE_FW | ORPHRASE}}
+Reset Count:  {{RESET_COUNT | ORPHRASE}}
+Last Reset Type:  {{LAST_RESET_TYPE | ORPHRASE}}
+Autotopology:  {{AUTOTOPOLOGY | ORPHRASE}}
+Base Unit Selection:  {{BASE_UNIT_SELECTION | ORPHRASE}}
+  HW:13  FW:{{OPERATIONAL_FIRMWARE}}  SW:{{OPERATIONAL_SOFTWARE | ORPHRASE}}
+Serial #:  {{SERIAL_NUMBER | ORPHRASE}}
+Operational license:  {{OPERATIONAL_LICENSE | ORPHRASE}} 
+sysObjectID:  {{SYS_OBJECT_ID | ORPHRASE}}
+sysUpTime:  {{SYS_UP_TIME | ORPHRASE}}
+sysNtpTime:  {{SYS_NTP_TIME | ORPHRASE}}
+sysName:  {{SYS_NAME | ORPHRASE}}
+</group>

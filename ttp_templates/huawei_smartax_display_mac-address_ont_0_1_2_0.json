@@ -1,0 +1,32 @@
+{
+  "command": "huawei_smartax_display_mac-address_ont_0_1_2_0",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"fsp_ont_id_ont_port_type_ont_port_id_mac\">\n {{FSP | ORPHRASE}} {{ONT_ID | re(\"\\\\d+\")}} {{ONT_PORT_TYPE}} {{ONT_PORT_ID | re(\"\\\\d+\")}} {{MAC | ORPHRASE}} -\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FSP": "0/ 1/0",
+      "ONT_ID": "0",
+      "ONT_PORT_TYPE": "WLAN",
+      "ONT_PORT_ID": "4",
+      "MAC": "aaaa-aaaa-aaaa"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "fsp_ont_id_ont_port_type_ont_port_id_mac": {
+        "FSP": "0/ 1/0",
+        "ONT_ID": "0",
+        "ONT_PORT_TYPE": "WLAN",
+        "ONT_PORT_ID": "4",
+        "MAC": "aaaa-aaaa-aaaa"
+      }
+    }
+  ],
+  "cli_content": " ---------------------------------------------------------------\n F/S/P   ONTID    ONT        ONT       MAC-ADDRESS        VLAN\n                  port-type  port-ID\n ---------------------------------------------------------------\n 0/ 1/0      0    WLAN             4   aaaa-aaaa-aaaa        -\n ---------------------------------------------------------------\n Total: 1\n Note: When the ONT port-type is WLAN, the ONT port-ID indicates WLAN SSID index\n",
+  "textfsm_template": "Value FSP (\\d+\\/\\s*\\d+\\/\\d+)\nValue ONT_ID (\\d+)\nValue ONT_PORT_TYPE (\\S+)\nValue ONT_PORT_ID (\\d+)\nValue MAC (\\w+-\\w+-\\w+)\nValue VLAN (\\d+)\n\nStart\n  ^\\s*-\n  ^\\s*F\\/S\\/P\\s+ONTID\\s+ONT\\s+ONT\\s+MAC-ADDRESS\\s+VLAN\n  ^\\s*port-type\\s+port-ID -> Macs\n  ^\\s*$$\n  ^. -> Error\n\nMacs\n  ^\\s*${FSP}\\s+${ONT_ID}\\s+${ONT_PORT_TYPE}\\s+${ONT_PORT_ID}\\s+${MAC}\\s+(-|${VLAN}) -> Record\n  ^\\s*-\n  ^\\s*Total:\\s*\\d+\\s*$$ -> EOF\n  ^\\s*$$\n  ^. -> Error\n"
+}

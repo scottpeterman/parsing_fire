@@ -1,0 +1,11 @@
+# TTP Template - FAILED VALIDATION
+# Original command: extreme_exos_show_ports_information
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="interface_flags_link_state_elsm_oam_link_ups_num_stp_num_vlan_num_proto_jumbo_size_qos_profile_load_master">
+{{INTERFACE}} {{FLAGS}} {{LINK_STATE | ORPHRASE}} {{ELSM | re(".*\\w.*")}} / {{OAM | re(".*\\w.*")}} {{LINK_UPS}} {{NUM_STP}} {{NUM_VLAN | re("\\d+")}} {{NUM_PROTO}} {{JUMBO_SIZE}} {{QOS_PROFILE}} {{LOAD_MASTER | ORPHRASE}}
+</group>
+<group name="interface_flags_link_state_elsm_oam_link_ups_num_stp_num_vlan_num_proto_jumbo_size_qos_profile">
+{{INTERFACE}} {{FLAGS}} {{LINK_STATE | ORPHRASE}} {{ELSM | re(".*\\w.*")}} / {{OAM | re(".*\\w.*")}} {{LINK_UPS}} {{NUM_STP}} {{NUM_VLAN | re("\\d+")}} {{NUM_PROTO}} {{JUMBO_SIZE}} {{QOS_PROFILE | ORPHRASE}}
+</group>

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ipv4 forwarding-adjacency
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="destination_time_since_source_nexthop_output_interface_protocol">
+{{DESTINATION}} {{TIME_SINCE}} {{SOURCE_NEXTHOP}} {{OUTPUT_INTERFACE}} {{PROTOCOL | ORPHRASE}}
+</group>

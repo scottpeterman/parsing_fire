@@ -1,0 +1,104 @@
+{
+  "command": "show module",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"mod_ports_module_type_model_status\">\n{{MOD}} {{PORTS | re(\"\\\\d+\")}} {{MODULE_TYPE | ORPHRASE}} {{MODEL}} {{STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "MOD": "1",
+      "PORTS": "48",
+      "MODULE_TYPE": "48x Gigabit Ethernet SFP",
+      "MODEL": "WS-C4806E-FE",
+      "STATUS": "ok"
+    },
+    {
+      "MOD": "2",
+      "PORTS": "4",
+      "MODULE_TYPE": "4x 10-Gigabit Ethernet",
+      "MODEL": "WS-X6704-10GE",
+      "STATUS": "ok"
+    },
+    {
+      "MOD": "3",
+      "PORTS": "48",
+      "MODULE_TYPE": "48x Gigabit Ethernet Copper",
+      "MODEL": "WS-C3560-E48TD",
+      "STATUS": "ok"
+    },
+    {
+      "MOD": "4",
+      "PORTS": "24",
+      "MODULE_TYPE": "24x Gigabit Ethernet SFP",
+      "MODEL": "WS-C3750G-24T",
+      "STATUS": "ok"
+    },
+    {
+      "MOD": "5",
+      "PORTS": "0",
+      "MODULE_TYPE": "Supervisor Engine 2T",
+      "MODEL": "WS-X45-SUP2T-TS",
+      "STATUS": "ok"
+    },
+    {
+      "MOD": "6",
+      "PORTS": "4",
+      "MODULE_TYPE": "4-Port 40-Gigabit Ethernet",
+      "MODEL": "WS-X4640-4PQ",
+      "STATUS": "ok"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "mod_ports_module_type_model_status": [
+        {
+          "MOD": "1",
+          "PORTS": "48",
+          "MODULE_TYPE": "48x Gigabit Ethernet SFP",
+          "MODEL": "WS-C4806E-FE",
+          "STATUS": "ok"
+        },
+        {
+          "MOD": "2",
+          "PORTS": "4",
+          "MODULE_TYPE": "4x 10-Gigabit Ethernet",
+          "MODEL": "WS-X6704-10GE",
+          "STATUS": "ok"
+        },
+        {
+          "MOD": "3",
+          "PORTS": "48",
+          "MODULE_TYPE": "48x Gigabit Ethernet Copper",
+          "MODEL": "WS-C3560-E48TD",
+          "STATUS": "ok"
+        },
+        {
+          "MOD": "4",
+          "PORTS": "24",
+          "MODULE_TYPE": "24x Gigabit Ethernet SFP",
+          "MODEL": "WS-C3750G-24T",
+          "STATUS": "ok"
+        },
+        {
+          "MOD": "5",
+          "PORTS": "0",
+          "MODULE_TYPE": "Supervisor Engine 2T",
+          "MODEL": "WS-X45-SUP2T-TS",
+          "STATUS": "ok"
+        },
+        {
+          "MOD": "6",
+          "PORTS": "4",
+          "MODULE_TYPE": "4-Port 40-Gigabit Ethernet",
+          "MODEL": "WS-X4640-4PQ",
+          "STATUS": "ok"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Mod Ports Module-Type                      Model              Status\n1   48    48x Gigabit Ethernet SFP         WS-C4806E-FE      ok\n2   4     4x 10-Gigabit Ethernet           WS-X6704-10GE     ok\n3   48    48x Gigabit Ethernet Copper      WS-C3560-E48TD    ok\n4   24    24x Gigabit Ethernet SFP         WS-C3750G-24T     ok\n5   0     Supervisor Engine 2T             WS-X45-SUP2T-TS   ok\n6   4     4-Port 40-Gigabit Ethernet       WS-X4640-4PQ      ok\n",
+  "textfsm_template": "Value MOD (\\d+)\nValue PORTS (\\d+)\nValue MODULE_TYPE (.+)\nValue MODEL (\\S+)\nValue STATUS (\\S+)\n\nStart\n  ^\\s*Mod\\s+Ports\\s+Module-Type\\s+Model\\s+Status\\s*$$\n  ^\\s*${MOD}\\s+${PORTS}\\s+${MODULE_TYPE}\\s+${MODEL}\\s+${STATUS}\\s*$$ -> Record"
+}

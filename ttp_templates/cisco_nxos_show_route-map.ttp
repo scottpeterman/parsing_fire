@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_route-map
+# Source: ntc
+# TextFSM rows: 16
+# TTP rows: 16
+# Match ratio: 1.00
+
+<group name="name_action_seq">
+route-map {{NAME}}, {{ACTION}}, sequence {{SEQ | ORPHRASE}} 
+</group>

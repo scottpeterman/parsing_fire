@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: dns query
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 2
+# Match ratio: 2.00
+
+<group name="address_domain_name_mail_server_priority">
+Domain Name: {{DOMAIN_NAME | ORPHRASE}}
+Address:  {{ADDRESS | ORPHRASE}}
+Query Type:  {{QUERY_TYPE | ORPHRASE}}
+Mail Server: {{MAIL_SERVER | ORPHRASE}}
+Priority:  {{PRIORITY | ORPHRASE}}
+TTL:  {{TTL | ORPHRASE}}
+</group>

@@ -1,0 +1,120 @@
+{
+  "command": "show interfaces transceivers",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"port_type_product_serial_number_vid_pid_temperature_voltage\">\n{{PORT}} {{TYPE}} {{PRODUCT | ORPHRASE}} {{SERIAL_NUMBER | re(\"\\\\w+\")}} {{VID}} {{PID}} {{TEMPERATURE}} {{VOLTAGE | ORPHRASE}}\n</group>\n<group name=\"port_pid_product_serial_number_vid_temperature_voltage\">\n{{PORT}} {{T{{PID}}PE}} {{PRODUCT | ORPHRASE}} {{SERIAL_NUMBER | re(\"\\\\w+\")}} {{VID}} Y {{TEMPERATURE}} {{VOLTAGE | ORPHRASE}}\n</group>\n<group name=\"port_type_product_serial_number_pid_temperature_voltage\">\n{{PORT}} {{TYPE}} {{PRODUCT | ORPHRASE}} {{SERIAL_NUMBER | re(\"\\\\w+\")}} {{{{PID}}ID}} V {{TEMPERATURE}} {{VOLTAGE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "Gi1/0/1",
+      "TYPE": "10GBASE-SR",
+      "PRODUCT": "Arista OPTICS",
+      "SERIAL_NUMBER": "AA0001B",
+      "VID": "V01",
+      "PID": "X",
+      "TEMPERATURE": "35C",
+      "VOLTAGE": "3.3V"
+    },
+    {
+      "PORT": "Gi1/0/2",
+      "TYPE": "10GBASE-LR",
+      "PRODUCT": "Arista OPTICS",
+      "SERIAL_NUMBER": "BB0002C",
+      "VID": "V02",
+      "PID": "Y",
+      "TEMPERATURE": "32C",
+      "VOLTAGE": "3.3V"
+    },
+    {
+      "PORT": "Gi1/0/3",
+      "TYPE": "1GBASE-T",
+      "PRODUCT": "VendorX",
+      "SERIAL_NUMBER": "CC0003D",
+      "VID": "V03",
+      "PID": "Z",
+      "TEMPERATURE": "30C",
+      "VOLTAGE": "3.3V"
+    },
+    {
+      "PORT": "Gi1/0/4",
+      "TYPE": "10GBASE-SR",
+      "PRODUCT": "Arista OPTICS",
+      "SERIAL_NUMBER": "DD0004E",
+      "VID": "V04",
+      "PID": "W",
+      "TEMPERATURE": "31C",
+      "VOLTAGE": "3.3V"
+    },
+    {
+      "PORT": "Gi1/0/5",
+      "TYPE": "10GBASE-SR",
+      "PRODUCT": "Arista OPTICS",
+      "SERIAL_NUMBER": "EE0005F",
+      "VID": "V05",
+      "PID": "V",
+      "TEMPERATURE": "34C",
+      "VOLTAGE": "3.3V"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_type_product_serial_number_vid_pid_temperature_voltage": [
+        {
+          "PORT": "Gi1/0/1",
+          "TYPE": "10GBASE-SR",
+          "PRODUCT": "Arista OPTICS",
+          "SERIAL_NUMBER": "AA0001B",
+          "VID": "V01",
+          "PID": "X",
+          "TEMPERATURE": "35C",
+          "VOLTAGE": "3.3V"
+        },
+        {
+          "PORT": "Gi1/0/2",
+          "TYPE": "10GBASE-LR",
+          "PRODUCT": "Arista OPTICS",
+          "SERIAL_NUMBER": "BB0002C",
+          "VID": "V02",
+          "PID": "Y",
+          "TEMPERATURE": "32C",
+          "VOLTAGE": "3.3V"
+        },
+        {
+          "PORT": "Gi1/0/3",
+          "TYPE": "1GBASE-T",
+          "PRODUCT": "VendorX",
+          "SERIAL_NUMBER": "CC0003D",
+          "VID": "V03",
+          "PID": "Z",
+          "TEMPERATURE": "30C",
+          "VOLTAGE": "3.3V"
+        },
+        {
+          "PORT": "Gi1/0/4",
+          "TYPE": "10GBASE-SR",
+          "PRODUCT": "Arista OPTICS",
+          "SERIAL_NUMBER": "DD0004E",
+          "VID": "V04",
+          "PID": "W",
+          "TEMPERATURE": "31C",
+          "VOLTAGE": "3.3V"
+        },
+        {
+          "PORT": "Gi1/0/5",
+          "TYPE": "10GBASE-SR",
+          "PRODUCT": "Arista OPTICS",
+          "SERIAL_NUMBER": "EE0005F",
+          "VID": "V05",
+          "PID": "V",
+          "TEMPERATURE": "34C",
+          "VOLTAGE": "3.3V"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Port    Type        Product             Serial Number    Vid        Pid    Temperature  Voltage\nGi1/0/1 10GBASE-SR  Arista OPTICS       AA0001B          V01        X      35C           3.3V\nGi1/0/2 10GBASE-LR  Arista OPTICS       BB0002C          V02        Y      32C           3.3V\nGi1/0/3 1GBASE-T    VendorX             CC0003D          V03        Z      30C           3.3V\nGi1/0/4 10GBASE-SR  Arista OPTICS       DD0004E          V04        W      31C           3.3V\nGi1/0/5 10GBASE-SR  Arista OPTICS       EE0005F          V05        V      34C           3.3V\n",
+  "textfsm_template": "Value PORT (\\S+)\nValue TYPE (\\S+)\nValue PRODUCT (\\S+(\\s+\\S+)*)\nValue SERIAL_NUMBER (\\S+)\nValue VID (\\S+)\nValue PID (\\S+)\nValue TEMPERATURE (\\d+C)\nValue VOLTAGE (\\d+\\.\\d+V)\n\nStart\n  ^\\s*Port\\s+Type\\s+Product\\s+Serial\\s+Number\\s+Vid\\s+Pid\\s+Temperature\\s+Voltage\\s*$$\n  ^\\s*${PORT}\\s+${TYPE}\\s+${PRODUCT}\\s+${SERIAL_NUMBER}\\s+${VID}\\s+${PID}\\s+${TEMPERATURE}\\s+${VOLTAGE}\\s*$$ -> Record"
+}

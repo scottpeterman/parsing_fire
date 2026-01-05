@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_processes_top_once
+# Source: ntc
+# TextFSM rows: 8
+# TTP rows: 2
+# Match ratio: 0.25
+
+<group name="global_cpu_percent_hi_global_cpu_percent_idle_global_cpu_percent_iowait">
+top - {{GLOBAL_TIMESTAMP}} up 68 days, {{GLOBAL_USERS}}5 min, {{GLOBAL_TASKS_RUNNING}} user, load average: {{GLOBAL_LOAD_AVERAGE_1_MINUTES | re("[\\d\\.\\(\\)A-Za-z]+")}}, {{GLOBAL_LOAD_AVERAGE_5_MINUTES | re("[\\d\\.\\(\\)A-Za-z]+")}}, {{GLOBAL_LOAD_AVERAGE_15_MINUTES | ORPHRASE}}
+<group name="nice_percent_cpu_priority">
+MiB Mem : 795{{PERCENT_CPU}} total, 1755.3 free, {{PRIORITY | ORPHRASE}}52.9 used, 4148.{{NICE}} buff/cache
+</group>
+</group>

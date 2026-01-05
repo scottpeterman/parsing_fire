@@ -1,0 +1,22 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_ip_firewall_nat_print_all_without-paging
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 4
+# Match ratio: 0.80
+
+<group name="chain_action_src_address_out_interface_list_ipsec_policy">
+      chain={{CHAIN}} action={{ACTION}} src-address={{SRC_ADDRESS}} out-interface-list={{OUT_INTERFACE_LIST}} ipsec-policy={{IPSEC_POLICY | ORPHRASE}} 
+</group>
+<group name="index_chain_action_protocol_src_address_dst_address_in_interface_list_log">
+ {{INDEX}} chain={{CHAIN}} action={{ACTION}} protocol={{PROTOCOL}} src-address={{SRC_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} dst-address={{DST_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} in-interface-list={{IN_INTERFACE_LIST}} log={{LOG | ORPHRASE}} log-prefix="" 
+</group>
+<group name="chain_action_protocol_in_interface_out_interface_log">
+      chain={{CHAIN}} action={{ACTION}} protocol={{PROTOCOL}} in-interface={{IN_INTERFACE}} out-interface={{OUT_INTERFACE}} log={{LOG | ORPHRASE}} log-prefix="" 
+</group>
+<group name="flags_chain_action_protocol_src_address_list_dst_address_list_src_port_dst_port_log">
+ {{INDE{{FLAGS}}}} X chain={{CHAIN}} action={{ACTION}} protocol={{PROTOCOL}} src-address-list={{SRC_ADDRESS_LIST}} dst-address-list={{DST_ADDRESS_LIST}} src-port={{SRC_PORT | re("\\d+")}} dst-port={{DST_PORT | ORPHRASE}} log={{LOG}} log-prefix="" 
+</group>
+<group name="index_chain_action_protocol_src_address_out_interface_list_log_ipsec_policy">
+ {{INDEX}} chain={{CHAIN}} action={{ACTION}} protocol={{PROTOCOL}} src-address={{SRC_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} out-interface-list={{OUT_INTERFACE_LIST}} log={{LOG}} log-prefix="" ipsec-policy={{IPSEC_POLICY | ORPHRASE}} 
+</group>

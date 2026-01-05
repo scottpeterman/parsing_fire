@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_interface_summary
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 1
+# Match ratio: 0.33
+
+<group name="name_port_vlan_id_ip_address_type_ap_mgr_guest">
+{{NAME}} {{PORT | re("\\d+")}} {{VLAN_ID}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{TYPE}} {{AP_MGR}} {{GUEST | ORPHRASE}} 
+</group>

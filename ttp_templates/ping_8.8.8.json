@@ -1,0 +1,75 @@
+{
+  "command": "ping 8.8.8.",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"icmp_seq_ttl_time\">\n64 bytes from 8.8.8.8: icmp_seq={{ICMP_SEQ}} ttl={{TTL}} time={{TIME | ORPHRASE}} ms\n</group>\n<group name=\"rtt_min_rtt_avg_rtt_max_rtt_mdev\">\nrtt min/avg/max/mdev = {{RTT_MIN}}/{{RTT_AVG}}/{{RTT_MAX}}/{{RTT_MDEV | ORPHRASE}} ms\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ICMP_SEQ": "1",
+      "TTL": "117",
+      "TIME": "10.2"
+    },
+    {
+      "ICMP_SEQ": "2",
+      "TTL": "117",
+      "TIME": "10.5"
+    },
+    {
+      "ICMP_SEQ": "3",
+      "TTL": "117",
+      "TIME": "10.1"
+    },
+    {
+      "ICMP_SEQ": "4",
+      "TTL": "117",
+      "TIME": "10.6"
+    },
+    {
+      "TRANSMITTED": "4",
+      "RECEIVED": "4",
+      "LOSS": "0%",
+      "RTT_MIN": "10.128",
+      "RTT_AVG": "10.358",
+      "RTT_MAX": "10.556",
+      "RTT_MDEV": "0.142"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "icmp_seq_ttl_time": [
+        {
+          "ICMP_SEQ": "1",
+          "TTL": "117",
+          "TIME": "10.2"
+        },
+        {
+          "ICMP_SEQ": "2",
+          "TTL": "117",
+          "TIME": "10.5"
+        },
+        {
+          "ICMP_SEQ": "3",
+          "TTL": "117",
+          "TIME": "10.1"
+        },
+        {
+          "ICMP_SEQ": "4",
+          "TTL": "117",
+          "TIME": "10.6"
+        }
+      ],
+      "rtt_min_rtt_avg_rtt_max_rtt_mdev": {
+        "RTT_MIN": "10.128",
+        "RTT_AVG": "10.358",
+        "RTT_MAX": "10.556",
+        "RTT_MDEV": "0.142"
+      }
+    }
+  ],
+  "cli_content": "PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.\n64 bytes from 8.8.8.8: icmp_seq=1 ttl=117 time=10.2 ms\n64 bytes from 8.8.8.8: icmp_seq=2 ttl=117 time=10.5 ms\n64 bytes from 8.8.8.8: icmp_seq=3 ttl=117 time=10.1 ms\n64 bytes from 8.8.8.8: icmp_seq=4 ttl=117 time=10.6 ms\n\n--- 8.8.8.8 ping statistics ---\n4 packets transmitted, 4 received, 0% packet loss, time 3004ms\nrtt min/avg/max/mdev = 10.128/10.358/10.556/0.142 ms\n",
+  "textfsm_template": "Value ICMP_SEQ (\\d+)\nValue TTL (\\d+)\nValue TIME (\\d+\\.\\d+)\nValue TRANSMITTED (\\d+)\nValue RECEIVED (\\d+)\nValue LOSS (\\d+%)\nValue RTT_MIN (\\d+\\.\\d+)\nValue RTT_AVG (\\d+\\.\\d+)\nValue RTT_MAX (\\d+\\.\\d+)\nValue RTT_MDEV (\\d+\\.\\d+)\n\nStart\n  ^64 bytes from .+?: icmp_seq=${ICMP_SEQ} ttl=${TTL} time=${TIME} ms$$ -> Record\n  ^--- .+ ping statistics ---\n  ^${TRANSMITTED} packets transmitted, ${RECEIVED} received, ${LOSS} packet loss, time .+ms$$\n  ^rtt min/avg/max/mdev = ${RTT_MIN}/${RTT_AVG}/${RTT_MAX}/${RTT_MDEV} ms$$"
+}

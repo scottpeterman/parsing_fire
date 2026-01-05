@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_interface_ip_brief
+# Source: ntc
+# TextFSM rows: 18
+# TTP rows: 2
+# Match ratio: 0.11
+
+<group name="interface_ip_address_status_proto">
+{{INTERFACE}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} YES unset {{STATUS | ORPHRASE}} {{PROTO}} 
+</group>

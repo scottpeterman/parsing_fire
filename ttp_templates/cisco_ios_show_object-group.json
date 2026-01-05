@@ -1,0 +1,326 @@
+{
+  "command": "cisco_ios_show_object-group",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.24,
+  "textfsm_rows": 25,
+  "ttp_rows": 31,
+  "ttp_template": "<group name=\"type_name\">\n{{TYPE}} object group {{NAME | ORPHRASE}}\n</group>\n<group name=\"protocol_port_match_port\">\n {{PROTOCOL}} {{PORT_MATCH}} {{PORT | ORPHRASE}}\n</group>\n<group name=\"protocol_port_match_port_range_start_port_range_end\">\n {{PROTOCOL}} {{PORT_MATCH}} {{PORT_RANGE_START}} {{PORT_RANGE_END | ORPHRASE}}\n</group>\n<group name=\"type_nested_groups\">\n{{TYPE}} object group {{NESTED_GROUPS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "DESCRIPTION": "! Test Service Group !"
+    },
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "ICMP_TYPE": "echo-reply"
+    },
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "PROTOCOL": "tcp",
+      "PORT_MATCH": "eq",
+      "PORT": "smtp"
+    },
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "PROTOCOL": "udp",
+      "PORT_MATCH": "eq",
+      "PORT": "tacacs"
+    },
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "PROTOCOL": "udp",
+      "PORT_MATCH": "range",
+      "PORT_RANGE_START": "tacacs",
+      "PORT_RANGE_END": "50"
+    },
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "PROTOCOL": "tcp",
+      "PORT_MATCH": "range",
+      "PORT_RANGE_START": "79",
+      "PORT_RANGE_END": "www"
+    },
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "PROTOCOL": "tcp",
+      "PORT_MATCH": "eq",
+      "PORT": "www"
+    },
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "PROTOCOL": "tcp",
+      "PORT_MATCH": "eq",
+      "PORT": "81"
+    },
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "PROTOCOL": "udp",
+      "PORT_MATCH": "lt",
+      "PORT": "999"
+    },
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "PROTOCOL": "udp",
+      "PORT_MATCH": "gt",
+      "PORT": "97"
+    },
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "PROTOCOL": "tcp-udp",
+      "PORT_MATCH": "range",
+      "PORT_RANGE_START": "12200",
+      "PORT_RANGE_END": "12700"
+    },
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "PROTOCOL": "icmp"
+    },
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "PROTOCOL": "tcp"
+    },
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "PROTOCOL": "udp"
+    },
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "PROTOCOL": "tcp-udp",
+      "PORT_MATCH": "range",
+      "PORT_RANGE_START": "0",
+      "PORT_RANGE_END": "65535"
+    },
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "NESTED_GROUPS": "SSSS"
+    },
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "PROTOCOL": "ip"
+    },
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "PROTOCOL": "ipinip"
+    },
+    {
+      "TYPE": "Service",
+      "NAME": "TEST-SVC-OGR",
+      "PROTOCOL": "99"
+    },
+    {
+      "TYPE": "Network",
+      "NAME": "TEST_NET_OGR",
+      "DESCRIPTION": "###TEST NETWORK OGR###"
+    },
+    {
+      "TYPE": "Network",
+      "NAME": "TEST_NET_OGR",
+      "ANY": "any"
+    },
+    {
+      "TYPE": "Network",
+      "NAME": "TEST_NET_OGR",
+      "HOST": "1.1.1.1"
+    },
+    {
+      "TYPE": "Network",
+      "NAME": "TEST_NET_OGR",
+      "HOST_RANGE_START": "2.2.2.2",
+      "HOST_RANGE_END": "3.3.3.3"
+    },
+    {
+      "TYPE": "Network",
+      "NAME": "TEST_NET_OGR",
+      "NESTED_GROUPS": "NNNN"
+    },
+    {
+      "TYPE": "Network",
+      "NAME": "TEST_NET_OGR",
+      "NETWORK": "1.1.1.0",
+      "NETMASK": "255.255.255.0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "type_name": [
+        {
+          "TYPE": "Network",
+          "NAME": "NNNN"
+        },
+        {
+          "TYPE": "Service",
+          "NAME": "SSSS"
+        },
+        {
+          "TYPE": "Service",
+          "NAME": "TEST-SVC-OGR"
+        },
+        {
+          "TYPE": "Network",
+          "NAME": "TEST_NET_OGR"
+        },
+        {
+          "TYPE": "Network",
+          "NAME": "XXXX"
+        },
+        {
+          "TYPE": "Network",
+          "NAME": "YYYY"
+        }
+      ],
+      "protocol_port_match_port": [
+        {
+          "PROTOCOL": "Description",
+          "PORT_MATCH": "!",
+          "PORT": "Test Service Group !"
+        },
+        {
+          "PROTOCOL": "tcp",
+          "PORT_MATCH": "eq",
+          "PORT": "smtp"
+        },
+        {
+          "PROTOCOL": "udp",
+          "PORT_MATCH": "eq",
+          "PORT": "tacacs"
+        },
+        {
+          "PROTOCOL": "udp",
+          "PORT_MATCH": "range",
+          "PORT": "tacacs 50"
+        },
+        {
+          "PROTOCOL": "tcp",
+          "PORT_MATCH": "range",
+          "PORT": "79 www"
+        },
+        {
+          "PROTOCOL": "tcp",
+          "PORT_MATCH": "eq",
+          "PORT": "www"
+        },
+        {
+          "PROTOCOL": "tcp",
+          "PORT_MATCH": "eq",
+          "PORT": "81"
+        },
+        {
+          "PROTOCOL": "udp",
+          "PORT_MATCH": "lt",
+          "PORT": "999"
+        },
+        {
+          "PROTOCOL": "udp",
+          "PORT_MATCH": "gt",
+          "PORT": "97"
+        },
+        {
+          "PROTOCOL": "tcp-udp",
+          "PORT_MATCH": "range",
+          "PORT": "12200 12700"
+        },
+        {
+          "PROTOCOL": "tcp-udp",
+          "PORT_MATCH": "range",
+          "PORT": "0 65535"
+        },
+        {
+          "PROTOCOL": "Description",
+          "PORT_MATCH": "###TEST",
+          "PORT": "NETWORK OGR###"
+        },
+        {
+          "PROTOCOL": "range",
+          "PORT_MATCH": "2.2.2.2",
+          "PORT": "3.3.3.3"
+        }
+      ],
+      "protocol_port_match_port_range_start_port_range_end": [
+        {
+          "PROTOCOL": "Description",
+          "PORT_MATCH": "!",
+          "PORT_RANGE_START": "Test",
+          "PORT_RANGE_END": "Service Group !"
+        },
+        {
+          "PROTOCOL": "udp",
+          "PORT_MATCH": "range",
+          "PORT_RANGE_START": "tacacs",
+          "PORT_RANGE_END": "50"
+        },
+        {
+          "PROTOCOL": "tcp",
+          "PORT_MATCH": "range",
+          "PORT_RANGE_START": "79",
+          "PORT_RANGE_END": "www"
+        },
+        {
+          "PROTOCOL": "tcp-udp",
+          "PORT_MATCH": "range",
+          "PORT_RANGE_START": "12200",
+          "PORT_RANGE_END": "12700"
+        },
+        {
+          "PROTOCOL": "tcp-udp",
+          "PORT_MATCH": "range",
+          "PORT_RANGE_START": "0",
+          "PORT_RANGE_END": "65535"
+        },
+        {
+          "PROTOCOL": "Description",
+          "PORT_MATCH": "###TEST",
+          "PORT_RANGE_START": "NETWORK",
+          "PORT_RANGE_END": "OGR###"
+        }
+      ],
+      "type_nested_groups": [
+        {
+          "TYPE": "Network",
+          "NESTED_GROUPS": "NNNN"
+        },
+        {
+          "TYPE": "Service",
+          "NESTED_GROUPS": "SSSS"
+        },
+        {
+          "TYPE": "Service",
+          "NESTED_GROUPS": "TEST-SVC-OGR"
+        },
+        {
+          "TYPE": "Network",
+          "NESTED_GROUPS": "TEST_NET_OGR"
+        },
+        {
+          "TYPE": "Network",
+          "NESTED_GROUPS": "XXXX"
+        },
+        {
+          "TYPE": "Network",
+          "NESTED_GROUPS": "YYYY"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Network object group NNNN\nService object group SSSS\nService object group TEST-SVC-OGR\n Description ! Test Service Group !\n icmp echo-reply\n tcp eq smtp\n udp eq tacacs\n udp range tacacs 50\n tcp range 79 www\n tcp eq www\n tcp eq 81\n udp lt 999\n udp gt 97\n tcp-udp range 12200 12700\n icmp\n tcp\n udp\n tcp-udp range 0 65535\n group-object SSSS\n ip\n ipinip\n 99\nNetwork object group TEST_NET_OGR\n Description ###TEST NETWORK OGR###\n any\n host 1.1.1.1\n range 2.2.2.2 3.3.3.3\n group-object NNNN\n 1.1.1.0 255.255.255.0\nNetwork object group XXXX\nNetwork object group YYYY\n",
+  "textfsm_template": "Value Required,Filldown TYPE (Service|Network)\nValue Required,Filldown NAME (\\S+)\nValue DESCRIPTION (.+)\nValue NESTED_GROUPS (\\S+)\nValue ANY (any)\nValue HOST (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue HOST_RANGE_START (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue HOST_RANGE_END (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue NETWORK (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue NETMASK (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue PROTOCOL (\\S+)\nValue PORT_MATCH (eq|neq|range|lt|gt)\nValue PORT ((?<!range\\s)\\S+)\nValue PORT_RANGE_START ((?<=range\\s)\\S+)\nValue PORT_RANGE_END (\\S+)\nValue ICMP_TYPE (echo|echo-reply|administratively-prohibited|unreachable|port-unreachable|redirect|router-advertisement|router-solicitation|packet-too-big|time-exceeded|ttl-exceeded|parameter-problem)\n\nStart\n  ^(Service|Network) -> Continue.Clearall\n  ^${TYPE}\\s+object\\s+group\\s+${NAME}\\s*$$ -> Record\n  ^\\s+Description\\s+${DESCRIPTION}$$ -> Record\n  ^\\s+group-object\\s+${NESTED_GROUPS}\\s*$$ -> Record\n  ^\\s+(host\\s+${HOST}|range\\s+${HOST_RANGE_START}\\s+${HOST_RANGE_END}|${ANY}|${NETWORK}\\s+${NETMASK})\\s*$$ -> Record\n  ^\\s+icmp\\s+${ICMP_TYPE}\\s*$$ -> Record\n  ^\\s+${PROTOCOL}\\s+${PORT_MATCH}\\s+(${PORT_RANGE_START}\\s+${PORT_RANGE_END}|${PORT})\\s*$$ -> Record\n  ^\\s+${PROTOCOL}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n\nEOF\n\n"
+}

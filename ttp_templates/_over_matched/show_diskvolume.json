@@ -1,0 +1,69 @@
+{
+  "command": "show diskvolume",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"volume_name_mb_free_total_pc_free_type\">\n{{VOLUME_NAME}} {{MB_FREE}} {{TOTAL}} {{PC_FREE}} {{TYPE | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VOLUME_NAME": "flash:",
+      "MB_FREE": "256",
+      "TOTAL": "512",
+      "PC_FREE": "50",
+      "TYPE": "FAT"
+    },
+    {
+      "VOLUME_NAME": "bootflash:",
+      "MB_FREE": "512",
+      "TOTAL": "1024",
+      "PC_FREE": "50",
+      "TYPE": "FAT"
+    },
+    {
+      "VOLUME_NAME": "disk0:",
+      "MB_FREE": "1024",
+      "TOTAL": "2048",
+      "PC_FREE": "50",
+      "TYPE": "FAT"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "volume_name_mb_free_total_pc_free_type": [
+        {
+          "VOLUME_NAME": "------------",
+          "MB_FREE": "-------",
+          "TOTAL": "------",
+          "PC_FREE": "-------",
+          "TYPE": "-----"
+        },
+        {
+          "VOLUME_NAME": "flash:",
+          "MB_FREE": "256",
+          "TOTAL": "512",
+          "PC_FREE": "50",
+          "TYPE": "FAT"
+        },
+        {
+          "VOLUME_NAME": "bootflash:",
+          "MB_FREE": "512",
+          "TOTAL": "1024",
+          "PC_FREE": "50",
+          "TYPE": "FAT"
+        },
+        {
+          "VOLUME_NAME": "disk0:",
+          "MB_FREE": "1024",
+          "TOTAL": "2048",
+          "PC_FREE": "50",
+          "TYPE": "FAT"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Volume Name    MB Free   Total   PC Free  Type  \n------------   -------   ------  -------  ----- \nflash:               256     512       50    FAT   \nbootflash:         512    1024       50    FAT\ndisk0:           1024    2048       50    FAT\n",
+  "textfsm_template": "Value VOLUME_NAME (\\S+)\nValue MB_FREE (\\d+)\nValue TOTAL (\\d+)\nValue PC_FREE (\\d+)\nValue TYPE (\\S+)\n\nStart\n  ^\\s*Volume\\s+Name\\s+MB Free\\s+Total\\s+PC Free\\s+Type\\s*$$\n  ^\\s*${VOLUME_NAME}\\s+${MB_FREE}\\s+${TOTAL}\\s+${PC_FREE}\\s+${TYPE}\\s*$$ -> Record"
+}

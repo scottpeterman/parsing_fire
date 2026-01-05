@@ -1,0 +1,254 @@
+{
+  "command": "arista_eos_show_inventory",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 3.272727272727273,
+  "textfsm_rows": 11,
+  "ttp_rows": 36,
+  "ttp_template": "<group name=\"name_descr\">\n {{NAME}} {{DESCR | ORPHRASE}}\n</group>\n<group name=\"port_name_sn\">\n {{PORT | re(\"\\\\d+\")}} {{NAME}} {{SN | ORPHRASE}}\n</group>\n<group name=\"port_descr_name_sn_vid\">\n {{PORT | re(\"\\\\d+\")}} {{DESCR | ORPHRASE}} {{NAME}} {{SN | re(\"\\\\w+\")}} {{VID | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "DCS-7150S-52-CL",
+      "SN": "JPE13120702",
+      "DESCR": "52-port SFP+ 10GigE 1RU + Clock",
+      "VID": "02.00"
+    },
+    {
+      "PORT": "1",
+      "NAME": "PWR-460AC-F",
+      "SN": "K192KU00241CZ"
+    },
+    {
+      "PORT": "2",
+      "NAME": "PWR-460AC-F",
+      "SN": "K192L200751CZ"
+    },
+    {
+      "PORT": "1",
+      "NAME": "FAN-7000-F",
+      "SN": "N/A"
+    },
+    {
+      "PORT": "2",
+      "NAME": "FAN-7000-F",
+      "SN": "N/A"
+    },
+    {
+      "PORT": "3",
+      "NAME": "FAN-7000-F",
+      "SN": "N/A"
+    },
+    {
+      "PORT": "4",
+      "NAME": "FAN-7000-F",
+      "SN": "N/A"
+    },
+    {
+      "PORT": "1",
+      "NAME": "SFP-10G-SR",
+      "SN": "XCW1225FD753",
+      "DESCR": "Arista Networks",
+      "VID": "0002"
+    },
+    {
+      "PORT": "2",
+      "NAME": "SFP-10G-SR",
+      "SN": "XCW1225FD753",
+      "DESCR": "Arista Networks",
+      "VID": "0002"
+    },
+    {
+      "PORT": "51",
+      "NAME": "SFP-10G-SR",
+      "SN": "XCW1225FD753",
+      "DESCR": "Arista Networks",
+      "VID": "0002"
+    },
+    {
+      "PORT": "52",
+      "NAME": "SFP-10G-SR",
+      "SN": "XCW1225FD753",
+      "DESCR": "Arista Networks",
+      "VID": "0002"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name_descr": [
+        {
+          "NAME": "DCS-7150S-52-CL",
+          "DESCR": "52-port SFP+ 10GigE 1RU + Clock"
+        },
+        {
+          "NAME": "02.00",
+          "DESCR": "JPE13120702 2013-03-27"
+        },
+        {
+          "NAME": "Slot",
+          "DESCR": "Model Serial Number"
+        },
+        {
+          "NAME": "----",
+          "DESCR": "---------------- ----------------"
+        },
+        {
+          "NAME": "1",
+          "DESCR": "PWR-460AC-F K192KU00241CZ"
+        },
+        {
+          "NAME": "2",
+          "DESCR": "PWR-460AC-F K192L200751CZ"
+        },
+        {
+          "NAME": "Module",
+          "DESCR": "Number of Fans Model Serial Number"
+        },
+        {
+          "NAME": "-------",
+          "DESCR": "--------------- ---------------- ----------------"
+        },
+        {
+          "NAME": "1",
+          "DESCR": "1 FAN-7000-F N/A"
+        },
+        {
+          "NAME": "2",
+          "DESCR": "1 FAN-7000-F N/A"
+        },
+        {
+          "NAME": "3",
+          "DESCR": "1 FAN-7000-F N/A"
+        },
+        {
+          "NAME": "4",
+          "DESCR": "1 FAN-7000-F N/A"
+        },
+        {
+          "NAME": "Type",
+          "DESCR": "Count"
+        },
+        {
+          "NAME": "----------------",
+          "DESCR": "----"
+        },
+        {
+          "NAME": "Management",
+          "DESCR": "1"
+        },
+        {
+          "NAME": "Switched",
+          "DESCR": "52"
+        },
+        {
+          "NAME": "Port",
+          "DESCR": "Manufacturer Model Serial Number Rev"
+        },
+        {
+          "NAME": "----",
+          "DESCR": "---------------- ---------------- ---------------- ----"
+        },
+        {
+          "NAME": "1",
+          "DESCR": "Arista Networks SFP-10G-SR XCW1225FD753 0002"
+        },
+        {
+          "NAME": "2",
+          "DESCR": "Arista Networks SFP-10G-SR XCW1225FD753 0002"
+        },
+        {
+          "NAME": "51",
+          "DESCR": "Arista Networks SFP-10G-SR XCW1225FD753 0002"
+        },
+        {
+          "NAME": "52",
+          "DESCR": "Arista Networks SFP-10G-SR XCW1225FD753 0002"
+        }
+      ],
+      "port_name_sn": [
+        {
+          "PORT": "1",
+          "NAME": "PWR-460AC-F",
+          "SN": "K192KU00241CZ"
+        },
+        {
+          "PORT": "2",
+          "NAME": "PWR-460AC-F",
+          "SN": "K192L200751CZ"
+        },
+        {
+          "PORT": "1",
+          "NAME": "1",
+          "SN": "FAN-7000-F N/A"
+        },
+        {
+          "PORT": "2",
+          "NAME": "1",
+          "SN": "FAN-7000-F N/A"
+        },
+        {
+          "PORT": "3",
+          "NAME": "1",
+          "SN": "FAN-7000-F N/A"
+        },
+        {
+          "PORT": "4",
+          "NAME": "1",
+          "SN": "FAN-7000-F N/A"
+        },
+        {
+          "PORT": "1",
+          "NAME": "Arista",
+          "SN": "Networks SFP-10G-SR XCW1225FD753 0002"
+        },
+        {
+          "PORT": "2",
+          "NAME": "Arista",
+          "SN": "Networks SFP-10G-SR XCW1225FD753 0002"
+        },
+        {
+          "PORT": "51",
+          "NAME": "Arista",
+          "SN": "Networks SFP-10G-SR XCW1225FD753 0002"
+        },
+        {
+          "PORT": "52",
+          "NAME": "Arista",
+          "SN": "Networks SFP-10G-SR XCW1225FD753 0002"
+        }
+      ],
+      "port_descr_name_sn_vid": [
+        {
+          "PORT": "1",
+          "DESCR": "Arista Networks",
+          "NAME": "SFP-10G-SR",
+          "SN": "XCW1225FD753",
+          "VID": "0002"
+        },
+        {
+          "PORT": "2",
+          "DESCR": "Arista Networks",
+          "NAME": "SFP-10G-SR",
+          "SN": "XCW1225FD753",
+          "VID": "0002"
+        },
+        {
+          "PORT": "51",
+          "DESCR": "Arista Networks",
+          "NAME": "SFP-10G-SR",
+          "SN": "XCW1225FD753",
+          "VID": "0002"
+        },
+        {
+          "PORT": "52",
+          "DESCR": "Arista Networks",
+          "NAME": "SFP-10G-SR",
+          "SN": "XCW1225FD753",
+          "VID": "0002"
+        }
+      ]
+    }
+  ],
+  "cli_content": "System information\n DCS-7150S-52-CL 52-port SFP+ 10GigE 1RU + Clock\n 02.00 JPE13120702 2013-03-27\nSystem has 2 power supply slots\n Slot Model Serial Number\n ---- ---------------- ----------------\n 1 PWR-460AC-F K192KU00241CZ\n 2 PWR-460AC-F K192L200751CZ\nSystem has 4 fan modules\n Module Number of Fans Model Serial Number\n ------- --------------- ---------------- ----------------\n 1 1 FAN-7000-F N/A\n 2 1 FAN-7000-F N/A\n 3 1 FAN-7000-F N/A\n 4 1 FAN-7000-F N/A\nSystem has 53 ports\n Type Count\n ---------------- ----\n Management 1\n Switched 52\nSystem has 52 transceiver slots\n Port Manufacturer Model Serial Number Rev\n ---- ---------------- ---------------- ---------------- ----\n 1 Arista Networks SFP-10G-SR XCW1225FD753 0002\n 2 Arista Networks SFP-10G-SR XCW1225FD753 0002\n 51 Arista Networks SFP-10G-SR XCW1225FD753 0002\n 52 Arista Networks SFP-10G-SR XCW1225FD753 0002",
+  "textfsm_template": "Value PORT ([0-9\\/]+)\nValue NAME (\\S+)\nValue SN (\\S+)\nValue DESCR (.+)\nValue VID (\\d+\\.\\d+|\\d+)\n\nStart\n  ^\\s*System\\s+\\S+?$$ -> Chassis\n\nChassis\n  ^\\s+Model\n  ^\\s+-\n  ^\\s+HW\n  ^\\s+${VID}\\s+${SN}\\s+\\d+-\\d+-\\d+ -> Record\n  ^\\s+${NAME}?\\s+${DESCR}$$\n  ^\\s*System.+(power supply|power-supply) -> Power_Supply\n\n\nPower_Supply\n  ^\\s+Slot\n  ^\\s+-\n  ^\\s+${PORT}\\s+${NAME}\\s+${SN} -> Record\n  ^\\s*System.+(fan) -> Fan\n\nFan\n  ^\\s+Module\n  ^\\s+-\n  ^\\s+${PORT}?\\s+\\d+?\\s+${NAME}?\\s+${SN} -> Record\n  ^\\s*System.+ports -> Ports\n\nPorts\n  ^\\s+${DESCR}\\s+${PORT} -> Record\n  ^\\s*System.+transceiver -> Transceiver\n\nTransceiver\n  ^\\s+${PORT}\\s+${DESCR}\\s+${NAME}\\s+${SN}\\s+${VID} -> Record"
+}

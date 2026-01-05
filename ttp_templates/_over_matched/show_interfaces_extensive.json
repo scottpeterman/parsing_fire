@@ -1,0 +1,83 @@
+{
+  "command": "show interfaces extensive",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"interface_admin_status_link_status_speed_duplex\">\n{{INTERFACE}} {{ADMIN_STATUS | ORPHRASE}} {{LINK_STATUS | ORPHRASE}} {{SPEED}} {{DUPLEX | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "ge-0/0/0",
+      "ADMIN_STATUS": "up",
+      "LINK_STATUS": "up",
+      "SPEED": "1000mbps",
+      "DUPLEX": "full"
+    },
+    {
+      "INTERFACE": "ge-0/0/1",
+      "ADMIN_STATUS": "up",
+      "LINK_STATUS": "up",
+      "SPEED": "1000mbps",
+      "DUPLEX": "full"
+    },
+    {
+      "INTERFACE": "ge-0/0/2",
+      "ADMIN_STATUS": "up",
+      "LINK_STATUS": "down",
+      "SPEED": "1000mbps",
+      "DUPLEX": "full"
+    },
+    {
+      "INTERFACE": "ge-0/0/3",
+      "ADMIN_STATUS": "down",
+      "LINK_STATUS": "down",
+      "SPEED": "1000mbps",
+      "DUPLEX": "full"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_admin_status_link_status_speed_duplex": [
+        {
+          "INTERFACE": "Interface",
+          "ADMIN_STATUS": "Admin",
+          "LINK_STATUS": "Status Link Status",
+          "SPEED": "Speed",
+          "DUPLEX": "Duplex"
+        },
+        {
+          "INTERFACE": "ge-0/0/0",
+          "ADMIN_STATUS": "up",
+          "LINK_STATUS": "up",
+          "SPEED": "1000mbps",
+          "DUPLEX": "full"
+        },
+        {
+          "INTERFACE": "ge-0/0/1",
+          "ADMIN_STATUS": "up",
+          "LINK_STATUS": "up",
+          "SPEED": "1000mbps",
+          "DUPLEX": "full"
+        },
+        {
+          "INTERFACE": "ge-0/0/2",
+          "ADMIN_STATUS": "up",
+          "LINK_STATUS": "down",
+          "SPEED": "1000mbps",
+          "DUPLEX": "full"
+        },
+        {
+          "INTERFACE": "ge-0/0/3",
+          "ADMIN_STATUS": "down",
+          "LINK_STATUS": "down",
+          "SPEED": "1000mbps",
+          "DUPLEX": "full"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              Admin Status Link Status       Speed     Duplex\nge-0/0/0               up           up                1000mbps  full\nge-0/0/1               up           up                1000mbps  full\nge-0/0/2               up           down              1000mbps  full\nge-0/0/3               down         down              1000mbps  full\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue ADMIN_STATUS (\\S+)\nValue LINK_STATUS (\\S+)\nValue SPEED (\\S+)\nValue DUPLEX (\\S+)\n\nStart\n  ^Interface\\s+Admin Status\\s+Link Status\\s+Speed\\s+Duplex\\s*$$\n  ^${INTERFACE}\\s+${ADMIN_STATUS}\\s+${LINK_STATUS}\\s+${SPEED}\\s+${DUPLEX}\\s*$$ -> Record"
+}

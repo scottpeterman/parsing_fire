@@ -1,0 +1,98 @@
+{
+  "command": "display interface brief",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.1666666666666667,
+  "textfsm_rows": 6,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"interface_physical_protocol_description\">\n{{INTERFACE}} {{PHYSICAL}} {{PROTOCOL}} {{DESCRIPTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "GE0/0/0",
+      "PHYSICAL": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "Uplink"
+    },
+    {
+      "INTERFACE": "GE0/0/1",
+      "PHYSICAL": "down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "N/A"
+    },
+    {
+      "INTERFACE": "GE0/0/2",
+      "PHYSICAL": "up",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "Link to Server"
+    },
+    {
+      "INTERFACE": "GE0/0/3",
+      "PHYSICAL": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "Link to Router"
+    },
+    {
+      "INTERFACE": "GE0/0/4",
+      "PHYSICAL": "down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "N/A"
+    },
+    {
+      "INTERFACE": "Loopback0",
+      "PHYSICAL": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "Management"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_physical_protocol_description": [
+        {
+          "INTERFACE": "Interface",
+          "PHYSICAL": "Physical",
+          "PROTOCOL": "Protocol",
+          "DESCRIPTION": "Description"
+        },
+        {
+          "INTERFACE": "GE0/0/0",
+          "PHYSICAL": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "Uplink"
+        },
+        {
+          "INTERFACE": "GE0/0/1",
+          "PHYSICAL": "down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "N/A"
+        },
+        {
+          "INTERFACE": "GE0/0/2",
+          "PHYSICAL": "up",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "Link to Server"
+        },
+        {
+          "INTERFACE": "GE0/0/3",
+          "PHYSICAL": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "Link to Router"
+        },
+        {
+          "INTERFACE": "GE0/0/4",
+          "PHYSICAL": "down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "N/A"
+        },
+        {
+          "INTERFACE": "Loopback0",
+          "PHYSICAL": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "Management"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface        Physical     Protocol     Description\nGE0/0/0          up           up           Uplink\nGE0/0/1          down         down         N/A\nGE0/0/2          up           down         Link to Server\nGE0/0/3          up           up           Link to Router\nGE0/0/4          down         down         N/A\nLoopback0        up           up           Management\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue PHYSICAL (\\S+)\nValue PROTOCOL (\\S+)\nValue DESCRIPTION (.+)\n\nStart\n  ^\\s*Interface\\s+Physical\\s+Protocol\\s+Description\\s*$$\n  ^\\s*${INTERFACE}\\s+${PHYSICAL}\\s+${PROTOCOL}\\s+${DESCRIPTION}\\s*$$ -> Record"
+}

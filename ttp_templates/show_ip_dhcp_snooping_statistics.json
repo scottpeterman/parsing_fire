@@ -1,0 +1,84 @@
+{
+  "command": "show ip dhcp snooping statistics",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"interface_trusted_switched_pkts_declined_pkts_dropped_pkts_rate_limited_pkts\">\n{{INTERFACE}} {{TRUSTED}} {{SWITCHED_PKTS}} {{DECLINED_PKTS}} {{DROPPED_PKTS | ORPHRASE}} {{RATE_LIMITED_PKTS}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Ethernet1",
+      "TRUSTED": "No",
+      "SWITCHED_PKTS": "100",
+      "DECLINED_PKTS": "0",
+      "DROPPED_PKTS": "5",
+      "RATE_LIMITED_PKTS": "0"
+    },
+    {
+      "INTERFACE": "Ethernet2",
+      "TRUSTED": "Yes",
+      "SWITCHED_PKTS": "200",
+      "DECLINED_PKTS": "1",
+      "DROPPED_PKTS": "0",
+      "RATE_LIMITED_PKTS": "10"
+    },
+    {
+      "INTERFACE": "Ethernet3",
+      "TRUSTED": "No",
+      "SWITCHED_PKTS": "50",
+      "DECLINED_PKTS": "0",
+      "DROPPED_PKTS": "2",
+      "RATE_LIMITED_PKTS": "0"
+    },
+    {
+      "INTERFACE": "Ethernet4",
+      "TRUSTED": "Yes",
+      "SWITCHED_PKTS": "300",
+      "DECLINED_PKTS": "2",
+      "DROPPED_PKTS": "1",
+      "RATE_LIMITED_PKTS": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_trusted_switched_pkts_declined_pkts_dropped_pkts_rate_limited_pkts": [
+        {
+          "INTERFACE": "Ethernet1",
+          "TRUSTED": "No",
+          "SWITCHED_PKTS": "100",
+          "DECLINED_PKTS": "0",
+          "DROPPED_PKTS": "5",
+          "RATE_LIMITED_PKTS": "0"
+        },
+        {
+          "INTERFACE": "Ethernet2",
+          "TRUSTED": "Yes",
+          "SWITCHED_PKTS": "200",
+          "DECLINED_PKTS": "1",
+          "DROPPED_PKTS": "0",
+          "RATE_LIMITED_PKTS": "10"
+        },
+        {
+          "INTERFACE": "Ethernet3",
+          "TRUSTED": "No",
+          "SWITCHED_PKTS": "50",
+          "DECLINED_PKTS": "0",
+          "DROPPED_PKTS": "2",
+          "RATE_LIMITED_PKTS": "0"
+        },
+        {
+          "INTERFACE": "Ethernet4",
+          "TRUSTED": "Yes",
+          "SWITCHED_PKTS": "300",
+          "DECLINED_PKTS": "2",
+          "DROPPED_PKTS": "1",
+          "RATE_LIMITED_PKTS": "0"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface                  Trusted    Switched Pkts      Declined Pkts      Dropped Pkts      Rate limited Pkts\nEthernet1                  No         100                0                  5                 0\nEthernet2                  Yes        200                1                  0                 10\nEthernet3                  No         50                 0                  2                 0\nEthernet4                  Yes        300                2                  1                 0\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue TRUSTED (\\S+)\nValue SWITCHED_PKTS (\\d+)\nValue DECLINED_PKTS (\\d+)\nValue DROPPED_PKTS (\\d+)\nValue RATE_LIMITED_PKTS (\\d+)\n\nStart\n  ^Interface\\s+Trusted\\s+Switched\\sPkts\\s+Declined\\sPkts\\s+Dropped\\sPkts\\s+Rate\\slimited\\sPkts\\s*$$\n  ^${INTERFACE}\\s+${TRUSTED}\\s+${SWITCHED_PKTS}\\s+${DECLINED_PKTS}\\s+${DROPPED_PKTS}\\s+${RATE_LIMITED_PKTS}\\s*$$ -> Record"
+}

@@ -1,0 +1,69 @@
+{
+  "command": "aruba_os_show_ip_interface_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.75,
+  "textfsm_rows": 4,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"interface_ip_address_netmask_admin_protocol\">\n{{INTERFACE | ORPHRASE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} / {{NETMASK}} {{ADMIN | ORPHRASE}} {{PROTOCOL}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "vlan 93",
+      "IP_ADDRESS": "162.25.53.4",
+      "NETMASK": "255.255.255.192",
+      "ADMIN": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "INTERFACE": "vlan 1",
+      "IP_ADDRESS": "unassigned",
+      "NETMASK": "unassigned",
+      "ADMIN": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "INTERFACE": "vlan 69",
+      "IP_ADDRESS": "162.25.53.9",
+      "NETMASK": "255.255.255.192",
+      "ADMIN": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "INTERFACE": "vlan 999",
+      "IP_ADDRESS": "162.21.33.196",
+      "NETMASK": "255.255.255.240",
+      "ADMIN": "up",
+      "PROTOCOL": "up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_netmask_admin_protocol": [
+        {
+          "INTERFACE": "vlan 93",
+          "IP_ADDRESS": "162.25.53.4",
+          "NETMASK": "255.255.255.192",
+          "ADMIN": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "INTERFACE": "vlan 69",
+          "IP_ADDRESS": "162.25.53.9",
+          "NETMASK": "255.255.255.192",
+          "ADMIN": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "INTERFACE": "vlan 999",
+          "IP_ADDRESS": "162.21.33.196",
+          "NETMASK": "255.255.255.240",
+          "ADMIN": "up",
+          "PROTOCOL": "up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface                   IP Address / IP Netmask        Admin   Protocol\nvlan 93                    162.25.53.4 / 255.255.255.192   up      up  \nvlan 1                      unassigned / unassigned        up      up  \nvlan 69                    162.25.53.9 / 255.255.255.192   up      up  \nvlan 999                 162.21.33.196 / 255.255.255.240   up      up  \nloopback                    unassigned / unassigned        up      up  \n\n",
+  "textfsm_template": "Value INTERFACE (\\S+\\s\\S+)\nValue IP_ADDRESS (\\S+)\nValue NETMASK (\\S+)\nValue ADMIN (\\S+)\nValue PROTOCOL (\\S+)\n\nStart\n  ^${INTERFACE}\\s+${IP_ADDRESS}\\s+/\\s+${NETMASK}\\s+${ADMIN}\\s+${PROTOCOL} -> Record\n"
+}

@@ -1,0 +1,167 @@
+{
+  "command": "paloalto_panos_show_running_security-policy",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 7,
+  "ttp_rows": 14,
+  "ttp_template": "<group name=\"name\">\n{{NAME | ORPHRASE}} {\n<group name=\"destination_region_icmp_unreachable_source_region\">\n        source-region {{SOURCE_REGION | ORPHRASE}};\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "\"Outside Web Server\"",
+      "FROM": "Trust",
+      "SOURCE": "10.1.1.0/24",
+      "SOURCE_REGION": "none",
+      "TO": "Untrust",
+      "DESTINATION": "200.10.10.10",
+      "DESTINATION_REGION": "none",
+      "USER": "any",
+      "CATEGORY": "any",
+      "APPLICATION_SERVICE": "[ any/tcp/any/8000 any/tcp/any/80 any/tcp/any/8080 ]",
+      "ACTION": "allow",
+      "ICMP_UNREACHABLE": "no",
+      "TERMINAL": "yes"
+    },
+    {
+      "NAME": "\"ICMP Any\"",
+      "FROM": "Trust",
+      "SOURCE": "any",
+      "SOURCE_REGION": "none",
+      "TO": "Untrust",
+      "DESTINATION": "any",
+      "DESTINATION_REGION": "none",
+      "USER": "any",
+      "CATEGORY": "any",
+      "APPLICATION_SERVICE": "[ icmp/icmp/any/any ping/icmp/any/any ]",
+      "ACTION": "allow",
+      "ICMP_UNREACHABLE": "no",
+      "TERMINAL": "yes"
+    },
+    {
+      "NAME": "\"DNS Outbound\"",
+      "FROM": "Trust",
+      "SOURCE": "10.1.1.0/24",
+      "SOURCE_REGION": "none",
+      "TO": "Untrust",
+      "DESTINATION": "[ 8.8.8.8 8.8.4.4 ]",
+      "DESTINATION_REGION": "none",
+      "USER": "any",
+      "CATEGORY": "any",
+      "APPLICATION_SERVICE": "dns/udp/any/53",
+      "ACTION": "allow",
+      "ICMP_UNREACHABLE": "no",
+      "TERMINAL": "yes"
+    },
+    {
+      "NAME": "\"Inbound to DMZ Web\"",
+      "FROM": "Untrust",
+      "SOURCE": "any",
+      "SOURCE_REGION": "none",
+      "TO": "DMZ",
+      "DESTINATION": "200.10.10.100",
+      "DESTINATION_REGION": "none",
+      "USER": "any",
+      "CATEGORY": "any",
+      "APPLICATION_SERVICE": "[ any/tcp/any/8000 any/tcp/any/80 any/tcp/any/8080 ]",
+      "ACTION": "allow",
+      "ICMP_UNREACHABLE": "no",
+      "TERMINAL": "yes"
+    },
+    {
+      "NAME": "\"Inbound to DMZ Deny\"",
+      "FROM": "Untrust",
+      "SOURCE": "any",
+      "SOURCE_REGION": "none",
+      "TO": "DMZ",
+      "DESTINATION": "any",
+      "DESTINATION_REGION": "none",
+      "USER": "any",
+      "CATEGORY": "any",
+      "APPLICATION_SERVICE": "any/any/any/any",
+      "ACTION": "deny",
+      "ICMP_UNREACHABLE": "no",
+      "TERMINAL": "no"
+    },
+    {
+      "NAME": "intrazone-default",
+      "FROM": "any",
+      "SOURCE": "any",
+      "SOURCE_REGION": "none",
+      "TO": "any",
+      "DESTINATION": "any",
+      "DESTINATION_REGION": "none",
+      "CATEGORY": "any",
+      "APPLICATION_SERVICE": "any/any/any/any",
+      "ACTION": "allow",
+      "ICMP_UNREACHABLE": "no",
+      "TERMINAL": "yes",
+      "TYPE": "intrazone"
+    },
+    {
+      "NAME": "interzone-default",
+      "FROM": "any",
+      "SOURCE": "any",
+      "SOURCE_REGION": "none",
+      "TO": "any",
+      "DESTINATION": "any",
+      "DESTINATION_REGION": "none",
+      "CATEGORY": "any",
+      "APPLICATION_SERVICE": "any/any/any/any",
+      "ACTION": "deny",
+      "ICMP_UNREACHABLE": "no",
+      "TERMINAL": "yes",
+      "TYPE": "interzone"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name": [
+        {
+          "NAME": "\"Outside Web Server\"",
+          "destination_region_icmp_unreachable_source_region": {
+            "SOURCE_REGION": "none"
+          }
+        },
+        {
+          "NAME": "\"ICMP Any\"",
+          "destination_region_icmp_unreachable_source_region": {
+            "SOURCE_REGION": "none"
+          }
+        },
+        {
+          "NAME": "\"DNS Outbound\"",
+          "destination_region_icmp_unreachable_source_region": {
+            "SOURCE_REGION": "none"
+          }
+        },
+        {
+          "NAME": "\"Inbound to DMZ Web\"",
+          "destination_region_icmp_unreachable_source_region": {
+            "SOURCE_REGION": "none"
+          }
+        },
+        {
+          "NAME": "\"Inbound to DMZ Deny\"",
+          "destination_region_icmp_unreachable_source_region": {
+            "SOURCE_REGION": "none"
+          }
+        },
+        {
+          "NAME": "intrazone-default",
+          "destination_region_icmp_unreachable_source_region": {
+            "SOURCE_REGION": "none"
+          }
+        },
+        {
+          "NAME": "interzone-default",
+          "destination_region_icmp_unreachable_source_region": {
+            "SOURCE_REGION": "none"
+          }
+        }
+      ]
+    }
+  ],
+  "cli_content": "\"Outside Web Server\" {\n        from Trust;\n        source 10.1.1.0/24;\n        source-region none;\n        to Untrust;\n        destination 200.10.10.10;\n        destination-region none;\n        user any;\n        category any;\n        application/service [ any/tcp/any/8000 any/tcp/any/80 any/tcp/any/8080 ];\n        action allow;\n        icmp-unreachable: no\n        terminal yes;\n}\n\n\"ICMP Any\" {\n        from Trust;\n        source any;\n        source-region none;\n        to Untrust;\n        destination any;\n        destination-region none;\n        user any;\n        category any;\n        application/service [ icmp/icmp/any/any ping/icmp/any/any ];\n        action allow;\n        icmp-unreachable: no\n        terminal yes;\n}\n\n\"DNS Outbound\" {\n        from Trust;\n        source 10.1.1.0/24;\n        source-region none;\n        to Untrust;\n        destination [ 8.8.8.8 8.8.4.4 ];\n        destination-region none;\n        user any;\n        category any;\n        application/service  dns/udp/any/53;\n        action allow;\n        icmp-unreachable: no\n        terminal yes;\n}\n\n\"Inbound to DMZ Web\" {\n        from Untrust;\n        source any;\n        source-region none;\n        to DMZ;\n        destination 200.10.10.100;\n        destination-region none;\n        user any;\n        category any;\n        application/service [ any/tcp/any/8000 any/tcp/any/80 any/tcp/any/8080 ];\n        action allow;\n        icmp-unreachable: no\n        terminal yes;\n}\n\n\"Inbound to DMZ Deny\" {\n        from Untrust;\n        source any;\n        source-region none;\n        to DMZ;\n        destination any;\n        destination-region none;\n        user any;\n        category any;\n        application/service  any/any/any/any;\n        action deny;\n        icmp-unreachable: no\n        terminal no;\n}\n\nintrazone-default {\n        from any;\n        source any;\n        source-region none;\n        to any;\n        destination any;\n        destination-region none;\n        category any;\n        application/service  any/any/any/any;\n        action allow;\n        icmp-unreachable: no\n        terminal yes;\n        type intrazone;\n}\n\ninterzone-default {\n        from any;\n        source any;\n        source-region none;\n        to any;\n        destination any;\n        destination-region none;\n        category any;\n        application/service  any/any/any/any;\n        action deny;\n        icmp-unreachable: no\n        terminal yes;\n        type interzone;\n}\n\ndynamic url: no\npol objs matched\n\n",
+  "textfsm_template": "Value Filldown NAME (.*?)\nValue Required FROM (\\S+)\nValue SOURCE (\\S+)\nValue SOURCE_REGION (\\S+)\nValue TO (\\S+)\nValue DESTINATION ([\\S+\\s+]+)\nValue DESTINATION_REGION (\\S+)\nValue USER (\\S+)\nValue CATEGORY (\\S+)\nValue APPLICATION_SERVICE ([\\S+\\s+]+)\nValue ACTION (\\S+)\nValue ICMP_UNREACHABLE (\\S+)\nValue TERMINAL (\\S+)\nValue TYPE (\\S+)\n\nStart\n  ^${NAME}\\s+\\{\n  ^\\s+from\\s+${FROM};\n  ^\\s+source\\s+${SOURCE};\n  ^\\s+source-region\\s+${SOURCE_REGION}; \n  ^\\s+to\\s+${TO};\n  ^\\s+destination\\s+${DESTINATION};\n  ^\\s+destination-region\\s+${DESTINATION_REGION};\n  ^\\s+user\\s+${USER};\n  ^\\s+category\\s+${CATEGORY};\n  ^\\s+application/service\\s+${APPLICATION_SERVICE};\n  ^\\s+action\\s+${ACTION};\n  ^\\s+icmp-unreachable:\\s+${ICMP_UNREACHABLE}\n  ^\\s+terminal\\s+${TERMINAL};\n  ^\\s+type\\s+${TYPE};\n  ^} -> Record\n"
+}

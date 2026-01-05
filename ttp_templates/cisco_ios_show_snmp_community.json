@@ -1,0 +1,47 @@
+{
+  "command": "cisco_ios_show_snmp_community",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"name\">\nCommunity name: {{NAME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "ILMI",
+      "INDEX": "cisco0",
+      "SECURITY_NAME": "ILMI",
+      "STORAGE_TYPE": "read-only"
+    },
+    {
+      "NAME": "public",
+      "INDEX": "cisco1",
+      "SECURITY_NAME": "public",
+      "STORAGE_TYPE": "nonvolatile"
+    },
+    {
+      "NAME": "private",
+      "INDEX": "cisco2",
+      "SECURITY_NAME": "private",
+      "STORAGE_TYPE": "nonvolatile"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name": [
+        {
+          "NAME": "ILMI"
+        },
+        {
+          "NAME": "public"
+        },
+        {
+          "NAME": "private"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Community name: ILMI\nCommunity Index: cisco0\nCommunity SecurityName: ILMI\nstorage-type: read-only  active\n\n\nCommunity name: public\nCommunity Index: cisco1\nCommunity SecurityName: public\nstorage-type: nonvolatile        active\n\n\nCommunity name: private\nCommunity Index: cisco2\nCommunity SecurityName: private\nstorage-type: nonvolatile        active\n\n",
+  "textfsm_template": "Value NAME (\\S+)\nValue INDEX (\\S+)\nValue SECURITY_NAME (\\S+)\nValue STORAGE_TYPE (\\S+)\n\nStart\n  ^Community\\s+name:\\s+${NAME}.*\n  ^Community\\sIndex:\\s+${INDEX}\n  ^Community\\sSecurityName:\\s+${SECURITY_NAME}\n  ^storage-type:\\s${STORAGE_TYPE} -> Record\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n"
+}

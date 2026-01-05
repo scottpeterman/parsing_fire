@@ -1,0 +1,26 @@
+{
+  "command": "mikrotik_routeros_snmp_community_print_without-paging",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 1,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"index_flags_name_addresses_security_read_access_write_access\">\n {{INDEX}} {{FLAGS | re(\".*\\\\w.*\")}} {{NAME}} {{ADDRESSES}} {{SECURITY}} {{READ_ACCESS | ORPHRASE}} {{WRITE_ACCESS}} \n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "INDEX": "0",
+      "FLAGS": "*",
+      "NAME": "Monitoring",
+      "ADDRESSES": "::/0",
+      "SECURITY": "none",
+      "READ_ACCESS": "yes",
+      "WRITE_ACCESS": "no"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "17:20:06 echo: system,error,critical login failure for user admin from 65.160.140.13 via ssh\nFlags: * - default, X - disabled \n #    NAME                                                        ADDRESSES                                                                                         SECURITY   READ-ACCESS WRITE-ACCESS\n17:20:06 echo: system,error,critical login failure for user admin from 65.160.140.13 via ssh\n 0 *  Monitoring                                                  ::/0                                                                                              none       yes         no          \n",
+  "textfsm_template": "Value Key INDEX (\\d+)\nValue FLAGS ([X*]+)\nValue NAME (\\S+?)\nValue ADDRESSES (\\S+?)\nValue SECURITY (authorized|none|private)\nValue READ_ACCESS (yes|no)\nValue WRITE_ACCESS (yes|no)\n\nStart\n  ^\\s#\\s+NAME\\s+ADDRESSES\\s+SECURITY\\s+READ-ACCESS\\s+WRITE-ACCESS\\s*$$ -> SNMPCommunitiesTable\n\nSNMPCommunitiesTable\n  ^\\s?${INDEX}\\s+(${FLAGS})?\\s+${NAME}\\s+${ADDRESSES}\\s+${SECURITY}\\s+${READ_ACCESS}\\s+${WRITE_ACCESS}\\s*$$ -> Record\n  ^\\s*(?:\\d{2}:){2}\\d{2}\\s+echo:\\s*.*$$ -> Next\n  ^. -> Error\n"
+}

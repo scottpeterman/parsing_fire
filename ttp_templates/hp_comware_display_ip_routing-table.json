@@ -1,0 +1,540 @@
+{
+  "command": "hp_comware_display_ip_routing-table",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.8709677419354839,
+  "textfsm_rows": 31,
+  "ttp_rows": 27,
+  "ttp_template": "<group name=\"network_prefix_length_protocal_distance_metric_nexthop_ip_nexthop_if\">\n{{NETWORK}}/{{PREFIX_LENGTH}} {{PROTOCAL}} {{DISTANCE}} {{METRIC}} {{NEXTHOP_IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{NEXTHOP_IF | ORPHRASE}}\n</group>\n<group name=\"protocal_distance_metric_nexthop_ip_nexthop_if\">\n                    {{PROTOCAL}} {{DISTANCE}} {{METRIC}} {{NEXTHOP_IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{NEXTHOP_IF | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NETWORK": "0.0.0.0",
+      "PREFIX_LENGTH": "32",
+      "PROTOCAL": "Direct",
+      "DISTANCE": "0",
+      "METRIC": "0",
+      "NEXTHOP_IP": "127.0.0.1",
+      "NEXTHOP_IF": "InLoop0"
+    },
+    {
+      "NETWORK": "9.72.47.0",
+      "PREFIX_LENGTH": "24",
+      "PROTOCAL": "OSPF",
+      "DISTANCE": "150",
+      "METRIC": "1",
+      "NEXTHOP_IP": "172.16.43.2",
+      "NEXTHOP_IF": "Vlan1600"
+    },
+    {
+      "NETWORK": "9.72.47.0",
+      "PREFIX_LENGTH": "24",
+      "PROTOCAL": "OSPF",
+      "DISTANCE": "150",
+      "METRIC": "1",
+      "NEXTHOP_IP": "172.16.43.6",
+      "NEXTHOP_IF": "Vlan1601"
+    },
+    {
+      "NETWORK": "10.1.0.0",
+      "PREFIX_LENGTH": "16",
+      "PROTOCAL": "OSPF",
+      "DISTANCE": "10",
+      "METRIC": "14",
+      "NEXTHOP_IP": "172.16.43.2",
+      "NEXTHOP_IF": "Vlan1600"
+    },
+    {
+      "NETWORK": "10.1.0.0",
+      "PREFIX_LENGTH": "16",
+      "PROTOCAL": "OSPF",
+      "DISTANCE": "10",
+      "METRIC": "14",
+      "NEXTHOP_IP": "172.16.43.6",
+      "NEXTHOP_IF": "Vlan1601"
+    },
+    {
+      "NETWORK": "10.1.14.0",
+      "PREFIX_LENGTH": "24",
+      "PROTOCAL": "Static",
+      "DISTANCE": "60",
+      "METRIC": "0",
+      "NEXTHOP_IP": "172.16.39.2",
+      "NEXTHOP_IF": "Vlan1920"
+    },
+    {
+      "NETWORK": "0.0.0.0",
+      "PREFIX_LENGTH": "0",
+      "PROTOCAL": "Static",
+      "DISTANCE": "60",
+      "METRIC": "0",
+      "NEXTHOP_IP": "192.168.56.1",
+      "NEXTHOP_IF": "GE0/1"
+    },
+    {
+      "NETWORK": "1.1.1.0",
+      "PREFIX_LENGTH": "24",
+      "PROTOCAL": "Static",
+      "DISTANCE": "60",
+      "METRIC": "0",
+      "NEXTHOP_IP": "192.168.56.1",
+      "NEXTHOP_IF": "GE0/1"
+    },
+    {
+      "NETWORK": "1.1.1.0",
+      "PREFIX_LENGTH": "24",
+      "PROTOCAL": "Static",
+      "DISTANCE": "60",
+      "METRIC": "0",
+      "NEXTHOP_IP": "192.168.56.2",
+      "NEXTHOP_IF": "GE0/2"
+    },
+    {
+      "NETWORK": "1.1.1.0",
+      "PREFIX_LENGTH": "24",
+      "PROTOCAL": "Static",
+      "DISTANCE": "60",
+      "METRIC": "0",
+      "NEXTHOP_IP": "192.168.56.3",
+      "NEXTHOP_IF": "GE0/3"
+    },
+    {
+      "NETWORK": "127.0.0.0",
+      "PREFIX_LENGTH": "8",
+      "PROTOCAL": "Direct",
+      "DISTANCE": "0",
+      "METRIC": "0",
+      "NEXTHOP_IP": "127.0.0.1",
+      "NEXTHOP_IF": "InLoop0"
+    },
+    {
+      "NETWORK": "127.0.0.0",
+      "PREFIX_LENGTH": "32",
+      "PROTOCAL": "Direct",
+      "DISTANCE": "0",
+      "METRIC": "0",
+      "NEXTHOP_IP": "127.0.0.1",
+      "NEXTHOP_IF": "InLoop0"
+    },
+    {
+      "NETWORK": "127.0.0.1",
+      "PREFIX_LENGTH": "32",
+      "PROTOCAL": "Direct",
+      "DISTANCE": "0",
+      "METRIC": "0",
+      "NEXTHOP_IP": "127.0.0.1",
+      "NEXTHOP_IF": "InLoop0"
+    },
+    {
+      "NETWORK": "127.255.255.255",
+      "PREFIX_LENGTH": "32",
+      "PROTOCAL": "Direct",
+      "DISTANCE": "0",
+      "METRIC": "0",
+      "NEXTHOP_IP": "127.0.0.1",
+      "NEXTHOP_IF": "InLoop0"
+    },
+    {
+      "NETWORK": "192.168.56.0",
+      "PREFIX_LENGTH": "24",
+      "PROTOCAL": "Direct",
+      "DISTANCE": "0",
+      "METRIC": "0",
+      "NEXTHOP_IP": "192.168.56.101",
+      "NEXTHOP_IF": "GE0/1"
+    },
+    {
+      "NETWORK": "192.168.56.0",
+      "PREFIX_LENGTH": "32",
+      "PROTOCAL": "Direct",
+      "DISTANCE": "0",
+      "METRIC": "0",
+      "NEXTHOP_IP": "192.168.56.101",
+      "NEXTHOP_IF": "GE0/1"
+    },
+    {
+      "NETWORK": "192.168.56.101",
+      "PREFIX_LENGTH": "32",
+      "PROTOCAL": "Direct",
+      "DISTANCE": "0",
+      "METRIC": "0",
+      "NEXTHOP_IP": "127.0.0.1",
+      "NEXTHOP_IF": "InLoop0"
+    },
+    {
+      "NETWORK": "192.168.56.255",
+      "PREFIX_LENGTH": "32",
+      "PROTOCAL": "Direct",
+      "DISTANCE": "0",
+      "METRIC": "0",
+      "NEXTHOP_IP": "192.168.56.101",
+      "NEXTHOP_IF": "GE0/1"
+    },
+    {
+      "NETWORK": "224.0.0.0",
+      "PREFIX_LENGTH": "4",
+      "PROTOCAL": "Direct",
+      "DISTANCE": "0",
+      "METRIC": "0",
+      "NEXTHOP_IP": "0.0.0.0",
+      "NEXTHOP_IF": "NULL0"
+    },
+    {
+      "NETWORK": "224.0.0.0",
+      "PREFIX_LENGTH": "24",
+      "PROTOCAL": "Direct",
+      "DISTANCE": "0",
+      "METRIC": "0",
+      "NEXTHOP_IP": "0.0.0.0",
+      "NEXTHOP_IF": "NULL0"
+    },
+    {
+      "NETWORK": "255.255.255.255",
+      "PREFIX_LENGTH": "32",
+      "PROTOCAL": "Direct",
+      "DISTANCE": "0",
+      "METRIC": "0",
+      "NEXTHOP_IP": "127.0.0.1",
+      "NEXTHOP_IF": "InLoop0"
+    },
+    {
+      "NETWORK": "9.72.47.0",
+      "PREFIX_LENGTH": "24",
+      "PROTOCAL": "BGP",
+      "DISTANCE": "130",
+      "METRIC": "0",
+      "NEXTHOP_IP": "172.16.42.221",
+      "NEXTHOP_IF": "GE0/0/9"
+    },
+    {
+      "NETWORK": "9.72.47.0",
+      "PREFIX_LENGTH": "24",
+      "PROTOCAL": "BGP",
+      "DISTANCE": "130",
+      "METRIC": "0",
+      "NEXTHOP_IP": "172.16.42.229",
+      "NEXTHOP_IF": "GE0/0/10"
+    },
+    {
+      "NETWORK": "10.1.0.0",
+      "PREFIX_LENGTH": "16",
+      "PROTOCAL": "OSPF",
+      "DISTANCE": "10",
+      "METRIC": "13",
+      "NEXTHOP_IP": "172.16.43.82",
+      "NEXTHOP_IF": "GE0/0/45"
+    },
+    {
+      "NETWORK": "10.1.14.0",
+      "PREFIX_LENGTH": "24",
+      "PROTOCAL": "O_ASE",
+      "DISTANCE": "150",
+      "METRIC": "1",
+      "NEXTHOP_IP": "172.16.43.1",
+      "NEXTHOP_IF": "RAGG40"
+    },
+    {
+      "NETWORK": "10.1.208.0",
+      "PREFIX_LENGTH": "20",
+      "PROTOCAL": "O_ASE",
+      "DISTANCE": "150",
+      "METRIC": "1",
+      "NEXTHOP_IP": "172.16.43.82",
+      "NEXTHOP_IF": "GE0/0/45"
+    },
+    {
+      "NETWORK": "10.210.0.0",
+      "PREFIX_LENGTH": "16",
+      "PROTOCAL": "BGP",
+      "DISTANCE": "130",
+      "METRIC": "0",
+      "NEXTHOP_IP": "10.6.12.106",
+      "NEXTHOP_IF": "GE9/1/3.1132"
+    },
+    {
+      "NETWORK": "10.210.4.0",
+      "PREFIX_LENGTH": "24",
+      "PROTOCAL": "BGP",
+      "DISTANCE": "130",
+      "METRIC": "0",
+      "NEXTHOP_IP": "172.16.42.221",
+      "NEXTHOP_IF": "GE0/0/9"
+    },
+    {
+      "NETWORK": "10.210.4.0",
+      "PREFIX_LENGTH": "24",
+      "PROTOCAL": "BGP",
+      "DISTANCE": "130",
+      "METRIC": "0",
+      "NEXTHOP_IP": "172.16.42.229",
+      "NEXTHOP_IF": "GE0/0/10"
+    },
+    {
+      "NETWORK": "10.210.4.201",
+      "PREFIX_LENGTH": "32",
+      "PROTOCAL": "O_ASE",
+      "DISTANCE": "150",
+      "METRIC": "1",
+      "NEXTHOP_IP": "172.16.43.10",
+      "NEXTHOP_IF": "RAGG44"
+    },
+    {
+      "NETWORK": "10.211.0.0",
+      "PREFIX_LENGTH": "16",
+      "PROTOCAL": "BGP",
+      "DISTANCE": "130",
+      "METRIC": "0",
+      "NEXTHOP_IP": "10.6.12.86",
+      "NEXTHOP_IF": "GE9/1/1.1114"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "network_prefix_length_protocal_distance_metric_nexthop_ip_nexthop_if": [
+        {
+          "NETWORK": "0.0.0.0",
+          "PREFIX_LENGTH": "32",
+          "PROTOCAL": "Direct",
+          "DISTANCE": "0",
+          "METRIC": "0",
+          "NEXTHOP_IP": "127.0.0.1",
+          "NEXTHOP_IF": "InLoop0"
+        },
+        {
+          "NETWORK": "9.72.47.0",
+          "PREFIX_LENGTH": "24",
+          "PROTOCAL": "OSPF",
+          "DISTANCE": "150",
+          "METRIC": "1",
+          "NEXTHOP_IP": "172.16.43.2",
+          "NEXTHOP_IF": "Vlan1600"
+        },
+        {
+          "NETWORK": "10.1.0.0",
+          "PREFIX_LENGTH": "16",
+          "PROTOCAL": "OSPF",
+          "DISTANCE": "10",
+          "METRIC": "14",
+          "NEXTHOP_IP": "172.16.43.2",
+          "NEXTHOP_IF": "Vlan1600"
+        },
+        {
+          "NETWORK": "10.1.14.0",
+          "PREFIX_LENGTH": "24",
+          "PROTOCAL": "Static",
+          "DISTANCE": "60",
+          "METRIC": "0",
+          "NEXTHOP_IP": "172.16.39.2",
+          "NEXTHOP_IF": "Vlan1920"
+        },
+        {
+          "NETWORK": "0.0.0.0",
+          "PREFIX_LENGTH": "0",
+          "PROTOCAL": "Static",
+          "DISTANCE": "60",
+          "METRIC": "0",
+          "NEXTHOP_IP": "192.168.56.1",
+          "NEXTHOP_IF": "GE0/1"
+        },
+        {
+          "NETWORK": "1.1.1.0",
+          "PREFIX_LENGTH": "24",
+          "PROTOCAL": "Static",
+          "DISTANCE": "60",
+          "METRIC": "0",
+          "NEXTHOP_IP": "192.168.56.1",
+          "NEXTHOP_IF": "GE0/1"
+        },
+        {
+          "NETWORK": "127.0.0.0",
+          "PREFIX_LENGTH": "8",
+          "PROTOCAL": "Direct",
+          "DISTANCE": "0",
+          "METRIC": "0",
+          "NEXTHOP_IP": "127.0.0.1",
+          "NEXTHOP_IF": "InLoop0"
+        },
+        {
+          "NETWORK": "127.0.0.0",
+          "PREFIX_LENGTH": "32",
+          "PROTOCAL": "Direct",
+          "DISTANCE": "0",
+          "METRIC": "0",
+          "NEXTHOP_IP": "127.0.0.1",
+          "NEXTHOP_IF": "InLoop0"
+        },
+        {
+          "NETWORK": "127.0.0.1",
+          "PREFIX_LENGTH": "32",
+          "PROTOCAL": "Direct",
+          "DISTANCE": "0",
+          "METRIC": "0",
+          "NEXTHOP_IP": "127.0.0.1",
+          "NEXTHOP_IF": "InLoop0"
+        },
+        {
+          "NETWORK": "127.255.255.255",
+          "PREFIX_LENGTH": "32",
+          "PROTOCAL": "Direct",
+          "DISTANCE": "0",
+          "METRIC": "0",
+          "NEXTHOP_IP": "127.0.0.1",
+          "NEXTHOP_IF": "InLoop0"
+        },
+        {
+          "NETWORK": "192.168.56.0",
+          "PREFIX_LENGTH": "24",
+          "PROTOCAL": "Direct",
+          "DISTANCE": "0",
+          "METRIC": "0",
+          "NEXTHOP_IP": "192.168.56.101",
+          "NEXTHOP_IF": "GE0/1"
+        },
+        {
+          "NETWORK": "192.168.56.0",
+          "PREFIX_LENGTH": "32",
+          "PROTOCAL": "Direct",
+          "DISTANCE": "0",
+          "METRIC": "0",
+          "NEXTHOP_IP": "192.168.56.101",
+          "NEXTHOP_IF": "GE0/1"
+        },
+        {
+          "NETWORK": "192.168.56.101",
+          "PREFIX_LENGTH": "32",
+          "PROTOCAL": "Direct",
+          "DISTANCE": "0",
+          "METRIC": "0",
+          "NEXTHOP_IP": "127.0.0.1",
+          "NEXTHOP_IF": "InLoop0"
+        },
+        {
+          "NETWORK": "192.168.56.255",
+          "PREFIX_LENGTH": "32",
+          "PROTOCAL": "Direct",
+          "DISTANCE": "0",
+          "METRIC": "0",
+          "NEXTHOP_IP": "192.168.56.101",
+          "NEXTHOP_IF": "GE0/1"
+        },
+        {
+          "NETWORK": "224.0.0.0",
+          "PREFIX_LENGTH": "4",
+          "PROTOCAL": "Direct",
+          "DISTANCE": "0",
+          "METRIC": "0",
+          "NEXTHOP_IP": "0.0.0.0",
+          "NEXTHOP_IF": "NULL0"
+        },
+        {
+          "NETWORK": "224.0.0.0",
+          "PREFIX_LENGTH": "24",
+          "PROTOCAL": "Direct",
+          "DISTANCE": "0",
+          "METRIC": "0",
+          "NEXTHOP_IP": "0.0.0.0",
+          "NEXTHOP_IF": "NULL0"
+        },
+        {
+          "NETWORK": "255.255.255.255",
+          "PREFIX_LENGTH": "32",
+          "PROTOCAL": "Direct",
+          "DISTANCE": "0",
+          "METRIC": "0",
+          "NEXTHOP_IP": "127.0.0.1",
+          "NEXTHOP_IF": "InLoop0"
+        },
+        {
+          "NETWORK": "9.72.47.0",
+          "PREFIX_LENGTH": "24",
+          "PROTOCAL": "BGP",
+          "DISTANCE": "130",
+          "METRIC": "0",
+          "NEXTHOP_IP": "172.16.42.221",
+          "NEXTHOP_IF": "GE0/0/9"
+        },
+        {
+          "NETWORK": "10.1.0.0",
+          "PREFIX_LENGTH": "16",
+          "PROTOCAL": "OSPF",
+          "DISTANCE": "10",
+          "METRIC": "13",
+          "NEXTHOP_IP": "172.16.43.82",
+          "NEXTHOP_IF": "GE0/0/45"
+        },
+        {
+          "NETWORK": "10.1.14.0",
+          "PREFIX_LENGTH": "24",
+          "PROTOCAL": "O_ASE",
+          "DISTANCE": "150",
+          "METRIC": "1",
+          "NEXTHOP_IP": "172.16.43.1",
+          "NEXTHOP_IF": "RAGG40"
+        },
+        {
+          "NETWORK": "10.1.208.0",
+          "PREFIX_LENGTH": "20",
+          "PROTOCAL": "O_ASE",
+          "DISTANCE": "150",
+          "METRIC": "1",
+          "NEXTHOP_IP": "172.16.43.82",
+          "NEXTHOP_IF": "GE0/0/45"
+        },
+        {
+          "NETWORK": "10.210.0.0",
+          "PREFIX_LENGTH": "16",
+          "PROTOCAL": "BGP",
+          "DISTANCE": "130",
+          "METRIC": "0",
+          "NEXTHOP_IP": "10.6.12.106",
+          "NEXTHOP_IF": "GE9/1/3.1132"
+        },
+        {
+          "NETWORK": "10.210.4.0",
+          "PREFIX_LENGTH": "24",
+          "PROTOCAL": "BGP",
+          "DISTANCE": "130",
+          "METRIC": "0",
+          "NEXTHOP_IP": "172.16.42.221",
+          "NEXTHOP_IF": "GE0/0/9"
+        },
+        {
+          "NETWORK": "10.210.4.201",
+          "PREFIX_LENGTH": "32",
+          "PROTOCAL": "O_ASE",
+          "DISTANCE": "150",
+          "METRIC": "1",
+          "NEXTHOP_IP": "172.16.43.10",
+          "NEXTHOP_IF": "RAGG44"
+        },
+        {
+          "NETWORK": "10.211.0.0",
+          "PREFIX_LENGTH": "16",
+          "PROTOCAL": "BGP",
+          "DISTANCE": "130",
+          "METRIC": "0",
+          "NEXTHOP_IP": "10.6.12.86",
+          "NEXTHOP_IF": "GE9/1/1.1114"
+        }
+      ],
+      "protocal_distance_metric_nexthop_ip_nexthop_if": [
+        {
+          "PROTOCAL": "BGP",
+          "DISTANCE": "130",
+          "METRIC": "0",
+          "NEXTHOP_IP": "172.16.42.229",
+          "NEXTHOP_IF": "GE0/0/10"
+        },
+        {
+          "PROTOCAL": "BGP",
+          "DISTANCE": "130",
+          "METRIC": "0",
+          "NEXTHOP_IP": "172.16.42.229",
+          "NEXTHOP_IF": "GE0/0/10"
+        }
+      ]
+    }
+  ],
+  "cli_content": "<HS125X>dis ip routing-table \n\nDestinations : 17604     Routes : 28601\n\nDestination/Mask    Proto  Pre  Cost         NextHop         Interface\n0.0.0.0/32          Direct 0    0            127.0.0.1       InLoop0\n9.72.47.0/24        OSPF   150  1            172.16.43.2     Vlan1600\n                                             172.16.43.6     Vlan1601\n10.1.0.0/16         OSPF   10   14           172.16.43.2     Vlan1600\n                                             172.16.43.6     Vlan1601\n10.1.14.0/24        Static 60   0            172.16.39.2     Vlan1920\n0.0.0.0/0          Static  60  0           192.168.56.1      GE0/1\n1.1.1.0/24         Static  60  0           192.168.56.1      GE0/1\n                                           192.168.56.2      GE0/2\n                                           192.168.56.3      GE0/3\n127.0.0.0/8        Direct  0   0           127.0.0.1         InLoop0\n127.0.0.0/32       Direct  0   0           127.0.0.1         InLoop0\n127.0.0.1/32       Direct  0   0           127.0.0.1         InLoop0\n127.255.255.255/32 Direct  0   0           127.0.0.1         InLoop0\n192.168.56.0/24    Direct  0   0           192.168.56.101    GE0/1\n192.168.56.0/32    Direct  0   0           192.168.56.101    GE0/1\n192.168.56.101/32  Direct  0   0           127.0.0.1         InLoop0\n192.168.56.255/32  Direct  0   0           192.168.56.101    GE0/1\n224.0.0.0/4        Direct  0   0           0.0.0.0           NULL0\n224.0.0.0/24       Direct  0   0           0.0.0.0           NULL0\n255.255.255.255/32 Direct  0   0           127.0.0.1         InLoop0\n9.72.47.0/24        BGP    130  0          172.16.42.221     GE0/0/9\n                    BGP    130  0          172.16.42.229     GE0/0/10\n10.1.0.0/16         OSPF   10   13         172.16.43.82      GE0/0/45\n10.1.14.0/24        O_ASE  150  1          172.16.43.1       RAGG40\n10.1.208.0/20       O_ASE  150  1          172.16.43.82      GE0/0/45\n10.210.0.0/16       BGP    130  0          10.6.12.106       GE9/1/3.1132\n10.210.4.0/24       BGP    130  0          172.16.42.221     GE0/0/9\n                    BGP    130  0          172.16.42.229     GE0/0/10\n10.210.4.201/32     O_ASE  150  1          172.16.43.10      RAGG44\n10.211.0.0/16       BGP    130  0          10.6.12.86        GE9/1/1.1114\n",
+  "textfsm_template": "Value Filldown NETWORK (\\d{1,3}.\\d{1,3}.\\d{1,3}.\\d{1,3})\nValue Filldown PREFIX_LENGTH (\\d{1,2})\nValue Filldown PROTOCAL (\\w+)\nValue Filldown DISTANCE (\\d{1,3})\nValue Filldown METRIC (\\d+)\nValue Required NEXTHOP_IP (\\d{1,3}.\\d{1,3}.\\d{1,3}.\\d{1,3})\nValue NEXTHOP_IF (\\S+)\n\nStart\n  ^Destination\\/Mask -> Routes\n\nRoutes\n  ^${NETWORK}\\/${PREFIX_LENGTH}\\s+${PROTOCAL}\\s+${DISTANCE}\\s+${METRIC}\\s+${NEXTHOP_IP}\\s+${NEXTHOP_IF} -> Record\n  # for comware v7 ecmp\n  ^\\s+${NEXTHOP_IP}\\s+${NEXTHOP_IF} -> Record\n  # for comware v5 ecmp\n  ^\\s+${PROTOCAL}\\s+${DISTANCE}\\s+${METRIC}\\s+${NEXTHOP_IP}\\s+${NEXTHOP_IF} -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

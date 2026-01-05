@@ -1,0 +1,110 @@
+{
+  "command": "show nve vni",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"interface_vni_multicast_group_state_mode_type_vrf_flags\">\n{{INTERFACE}} {{VNI}} {{MULTICAST_GROUP}} {{STATE | ORPHRASE}} {{MODE}} {{TYPE}} [{{VRF}}] {{FLAGS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "nve1",
+      "VNI": "5000",
+      "MULTICAST_GROUP": "239.1.1.1",
+      "STATE": "Up",
+      "MODE": "CP",
+      "TYPE": "L2",
+      "VRF": "100",
+      "FLAGS": "n/a"
+    },
+    {
+      "INTERFACE": "nve1",
+      "VNI": "6000",
+      "MULTICAST_GROUP": "239.1.1.2",
+      "STATE": "Up",
+      "MODE": "DP",
+      "TYPE": "L2",
+      "VRF": "200",
+      "FLAGS": "SA"
+    },
+    {
+      "INTERFACE": "nve1",
+      "VNI": "7000",
+      "MULTICAST_GROUP": "n/a",
+      "STATE": "Down",
+      "MODE": "UC",
+      "TYPE": "L3",
+      "VRF": "vrf1",
+      "FLAGS": "n/a"
+    },
+    {
+      "INTERFACE": "nve1",
+      "VNI": "8000",
+      "MULTICAST_GROUP": "239.1.1.3",
+      "STATE": "Up",
+      "MODE": "DP",
+      "TYPE": "L2",
+      "VRF": "300",
+      "FLAGS": "n/a"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_vni_multicast_group_state_mode_type_vrf_flags": [
+        {
+          "INTERFACE": "Interface",
+          "VNI": "VNI",
+          "MULTICAST_GROUP": "Multicast-group",
+          "STATE": "State",
+          "MODE": "Mode",
+          "TYPE": "Type",
+          "VRF": "BD/VRF",
+          "FLAGS": "Flags"
+        },
+        {
+          "INTERFACE": "nve1",
+          "VNI": "5000",
+          "MULTICAST_GROUP": "239.1.1.1",
+          "STATE": "Up",
+          "MODE": "CP",
+          "TYPE": "L2",
+          "VRF": "100",
+          "FLAGS": "n/a"
+        },
+        {
+          "INTERFACE": "nve1",
+          "VNI": "6000",
+          "MULTICAST_GROUP": "239.1.1.2",
+          "STATE": "Up",
+          "MODE": "DP",
+          "TYPE": "L2",
+          "VRF": "200",
+          "FLAGS": "SA"
+        },
+        {
+          "INTERFACE": "nve1",
+          "VNI": "7000",
+          "MULTICAST_GROUP": "n/a",
+          "STATE": "Down",
+          "MODE": "UC",
+          "TYPE": "L3",
+          "VRF": "vrf1",
+          "FLAGS": "n/a"
+        },
+        {
+          "INTERFACE": "nve1",
+          "VNI": "8000",
+          "MULTICAST_GROUP": "239.1.1.3",
+          "STATE": "Up",
+          "MODE": "DP",
+          "TYPE": "L2",
+          "VRF": "300",
+          "FLAGS": "n/a"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Codes: CP - Control Plane        DP - Data Plane\n       UC - Unconfigured         SA - Suppress ARP\n\nInterface VNI      Multicast-group   State Mode Type [BD/VRF] Flags\n--------- -------- ----------------- ----- ---- ------------ -------\nnve1      5000     239.1.1.1         Up    CP   L2 [100]      n/a\nnve1      6000     239.1.1.2         Up    DP   L2 [200]      SA\nnve1      7000     n/a               Down  UC   L3 [vrf1]     n/a\nnve1      8000     239.1.1.3         Up    DP   L2 [300]      n/a\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue VNI (\\d+)\nValue MULTICAST_GROUP (\\S+)\nValue STATE (\\S+)\nValue MODE (CP|DP|UC)\nValue TYPE (\\S+)\nValue VRF (\\S+)\nValue FLAGS (\\S+)\n\nStart\n  ^\\s*Interface\\s+VNI\\s+Multicast-group\\s+State\\s+Mode\\s+Type\\s+\\[BD\\/VRF\\]\\s+Flags\\s*$$\n  ^\\s*${INTERFACE}\\s+${VNI}\\s+${MULTICAST_GROUP}\\s+${STATE}\\s+${MODE}\\s+${TYPE}\\s+\\[${VRF}\\]\\s+${FLAGS}\\s*$$ -> Record"
+}

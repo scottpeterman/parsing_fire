@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show license all
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 3
+# Match ratio: 1.50
+
+<group name="expiry_date_feature_license_type_state">
+Feature  : {{FEATURE | ORPHRASE}}
+License Type  : {{LICENSE_TYPE | ORPHRASE}}
+State  : {{STATE | ORPHRASE}}
+Expiry Date  : {{EXPIRY_DATE | ORPHRASE}}
+</group>

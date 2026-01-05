@@ -1,0 +1,32 @@
+{
+  "command": "arista_eos_show_mlag",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"domain_interface_peer_addr_peer_link\">\ndomain-id  :  {{DOMAIN | ORPHRASE}}\nlocal-interface  :  {{INTERFACE | ORPHRASE}}\npeer-address  :  {{PEER_ADDR | ORPHRASE}}\npeer-link  :  {{PEER_LINK | ORPHRASE}}\nstate  :  {{STATE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DOMAIN": "mlagDomain",
+      "INTERFACE": "Vlan4094",
+      "PEER_ADDR": "10.0.0.2",
+      "PEER_LINK": "Port-Channel10",
+      "STATE": "Inactive"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "domain_interface_peer_addr_peer_link": {
+        "STATE": "Inactive",
+        "PEER_LINK": "Port-Channel10",
+        "PEER_ADDR": "10.0.0.2",
+        "INTERFACE": "Vlan4094",
+        "DOMAIN": "mlagDomain"
+      }
+    }
+  ],
+  "cli_content": "MLAG Configuration:\ndomain-id           :          mlagDomain\nlocal-interface     :            Vlan4094\npeer-address        :            10.0.0.2\npeer-link           :      Port-Channel10\n\nMLAG Status:\nstate               :            Inactive\nnegotiation status  :          Connecting\npeer-link status    :      Lowerlayerdown\nlocal-int status    :                  Up\nsystem-id           :   00:00:00:00:00:00\n\nMLAG Ports:\nDisabled            :                   0\nConfigured          :                   0\nInactive            :                   0\nActive-partial      :                   0\nActive-full         :                   0\n\n",
+  "textfsm_template": "Value DOMAIN (.*)\nValue INTERFACE (\\S+)\nValue PEER_ADDR (\\S+)\nValue PEER_LINK (\\S+)\nValue STATE (\\S+)\n\nStart\n  ^domain-id\\s+:\\s+${DOMAIN} \n  ^local-interface\\s+:\\s+${INTERFACE}\n  ^peer-address\\s+:\\s+${PEER_ADDR}\n  ^peer-link\\s+:\\s+${PEER_LINK} \n  ^state\\s+:\\s+${STATE} -> Record\n"
+}

@@ -1,0 +1,86 @@
+{
+  "command": "show ipv4 interface brief",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.2,
+  "textfsm_rows": 5,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"interface_ip_address_status_protocol\">\n{{INTERFACE}} {{IP_ADDRESS}} {{STATUS | ORPHRASE}} {{PROTOCOL}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Vlan1",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "administratively down",
+      "PROTOCOL": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet1/1",
+      "IP_ADDRESS": "192.168.10.1",
+      "STATUS": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet1/2",
+      "IP_ADDRESS": "192.168.20.1",
+      "STATUS": "down",
+      "PROTOCOL": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet1/3",
+      "IP_ADDRESS": "10.1.1.1",
+      "STATUS": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet1/4",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "administratively down",
+      "PROTOCOL": "down"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_status_protocol": [
+        {
+          "INTERFACE": "Interface",
+          "IP_ADDRESS": "IP-Address",
+          "STATUS": "Status",
+          "PROTOCOL": "Protocol"
+        },
+        {
+          "INTERFACE": "Vlan1",
+          "IP_ADDRESS": "unassigned",
+          "STATUS": "administratively down",
+          "PROTOCOL": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet1/1",
+          "IP_ADDRESS": "192.168.10.1",
+          "STATUS": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet1/2",
+          "IP_ADDRESS": "192.168.20.1",
+          "STATUS": "down",
+          "PROTOCOL": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet1/3",
+          "IP_ADDRESS": "10.1.1.1",
+          "STATUS": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet1/4",
+          "IP_ADDRESS": "unassigned",
+          "STATUS": "administratively down",
+          "PROTOCOL": "down"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              IP-Address      Status                Protocol\nVlan1                  unassigned      administratively down down\nTenGigabitEthernet1/1  192.168.10.1    up                    up\nTenGigabitEthernet1/2  192.168.20.1    down                  down\nTenGigabitEthernet1/3  10.1.1.1        up                    up\nTenGigabitEthernet1/4  unassigned      administratively down down\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue IP_ADDRESS (\\S+)\nValue STATUS (administratively down|up|down)\nValue PROTOCOL (\\S+)\n\nStart\n  ^Interface\\s+IP-Address\\s+Status\\s+Protocol\\s*$$\n  ^${INTERFACE}\\s+${IP_ADDRESS}\\s+${STATUS}\\s+${PROTOCOL}\\s*$$ -> Record"
+}

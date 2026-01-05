@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_arp
+# Source: ntc
+# TextFSM rows: 7
+# TTP rows: 1
+# Match ratio: 0.14
+
+<group name="protocol_ip_address_age_mac_address_type_interface">
+{{PROTOCOL}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{AGE | re(".*\\w.*")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{TYPE}} {{INTERFACE | ORPHRASE}}
+</group>
+<group name="protocol_ip_address_age_mac_address_type">
+{{PROTOCOL}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{AGE | re(".*\\w.*")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{TYPE | ORPHRASE}}
+</group>

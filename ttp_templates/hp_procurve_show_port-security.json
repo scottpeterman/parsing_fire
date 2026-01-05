@@ -1,0 +1,644 @@
+{
+  "command": "hp_procurve_show_port-security",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 52,
+  "ttp_rows": 52,
+  "ttp_template": "<group name=\"port_learn_mode_action_eavesdrop_prevention\">\n  {{PORT | re(\"\\\\d+\")}} {{LEARN_MODE}} | {{ACTION | ORPHRASE}} {{EAVESDROP_PREVENTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "1",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "2",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "3",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "4",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "5",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "6",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "7",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "8",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "9",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "10",
+      "LEARN_MODE": "Static",
+      "ACTION": "Send Alarm, Disable Port",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "11",
+      "LEARN_MODE": "Configured",
+      "ACTION": "Send Alarm",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "12",
+      "LEARN_MODE": "Port-Access",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "13",
+      "LEARN_MODE": "Limited-Continuous",
+      "ACTION": "Send Alarm",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "14",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "15",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "16",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "17",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "18",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "19",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "20",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "21",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "22",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "23",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "24",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "25",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "26",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "27",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "28",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "29",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "30",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "31",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "32",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "33",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "34",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "35",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "36",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "37",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "38",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "39",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "40",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "41",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "42",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "43",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "44",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "45",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "46",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "47",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "48",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "49",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "50",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "51",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    },
+    {
+      "PORT": "52",
+      "LEARN_MODE": "Continuous",
+      "ACTION": "None",
+      "EAVESDROP_PREVENTION": "Enabled"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_learn_mode_action_eavesdrop_prevention": [
+        {
+          "PORT": "1",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "2",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "3",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "4",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "5",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "6",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "7",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "8",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "9",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "10",
+          "LEARN_MODE": "Static",
+          "ACTION": "Send",
+          "EAVESDROP_PREVENTION": "Alarm, Disable Port Enabled"
+        },
+        {
+          "PORT": "11",
+          "LEARN_MODE": "Configured",
+          "ACTION": "Send Alarm",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "12",
+          "LEARN_MODE": "Port-Access",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "13",
+          "LEARN_MODE": "Limited-Continuous",
+          "ACTION": "Send Alarm",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "14",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "15",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "16",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "17",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "18",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "19",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "20",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "21",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "22",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "23",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "24",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "25",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "26",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "27",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "28",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "29",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "30",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "31",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "32",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "33",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "34",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "35",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "36",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "37",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "38",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "39",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "40",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "41",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "42",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "43",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "44",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "45",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "46",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "47",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "48",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "49",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "50",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "51",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        },
+        {
+          "PORT": "52",
+          "LEARN_MODE": "Continuous",
+          "ACTION": "None",
+          "EAVESDROP_PREVENTION": "Enabled"
+        }
+      ]
+    }
+  ],
+  "cli_content": " Port Security\n\n  Port  Learn Mode         | Action                   Eavesdrop Prevention\n  ----- ------------------ + ------------------------ --------------------\n  1     Continuous         | None                     Enabled\n  2     Continuous         | None                     Enabled\n  3     Continuous         | None                     Enabled\n  4     Continuous         | None                     Enabled\n  5     Continuous         | None                     Enabled\n  6     Continuous         | None                     Enabled\n  7     Continuous         | None                     Enabled\n  8     Continuous         | None                     Enabled\n  9     Continuous         | None                     Enabled\n  10    Static             | Send Alarm, Disable Port Enabled\n  11    Configured         | Send Alarm               Enabled\n  12    Port-Access        | None                     Enabled\n  13    Limited-Continuous | Send Alarm               Enabled\n  14    Continuous         | None                     Enabled\n  15    Continuous         | None                     Enabled\n  16    Continuous         | None                     Enabled\n  17    Continuous         | None                     Enabled\n  18    Continuous         | None                     Enabled\n  19    Continuous         | None                     Enabled\n  20    Continuous         | None                     Enabled\n  21    Continuous         | None                     Enabled\n  22    Continuous         | None                     Enabled\n  23    Continuous         | None                     Enabled\n  24    Continuous         | None                     Enabled\n  25    Continuous         | None                     Enabled\n  26    Continuous         | None                     Enabled\n  27    Continuous         | None                     Enabled\n  28    Continuous         | None                     Enabled\n  29    Continuous         | None                     Enabled\n  30    Continuous         | None                     Enabled\n  31    Continuous         | None                     Enabled\n  32    Continuous         | None                     Enabled\n  33    Continuous         | None                     Enabled\n  34    Continuous         | None                     Enabled\n  35    Continuous         | None                     Enabled\n  36    Continuous         | None                     Enabled\n  37    Continuous         | None                     Enabled\n  38    Continuous         | None                     Enabled\n  39    Continuous         | None                     Enabled\n  40    Continuous         | None                     Enabled\n  41    Continuous         | None                     Enabled\n  42    Continuous         | None                     Enabled\n  43    Continuous         | None                     Enabled\n  44    Continuous         | None                     Enabled\n  45    Continuous         | None                     Enabled\n  46    Continuous         | None                     Enabled\n  47    Continuous         | None                     Enabled\n  48    Continuous         | None                     Enabled\n  49    Continuous         | None                     Enabled\n  50    Continuous         | None                     Enabled\n  51    Continuous         | None                     Enabled\n  52    Continuous         | None                     Enabled\n",
+  "textfsm_template": "Value PORT (\\S+)\nValue LEARN_MODE (\\S+)\nValue ACTION (None|Send\\s+Alarm|Send\\s+Alarm\\S+\\s+Disable\\s+Port)\nValue EAVESDROP_PREVENTION (Enabled|Disabled)\n\nStart\n  ^\\s+Port\\s+Security\\s*\n  ^\\s*$$\n  ^\\s+Port\\s+Learn\\s+Mode\\s+\\|\\s+Action\\s+Eavesdrop\\s+Prevention\\s*$$\n  ^\\s*-+(?:\\s|-|\\+)+$$ -> Show_Port_Security\n  ^. -> Error\n\nShow_Port_Security\n  ^\\s+${PORT}\\s+${LEARN_MODE}\\s+\\|\\s+${ACTION}\\s+${EAVESDROP_PREVENTION}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

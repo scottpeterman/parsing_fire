@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_vrf_detail
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 8
+# Match ratio: 2.67
+
+<group name="max_routes_mid_threshold_id_state">
+    Table-ID: {{MAX_ROUTES}}x8{{MID_THRESHOLD | re("\\d+")}}00000{{ID | re("\\d+")}}, AF: IPv6, Fwd-ID: 0x80000009, State: {{STATE | ORPHRASE}}
+</group>
+<group name="name_id_state">
+VRF-Name: {{NAME}}, VRF-ID: {{ID | re("\\d+")}}, State: {{STATE | ORPHRASE}}
+</group>
+<group name="default_rd">
+    RD: {{DEFAULT_RD | ORPHRASE}}
+</group>

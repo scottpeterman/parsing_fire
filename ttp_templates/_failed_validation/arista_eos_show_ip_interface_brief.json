@@ -1,0 +1,52 @@
+{
+  "command": "arista_eos_show_ip_interface_brief",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 5,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"interface_ip_address_status_protocol_mtu\">\n{{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATUS | ORPHRASE}} {{PROTOCOL}} {{MTU | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Loopback0",
+      "IP_ADDRESS": "1.1.1.1/32",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "MTU": "65535"
+    },
+    {
+      "INTERFACE": "Management1",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "down",
+      "PROTOCOL": "down",
+      "MTU": "1500"
+    },
+    {
+      "INTERFACE": "Vlan10",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "down",
+      "PROTOCOL": "lowerlayerdown",
+      "MTU": "1500"
+    },
+    {
+      "INTERFACE": "Ethernet5",
+      "IP_ADDRESS": "10.0.0.1/24",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "MTU": "1500"
+    },
+    {
+      "INTERFACE": "Port-Channel1",
+      "IP_ADDRESS": "11.11.11.11/24",
+      "STATUS": "down",
+      "PROTOCOL": "lowerlayerdown",
+      "MTU": "1500"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Interface              IP Address         Status     Protocol         MTU\nLoopback0              1.1.1.1/32         up         up             65535\nManagement1            unassigned         down       down            1500\nVlan10                 unassigned         down       lowerlayerdown  1500\nEthernet5              10.0.0.1/24        up         up              1500\nPort-Channel1          11.11.11.11/24     down       lowerlayerdown  1500\n\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue IP_ADDRESS (\\S+)\nValue STATUS (\\S+)\nValue PROTOCOL (\\S+)\nValue MTU (\\d+)\n\nStart\n  ^${INTERFACE}\\s+${IP_ADDRESS}\\s+${STATUS}\\s+${PROTOCOL}\\s+${MTU} -> Record\n"
+}

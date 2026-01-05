@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show alert counters summary
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="alert_count_last_occurrence">
+{{ALERT}} {{COUNT | re("\\d+")}} {{LAST_OCCURRENCE | ORPHRASE}}
+</group>

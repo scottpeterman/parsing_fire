@@ -1,0 +1,69 @@
+{
+  "command": "show ip pim neighbors",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"interface_neighbor_uptime_expires_version_dr\">\n{{INTERFACE}} {{NEIGHBOR}} {{UPTIME_EXPIRES | ORPHRASE}} {{VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{DR | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "GigabitEthernet1",
+      "NEIGHBOR": "192.168.0.2",
+      "UPTIME_EXPIRES": "00:02:15/00:01:45",
+      "VERSION": "v2",
+      "DR": "Yes"
+    },
+    {
+      "INTERFACE": "GigabitEthernet2",
+      "NEIGHBOR": "192.168.0.3",
+      "UPTIME_EXPIRES": "00:03:25/00:01:30",
+      "VERSION": "v2",
+      "DR": "No"
+    },
+    {
+      "INTERFACE": "GigabitEthernet3",
+      "NEIGHBOR": "192.168.0.4",
+      "UPTIME_EXPIRES": "01:25:14/00:00:40",
+      "VERSION": "v2",
+      "DR": "Yes"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_neighbor_uptime_expires_version_dr": [
+        {
+          "INTERFACE": "Interface",
+          "NEIGHBOR": "Neighbor",
+          "UPTIME_EXPIRES": "Uptime/Expires",
+          "VERSION": "Ver",
+          "DR": "DR"
+        },
+        {
+          "INTERFACE": "GigabitEthernet1",
+          "NEIGHBOR": "192.168.0.2",
+          "UPTIME_EXPIRES": "00:02:15/00:01:45",
+          "VERSION": "v2",
+          "DR": "Yes"
+        },
+        {
+          "INTERFACE": "GigabitEthernet2",
+          "NEIGHBOR": "192.168.0.3",
+          "UPTIME_EXPIRES": "00:03:25/00:01:30",
+          "VERSION": "v2",
+          "DR": "No"
+        },
+        {
+          "INTERFACE": "GigabitEthernet3",
+          "NEIGHBOR": "192.168.0.4",
+          "UPTIME_EXPIRES": "01:25:14/00:00:40",
+          "VERSION": "v2",
+          "DR": "Yes"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface      Neighbor          Uptime/Expires    Ver   DR\nGigabitEthernet1  192.168.0.2       00:02:15/00:01:45  v2  Yes\nGigabitEthernet2  192.168.0.3       00:03:25/00:01:30  v2  No\nGigabitEthernet3  192.168.0.4       01:25:14/00:00:40  v2  Yes\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue NEIGHBOR (\\S+)\nValue UPTIME_EXPIRES (\\S+\\/\\S+)\nValue VERSION (\\S+)\nValue DR (\\S+)\n\nStart\n  ^\\s*Interface\\s+Neighbor\\s+Uptime\\/Expires\\s+Ver\\s+DR\\s*$$\n  ^\\s*${INTERFACE}\\s+${NEIGHBOR}\\s+${UPTIME_EXPIRES}\\s+${VERSION}\\s+${DR}\\s*$$ -> Record"
+}

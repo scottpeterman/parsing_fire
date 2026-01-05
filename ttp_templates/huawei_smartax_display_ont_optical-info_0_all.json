@@ -1,0 +1,220 @@
+{
+  "command": "huawei_smartax_display_ont_optical-info_0_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 10,
+  "ttp_rows": 10,
+  "ttp_template": "<group name=\"ont_id_rx_power_tx_power_olt_rx_ont_temperature_voltage_current_distance\">\n    {{ONT_ID | re(\"\\\\d+\")}} {{RX_POWER}} {{TX_POWER}} {{OLT_RX_ONT}} {{TEMPERATURE}} {{VOLTAGE}} {{CURRENT}} {{DISTANCE | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ONT_ID": "0",
+      "RX_POWER": "-24.68",
+      "TX_POWER": "3.68",
+      "OLT_RX_ONT": "-22.68",
+      "TEMPERATURE": "38",
+      "VOLTAGE": "3.200",
+      "CURRENT": "6",
+      "DISTANCE": "171"
+    },
+    {
+      "ONT_ID": "1",
+      "RX_POWER": "-24.68",
+      "TX_POWER": "3.86",
+      "OLT_RX_ONT": "-23.02",
+      "TEMPERATURE": "31",
+      "VOLTAGE": "3.220",
+      "CURRENT": "8",
+      "DISTANCE": "170"
+    },
+    {
+      "ONT_ID": "2",
+      "RX_POWER": "-25.68",
+      "TX_POWER": "3.62",
+      "OLT_RX_ONT": "-23.77",
+      "TEMPERATURE": "32",
+      "VOLTAGE": "3.200",
+      "CURRENT": "8",
+      "DISTANCE": "170"
+    },
+    {
+      "ONT_ID": "3",
+      "RX_POWER": "-25.37",
+      "TX_POWER": "3.91",
+      "OLT_RX_ONT": "-22.45",
+      "TEMPERATURE": "31",
+      "VOLTAGE": "3.180",
+      "CURRENT": "7",
+      "DISTANCE": "170"
+    },
+    {
+      "ONT_ID": "4",
+      "RX_POWER": "-25.37",
+      "TX_POWER": "3.76",
+      "OLT_RX_ONT": "-22.22",
+      "TEMPERATURE": "30",
+      "VOLTAGE": "3.200",
+      "CURRENT": "7",
+      "DISTANCE": "170"
+    },
+    {
+      "ONT_ID": "5",
+      "RX_POWER": "-26.57",
+      "TX_POWER": "3.96",
+      "OLT_RX_ONT": "-23.88",
+      "TEMPERATURE": "38",
+      "VOLTAGE": "3.220",
+      "CURRENT": "8",
+      "DISTANCE": "170"
+    },
+    {
+      "ONT_ID": "6",
+      "RX_POWER": "-24.68",
+      "TX_POWER": "3.53",
+      "OLT_RX_ONT": "-23.47",
+      "TEMPERATURE": "36",
+      "VOLTAGE": "3.260",
+      "CURRENT": "8",
+      "DISTANCE": "170"
+    },
+    {
+      "ONT_ID": "7",
+      "RX_POWER": "-25.37",
+      "TX_POWER": "3.71",
+      "OLT_RX_ONT": "-23.88",
+      "TEMPERATURE": "38",
+      "VOLTAGE": "3.220",
+      "CURRENT": "9",
+      "DISTANCE": "170"
+    },
+    {
+      "ONT_ID": "8",
+      "RX_POWER": "-25.37",
+      "TX_POWER": "3.66",
+      "OLT_RX_ONT": "-22.93",
+      "TEMPERATURE": "30",
+      "VOLTAGE": "3.180",
+      "CURRENT": "5",
+      "DISTANCE": "170"
+    },
+    {
+      "ONT_ID": "9",
+      "RX_POWER": "-24.43",
+      "TX_POWER": "3.72",
+      "OLT_RX_ONT": "-23.77",
+      "TEMPERATURE": "38",
+      "VOLTAGE": "3.200",
+      "CURRENT": "8",
+      "DISTANCE": "170"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ont_id_rx_power_tx_power_olt_rx_ont_temperature_voltage_current_distance": [
+        {
+          "ONT_ID": "0",
+          "RX_POWER": "-24.68",
+          "TX_POWER": "3.68",
+          "OLT_RX_ONT": "-22.68",
+          "TEMPERATURE": "38",
+          "VOLTAGE": "3.200",
+          "CURRENT": "6",
+          "DISTANCE": "171"
+        },
+        {
+          "ONT_ID": "1",
+          "RX_POWER": "-24.68",
+          "TX_POWER": "3.86",
+          "OLT_RX_ONT": "-23.02",
+          "TEMPERATURE": "31",
+          "VOLTAGE": "3.220",
+          "CURRENT": "8",
+          "DISTANCE": "170"
+        },
+        {
+          "ONT_ID": "2",
+          "RX_POWER": "-25.68",
+          "TX_POWER": "3.62",
+          "OLT_RX_ONT": "-23.77",
+          "TEMPERATURE": "32",
+          "VOLTAGE": "3.200",
+          "CURRENT": "8",
+          "DISTANCE": "170"
+        },
+        {
+          "ONT_ID": "3",
+          "RX_POWER": "-25.37",
+          "TX_POWER": "3.91",
+          "OLT_RX_ONT": "-22.45",
+          "TEMPERATURE": "31",
+          "VOLTAGE": "3.180",
+          "CURRENT": "7",
+          "DISTANCE": "170"
+        },
+        {
+          "ONT_ID": "4",
+          "RX_POWER": "-25.37",
+          "TX_POWER": "3.76",
+          "OLT_RX_ONT": "-22.22",
+          "TEMPERATURE": "30",
+          "VOLTAGE": "3.200",
+          "CURRENT": "7",
+          "DISTANCE": "170"
+        },
+        {
+          "ONT_ID": "5",
+          "RX_POWER": "-26.57",
+          "TX_POWER": "3.96",
+          "OLT_RX_ONT": "-23.88",
+          "TEMPERATURE": "38",
+          "VOLTAGE": "3.220",
+          "CURRENT": "8",
+          "DISTANCE": "170"
+        },
+        {
+          "ONT_ID": "6",
+          "RX_POWER": "-24.68",
+          "TX_POWER": "3.53",
+          "OLT_RX_ONT": "-23.47",
+          "TEMPERATURE": "36",
+          "VOLTAGE": "3.260",
+          "CURRENT": "8",
+          "DISTANCE": "170"
+        },
+        {
+          "ONT_ID": "7",
+          "RX_POWER": "-25.37",
+          "TX_POWER": "3.71",
+          "OLT_RX_ONT": "-23.88",
+          "TEMPERATURE": "38",
+          "VOLTAGE": "3.220",
+          "CURRENT": "9",
+          "DISTANCE": "170"
+        },
+        {
+          "ONT_ID": "8",
+          "RX_POWER": "-25.37",
+          "TX_POWER": "3.66",
+          "OLT_RX_ONT": "-22.93",
+          "TEMPERATURE": "30",
+          "VOLTAGE": "3.180",
+          "CURRENT": "5",
+          "DISTANCE": "170"
+        },
+        {
+          "ONT_ID": "9",
+          "RX_POWER": "-24.43",
+          "TX_POWER": "3.72",
+          "OLT_RX_ONT": "-23.77",
+          "TEMPERATURE": "38",
+          "VOLTAGE": "3.200",
+          "CURRENT": "8",
+          "DISTANCE": "170"
+        }
+      ]
+    }
+  ],
+  "cli_content": "  ----------------------------------------------------------------------------- \n  ONT  Rx power  Tx power  OLT Rx ONT  Temperature  Voltage  Current  Distance  \n  ID   (dBm)     (dBm)     power(dBm)  (C)          (V)      (mA)     (m)       \n  ----------------------------------------------------------------------------- \n    0  -24.68    3.68      -22.68      38           3.200    6        171       \n    1  -24.68    3.86      -23.02      31           3.220    8        170       \n    2  -25.68    3.62      -23.77      32           3.200    8        170       \n    3  -25.37    3.91      -22.45      31           3.180    7        170       \n    4  -25.37    3.76      -22.22      30           3.200    7        170       \n    5  -26.57    3.96      -23.88      38           3.220    8        170       \n    6  -24.68    3.53      -23.47      36           3.260    8        170       \n    7  -25.37    3.71      -23.88      38           3.220    9        170       \n    8  -25.37    3.66      -22.93      30           3.180    5        170       \n    9  -24.43    3.72      -23.77      38           3.200    8        170    \n  -----------------------------------------------------------------------------\n",
+  "textfsm_template": "Value Key ONT_ID (\\d+)\nValue RX_POWER (\\S+)\nValue TX_POWER (\\S+)\nValue OLT_RX_ONT (\\S+)\nValue TEMPERATURE (\\d+)\nValue VOLTAGE (\\S+)\nValue CURRENT (\\d+)\nValue DISTANCE (\\d+)\n\nStart\n  ^\\s+ONT\\s+Rx\\s*power\\s+Tx\\s*power\\s+OLT\\s*Rx\\s*ONT\\s+Temperature\\s+Voltage\\s+Current\\s+Distance\n  ^\\s+ID\\s+\\(dBm\\)\\s+\\(dBm\\)\\s+power\\(dBm\\)\\s+\\(C\\)\\s+\\(V\\)\\s+\\(mA\\)\\s+\\(m\\)\n  ^\\s+${ONT_ID}\\s+${RX_POWER}\\s+${TX_POWER}\\s+${OLT_RX_ONT}\\s+${TEMPERATURE}\\s+${VOLTAGE}\\s+${CURRENT}\\s+${DISTANCE} -> Record\n  ^\\s+-\n  ^. -> Error\n"
+}

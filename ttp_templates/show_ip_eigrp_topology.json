@@ -1,0 +1,68 @@
+{
+  "command": "show ip eigrp topology",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"via_metric_rx_metric_tx_interface\">\n        via {{VIA}} ({{METRIC_RX}}/{{METRIC_TX}}), {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Ethernet0",
+      "VIA": "192.168.2.1",
+      "METRIC_RX": "2816",
+      "METRIC_TX": "2816"
+    },
+    {
+      "INTERFACE": "Ethernet1",
+      "VIA": "192.168.3.1",
+      "METRIC_RX": "2688",
+      "METRIC_TX": "2688"
+    },
+    {
+      "INTERFACE": "Ethernet2",
+      "VIA": "192.168.4.1",
+      "METRIC_RX": "2176",
+      "METRIC_TX": "2176"
+    },
+    {
+      "INTERFACE": "Ethernet3",
+      "VIA": "192.168.5.1",
+      "METRIC_RX": "2176",
+      "METRIC_TX": "2816"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "via_metric_rx_metric_tx_interface": [
+        {
+          "VIA": "192.168.2.1",
+          "METRIC_RX": "2816",
+          "METRIC_TX": "2816",
+          "INTERFACE": "Ethernet0"
+        },
+        {
+          "VIA": "192.168.3.1",
+          "METRIC_RX": "2688",
+          "METRIC_TX": "2688",
+          "INTERFACE": "Ethernet1"
+        },
+        {
+          "VIA": "192.168.4.1",
+          "METRIC_RX": "2176",
+          "METRIC_TX": "2176",
+          "INTERFACE": "Ethernet2"
+        },
+        {
+          "VIA": "192.168.5.1",
+          "METRIC_RX": "2176",
+          "METRIC_TX": "2816",
+          "INTERFACE": "Ethernet3"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IP-EIGRP Topology Table for AS(100)/ID(192.168.1.1)\n\nCodes: P - Passive, A - Active, U - Update, Q - Query, R - Reply, r - Reply status\n\nP 10.1.1.0/24, 1 successors, FD is 2816\n        via 192.168.2.1 (2816/2816), Ethernet0\nP 10.1.2.0/24, 1 successors, FD is 2688\n        via 192.168.3.1 (2688/2688), Ethernet1\nP 10.1.3.0/24, 2 successors, FD is 2176\n        via 192.168.4.1 (2176/2176), Ethernet2\n        via 192.168.5.1 (2176/2816), Ethernet3\n",
+  "textfsm_template": "Value CODES (\\S+)\nValue NETWORK (\\d+\\.\\d+\\.\\d+\\.\\d+\\/\\d+)\nValue SUCCESSORS (\\d+)\nValue FD (\\d+)\nValue INTERFACE (\\S+)\nValue VIA (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue METRIC_RX (\\d+)\nValue METRIC_TX (\\d+)\n\nStart\n  ^${CODES}\\s+${NETWORK},\\s+${SUCCESSORS}\\s+successors,\\s+FD\\s+is\\s+${FD}\\s+$$\n  ^\\s*via\\s+${VIA}\\s+\\(${METRIC_RX}/${METRIC_TX}\\),\\s+${INTERFACE}\\s*$$ -> Record"
+}

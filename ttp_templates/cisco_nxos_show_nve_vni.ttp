@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_nve_vni
+# Source: ntc
+# TextFSM rows: 8
+# TTP rows: 4
+# Match ratio: 0.50
+
+<group name="interface_vni_mcast_group_state_mode_type_bd_vrf">
+{{INTERFACE}} {{VNI}} {{MCAST_GROUP}} {{STATE | ORPHRASE}} {{MODE}} {{TYPE | ORPHRASE}} [{{BD_VRF}}] SA 
+</group>

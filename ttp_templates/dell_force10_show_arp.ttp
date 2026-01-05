@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: dell_force10_show_arp
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 2
+# Match ratio: 0.40
+
+<group name="ip_address_age_mac_address_port">
+Internet {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{AGE}} {{MAC_ADDRESS | re("[0{{VLAN_ID | ORPHRASE}}9a-fA-F:.-]+")}} {{PORT | ORPHRASE}} - CP
+</group>
+<group name="ip_address_age_mac_address_port_vlan_id">
+Internet {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{AGE}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{PORT | ORPHRASE}} Vl {{VLAN_ID | ORPHRASE}} CP
+</group>
+<group name="ip_address_port_mac_address_vlan_id">
+Internet {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{PORT | ORPHRASE}} {{MAC_ADDRESS | re("[0{{AGE | re(".*\\w.*")}}9a-fA-F:.-]+")}} - Vl {{VLAN_ID | ORPHRASE}} CP
+</group>

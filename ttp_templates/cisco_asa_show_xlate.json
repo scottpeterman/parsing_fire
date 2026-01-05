@@ -1,0 +1,90 @@
+{
+  "command": "cisco_asa_show_xlate",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"source_intf_source_destination_intf_destination\">\nNAT from {{SOURCE_INTF}}:{{SOURCE | ORPHRASE}} to {{DESTINATION_INTF}}:{{DESTINATION | ORPHRASE}}\n</group>\n<group name=\"source_intf_destination\">\n10.9.0.44/31 to {{SOURCE_INTF}}:{{DESTINATION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SOURCE_INTF": "any",
+      "SOURCE": "10.90.67.2",
+      "DESTINATION_INTF": "any",
+      "DESTINATION": "10.9.1.0/24"
+    },
+    {
+      "SOURCE_INTF": "any",
+      "SOURCE": "10.1.1.0/24",
+      "DESTINATION_INTF": "any",
+      "DESTINATION": "172.16.1.0/24"
+    },
+    {
+      "SOURCE_INTF": "any",
+      "SOURCE": "10.90.67.2",
+      "DESTINATION_INTF": "any",
+      "DESTINATION": "10.86.94.0"
+    },
+    {
+      "SOURCE_INTF": "any",
+      "SOURCE": "10.9.0.9, 10.9.0.10/31, 10.9.0.12/30, 10.9.0.16/28, 10.9.0.32/29, 10.9.0.40/30, 10.9.0.44/31",
+      "DESTINATION_INTF": "any",
+      "DESTINATION": "0.0.0.0"
+    },
+    {
+      "SOURCE_INTF": "any",
+      "SOURCE": "10.1.1.0/24",
+      "DESTINATION_INTF": "any",
+      "DESTINATION": "172.16.1.0/24"
+    },
+    {
+      "SOURCE_INTF": "inside",
+      "SOURCE": "192.168.1.150",
+      "DESTINATION_INTF": "outside",
+      "DESTINATION": "172.18.254.252"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "source_intf_source_destination_intf_destination": [
+        {
+          "SOURCE_INTF": "any",
+          "SOURCE": "10.90.67.2",
+          "DESTINATION_INTF": "any",
+          "DESTINATION": "10.9.1.0/24"
+        },
+        {
+          "SOURCE_INTF": "any",
+          "SOURCE": "10.1.1.0/24",
+          "DESTINATION_INTF": "any",
+          "DESTINATION": "172.16.1.0/24"
+        },
+        {
+          "SOURCE_INTF": "any",
+          "SOURCE": "10.90.67.2",
+          "DESTINATION_INTF": "any",
+          "DESTINATION": "10.86.94.0"
+        },
+        {
+          "SOURCE_INTF": "any",
+          "SOURCE": "10.1.1.0/24",
+          "DESTINATION_INTF": "any",
+          "DESTINATION": "172.16.1.0/24"
+        },
+        {
+          "SOURCE_INTF": "inside",
+          "SOURCE": "192.168.1.150",
+          "DESTINATION_INTF": "outside",
+          "DESTINATION": "172.18.254.252 flags s idle 0:01:37 timeout 0:00:00"
+        }
+      ],
+      "source_intf_destination": {
+        "SOURCE_INTF": "any",
+        "DESTINATION": "0.0.0.0"
+      }
+    }
+  ],
+  "cli_content": "5 in use, 5 most used\nFlags: D - DNS, i - dynamic, r - portmap, s - static, I - identity, T - twice\ne - extended\nNAT from any:10.90.67.2 to any:10.9.1.0/24\nflags idle 277:05:26 timeout 0:00:00\nNAT from any:10.1.1.0/24 to any:172.16.1.0/24\nflags idle 277:05:26 timeout 0:00:00\nNAT from any:10.90.67.2 to any:10.86.94.0\nflags idle 277:05:26 timeout 0:00:00\nNAT from any:10.9.0.9, 10.9.0.10/31, 10.9.0.12/30,\n10.9.0.16/28, 10.9.0.32/29, 10.9.0.40/30,\n10.9.0.44/31 to any:0.0.0.0\nflags idle 277:05:26 timeout 0:00:00\nNAT from any:10.1.1.0/24 to any:172.16.1.0/24\nflags idle 277:05:14 timeout 0:00:00\nNAT from inside:192.168.1.150 to outside:172.18.254.252 flags s idle 0:01:37 timeout 0:00:00\n",
+  "textfsm_template": "Value SOURCE_INTF (\\S+)\nValue List SOURCE ([0-9a-fA-F:\\./]{7,})\nValue DESTINATION_INTF (\\S+)\nValue List DESTINATION ([0-9a-fA-F:\\./]{7,})\n\nStart\n  ^\\d+\\s+in\\s+use\n  ^Flags:\n  ^\\S+\\s+-\\s+\\S+\n  ^NAT\\s+from\\s+${SOURCE_INTF}:${SOURCE} -> Continue\n  ^NAT\\s+from\\s+\\S+:[0-9a-fA-F:\\./]+,\\s+${SOURCE} -> Continue\n  ^NAT\\s+from\\s+\\S+:(?:[0-9a-fA-F:\\./]+,\\s+){2}${SOURCE},\\s*$$\n  ^NAT\\s+from\\s+\\S+:(?:[0-9a-fA-F:\\./]+,\\s+){2}${SOURCE} -> Continue\n  ^${SOURCE} -> Continue\n  ^[0-9a-fA-F:\\./]+,\\s+${SOURCE} -> Continue\n  ^(?:[0-9a-fA-F:\\./]+,\\s+){2}${SOURCE}\n  ^.+to\\s+${DESTINATION_INTF}:${DESTINATION}\\s*$$ -> Dest\n  ^.+to\\s+${DESTINATION_INTF}:${DESTINATION} -> Continue\n  ^.+to\\s+\\S+:[0-9a-fA-F:\\./]+\\s+${DESTINATION}\\s*$$ -> Dest\n  ^.+to\\s+\\S+:[0-9a-fA-F:\\./]+\\s+${DESTINATION} -> Continue\n  ^.+to\\s+\\S+:(?:[0-9a-fA-F:\\./]+\\s+){2}${DESTINATION}\\s*$$ -> Dest\n  ^.*flags -> Record\n  ^\\s*$$\n  ^. -> Error\n\nDest\n  ^${DESTINATION} -> Continue\n  ^[0-9a-fA-F:\\./]+,\\s+${DESTINATION} -> Continue\n  ^(?:[0-9a-fA-F:\\./]+,\\s+){2}${DESTINATION}\\s*$$\n  ^(?:[0-9a-fA-F:\\./]+,\\s+){2}${DESTINATION}\n  ^.*flags -> Record Start\n  ^\\s*$$\n  ^. -> Error\n"
+}

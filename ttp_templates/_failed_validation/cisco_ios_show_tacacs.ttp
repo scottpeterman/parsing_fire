@@ -1,0 +1,13 @@
+# TTP Template - FAILED VALIDATION
+# Original command: cisco_ios_show_tacacs
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="failed_connections_packets_sent_packet_received_server_port">
+  Server address: 1{{SOCKET_ABORTS | ORPHRASE}}.1.1.14{{SOCKET_ERRORS}}
+  Server port: {{SERVER_PORT | ORPHRASE}}
+  Socket closes:  13799{{FAILED_CONNECTIONS | ORPHRASE}}
+  Server address: {{TACACS_SERVER | ORPHRASE}}
+  Socket opens:  {{SOCKET_OPENS | ORPHRASE}}
+  Total Packets Sent:  {{PACKETS_SENT | ORPHRASE}}
+</group>

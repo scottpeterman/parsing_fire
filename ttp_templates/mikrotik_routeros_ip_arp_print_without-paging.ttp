@@ -1,0 +1,12 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_ip_arp_print_without-paging
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="flags_index_interface_ip_address">
+Flags: X - disabled, I - invalid, H - {{FLAGS | ORPHRASE}}HCP, D - dynamic, P - published, C - complete 
+ 0 D  {{INDEX | ORPHRASE}}85.163.212.158  dmz-1-vlan  
+ 1  {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{INTERFACE | ORPHRASE}}  
+</group>

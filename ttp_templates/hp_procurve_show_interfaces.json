@@ -1,0 +1,452 @@
+{
+  "command": "hp_procurve_show_interfaces",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 24,
+  "ttp_rows": 24,
+  "ttp_template": "<group name=\"port_total_bytes_total_frames_errors_rx_drops_tx_flow_ctrl_bcast_limit\">\n  {{PORT | re(\"\\\\d+\")}} {{TOTAL_BYTES}} {{TOTAL_FRAMES}} {{ERRORS_RX}} {{DROPS_TX}} {{FLOW_CTRL | ORPHRASE}} {{BCAST_LIMIT}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "1",
+      "TOTAL_BYTES": "98,581",
+      "TOTAL_FRAMES": "869",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "on",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "2",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "3",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "4",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "67,00",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "5",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "6",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "7",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "8",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "9",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "10",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "on",
+      "BCAST_LIMIT": "50"
+    },
+    {
+      "PORT": "11",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "12",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "13",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "14",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "15",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "16",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "17",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "18",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "19",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "20",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "21",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "22",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "23",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    },
+    {
+      "PORT": "24",
+      "TOTAL_BYTES": "0",
+      "TOTAL_FRAMES": "0",
+      "ERRORS_RX": "0",
+      "DROPS_TX": "0",
+      "FLOW_CTRL": "off",
+      "BCAST_LIMIT": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_total_bytes_total_frames_errors_rx_drops_tx_flow_ctrl_bcast_limit": [
+        {
+          "PORT": "1",
+          "TOTAL_BYTES": "98,581",
+          "TOTAL_FRAMES": "869",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "on",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "2",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "3",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "4",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "67,00",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "5",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "6",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "7",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "8",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "9",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "10",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "on",
+          "BCAST_LIMIT": "50"
+        },
+        {
+          "PORT": "11",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "12",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "13",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "14",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "15",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "16",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "17",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "18",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "19",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "20",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "21",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "22",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "23",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        },
+        {
+          "PORT": "24",
+          "TOTAL_BYTES": "0",
+          "TOTAL_FRAMES": "0",
+          "ERRORS_RX": "0",
+          "DROPS_TX": "0",
+          "FLOW_CTRL": "off",
+          "BCAST_LIMIT": "0"
+        }
+      ]
+    }
+  ],
+  "cli_content": " Status and Counters - Port Counters\n\n                                                                 Flow Bcast\n  Port         Total Bytes    Total Frames   Errors Rx Drops Tx  Ctrl Limit\n  ------------ -------------- -------------- --------- --------- ---- -----\n  1            98,581         869            0         0         on   0\n  2            0              0              0         0         off  0\n  3            0              0              0         0         off  0\n  4            0              0              67,00     0         off  0\n  5            0              0              0         0         off  0\n  6            0              0              0         0         off  0\n  7            0              0              0         0         off  0\n  8            0              0              0         0         off  0\n  9            0              0              0         0         off  0\n  10           0              0              0         0         on   50\n  11           0              0              0         0         off  0\n  12           0              0              0         0         off  0\n  13           0              0              0         0         off  0\n  14           0              0              0         0         off  0\n  15           0              0              0         0         off  0\n  16           0              0              0         0         off  0\n  17           0              0              0         0         off  0\n  18           0              0              0         0         off  0\n  19           0              0              0         0         off  0\n  20           0              0              0         0         off  0\n  21           0              0              0         0         off  0\n  22           0              0              0         0         off  0\n  23           0              0              0         0         off  0\n  24           0              0              0         0         off  0\n",
+  "textfsm_template": "Value PORT (\\S+)\nValue TOTAL_BYTES (\\S+)\nValue TOTAL_FRAMES (\\S+)\nValue ERRORS_RX (\\S+)\nValue DROPS_TX (\\S+)\nValue FLOW_CTRL (off|on)\nValue BCAST_LIMIT (\\d+)\n\nStart\n  ^\\s+Status.*Counters\\s*\n  ^\\s*$$\n  ^\\s+Flow\\s*\n  ^\\s+Port.*Ctrl\\s*\n  ^\\s+-+\\s+-+\\s+-+\\s+-+\\s+-+\\s-+\\s*$$ -> ShowInterfaces1\n  ^\\s+Flow\\s+Bcast\\s*\n  ^\\s+Port.*Limit\\s*\n  ^\\s+-+\\s+-+\\s+-+\\s+-+\\s+-+\\s+-+\\s-+\\s*$$ -> ShowInterfaces2\n\n\nShowInterfaces1\n  ^\\s+${PORT}\\s+${TOTAL_BYTES}\\s+${TOTAL_FRAMES}\\s+${ERRORS_RX}\\s+${DROPS_TX}\\s+${FLOW_CTRL}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n\nShowInterfaces2\n  ^\\s+${PORT}\\s+${TOTAL_BYTES}\\s+${TOTAL_FRAMES}\\s+${ERRORS_RX}\\s+${DROPS_TX}\\s+${FLOW_CTRL}\\s+${BCAST_LIMIT}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

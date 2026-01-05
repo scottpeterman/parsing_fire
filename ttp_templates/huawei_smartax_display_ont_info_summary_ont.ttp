@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_smartax_display_ont_info_summary_ont
+# Source: ntc
+# TextFSM rows: 23
+# TTP rows: 46
+# Match ratio: 2.00
+
+<group name="ont_id_run_state_last_uptime_last_downtime_last_downcause">
+  {{ONT_ID | re("\\d+")}} {{RUN_STATE | ORPHRASE}} {{LAST_UPTIME | ORPHRASE}} {{LAST_DOWNTIME | ORPHRASE}} {{LAST_DOWNCAUSE | ORPHRASE}}
+</group>

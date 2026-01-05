@@ -1,0 +1,19 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_apic_fabric_show_vlan_extended
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 6
+# Match ratio: 1.50
+
+<group name="node_number_node_name">
+ Node {{NODE_NUMBER}} ({{NODE_NAME | ORPHRASE}})
+</group>
+<group name="vlan_id_vlan_name_vlan_encap_vlan_ports">
+ {{VLAN_ID | re("\\d+")}} {{VLAN_NAME | ORPHRASE}} {{VLAN_ENCAP | ORPHRASE}} {{VLAN_PORTS | ORPHRASE}} 
+</group>
+<group name="vlan_id_vlan_encap_vlan_ports">
+ {{VLAN_ID | re("\\d+")}} NSO-XDOMAIN:Traffic- {{VLAN_ENCAP | ORPHRASE}} {{VLAN_PORTS | ORPHRASE}} 
+</group>
+<group name="vlan_id_vlan_name_vlan_ports">
+ {{VLAN_ID | re("\\d+")}} {{VLAN_NAME | ORPHRASE}} vxlan-16777209, {{VLAN_PORTS | ORPHRASE}} 
+</group>

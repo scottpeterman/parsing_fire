@@ -1,0 +1,135 @@
+{
+  "command": "arista_eos_show_interfaces_status",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.1666666666666667,
+  "textfsm_rows": 6,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"port_name_status_vlan_id_duplex_speed_type\">\n{{PORT}} {{NAME | ORPHRASE}} {{STATUS | ORPHRASE}} {{VLAN_ID}} {{DUPLEX}} {{SPEED}} {{TYPE | ORPHRASE}}\n</group>\n<group name=\"port_status_vlan_id_duplex_speed_type\">\n{{PORT}} {{STATUS | ORPHRASE}} {{VLAN_ID | re(\"\\\\d+\")}} {{DUPLEX}} {{SPEED}} {{TYPE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "Et3/1/1",
+      "NAME": "I am a 40G port !! Hi",
+      "STATUS": "connected",
+      "VLAN_ID": "trunk",
+      "DUPLEX": "a-full",
+      "SPEED": "a-40G",
+      "TYPE": "40GBASE-CR4"
+    },
+    {
+      "PORT": "Et3/1/4",
+      "STATUS": "inactive",
+      "VLAN_ID": "1",
+      "DUPLEX": "unconf",
+      "SPEED": "unconf",
+      "TYPE": "40GBASE-CR4"
+    },
+    {
+      "PORT": "Et3/2/1",
+      "NAME": "PORTNAME",
+      "STATUS": "notconnect",
+      "VLAN_ID": "trunk",
+      "DUPLEX": "a-full",
+      "SPEED": "a-10G",
+      "TYPE": "40GBASE-SR"
+    },
+    {
+      "PORT": "Et3/2/2",
+      "NAME": "I am a 10G port",
+      "STATUS": "errdisabled",
+      "VLAN_ID": "10",
+      "DUPLEX": "a-full",
+      "SPEED": "a-10G",
+      "TYPE": "40GBASE-SR"
+    },
+    {
+      "PORT": "Et3/2/4",
+      "NAME": "- DISABLED routed (",
+      "STATUS": "disabled",
+      "VLAN_ID": "routed",
+      "DUPLEX": "a-full",
+      "SPEED": "a-10G",
+      "TYPE": "40GBASE-SR"
+    },
+    {
+      "PORT": "Et3/2/5",
+      "NAME": "-",
+      "STATUS": "disabled",
+      "VLAN_ID": "routed",
+      "DUPLEX": "a-full",
+      "SPEED": "a-10G",
+      "TYPE": "40GBASE-SR"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_name_status_vlan_id_duplex_speed_type": [
+        {
+          "PORT": "Port",
+          "NAME": "Name",
+          "STATUS": "Status",
+          "VLAN_ID": "Vlan",
+          "DUPLEX": "Duplex",
+          "SPEED": "Speed",
+          "TYPE": "Type"
+        },
+        {
+          "PORT": "Et3/1/1",
+          "NAME": "I",
+          "STATUS": "am a 40G port !! Hi",
+          "VLAN_ID": "connected",
+          "DUPLEX": "trunk",
+          "SPEED": "a-full",
+          "TYPE": "a-40G 40GBASE-CR4"
+        },
+        {
+          "PORT": "Et3/2/1",
+          "NAME": "PORTNAME",
+          "STATUS": "notconnect",
+          "VLAN_ID": "trunk",
+          "DUPLEX": "a-full",
+          "SPEED": "a-10G",
+          "TYPE": "40GBASE-SR"
+        },
+        {
+          "PORT": "Et3/2/2",
+          "NAME": "I",
+          "STATUS": "am a 10G port",
+          "VLAN_ID": "errdisabled",
+          "DUPLEX": "10",
+          "SPEED": "a-full",
+          "TYPE": "a-10G 40GBASE-SR"
+        },
+        {
+          "PORT": "Et3/2/4",
+          "NAME": "-",
+          "STATUS": "DISABLED routed (",
+          "VLAN_ID": "disabled",
+          "DUPLEX": "routed",
+          "SPEED": "a-full",
+          "TYPE": "a-10G 40GBASE-SR"
+        },
+        {
+          "PORT": "Et3/2/5",
+          "NAME": "-",
+          "STATUS": "disabled",
+          "VLAN_ID": "routed",
+          "DUPLEX": "a-full",
+          "SPEED": "a-10G",
+          "TYPE": "40GBASE-SR"
+        }
+      ],
+      "port_status_vlan_id_duplex_speed_type": {
+        "PORT": "Et3/1/4",
+        "STATUS": "inactive",
+        "VLAN_ID": "1",
+        "DUPLEX": "unconf",
+        "SPEED": "unconf",
+        "TYPE": "40GBASE-CR4"
+      }
+    }
+  ],
+  "cli_content": "Port       Name                   Status       Vlan        Duplex  Speed Type\nEt3/1/1    I am a 40G port !! Hi  connected    trunk       a-full  a-40G 40GBASE-CR4\nEt3/1/4                           inactive     1           unconf unconf 40GBASE-CR4\nEt3/2/1    PORTNAME               notconnect   trunk       a-full  a-10G 40GBASE-SR\nEt3/2/2    I am a 10G port        errdisabled  10          a-full  a-10G 40GBASE-SR\nEt3/2/4    - DISABLED routed (    disabled     routed      a-full  a-10G 40GBASE-SR\nEt3/2/5    -                      disabled     routed      a-full  a-10G 40GBASE-SR\n",
+  "textfsm_template": "Value PORT (\\S+)\nValue NAME (\\S.*(?<!\\s))\nValue STATUS (connected|notconnect|inactive|errdisabled|disabled)\nValue VLAN_ID (\\S+)\nValue DUPLEX (\\S+)\nValue SPEED (\\S+)\nValue TYPE (.+?)\n\nStart\n  ^${PORT}\\s+${NAME}\\s+${STATUS}\\s+(?:in\\s+)?${VLAN_ID}\\s+${DUPLEX}\\s+${SPEED}\\s+${TYPE}\\s*$$ -> Record\n  ^${PORT}\\s+${STATUS}\\s+(?:in\\s+)?${VLAN_ID}\\s+${DUPLEX}\\s+${SPEED}\\s+${TYPE}\\s*$$ -> Record\n  ^\\s*\n  ^. -> Error\n"
+}

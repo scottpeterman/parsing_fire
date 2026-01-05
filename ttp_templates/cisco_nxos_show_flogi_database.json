@@ -1,0 +1,341 @@
+{
+  "command": "cisco_nxos_show_flogi_database",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0476190476190477,
+  "textfsm_rows": 21,
+  "ttp_rows": 22,
+  "ttp_template": "<group name=\"interface_vsan_fcid_port_name_node_name\">\n{{INTERFACE}} {{VSAN}} {{FCID}} {{PORT_NAME}} {{NODE_NAME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "fc1/33",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:11",
+      "PORT_DEVICE_ALIAS": "SAN_PORT_1",
+      "NODE_NAME": "aa:bb:cc:dd:ee:ff:00:00"
+    },
+    {
+      "INTERFACE": "fc1/34",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:12",
+      "PORT_DEVICE_ALIAS": "SAN_PORT_2",
+      "NODE_NAME": "aa:bb:cc:dd:ee:ff:00:00"
+    },
+    {
+      "INTERFACE": "fc1/35",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:13",
+      "PORT_DEVICE_ALIAS": "SAN_PORT_3",
+      "NODE_NAME": "aa:bb:cc:dd:ee:ff:00:00"
+    },
+    {
+      "INTERFACE": "fc1/36",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:14",
+      "PORT_DEVICE_ALIAS": "SAN_PORT_4",
+      "NODE_NAME": "aa:bb:cc:dd:ee:ff:00:00"
+    },
+    {
+      "INTERFACE": "fc1/37",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:15",
+      "PORT_DEVICE_ALIAS": "TAPE_1",
+      "NODE_NAME": "bb:bb:cc:dd:ee:ff:00:00"
+    },
+    {
+      "INTERFACE": "fc1/38",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:16",
+      "PORT_DEVICE_ALIAS": "TAPE_2",
+      "NODE_NAME": "a0:bb:cc:dd:ee:ff:00:00"
+    },
+    {
+      "INTERFACE": "fc1/41",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:17",
+      "PORT_DEVICE_ALIAS": "SERVER_A_PORT_1",
+      "NODE_NAME": "d1:bb:cc:dd:ee:ff:00:00"
+    },
+    {
+      "INTERFACE": "fc1/42",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:18",
+      "PORT_DEVICE_ALIAS": "SERVER_A_PORT_2",
+      "NODE_NAME": "d1:bb:cc:dd:ee:ff:00:00"
+    },
+    {
+      "INTERFACE": "fc1/43",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:19",
+      "PORT_DEVICE_ALIAS": "SERVER_B_PORT_1",
+      "NODE_NAME": "3a:bb:cc:dd:ee:ff:00:00"
+    },
+    {
+      "INTERFACE": "fc1/44",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:10",
+      "PORT_DEVICE_ALIAS": "SERVER_B_PORT_2",
+      "NODE_NAME": "3a:bb:cc:dd:ee:ff:00:00"
+    },
+    {
+      "INTERFACE": "fc1/45",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:10",
+      "NODE_NAME": "da:bb:cc:dd:ee:ff:00:00"
+    },
+    {
+      "INTERFACE": "fc1/45",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:11",
+      "PORT_DEVICE_ALIAS": "SERVER_C_PORT_1",
+      "NODE_NAME": "da:bb:cc:dd:ee:ff:00:01"
+    },
+    {
+      "INTERFACE": "fc1/45",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:12",
+      "PORT_DEVICE_ALIAS": "SERVER_D_PORT_1",
+      "NODE_NAME": "da:bb:cc:dd:ee:ff:00:a0"
+    },
+    {
+      "INTERFACE": "fc1/45",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:13",
+      "PORT_DEVICE_ALIAS": "SERVER_E_PORT_1",
+      "NODE_NAME": "da:bb:cc:dd:ee:ff:00:f3"
+    },
+    {
+      "INTERFACE": "fc1/45",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:14",
+      "PORT_DEVICE_ALIAS": "SERVER_F_PORT_1",
+      "NODE_NAME": "da:bb:cc:dd:ee:ff:00:d7"
+    },
+    {
+      "INTERFACE": "fc1/45",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:15",
+      "PORT_DEVICE_ALIAS": "SERVER_G_PORT_1",
+      "NODE_NAME": "da:bb:cc:dd:ee:ff:00:a8"
+    },
+    {
+      "INTERFACE": "fc1/45",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:16",
+      "PORT_DEVICE_ALIAS": "SERVER_H_PORT_1",
+      "NODE_NAME": "da:bb:cc:dd:ee:ff:00:c3"
+    },
+    {
+      "INTERFACE": "fc1/45",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:17",
+      "PORT_DEVICE_ALIAS": "SERVER_I_PORT_1",
+      "NODE_NAME": "da:bb:cc:dd:ee:ff:00:c8"
+    },
+    {
+      "INTERFACE": "fc1/45",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:18",
+      "PORT_DEVICE_ALIAS": "SERVER_J_PORT_1",
+      "NODE_NAME": "da:bb:cc:dd:ee:ff:00:e9"
+    },
+    {
+      "INTERFACE": "fc1/45",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:19",
+      "PORT_DEVICE_ALIAS": "SERVER_K_PORT_1",
+      "NODE_NAME": "da:bb:cc:dd:ee:ff:00:e1"
+    },
+    {
+      "INTERFACE": "fc1/46",
+      "VSAN": "10",
+      "FCID": "0x000000",
+      "PORT_NAME": "aa:bb:cc:dd:ee:ff:02:00",
+      "PORT_DEVICE_ALIAS": "DEV_SERVER_PORT_1",
+      "NODE_NAME": "c6:bb:cc:dd:ee:ff:00:11"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_vsan_fcid_port_name_node_name": [
+        {
+          "INTERFACE": "fc1/33",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:11",
+          "NODE_NAME": "aa:bb:cc:dd:ee:ff:00:00"
+        },
+        {
+          "INTERFACE": "fc1/34",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:12",
+          "NODE_NAME": "aa:bb:cc:dd:ee:ff:00:00"
+        },
+        {
+          "INTERFACE": "fc1/35",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:13",
+          "NODE_NAME": "aa:bb:cc:dd:ee:ff:00:00"
+        },
+        {
+          "INTERFACE": "fc1/36",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:14",
+          "NODE_NAME": "aa:bb:cc:dd:ee:ff:00:00"
+        },
+        {
+          "INTERFACE": "fc1/37",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:15",
+          "NODE_NAME": "bb:bb:cc:dd:ee:ff:00:00"
+        },
+        {
+          "INTERFACE": "fc1/38",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:16",
+          "NODE_NAME": "a0:bb:cc:dd:ee:ff:00:00"
+        },
+        {
+          "INTERFACE": "fc1/41",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:17",
+          "NODE_NAME": "d1:bb:cc:dd:ee:ff:00:00"
+        },
+        {
+          "INTERFACE": "fc1/42",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:18",
+          "NODE_NAME": "d1:bb:cc:dd:ee:ff:00:00"
+        },
+        {
+          "INTERFACE": "fc1/43",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:19",
+          "NODE_NAME": "3a:bb:cc:dd:ee:ff:00:00"
+        },
+        {
+          "INTERFACE": "fc1/44",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:00:10",
+          "NODE_NAME": "3a:bb:cc:dd:ee:ff:00:00"
+        },
+        {
+          "INTERFACE": "fc1/45",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:10",
+          "NODE_NAME": "da:bb:cc:dd:ee:ff:00:00"
+        },
+        {
+          "INTERFACE": "fc1/45",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:11",
+          "NODE_NAME": "da:bb:cc:dd:ee:ff:00:01"
+        },
+        {
+          "INTERFACE": "fc1/45",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:12",
+          "NODE_NAME": "da:bb:cc:dd:ee:ff:00:a0"
+        },
+        {
+          "INTERFACE": "fc1/45",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:13",
+          "NODE_NAME": "da:bb:cc:dd:ee:ff:00:f3"
+        },
+        {
+          "INTERFACE": "fc1/45",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:14",
+          "NODE_NAME": "da:bb:cc:dd:ee:ff:00:d7"
+        },
+        {
+          "INTERFACE": "fc1/45",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:15",
+          "NODE_NAME": "da:bb:cc:dd:ee:ff:00:a8"
+        },
+        {
+          "INTERFACE": "fc1/45",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:16",
+          "NODE_NAME": "da:bb:cc:dd:ee:ff:00:c3"
+        },
+        {
+          "INTERFACE": "fc1/45",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:17",
+          "NODE_NAME": "da:bb:cc:dd:ee:ff:00:c8"
+        },
+        {
+          "INTERFACE": "fc1/45",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:18",
+          "NODE_NAME": "da:bb:cc:dd:ee:ff:00:e9"
+        },
+        {
+          "INTERFACE": "fc1/45",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:01:19",
+          "NODE_NAME": "da:bb:cc:dd:ee:ff:00:e1"
+        },
+        {
+          "INTERFACE": "fc1/46",
+          "VSAN": "10",
+          "FCID": "0x000000",
+          "PORT_NAME": "aa:bb:cc:dd:ee:ff:02:00",
+          "NODE_NAME": "c6:bb:cc:dd:ee:ff:00:11"
+        },
+        {
+          "INTERFACE": "Total",
+          "VSAN": "number",
+          "FCID": "of",
+          "PORT_NAME": "flogi",
+          "NODE_NAME": "= 21."
+        }
+      ]
+    }
+  ],
+  "cli_content": "SWITCH1# sh flogi database\n--------------------------------------------------------------------------------\nINTERFACE        VSAN    FCID           PORT NAME               NODE NAME\n--------------------------------------------------------------------------------\nfc1/33           10    0x000000  aa:bb:cc:dd:ee:ff:00:11 aa:bb:cc:dd:ee:ff:00:00\n                           [SAN_PORT_1]\nfc1/34           10    0x000000  aa:bb:cc:dd:ee:ff:00:12 aa:bb:cc:dd:ee:ff:00:00\n                           [SAN_PORT_2]\nfc1/35           10    0x000000  aa:bb:cc:dd:ee:ff:00:13 aa:bb:cc:dd:ee:ff:00:00\n                           [SAN_PORT_3]\nfc1/36           10    0x000000  aa:bb:cc:dd:ee:ff:00:14 aa:bb:cc:dd:ee:ff:00:00\n                           [SAN_PORT_4]\nfc1/37           10    0x000000  aa:bb:cc:dd:ee:ff:00:15 bb:bb:cc:dd:ee:ff:00:00\n                           [TAPE_1]\nfc1/38           10    0x000000  aa:bb:cc:dd:ee:ff:00:16 a0:bb:cc:dd:ee:ff:00:00\n                           [TAPE_2]\nfc1/41           10    0x000000  aa:bb:cc:dd:ee:ff:00:17 d1:bb:cc:dd:ee:ff:00:00\n                           [SERVER_A_PORT_1]\nfc1/42           10    0x000000  aa:bb:cc:dd:ee:ff:00:18 d1:bb:cc:dd:ee:ff:00:00\n                           [SERVER_A_PORT_2]\nfc1/43           10    0x000000  aa:bb:cc:dd:ee:ff:00:19 3a:bb:cc:dd:ee:ff:00:00\n                           [SERVER_B_PORT_1]\nfc1/44           10    0x000000  aa:bb:cc:dd:ee:ff:00:10 3a:bb:cc:dd:ee:ff:00:00\n                           [SERVER_B_PORT_2]\nfc1/45           10    0x000000  aa:bb:cc:dd:ee:ff:01:10 da:bb:cc:dd:ee:ff:00:00\nfc1/45           10    0x000000  aa:bb:cc:dd:ee:ff:01:11 da:bb:cc:dd:ee:ff:00:01\n                           [SERVER_C_PORT_1]\nfc1/45           10    0x000000  aa:bb:cc:dd:ee:ff:01:12 da:bb:cc:dd:ee:ff:00:a0\n                           [SERVER_D_PORT_1]\nfc1/45           10    0x000000  aa:bb:cc:dd:ee:ff:01:13 da:bb:cc:dd:ee:ff:00:f3\n                           [SERVER_E_PORT_1]\nfc1/45           10    0x000000  aa:bb:cc:dd:ee:ff:01:14 da:bb:cc:dd:ee:ff:00:d7\n                           [SERVER_F_PORT_1]\nfc1/45           10    0x000000  aa:bb:cc:dd:ee:ff:01:15 da:bb:cc:dd:ee:ff:00:a8\n                           [SERVER_G_PORT_1]\nfc1/45           10    0x000000  aa:bb:cc:dd:ee:ff:01:16 da:bb:cc:dd:ee:ff:00:c3\n                           [SERVER_H_PORT_1]\nfc1/45           10    0x000000  aa:bb:cc:dd:ee:ff:01:17 da:bb:cc:dd:ee:ff:00:c8\n                           [SERVER_I_PORT_1]\nfc1/45           10    0x000000  aa:bb:cc:dd:ee:ff:01:18 da:bb:cc:dd:ee:ff:00:e9\n                           [SERVER_J_PORT_1]\nfc1/45           10    0x000000  aa:bb:cc:dd:ee:ff:01:19 da:bb:cc:dd:ee:ff:00:e1\n                           [SERVER_K_PORT_1]\nfc1/46           10    0x000000  aa:bb:cc:dd:ee:ff:02:00 c6:bb:cc:dd:ee:ff:00:11\n                           [DEV_SERVER_PORT_1]\n\nTotal number of flogi = 21.\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue VSAN (\\d+)\nValue FCID (\\w+)\nValue PORT_NAME ([a-fA-F0-9]{2}:[a-fA-F0-9]{2}:[a-fA-F0-9]{2}:[a-fA-F0-9]{2}:[a-fA-F0-9]{2}:[a-fA-F0-9]{2}:[a-fA-F0-9]{2}:[a-fA-F0-9]{2})\nValue PORT_DEVICE_ALIAS (\\w+)\nValue NODE_NAME ([a-fA-F0-9]{2}:[a-fA-F0-9]{2}:[a-fA-F0-9]{2}:[a-fA-F0-9]{2}:[a-fA-F0-9]{2}:[a-fA-F0-9]{2}:[a-fA-F0-9]{2}:[a-fA-F0-9]{2})\n\nStart\n  ^\\S -> Continue.Record\n  ^${INTERFACE}\\s+${VSAN}\\s+${FCID}\\s+${PORT_NAME}\\s+${NODE_NAME}\n  ^\\s+\\[${PORT_DEVICE_ALIAS}\\]\n"
+}

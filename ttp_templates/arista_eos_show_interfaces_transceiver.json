@@ -1,0 +1,92 @@
+{
+  "command": "arista_eos_show_interfaces_transceiver",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.8,
+  "textfsm_rows": 5,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"port_temp_voltage_bias_current_tx_power_rx_power\">\n{{PORT}} {{TEMP}} {{VOLTAGE}} {{BIAS_CURRENT}} {{TX_POWER}} {{RX_POWER | ORPHRASE}} 0:00:06 ago\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "Et3/1/1",
+      "TEMP": "27.92",
+      "VOLTAGE": "3.23",
+      "BIAS_CURRENT": "19.94",
+      "TX_POWER": "N/A",
+      "RX_POWER": "-2.39"
+    },
+    {
+      "PORT": "Et3/17/1",
+      "TEMP": "35.61",
+      "VOLTAGE": "3.21",
+      "BIAS_CURRENT": "36.64",
+      "TX_POWER": "1.51",
+      "RX_POWER": "-0.10"
+    },
+    {
+      "PORT": "Et3/17/2",
+      "TEMP": "35.61",
+      "VOLTAGE": "3.21",
+      "BIAS_CURRENT": "36.94",
+      "TX_POWER": "-0.20",
+      "RX_POWER": "-0.20"
+    },
+    {
+      "PORT": "Et3/17/3",
+      "TEMP": "35.61",
+      "VOLTAGE": "3.21",
+      "BIAS_CURRENT": "37.42",
+      "TX_POWER": "1.65",
+      "RX_POWER": "-0.72"
+    },
+    {
+      "PORT": "Et5/29/1",
+      "TEMP": "N/A",
+      "VOLTAGE": "N/A",
+      "BIAS_CURRENT": "N/A",
+      "TX_POWER": "N/A",
+      "RX_POWER": "N/A"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_temp_voltage_bias_current_tx_power_rx_power": [
+        {
+          "PORT": "Et3/1/1",
+          "TEMP": "27.92",
+          "VOLTAGE": "3.23",
+          "BIAS_CURRENT": "19.94",
+          "TX_POWER": "N/A",
+          "RX_POWER": "-2.39"
+        },
+        {
+          "PORT": "Et3/17/1",
+          "TEMP": "35.61",
+          "VOLTAGE": "3.21",
+          "BIAS_CURRENT": "36.64",
+          "TX_POWER": "1.51",
+          "RX_POWER": "-0.10"
+        },
+        {
+          "PORT": "Et3/17/2",
+          "TEMP": "35.61",
+          "VOLTAGE": "3.21",
+          "BIAS_CURRENT": "36.94",
+          "TX_POWER": "-0.20",
+          "RX_POWER": "-0.20"
+        },
+        {
+          "PORT": "Et3/17/3",
+          "TEMP": "35.61",
+          "VOLTAGE": "3.21",
+          "BIAS_CURRENT": "37.42",
+          "TX_POWER": "1.65",
+          "RX_POWER": "-0.72"
+        }
+      ]
+    }
+  ],
+  "cli_content": "If device is externally calibrated, only calibrated values are printed.\nN/A: not applicable, Tx: transmit, Rx: receive.\nmA: milliamperes, dBm: decibels (milliwatts).\n                               Bias      Optical   Optical                \n          Temp       Voltage   Current   Tx Power  Rx Power               \nPort      (Celsius)  (Volts)   (mA)      (dBm)     (dBm)     Last Update  \n-----     ---------  --------  --------  --------  --------  -------------------\nEt3/1/1    27.92      3.23      19.94     N/A      -2.39     0:00:06 ago\nEt3/17/1   35.61      3.21      36.64    1.51      -0.10     0:00:03 ago\nEt3/17/2   35.61      3.21      36.94    -0.20     -0.20     0:00:03 ago\nEt3/17/3   35.61      3.21      37.42    1.65      -0.72     0:00:03 ago\nEt5/29/1   N/A        N/A       N/A       N/A       N/A      N/A       \n",
+  "textfsm_template": "Value PORT (\\S+)\nValue TEMP (\\S+)\nValue VOLTAGE (\\S+)\nValue BIAS_CURRENT (\\S+)\nValue TX_POWER (\\S+)\nValue RX_POWER (\\S+)\n\n\nStart\n  ^---- -> Begin\n\nBegin\n  ^${PORT}\\s+${TEMP}\\s+${VOLTAGE}\\s+${BIAS_CURRENT}\\s+${TX_POWER}\\s+${RX_POWER}\\s+(\\S+ ago|N/A) -> Record\n  ^\\s+$$\n  ^$$\n  ^.* -> Error \"LINE NOT FOUND\"\n  \nEOF\n"
+}

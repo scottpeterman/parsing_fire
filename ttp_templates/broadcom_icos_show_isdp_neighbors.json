@@ -1,0 +1,220 @@
+{
+  "command": "broadcom_icos_show_isdp_neighbors",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.2727272727272727,
+  "textfsm_rows": 11,
+  "ttp_rows": 14,
+  "ttp_template": "<group name=\"neighbor_name_local_interface_holdtime_capabilities_platform_neighbor_interface\">\n{{NEIGHBOR_NAME}} {{LOCAL_INTERFACE}} {{HOLDTIME}} {{CAPABILITIES | ORPHRASE}} {{PLATFORM | ORPHRASE}} {{NEIGHBOR_INTERFACE | ORPHRASE}}\n</group>\n<group name=\"capabilities_local_interface_holdtime_platform_neighbor_interface\">\n{{NEIGHBO{{CAPABILITIES | ORPHRASE}}_NAME}} {{LOCAL_INTERFACE}} {{HOLDTIME}} R {{PLATFORM | ORPHRASE}} {{NEIGHBOR_INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR_NAME": "AP00-1-00001",
+      "LOCAL_INTERFACE": "0/1",
+      "HOLDTIME": "173",
+      "CAPABILITIES": "T B I",
+      "PLATFORM": "cisco AIR-CAP270",
+      "NEIGHBOR_INTERFACE": "GigabitEt"
+    },
+    {
+      "NEIGHBOR_NAME": "AP00-2-00002",
+      "LOCAL_INTERFACE": "0/2",
+      "HOLDTIME": "139",
+      "CAPABILITIES": "T B I",
+      "PLATFORM": "cisco AIR-CAP270",
+      "NEIGHBOR_INTERFACE": "GigabitEt"
+    },
+    {
+      "NEIGHBOR_NAME": "AP00-15-00050D",
+      "LOCAL_INTERFACE": "0/3",
+      "HOLDTIME": "127",
+      "CAPABILITIES": "R T",
+      "PLATFORM": "cisco AIR-AP3802",
+      "NEIGHBOR_INTERFACE": "GigabitEt"
+    },
+    {
+      "NEIGHBOR_NAME": "AP00-1-00115F",
+      "LOCAL_INTERFACE": "0/4",
+      "HOLDTIME": "170",
+      "CAPABILITIES": "R T",
+      "PLATFORM": "cisco AIR-AP3802",
+      "NEIGHBOR_INTERFACE": "GigabitEt"
+    },
+    {
+      "NEIGHBOR_NAME": "AP00-22-01665A",
+      "LOCAL_INTERFACE": "0/5",
+      "HOLDTIME": "143",
+      "CAPABILITIES": "R T",
+      "PLATFORM": "cisco AIR-AP3802",
+      "NEIGHBOR_INTERFACE": "GigabitEt"
+    },
+    {
+      "NEIGHBOR_NAME": "dev1-df-loc-sw000001",
+      "LOCAL_INTERFACE": "0/35",
+      "HOLDTIME": "161",
+      "CAPABILITIES": "R",
+      "PLATFORM": "BCM-56340",
+      "NEIGHBOR_INTERFACE": "0/1"
+    },
+    {
+      "NEIGHBOR_NAME": "dev2-dd-loc-sw000001",
+      "LOCAL_INTERFACE": "0/37",
+      "HOLDTIME": "178",
+      "CAPABILITIES": "R",
+      "PLATFORM": "BCM-56340",
+      "NEIGHBOR_INTERFACE": "0/1"
+    },
+    {
+      "NEIGHBOR_NAME": "dev3-ds-loc-sw000001",
+      "LOCAL_INTERFACE": "0/39",
+      "HOLDTIME": "157",
+      "CAPABILITIES": "R",
+      "PLATFORM": "BCM-56340",
+      "NEIGHBOR_INTERFACE": "0/1"
+    },
+    {
+      "NEIGHBOR_NAME": "dev4-da-loc-sw000001",
+      "LOCAL_INTERFACE": "0/43",
+      "HOLDTIME": "179",
+      "CAPABILITIES": "R",
+      "PLATFORM": "BCM-56340",
+      "NEIGHBOR_INTERFACE": "0/1"
+    },
+    {
+      "NEIGHBOR_NAME": "dev5-ab-loc-sw0001",
+      "LOCAL_INTERFACE": "0/49",
+      "HOLDTIME": "154",
+      "CAPABILITIES": "R",
+      "PLATFORM": "AS5610-52X",
+      "NEIGHBOR_INTERFACE": "0/1"
+    },
+    {
+      "NEIGHBOR_NAME": "dev6-aa-loc-sw0002",
+      "LOCAL_INTERFACE": "0/50",
+      "HOLDTIME": "158",
+      "CAPABILITIES": "R",
+      "PLATFORM": "AS5610-52X",
+      "NEIGHBOR_INTERFACE": "0/1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neighbor_name_local_interface_holdtime_capabilities_platform_neighbor_interface": [
+        {
+          "NEIGHBOR_NAME": "Capability",
+          "LOCAL_INTERFACE": "Codes:",
+          "HOLDTIME": "R",
+          "CAPABILITIES": "-",
+          "PLATFORM": "Router,",
+          "NEIGHBOR_INTERFACE": "T - Trans Bridge, B - Source Route Bridge,"
+        },
+        {
+          "NEIGHBOR_NAME": "Device",
+          "LOCAL_INTERFACE": "ID",
+          "HOLDTIME": "Intf",
+          "CAPABILITIES": "Holdtime",
+          "PLATFORM": "Capability Platform",
+          "NEIGHBOR_INTERFACE": "Port ID"
+        },
+        {
+          "NEIGHBOR_NAME": "------------------------",
+          "LOCAL_INTERFACE": "---------",
+          "HOLDTIME": "---------",
+          "CAPABILITIES": "----------",
+          "PLATFORM": "----------------",
+          "NEIGHBOR_INTERFACE": "---------"
+        },
+        {
+          "NEIGHBOR_NAME": "AP00-1-00001",
+          "LOCAL_INTERFACE": "0/1",
+          "HOLDTIME": "173",
+          "CAPABILITIES": "T",
+          "PLATFORM": "B I",
+          "NEIGHBOR_INTERFACE": "cisco AIR-CAP270 GigabitEt"
+        },
+        {
+          "NEIGHBOR_NAME": "AP00-2-00002",
+          "LOCAL_INTERFACE": "0/2",
+          "HOLDTIME": "139",
+          "CAPABILITIES": "T",
+          "PLATFORM": "B I",
+          "NEIGHBOR_INTERFACE": "cisco AIR-CAP270 GigabitEt"
+        },
+        {
+          "NEIGHBOR_NAME": "AP00-15-00050D",
+          "LOCAL_INTERFACE": "0/3",
+          "HOLDTIME": "127",
+          "CAPABILITIES": "R",
+          "PLATFORM": "T",
+          "NEIGHBOR_INTERFACE": "cisco AIR-AP3802 GigabitEt"
+        },
+        {
+          "NEIGHBOR_NAME": "AP00-1-00115F",
+          "LOCAL_INTERFACE": "0/4",
+          "HOLDTIME": "170",
+          "CAPABILITIES": "R",
+          "PLATFORM": "T",
+          "NEIGHBOR_INTERFACE": "cisco AIR-AP3802 GigabitEt"
+        },
+        {
+          "NEIGHBOR_NAME": "AP00-22-01665A",
+          "LOCAL_INTERFACE": "0/5",
+          "HOLDTIME": "143",
+          "CAPABILITIES": "R",
+          "PLATFORM": "T",
+          "NEIGHBOR_INTERFACE": "cisco AIR-AP3802 GigabitEt"
+        },
+        {
+          "NEIGHBOR_NAME": "dev1-df-loc-sw000001",
+          "LOCAL_INTERFACE": "0/35",
+          "HOLDTIME": "161",
+          "CAPABILITIES": "R",
+          "PLATFORM": "BCM-56340",
+          "NEIGHBOR_INTERFACE": "0/1"
+        },
+        {
+          "NEIGHBOR_NAME": "dev2-dd-loc-sw000001",
+          "LOCAL_INTERFACE": "0/37",
+          "HOLDTIME": "178",
+          "CAPABILITIES": "R",
+          "PLATFORM": "BCM-56340",
+          "NEIGHBOR_INTERFACE": "0/1"
+        },
+        {
+          "NEIGHBOR_NAME": "dev3-ds-loc-sw000001",
+          "LOCAL_INTERFACE": "0/39",
+          "HOLDTIME": "157",
+          "CAPABILITIES": "R",
+          "PLATFORM": "BCM-56340",
+          "NEIGHBOR_INTERFACE": "0/1"
+        },
+        {
+          "NEIGHBOR_NAME": "dev4-da-loc-sw000001",
+          "LOCAL_INTERFACE": "0/43",
+          "HOLDTIME": "179",
+          "CAPABILITIES": "R",
+          "PLATFORM": "BCM-56340",
+          "NEIGHBOR_INTERFACE": "0/1"
+        },
+        {
+          "NEIGHBOR_NAME": "dev5-ab-loc-sw0001",
+          "LOCAL_INTERFACE": "0/49",
+          "HOLDTIME": "154",
+          "CAPABILITIES": "R",
+          "PLATFORM": "AS5610-52X",
+          "NEIGHBOR_INTERFACE": "0/1"
+        },
+        {
+          "NEIGHBOR_NAME": "dev6-aa-loc-sw0002",
+          "LOCAL_INTERFACE": "0/50",
+          "HOLDTIME": "158",
+          "CAPABILITIES": "R",
+          "PLATFORM": "AS5610-52X",
+          "NEIGHBOR_INTERFACE": "0/1"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nCapability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge,\n                  S - Switch, H - Host, I - IGMP, r - Repeater\n\nDevice ID                Intf      Holdtime  Capability Platform         Port ID\n------------------------ --------- --------- ---------- ---------------- ---------\nAP00-1-00001             0/1       173       T B I      cisco AIR-CAP270 GigabitEt\nAP00-2-00002             0/2       139       T B I      cisco AIR-CAP270 GigabitEt\nAP00-15-00050D           0/3       127       R T        cisco AIR-AP3802 GigabitEt\nAP00-1-00115F            0/4       170       R T        cisco AIR-AP3802 GigabitEt\nAP00-22-01665A           0/5       143       R T        cisco AIR-AP3802 GigabitEt\ndev1-df-loc-sw000001     0/35      161       R          BCM-56340        0/1\ndev2-dd-loc-sw000001     0/37      178       R          BCM-56340        0/1\ndev3-ds-loc-sw000001     0/39      157       R          BCM-56340        0/1\ndev4-da-loc-sw000001     0/43      179       R          BCM-56340        0/1\ndev5-ab-loc-sw0001       0/49      154       R          AS5610-52X       0/1\ndev6-aa-loc-sw0002       0/50      158       R          AS5610-52X       0/1\n",
+  "textfsm_template": "Value NEIGHBOR_NAME (\\S+)\nValue LOCAL_INTERFACE (\\S+)\nValue HOLDTIME (\\S+)\nValue CAPABILITIES ([\\w]{1}(?:\\s[\\w]){0,2})\nValue PLATFORM ((\\S+\\s\\S+)|(\\S+))\nValue NEIGHBOR_INTERFACE (.+)\n\nStart\n  # Captures show isdp neighbors for:\n  # Accton AS4610-54P, Accton AS5610-52X, Quanta LY2R, Quanta LB9, DNI AG3448P-R   \n  # Raw data is the same in the case of all those devices\n  ^Capability\\sCodes:\n  ^\\s+\\S+\\s+-\n  ^\\s*Device\\s+ID\\s+Intf\\s+Holdtime\\s+Capability\\s+Platform\\s+Port\\s+ID$$\n  ^-+\n  ^\\s*${NEIGHBOR_NAME}\\s+${LOCAL_INTERFACE}\\s+${HOLDTIME}\\s+${CAPABILITIES}\\s+${PLATFORM}\\s+${NEIGHBOR_INTERFACE} -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

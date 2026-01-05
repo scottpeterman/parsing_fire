@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_interface_ethernet_poe_print_without-paging
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="index_interface_poe_out_poe_priority_power_cycle_ping_enabled_power_cycle_interval">
+ {{INDEX}} {{INTERFACE}} {{POE_OUT}} {{POE_PRIORITY}} {{POWER_CYCLE_PING_ENABLED}} {{POWER_CYCLE_INTERVAL | ORPHRASE}}
+</group>

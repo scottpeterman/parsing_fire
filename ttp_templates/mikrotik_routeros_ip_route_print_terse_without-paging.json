@@ -1,0 +1,107 @@
+{
+  "command": "mikrotik_routeros_ip_route_print_terse_without-paging",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.6,
+  "textfsm_rows": 5,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"index_flags_destination_address_destination_address_subnet_gateway_gateway_status_distance_scope_target_scope_vrf_interface\">\n {{INDEX}} {{FLAGS | ORPHRASE}} dst-address={{DESTINATION_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{DESTINATION_ADDRESS_SUBNET}} gateway={{GATEWAY}} gateway-status={{GATEWAY_STATUS | ORPHRASE}} distance={{DISTANCE}} scope={{SCOPE}} target-scope={{TARGET_SCOPE | ORPHRASE}} vrf-interface={{VRF_INTERFACE}}\n</group>\n<group name=\"index_flags_destination_address_destination_address_subnet_pref_src_gateway_gateway_status_distance_scope\">\n {{INDEX}} {{FLAGS | ORPHRASE}} dst-address={{DESTINATION_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{DESTINATION_ADDRESS_SUBNET}} pref-src={{PREF_SRC}} gateway={{GATEWAY}} gateway-status={{GATEWAY_STATUS | ORPHRASE}} distance={{DISTANCE}} scope={{SCOPE}}\n</group>\n<group name=\"index_flags_comment_destination_address_destination_address_subnet_gateway_gateway_status_distance_scope_target_scope_routing_mark\">\n {{INDEX}} {{FLAGS | ORPHRASE}} comment={{COMMENT | ORPHRASE}} dst-address={{DESTINATION_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{DESTINATION_ADDRESS_SUBNET}} gateway={{GATEWAY}} gateway-status={{GATEWAY_STATUS | ORPHRASE}} distance={{DISTANCE}} scope={{SCOPE}} target-scope={{TARGET_SCOPE}} routing-mark={{ROUTING_MARK | ORPHRASE}}\n</group>\n<group name=\"index_flags_destination_address_destination_address_subnet_gateway_gateway_status_distance_scope_target_scope_routing_mark\">\n {{INDEX}} {{FLAGS | ORPHRASE}} dst-address={{DESTINATION_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{DESTINATION_ADDRESS_SUBNET}} gateway={{GATEWAY}} gateway-status={{GATEWAY_STATUS | ORPHRASE}} distance={{DISTANCE}} scope={{SCOPE}} target-scope={{TARGET_SCOPE}} routing-mark={{ROUTING_MARK | ORPHRASE}}\n</group>\n<group name=\"index_flags_destination_address_destination_address_subnet_type_distance_routing_mark\">\n {{INDEX}} {{FLAGS | ORPHRASE}} dst-address={{DESTINATION_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{DESTINATION_ADDRESS_SUBNET}} type={{TYPE}} distance={{DISTANCE}} routing-mark={{ROUTING_MARK | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INDEX": "0",
+      "FLAGS": "A S",
+      "DESTINATION_ADDRESS": "0.0.0.0",
+      "DESTINATION_ADDRESS_SUBNET": "0",
+      "GATEWAY": "192.168.8.1",
+      "GATEWAY_STATUS": "192.168.8.1 reachable via  lte1",
+      "DISTANCE": "2",
+      "SCOPE": "30",
+      "TARGET_SCOPE": "10",
+      "VRF_INTERFACE": "lte1"
+    },
+    {
+      "INDEX": "1",
+      "FLAGS": "ADC",
+      "DESTINATION_ADDRESS": "10.160.1.228",
+      "DESTINATION_ADDRESS_SUBNET": "30",
+      "PREF_SRC": "10.160.1.230",
+      "GATEWAY": "ether1",
+      "GATEWAY_STATUS": "ether1 reachable",
+      "DISTANCE": "0",
+      "SCOPE": "10"
+    },
+    {
+      "INDEX": "2",
+      "FLAGS": "A S",
+      "COMMENT": "to Internet",
+      "DESTINATION_ADDRESS": "134.0.0.0",
+      "DESTINATION_ADDRESS_SUBNET": "8",
+      "GATEWAY": "10.160.1.230",
+      "GATEWAY_STATUS": "10.160.1.230 reachable via  ether2",
+      "DISTANCE": "1",
+      "SCOPE": "30",
+      "TARGET_SCOPE": "10",
+      "ROUTING_MARK": "reserve"
+    },
+    {
+      "INDEX": "3",
+      "FLAGS": "A S",
+      "DESTINATION_ADDRESS": "172.0.0.0",
+      "DESTINATION_ADDRESS_SUBNET": "8",
+      "GATEWAY": "1.2.3.4",
+      "GATEWAY_STATUS": "1.2.3.4 recursive via 10.152.1.230 ether5",
+      "DISTANCE": "1",
+      "SCOPE": "30",
+      "TARGET_SCOPE": "10",
+      "ROUTING_MARK": "Free_Wi-Fi"
+    },
+    {
+      "INDEX": "4",
+      "FLAGS": "A SB",
+      "DESTINATION_ADDRESS": "10.0.0.0",
+      "DESTINATION_ADDRESS_SUBNET": "8",
+      "TYPE": "blackhole",
+      "DISTANCE": "100",
+      "ROUTING_MARK": "Free_Wi-Fi"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "index_flags_destination_address_destination_address_subnet_pref_src_gateway_gateway_status_distance_scope": {
+        "INDEX": "1",
+        "FLAGS": "ADC",
+        "DESTINATION_ADDRESS": "10.160.1.228",
+        "DESTINATION_ADDRESS_SUBNET": "30",
+        "PREF_SRC": "10.160.1.230",
+        "GATEWAY": "ether1",
+        "GATEWAY_STATUS": "ether1 reachable",
+        "DISTANCE": "0",
+        "SCOPE": "10"
+      },
+      "index_flags_destination_address_destination_address_subnet_gateway_gateway_status_distance_scope_target_scope_routing_mark": {
+        "INDEX": "3",
+        "FLAGS": "A S",
+        "DESTINATION_ADDRESS": "172.0.0.0",
+        "DESTINATION_ADDRESS_SUBNET": "8",
+        "GATEWAY": "1.2.3.4",
+        "GATEWAY_STATUS": "1.2.3.4 recursive via 10.152.1.230 ether5",
+        "DISTANCE": "1",
+        "SCOPE": "30",
+        "TARGET_SCOPE": "10",
+        "ROUTING_MARK": "Free_Wi-Fi"
+      },
+      "index_flags_destination_address_destination_address_subnet_type_distance_routing_mark": {
+        "INDEX": "4",
+        "FLAGS": "A SB",
+        "DESTINATION_ADDRESS": "10.0.0.0",
+        "DESTINATION_ADDRESS_SUBNET": "8",
+        "TYPE": "blackhole",
+        "DISTANCE": "100",
+        "ROUTING_MARK": "Free_Wi-Fi"
+      }
+    }
+  ],
+  "cli_content": " 0 A S  dst-address=0.0.0.0/0 gateway=192.168.8.1 gateway-status=192.168.8.1 reachable via  lte1 distance=2 scope=30 target-scope=10 vrf-interface=lte1\n 1 ADC  dst-address=10.160.1.228/30 pref-src=10.160.1.230 gateway=ether1 gateway-status=ether1 reachable distance=0 scope=10\n 2 A S  comment=to Internet dst-address=134.0.0.0/8 gateway=10.160.1.230 gateway-status=10.160.1.230 reachable via  ether2 distance=1 scope=30 target-scope=10 routing-mark=reserve\n 3 A S  dst-address=172.0.0.0/8 gateway=1.2.3.4 gateway-status=1.2.3.4 recursive via 10.152.1.230 ether5 distance=1 scope=30 target-scope=10 routing-mark=Free_Wi-Fi\n 4 A SB dst-address=10.0.0.0/8 type=blackhole distance=100 routing-mark=Free_Wi-Fi\n",
+  "textfsm_template": "Value INDEX (\\d+)\nValue FLAGS ([XADCSrbomBUP ]{4})\nValue COMMENT (.*?(?=(?:[^=]\\S+=)|\\s*$))\nValue DESTINATION_ADDRESS (\\S+)\nValue DESTINATION_ADDRESS_SUBNET (\\d+)\nValue TYPE (.+?(?=(?:[^=]\\S+=)|\\s*$))\nValue ROUTING_TABLE (.+?(?=(?:[^=]\\S+=)|\\s*$))\nValue PREF_SRC (\\S+?)\nValue GATEWAY (.+?(?=(?:[^=]\\S+=)|\\s*$))\nValue GATEWAY_STATUS (.+?(?=(?:[^=]\\S+=)|\\s*$))\nValue IMMEDIATE_GW (.+?(?=(?:[^=]\\S+=)|\\s*$))\nValue CHECK_GATEWAY (.+?(?=(?:[^=]\\S+=)|\\s*$))\nValue DISTANCE (\\d+)\nValue SCOPE (\\d+)\nValue TARGET_SCOPE (\\d+)\nValue VRF_INTERFACE (.+?(?=(?:[^=]\\S+=)|\\s*$))\nValue SUPPRESS_HW_OFFLOAD (yes|no)\nValue LOCAL_ADDRESS (.+?(?=(?:[^=]\\S+=)|\\s*$))\nValue ROUTING_MARK (.*?(?=(?:[^=]\\S+=)|\\s*$))\n\nStart\n  ^\\s*${INDEX}\\s+${FLAGS}(?:\\s+comment=${COMMENT})?\\s+dst-address=${DESTINATION_ADDRESS}/${DESTINATION_ADDRESS_SUBNET}(?:\\s+type=${TYPE})?(?:\\s+routing-table=${ROUTING_TABLE})?(?:\\s+pref-src=${PREF_SRC})?(?:\\s+gateway=${GATEWAY})?(?:\\s+gateway-status=${GATEWAY_STATUS})?(?:\\s+immediate-gw=${IMMEDIATE_GW})?(?:\\s+check-gateway=${CHECK_GATEWAY})?(?:\\s+distance=${DISTANCE})?(?:\\s+scope=${SCOPE})?(?:\\s+target-scope=${TARGET_SCOPE})?(?:\\s+vrf-interface=${VRF_INTERFACE})?(?:\\s+suppress-hw-offload=${SUPPRESS_HW_OFFLOAD})?(?:\\s+local-address=${LOCAL_ADDRESS})?(?:\\s+routing-mark=${ROUTING_MARK})?\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

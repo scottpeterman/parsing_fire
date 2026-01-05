@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: dns lookup example.com
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="ipv4_addr_ipv6_addr_name_server">
+Server:  {{SERVER | ORPHRASE}}
+Address: {{SERVER_ADDRESS | ORPHRASE}}
+Name:  {{NAME | ORPHRASE}}
+Address: {{IPV4_ADDR | ORPHRASE}}
+Address: {{IPV6_ADDR | ORPHRASE}}
+</group>

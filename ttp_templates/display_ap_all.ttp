@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: display ap all
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="ap_id_name_ip_address_status">
+{{AP_ID | re("\\d+")}} {{NAME}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATUS | ORPHRASE}} 
+</group>

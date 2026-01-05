@@ -1,0 +1,14 @@
+# TTP Template - FAILED VALIDATION
+# Original command: cisco_ios_show_license
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="feature_license_count_license_priority_license_state">
+  License Count: {{LICENSE_COUNT | ORPHRASE}}
+  Period left: {{PERIOD_LEFT | ORPHRASE}}
+  Period Used: {{PERIOD_USED | ORPHRASE}}
+  License Type: {{LICENSE_TYPE | ORPHRASE}}
+  License State: {{LICENSE_STATE | ORPHRASE}}
+  License Priority: {{LICENSE_PRIORITY | ORPHRASE}}
+Index 10 Feature: {{FEATURE | ORPHRASE}}  
+</group>

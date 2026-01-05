@@ -1,0 +1,19 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_interfaces_status
+# Source: ntc
+# TextFSM rows: 17
+# TTP rows: 26
+# Match ratio: 1.53
+
+<group name="port_status_fc_mode">
+{{PORT}} is {{STATUS | ORPHRASE}} Port mode is {{FC_MODE | ORPHRASE}}
+</group>
+<group name="port_status_type">
+{{PORT}} is {{STATUS | ORPHRASE}} ({{TYPE | ORPHRASE}})
+</group>
+<group name="port_name_status_vlan_id_duplex_speed_type">
+{{PORT}} {{NAME | ORPHRASE}} {{STATUS | ORPHRASE}} {{VLAN_ID | re("\\d+")}} {{DUPLEX}} {{SPEED}} {{TYPE | ORPHRASE}}
+</group>
+<group name="port_name_status_vlan_id_duplex_speed">
+{{PORT}} {{NAME | ORPHRASE}} {{STATUS | ORPHRASE}} {{VLAN_ID}} {{DUPLEX | ORPHRASE}} {{SPEED}} 
+</group>

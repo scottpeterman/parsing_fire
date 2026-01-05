@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show interfaces transceiver detail
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="interface_name_media_type_connector_type_rx_power_tx_power_current">
+{{INTERFACE}} {{NAME}} {{MEDIA_TYPE}} {{CONNECTOR_TYPE}} {{RX_POWER | ORPHRASE}} {{TX_POWER | ORPHRASE}} {{CURRENT | ORPHRASE}}
+</group>

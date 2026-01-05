@@ -1,0 +1,68 @@
+{
+  "command": "show disk details",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"filesystem_size_used_avail_use_percent_mounted_on\">\n{{FILESYSTEM}} {{SIZE}} {{USED}} {{AVAIL}} {{USE_PERCENT | ORPHRASE}} {{MOUNTED_ON | re(\".*\\\\w.*\")}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FILESYSTEM": "/dev/sda1",
+      "SIZE": "100G",
+      "USED": "40G",
+      "AVAIL": "60G",
+      "USE_PERCENT": "40%",
+      "MOUNTED_ON": "/"
+    },
+    {
+      "FILESYSTEM": "/dev/sda2",
+      "SIZE": "200G",
+      "USED": "150G",
+      "AVAIL": "50G",
+      "USE_PERCENT": "75%",
+      "MOUNTED_ON": "/var"
+    },
+    {
+      "FILESYSTEM": "/dev/sdb1",
+      "SIZE": "500G",
+      "USED": "100G",
+      "AVAIL": "400G",
+      "USE_PERCENT": "20%",
+      "MOUNTED_ON": "/data"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "filesystem_size_used_avail_use_percent_mounted_on": [
+        {
+          "FILESYSTEM": "Filesystem",
+          "SIZE": "Size",
+          "USED": "Used",
+          "AVAIL": "Avail",
+          "USE_PERCENT": "Use%",
+          "MOUNTED_ON": "Mounted on"
+        },
+        {
+          "FILESYSTEM": "/dev/sda2",
+          "SIZE": "200G",
+          "USED": "150G",
+          "AVAIL": "50G",
+          "USE_PERCENT": "75%",
+          "MOUNTED_ON": "/var"
+        },
+        {
+          "FILESYSTEM": "/dev/sdb1",
+          "SIZE": "500G",
+          "USED": "100G",
+          "AVAIL": "400G",
+          "USE_PERCENT": "20%",
+          "MOUNTED_ON": "/data"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Filesystem     Size  Used Avail Use% Mounted on\n/dev/sda1      100G   40G   60G  40% /\n/dev/sda2      200G  150G   50G  75% /var\n/dev/sdb1      500G  100G  400G  20% /data\n",
+  "textfsm_template": "Value FILESYSTEM (\\S+)\nValue SIZE (\\S+)\nValue USED (\\S+)\nValue AVAIL (\\S+)\nValue USE_PERCENT (\\S+)\nValue MOUNTED_ON (\\S+)\n\nStart\n  ^\\s*Filesystem\\s+Size\\s+Used\\s+Avail\\s+Use%\\s+Mounted on\\s*$$\n  ^\\s*${FILESYSTEM}\\s+${SIZE}\\s+${USED}\\s+${AVAIL}\\s+${USE_PERCENT}\\s+${MOUNTED_ON}\\s*$$ -> Record"
+}

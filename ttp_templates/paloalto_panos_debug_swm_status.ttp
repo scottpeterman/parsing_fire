@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: paloalto_panos_debug_swm_status
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 4
+# Match ratio: 1.33
+
+<group name="part_state_version">
+{{PART}} {{STATE | ORPHRASE}} {{VERSION | ORPHRASE}}
+</group>

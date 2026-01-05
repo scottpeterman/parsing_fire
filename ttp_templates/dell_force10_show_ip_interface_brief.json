@@ -1,0 +1,892 @@
+{
+  "command": "dell_force10_show_ip_interface_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0185185185185186,
+  "textfsm_rows": 54,
+  "ttp_rows": 55,
+  "ttp_template": "<group name=\"interface_ip_address_ok_method_status_proto\">\n{{INTERFACE | ORPHRASE}} {{IP_ADDRESS}} {{OK}} {{METHOD}} {{STATUS | ORPHRASE}} {{PROTO | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "TenGigabitEthernet 0/1",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/2",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/3",
+      "IP_ADDRESS": "unassigned",
+      "OK": "YES",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/4",
+      "IP_ADDRESS": "unassigned",
+      "OK": "YES",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/5",
+      "IP_ADDRESS": "unassigned",
+      "OK": "YES",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/6",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/7",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/8",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/9",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/10",
+      "IP_ADDRESS": "unassigned",
+      "OK": "YES",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/11",
+      "IP_ADDRESS": "unassigned",
+      "OK": "YES",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/12",
+      "IP_ADDRESS": "unassigned",
+      "OK": "YES",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/13",
+      "IP_ADDRESS": "unassigned",
+      "OK": "YES",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/14",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/15",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/16",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/17",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/18",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/19",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/20",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/21",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/22",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/23",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/24",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/25",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/26",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/27",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/28",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/29",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/30",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/31",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/32",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/33",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/34",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/35",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/36",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/37",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/38",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/39",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/40",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/41",
+      "IP_ADDRESS": "unassigned",
+      "OK": "YES",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/42",
+      "IP_ADDRESS": "unassigned",
+      "OK": "YES",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/43",
+      "IP_ADDRESS": "unassigned",
+      "OK": "YES",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/44",
+      "IP_ADDRESS": "unassigned",
+      "OK": "YES",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/49",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/50",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/51",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/52",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/53",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/54",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/55",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "TenGigabitEthernet 0/56",
+      "IP_ADDRESS": "unassigned",
+      "OK": "NO",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "ManagementEthernet 0/0",
+      "IP_ADDRESS": "10.151.5.208",
+      "OK": "YES",
+      "METHOD": "Manual",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "Port-channel 128",
+      "IP_ADDRESS": "unassigned",
+      "OK": "YES",
+      "METHOD": "None",
+      "STATUS": "up",
+      "PROTO": "up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_ok_method_status_proto": [
+        {
+          "INTERFACE": "Interface",
+          "IP_ADDRESS": "IP-Address",
+          "OK": "OK",
+          "METHOD": "Method",
+          "STATUS": "Status",
+          "PROTO": "Protocol"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/1",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/2",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/3",
+          "IP_ADDRESS": "unassigned",
+          "OK": "YES",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/4",
+          "IP_ADDRESS": "unassigned",
+          "OK": "YES",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/5",
+          "IP_ADDRESS": "unassigned",
+          "OK": "YES",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/6",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/7",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/8",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/9",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/10",
+          "IP_ADDRESS": "unassigned",
+          "OK": "YES",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/11",
+          "IP_ADDRESS": "unassigned",
+          "OK": "YES",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/12",
+          "IP_ADDRESS": "unassigned",
+          "OK": "YES",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/13",
+          "IP_ADDRESS": "unassigned",
+          "OK": "YES",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/14",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/15",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/16",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/17",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/18",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/19",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/20",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/21",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/22",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/23",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/24",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/25",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/26",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/27",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/28",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/29",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/30",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/31",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/32",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/33",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/34",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/35",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/36",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/37",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/38",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/39",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/40",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/41",
+          "IP_ADDRESS": "unassigned",
+          "OK": "YES",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/42",
+          "IP_ADDRESS": "unassigned",
+          "OK": "YES",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/43",
+          "IP_ADDRESS": "unassigned",
+          "OK": "YES",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/44",
+          "IP_ADDRESS": "unassigned",
+          "OK": "YES",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/49",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/50",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/51",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/52",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/53",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/54",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/55",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "TenGigabitEthernet 0/56",
+          "IP_ADDRESS": "unassigned",
+          "OK": "NO",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "down"
+        },
+        {
+          "INTERFACE": "ManagementEthernet",
+          "IP_ADDRESS": "0/0",
+          "OK": "10.151.5.208",
+          "METHOD": "YES",
+          "STATUS": "Manual up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "Port-channel 128",
+          "IP_ADDRESS": "unassigned",
+          "OK": "YES",
+          "METHOD": "None",
+          "STATUS": "up",
+          "PROTO": "up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface                     IP-Address      OK  Method Status                Protocol\nTenGigabitEthernet 0/1        unassigned      NO  None   up                    down\nTenGigabitEthernet 0/2        unassigned      NO  None   up                    down\nTenGigabitEthernet 0/3        unassigned      YES None   up                    up\nTenGigabitEthernet 0/4        unassigned      YES None   up                    up\nTenGigabitEthernet 0/5        unassigned      YES None   up                    up\nTenGigabitEthernet 0/6        unassigned      NO  None   up                    down\nTenGigabitEthernet 0/7        unassigned      NO  None   up                    down\nTenGigabitEthernet 0/8        unassigned      NO  None   up                    down\nTenGigabitEthernet 0/9        unassigned      NO  None   up                    down\nTenGigabitEthernet 0/10       unassigned      YES None   up                    up\nTenGigabitEthernet 0/11       unassigned      YES None   up                    up\nTenGigabitEthernet 0/12       unassigned      YES None   up                    up\nTenGigabitEthernet 0/13       unassigned      YES None   up                    up\nTenGigabitEthernet 0/14       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/15       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/16       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/17       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/18       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/19       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/20       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/21       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/22       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/23       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/24       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/25       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/26       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/27       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/28       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/29       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/30       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/31       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/32       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/33       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/34       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/35       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/36       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/37       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/38       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/39       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/40       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/41       unassigned      YES None   up                    up\nTenGigabitEthernet 0/42       unassigned      YES None   up                    up\nTenGigabitEthernet 0/43       unassigned      YES None   up                    up\nTenGigabitEthernet 0/44       unassigned      YES None   up                    up\nTenGigabitEthernet 0/49       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/50       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/51       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/52       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/53       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/54       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/55       unassigned      NO  None   up                    down\nTenGigabitEthernet 0/56       unassigned      NO  None   up                    down\nManagementEthernet 0/0        10.151.5.208    YES Manual up                    up\nPort-channel 128              unassigned      YES None   up                    up",
+  "textfsm_template": "Value INTERFACE (\\S+ \\S+)\nValue IP_ADDRESS (\\S+)\nValue OK (YES|NO)\nValue METHOD (None|Manual)\nValue STATUS (up|down)\nValue PROTO (up|down)\n\nStart\n  ^${INTERFACE}\\s+${IP_ADDRESS}\\s+${OK}\\s+${METHOD}\\s+${STATUS}\\s+${PROTO} -> Record\n"
+}

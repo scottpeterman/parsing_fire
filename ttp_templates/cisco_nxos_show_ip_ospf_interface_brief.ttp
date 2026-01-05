@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_ip_ospf_interface_brief
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 7
+# Match ratio: 1.17
+
+<group name="interface_count_process_vrf">
+ OSPF Process ID {{PROCESS}} VRF {{VRF | ORPHRASE}}
+<group name="area_cost_interface">
+ {{INTERFACE}} 3 {{AREA}} {{COST}} {{STATE | ORPHRASE}} {{NEIGHBORS_FC}} {{STATUS | ORPHRASE}} 
+</group>
+</group>

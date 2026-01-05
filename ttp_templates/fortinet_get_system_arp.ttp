@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: fortinet_get_system_arp
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="ip_address_age_mac_address_interface">
+{{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{AGE}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{INTERFACE | ORPHRASE}}
+</group>

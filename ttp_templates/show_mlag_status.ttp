@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show mlag status
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="mlag_id_local_intf_remote_intf_vlan_id_status">
+{{MLAG_ID | re("\\d+")}} {{LOCAL_INTF}} {{REMOTE_INTF}} {{VLAN_ID | re("\\d+")}} {{STATUS | ORPHRASE}}
+</group>

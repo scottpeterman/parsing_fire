@@ -1,0 +1,68 @@
+{
+  "command": "cisco_nxos_show_environment_temperature",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 4,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"module_sensor_major_threshold_minor_threshold_current_value_status\">\n{{MODULE | re(\"\\\\d+\")}} {{SENSOR | ORPHRASE}} {{MAJOR_THRESHOLD}} {{MINOR_THRESHOLD}} {{CURRENT_VALUE}} {{STATUS | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CURRENT_VALUE": "52",
+      "MAJOR_THRESHOLD": "101",
+      "MINOR_THRESHOLD": "95",
+      "STATUS": "ok",
+      "MODULE": "1",
+      "SENSOR": "ASIC"
+    },
+    {
+      "CURRENT_VALUE": "38",
+      "MAJOR_THRESHOLD": "62",
+      "MINOR_THRESHOLD": "56",
+      "STATUS": "ok",
+      "MODULE": "1",
+      "SENSOR": "Front-Middle(D1)"
+    },
+    {
+      "CURRENT_VALUE": "33",
+      "MAJOR_THRESHOLD": "52",
+      "MINOR_THRESHOLD": "44",
+      "STATUS": "ok",
+      "MODULE": "1",
+      "SENSOR": "Front-Left  (D2)"
+    },
+    {
+      "CURRENT_VALUE": "28",
+      "MAJOR_THRESHOLD": "48",
+      "MINOR_THRESHOLD": "42",
+      "STATUS": "ok",
+      "MODULE": "1",
+      "SENSOR": "Back        (D3)"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "module_sensor_major_threshold_minor_threshold_current_value_status": [
+        {
+          "MODULE": "1",
+          "SENSOR": "ASIC",
+          "MAJOR_THRESHOLD": "101",
+          "MINOR_THRESHOLD": "95",
+          "CURRENT_VALUE": "52",
+          "STATUS": "ok"
+        },
+        {
+          "MODULE": "1",
+          "SENSOR": "Front-Middle(D1)",
+          "MAJOR_THRESHOLD": "62",
+          "MINOR_THRESHOLD": "56",
+          "CURRENT_VALUE": "38",
+          "STATUS": "ok"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\n\nTemperature\n-------------------------------------------------------------------------\nModule  Sensor             MajorThresh   MinorThres   CurTemp     Status\n                            (Celsius)     (Celsius)   (Celsius)         \n-------------------------------------------------------------------------\n1       ASIC                101           95           52          ok          \n1       Front-Middle(D1)    62            56           38          ok          \n1       Front-Left  (D2)    52            44           33          ok          \n1       Back        (D3)    48            42           28          ok\n",
+  "textfsm_template": "Value CURRENT_VALUE (\\d+)\nValue MAJOR_THRESHOLD (\\d+)\nValue MINOR_THRESHOLD (\\d+)\nValue STATUS (\\S+)\nValue MODULE (\\S+)\nValue SENSOR ((\\s|\\S)+?)\n\nStart\n  ^Temperature\n  ^-+\n  ^Module\\s+Sensor\\s+MajorThresh\\s+\n  ^(\\s+\\(Celsius\\))+\n  ^${MODULE}\\s+${SENSOR}\\s+${MAJOR_THRESHOLD}\\s+${MINOR_THRESHOLD}\\s+${CURRENT_VALUE}\\s+${STATUS} -> Record\n  ^\\s+$$\n  ^$$\n  ^.* -> Error \"LINE NOT FOUND\""
+}

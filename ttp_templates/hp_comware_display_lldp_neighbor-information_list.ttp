@@ -1,0 +1,11 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_comware_display_lldp_neighbor-information_list
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="chassis_id_local_interface_neighbor_interface_neighbor_name">
+XGE1/0/0/1  {{CHASSIS_ID}}  Ten-GigabitEthernet1/0/47  {{NEIGHBOR_NAME | ORPHRASE}}
+{{LOCAL_INTERFACE}}  bcea-fa00-0033  {{NEIGHBOR_INTERFACE | ORPHRASE}}  SWITCH01
+</group>

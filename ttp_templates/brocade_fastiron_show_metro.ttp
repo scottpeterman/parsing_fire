@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: brocade_fastiron_show_metro
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 10
+# Match ratio: 3.33
+
+<group name="ringid_ringstate_ringrole_mastervlan_topogroup_hellotime_prefwingtime">
+{{ringid | re("\\d+")}} {{ringstate | ORPHRASE}} {{ringrole}} {{mastervlan | re("\\d+")}} {{topogroup}} {{hellotime}} {{prefwingtime | ORPHRASE}}
+</group>
+<group name="rhpssent_rhpsrecvd_tcrbpdusrecvd_statechanges">
+{{rhpssent}} {{rhpsrecvd}} {{tcrbpdusrecvd}} {{statechanges | ORPHRASE}}
+</group>

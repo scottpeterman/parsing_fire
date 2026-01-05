@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_feature
+# Source: ntc
+# TextFSM rows: 62
+# TTP rows: 63
+# Match ratio: 1.02
+
+<group name="name_instance_state">
+{{NAME}} {{INSTANCE}} {{STATE | ORPHRASE}}
+</group>

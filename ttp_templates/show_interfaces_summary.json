@@ -1,0 +1,100 @@
+{
+  "command": "show interfaces summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"interface_physical_operational_mac_speed_mtu_in_out\">\n{{INTERFACE}} {{PHYSICAL}} {{OPERATIONAL}} {{MAC | re(\"[0-9a-fA-F:.-]+\")}} {{SPEED}} {{MTU}} {{IN | ORPHRASE}} {{OUT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "ge-0/0/0",
+      "PHYSICAL": "Up",
+      "OPERATIONAL": "Up",
+      "MAC": "00:0c:29:68:22:cb",
+      "SPEED": "1G",
+      "MTU": "1500",
+      "IN": "1.2 GB",
+      "OUT": "3.4 GB"
+    },
+    {
+      "INTERFACE": "ge-0/0/1",
+      "PHYSICAL": "Down",
+      "OPERATIONAL": "Down",
+      "MAC": "00:0c:29:68:22:cc",
+      "SPEED": "N/A",
+      "MTU": "1500",
+      "IN": "0 B",
+      "OUT": "0 B"
+    },
+    {
+      "INTERFACE": "ge-0/0/2",
+      "PHYSICAL": "Up",
+      "OPERATIONAL": "Down",
+      "MAC": "00:0c:29:68:22:cd",
+      "SPEED": "1G",
+      "MTU": "1500",
+      "IN": "2.3 GB",
+      "OUT": "1.1 GB"
+    },
+    {
+      "INTERFACE": "ge-0/0/3",
+      "PHYSICAL": "Up",
+      "OPERATIONAL": "Up",
+      "MAC": "00:0c:29:68:22:ce",
+      "SPEED": "1G",
+      "MTU": "1500",
+      "IN": "5.4 GB",
+      "OUT": "8.7 GB"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_physical_operational_mac_speed_mtu_in_out": [
+        {
+          "INTERFACE": "ge-0/0/0",
+          "PHYSICAL": "Up",
+          "OPERATIONAL": "Up",
+          "MAC": "00:0c:29:68:22:cb",
+          "SPEED": "1G",
+          "MTU": "1500",
+          "IN": "1.2 GB",
+          "OUT": "3.4 GB"
+        },
+        {
+          "INTERFACE": "ge-0/0/1",
+          "PHYSICAL": "Down",
+          "OPERATIONAL": "Down",
+          "MAC": "00:0c:29:68:22:cc",
+          "SPEED": "N/A",
+          "MTU": "1500",
+          "IN": "0 B",
+          "OUT": "0 B"
+        },
+        {
+          "INTERFACE": "ge-0/0/2",
+          "PHYSICAL": "Up",
+          "OPERATIONAL": "Down",
+          "MAC": "00:0c:29:68:22:cd",
+          "SPEED": "1G",
+          "MTU": "1500",
+          "IN": "2.3 GB",
+          "OUT": "1.1 GB"
+        },
+        {
+          "INTERFACE": "ge-0/0/3",
+          "PHYSICAL": "Up",
+          "OPERATIONAL": "Up",
+          "MAC": "00:0c:29:68:22:ce",
+          "SPEED": "1G",
+          "MTU": "1500",
+          "IN": "5.4 GB",
+          "OUT": "8.7 GB"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface   Physical  Operational  MAC Address        Speed       MTU   Traffic In  Traffic Out\nge-0/0/0    Up        Up           00:0c:29:68:22:cb  1G          1500  1.2 GB       3.4 GB\nge-0/0/1    Down      Down         00:0c:29:68:22:cc  N/A         1500  0 B          0 B\nge-0/0/2    Up        Down         00:0c:29:68:22:cd  1G          1500  2.3 GB       1.1 GB\nge-0/0/3    Up        Up           00:0c:29:68:22:ce  1G          1500  5.4 GB       8.7 GB\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue PHYSICAL (\\S+)\nValue OPERATIONAL (\\S+)\nValue MAC (\\S+)\nValue SPEED (\\S+)\nValue MTU (\\d+)\nValue IN (\\S+ \\S+)\nValue OUT (\\S+ \\S+)\n\nStart\n  ^\\s*Interface\\s+Physical\\s+Operational\\s+MAC Address\\s+Speed\\s+MTU\\s+Traffic In\\s+Traffic Out\\s*$$\n  ^\\s*${INTERFACE}\\s+${PHYSICAL}\\s+${OPERATIONAL}\\s+${MAC}\\s+${SPEED}\\s+${MTU}\\s+${IN}\\s+${OUT}\\s*$$ -> Record"
+}

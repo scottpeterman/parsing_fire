@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_running-config_tunnel-group
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 4
+# Match ratio: 1.33
+
+<group name="authentication_svr_authorization_intfc_authorization_grp_authentication_pri_grp_sec_authentication_use_pri_user">
+ {{AUTHENTICATION_SVR}}-authentication-server-group ({{AUTHORIZATION_INTFC}}) {{AUTHORIZATION_GRP}} {{AUTHENTICATION_PRI_GRP}} {{SEC_AUTHENTICATION_USE_PRI_USER | ORPHRASE}}
+</group>
+<group name="name_type">
+tunnel-group {{NAME}} type {{TYPE | ORPHRASE}}
+</group>

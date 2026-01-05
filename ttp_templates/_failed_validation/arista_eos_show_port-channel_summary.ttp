@@ -1,0 +1,14 @@
+# TTP Template - FAILED VALIDATION
+# Original command: arista_eos_show_port-channel_summary
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="member_interface_status_bundle_protocol_bundle_protocol_state_member_interface">
+   {{BUN{{BUN{{MEMBER_INTERFACE_STATUS | ORPHRASE}}LE_STATUS | ORPHRASE}}LE_NAME}}(D) {{BUNDLE_PROTOCOL}}({{BUNDLE_PROTOCOL_STATE | ORPHRASE}}) {{MEMBER_INTERFACE | ORPHRASE}}(D) 
+</group>
+<group name="bundle_status_bundle_protocol_bundle_protocol_state">
+   {{BUN{{BUNDLE_STATUS | ORPHRASE}}LE_NAME}}(D) {{BUNDLE_PROTOCOL}}({{BUNDLE_PROTOCOL_STATE | ORPHRASE}}) Et43(D) Et44(D) Et45(D) Et46(D) 
+</group>
+<group name="bundle_status_bundle_protocol_bundle_protocol_state_member_interface_member_interface_status">
+   {{B{{BUNDLE_STATUS | ORPHRASE}}NDLE_NAME}}(U) {{BUNDLE_PROTOCOL}}({{BUNDLE_PROTOCOL_STATE | ORPHRASE}}) {{MEMBER_INTERFACE | ORPHRASE}}({{MEMBER_INTERFACE_STATUS | ORPHRASE}}) 
+</group>

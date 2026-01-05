@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_ip_ospf_neighbor
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 4
+# Match ratio: 1.33
+
+<group name="ospf_pid_vrf">
+ OSPF Process ID {{OSPF_PID}} VRF {{VRF | ORPHRASE}}
+<group name="interface_ip_address_neighbor_id">
+ {{NEIGHBOR_ID}} 1 {{STATE | ORPHRASE}} {{UPTIME | ORPHRASE}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{INTERFACE | ORPHRASE}}
+</group>
+</group>

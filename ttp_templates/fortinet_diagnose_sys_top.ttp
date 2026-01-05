@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: fortinet_diagnose_sys_top
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 1
+# Match ratio: 0.25
+
+<group name="process_state_n_cpu_system_app_cpu_idle_cpu_wa_cpu_hi_cpu_si_cpu_st_cpu_total_memory_free_memory">
+{{USE{{PROCESS_STATE | ORPHRASE}}SPACE_APP_CPU}}U, {{N_CPU}}N, {{SYSTEM_APP_CPU}}S, {{IDLE_CPU | re("\\d+")}}I, {{WA_CPU}}WA, {{HI_CPU}}HI, {{SI_CPU}}SI, {{ST_CPU}}ST; {{TOTAL_MEMORY}}T, {{FREE_MEMORY}}F
+</group>
+<group name="process_state_process_id_process_cpu_usage_process_memory_usage">
+            {{PROCE{{PROCESS_STATE | ORPHRASE}}S_NAME}} {{PROCESS_ID | re("\\d+")}} S {{PROCESS_CPU_USAGE}} {{PROCESS_MEMORY_USAGE | ORPHRASE}}
+</group>
+<group name="process_name_process_id_process_state_process_cpu_usage_process_memory_usage">
+       {{PROCESS_NAME}} {{PROCESS_ID | re("\\d+")}} {{PROCESS_STATE | ORPHRASE}} {{PROCESS_CPU_USAGE}} {{PROCESS_MEMORY_USAGE | ORPHRASE}}
+</group>

@@ -1,0 +1,301 @@
+{
+  "command": "huawei_vrp_display_vlan",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.2,
+  "textfsm_rows": 40,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"vlan_id_vlan_type_mode_interface\">\n{{VLAN_ID | re(\"\\\\d+\")}} {{VLAN_TYPE}} {{MODE}}:{{INTERFACE | ORPHRASE}}(D) XGE0/0/2(D) XGE0/0/3(D) XGE0/0/4(D)\n</group>\n<group name=\"vlan_type_mode_interface\">\n20 {{VLAN_TYPE}} {{MODE}}:{{INTERFACE}}(D) 40GE0/0/2(D) 40GE0/0/3(D) 40GE0/0/4(D)\n</group>\n<group name=\"vlan_id_vlan_status_vlan_name\">\n{{VLAN_ID | re(\"\\\\d+\")}} {{VLAN_STATUS | ORPHRASE}} default enable disable {{VLAN_NAME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN_ID": "1",
+      "VLAN_TYPE": "common",
+      "MODE": "UT",
+      "INTERFACE": "XGE0/0/1"
+    },
+    {
+      "VLAN_ID": "1",
+      "VLAN_TYPE": "common",
+      "MODE": "UT",
+      "INTERFACE": "XGE0/0/2"
+    },
+    {
+      "VLAN_ID": "1",
+      "VLAN_TYPE": "common",
+      "MODE": "UT",
+      "INTERFACE": "XGE0/0/3"
+    },
+    {
+      "VLAN_ID": "1",
+      "VLAN_TYPE": "common",
+      "MODE": "UT",
+      "INTERFACE": "XGE0/0/4"
+    },
+    {
+      "VLAN_ID": "1",
+      "VLAN_TYPE": "common",
+      "MODE": "UT",
+      "INTERFACE": "XGE0/0/5"
+    },
+    {
+      "VLAN_ID": "1",
+      "VLAN_TYPE": "common",
+      "MODE": "UT",
+      "INTERFACE": "XGE0/0/6"
+    },
+    {
+      "VLAN_ID": "1",
+      "VLAN_TYPE": "common",
+      "MODE": "TG",
+      "INTERFACE": "40GE0/0/1"
+    },
+    {
+      "VLAN_ID": "1",
+      "VLAN_TYPE": "common",
+      "MODE": "TG",
+      "INTERFACE": "40GE0/0/2"
+    },
+    {
+      "VLAN_ID": "1",
+      "VLAN_TYPE": "common",
+      "MODE": "TG",
+      "INTERFACE": "40GE0/0/3"
+    },
+    {
+      "VLAN_ID": "1",
+      "VLAN_TYPE": "common",
+      "MODE": "TG",
+      "INTERFACE": "40GE0/0/4"
+    },
+    {
+      "VLAN_ID": "1",
+      "VLAN_TYPE": "common",
+      "MODE": "TG",
+      "INTERFACE": "40GE0/0/5"
+    },
+    {
+      "VLAN_ID": "1",
+      "VLAN_TYPE": "common",
+      "MODE": "TG",
+      "INTERFACE": "40GE0/0/6"
+    },
+    {
+      "VLAN_ID": "10",
+      "VLAN_TYPE": "common",
+      "MODE": "UT",
+      "INTERFACE": "XGE0/0/7"
+    },
+    {
+      "VLAN_ID": "10",
+      "VLAN_TYPE": "common",
+      "MODE": "UT",
+      "INTERFACE": "XGE0/0/8"
+    },
+    {
+      "VLAN_ID": "10",
+      "VLAN_TYPE": "common",
+      "MODE": "UT",
+      "INTERFACE": "XGE0/0/9"
+    },
+    {
+      "VLAN_ID": "10",
+      "VLAN_TYPE": "common",
+      "MODE": "UT",
+      "INTERFACE": "XGE0/0/10"
+    },
+    {
+      "VLAN_ID": "10",
+      "VLAN_TYPE": "common",
+      "MODE": "UT",
+      "INTERFACE": "XGE0/0/11"
+    },
+    {
+      "VLAN_ID": "10",
+      "VLAN_TYPE": "common",
+      "MODE": "UT",
+      "INTERFACE": "XGE0/0/12"
+    },
+    {
+      "VLAN_ID": "20",
+      "VLAN_TYPE": "common",
+      "MODE": "TG",
+      "INTERFACE": "40GE0/0/1"
+    },
+    {
+      "VLAN_ID": "20",
+      "VLAN_TYPE": "common",
+      "MODE": "TG",
+      "INTERFACE": "40GE0/0/2"
+    },
+    {
+      "VLAN_ID": "20",
+      "VLAN_TYPE": "common",
+      "MODE": "TG",
+      "INTERFACE": "40GE0/0/3"
+    },
+    {
+      "VLAN_ID": "20",
+      "VLAN_TYPE": "common",
+      "MODE": "TG",
+      "INTERFACE": "40GE0/0/4"
+    },
+    {
+      "VLAN_ID": "20",
+      "VLAN_TYPE": "common",
+      "MODE": "TG",
+      "INTERFACE": "40GE0/0/5"
+    },
+    {
+      "VLAN_ID": "20",
+      "VLAN_TYPE": "common",
+      "MODE": "TG",
+      "INTERFACE": "40GE0/0/6"
+    },
+    {
+      "VLAN_ID": "30",
+      "VLAN_TYPE": "common",
+      "MODE": "UT",
+      "INTERFACE": "XGE0/0/13"
+    },
+    {
+      "VLAN_ID": "30",
+      "VLAN_TYPE": "common",
+      "MODE": "UT",
+      "INTERFACE": "XGE0/0/142"
+    },
+    {
+      "VLAN_ID": "30",
+      "VLAN_TYPE": "common",
+      "MODE": "UT",
+      "INTERFACE": "XGE0/0/15"
+    },
+    {
+      "VLAN_ID": "30",
+      "VLAN_TYPE": "common",
+      "MODE": "UT",
+      "INTERFACE": "XGE0/0/16"
+    },
+    {
+      "VLAN_ID": "30",
+      "VLAN_TYPE": "common",
+      "MODE": "UT",
+      "INTERFACE": "XGE0/0/17"
+    },
+    {
+      "VLAN_ID": "30",
+      "VLAN_TYPE": "common",
+      "MODE": "UT",
+      "INTERFACE": "XGE0/0/18"
+    },
+    {
+      "VLAN_ID": "30",
+      "VLAN_TYPE": "common",
+      "MODE": "TG",
+      "INTERFACE": "40GE0/0/1"
+    },
+    {
+      "VLAN_ID": "30",
+      "VLAN_TYPE": "common",
+      "MODE": "TG",
+      "INTERFACE": "40GE0/0/2"
+    },
+    {
+      "VLAN_ID": "30",
+      "VLAN_TYPE": "common",
+      "MODE": "TG",
+      "INTERFACE": "40GE0/0/3"
+    },
+    {
+      "VLAN_ID": "30",
+      "VLAN_TYPE": "common",
+      "MODE": "TG",
+      "INTERFACE": "40GE0/0/4"
+    },
+    {
+      "VLAN_ID": "30",
+      "VLAN_TYPE": "common",
+      "MODE": "TG",
+      "INTERFACE": "40GE0/0/5"
+    },
+    {
+      "VLAN_ID": "30",
+      "VLAN_TYPE": "common",
+      "MODE": "TG",
+      "INTERFACE": "40GE0/0/6"
+    },
+    {
+      "VLAN_ID": "1",
+      "VLAN_NAME": "VLAN 0001",
+      "VLAN_STATUS": "enable"
+    },
+    {
+      "VLAN_ID": "10",
+      "VLAN_NAME": "VLAN 0010",
+      "VLAN_STATUS": "enable"
+    },
+    {
+      "VLAN_ID": "20",
+      "VLAN_NAME": "VLAN 0020",
+      "VLAN_STATUS": "enable"
+    },
+    {
+      "VLAN_ID": "30",
+      "VLAN_NAME": "VLAN 0030",
+      "VLAN_STATUS": "enable"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_id_vlan_type_mode_interface": [
+        {
+          "VLAN_ID": "1",
+          "VLAN_TYPE": "common",
+          "MODE": "UT",
+          "INTERFACE": "XGE0/0/1"
+        },
+        {
+          "VLAN_ID": "10",
+          "VLAN_TYPE": "common",
+          "MODE": "UT",
+          "INTERFACE": "XGE0/0/7"
+        },
+        {
+          "VLAN_ID": "30",
+          "VLAN_TYPE": "common",
+          "MODE": "UT",
+          "INTERFACE": "XGE0/0/13"
+        }
+      ],
+      "vlan_type_mode_interface": {
+        "VLAN_TYPE": "common",
+        "MODE": "TG",
+        "INTERFACE": "40GE0/0/1"
+      },
+      "vlan_id_vlan_status_vlan_name": [
+        {
+          "VLAN_ID": "1",
+          "VLAN_STATUS": "enable",
+          "VLAN_NAME": "VLAN 0001"
+        },
+        {
+          "VLAN_ID": "10",
+          "VLAN_STATUS": "enable",
+          "VLAN_NAME": "VLAN 0010"
+        },
+        {
+          "VLAN_ID": "20",
+          "VLAN_STATUS": "enable",
+          "VLAN_NAME": "VLAN 0020"
+        },
+        {
+          "VLAN_ID": "30",
+          "VLAN_STATUS": "enable",
+          "VLAN_NAME": "VLAN 0030"
+        }
+      ]
+    }
+  ],
+  "cli_content": "The total number of VLANs is: 3\n--------------------------------------------------------------------------------\nU: Up;         D: Down;         TG: Tagged;         UT: Untagged;\nMP: Vlan-mapping;               ST: Vlan-stacking;\n#: ProtocolTransparent-vlan;    *: Management-vlan;\n--------------------------------------------------------------------------------\n\nVID  Type    Ports\n--------------------------------------------------------------------------------\n1    common  UT:XGE0/0/1(D)     XGE0/0/2(D)     XGE0/0/3(D)     XGE0/0/4(D)\n                XGE0/0/5(D)     XGE0/0/6(D)\n             TG:40GE0/0/1(D)    40GE0/0/2(D)    40GE0/0/3(D)    40GE0/0/4(D)\n                40GE0/0/5(D)    40GE0/0/6(D)\n10   common  UT:XGE0/0/7(D)     XGE0/0/8(D)     XGE0/0/9(D)     XGE0/0/10(D)\n                XGE0/0/11(D)    XGE0/0/12(D)\n20   common  TG:40GE0/0/1(D)    40GE0/0/2(D)    40GE0/0/3(D)    40GE0/0/4(D)\n                40GE0/0/5(D)    40GE0/0/6(D)\n30   common  UT:XGE0/0/13(D)    XGE0/0/142(D)   XGE0/0/15(D)    XGE0/0/16(D)\n                XGE0/0/17(D)    XGE0/0/18(D)\n             TG:40GE0/0/1(D)    40GE0/0/2(D)    40GE0/0/3(D)    40GE0/0/4(D)\n                40GE0/0/5(D)    40GE0/0/6(D)\n\nVID  Status  Property      MAC-LRN Statistics Description\n--------------------------------------------------------------------------------\n1    enable  default       enable  disable    VLAN 0001\n10   enable  default       enable  disable    VLAN 0010\n20   enable  default       enable  disable    VLAN 0020\n30   enable  default       enable  disable    VLAN 0030\n",
+  "textfsm_template": "Value Filldown VLAN_ID (\\d+)\nValue Filldown VLAN_TYPE (\\w+)\nValue Filldown MODE ((TG|UT))\nValue INTERFACE ([A-Z0-9/]+)\nValue VLAN_NAME (.+)\nValue VLAN_STATUS (\\S+)\n\nStart\n  ^The\\s+total\\s+number\\s+of\\s+VLANs\n  ^-+$$\n  ^U:\\s+Up;\\s+D:\\s+Down;\\s+TG:\\s+Tagged;\\s+UT:\\s+Untagged;\n  ^MP:\\s+Vlan-mapping;\\s+ST:\\s+Vlan-stacking;\n  ^#:\\s+ProtocolTransparent-vlan;\\s+\\*:\\s+Management-vlan;\n  ^VID\\s+Type\\s+Ports -> VLANS\n  ^VID\\s+Status\\s+Property -> STATUS\n  ^. -> Error\n\nVLANS\n  ^-+$$\n  ^${VLAN_ID}\\s+${VLAN_TYPE}\\s*$$ -> Record\n  ^${VLAN_ID}\\s+${VLAN_TYPE}\\s+${MODE}:${INTERFACE}\\(\\w+\\)\\s* -> Continue.Record\n  ^${VLAN_ID}\\s+${VLAN_TYPE}\\s+${MODE}:(?:\\S+\\s+){1}\\s+${INTERFACE}\\(\\w+\\)\\s* -> Continue.Record\n  ^${VLAN_ID}\\s+${VLAN_TYPE}\\s+${MODE}:(?:\\S+\\s+){2}\\s+${INTERFACE}\\(\\w+\\)\\s* -> Continue.Record\n  ^${VLAN_ID}\\s+${VLAN_TYPE}\\s+${MODE}:(?:\\S+\\s+){3}\\s+${INTERFACE}\\(\\w+\\)\\s* -> Continue.Record\n  ^${VLAN_ID}\\s+${VLAN_TYPE}\\s+${MODE}:(?:\\S+\\s+){4}\\s+${INTERFACE}\\(\\w+\\)\\s* -> Continue.Record\n  ^\\d+\n  ^\\s{6,}${MODE}:${INTERFACE}\\(\\w+\\)\\s* -> Continue.Record\n  ^\\s{6,}${INTERFACE}\\(\\w+\\)\\s* -> Continue.Record\n  ^\\s{6,}(?:\\S+\\s+){1}${INTERFACE}\\(\\w+\\)\\s* -> Continue.Record\n  ^\\s{6,}(?:\\S+\\s+){2}${INTERFACE}\\(\\w+\\)\\s* -> Continue.Record\n  ^\\s{6,}(?:\\S+\\s+){3}${INTERFACE}\\(\\w+\\)\\s* -> Continue.Record\n  ^\\s{6,}(?:\\S+\\s+){4}${INTERFACE}\\(\\w+\\)\\s* -> Continue.Record\n  ^\\s{6,}\n  ^\\s*$$ -> Start\n  ^. -> Error\n\n\nSTATUS\n  ^-+$$ -> Clearall\n  ^${VLAN_ID}\\s+${VLAN_STATUS}\\s+\\S+\\s+\\S+\\s+\\S+\\s+${VLAN_NAME} -> Continue.Record\n  ^\\d+ -> Clearall\n  ^. -> Error\n"
+}

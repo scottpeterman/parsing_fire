@@ -1,0 +1,19 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_hsrp_all
+# Source: ntc
+# TextFSM rows: 13
+# TTP rows: 30
+# Match ratio: 2.31
+
+<group name="secondary_ipv4_address">
+     Secondary Virtual IP address is {{SECONDARY_IPV4_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}
+</group>
+<group name="standby_ip_address_group_number_standby_expire">
+  Standby router is {{STANDBY_IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} , priority {{GROUP_NUMBER}} expires in {{STANDBY_EXPIRE | ORPHRASE}} sec(s)
+</group>
+<group name="hsrp_router_state_priority_configured_priority_preempt">
+  Local state is {{HSRP_ROUTER_STATE | ORPHRASE}}, priority {{PRIORITY}} (Cfged {{CONFIGURED_PRIORITY}}), {{PREEMPT | ORPHRASE}}
+</group>
+<group name="standby_ip_address_standby_priority_standby_expire">
+  Standby router is {{STANDBY_IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} , priority {{STANDBY_PRIORITY}} expires in {{STANDBY_EXPIRE | ORPHRASE}} sec(s)
+</group>

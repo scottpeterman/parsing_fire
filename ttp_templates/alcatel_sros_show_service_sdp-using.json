@@ -1,0 +1,120 @@
+{
+  "command": "alcatel_sros_show_service_sdp-using",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"service_id_sdp_id_sdp_svc_id_type_far_end_oper_state_ingress_label_egress_label\">\n{{SERVICE_ID | re(\"\\\\d+\")}} {{SDP_ID | re(\"\\\\d+\")}}:{{SDP_SVC_ID | re(\"\\\\d+\")}} {{TYPE}} {{FAR_END}} {{OPER_STATE | ORPHRASE}} {{INGRESS_LABEL}} {{EGRESS_LABEL | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SERVICE_ID": "200",
+      "SDP_ID": "31",
+      "SDP_SVC_ID": "200",
+      "TYPE": "Spok",
+      "FAR_END": "10.10.10.1",
+      "OPER_STATE": "Up",
+      "INGRESS_LABEL": "524281",
+      "EGRESS_LABEL": "524283"
+    },
+    {
+      "SERVICE_ID": "200",
+      "SDP_ID": "34",
+      "SDP_SVC_ID": "200",
+      "TYPE": "Mesh",
+      "FAR_END": "10.10.10.4",
+      "OPER_STATE": "Down",
+      "INGRESS_LABEL": "None",
+      "EGRESS_LABEL": "None"
+    },
+    {
+      "SERVICE_ID": "310",
+      "SDP_ID": "32767",
+      "SDP_SVC_ID": "4294967295",
+      "TYPE": "BgpAd",
+      "FAR_END": "10.10.10.1",
+      "OPER_STATE": "Up",
+      "INGRESS_LABEL": "524278",
+      "EGRESS_LABEL": "524280"
+    },
+    {
+      "SERVICE_ID": "400",
+      "SDP_ID": "32767",
+      "SDP_SVC_ID": "4294967294",
+      "TYPE": "BgpAd",
+      "FAR_END": "10.10.10.1",
+      "OPER_STATE": "Up",
+      "INGRESS_LABEL": "524277",
+      "EGRESS_LABEL": "524279"
+    },
+    {
+      "SERVICE_ID": "401",
+      "SDP_ID": "32767",
+      "SDP_SVC_ID": "4294967293",
+      "TYPE": "BgpAd",
+      "FAR_END": "10.10.10.1",
+      "OPER_STATE": "Up",
+      "INGRESS_LABEL": "524276",
+      "EGRESS_LABEL": "524278"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "service_id_sdp_id_sdp_svc_id_type_far_end_oper_state_ingress_label_egress_label": [
+        {
+          "SERVICE_ID": "200",
+          "SDP_ID": "31",
+          "SDP_SVC_ID": "200",
+          "TYPE": "Spok",
+          "FAR_END": "10.10.10.1",
+          "OPER_STATE": "Up",
+          "INGRESS_LABEL": "524281",
+          "EGRESS_LABEL": "524283"
+        },
+        {
+          "SERVICE_ID": "200",
+          "SDP_ID": "34",
+          "SDP_SVC_ID": "200",
+          "TYPE": "Mesh",
+          "FAR_END": "10.10.10.4",
+          "OPER_STATE": "Down",
+          "INGRESS_LABEL": "None",
+          "EGRESS_LABEL": "None"
+        },
+        {
+          "SERVICE_ID": "310",
+          "SDP_ID": "32767",
+          "SDP_SVC_ID": "4294967295",
+          "TYPE": "BgpAd",
+          "FAR_END": "10.10.10.1",
+          "OPER_STATE": "Up",
+          "INGRESS_LABEL": "524278",
+          "EGRESS_LABEL": "524280"
+        },
+        {
+          "SERVICE_ID": "400",
+          "SDP_ID": "32767",
+          "SDP_SVC_ID": "4294967294",
+          "TYPE": "BgpAd",
+          "FAR_END": "10.10.10.1",
+          "OPER_STATE": "Up",
+          "INGRESS_LABEL": "524277",
+          "EGRESS_LABEL": "524279"
+        },
+        {
+          "SERVICE_ID": "401",
+          "SDP_ID": "32767",
+          "SDP_SVC_ID": "4294967293",
+          "TYPE": "BgpAd",
+          "FAR_END": "10.10.10.1",
+          "OPER_STATE": "Up",
+          "INGRESS_LABEL": "524276",
+          "EGRESS_LABEL": "524278"
+        }
+      ]
+    }
+  ],
+  "cli_content": "===============================================================================\nSDP Using\n===============================================================================\nSvcId      SdpId              Type   Far End              Opr   I.Label E.Label\n                                                          State         \n-------------------------------------------------------------------------------\n200        31:200             Spok   10.10.10.1           Up    524281  524283\n200        34:200             Mesh   10.10.10.4           Down  None    None\n310        32767:4294967295   BgpAd  10.10.10.1           Up    524278  524280\n400        32767:4294967294   BgpAd  10.10.10.1           Up    524277  524279\n401        32767:4294967293   BgpAd  10.10.10.1           Up    524276  524278\n-------------------------------------------------------------------------------\nNumber of SDPs : 5\n-------------------------------------------------------------------------------\n===============================================================================\n",
+  "textfsm_template": "Value Required SERVICE_ID (\\d+)\nValue Required SDP_ID (\\d+)\nValue Required SDP_SVC_ID (\\d+)\nValue Required TYPE (\\S+)\nValue Required FAR_END (\\S+)\nValue Required OPER_STATE (\\S+)\nValue Required INGRESS_LABEL (\\S+)\nValue Required EGRESS_LABEL (\\S+)\n\nStart\n  ^=+\n  ^SDP\\s+Using\n  ^SvcId\\s+SdpId\\s+Type\\s+Far\\s+End\\s+Opr\\s+I.Label\\s+E.Label\\s*$$ -> SDP\n  ^\\s*$$\n  ^. -> Error\n\nSDP\n  ^\\s+State         \n  ^-+\n  ^${SERVICE_ID}\\s+${SDP_ID}:${SDP_SVC_ID}\\s+${TYPE}\\s+${FAR_END}\\s+${OPER_STATE}\\s+${INGRESS_LABEL}\\s+${EGRESS_LABEL} -> Record\n  ^-+ -> Done\n  ^Number\\s+of\n  ^=+\n  ^\\s*$$\n  ^. -> Error\n\nDone\n"
+}

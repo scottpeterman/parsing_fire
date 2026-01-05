@@ -1,0 +1,190 @@
+{
+  "command": "huawei_smartax_display_sysman_service_state",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 17,
+  "ttp_rows": 17,
+  "ttp_template": "<group name=\"network_service_port_state\">\n  {{NETWORK_SERVICE}} {{PORT | re(\"\\\\d+\")}} {{STATE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NETWORK_SERVICE": "telnet",
+      "PORT": "23",
+      "STATE": "disable"
+    },
+    {
+      "NETWORK_SERVICE": "trace",
+      "PORT": "1026",
+      "STATE": "disable"
+    },
+    {
+      "NETWORK_SERVICE": "ssh",
+      "PORT": "22",
+      "STATE": "enable"
+    },
+    {
+      "NETWORK_SERVICE": "snmp",
+      "PORT": "161",
+      "STATE": "enable"
+    },
+    {
+      "NETWORK_SERVICE": "ntp",
+      "PORT": "123",
+      "STATE": "enable"
+    },
+    {
+      "NETWORK_SERVICE": "dhcp-relay",
+      "PORT": "67",
+      "STATE": "disable"
+    },
+    {
+      "NETWORK_SERVICE": "dhcpv6-relay",
+      "PORT": "547",
+      "STATE": "disable"
+    },
+    {
+      "NETWORK_SERVICE": "ntp6",
+      "PORT": "123",
+      "STATE": "disable"
+    },
+    {
+      "NETWORK_SERVICE": "ipdr",
+      "PORT": "4737",
+      "STATE": "enable"
+    },
+    {
+      "NETWORK_SERVICE": "twamp",
+      "PORT": "4294967295",
+      "STATE": "enable"
+    },
+    {
+      "NETWORK_SERVICE": "netconf",
+      "PORT": "830",
+      "STATE": "enable"
+    },
+    {
+      "NETWORK_SERVICE": "telnetv6",
+      "PORT": "23",
+      "STATE": "disable"
+    },
+    {
+      "NETWORK_SERVICE": "sshv6",
+      "PORT": "22",
+      "STATE": "disable"
+    },
+    {
+      "NETWORK_SERVICE": "snmpv6",
+      "PORT": "161",
+      "STATE": "disable"
+    },
+    {
+      "NETWORK_SERVICE": "web-proxy",
+      "PORT": "8024",
+      "STATE": "disable"
+    },
+    {
+      "NETWORK_SERVICE": "portal",
+      "PORT": "2000",
+      "STATE": "disable"
+    },
+    {
+      "NETWORK_SERVICE": "capwap",
+      "PORT": "5246",
+      "STATE": "disable"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "network_service_port_state": [
+        {
+          "NETWORK_SERVICE": "telnet",
+          "PORT": "23",
+          "STATE": "disable"
+        },
+        {
+          "NETWORK_SERVICE": "trace",
+          "PORT": "1026",
+          "STATE": "disable"
+        },
+        {
+          "NETWORK_SERVICE": "ssh",
+          "PORT": "22",
+          "STATE": "enable"
+        },
+        {
+          "NETWORK_SERVICE": "snmp",
+          "PORT": "161",
+          "STATE": "enable"
+        },
+        {
+          "NETWORK_SERVICE": "ntp",
+          "PORT": "123",
+          "STATE": "enable"
+        },
+        {
+          "NETWORK_SERVICE": "dhcp-relay",
+          "PORT": "67",
+          "STATE": "disable"
+        },
+        {
+          "NETWORK_SERVICE": "dhcpv6-relay",
+          "PORT": "547",
+          "STATE": "disable"
+        },
+        {
+          "NETWORK_SERVICE": "ntp6",
+          "PORT": "123",
+          "STATE": "disable"
+        },
+        {
+          "NETWORK_SERVICE": "ipdr",
+          "PORT": "4737",
+          "STATE": "enable"
+        },
+        {
+          "NETWORK_SERVICE": "twamp",
+          "PORT": "4294967295",
+          "STATE": "enable"
+        },
+        {
+          "NETWORK_SERVICE": "netconf",
+          "PORT": "830",
+          "STATE": "enable"
+        },
+        {
+          "NETWORK_SERVICE": "telnetv6",
+          "PORT": "23",
+          "STATE": "disable"
+        },
+        {
+          "NETWORK_SERVICE": "sshv6",
+          "PORT": "22",
+          "STATE": "disable"
+        },
+        {
+          "NETWORK_SERVICE": "snmpv6",
+          "PORT": "161",
+          "STATE": "disable"
+        },
+        {
+          "NETWORK_SERVICE": "web-proxy",
+          "PORT": "8024",
+          "STATE": "disable"
+        },
+        {
+          "NETWORK_SERVICE": "portal",
+          "PORT": "2000",
+          "STATE": "disable"
+        },
+        {
+          "NETWORK_SERVICE": "capwap",
+          "PORT": "5246",
+          "STATE": "disable"
+        }
+      ]
+    }
+  ],
+  "cli_content": "  ---------------------------------------------------------------------------\n  Network service                                   Port           State\n  ---------------------------------------------------------------------------\n  telnet                                            23             disable\n  trace                                             1026           disable\n  ssh                                               22             enable\n  snmp                                              161            enable\n  ftp-client                                        ----           ----\n  sftp-client                                       ----           ----\n  ntp                                               123            enable\n  radius                                            ----           enable\n  dhcp-relay                                        67             disable\n  dhcpv6-relay                                      547            disable\n  ntp6                                              123            disable\n  ipdr                                              4737           enable\n  twamp                                             4294967295     enable\n  netconf                                           830            enable\n  telnetv6                                          23             disable\n  sshv6                                             22             disable\n  snmpv6                                            161            disable\n  web-proxy                                         8024           disable\n  portal                                            2000           disable\n  capwap                                            5246           disable\n  ---------------------------------------------------------------------------\n",
+  "textfsm_template": "Value Key NETWORK_SERVICE (\\S+)\nValue PORT (\\d+)\nValue STATE (enable|disable)\n\nStart\n  ^\\s*--+\n  ^\\s*Network\\s*service\\s*Port\\s*State\n  ^\\s*--+\n  ^\\s*${NETWORK_SERVICE}\\s+${PORT}\\s+${STATE} -> Record\n  ^\\s*${NETWORK_SERVICE}\\s+-+\\s+${STATE} -> Record\n  ^\\s*${NETWORK_SERVICE}\\s+${PORT}+\\s-+ -> Record\n  ^\\s*${NETWORK_SERVICE}\\s+-+\\s+-+ -> Record\n  ^\\s*$$ -> EOF\n  ^. -> Error"
+}

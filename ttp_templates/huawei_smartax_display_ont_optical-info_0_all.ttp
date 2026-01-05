@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_smartax_display_ont_optical-info_0_all
+# Source: ntc
+# TextFSM rows: 10
+# TTP rows: 10
+# Match ratio: 1.00
+
+<group name="ont_id_rx_power_tx_power_olt_rx_ont_temperature_voltage_current_distance">
+    {{ONT_ID | re("\\d+")}} {{RX_POWER}} {{TX_POWER}} {{OLT_RX_ONT}} {{TEMPERATURE}} {{VOLTAGE}} {{CURRENT}} {{DISTANCE | ORPHRASE}} 
+</group>

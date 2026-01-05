@@ -1,0 +1,90 @@
+{
+  "command": "show environment all",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.5,
+  "textfsm_rows": 4,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"location_direction_status_rpms_part_num\">\n{{LOCATION | ORPHRASE}} {{DIRECTION}} {{STATUS | ORPHRASE}} {{RPMS}} {{PART_NUM | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOCATION": "Fan 1",
+      "DIRECTION": "Inlet",
+      "STATUS": "OK",
+      "RPMS": "11000",
+      "PART_NUM": "N/A"
+    },
+    {
+      "LOCATION": "Fan 2",
+      "DIRECTION": "Inlet",
+      "STATUS": "OK",
+      "RPMS": "11200",
+      "PART_NUM": "N/A"
+    },
+    {
+      "LOCATION": "Fan 3",
+      "DIRECTION": "Entail",
+      "STATUS": "OK",
+      "RPMS": "10800",
+      "PART_NUM": "N/A"
+    },
+    {
+      "LOCATION": "Fan 4",
+      "DIRECTION": "Entail",
+      "STATUS": "OK",
+      "RPMS": "11500",
+      "PART_NUM": "N/A"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "location_direction_status_rpms_part_num": [
+        {
+          "LOCATION": "Location",
+          "DIRECTION": "Direction",
+          "STATUS": "Status",
+          "RPMS": "RPMs",
+          "PART_NUM": "Part#"
+        },
+        {
+          "LOCATION": "----------------",
+          "DIRECTION": "----------",
+          "STATUS": "----------------",
+          "RPMS": "----------------",
+          "PART_NUM": "---------"
+        },
+        {
+          "LOCATION": "Fan 1",
+          "DIRECTION": "Inlet",
+          "STATUS": "OK",
+          "RPMS": "11000",
+          "PART_NUM": "N/A"
+        },
+        {
+          "LOCATION": "Fan 2",
+          "DIRECTION": "Inlet",
+          "STATUS": "OK",
+          "RPMS": "11200",
+          "PART_NUM": "N/A"
+        },
+        {
+          "LOCATION": "Fan 3",
+          "DIRECTION": "Entail",
+          "STATUS": "OK",
+          "RPMS": "10800",
+          "PART_NUM": "N/A"
+        },
+        {
+          "LOCATION": "Fan 4",
+          "DIRECTION": "Entail",
+          "STATUS": "OK",
+          "RPMS": "11500",
+          "PART_NUM": "N/A"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Fan:\n-----\nLocation         Direction  Status           RPMs             Part#\n---------------- ---------- ---------------- ---------------- ---------\nFan 1             Inlet      OK               11000            N/A\nFan 2             Inlet      OK               11200            N/A\nFan 3             Entail     OK               10800            N/A\nFan 4             Entail     OK               11500            N/A\n\n",
+  "textfsm_template": "Value LOCATION (\\S+|\\S+\\s+\\d+)\nValue DIRECTION (\\S+)\nValue STATUS (\\S+)\nValue RPMS (\\d+)\nValue PART_NUM (\\S+)\n\nStart\n  ^Location\\s+Direction\\s+Status\\s+RPMs\\s+Part#\\s*$$\n  ^\\s*${LOCATION}\\s+${DIRECTION}\\s+${STATUS}\\s+${RPMS}\\s+${PART_NUM}\\s*$$ -> Record"
+}

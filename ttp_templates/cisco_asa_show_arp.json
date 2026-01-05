@@ -1,0 +1,80 @@
+{
+  "command": "cisco_asa_show_arp",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"interface_ip_address_mac_address_age\">\n        {{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{AGE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "outside",
+      "IP_ADDRESS": "1.2.3.4",
+      "AGE": "15",
+      "MAC_ADDRESS": "444e.6df8.b97e"
+    },
+    {
+      "INTERFACE": "DMZ",
+      "IP_ADDRESS": "192.168.10.9",
+      "AGE": "5054",
+      "MAC_ADDRESS": "0013.2401.01a3"
+    },
+    {
+      "INTERFACE": "DMZ1",
+      "IP_ADDRESS": "172.19.0.5",
+      "AGE": "711",
+      "MAC_ADDRESS": "000c.2911.ebc4"
+    },
+    {
+      "INTERFACE": "DMZ2",
+      "IP_ADDRESS": "172.19.1.11",
+      "AGE": "8744",
+      "MAC_ADDRESS": "000c.293b.d502"
+    },
+    {
+      "INTERFACE": "INSIDE",
+      "IP_ADDRESS": "10.0.0.1",
+      "AGE": "12074",
+      "MAC_ADDRESS": "2401.c75e.3acb"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_mac_address_age": [
+        {
+          "INTERFACE": "outside",
+          "IP_ADDRESS": "1.2.3.4",
+          "MAC_ADDRESS": "444e.6df8.b97e",
+          "AGE": "15"
+        },
+        {
+          "INTERFACE": "DMZ",
+          "IP_ADDRESS": "192.168.10.9",
+          "MAC_ADDRESS": "0013.2401.01a3",
+          "AGE": "5054"
+        },
+        {
+          "INTERFACE": "DMZ1",
+          "IP_ADDRESS": "172.19.0.5",
+          "MAC_ADDRESS": "000c.2911.ebc4",
+          "AGE": "711"
+        },
+        {
+          "INTERFACE": "DMZ2",
+          "IP_ADDRESS": "172.19.1.11",
+          "MAC_ADDRESS": "000c.293b.d502",
+          "AGE": "8744"
+        },
+        {
+          "INTERFACE": "INSIDE",
+          "IP_ADDRESS": "10.0.0.1",
+          "MAC_ADDRESS": "2401.c75e.3acb",
+          "AGE": "12074"
+        }
+      ]
+    }
+  ],
+  "cli_content": "        outside 1.2.3.4 444e.6df8.b97e 15\n        DMZ 192.168.10.9 0013.2401.01a3 5054\n        DMZ1 172.19.0.5 000c.2911.ebc4 711\n        DMZ2 172.19.1.11 000c.293b.d502 8744\n        INSIDE 10.0.0.1 2401.c75e.3acb 12074\n",
+  "textfsm_template": "Value Required INTERFACE (\\S+)\nValue Required IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue Required AGE (\\S+)\nValue Required MAC_ADDRESS (\\S+)\n\nStart\n  ^\\s*${INTERFACE}\\s+${IP_ADDRESS}\\s+${MAC_ADDRESS}\\s+${AGE} -> Record\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^\\s*$$\n  ^. -> Error\n"
+}

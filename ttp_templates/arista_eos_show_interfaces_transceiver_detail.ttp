@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_interfaces_transceiver_detail
+# Source: ntc
+# TextFSM rows: 21
+# TTP rows: 36
+# Match ratio: 1.71
+
+<group name="type">
+           {{TYPE | ORPHRASE}}   Threshold   Threshold   Threshold   Threshold   
+<group name="current_value_high_alarm_threshold_high_warn_threshold">
+{{PORT}} {{CURRENT_VALUE}} {{HIGH_ALARM_THRESHOLD}} {{HIGH_WARN_THRESHOLD}} {{LOW_ALARM_THRESHOLD | ORPHRASE}} {{LOW_WARN_THRESHOLD}} 
+</group>
+</group>

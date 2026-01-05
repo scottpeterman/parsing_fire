@@ -1,0 +1,80 @@
+{
+  "command": "cisco_ios_show_inventory",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.75,
+  "textfsm_rows": 4,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"name_descr\">\nNAME: \"{{NAME | ORPHRASE}}\", DESCR: \"{{DESCR | ORPHRASE}}\"\n</group>\n<group name=\"pid_vid_sn\">\nPID: {{PID}} , VID: {{VID}}, SN: {{SN | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "3640 chassis",
+      "DESCR": "3640 chassis",
+      "VID": "0xFF",
+      "SN": "FF1045C5"
+    },
+    {
+      "NAME": "One port Fastethernet TX",
+      "DESCR": "One port Fastethernet TX",
+      "PID": "NM-1FE-TX=",
+      "VID": "1.0",
+      "SN": "7720321"
+    },
+    {
+      "NAME": "One port Fastethernet TX",
+      "DESCR": "One port Fastethernet TX",
+      "PID": "NM-1FE-TX=",
+      "VID": "1.0",
+      "SN": "7720321"
+    },
+    {
+      "NAME": "One port Fastethernet TX",
+      "DESCR": "One port Fastethernet TX",
+      "PID": "NM-1FE-TX=",
+      "VID": "1.0",
+      "SN": "7720321"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name_descr": [
+        {
+          "NAME": "3640 chassis",
+          "DESCR": "3640 chassis"
+        },
+        {
+          "NAME": "One port Fastethernet TX",
+          "DESCR": "One port Fastethernet TX"
+        },
+        {
+          "NAME": "One port Fastethernet TX",
+          "DESCR": "One port Fastethernet TX"
+        },
+        {
+          "NAME": "One port Fastethernet TX",
+          "DESCR": "One port Fastethernet TX"
+        }
+      ],
+      "pid_vid_sn": [
+        {
+          "PID": "NM-1FE-TX=",
+          "VID": "1.0",
+          "SN": "7720321"
+        },
+        {
+          "PID": "NM-1FE-TX=",
+          "VID": "1.0",
+          "SN": "7720321"
+        },
+        {
+          "PID": "NM-1FE-TX=",
+          "VID": "1.0",
+          "SN": "7720321"
+        }
+      ]
+    }
+  ],
+  "cli_content": "NAME: \"3640 chassis\", DESCR: \"3640 chassis\"\nPID:                   , VID: 0xFF, SN: FF1045C5\n\nNAME: \"One port Fastethernet TX\", DESCR: \"One port Fastethernet TX\"\nPID: NM-1FE-TX=        , VID: 1.0, SN: 7720321\n\nNAME: \"One port Fastethernet TX\", DESCR: \"One port Fastethernet TX\"\nPID: NM-1FE-TX=        , VID: 1.0, SN: 7720321\n\nNAME: \"One port Fastethernet TX\", DESCR: \"One port Fastethernet TX\"\nPID: NM-1FE-TX=        , VID: 1.0, SN: 7720321\n\n",
+  "textfsm_template": "Value NAME (.*)\nValue DESCR (.*)\nValue PID (([\\S+]+|.*))\nValue VID (.*)\nValue SN ([\\w+\\d+]+)\n\nStart\n  ^NAME:\\s+\"${NAME}\",\\s+DESCR:\\s+\"${DESCR}\"\n  ^PID:\\s+${PID}.*,.*VID:\\s+${VID},.*SN:\\s+${SN} -> Record\n  ^PID:\\s+,.*VID:\\s+${VID},.*SN: -> Record\n  ^PID:\\s+${PID}.*,.*VID:\\s+${VID},.*SN: -> Record\n  ^PID:\\s+,.*VID:\\s+${VID},.*SN:\\s+${SN} -> Record\n  ^PID:\\s+${PID}.*,.*VID:\\s+${VID}.*\n  ^PID:\\s+,.*VID:\\s+${VID}.*\n  ^.*SN:\\s+${SN} -> Record\n  ^.*SN: -> Record\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n"
+}

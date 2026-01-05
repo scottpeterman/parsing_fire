@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: cisco_wlc_ssh_show_ap_image_all
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="next_retry_time_primary_image_backup_image_predownload_status_predownload_version_retry_count">
+{{AP_{{NEXT_RETRY_TIME}}ME}} {{PRIMARY_IMAGE}} {{BACKUP_IMAGE}} {{PREDOWNLOAD_STATUS | ORPHRASE}} {{PREDOWNLOAD_VERSION | re("[\\d\\.\\(\\)A-Za-z]+")}} {{RETRY_COUNT}} NA 
+</group>

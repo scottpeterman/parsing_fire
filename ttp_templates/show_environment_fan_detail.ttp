@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show environment fan detail
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 6
+# Match ratio: 2.00
+
+<group name="speed">
+    Speed: {{SPEED | ORPHRASE}}
+</group>

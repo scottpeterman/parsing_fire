@@ -1,0 +1,59 @@
+{
+  "command": "show bfd neighbors details",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"our_addr_neigh_addr_ld_rd_rh_rs_status_state_interface\">\n{{OUR_ADDR | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{NEIGH_ADDR | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{LD_RD}} {{RH_RS_STATUS | ORPHRASE}} {{STATE | ORPHRASE}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SESSION_HOST": "Router",
+      "OUR_ADDR": "1.1.1.1",
+      "NEIGH_ADDR": "2.2.2.2",
+      "LD_RD": "100/200",
+      "RH_RS_STATUS": "Up   Up",
+      "STATE": "Init",
+      "INTERFACE": "Ethernet0/0"
+    },
+    {
+      "OUR_ADDR": "3.3.3.3",
+      "NEIGH_ADDR": "4.4.4.4",
+      "LD_RD": "101/201",
+      "RH_RS_STATUS": "Up   Up",
+      "STATE": "Up",
+      "INTERFACE": "Ethernet0/1"
+    },
+    {
+      "OUR_ADDR": "1.1.1.1",
+      "NEIGH_ADDR": "5.5.5.5",
+      "LD_RD": "102/202",
+      "RH_RS_STATUS": "Down Down",
+      "STATE": "Down",
+      "INTERFACE": "Ethernet0/2"
+    },
+    {
+      "OUR_ADDR": "6.6.6.6",
+      "NEIGH_ADDR": "7.7.7.7",
+      "LD_RD": "103/203",
+      "RH_RS_STATUS": "Up   Up",
+      "STATE": "Up",
+      "INTERFACE": "Ethernet0/3"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "our_addr_neigh_addr_ld_rd_rh_rs_status_state_interface": {
+        "OUR_ADDR": "1.1.1.1",
+        "NEIGH_ADDR": "5.5.5.5",
+        "LD_RD": "102/202",
+        "RH_RS_STATUS": "Down",
+        "STATE": "Down Down",
+        "INTERFACE": "Ethernet0/2"
+      }
+    }
+  ],
+  "cli_content": "Session host: Router\nOurAddr NeighAddr LD/RD  RH/RS State      Int\n1.1.1.1 2.2.2.2   100/200 Up   Up  Init    Ethernet0/0\n3.3.3.3 4.4.4.4   101/201 Up   Up  Up      Ethernet0/1\n1.1.1.1 5.5.5.5   102/202 Down Down Down   Ethernet0/2\n6.6.6.6 7.7.7.7   103/203 Up   Up  Up      Ethernet0/3\n",
+  "textfsm_template": "Value SESSION_HOST (\\S+)\nValue OUR_ADDR (\\S+)\nValue NEIGH_ADDR (\\S+)\nValue LD_RD (\\d+/\\d+)\nValue RH_RS_STATUS (\\S+\\s+\\S+)\nValue STATE (\\S+)\nValue INTERFACE (\\S+)\n\nStart\n  ^Session\\ host:\\ ${SESSION_HOST}$$\n  ^${OUR_ADDR}\\s+${NEIGH_ADDR}\\s+${LD_RD}\\s+${RH_RS_STATUS}\\s+${STATE}\\s+${INTERFACE}\\s*$$ -> Record"
+}

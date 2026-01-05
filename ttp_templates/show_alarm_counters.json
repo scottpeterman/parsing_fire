@@ -1,0 +1,60 @@
+{
+  "command": "show alarm counters",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"alarm_type_active_alarms_cleared_alarms\">\n{{ALARM_TYPE}} {{ACTIVE_ALARMS}} {{CLEARED_ALARMS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ALARM_TYPE": "Critical",
+      "ACTIVE_ALARMS": "5",
+      "CLEARED_ALARMS": "10"
+    },
+    {
+      "ALARM_TYPE": "Major",
+      "ACTIVE_ALARMS": "3",
+      "CLEARED_ALARMS": "8"
+    },
+    {
+      "ALARM_TYPE": "Minor",
+      "ACTIVE_ALARMS": "7",
+      "CLEARED_ALARMS": "15"
+    },
+    {
+      "ALARM_TYPE": "Warning",
+      "ACTIVE_ALARMS": "2",
+      "CLEARED_ALARMS": "12"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "alarm_type_active_alarms_cleared_alarms": [
+        {
+          "ALARM_TYPE": "Critical",
+          "ACTIVE_ALARMS": "5",
+          "CLEARED_ALARMS": "10"
+        },
+        {
+          "ALARM_TYPE": "Major",
+          "ACTIVE_ALARMS": "3",
+          "CLEARED_ALARMS": "8"
+        },
+        {
+          "ALARM_TYPE": "Minor",
+          "ACTIVE_ALARMS": "7",
+          "CLEARED_ALARMS": "15"
+        },
+        {
+          "ALARM_TYPE": "Warning",
+          "ACTIVE_ALARMS": "2",
+          "CLEARED_ALARMS": "12"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Alarm Monitoring\nAlarm Type       Active Alarms    Cleared Alarms\nCritical            5                10\nMajor               3                8\nMinor               7                15\nWarning             2                12\n",
+  "textfsm_template": "Value ALARM_TYPE (\\S+)\nValue ACTIVE_ALARMS (\\d+)\nValue CLEARED_ALARMS (\\d+)\n\nStart\n  ^Alarm\\s+Monitoring\\s*$$\n  ^Alarm\\s+Type\\s+Active\\s+Alarms\\s+Cleared\\s+Alarms\\s*$$\n  ^${ALARM_TYPE}\\s+${ACTIVE_ALARMS}\\s+${CLEARED_ALARMS}\\s*$$ -> Record"
+}

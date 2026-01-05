@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: mikrotik_routeros_snmp_community_print_without-paging
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="index_flags_name_addresses_security_read_access_write_access">
+ {{INDEX}} {{FLAGS | re(".*\\w.*")}} {{NAME}} {{ADDRESSES}} {{SECURITY}} {{READ_ACCESS | ORPHRASE}} {{WRITE_ACCESS}} 
+</group>

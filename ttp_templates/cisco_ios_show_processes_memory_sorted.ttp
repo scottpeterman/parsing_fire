@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_processes_memory_sorted
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="memory_total_memory_used_memory_free">
+Processor Pool Total: {{MEMORY_TOTAL}} Used: {{MEMORY_USED}} Free: {{MEMORY_FREE | ORPHRASE}}
+</group>

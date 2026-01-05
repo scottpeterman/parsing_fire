@@ -1,0 +1,56 @@
+{
+  "command": "cisco_nvfis_show_nic",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"slotid_adapter_vendor_devid_mode_devno_pnics\">\n{{SLOTID | re(\"\\\\d+\")}} {{ADAPTER | ORPHRASE}} {{VENDOR}} {{DEVID | re(\"\\\\d+\")}} {{MODE}} {{DEVNO}} {{PNICS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SLOTID": "1",
+      "ADAPTER": "Intel i350 Quad Port 1Gb Adapter",
+      "VENDOR": "8086",
+      "DEVID": "1521",
+      "MODE": "NA",
+      "DEVNO": "NA",
+      "PNICS": "['eth1-1', 'eth1-2', 'eth1-3', 'eth1-4']"
+    },
+    {
+      "SLOTID": "2",
+      "ADAPTER": "Intel X710-DA4 Quad Port 10Gb SFP+",
+      "VENDOR": "8086",
+      "DEVID": "1572",
+      "MODE": "NA",
+      "DEVNO": "NA",
+      "PNICS": "['eth2-1', 'eth2-2', 'eth2-3', 'eth2-4']"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "slotid_adapter_vendor_devid_mode_devno_pnics": [
+        {
+          "SLOTID": "1",
+          "ADAPTER": "Intel i350 Quad Port 1Gb Adapter",
+          "VENDOR": "8086",
+          "DEVID": "1521",
+          "MODE": "NA",
+          "DEVNO": "NA",
+          "PNICS": "['eth1-1', 'eth1-2', 'eth1-3', 'eth1-4']"
+        },
+        {
+          "SLOTID": "2",
+          "ADAPTER": "Intel X710-DA4 Quad Port 10Gb SFP+",
+          "VENDOR": "8086",
+          "DEVID": "1572",
+          "MODE": "NA",
+          "DEVNO": "NA",
+          "PNICS": "['eth2-1', 'eth2-2', 'eth2-3', 'eth2-4']"
+        }
+      ]
+    }
+  ],
+  "cli_content": "SLOTID  ADAPTER                              VENDOR  DEVID  MODE  DEVNO  PNICS\n-------------------------------------------------------------------------------------------------------------------\n1       Intel i350 Quad Port 1Gb Adapter     8086    1521   NA    NA     ['eth1-1', 'eth1-2', 'eth1-3', 'eth1-4']\n2       Intel X710-DA4 Quad Port 10Gb SFP+   8086    1572   NA    NA     ['eth2-1', 'eth2-2', 'eth2-3', 'eth2-4']\n        converged NIC",
+  "textfsm_template": "Value SLOTID (\\d+)\nValue ADAPTER (.+?)\nValue VENDOR (\\d+)\nValue DEVID (\\d+)\nValue MODE (\\w+)\nValue DEVNO (\\w+)\nValue PNICS (\\[.+\\])\n\nStart\n  ^${SLOTID}\\s+${ADAPTER}\\s+${VENDOR}\\s+${DEVID}\\s+${MODE}\\s+${DEVNO}\\s+${PNICS} -> Record\n\nEOF"
+}

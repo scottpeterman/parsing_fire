@@ -1,0 +1,110 @@
+{
+  "command": "cisco_nxos_show_spanning-tree_root",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"vlan_id_priority_root_id_root_cost_hello_time_max_age_fwd_dly_root_port\">\n{{VLAN_ID}} {{PRIORITY}} {{ROOT_ID}} {{ROOT_COST}} {{HELLO_TIME}} {{MAX_AGE}} {{FWD_DLY}} {{ROOT_PORT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN_ID": "VLAN0001",
+      "PRIORITY": "1",
+      "ROOT_ID": "1211.a111.1111",
+      "ROOT_COST": "0",
+      "HELLO_TIME": "2",
+      "MAX_AGE": "20",
+      "FWD_DLY": "10",
+      "ROOT_PORT": "This bridge is root"
+    },
+    {
+      "VLAN_ID": "VLAN0002",
+      "PRIORITY": "10",
+      "ROOT_ID": "1211.a111.1112",
+      "ROOT_COST": "3",
+      "HELLO_TIME": "2",
+      "MAX_AGE": "20",
+      "FWD_DLY": "10",
+      "ROOT_PORT": "port-channel10"
+    },
+    {
+      "VLAN_ID": "VLAN0003",
+      "PRIORITY": "1111",
+      "ROOT_ID": "1211.a111.1113",
+      "ROOT_COST": "1",
+      "HELLO_TIME": "2",
+      "MAX_AGE": "20",
+      "FWD_DLY": "10",
+      "ROOT_PORT": "port-channel1"
+    },
+    {
+      "VLAN_ID": "VLAN0004",
+      "PRIORITY": "11",
+      "ROOT_ID": "1211.a111.1114",
+      "ROOT_COST": "0",
+      "HELLO_TIME": "2",
+      "MAX_AGE": "20",
+      "FWD_DLY": "10",
+      "ROOT_PORT": "This bridge is root"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_id_priority_root_id_root_cost_hello_time_max_age_fwd_dly_root_port": [
+        {
+          "VLAN_ID": "Vlan",
+          "PRIORITY": "Root",
+          "ROOT_ID": "ID",
+          "ROOT_COST": "Cost",
+          "HELLO_TIME": "Time",
+          "MAX_AGE": "Age",
+          "FWD_DLY": "Dly",
+          "ROOT_PORT": "Root Port"
+        },
+        {
+          "VLAN_ID": "VLAN0001",
+          "PRIORITY": "1",
+          "ROOT_ID": "1211.a111.1111",
+          "ROOT_COST": "0",
+          "HELLO_TIME": "2",
+          "MAX_AGE": "20",
+          "FWD_DLY": "10",
+          "ROOT_PORT": "This bridge is root"
+        },
+        {
+          "VLAN_ID": "VLAN0002",
+          "PRIORITY": "10",
+          "ROOT_ID": "1211.a111.1112",
+          "ROOT_COST": "3",
+          "HELLO_TIME": "2",
+          "MAX_AGE": "20",
+          "FWD_DLY": "10",
+          "ROOT_PORT": "port-channel10"
+        },
+        {
+          "VLAN_ID": "VLAN0003",
+          "PRIORITY": "1111",
+          "ROOT_ID": "1211.a111.1113",
+          "ROOT_COST": "1",
+          "HELLO_TIME": "2",
+          "MAX_AGE": "20",
+          "FWD_DLY": "10",
+          "ROOT_PORT": "port-channel1"
+        },
+        {
+          "VLAN_ID": "VLAN0004",
+          "PRIORITY": "11",
+          "ROOT_ID": "1211.a111.1114",
+          "ROOT_COST": "0",
+          "HELLO_TIME": "2",
+          "MAX_AGE": "20",
+          "FWD_DLY": "10",
+          "ROOT_PORT": "This bridge is root"
+        }
+      ]
+    }
+  ],
+  "cli_content": "                                        Root  Hello Max Fwd\nVlan                   Root ID          Cost  Time  Age Dly  Root Port\n---------------- -------------------- ------- ----- --- ---  ----------------\nVLAN0001             1 1211.a111.1111       0    2   20  10  This bridge is root\nVLAN0002            10 1211.a111.1112       3    2   20  10    port-channel10\nVLAN0003          1111 1211.a111.1113       1    2   20  10     port-channel1\nVLAN0004            11 1211.a111.1114       0    2   20  10  This bridge is root",
+  "textfsm_template": "Value Required VLAN_ID (\\S+)\nValue Required PRIORITY (\\S+)\nValue Required ROOT_ID (\\S+)\nValue Required ROOT_COST (\\d+)\nValue Required HELLO_TIME (\\d+)\nValue Required MAX_AGE (\\d+)\nValue Required FWD_DLY (\\d+)\nValue Required ROOT_PORT (.*)\n\nStart\n  ^\\s*Root\\s*Hello\\s*Max\\s*Fwd$$\n  ^\\s*Vlan\\s*Root\\sID\\s*Cost\\s*Time\\s*Age\\s*Dly\\s*Root\\s*Port$$\n  ^\\s*- \n  ^\\s*${VLAN_ID}\\s+${PRIORITY}\\s+${ROOT_ID}+\\s+${ROOT_COST}+\\s+${HELLO_TIME}+\\s+${MAX_AGE}+\\s+${FWD_DLY}+\\s+${ROOT_PORT} -> Record\n ^. -> Error"
+}

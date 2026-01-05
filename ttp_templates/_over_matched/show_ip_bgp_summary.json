@@ -1,0 +1,128 @@
+{
+  "command": "show ip bgp summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"neighbor_version_as_number_msg_rcvd_msg_sent_table_version_inq_outq_uptime_state_pfxrcd\">\n{{NEIGHBOR}} {{VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{AS_NUMBER}} {{MSG_RCVD}} {{MSG_SENT}} {{TABLE_VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{INQ}} {{OUTQ}} {{UPTIME | ORPHRASE}} {{STATE_PFXRCD | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR": "192.168.1.2",
+      "VERSION": "4",
+      "AS_NUMBER": "65002",
+      "MSG_RCVD": "1024",
+      "MSG_SENT": "1020",
+      "TABLE_VERSION": "5",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPTIME": "1d23h",
+      "STATE_PFXRCD": "5"
+    },
+    {
+      "NEIGHBOR": "192.168.2.2",
+      "VERSION": "4",
+      "AS_NUMBER": "65003",
+      "MSG_RCVD": "1010",
+      "MSG_SENT": "1015",
+      "TABLE_VERSION": "5",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPTIME": "2d12h",
+      "STATE_PFXRCD": "10"
+    },
+    {
+      "NEIGHBOR": "192.168.3.2",
+      "VERSION": "4",
+      "AS_NUMBER": "65004",
+      "MSG_RCVD": "510",
+      "MSG_SENT": "500",
+      "TABLE_VERSION": "5",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPTIME": "3d02h",
+      "STATE_PFXRCD": "8"
+    },
+    {
+      "NEIGHBOR": "192.168.4.2",
+      "VERSION": "4",
+      "AS_NUMBER": "65005",
+      "MSG_RCVD": "720",
+      "MSG_SENT": "725",
+      "TABLE_VERSION": "5",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPTIME": "4d17h",
+      "STATE_PFXRCD": "15"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neighbor_version_as_number_msg_rcvd_msg_sent_table_version_inq_outq_uptime_state_pfxrcd": [
+        {
+          "NEIGHBOR": "Neighbor",
+          "VERSION": "V",
+          "AS_NUMBER": "AS",
+          "MSG_RCVD": "MsgRcvd",
+          "MSG_SENT": "MsgSent",
+          "TABLE_VERSION": "TblVer",
+          "INQ": "InQ",
+          "OUTQ": "OutQ",
+          "UPTIME": "Up/Down",
+          "STATE_PFXRCD": "State/PfxRcd"
+        },
+        {
+          "NEIGHBOR": "192.168.1.2",
+          "VERSION": "4",
+          "AS_NUMBER": "65002",
+          "MSG_RCVD": "1024",
+          "MSG_SENT": "1020",
+          "TABLE_VERSION": "5",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UPTIME": "1d23h",
+          "STATE_PFXRCD": "5"
+        },
+        {
+          "NEIGHBOR": "192.168.2.2",
+          "VERSION": "4",
+          "AS_NUMBER": "65003",
+          "MSG_RCVD": "1010",
+          "MSG_SENT": "1015",
+          "TABLE_VERSION": "5",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UPTIME": "2d12h",
+          "STATE_PFXRCD": "10"
+        },
+        {
+          "NEIGHBOR": "192.168.3.2",
+          "VERSION": "4",
+          "AS_NUMBER": "65004",
+          "MSG_RCVD": "510",
+          "MSG_SENT": "500",
+          "TABLE_VERSION": "5",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UPTIME": "3d02h",
+          "STATE_PFXRCD": "8"
+        },
+        {
+          "NEIGHBOR": "192.168.4.2",
+          "VERSION": "4",
+          "AS_NUMBER": "65005",
+          "MSG_RCVD": "720",
+          "MSG_SENT": "725",
+          "TABLE_VERSION": "5",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UPTIME": "4d17h",
+          "STATE_PFXRCD": "15"
+        }
+      ]
+    }
+  ],
+  "cli_content": "BGP router identifier 192.168.0.1, local AS number 65001\nBGP table version is 5\n6 BGP AS-PATH entries\n0 BGP community entries\n\nNeighbor        V         AS MsgRcvd MsgSent TblVer InQ OutQ Up/Down State/PfxRcd\n192.168.1.2     4     65002    1024    1020       5    0    0 1d23h           5\n192.168.2.2     4     65003    1010    1015       5    0    0 2d12h          10\n192.168.3.2     4     65004     510     500       5    0    0 3d02h           8\n192.168.4.2     4     65005     720     725       5    0    0 4d17h          15\n",
+  "textfsm_template": "Value NEIGHBOR (\\S+)\nValue VERSION (\\d+)\nValue AS_NUMBER (\\d+)\nValue MSG_RCVD (\\d+)\nValue MSG_SENT (\\d+)\nValue TABLE_VERSION (\\d+)\nValue INQ (\\d+)\nValue OUTQ (\\d+)\nValue UPTIME (\\S+)\nValue STATE_PFXRCD (\\d+)\n\nStart\n  ^Neighbor\\s+V\\s+AS\\s+MsgRcvd\\s+MsgSent\\s+TblVer\\s+InQ\\s+OutQ\\s+Up\\/Down\\s+State\\/PfxRcd\\s*$$\n  ^\\s*${NEIGHBOR}\\s+${VERSION}\\s+${AS_NUMBER}\\s+${MSG_RCVD}\\s+${MSG_SENT}\\s+${TABLE_VERSION}\\s+${INQ}\\s+${OUTQ}\\s+${UPTIME}\\s+${STATE_PFXRCD}\\s*$$ -> Record"
+}

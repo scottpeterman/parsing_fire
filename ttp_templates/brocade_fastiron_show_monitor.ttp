@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: brocade_fastiron_show_monitor
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="inputmirror">
+  Input mirrored by	: {{inputmirror | ORPHRASE}}
+</group>

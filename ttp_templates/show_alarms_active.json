@@ -1,0 +1,84 @@
+{
+  "command": "show alarms active",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"id_severity_date_time_type_description\">\n{{ID | re(\"\\\\d+\")}} {{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{DATE}} {{TIME}} {{TYPE}} {{DESCRIPTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ID": "1",
+      "SEVERITY": "Critical",
+      "DATE": "2023-11-03",
+      "TIME": "03:14:15",
+      "TYPE": "HardwareFailure",
+      "DESCRIPTION": "PSU Failure"
+    },
+    {
+      "ID": "2",
+      "SEVERITY": "Major",
+      "DATE": "2023-11-03",
+      "TIME": "03:15:45",
+      "TYPE": "LinkDown",
+      "DESCRIPTION": "Interface Gi0/1 Down"
+    },
+    {
+      "ID": "3",
+      "SEVERITY": "Minor",
+      "DATE": "2023-11-03",
+      "TIME": "03:16:30",
+      "TYPE": "TemperatureThreshold",
+      "DESCRIPTION": "High Temperature detected"
+    },
+    {
+      "ID": "4",
+      "SEVERITY": "Warning",
+      "DATE": "2023-11-03",
+      "TIME": "03:17:05",
+      "TYPE": "MemoryUsage",
+      "DESCRIPTION": "Memory utilization high"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "id_severity_date_time_type_description": [
+        {
+          "ID": "1",
+          "SEVERITY": "Critical",
+          "DATE": "2023-11-03",
+          "TIME": "03:14:15",
+          "TYPE": "HardwareFailure",
+          "DESCRIPTION": "PSU Failure"
+        },
+        {
+          "ID": "2",
+          "SEVERITY": "Major",
+          "DATE": "2023-11-03",
+          "TIME": "03:15:45",
+          "TYPE": "LinkDown",
+          "DESCRIPTION": "Interface Gi0/1 Down"
+        },
+        {
+          "ID": "3",
+          "SEVERITY": "Minor",
+          "DATE": "2023-11-03",
+          "TIME": "03:16:30",
+          "TYPE": "TemperatureThreshold",
+          "DESCRIPTION": "High Temperature detected"
+        },
+        {
+          "ID": "4",
+          "SEVERITY": "Warning",
+          "DATE": "2023-11-03",
+          "TIME": "03:17:05",
+          "TYPE": "MemoryUsage",
+          "DESCRIPTION": "Memory utilization high"
+        }
+      ]
+    }
+  ],
+  "cli_content": "ID  Severity  Date                         Time                         Type                   Description\n1   Critical  2023-11-03                   03:14:15                     HardwareFailure        PSU Failure\n2   Major     2023-11-03                   03:15:45                     LinkDown               Interface Gi0/1 Down\n3   Minor     2023-11-03                   03:16:30                     TemperatureThreshold   High Temperature detected\n4   Warning   2023-11-03                   03:17:05                     MemoryUsage            Memory utilization high\n",
+  "textfsm_template": "Value ID (\\d+)\nValue SEVERITY (\\S+)\nValue DATE (\\d{4}-\\d{2}-\\d{2})\nValue TIME (\\d{2}:\\d{2}:\\d{2})\nValue TYPE (\\S+)\nValue DESCRIPTION (.+)\n\nStart\n  ^\\s*ID\\s+Severity\\s+Date\\s+Time\\s+Type\\s+Description\\s*$$\n  ^\\s*${ID}\\s+${SEVERITY}\\s+${DATE}\\s+${TIME}\\s+${TYPE}\\s+${DESCRIPTION}\\s*$$ -> Record"
+}

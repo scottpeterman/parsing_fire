@@ -1,0 +1,38 @@
+{
+  "command": "edgecore_show_version",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"epld_version_hardware_version_loader_version_num_of_ports\">\n Serial Number:  {{SERIAL | ORPHRASE}}\n Hardware Version:  {{HARDWARE_VERSION | ORPHRASE}}\n EPLD Version:  {{EPLD_VERSION | ORPHRASE}}\n Number of Ports:  {{NUM_OF_PORTS | ORPHRASE}}\n Main Power Status:  {{POWER_STATUS | ORPHRASE}}\n Loader Version:  {{LOADER_VERSION | ORPHRASE}}\n Boot ROM Version:  {{ROM_VERSION | ORPHRASE}}\n Operation Code Version:  {{OPERATION_CODE_VERSION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SERIAL": "A123456789",
+      "HARDWARE_VERSION": "R99",
+      "EPLD_VERSION": "1.23",
+      "NUM_OF_PORTS": "26",
+      "POWER_STATUS": "Up",
+      "LOADER_VERSION": "1.2.3.4",
+      "ROM_VERSION": "1.2.3.5",
+      "OPERATION_CODE_VERSION": "1.2.3.6"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "epld_version_hardware_version_loader_version_num_of_ports": {
+        "OPERATION_CODE_VERSION": "1.2.3.6",
+        "ROM_VERSION": "1.2.3.5",
+        "LOADER_VERSION": "1.2.3.4",
+        "POWER_STATUS": "Up",
+        "NUM_OF_PORTS": "26",
+        "EPLD_VERSION": "1.23",
+        "HARDWARE_VERSION": "R99",
+        "SERIAL": "A123456789"
+      }
+    }
+  ],
+  "cli_content": " Serial Number:           A123456789\n Service Tag:\n Hardware Version:        R99\n EPLD Version:            1.23\n Number of Ports:         26\n Main Power Status:       Up\n Loader Version:          1.2.3.4\n Boot ROM Version:        1.2.3.5\n Operation Code Version:  1.2.3.6\n",
+  "textfsm_template": "Value UNIT (\\d+)\nValue SERIAL (.*)\nValue SERVICE_TAG (.*)\nValue HARDWARE_VERSION (.*)\nValue CHIP_ID (.*)\nValue EPLD_VERSION (.*)\nValue NUM_OF_PORTS (.*)\nValue POWER_STATUS (.*)\nValue REDUNDANT_POWER_STATUS (.*)\nValue LOADER_VERSION (.*)\nValue ROM_VERSION (.*)\nValue OPERATION_CODE_VERSION (.*)\n\nStart\n  ^\\s*Unit\\s+\\d+$$ -> Continue.Record\n  ^\\s*Unit\\s+${UNIT}$$\n  ^\\s*Serial\\s+Number:\\s*${SERIAL}\\s*$$\n  ^\\s*Service\\s+Tag:(?:\\s*${SERVICE_TAG})?\\s*$$\n  ^\\s*Hardware\\s+Version:\\s*${HARDWARE_VERSION}\\s*$$\n  ^\\s*Chip\\s+Device\\s+ID:\\s*${CHIP_ID}\\s*$$\n  ^\\s*EPLD\\s+Version:\\s*${EPLD_VERSION}\\s*$$\n  ^\\s*Number\\s+of\\s+Ports:\\s*${NUM_OF_PORTS}\\s*$$\n  ^\\s*Main\\s+Power\\s+Status:\\s*${POWER_STATUS}\\s*$$\n  ^\\s*Redundant\\s+Power\\s+Status:\\s*${REDUNDANT_POWER_STATUS}\\s*$$\n  ^\\s*Agent.*$$\n  ^\\s*Unit\\s+ID:\\s*\\d+\\s*$$\n  ^\\s*Loader\\s+Version:\\s*${LOADER_VERSION}\\s*$$\n  ^\\s*Boot\\s+ROM\\s+Version:\\s*${ROM_VERSION}\\s*$$\n  ^\\s*Operation\\s+Code\\s+Version:\\s*${OPERATION_CODE_VERSION}\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

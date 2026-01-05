@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_cdp_neighbors
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 6
+# Match ratio: 1.00
+
+<group name="neighbor_name_local_interface_capabilities_platform_neighbor_interface">
+{{NEIGHBOR_NAME}} {{LOCAL_INTERFACE | ORPHRASE}} 144 {{CAPABILITIES | ORPHRASE}} {{PLATFORM | ORPHRASE}} {{NEIGHBOR_INTERFACE | ORPHRASE}}
+</group>
+<group name="capabilities_local_interface_platform_neighbor_interface">
+{{NEIGHBO{{CAPABILITIES | ORPHRASE}}_NAME}} {{LOCAL_INTERFACE | ORPHRASE}} 122 R {{PLATFORM | ORPHRASE}} {{NEIGHBOR_INTERFACE | ORPHRASE}}
+</group>

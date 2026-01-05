@@ -1,0 +1,164 @@
+{
+  "command": "cisco_ios_show_ap_summary",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"ap_name_slot_ap_model_mac_address_radio_mac_country_regulatory_domain_ip_address_state_location\">\n{{AP_NAME}} {{SLOT | re(\"\\\\d+\")}} {{AP_MODEL}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{RADIO_MAC | re(\"[0-9a-fA-F:.-]+\")}} {{COUNTRY}} {{REGULATORY_DOMAIN}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATE | ORPHRASE}} {{LOCATION | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "AP_NAME": "K-XXXXX-YYY-SS-AP",
+      "SLOT": "2",
+      "AP_MODEL": "AIR-CAP1702I-B-K9",
+      "MAC_ADDRESS": "0000.0000.0000",
+      "RADIO_MAC": "0000.0000.0000",
+      "LOCATION": "default location",
+      "COUNTRY": "US",
+      "REGULATORY_DOMAIN": "-B",
+      "IP_ADDRESS": "0.0.0.0",
+      "STATE": "Registered"
+    },
+    {
+      "AP_NAME": "K-XXXXX-YYY-SS-AP2",
+      "SLOT": "2",
+      "AP_MODEL": "AIR-CAP3702I-B-K9",
+      "MAC_ADDRESS": "1111.1111.1111",
+      "RADIO_MAC": "1111.1111.1111",
+      "LOCATION": "default location",
+      "COUNTRY": "US",
+      "REGULATORY_DOMAIN": "-B",
+      "IP_ADDRESS": "1.1.1.1",
+      "STATE": "Registered"
+    },
+    {
+      "AP_NAME": "K-XXXXX-YYYY-SS-AP2",
+      "SLOT": "2",
+      "AP_MODEL": "AIR-AP3802I-B-K9",
+      "MAC_ADDRESS": "2222.2222.2222",
+      "RADIO_MAC": "2222.2222.2222",
+      "LOCATION": "default location",
+      "COUNTRY": "US",
+      "REGULATORY_DOMAIN": "-B",
+      "IP_ADDRESS": "2.2.2.2",
+      "STATE": "Registered"
+    },
+    {
+      "AP_NAME": "DD-XXXX-YYY-ADMIN-SS-AP1",
+      "SLOT": "3",
+      "AP_MODEL": "AIR-AP4800-B-K9",
+      "MAC_ADDRESS": "3333.3333.3333",
+      "RADIO_MAC": "3333.3333.3333",
+      "LOCATION": "default location",
+      "COUNTRY": "US",
+      "REGULATORY_DOMAIN": "-B",
+      "IP_ADDRESS": "3.3.3.3",
+      "STATE": "Registered"
+    },
+    {
+      "AP_NAME": "K-XXXXX-YYY-SS-AP2_N",
+      "SLOT": "2",
+      "AP_MODEL": "C9120AXI-B",
+      "MAC_ADDRESS": "4444.4444.4444",
+      "RADIO_MAC": "4444.4444.4444",
+      "LOCATION": "default location",
+      "COUNTRY": "US",
+      "REGULATORY_DOMAIN": "--",
+      "IP_ADDRESS": "4.4.4.4",
+      "STATE": "Registered"
+    },
+    {
+      "AP_NAME": "ICT02",
+      "SLOT": "2",
+      "AP_MODEL": "AIR-CAP2702I-E-K9",
+      "MAC_ADDRESS": "002c.c800.0000",
+      "RADIO_MAC": "002c.c800.0000",
+      "LOCATION": "Reisende",
+      "COUNTRY": "CH",
+      "REGULATORY_DOMAIN": "-E",
+      "IP_ADDRESS": "5.5.5.5",
+      "STATE": "Registered"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ap_name_slot_ap_model_mac_address_radio_mac_country_regulatory_domain_ip_address_state_location": [
+        {
+          "AP_NAME": "K-XXXXX-YYY-SS-AP",
+          "SLOT": "2",
+          "AP_MODEL": "AIR-CAP1702I-B-K9",
+          "MAC_ADDRESS": "0000.0000.0000",
+          "RADIO_MAC": "0000.0000.0000",
+          "COUNTRY": "US",
+          "REGULATORY_DOMAIN": "-B",
+          "IP_ADDRESS": "0.0.0.0",
+          "STATE": "Registered",
+          "LOCATION": "default location"
+        },
+        {
+          "AP_NAME": "K-XXXXX-YYY-SS-AP2",
+          "SLOT": "2",
+          "AP_MODEL": "AIR-CAP3702I-B-K9",
+          "MAC_ADDRESS": "1111.1111.1111",
+          "RADIO_MAC": "1111.1111.1111",
+          "COUNTRY": "US",
+          "REGULATORY_DOMAIN": "-B",
+          "IP_ADDRESS": "1.1.1.1",
+          "STATE": "Registered",
+          "LOCATION": "default location"
+        },
+        {
+          "AP_NAME": "K-XXXXX-YYYY-SS-AP2",
+          "SLOT": "2",
+          "AP_MODEL": "AIR-AP3802I-B-K9",
+          "MAC_ADDRESS": "2222.2222.2222",
+          "RADIO_MAC": "2222.2222.2222",
+          "COUNTRY": "US",
+          "REGULATORY_DOMAIN": "-B",
+          "IP_ADDRESS": "2.2.2.2",
+          "STATE": "Registered",
+          "LOCATION": "default location"
+        },
+        {
+          "AP_NAME": "DD-XXXX-YYY-ADMIN-SS-AP1",
+          "SLOT": "3",
+          "AP_MODEL": "AIR-AP4800-B-K9",
+          "MAC_ADDRESS": "3333.3333.3333",
+          "RADIO_MAC": "3333.3333.3333",
+          "COUNTRY": "US",
+          "REGULATORY_DOMAIN": "-B",
+          "IP_ADDRESS": "3.3.3.3",
+          "STATE": "Registered",
+          "LOCATION": "default location"
+        },
+        {
+          "AP_NAME": "K-XXXXX-YYY-SS-AP2_N",
+          "SLOT": "2",
+          "AP_MODEL": "C9120AXI-B",
+          "MAC_ADDRESS": "4444.4444.4444",
+          "RADIO_MAC": "4444.4444.4444",
+          "COUNTRY": "US",
+          "REGULATORY_DOMAIN": "--",
+          "IP_ADDRESS": "4.4.4.4",
+          "STATE": "Registered",
+          "LOCATION": "default location"
+        },
+        {
+          "AP_NAME": "ICT02",
+          "SLOT": "2",
+          "AP_MODEL": "AIR-CAP2702I-E-K9",
+          "MAC_ADDRESS": "002c.c800.0000",
+          "RADIO_MAC": "002c.c800.0000",
+          "COUNTRY": "CH",
+          "REGULATORY_DOMAIN": "-E",
+          "IP_ADDRESS": "5.5.5.5",
+          "STATE": "Registered",
+          "LOCATION": "Reisende"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Number of APs: 6\n\nCC = Country Code\nRD = Regulatory Domain\n\nAP Name                          Slots AP Model             Ethernet MAC   Radio MAC      CC   RD   IP Address                                State        Location\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------\nK-XXXXX-YYY-SS-AP                2     AIR-CAP1702I-B-K9    0000.0000.0000 0000.0000.0000 US   -B   0.0.0.0                                  Registered   default location                \nK-XXXXX-YYY-SS-AP2               2     AIR-CAP3702I-B-K9    1111.1111.1111 1111.1111.1111 US   -B   1.1.1.1                                  Registered   default location                \nK-XXXXX-YYYY-SS-AP2              2     AIR-AP3802I-B-K9     2222.2222.2222 2222.2222.2222 US   -B   2.2.2.2                                  Registered   default location                \nDD-XXXX-YYY-ADMIN-SS-AP1         3     AIR-AP4800-B-K9      3333.3333.3333 3333.3333.3333 US   -B   3.3.3.3                                  Registered   default location                \nK-XXXXX-YYY-SS-AP2_N             2     C9120AXI-B           4444.4444.4444 4444.4444.4444 US   --   4.4.4.4                                  Registered   default location                \nICT02                            2     AIR-CAP2702I-E-K9    002c.c800.0000 002c.c800.0000 CH   -E   5.5.5.5                                  Registered   Reisende\n",
+  "textfsm_template": "Value AP_NAME (\\S+)\nValue SLOT (\\d+)\nValue AP_MODEL (\\S+)\nValue MAC_ADDRESS ([a-fA-F0-9:\\.]+)\nValue RADIO_MAC ([a-fA-F0-9:\\.]+)\nValue LOCATION (.+?)\nValue COUNTRY (\\S+)\nValue REGULATORY_DOMAIN (\\S+)\nValue IP_ADDRESS ([a-fA-F0-9:\\.]+)\nValue STATE (\\S+)\n\nStart\n  # AP count summary\n  ^[a-zA-Z]+\\s[a-z]+\\s[a-zA-z]+:\\s\\d+$$\n  # abbreviation legend\n  ^[A-Z]+\\s+=\\s+.*$$\n  # line of dashes\n  ^-+\\s*$$\n  # legacy ios-xe wlc\n  ^AP\\s+Name\\s+Slots\\s+AP\\s+Model\\s+Ethernet\\s+MAC\\s+Radio\\sMAC\\s+Location\\s+Country\\s+IP\\s+Address\\s+State\\s*$$\n  ^${AP_NAME}\\s+${SLOT}\\s+${AP_MODEL}\\s+${MAC_ADDRESS}\\s+${RADIO_MAC}\\s+${LOCATION}\\s+${COUNTRY}\\s+${IP_ADDRESS}\\s+${STATE}\\s*$$ -> Record\n  # ios-xe wlc approximately 17.9.4 and later\n  ^AP\\s+Name\\s+Slots\\s+AP\\s+Model\\s+Ethernet\\s+MAC\\s+Radio\\sMAC\\s+CC\\s+RD\\s+IP\\s+Address\\s+State\\s+Location\\s*$$\n  ^${AP_NAME}\\s+${SLOT}\\s+${AP_MODEL}\\s+${MAC_ADDRESS}\\s+${RADIO_MAC}\\s+${COUNTRY}\\s+${REGULATORY_DOMAIN}\\s+${IP_ADDRESS}\\s+${STATE}\\s+${LOCATION}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

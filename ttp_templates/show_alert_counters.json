@@ -1,0 +1,80 @@
+{
+  "command": "show alert counters",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"alert_severity_count_last_occurrence\">\n{{ALERT}} {{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{COUNT | re(\"\\\\d+\")}} {{LAST_OCCURRENCE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ALERT": "MemoryLeak",
+      "SEVERITY": "Critical",
+      "COUNT": "3",
+      "LAST_OCCURRENCE": "2023-10-11 14:22:33"
+    },
+    {
+      "ALERT": "CPUOverload",
+      "SEVERITY": "Warning",
+      "COUNT": "5",
+      "LAST_OCCURRENCE": "2023-10-11 14:15:11"
+    },
+    {
+      "ALERT": "TempHigh",
+      "SEVERITY": "Critical",
+      "COUNT": "2",
+      "LAST_OCCURRENCE": "2023-10-11 13:55:45"
+    },
+    {
+      "ALERT": "DiskFailure",
+      "SEVERITY": "Critical",
+      "COUNT": "1",
+      "LAST_OCCURRENCE": "2023-10-11 13:50:29"
+    },
+    {
+      "ALERT": "NetworkIssue",
+      "SEVERITY": "Warning",
+      "COUNT": "4",
+      "LAST_OCCURRENCE": "2023-10-11 13:45:10"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "alert_severity_count_last_occurrence": [
+        {
+          "ALERT": "MemoryLeak",
+          "SEVERITY": "Critical",
+          "COUNT": "3",
+          "LAST_OCCURRENCE": "2023-10-11 14:22:33"
+        },
+        {
+          "ALERT": "CPUOverload",
+          "SEVERITY": "Warning",
+          "COUNT": "5",
+          "LAST_OCCURRENCE": "2023-10-11 14:15:11"
+        },
+        {
+          "ALERT": "TempHigh",
+          "SEVERITY": "Critical",
+          "COUNT": "2",
+          "LAST_OCCURRENCE": "2023-10-11 13:55:45"
+        },
+        {
+          "ALERT": "DiskFailure",
+          "SEVERITY": "Critical",
+          "COUNT": "1",
+          "LAST_OCCURRENCE": "2023-10-11 13:50:29"
+        },
+        {
+          "ALERT": "NetworkIssue",
+          "SEVERITY": "Warning",
+          "COUNT": "4",
+          "LAST_OCCURRENCE": "2023-10-11 13:45:10"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Alert             Severity    Count      Last Occurrence\nMemoryLeak        Critical    3          2023-10-11 14:22:33\nCPUOverload       Warning     5          2023-10-11 14:15:11\nTempHigh          Critical    2          2023-10-11 13:55:45\nDiskFailure       Critical    1          2023-10-11 13:50:29\nNetworkIssue      Warning     4          2023-10-11 13:45:10\n",
+  "textfsm_template": "Value ALERT (\\S+)\nValue SEVERITY (\\S+)\nValue COUNT (\\d+)\nValue LAST_OCCURRENCE (\\d+-\\d+-\\d+\\s\\d+:\\d+:\\d+)\n\nStart\n  ^\\s*Alert\\s+Severity\\s+Count\\s+Last Occurrence\\s*$$\n  ^\\s*${ALERT}\\s+${SEVERITY}\\s+${COUNT}\\s+${LAST_OCCURRENCE}\\s*$$ -> Record\n"
+}

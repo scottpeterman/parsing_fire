@@ -1,0 +1,127 @@
+{
+  "command": "show ip ospf border-routers",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 4.666666666666667,
+  "textfsm_rows": 3,
+  "ttp_rows": 14,
+  "ttp_template": "<group name=\"router_id_designated_adjacency_state_networks\">\n    {{ROUTER_ID}} {{DESIGNATED_ADJACENCY}} {{STATE | ORPHRASE}} {{NETWORKS}}\n</group>\n<group name=\"router_id_designated_adjacency_abr_networks\">\n    {{ROUTER_ID}} {{DESIGNATED_ADJACENCY}} {{ABR | ORPHRASE}} {{NETWORKS}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ROUTER_ID": "192.168.20.1",
+      "ADDRESS": "10.30.40.1",
+      "AREA": "0.0.0.3",
+      "STATE": "UP",
+      "DESIGNATED_ADJACENCY": "10.20.30.1",
+      "ABR": "UP",
+      "NETWORKS": "20"
+    },
+    {
+      "ROUTER_ID": "192.168.10.2",
+      "DESIGNATED_ADJACENCY": "10.20.30.2",
+      "ABR": "UP",
+      "NETWORKS": "10"
+    },
+    {
+      "ROUTER_ID": "192.168.30.3",
+      "DESIGNATED_ADJACENCY": "10.20.40.3",
+      "ABR": "DOWN",
+      "NETWORKS": "15"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "router_id_designated_adjacency_state_networks": [
+        {
+          "ROUTER_ID": "192.168.10.1",
+          "DESIGNATED_ADJACENCY": "ADDRESS:",
+          "STATE": "10.20.30.1 LS TRANSMIT:",
+          "NETWORKS": "DMZ"
+        },
+        {
+          "ROUTER_ID": "10.20.30.2",
+          "DESIGNATED_ADJACENCY": "AREA:",
+          "STATE": "0.0.0.1 STATE:",
+          "NETWORKS": "UP"
+        },
+        {
+          "ROUTER_ID": "10.20.30.3",
+          "DESIGNATED_ADJACENCY": "AREA:",
+          "STATE": "0.0.0.2 STATE:",
+          "NETWORKS": "DOWN"
+        },
+        {
+          "ROUTER_ID": "10.30.40.1",
+          "DESIGNATED_ADJACENCY": "AREA:",
+          "STATE": "0.0.0.3 STATE:",
+          "NETWORKS": "UP"
+        },
+        {
+          "ROUTER_ID": "192.168.20.1",
+          "DESIGNATED_ADJACENCY": "10.20.30.1",
+          "STATE": "UP",
+          "NETWORKS": "20"
+        },
+        {
+          "ROUTER_ID": "192.168.10.2",
+          "DESIGNATED_ADJACENCY": "10.20.30.2",
+          "STATE": "UP",
+          "NETWORKS": "10"
+        },
+        {
+          "ROUTER_ID": "192.168.30.3",
+          "DESIGNATED_ADJACENCY": "10.20.40.3",
+          "STATE": "DOWN",
+          "NETWORKS": "15"
+        }
+      ],
+      "router_id_designated_adjacency_abr_networks": [
+        {
+          "ROUTER_ID": "192.168.10.1",
+          "DESIGNATED_ADJACENCY": "ADDRESS:",
+          "ABR": "10.20.30.1 LS TRANSMIT:",
+          "NETWORKS": "DMZ"
+        },
+        {
+          "ROUTER_ID": "10.20.30.2",
+          "DESIGNATED_ADJACENCY": "AREA:",
+          "ABR": "0.0.0.1 STATE:",
+          "NETWORKS": "UP"
+        },
+        {
+          "ROUTER_ID": "10.20.30.3",
+          "DESIGNATED_ADJACENCY": "AREA:",
+          "ABR": "0.0.0.2 STATE:",
+          "NETWORKS": "DOWN"
+        },
+        {
+          "ROUTER_ID": "10.30.40.1",
+          "DESIGNATED_ADJACENCY": "AREA:",
+          "ABR": "0.0.0.3 STATE:",
+          "NETWORKS": "UP"
+        },
+        {
+          "ROUTER_ID": "192.168.20.1",
+          "DESIGNATED_ADJACENCY": "10.20.30.1",
+          "ABR": "UP",
+          "NETWORKS": "20"
+        },
+        {
+          "ROUTER_ID": "192.168.10.2",
+          "DESIGNATED_ADJACENCY": "10.20.30.2",
+          "ABR": "UP",
+          "NETWORKS": "10"
+        },
+        {
+          "ROUTER_ID": "192.168.30.3",
+          "DESIGNATED_ADJACENCY": "10.20.40.3",
+          "ABR": "DOWN",
+          "NETWORKS": "15"
+        }
+      ]
+    }
+  ],
+  "cli_content": "OSPF Process 1 internal Router Number 1\n\n  Router ID Command Time\n    192.168.10.1 ADDRESS: 10.20.30.1 LS TRANSMIT: DMZ\n    10.20.30.2 AREA: 0.0.0.1 STATE: UP\n    10.20.30.3 AREA: 0.0.0.2 STATE: DOWN\n    10.30.40.1 AREA: 0.0.0.3 STATE: UP\n\n  Router ID    Designated Adjacency    ABR   NETWORKS\n    192.168.20.1    10.20.30.1    UP   20\n    192.168.10.2    10.20.30.2    UP   10\n    192.168.30.3    10.20.40.3   DOWN   15\n",
+  "textfsm_template": "Value ROUTER_ID (\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})\nValue ADDRESS (\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})\nValue AREA (\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})\nValue STATE (UP|DOWN)\nValue DESIGNATED_ADJACENCY (\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})\nValue ABR (UP|DOWN)\nValue NETWORKS (\\d+)\n\nStart\n  ^\\s*Router\\s+ID\\s+Command\\s+Time\\s*$$\n  ^\\s*${ROUTER_ID}\\s+ADDRESS\\:\\s+${ADDRESS}\\s+LS\\s+TRANSMIT\\:\\s+\\w+\\s*$$\n  ^\\s*${ADDRESS}\\s+AREA\\:\\s+${AREA}\\s+STATE\\:\\s+${STATE}\\s*$$\n  ^\\s*Router\\s+ID\\s+Designated\\s+Adjacency\\s+ABR\\s+NETWORKS\\s*$$\n  ^\\s*${ROUTER_ID}\\s+${DESIGNATED_ADJACENCY}\\s+${ABR}\\s+${NETWORKS}\\s*$$ -> Record"
+}

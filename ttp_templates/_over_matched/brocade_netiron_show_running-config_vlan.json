@@ -1,0 +1,238 @@
+{
+  "command": "brocade_netiron_show_running-config_vlan",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 16,
+  "ttp_rows": 32,
+  "ttp_template": "<group name=\"taggedports\">\n tagged {{taggedports | ORPHRASE}} \n</group>\n<group name=\"vlanid_vlanname\">\nvlan {{vlanid | re(\"\\\\d+\")}} name {{vlanname | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "vlanid": "2",
+      "taggedports": "e 1/1 e 1/6 e 1/17 e 2/1 e 2/6 e 2/17",
+      "associatedve": "2"
+    },
+    {
+      "vlanid": "10",
+      "vlanname": "CLMAMO-RING-1",
+      "untaggedports": "e 1/14",
+      "taggedports": "e 1/1 e 1/4 e 1/7 e 2/1 e 2/4 e 2/7 e 3/2 e 3/4 e 4/2 e 4/4",
+      "associatedve": "10",
+      "metroid1": "10",
+      "metrointerfaces1": "ethe 1/4 ethe 2/4",
+      "metroconfenable1": "enable"
+    },
+    {
+      "vlanid": "11",
+      "vlanname": "CLMAMOXA-JFCYMOXA-RING",
+      "taggedports": "e 1/5 e 2/5"
+    },
+    {
+      "vlanid": "14",
+      "vlanname": "CLMAMOXA-RING",
+      "taggedports": "e 1/4 e 1/7 e 2/4 e 2/7",
+      "metroid1": "14",
+      "metrointerfaces1": "ethe 2/4 ethe 1/4",
+      "metroconfenable1": "enable"
+    },
+    {
+      "vlanid": "22",
+      "vlanname": "KMIZ",
+      "taggedports": "e 1/8 e 2/8 e 3/2 e 3/4 e 4/2"
+    },
+    {
+      "vlanid": "60",
+      "vlanname": "CLMA-JFCY-FLTN",
+      "taggedports": "e 3/1 e 3/3 e 3/5 e 4/1 e 4/3",
+      "metroid1": "60",
+      "metrointerfaces1": "ethe 3/1 ethe 4/1",
+      "metroconfenable1": "enable",
+      "metroid2": "58",
+      "metrointerfaces2": "ethe 4/1 ethe 3/5",
+      "metroconfenable2": "enable"
+    },
+    {
+      "vlanid": "94",
+      "vlanname": "HermannHospital",
+      "taggedports": "e 1/12 e 2/12 e 2/15 e 3/1 e 3/3 to 3/4 e 4/1 e 4/3"
+    },
+    {
+      "vlanid": "144",
+      "vlanname": "VOIPstate-External",
+      "taggedports": "e 3/1 e 3/3 e 4/1 e 4/3",
+      "associatedve": "144"
+    },
+    {
+      "vlanid": "145",
+      "vlanname": "VOIPstate-Internal",
+      "taggedports": "e 3/1 e 3/3 e 4/1 e 4/3",
+      "associatedve": "145"
+    },
+    {
+      "vlanid": "146",
+      "vlanname": "LabSBC-External",
+      "taggedports": "e 1/4 e 1/7 e 2/4 e 2/7",
+      "associatedve": "146"
+    },
+    {
+      "vlanid": "149",
+      "vlanname": "SBC-External",
+      "taggedports": "e 1/4 e 1/7 e 2/4 e 2/7",
+      "associatedve": "149"
+    },
+    {
+      "vlanid": "151",
+      "vlanname": "LabSBC-internal",
+      "taggedports": "e 1/4 e 1/7 e 2/4 e 2/7",
+      "associatedve": "151"
+    },
+    {
+      "vlanid": "152",
+      "vlanname": "SBC-Inside",
+      "taggedports": "e 1/4 e 1/7 e 2/4 e 2/7",
+      "associatedve": "152"
+    },
+    {
+      "vlanid": "154",
+      "vlanname": "SocketVoIP-Svr",
+      "taggedports": "e 1/4 e 1/7 e 2/4 e 2/7",
+      "associatedve": "154"
+    },
+    {
+      "vlanid": "156",
+      "vlanname": "VoIP-Signaling",
+      "untaggedports": "e 1/11 e 2/11",
+      "taggedports": "e 1/6 e 1/17 e 2/6 e 2/17",
+      "associatedve": "156"
+    },
+    {
+      "vlanid": "158",
+      "vlanname": "VoIP-Bearer",
+      "untaggedports": "e 1/10 e 2/10",
+      "associatedve": "158"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "taggedports": [
+        {
+          "taggedports": "e 1/1 e 1/6 e 1/17 e 2/1 e 2/6 e 2/17"
+        },
+        {
+          "taggedports": "e 1/1 e 1/4 e 1/7 e 2/1 e 2/4 e 2/7 e 3/2 e 3/4 e 4/2 e 4/4"
+        },
+        {
+          "taggedports": "e 1/5 e 2/5"
+        },
+        {
+          "taggedports": "e 1/4 e 1/7 e 2/4 e 2/7"
+        },
+        {
+          "taggedports": "e 1/8 e 2/8 e 3/2 e 3/4 e 4/2"
+        },
+        {
+          "taggedports": "e 3/1 e 3/3 e 3/5 e 4/1 e 4/3"
+        },
+        {
+          "taggedports": "e 1/12 e 2/12 e 2/15 e 3/1 e 3/3 to 3/4 e 4/1 e 4/3"
+        },
+        {
+          "taggedports": "e 3/1 e 3/3 e 4/1 e 4/3"
+        },
+        {
+          "taggedports": "e 3/1 e 3/3 e 4/1 e 4/3"
+        },
+        {
+          "taggedports": "e 3/1 e 3/3 e 4/1 e 4/3"
+        },
+        {
+          "taggedports": "e 1/4 e 1/7 e 2/4 e 2/7"
+        },
+        {
+          "taggedports": "e 1/4 e 1/7 e 2/4 e 2/7"
+        },
+        {
+          "taggedports": "e 1/4 e 1/7 e 2/4 e 2/7"
+        },
+        {
+          "taggedports": "e 1/4 e 1/7 e 2/4 e 2/7"
+        },
+        {
+          "taggedports": "e 1/4 e 1/7 e 2/4 e 2/7"
+        },
+        {
+          "taggedports": "e 1/6 e 1/17 e 2/6 e 2/17"
+        }
+      ],
+      "vlanid_vlanname": [
+        {
+          "vlanid": "1",
+          "vlanname": "DEFAULT-VLAN"
+        },
+        {
+          "vlanid": "10",
+          "vlanname": "CLMAMO-RING-1"
+        },
+        {
+          "vlanid": "11",
+          "vlanname": "CLMAMOXA-JFCYMOXA-RING"
+        },
+        {
+          "vlanid": "14",
+          "vlanname": "CLMAMOXA-RING"
+        },
+        {
+          "vlanid": "22",
+          "vlanname": "KMIZ"
+        },
+        {
+          "vlanid": "60",
+          "vlanname": "CLMA-JFCY-FLTN_Master"
+        },
+        {
+          "vlanid": "94",
+          "vlanname": "HermannHospital_18thSt"
+        },
+        {
+          "vlanid": "144",
+          "vlanname": "VOIPstate-External"
+        },
+        {
+          "vlanid": "145",
+          "vlanname": "VOIPstate-Internal"
+        },
+        {
+          "vlanid": "146",
+          "vlanname": "LabSBC-External"
+        },
+        {
+          "vlanid": "149",
+          "vlanname": "SBC-External"
+        },
+        {
+          "vlanid": "151",
+          "vlanname": "LabSBC-internal"
+        },
+        {
+          "vlanid": "152",
+          "vlanname": "SBC-Inside"
+        },
+        {
+          "vlanid": "154",
+          "vlanname": "SocketVoIP-Svr"
+        },
+        {
+          "vlanid": "156",
+          "vlanname": "VoIP-Signaling"
+        },
+        {
+          "vlanid": "158",
+          "vlanname": "VoIP-Bearer"
+        }
+      ]
+    }
+  ],
+  "cli_content": "no spanning-tree\n!\nno dual-mode-default-vlan\n!\n!\nvlan 1 name DEFAULT-VLAN \n no untagged e 1/1 e 1/4 to 1/8 e 1/12 e 1/17 e 2/1 e 2/4 to 2/8 e 2/12 e 2/15 to 2/17 e 3/1 to 3/5 e 4/1 to 4/4 \n!\nvlan 2 \n tagged e 1/1 e 1/6 e 1/17 e 2/1 e 2/6 e 2/17 \n router-interface ve 2\n spanning-tree\n!\nvlan 10 name CLMAMO-RING-1 \n untagged e 1/14 \n tagged e 1/1 e 1/4 e 1/7 e 2/1 e 2/4 e 2/7 e 3/2 e 3/4 e 4/2 e 4/4 \n router-interface ve 10\n metro-ring 10\n  ring-interfaces ethe 1/4 ethe 2/4\n  enable\n!\nvlan 11 name CLMAMOXA-JFCYMOXA-RING \n tagged e 1/5 e 2/5 \n!                                                                 \nvlan 14 name CLMAMOXA-RING \n tagged e 1/4 e 1/7 e 2/4 e 2/7 \n metro-ring 14\n  ring-interfaces ethe 2/4 ethe 1/4\n  enable\n!\nvlan 22 name KMIZ \n tagged e 1/8 e 2/8 e 3/2 e 3/4 e 4/2 \n!\nvlan 60 name CLMA-JFCY-FLTN_Master \n tagged e 3/1 e 3/3 e 3/5 e 4/1 e 4/3 \n metro-ring 60\n  ring-interfaces ethe 3/1 ethe 4/1\n  enable\n metro-ring 58\n  ring-interfaces ethe 4/1 ethe 3/5\n  enable\n!\nvlan 94 name HermannHospital_18thSt \n tagged e 1/12 e 2/12 e 2/15 e 3/1 e 3/3 to 3/4 e 4/1 e 4/3 \n!\nvlan 100 \n tagged e 3/1 e 3/3 e 4/1 e 4/3                                   \n!\nvlan 144 name VOIPstate-External \n tagged e 3/1 e 3/3 e 4/1 e 4/3 \n router-interface ve 144\n!\nvlan 145 name VOIPstate-Internal \n tagged e 3/1 e 3/3 e 4/1 e 4/3 \n router-interface ve 145\n!\nvlan 146 name LabSBC-External \n tagged e 1/4 e 1/7 e 2/4 e 2/7 \n router-interface ve 146\n!\nvlan 149 name SBC-External \n tagged e 1/4 e 1/7 e 2/4 e 2/7 \n router-interface ve 149\n!\nvlan 151 name LabSBC-internal \n tagged e 1/4 e 1/7 e 2/4 e 2/7 \n router-interface ve 151\n!\nvlan 152 name SBC-Inside \n tagged e 1/4 e 1/7 e 2/4 e 2/7                                   \n router-interface ve 152\n!\nvlan 154 name SocketVoIP-Svr \n tagged e 1/4 e 1/7 e 2/4 e 2/7 \n router-interface ve 154\n!\nvlan 156 name VoIP-Signaling \n untagged e 1/11 e 2/11 \n tagged e 1/6 e 1/17 e 2/6 e 2/17 \n router-interface ve 156\n!\nvlan 158 name VoIP-Bearer \n untagged e 1/10 e 2/10 \n router-interface ve 158\n",
+  "textfsm_template": "Value vlanid (\\d+)\nValue vlanname ([a-zA-Z0-9\\-\\\"\\ ]+)\nValue untaggedports ([0-9\\/\\ eto]+)\nValue taggedports ([0-9\\/\\ eto]+)\nValue associatedve (\\d+)\nValue metroid1 (\\d+)\nValue metrointerfaces1 ([0-9\\/\\ etho]+)\nValue metroconfenable1 (enable)\nValue metroconfmaster1 (master)\nValue metroconfdiag1 (diagnostics)\nValue metroname1 ([a-zA-Z0-9\\-\\\"\\ ]+)\nValue metroid2 (\\d+)\nValue metrointerfaces2 ([0-9\\/\\ etho]+)\nValue metroconfenable2 (enable)\nValue metroconfmaster2 (master)\nValue metroconfdiag2 (diagnostics)\nValue metroname2 ([a-zA-Z0-9\\-\\\"\\ ]+)\nValue metroid3 (\\d+)\nValue metrointerfaces3 ([0-9\\/\\ etho]+)\nValue metroconfenable3 (enable)\nValue metroconfmaster3 (master)\nValue metroconfdiag3 (diagnostics)\nValue metroname3 ([a-zA-Z0-9\\-\\\"\\ ]+)\nValue metroid4 (\\d+)\nValue metrointerfaces4 ([0-9\\/\\ etho]+)\nValue metroconfenable4 (enable)\nValue metroconfmaster4 (master)\nValue metroconfdiag4 (diagnostics)\nValue metroname4 ([a-zA-Z0-9\\-\\\"\\ ]+)\n\nStart\n  ^\\w -> Continue.Record\n  ^vlan ${vlanid} -> Continue\n  ^vlan ${vlanid} name ${vlanname} -> Continue\n  ^\\s+tagged\\s+${taggedports} -> Continue\n  ^\\s+untagged\\s+${untaggedports} -> Continue\n  ^\\s+router-interface\\s+ve\\s+${associatedve} -> Continue\n  ^! -> Start\n  ^\\s+metro-ring\\s+${metroid1} -> METRO1\n\nMETRO1\n  ^\\s+ring-interfaces\\s+${metrointerfaces1} -> Continue\n  ^\\s+${metroconfenable1} -> Continue\n  ^\\s+${metroconfmaster1} -> Continue\n  ^\\s+${metroconfdiag1} -> Continue\n  ^\\s+name\\s+${metroname1} -> Continue\n  ^! -> Start\n  ^\\s+metro-ring\\s+${metroid2} -> METRO2\n\nMETRO2\n  ^\\s+ring-interfaces\\s+${metrointerfaces2} -> Continue\n  ^\\s+${metroconfenable2} -> Continue\n  ^\\s+${metroconfmaster2} -> Continue\n  ^\\s+${metroconfdiag2} -> Continue\n  ^\\s+name\\s+${metroname2} -> Continue\n  ^! -> Start\n  ^\\s+metro-ring\\s+${metroid3} -> METRO3\n\nMETRO3\n  ^\\s+ring-interfaces\\s+${metrointerfaces3} -> Continue\n  ^\\s+${metroconfenable3} -> Continue\n  ^\\s+${metroconfmaster3} -> Continue\n  ^\\s+${metroconfdiag3} -> Continue\n  ^\\s+name\\s+${metroname3} -> Continue\n  ^! -> Start\n  ^\\s+metro-ring\\s+${metroid4} -> METRO4\n\nMETRO4\n  ^\\s+ring-interfaces\\s+${metrointerfaces4} -> Continue\n  ^\\s+${metroconfenable4} -> Continue\n  ^\\s+${metroconfmaster4} -> Continue\n  ^\\s+${metroconfdiag4} -> Continue\n  ^\\s+name\\s+${metroname4} -> Continue\n"
+}

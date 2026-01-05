@@ -1,0 +1,56 @@
+{
+  "command": "arista_eos_show_environment_power",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"power_supply_location_power_supply_pid_power_supply_watts_power_supply_input_power_supply_output_power_supply_watts_using_power_supply_status\">\n{{POWER_SUPPLY_LOCATION}} {{POWER_SUPPLY_PID}} {{POWER_SUPPLY_WATTS}}W {{POWER_SUPPLY_INPUT}} {{POWER_SUPPLY_OUTPUT}} {{POWER_SUPPLY_WATTS_USING}}W {{POWER_SUPPLY_STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "POWER_SUPPLY_LOCATION": "1",
+      "POWER_SUPPLY_PID": "PWR-460AC-F",
+      "POWER_SUPPLY_WATTS": "460",
+      "POWER_SUPPLY_INPUT": "0.00A",
+      "POWER_SUPPLY_OUTPUT": "0.00A",
+      "POWER_SUPPLY_WATTS_USING": "0.0",
+      "POWER_SUPPLY_STATUS": "Power Loss"
+    },
+    {
+      "POWER_SUPPLY_LOCATION": "2",
+      "POWER_SUPPLY_PID": "PWR-460AC-F",
+      "POWER_SUPPLY_WATTS": "460",
+      "POWER_SUPPLY_INPUT": "1.05A",
+      "POWER_SUPPLY_OUTPUT": "10.38A",
+      "POWER_SUPPLY_WATTS_USING": "121.0",
+      "POWER_SUPPLY_STATUS": "Ok"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "power_supply_location_power_supply_pid_power_supply_watts_power_supply_input_power_supply_output_power_supply_watts_using_power_supply_status": [
+        {
+          "POWER_SUPPLY_LOCATION": "1",
+          "POWER_SUPPLY_PID": "PWR-460AC-F",
+          "POWER_SUPPLY_WATTS": "460",
+          "POWER_SUPPLY_INPUT": "0.00A",
+          "POWER_SUPPLY_OUTPUT": "0.00A",
+          "POWER_SUPPLY_WATTS_USING": "0.0",
+          "POWER_SUPPLY_STATUS": "Power Loss"
+        },
+        {
+          "POWER_SUPPLY_LOCATION": "2",
+          "POWER_SUPPLY_PID": "PWR-460AC-F",
+          "POWER_SUPPLY_WATTS": "460",
+          "POWER_SUPPLY_INPUT": "1.05A",
+          "POWER_SUPPLY_OUTPUT": "10.38A",
+          "POWER_SUPPLY_WATTS_USING": "121.0",
+          "POWER_SUPPLY_STATUS": "Ok"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Power                                  Input    Output   Output\nSupply  Model                Capacity  Current  Current  Power    Status\n------- -------------------- --------- -------- -------- -------- -------------\n1       PWR-460AC-F               460W    0.00A    0.00A     0.0W Power Loss\n2       PWR-460AC-F               460W    1.05A   10.38A   121.0W Ok\n",
+  "textfsm_template": "# Tested against EOS version 4.14.15M and newer\n# When run against vEOS returns a single list item with status\n# power_supply_status: \"no power supplies\"\nValue POWER_SUPPLY_LOCATION (\\d+)\nValue POWER_SUPPLY_PID (\\S+)\nValue POWER_SUPPLY_WATTS (\\d+)\nValue POWER_SUPPLY_INPUT (\\S+)\nValue POWER_SUPPLY_OUTPUT (\\S+)\nValue POWER_SUPPLY_WATTS_USING (\\d+[.]?\\d+?)\n# The expression below allows for up to three words in a status i.e. \"Ok\",\n# \"Not Installed\" or \"Some Other Status\"\nValue Required POWER_SUPPLY_STATUS (\\S+( [a-zA-Z]+)?( [a-zA-Z]+)?)\n# The Uptime and total values below are not present in earlier versions of EOS\nValue POWER_SUPPLY_UPTIME (.*)\nValue Fillup SYSTEM_TOTAL_POWER_WATTS (\\d+)\nValue Fillup SYSTEM_TOTAL_POWER_USED_WATTS (\\d+[.]?\\d+?)\n\nStart\n  # Virtual EOS devices with no power supplies\n  ^%\\sThere\\sseem\\sto\\sbe\\s${POWER_SUPPLY_STATUS}\\sconnected.$$\n  # Physical EOS devices with power supplies\n  ^Power\\s+Input\\s+Output\\s+Output.*$$\n  ^Supply\\s+Model\\s+Capacity\\s+Current\\s+Current\\s+Power\\s+Status\\s+Uptime$$\n  ^Supply\\s+Model\\s+Capacity\\s+Current\\s+Current\\s+Power\\s+Status$$\n  ^-.*$$\n  ^${POWER_SUPPLY_LOCATION}\\s+${POWER_SUPPLY_PID}\\s+${POWER_SUPPLY_WATTS}W\\s+${POWER_SUPPLY_INPUT}\\s+${POWER_SUPPLY_OUTPUT}\\s+${POWER_SUPPLY_WATTS_USING}W\\s+${POWER_SUPPLY_STATUS} *${POWER_SUPPLY_UPTIME}\\s*$$ -> Record\n  ^${POWER_SUPPLY_LOCATION}\\s+${POWER_SUPPLY_PID}\\s+${POWER_SUPPLY_WATTS}W\\s+${POWER_SUPPLY_INPUT}\\s+${POWER_SUPPLY_OUTPUT}\\s+${POWER_SUPPLY_WATTS_USING}W\\s+${POWER_SUPPLY_STATUS}$$ -> Record\n  ^Total\\s+-+\\s+${SYSTEM_TOTAL_POWER_WATTS}W\\s+-+\\s+-+\\s+${SYSTEM_TOTAL_POWER_USED_WATTS}W\\s+.*$$\n  ^. -> Error\n"
+}

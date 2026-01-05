@@ -1,0 +1,62 @@
+{
+  "command": "show logical interfaces",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"interface_index_snmp_index\">\nLogical interface {{INTERFACE}} (Index {{INDEX}}) (SNMP ifIndex {{SNMP_INDEX | ORPHRASE}})\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "ge-0/0/0.0",
+      "INDEX": "333",
+      "SNMP_INDEX": "600",
+      "FLAGS": "SNMP-Traps 0x4004000",
+      "ENCAPSULATION": "Ethernet-Bridge",
+      "INPUT_PACKETS": "0",
+      "OUTPUT_PACKETS": "0"
+    },
+    {
+      "INTERFACE": "ge-0/0/1.0",
+      "INDEX": "334",
+      "SNMP_INDEX": "601",
+      "FLAGS": "Point-To-Point 0x4004000",
+      "ENCAPSULATION": "VLAN-CCC",
+      "INPUT_PACKETS": "12345",
+      "OUTPUT_PACKETS": "54321"
+    },
+    {
+      "INTERFACE": "ge-0/0/2.0",
+      "INDEX": "335",
+      "SNMP_INDEX": "602",
+      "FLAGS": "SNMP-Traps 0x4004000",
+      "ENCAPSULATION": "Ethernet-Bridge",
+      "INPUT_PACKETS": "23456",
+      "OUTPUT_PACKETS": "65432"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_index_snmp_index": [
+        {
+          "INTERFACE": "ge-0/0/0.0",
+          "INDEX": "333",
+          "SNMP_INDEX": "600"
+        },
+        {
+          "INTERFACE": "ge-0/0/1.0",
+          "INDEX": "334",
+          "SNMP_INDEX": "601"
+        },
+        {
+          "INTERFACE": "ge-0/0/2.0",
+          "INDEX": "335",
+          "SNMP_INDEX": "602"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Logical interface ge-0/0/0.0 (Index 333) (SNMP ifIndex 600)\n    Flags: SNMP-Traps 0x4004000 Encapsulation: Ethernet-Bridge\n    Input packets : 0\n    Output packets: 0\nLogical interface ge-0/0/1.0 (Index 334) (SNMP ifIndex 601)\n    Flags: Point-To-Point 0x4004000 Encapsulation: VLAN-CCC\n    Input packets : 12345\n    Output packets: 54321\nLogical interface ge-0/0/2.0 (Index 335) (SNMP ifIndex 602)\n    Flags: SNMP-Traps 0x4004000 Encapsulation: Ethernet-Bridge\n    Input packets : 23456\n    Output packets: 65432\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue INDEX (\\d+)\nValue SNMP_INDEX (\\d+)\nValue FLAGS (.+)\nValue ENCAPSULATION (\\S+)\nValue INPUT_PACKETS (\\d+)\nValue OUTPUT_PACKETS (\\d+)\n\nStart\n  ^Logical interface ${INTERFACE} \\(Index ${INDEX}\\) \\(SNMP ifIndex ${SNMP_INDEX}\\)\n  ^\\s+Flags: ${FLAGS}\\s+Encapsulation: ${ENCAPSULATION}\n  ^\\s+Input packets\\s*:\\s*${INPUT_PACKETS}\n  ^\\s+Output packets\\s*:\\s*${OUTPUT_PACKETS} -> Record"
+}

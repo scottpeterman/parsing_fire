@@ -1,0 +1,68 @@
+{
+  "command": "show logging",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"date_time_log_level_component_interface_message\">\n{{DATE | ORPHRASE}} {{TIME}}: %{{LOG_LEVEL}}-{{COMPONENT}}: Interface {{INTERFACE}}, {{MESSAGE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DATE": "Jul 10",
+      "TIME": "10:17:31.123",
+      "LOG_LEVEL": "LINK-3",
+      "COMPONENT": "UPDOWN",
+      "INTERFACE": "GigabitEthernet0/1",
+      "MESSAGE": "changed state to up"
+    },
+    {
+      "DATE": "Jul 10",
+      "TIME": "10:19:43.789",
+      "LOG_LEVEL": "LINK-3",
+      "COMPONENT": "UPDOWN",
+      "INTERFACE": "GigabitEthernet0/1",
+      "MESSAGE": "changed state to down"
+    },
+    {
+      "DATE": "Jul 10",
+      "TIME": "10:25:15.123",
+      "LOG_LEVEL": "LINK-3",
+      "COMPONENT": "UPDOWN",
+      "INTERFACE": "GigabitEthernet0/2",
+      "MESSAGE": "changed state to up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "date_time_log_level_component_interface_message": [
+        {
+          "DATE": "Jul 10",
+          "TIME": "10:17:31.123",
+          "LOG_LEVEL": "LINK-3",
+          "COMPONENT": "UPDOWN",
+          "INTERFACE": "GigabitEthernet0/1",
+          "MESSAGE": "changed state to up"
+        },
+        {
+          "DATE": "Jul 10",
+          "TIME": "10:19:43.789",
+          "LOG_LEVEL": "LINK-3",
+          "COMPONENT": "UPDOWN",
+          "INTERFACE": "GigabitEthernet0/1",
+          "MESSAGE": "changed state to down"
+        },
+        {
+          "DATE": "Jul 10",
+          "TIME": "10:25:15.123",
+          "LOG_LEVEL": "LINK-3",
+          "COMPONENT": "UPDOWN",
+          "INTERFACE": "GigabitEthernet0/2",
+          "MESSAGE": "changed state to up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Jul 10 10:17:31.123: %LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed state to up\nJul 10 10:17:32.567: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to up\nJul 10 10:19:43.789: %LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed state to down\nJul 10 10:20:03.456: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to down\nJul 10 10:25:15.123: %LINK-3-UPDOWN: Interface GigabitEthernet0/2, changed state to up\nJul 10 10:26:11.234: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/2, changed state to up\n",
+  "textfsm_template": "Value DATE (\\w+\\s+\\d+)\nValue TIME (\\d+:\\d+:\\d+\\.\\d+)\nValue LOG_LEVEL (\\S+)\nValue COMPONENT (\\S+)\nValue INTERFACE (\\S+)\nValue MESSAGE (.+)\n\nStart\n  ^${DATE}\\s+${TIME}:\\s+%${LOG_LEVEL}-${COMPONENT}:\\s+Interface\\s+${INTERFACE},\\s+${MESSAGE}\\s*$$ -> Record"
+}

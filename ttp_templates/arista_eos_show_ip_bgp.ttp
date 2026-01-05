@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_ip_bgp
+# Source: ntc
+# TextFSM rows: 9
+# TTP rows: 6
+# Match ratio: 0.67
+
+<group name="local_as_router_id_vrf">
+BGP routing table information for VRF {{VRF | ORPHRASE}}
+<group name="local_pref_metric_network">
+ * > {{NETWORK}} - {{METRIC}} {{LOCAL_PREF}} - {{ORIGIN | ORPHRASE}}
+</group>
+</group>

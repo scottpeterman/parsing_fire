@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show interface transceivers
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 6
+# Match ratio: 1.20
+
+<group name="port_model_type_status_length_speed">
+{{PORT}} {{MODEL}} {{TYPE}} {{STATUS | ORPHRASE}} {{LENGTH | ORPHRASE}} {{SPEED}}
+</group>

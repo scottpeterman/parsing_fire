@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: paloalto_panos_show_counter_global
+# Source: ntc
+# TextFSM rows: 7
+# TTP rows: 9
+# Match ratio: 1.29
+
+<group name="name_value_rate_severity_category_aspect_description">
+{{NAME}} {{VALUE}} {{RATE}} {{SEVERITY | re("[\\d\\.\\(\\)A-Za-z]+")}} {{CATEGORY}} {{ASPECT}} {{DESCRIPTION | ORPHRASE}}
+</group>

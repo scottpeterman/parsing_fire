@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: cisco_ios_show_ip_ospf_neighbor
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="neighbor_id_priority_state_dead_time_ip_address_interface">
+{{NEIGHBOR_ID}} {{PRIORITY}} {{STATE | ORPHRASE}} {{DEAD_TIME}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{INTERFACE | ORPHRASE}}
+</group>

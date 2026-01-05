@@ -1,0 +1,76 @@
+{
+  "command": "ping 192.168.0.",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"ttl_seq_time\">\n{{TTL}} bytes from {{SEQ}}92.168.0.1: icmp_seq=1 ttl=64 time={{TIME | ORPHRASE}} ms\n</group>\n<group name=\"min_avg_max_mdev\">\nrtt min/avg/max/mdev = {{MIN}}/{{AVG}}/{{MAX}}/{{MDEV | ORPHRASE}} ms\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SEQ": "1",
+      "TTL": "64",
+      "TIME": "0.123"
+    },
+    {
+      "SEQ": "2",
+      "TTL": "64",
+      "TIME": "0.145"
+    },
+    {
+      "SEQ": "3",
+      "TTL": "64",
+      "TIME": "0.154"
+    },
+    {
+      "SEQ": "4",
+      "TTL": "64",
+      "TIME": "0.167"
+    },
+    {
+      "TRANSMITTED": "4",
+      "RECEIVED": "4",
+      "PERCENT": "0",
+      "TIME_TOTAL": "3002",
+      "MIN": "0.123",
+      "AVG": "0.147",
+      "MAX": "0.167",
+      "MDEV": "0.015"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ttl_seq_time": [
+        {
+          "TTL": "64",
+          "SEQ": "19",
+          "TIME": "0.123"
+        },
+        {
+          "TTL": "64",
+          "SEQ": "19",
+          "TIME": "0.145"
+        },
+        {
+          "TTL": "64",
+          "SEQ": "19",
+          "TIME": "0.154"
+        },
+        {
+          "TTL": "64",
+          "SEQ": "19",
+          "TIME": "0.167"
+        }
+      ],
+      "min_avg_max_mdev": {
+        "MIN": "0.123",
+        "AVG": "0.147",
+        "MAX": "0.167",
+        "MDEV": "0.015"
+      }
+    }
+  ],
+  "cli_content": "PING 192.168.0.1 (192.168.0.1) 56(84) bytes of data.\n64 bytes from 192.168.0.1: icmp_seq=1 ttl=64 time=0.123 ms\n64 bytes from 192.168.0.1: icmp_seq=2 ttl=64 time=0.145 ms\n64 bytes from 192.168.0.1: icmp_seq=3 ttl=64 time=0.154 ms\n64 bytes from 192.168.0.1: icmp_seq=4 ttl=64 time=0.167 ms\n\n--- 192.168.0.1 ping statistics ---\n4 packets transmitted, 4 received, 0% packet loss, time 3002ms\nrtt min/avg/max/mdev = 0.123/0.147/0.167/0.015 ms\n",
+  "textfsm_template": "Value SEQ (\\d+)\nValue TTL (\\d+)\nValue TIME (\\d+\\.\\d+)\nValue TRANSMITTED (\\d+)\nValue RECEIVED (\\d+)\nValue PERCENT (\\d+)\nValue TIME_TOTAL (\\d+)\nValue MIN (\\d+\\.\\d+)\nValue AVG (\\d+\\.\\d+)\nValue MAX (\\d+\\.\\d+)\nValue MDEV (\\d+\\.\\d+)\n\nStart\n  ^PING\\s+\\S+\\s+\\(\\d+\\.\\d+\\.\\d+\\.\\d+\\)\\s+\\d+\\(\\d+\\)\\s+bytes\\s+of\\s+data\\.$$\n  ^\\d+\\s+bytes\\s+from\\s+\\S+:\\s+icmp_seq=${SEQ}\\s+ttl=${TTL}\\s+time=${TIME}\\s+ms$$ -> Record\n  ^---\\s+\\S+\\s+ping\\s+statistics\\s+---$$\n  ^${TRANSMITTED}\\s+packets\\s+transmitted,\\s+${RECEIVED}\\s+received,\\s+${PERCENT}%\\s+packet\\s+loss,\\s+time\\s+${TIME_TOTAL}ms$$\n  ^rtt\\s+min/avg/max/mdev\\s+=\\s+${MIN}/${AVG}/${MAX}/${MDEV}\\s+ms$$"
+}

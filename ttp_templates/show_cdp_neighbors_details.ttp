@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show cdp neighbors details
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="capabilities_ip_local_interface_neighbor_id">
+Interface: {{REMOTE_INTERFACE | ORPHRASE}}/1,  Port ID (outgoing port): FastEthernet0/0
+Device ID: {{NEIGHBOR_ID | ORPHRASE}}
+  IP address: {{IP | ORPHRASE}}
+Platform: {{PLATFORM | ORPHRASE}},  Capabilities: AP 
+Interface: {{LOCAL_INTERFACE | ORPHRASE}},  Port ID (outgoing port): FastEthernet0
+</group>

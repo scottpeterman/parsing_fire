@@ -1,0 +1,26 @@
+{
+  "command": "ciena_saos_software_show",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"version_installed\">\n| Installed Package : {{VERSION_INSTALLED | ORPHRASE}} |\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VERSION_INSTALLED": "saos-06-18-00-1848",
+      "VERSION_RUNNING": "saos-06-18-00-1848",
+      "KERNEL": "3.10.54-grsec"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "version_installed": {
+        "VERSION_INSTALLED": "saos-06-18-00-1848"
+      }
+    }
+  ],
+  "cli_content": "+------------------------------------------------------------------------------+\n| Installed Package   : saos-06-18-00-1848                                     |\n| Running Package     : saos-06-18-00-1848                                     |\n| Application Build   : 17704                                                  |\n| Package Build Info  : Thu Feb 21 04:19:00 2019 autouser onxvpnjk02           |\n| Running Kernel      : 3.10.54-grsec                                          |\n| Running MIB Version : 04-18-00-0028                                          |\n| Release Status      : GA                                                     |\n+------------------------------------------------------------------------------+\n| Running bank        : B                                                      |\n| Bank package version: saos-06-18-00-1848                                     |\n| Bootloader version  : 17704                                                  |\n| Bootloader status   : valid                                                  |\n| Bank status         : valid (validated    17hr  7min 15sec ago)              |\n| Standby bank        : A                                                      |\n| Bank package version: saos-06-15-00-0242                                     |\n| Bootloader version  : 12760                                                  |\n| Bootloader status   : valid                                                  |\n| Bank status         : valid (validated    17hr  6min 51sec ago)              |\n+------------------------------------------------------------------------------+\n| Last command file: unknown                                                   |\n| Last configuration file: unknown                                             |\n+------------------------------------------------------------------------------+\n",
+  "textfsm_template": "Value VERSION_INSTALLED (\\S+)\nValue VERSION_RUNNING (\\S+)\nValue KERNEL (\\S+)\n\nStart\n  ^\\| *Installed Package +\\: +${VERSION_INSTALLED}\n  ^\\| *Running Package +\\: +${VERSION_RUNNING}\n  ^\\| *Running Kernel +\\: +${KERNEL}\n  ^\\+-+\n  ^\\|\\s+\n  ^\\|\\s+Running\\s+Package\n  ^\\|\\s+Application\\s+Build\n  ^\\|\\s+Package\\s+Build\\s+Info\n  ^\\|\\s+Running\\s+Kernel\n  ^\\|\\s+Running\\s+MIB\\s+Version\n  ^\\|\\s+(?:Release|Banks)\\s+Status\n  ^\\|\\s+(?:Running|Standby) bank\n  ^\\|\\s+Bank\\s+package\\s+version\n  ^\\|\\s+Bootloader\\s+(?:version|status)\n  ^\\|\\s+Bank\\s+package\\s+version\n  ^\\|\\s+Last\\s+(?:command|configuration)\\s+file\n  ^\\s*$$\n  ^. -> Error\n"
+}

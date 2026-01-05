@@ -1,0 +1,56 @@
+{
+  "command": "show dns cache",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"name_cached_ip_address_ttl\">\n{{NAME}} {{CACHED}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{TTL | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "google.com",
+      "CACHED": "Yes",
+      "IP_ADDRESS": "172.217.5.110",
+      "TTL": "300"
+    },
+    {
+      "NAME": "example.org",
+      "CACHED": "Yes",
+      "IP_ADDRESS": "93.184.216.34",
+      "TTL": "1200"
+    },
+    {
+      "NAME": "openai.com",
+      "CACHED": "Yes",
+      "IP_ADDRESS": "199.232.57.9",
+      "TTL": "1500"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name_cached_ip_address_ttl": [
+        {
+          "NAME": "google.com",
+          "CACHED": "Yes",
+          "IP_ADDRESS": "172.217.5.110",
+          "TTL": "300"
+        },
+        {
+          "NAME": "example.org",
+          "CACHED": "Yes",
+          "IP_ADDRESS": "93.184.216.34",
+          "TTL": "1200"
+        },
+        {
+          "NAME": "openai.com",
+          "CACHED": "Yes",
+          "IP_ADDRESS": "199.232.57.9",
+          "TTL": "1500"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Name                     Cached      IP Address      TTL\ngoogle.com               Yes         172.217.5.110   300\nexample.org              Yes         93.184.216.34   1200\nopenai.com               Yes         199.232.57.9    1500\n",
+  "textfsm_template": "Value NAME (\\S+)\nValue CACHED (\\S+)\nValue IP_ADDRESS (\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})\nValue TTL (\\d+)\n\nStart\n  ^Name\\s+Cached\\s+IP\\s+Address\\s+TTL\\s*$$\n  ^${NAME}\\s+${CACHED}\\s+${IP_ADDRESS}\\s+${TTL}\\s*$$ -> Record"
+}

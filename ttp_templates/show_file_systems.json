@@ -1,0 +1,90 @@
+{
+  "command": "show file systems",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.25,
+  "textfsm_rows": 8,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"size_free_type_flags_prefixes\">\n        {{SIZE}} {{FREE}} {{TYPE}} {{FLAGS}} {{PREFIXES | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SIZE": "65174784",
+      "FREE": "30961664",
+      "TYPE": "nvram",
+      "FLAGS": "rw",
+      "PREFIXES": "nvram:"
+    },
+    {
+      "SIZE": "6760538112",
+      "FREE": "6166822912",
+      "TYPE": "disk0a",
+      "FLAGS": "rw",
+      "PREFIXES": "disk0a:"
+    },
+    {
+      "SIZE": "6760513280",
+      "FREE": "6166816768",
+      "TYPE": "disk0b",
+      "FLAGS": "rw",
+      "PREFIXES": "disk0b:"
+    },
+    {
+      "SIZE": "490233856",
+      "FREE": "423084032",
+      "TYPE": "disk1a",
+      "FLAGS": "rw",
+      "PREFIXES": "disk1a:"
+    },
+    {
+      "SIZE": "999424512",
+      "FREE": "768196608",
+      "TYPE": "disk1b",
+      "FLAGS": "rw",
+      "PREFIXES": "disk1b:"
+    },
+    {
+      "SIZE": "1289748480",
+      "FREE": "1225543168",
+      "TYPE": "disk2",
+      "FLAGS": "rw",
+      "PREFIXES": "disk2:"
+    },
+    {
+      "SIZE": "262144",
+      "FREE": "262144",
+      "TYPE": "context",
+      "FLAGS": "rw",
+      "PREFIXES": "system:"
+    },
+    {
+      "SIZE": "1289748480",
+      "FREE": "1225543168",
+      "TYPE": "flash:",
+      "FLAGS": "rw",
+      "PREFIXES": "flash:"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "size_free_type_flags_prefixes": [
+        {
+          "SIZE": "65174784",
+          "FREE": "30961664",
+          "TYPE": "nvram",
+          "FLAGS": "rw",
+          "PREFIXES": "nvram:"
+        },
+        {
+          "SIZE": "262144",
+          "FREE": "262144",
+          "TYPE": "context",
+          "FLAGS": "rw",
+          "PREFIXES": "system:"
+        }
+      ]
+    }
+  ],
+  "cli_content": "File Systems:\n       Size(b)       Free(b)      Type    Flags   Prefixes\n        65174784      30961664     nvram     rw    nvram:\n       6760538112    6166822912    disk0a    rw    disk0a:\n       6760513280    6166816768    disk0b    rw    disk0b:\n       490233856     423084032     disk1a    rw    disk1a:\n       999424512     768196608     disk1b    rw    disk1b:\n      1289748480    1225543168     disk2     rw    disk2:\n        262144      262144        context   rw    system:\n      1289748480    1225543168     flash:    rw    flash:\n    ",
+  "textfsm_template": "Value SIZE (\\d+)\nValue FREE (\\d+)\nValue TYPE (\\S+)\nValue FLAGS (\\S+)\nValue PREFIXES (\\S+)\n\nStart\n  ^File Systems:\n  ^\\s*${SIZE}\\s+${FREE}\\s+${TYPE}\\s+${FLAGS}\\s+${PREFIXES}\\s*$$ -> Record"
+}

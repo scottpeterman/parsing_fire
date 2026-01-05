@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_ospf_database_network
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 4
+# Match ratio: 0.67
+
+<group name="router_id_process_id">
+            OSPF Router with ID ({{ROUTER_ID | ORPHRASE}}) (Process ID {{PROCESS_ID | re("\\d+")}})
+</group>
+<group name="lsa_adv_router">
+  Advertising Router: {{LSA_ADV_ROUTER | ORPHRASE}}
+</group>

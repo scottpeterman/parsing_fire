@@ -1,0 +1,115 @@
+{
+  "command": "mikrotik_routeros_ip_arp_print",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.4,
+  "textfsm_rows": 5,
+  "ttp_rows": 12,
+  "ttp_template": "<group name=\"num_flags_ip_address_mac_address_interface\">\n {{NUM}} {{FLAGS}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{INTERFACE | ORPHRASE}}\n</group>\n<group name=\"num_ip_address_mac_address_interface\">\n {{NUM}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{INTERFACE | ORPHRASE}}\n</group>\n<group name=\"num_ip_address_mac_address\">\n {{NUM}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{MAC_ADDRESS | ORPHRASE}}\n</group>\n<group name=\"num_ip_address_interface\">\n {{NUM}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE | ORPHRASE}}\n</group>\n<group name=\"num_flags_ip_address\">\n {{NUM}} {{FLAGS}} {{IP_ADDRESS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NUM": "0",
+      "FLAGS": "DC",
+      "IP_ADDRESS": "10.160.1.230",
+      "MAC_ADDRESS": "12:34:56:78:90:AA",
+      "INTERFACE": "ether2"
+    },
+    {
+      "NUM": "1",
+      "IP_ADDRESS": "10.152.1.230",
+      "MAC_ADDRESS": "12:34:56:78:90:AB",
+      "INTERFACE": "ether5"
+    },
+    {
+      "NUM": "2",
+      "IP_ADDRESS": "10.152.1.231",
+      "MAC_ADDRESS": "12:34:56:78:90:AC"
+    },
+    {
+      "NUM": "3",
+      "IP_ADDRESS": "10.152.1.232",
+      "INTERFACE": "ether4"
+    },
+    {
+      "NUM": "4",
+      "FLAGS": "DC",
+      "IP_ADDRESS": "10.152.1.233"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "num_flags_ip_address_mac_address_interface": {
+        "NUM": "0",
+        "FLAGS": "DC",
+        "IP_ADDRESS": "10.160.1.230",
+        "MAC_ADDRESS": "12:34:56:78:90:AA",
+        "INTERFACE": "ether2"
+      },
+      "num_ip_address_mac_address_interface": {
+        "NUM": "1",
+        "IP_ADDRESS": "10.152.1.230",
+        "MAC_ADDRESS": "12:34:56:78:90:AB",
+        "INTERFACE": "ether5"
+      },
+      "num_ip_address_mac_address": [
+        {
+          "NUM": "1",
+          "IP_ADDRESS": "10.152.1.230",
+          "MAC_ADDRESS": "12:34:56:78:90:AB ether5"
+        },
+        {
+          "NUM": "2",
+          "IP_ADDRESS": "10.152.1.231",
+          "MAC_ADDRESS": "12:34:56:78:90:AC"
+        },
+        {
+          "NUM": "3",
+          "IP_ADDRESS": "10.152.1.232",
+          "MAC_ADDRESS": "ether4"
+        }
+      ],
+      "num_ip_address_interface": [
+        {
+          "NUM": "1",
+          "IP_ADDRESS": "10.152.1.230",
+          "INTERFACE": "12:34:56:78:90:AB ether5"
+        },
+        {
+          "NUM": "2",
+          "IP_ADDRESS": "10.152.1.231",
+          "INTERFACE": "12:34:56:78:90:AC"
+        },
+        {
+          "NUM": "3",
+          "IP_ADDRESS": "10.152.1.232",
+          "INTERFACE": "ether4"
+        }
+      ],
+      "num_flags_ip_address": [
+        {
+          "NUM": "1",
+          "FLAGS": "10.152.1.230",
+          "IP_ADDRESS": "12:34:56:78:90:AB ether5"
+        },
+        {
+          "NUM": "2",
+          "FLAGS": "10.152.1.231",
+          "IP_ADDRESS": "12:34:56:78:90:AC"
+        },
+        {
+          "NUM": "3",
+          "FLAGS": "10.152.1.232",
+          "IP_ADDRESS": "ether4"
+        },
+        {
+          "NUM": "4",
+          "FLAGS": "DC",
+          "IP_ADDRESS": "10.152.1.233"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Flags: X - disabled, I - invalid, H - DHCP, D - dynamic, P - published, C - complete\n #    ADDRESS         MAC-ADDRESS       INTERFACE\n 0 DC 10.160.1.230    12:34:56:78:90:AA ether2\n 1    10.152.1.230    12:34:56:78:90:AB ether5\n 2    10.152.1.231    12:34:56:78:90:AC\n 3    10.152.1.232                      ether4\n 4 DC 10.152.1.233\n",
+  "textfsm_template": "Value NUM (\\d+)\nValue FLAGS ([XIHDPC]+)\nValue IP_ADDRESS (\\S+)\nValue MAC_ADDRESS ((?:[0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2})\nValue INTERFACE (\\S+)\n\nStart\n  ^\\s*Flags:\\s+X\\s+-\\s+disabled,\\s+I\\s+-\\s+invalid,\\s+H\\s+-\\s+DHCP,\\s+D\\s+-\\s+dynamic,\\s+P\\s+-\\s+published,\\s+C\\s+-\\s+complete\\s*$$\n  ^\\s*#\\s+ADDRESS\\s+MAC-ADDRESS\\s+INTERFACE\\s*$$ -> EntriesTable\n  ^\\s*$$\n  ^. -> Error\n\nEntriesTable\n  ^\\s*${NUM}(?:\\s+${FLAGS})?\\s+${IP_ADDRESS}(?:\\s+${MAC_ADDRESS})?(?:\\s+${INTERFACE})?\\s*$$ -> Record\n  ^\\s*(?:\\d{2}:){2}\\d{2}\\s+echo:\\s*.*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

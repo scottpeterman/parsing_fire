@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_cts_interface_brief
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 4
+# Match ratio: 4.00
+
+<group name="interface_mode_ifc_state_sgt_assignment_sgt_propagate">
+{{INTERFACE}} {{MODE}} {{IFC_STATE | ORPHRASE}} {{SGT_ASSIGNMENT | ORPHRASE}} {{SGT_PROPAGATE | ORPHRASE}} 
+</group>

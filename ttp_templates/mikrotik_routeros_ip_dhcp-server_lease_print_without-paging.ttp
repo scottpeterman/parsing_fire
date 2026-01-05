@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_ip_dhcp-server_lease_print_without-paging
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="flags_index_ip_address_last_seen">
+Flags: {{FLAGS | ORPHRASE}} - disabled, R - radius, D - dynamic, B - blocked 
+{{INDEX | ORPHRASE}}7:20:06 echo: system,error,critical login failure for user admin from 65.160.140.13 via ssh
+ 0  {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}}  {{STATUS | ORPHRASE}} {{LAST_SEEN | ORPHRASE}}  
+ 1 X {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}  {{RATE_LIMIT | ORPHRASE}}  waiting never  
+</group>

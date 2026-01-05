@@ -1,0 +1,25 @@
+{
+  "command": "mikrotik_routeros_system_clock_print",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 1,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"date_dst_active_gmt_offset_time\">\n  time: {{TIME | ORPHRASE}}\n  date: {{DATE | ORPHRASE}}\n  time-zone-autodetect: {{TIME_ZONE_AUTODETECT | ORPHRASE}}\n  time-zone-name: {{TIME_ZONE_NAME | ORPHRASE}}\n  gmt-offset: {{GMT_OFFSET | ORPHRASE}}\n  dst-active: {{DST_ACTIVE | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "TIME": "10:00:47",
+      "DATE": "jul/21/2023",
+      "TIME_ZONE_AUTODETECT": "yes",
+      "TIME_ZONE_NAME": "Europe/Moscow",
+      "GMT_OFFSET": "+03:00",
+      "DST_ACTIVE": "no"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "                  time: 10:00:47\n                  date: jul/21/2023\n  time-zone-autodetect: yes\n        time-zone-name: Europe/Moscow\n            gmt-offset: +03:00\n            dst-active: no",
+  "textfsm_template": "Value TIME (\\d{2}\\:\\d{2}\\:\\d{2})\nValue DATE ([a-z]{3}\\/\\d{2}\\/\\d{4})\nValue TIME_ZONE_AUTODETECT (yes|no)\nValue TIME_ZONE_NAME (\\S+)\nValue GMT_OFFSET (\\+\\d{2}\\:\\d{2})\nValue DST_ACTIVE (yes|no)\n\nStart\n  ^\\s*time:\\s+${TIME}\\s*$$\n  ^\\s*date:\\s+${DATE}\\s*$$\n  ^\\s*time-zone-autodetect:\\s+${TIME_ZONE_AUTODETECT}\\s*$$\n  ^\\s*time-zone-name:\\s+${TIME_ZONE_NAME}\\s*$$\n  ^\\s*gmt-offset:\\s+${GMT_OFFSET}\\s*$$\n  ^\\s*dst-active:\\s+${DST_ACTIVE}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

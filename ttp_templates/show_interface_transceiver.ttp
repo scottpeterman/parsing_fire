@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show interface transceiver
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="interface_sfp_module_type_serial_number_wavelength_temp_voltage_current_tx_power_rx_power_status">
+{{INTERFACE}} {{SFP_MODULE_TYPE}} {{SERIAL_NUMBER | re("\\w+")}} {{WAVELENGTH}} {{TEMP}} {{VOLTAGE}} {{CURRENT}} {{TX_POWER}} {{RX_POWER}} {{STATUS | ORPHRASE}}
+</group>

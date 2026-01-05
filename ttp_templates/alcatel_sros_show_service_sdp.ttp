@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: alcatel_sros_show_service_sdp
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 6
+# Match ratio: 1.00
+
+<group name="sdp_id_adm_mtu_opr_mtu_far_end_adm_opr_del_lsp_sig">
+{{SDP_ID | re("\\d+")}} {{ADM_MTU}} {{OPR_MTU}} {{FAR_END}} {{ADM}} {{OPR}} {{DEL}} {{LSP}} {{SIG | ORPHRASE}}
+</group>
+<group name="sdp_id_adm_mtu_lsp_far_end_adm_opr_del_sig">
+{{SDP_ID | re("\\d+")}} {{ADM_MTU}} {{OP{{LSP}}_MTU}} {{FAR_END}} {{ADM}} {{OPR}} {{DEL}} R {{SIG | ORPHRASE}}
+</group>
+<group name="sdp_id_adm_mtu_opr_mtu_adm_opr_del_lsp_sig">
+{{SDP_ID | re("\\d+")}} {{ADM_MTU}} {{OPR_MTU}} {{ADM}} {{OPR}} {{DEL}} {{LSP}} {{SIG | ORPHRASE}}
+</group>

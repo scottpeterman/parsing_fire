@@ -1,0 +1,50 @@
+{
+  "command": "arista_eos_show_snmp_community",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.6666666666666667,
+  "textfsm_rows": 3,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"name\">\nCommunity name: {{NAME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "TEST_AGAIN",
+      "ACCESS": "read-only",
+      "VIEW": "TEST"
+    },
+    {
+      "NAME": "TEST_ONE_MORE",
+      "ACCESS": "read-only",
+      "ACL": "TEST_ACL"
+    },
+    {
+      "NAME": "TEST_ONE_MORE_TIME",
+      "ACCESS": "read-write",
+      "ACL": "IPV6_ACL"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name": [
+        {
+          "NAME": "TEST"
+        },
+        {
+          "NAME": "TEST_AGAIN"
+        },
+        {
+          "NAME": "TEST_ONE_MORE"
+        },
+        {
+          "NAME": "TEST_ONE_MORE_TIME"
+        },
+        {
+          "NAME": "public"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Community name: TEST\nCommunity access: read-only\n\nCommunity name: TEST_AGAIN\nCommunity access: read-only\nCommunity view: TEST (non-existent)\n\nCommunity name: TEST_ONE_MORE\nCommunity access: read-only\nAccess list: TEST_ACL (non-existent)\n\nCommunity name: TEST_ONE_MORE_TIME\nCommunity access: read-write\nIPv6 access list: IPV6_ACL (non-existent)\n\nCommunity name: public\nCommunity access: read-only\n",
+  "textfsm_template": "Value NAME (\\S+)\nValue ACCESS (\\S+)\nValue VIEW (\\S+)\nValue ACL (\\S+)\n\nStart\n  ^Community\\sview:\\s+${VIEW}\n  ^.*list:\\s+${ACL}\n  ^Community\\sname:\\s+${NAME}\n  ^Community\\saccess:\\s+${ACCESS} \n  ^.* -> Record\n  #^Community\\svies:\\s+${VIEW}\n  #^Access\\slist:\\s+${ACL} -> Record\n"
+}

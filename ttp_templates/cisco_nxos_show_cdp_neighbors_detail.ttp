@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_cdp_neighbors_detail
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 20
+# Match ratio: 4.00
+
+<group name="mgmt_address">
+    IPv4 Address: {{MGMT_ADDRESS | ORPHRASE}}
+</group>
+<group name="chassis_id">
+Device ID:{{CHASSIS_ID | ORPHRASE}}
+</group>
+<group name="platform_capabilities">
+Platform: {{PLATFORM | ORPHRASE}}, Capabilities: {{CAPABILITIES | ORPHRASE}}
+</group>

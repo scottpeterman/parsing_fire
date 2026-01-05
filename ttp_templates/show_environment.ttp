@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show environment
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="temp_sensor_temp_status_temp_value">
+TEMPERATURE {{TEMP_SENSOR}}: {{TEMP_STATUS | ORPHRASE}}: {{TEMP_VALUE | ORPHRASE}}
+</group>

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_nve_peers
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="interface_peer_state_type_mac_address">
+{{INTERFACE}} {{PEER}} {{STATE | ORPHRASE}} {{TYPE}} 2y11w {{MAC_ADDRESS | ORPHRASE}} 
+</group>

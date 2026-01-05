@@ -1,0 +1,55 @@
+{
+  "command": "cisco_nxos_show_cts_interface_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"authentication_status_authorization_status_cts_mode_cts_status\">\nCTS Information for Interface Ethernet1/{{PEER_SGT | ORPHRASE}}:\n  CTS is {{CTS_STATUS | ORPHRASE}}, mode:  {{CTS_MODE | ORPHRASE}}\n  IFC state:  {{IFC_STATE | ORPHRASE}}\n  Authentication Status:  {{AUTHENTICATION_STATUS | ORPHRASE}}\n  Peer Identity:  {{PEER_IDENTITY | ORPHRASE}}\n  Peer is:  {{PEER_IS | ORPHRASE}}\n  802.1X role:  {{DOT1X_ROLE | ORPHRASE}}\n  Peer SGT assignment:  {{PEER_SGT_ASSIGNMENT | ORPHRASE}}\n  SAP Status:  {{SAP_STATUS | ORPHRASE}}\n  Propagate SGT: {{SGT_PROPAGATE | ORPHRASE}}\nCTS Information for Interface {{INTERFACE | ORPHRASE}}:\n  Authorization Status:  {{AUTHORIZATION_STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Ethernet1/2",
+      "CTS_STATUS": "enabled",
+      "CTS_MODE": "CTS_MODE_MANUAL",
+      "IFC_STATE": "Unknown",
+      "AUTHENTICATION_STATUS": "CTS_AUTHC_INIT",
+      "PEER_IDENTITY": "MyDevice2",
+      "PEER_IS": "Unknown in manual mode",
+      "DOT1X_ROLE": "CTS_ROLE_UNKNOWN",
+      "AUTHORIZATION_STATUS": "CTS_AUTHZ_INIT",
+      "PEER_SGT": "0",
+      "PEER_SGT_ASSIGNMENT": "Not Trusted",
+      "SAP_STATUS": "CTS_SAP_INIT",
+      "SGT_PROPAGATE": "Enabled"
+    },
+    {
+      "INTERFACE": "Ethernet1/3",
+      "CTS_STATUS": "enabled",
+      "CTS_MODE": "CTS_MODE_MANUAL",
+      "IFC_STATE": "Unknown",
+      "AUTHENTICATION_STATUS": "CTS_AUTHC_INIT",
+      "PEER_IS": "Unknown in manual mode",
+      "DOT1X_ROLE": "CTS_ROLE_UNKNOWN",
+      "AUTHORIZATION_STATUS": "CTS_AUTHZ_SKIPPED_CONFIG",
+      "PEER_SGT": "2",
+      "PEER_SGT_ASSIGNMENT": "Not Trusted",
+      "SAP_STATUS": "CTS_SAP_INIT",
+      "SGT_PROPAGATE": "Enabled"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "authentication_status_authorization_status_cts_mode_cts_status": [
+        {
+          "PEER_SGT": "2"
+        },
+        {
+          "PEER_SGT": "3"
+        }
+      ]
+    }
+  ],
+  "cli_content": "CTS Information for Interface Ethernet1/2:\n    CTS is enabled, mode:   CTS_MODE_MANUAL\n    IFC state:              Unknown\n    Authentication Status:  CTS_AUTHC_INIT\n      Peer Identity:        MyDevice2\n      Peer is:              Unknown in manual mode\n      802.1X role:          CTS_ROLE_UNKNOWN\n      Last Re-Authentication: \n    Authorization Status:   CTS_AUTHZ_INIT\n      PEER SGT:             0\n      Peer SGT assignment:  Not Trusted\n    SAP Status:             CTS_SAP_INIT\n      Configured pairwise ciphers: \n      Replay protection: \n      Replay protection mode: \n      Selected cipher: \n    Propagate SGT: Enabled\n\nCTS Information for Interface Ethernet1/3:\n    CTS is enabled, mode:   CTS_MODE_MANUAL\n    IFC state:              Unknown\n    Authentication Status:  CTS_AUTHC_INIT\n      Peer Identity:        \n      Peer is:              Unknown in manual mode\n      802.1X role:          CTS_ROLE_UNKNOWN\n      Last Re-Authentication: \n    Authorization Status:   CTS_AUTHZ_SKIPPED_CONFIG\n      PEER SGT:             2\n      Peer SGT assignment:  Not Trusted\n    SAP Status:             CTS_SAP_INIT\n      Configured pairwise ciphers: \n      Replay protection: \n      Replay protection mode: \n      Selected cipher: \n    Propagate SGT: Enabled\n\n",
+  "textfsm_template": "Value Filldown INTERFACE (\\S+)\nValue Required CTS_STATUS (\\w+)\nValue CTS_MODE (\\S+)\nValue IFC_STATE (\\S+)\nValue AUTHENTICATION_STATUS (\\S+)\nValue PEER_IDENTITY ((\\S+(\\s\\S+)*))\nValue PEER_IS ((\\S+(\\s\\S+)*))\nValue DOT1X_ROLE (\\S+)\nValue AUTHORIZATION_STATUS (\\S+)\nValue PEER_SGT (\\d+)\nValue PEER_SGT_ASSIGNMENT ((\\S+(\\s\\S+)*))\nValue SAP_STATUS (\\S+)\nValue SGT_PROPAGATE (\\S+)\n\nStart\n  ^CTS\\s+Information\\s+for\\s+Interface\\s+${INTERFACE}: -> Interface\n\nInterface\n  ^\\s+CTS\\s+is\\s+${CTS_STATUS},\\s+mode:\\s+${CTS_MODE}\n  ^\\s+IFC\\s+state:\\s+${IFC_STATE}\n  ^\\s+Authentication\\s+Status:\\s+${AUTHENTICATION_STATUS}\n  ^\\s+Peer\\s+Identity:\\s+${PEER_IDENTITY}\n  ^\\s+Peer\\s+is:\\s+${PEER_IS}\n  ^\\s+802.1X\\s+role:\\s+${DOT1X_ROLE}\n  ^\\s+Authorization\\s+Status:\\s+${AUTHORIZATION_STATUS}\n  ^\\s+PEER\\s+SGT:\\s+${PEER_SGT}\n  ^\\s+Peer\\s+SGT\\s+assignment:\\s+${PEER_SGT_ASSIGNMENT}\n  ^\\s+SAP\\s+Status:\\s+${SAP_STATUS}\n  ^\\s+Propagate\\s+SGT:\\s+${SGT_PROPAGATE} -> Record Start\n\n"
+}

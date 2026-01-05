@@ -1,0 +1,62 @@
+{
+  "command": "huawei_vrp_display_mpls_te_tunnel",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 5,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"source_role_id_in_label_out_label_name\">\n{{SOURCE}} {{DEST{{ROLE}}NATION}} {{ID | re(\"\\\\d+\")}} {{IN_LABEL | re(\".*\\\\w.*\")}}/{{OUT_LABEL}} I {{NAME | ORPHRASE}}\n</group>\n<group name=\"role_destination_id_in_label_out_label_name\">\n{{SOURC{{ROLE}}}} {{DESTINATION}} {{ID | re(\"\\\\d+\")}} {{IN_LABEL}}/{{OUT_LABEL | re(\".*\\\\w.*\")}} E {{NAME | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "SOURCE": "10.219.220.136",
+      "DESTINATION": "10.219.220.8",
+      "ID": "29",
+      "IN_LABEL": "-",
+      "OUT_LABEL": "2080",
+      "ROLE": "I",
+      "NAME": "Tunnel1_RR-KL2414993-01H_to_RAW-KL1956-01H"
+    },
+    {
+      "SOURCE": "10.219.220.136",
+      "DESTINATION": "10.219.220.9",
+      "ID": "22684",
+      "IN_LABEL": "-",
+      "OUT_LABEL": "2204",
+      "ROLE": "I",
+      "NAME": "Tunnel2_RR-KL2414993-01H_to_RAW-KL1938-01H"
+    },
+    {
+      "SOURCE": "10.219.220.8",
+      "DESTINATION": "10.219.220.136",
+      "ID": "34518",
+      "IN_LABEL": "2096",
+      "OUT_LABEL": "-",
+      "ROLE": "E",
+      "NAME": "Tunnel12_RAW-KL1956-01H_to_RR-KL3453225G-01H"
+    },
+    {
+      "SOURCE": "10.219.220.8",
+      "DESTINATION": "10.219.220.136",
+      "ID": "34521",
+      "IN_LABEL": "2098",
+      "OUT_LABEL": "-",
+      "ROLE": "E",
+      "NAME": "Tunnel12_RAW-KL1956-01H_to_RR-KL3453225G-01H"
+    },
+    {
+      "SOURCE": "10.219.220.9",
+      "DESTINATION": "10.219.220.136",
+      "ID": "34510",
+      "IN_LABEL": "2144",
+      "OUT_LABEL": "-",
+      "ROLE": "E",
+      "NAME": "Tunnel12_RAW-KL1938-01H_to_RR-KL3453225G-01H"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "* means the LSP is detour LSP\n-------------------------------------------------------------------------------\nIngress LsrId   Destination     LSPID In/OutLabel     R Tunnel-name\n-------------------------------------------------------------------------------\n10.219.220.136  10.219.220.8    29    -/2080          I Tunnel1_RR-KL2414993-01H_to_RAW-KL1956-01H\n10.219.220.136  10.219.220.9    22684 -/2204          I Tunnel2_RR-KL2414993-01H_to_RAW-KL1938-01H\n10.219.220.8    10.219.220.136  34518 2096/-          E Tunnel12_RAW-KL1956-01H_to_RR-KL3453225G-01H\n10.219.220.8    10.219.220.136  34521 2098/-          E Tunnel12_RAW-KL1956-01H_to_RR-KL3453225G-01H\n10.219.220.9    10.219.220.136  34510 2144/-          E Tunnel12_RAW-KL1938-01H_to_RR-KL3453225G-01H\n-------------------------------------------------------------------------------\nR: Role, I: Ingress, T: Transit, E: Egress",
+  "textfsm_template": "Value SOURCE (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue DESTINATION (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue ID (\\d+)\nValue IN_LABEL (\\S+)\nValue OUT_LABEL (\\S+)\nValue ROLE (\\S+)\nValue NAME (\\S+)\n\nStart\n  ^-+\n  ^Ingress\\s+LsrId\\s+Destination\\s+LSPID\\s+In/OutLabel\\s+R\\s+Tunnel-name\\s*$$\n  ^-+\n  ^${SOURCE}\\s+${DESTINATION}\\s+${ID}?\\s+${IN_LABEL}/${OUT_LABEL}\\s+${ROLE}\\s+${NAME}\\s*$$ -> Record\n  ^-+\n  ^\\s*\\*\\s+means\n  ^\\s*\\S:\\s+\\S+,\\s+\\S+:\\s+\\S+,\n  ^\\s*$$\n  ^. -> Error\n"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: brocade_fastiron_show_span
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="mastervlan_rootbridgeid_rootpathcost_rootport_priorityhex_bridgemaxage_bridgehello_vlan_bridgefwddly_lasttopochange_bridgeaddress">
+   {{mastervlan | re("\\d+")}} {{rootbridgeid}} {{rootpathcost}} {{rootport}} {{priorityhex}} {{bridgemaxage | re("\\d+")}} {{bridgehello | re("\\d+")}} {{vlan | re("\\d+")}} {{bridgefwddly | re("\\d+")}} {{lasttopochange | ORPHRASE}} {{bridgeaddress}}
+</group>

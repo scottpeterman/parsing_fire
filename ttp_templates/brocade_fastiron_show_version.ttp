@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: brocade_fastiron_show_version
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="start_time_start_timezone_start_day_start_month_start_date_start_year">
+The system started at {{START_TIME}} {{START_TIMEZONE}} {{START_DAY}} {{START_MONTH}} {{START_DATE}} {{START_YEAR | ORPHRASE}}
+</group>

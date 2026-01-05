@@ -1,0 +1,49 @@
+{
+  "command": "show mlag detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"local\">\nLocal : {{LOCAL | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DOMAIN_ID": "2",
+      "LOCAL": "Connected",
+      "PEER": "Connected",
+      "NEGOTIATION_STATUS": "Negotiated",
+      "LOCAL_STATUS": "Active",
+      "PEER_STATUS": "Active",
+      "LOCAL_ROLE": "Primary",
+      "PEER_ROLE": "Secondary",
+      "PEER_LINK_STATUS": "up",
+      "PEER_INTERNAL_STATUS": "active"
+    },
+    {
+      "LOCAL": "Disconnected",
+      "PEER": "Connected",
+      "NEGOTIATION_STATUS": "Not Negotiated",
+      "LOCAL_STATUS": "Inactive",
+      "PEER_STATUS": "Active",
+      "LOCAL_ROLE": "--",
+      "PEER_ROLE": "Primary",
+      "PEER_LINK_STATUS": "down",
+      "PEER_INTERNAL_STATUS": "inactive"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "local": [
+        {
+          "LOCAL": "Connected"
+        },
+        {
+          "LOCAL": "Disconnected"
+        }
+      ]
+    }
+  ],
+  "cli_content": "MLAG Domain ID: 1\nLocal                  : Connected\nPeer                   : Connected\nNegotiation Status     : Negotiated\nLocal Status           : Active\nPeer Status            : Active\nLocal Role             : Primary\nPeer Role              : Secondary\nPeer Link Status       : up\nPeer Internal Status   : active\n\nMLAG Domain ID: 2\nLocal                  : Disconnected\nPeer                   : Connected\nNegotiation Status     : Not Negotiated\nLocal Status           : Inactive\nPeer Status            : Active\nLocal Role             : --\nPeer Role              : Primary\nPeer Link Status       : down\nPeer Internal Status   : inactive\n",
+  "textfsm_template": "Value DOMAIN_ID (\\d+)\nValue LOCAL (\\S+)\nValue PEER (\\S+)\nValue NEGOTIATION_STATUS (\\S+\\s*\\S*)\nValue LOCAL_STATUS (\\S+)\nValue PEER_STATUS (\\S+)\nValue LOCAL_ROLE (\\S*|Primary|Secondary)\nValue PEER_ROLE (\\S*|Primary|Secondary)\nValue PEER_LINK_STATUS (\\S+)\nValue PEER_INTERNAL_STATUS (\\S+)\n\nStart\n  ^MLAG\\sDomain\\sID\\:\\s${DOMAIN_ID} -> Record\n  ^Local\\s+:\\s+${LOCAL}\n  ^Peer\\s+:\\s+${PEER}\n  ^Negotiation\\sStatus\\s+:\\s+${NEGOTIATION_STATUS}\n  ^Local\\sStatus\\s+:\\s+${LOCAL_STATUS}\n  ^Peer\\sStatus\\s+:\\s+${PEER_STATUS}\n  ^Local\\sRole\\s+:\\s+${LOCAL_ROLE}\n  ^Peer\\sRole\\s+:\\s+${PEER_ROLE}\n  ^Peer\\sLink\\sStatus\\s+:\\s+${PEER_LINK_STATUS}\n  ^Peer\\sInternal\\sStatus\\s+:\\s+${PEER_INTERNAL_STATUS}"
+}

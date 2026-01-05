@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show bgp summary
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 9
+# Match ratio: 3.00
+
+<group name="neighbor_version_as_msg_recv_msg_sent_table_version_inq_outq_uptime_state_pfxrcvd">
+{{NEIGHBOR}} {{VERSION | re("[\\d\\.\\(\\)A-Za-z]+")}} {{AS}} {{MSG_RECV}} {{MSG_SENT}} {{TABLE_VERSION | re("[\\d\\.\\(\\)A-Za-z]+")}} {{INQ}} {{OUTQ}} {{UPTIME | ORPHRASE}} {{STATE_PFXRCVD | ORPHRASE}}
+</group>

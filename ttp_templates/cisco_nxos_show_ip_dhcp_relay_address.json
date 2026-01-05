@@ -1,0 +1,40 @@
+{
+  "command": "cisco_nxos_show_ip_dhcp_relay_address",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"interface_relay_address_vrf\">\n {{INTERFACE}} {{RELAY_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{VRF | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Vlan100",
+      "RELAY_ADDRESS": "10.40.15.152",
+      "VRF": "my_vrf"
+    },
+    {
+      "INTERFACE": "Ethernet1",
+      "RELAY_ADDRESS": "10.40.10.162",
+      "VRF": "my_vrf2"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_relay_address_vrf": [
+        {
+          "INTERFACE": "Vlan100",
+          "RELAY_ADDRESS": "10.40.15.152",
+          "VRF": "my_vrf"
+        },
+        {
+          "INTERFACE": "Ethernet1",
+          "RELAY_ADDRESS": "10.40.10.162",
+          "VRF": "my_vrf2"
+        }
+      ]
+    }
+  ],
+  "cli_content": " Interface        Relay Address     VRF Name\n -------------    -------------     --------\n\n Vlan100           10.40.15.152      my_vrf\n Vlan100           10.40.10.162\n Vlan200           10.40.15.152\n Vlan200           10.40.10.162\n Ethernet1         10.40.15.152\n Ethernet1         10.40.10.162      my_vrf2\n Ethernet1/1       10.40.15.152\n Ethernet1/1       10.40.10.162\n Ethernet1/1.1     10.40.15.152\n Ethernet1/1.1     10.40.10.162",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue RELAY_ADDRESS (\\d+.\\d+.\\d+.\\d+)\nValue VRF (\\S+)\n\nStart\n  ^\\s*Interface\\s+Relay\\s+Address\\s+VRF\\s+Name\\s*$$\n  ^\\s*-+\n  ^\\s*${INTERFACE}\\s+${RELAY_ADDRESS}\\s*$$ -> Record\n  ^\\s*${INTERFACE}\\s+${RELAY_ADDRESS}\\s+${VRF}\\s*$$ -> Record\n  ^\\s*$$\n  ^.* -> Error\n"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_procurve_show_interfaces
+# Source: ntc
+# TextFSM rows: 24
+# TTP rows: 24
+# Match ratio: 1.00
+
+<group name="port_total_bytes_total_frames_errors_rx_drops_tx_flow_ctrl_bcast_limit">
+  {{PORT | re("\\d+")}} {{TOTAL_BYTES}} {{TOTAL_FRAMES}} {{ERRORS_RX}} {{DROPS_TX}} {{FLOW_CTRL | ORPHRASE}} {{BCAST_LIMIT}}
+</group>

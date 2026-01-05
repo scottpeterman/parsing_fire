@@ -1,0 +1,36 @@
+{
+  "command": "show interface summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"port_name_status_vlan_duplex_speed_type\">\n{{PORT}} {{NAME}} {{STATUS | ORPHRASE}} {{VLAN | re(\"\\\\d+\")}} {{DUPLEX}} {{SPEED}} {{TYPE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "1/1/4",
+      "NAME": "admin",
+      "STATUS": "down",
+      "VLAN": "1",
+      "DUPLEX": "full",
+      "SPEED": "auto",
+      "TYPE": "10Gbase-SR"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_name_status_vlan_duplex_speed_type": {
+        "PORT": "1/1/4",
+        "NAME": "admin",
+        "STATUS": "down",
+        "VLAN": "1",
+        "DUPLEX": "full",
+        "SPEED": "auto",
+        "TYPE": "10Gbase-SR"
+      }
+    }
+  ],
+  "cli_content": "Port      Name               Status       Vlan       Duplex  Speed Type\n1/1/1                        up           10         full    a-10G 10Gbase-SR\n1/1/2                        down         1          full    a-10G 10Gbase-SR\n1/1/3                        up           20         full    a-10G 10Gbase-SR\n1/1/4                        admin down   1          full    auto  10Gbase-SR\n1/1/5    Link to Switch2     up           trunk      full    a-10G 10Gbase-SR\n",
+  "textfsm_template": "Value PORT (\\S+)\nValue NAME (\\S+)\nValue STATUS (\\S+)\nValue VLAN (\\d+|trunk)\nValue DUPLEX (\\w+)\nValue SPEED (\\S+)\nValue TYPE (\\S+)\n\nStart\n  ^\\s*Port\\s+Name\\s+Status\\s+Vlan\\s+Duplex\\s+Speed\\s+Type\\s*$$\n  ^\\s*${PORT}\\s+${NAME}\\s+${STATUS}\\s+${VLAN}\\s+${DUPLEX}\\s+${SPEED}\\s+${TYPE}\\s*$$ -> Record"
+}

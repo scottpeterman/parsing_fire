@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: dell_force10_show_vlan_brief
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 6
+# Match ratio: 1.00
+
+<group name="vlan_id_stg_mac_aging_ip_address">
+{{VLAN_ID | re("\\d+")}} {{STG}} {{MAC_AGING | re("[0-9a-fA-F:.-]+")}} {{IP_ADDRESS | ORPHRASE}} 
+</group>
+<group name="vlan_id_vlan_name_stg_mac_aging_ip_address">
+{{VLAN_ID | re("\\d+")}} {{VLAN_NAME | ORPHRASE}} {{STG}} {{MAC_AGING | re("[0-9a-fA-F:.-]+")}} {{IP_ADDRESS | ORPHRASE}} 
+</group>

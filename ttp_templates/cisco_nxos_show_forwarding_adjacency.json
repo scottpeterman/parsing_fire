@@ -1,0 +1,120 @@
+{
+  "command": "cisco_nxos_show_forwarding_adjacency",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.2222222222222223,
+  "textfsm_rows": 9,
+  "ttp_rows": 11,
+  "ttp_template": "<group name=\"nexthop_rewrite_interface\">\n{{NEXTHOP}} {{REWRITE}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEXTHOP": "10.111.1.3",
+      "REWRITE": "cc16.7c1f.9852",
+      "INTERFACE": "Vlan10"
+    },
+    {
+      "NEXTHOP": "10.111.1.4",
+      "REWRITE": "cc16.7c1f.6900",
+      "INTERFACE": "Vlan10"
+    },
+    {
+      "NEXTHOP": "10.111.1.5",
+      "REWRITE": "84b8.025a.f786",
+      "INTERFACE": "Vlan10"
+    },
+    {
+      "NEXTHOP": "10.111.1.6",
+      "REWRITE": "a89d.2121.bc7b",
+      "INTERFACE": "Vlan10"
+    },
+    {
+      "NEXTHOP": "10.5.111.213",
+      "REWRITE": "0050.528c.5b4c",
+      "INTERFACE": "Vlan182"
+    },
+    {
+      "NEXTHOP": "10.5.111.221",
+      "REWRITE": "002a.6312.6ac1",
+      "INTERFACE": "Vlan182"
+    },
+    {
+      "NEXTHOP": "10.111.254.6",
+      "REWRITE": "002a.6312.6ac1",
+      "INTERFACE": "Vlan254"
+    },
+    {
+      "NEXTHOP": "10.6.140.234",
+      "REWRITE": "000e.b6b2.ff01",
+      "INTERFACE": "Ethernet1/16"
+    },
+    {
+      "NEXTHOP": "10.6.140.238",
+      "REWRITE": "54a2.72da.b651",
+      "INTERFACE": "Ethernet1/16"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "nexthop_rewrite_interface": [
+        {
+          "NEXTHOP": "IPv4",
+          "REWRITE": "adjacency",
+          "INTERFACE": "information"
+        },
+        {
+          "NEXTHOP": "--------------",
+          "REWRITE": "---------------",
+          "INTERFACE": "-------------"
+        },
+        {
+          "NEXTHOP": "10.111.1.3",
+          "REWRITE": "cc16.7c1f.9852",
+          "INTERFACE": "Vlan10"
+        },
+        {
+          "NEXTHOP": "10.111.1.4",
+          "REWRITE": "cc16.7c1f.6900",
+          "INTERFACE": "Vlan10"
+        },
+        {
+          "NEXTHOP": "10.111.1.5",
+          "REWRITE": "84b8.025a.f786",
+          "INTERFACE": "Vlan10"
+        },
+        {
+          "NEXTHOP": "10.111.1.6",
+          "REWRITE": "a89d.2121.bc7b",
+          "INTERFACE": "Vlan10"
+        },
+        {
+          "NEXTHOP": "10.5.111.213",
+          "REWRITE": "0050.528c.5b4c",
+          "INTERFACE": "Vlan182"
+        },
+        {
+          "NEXTHOP": "10.5.111.221",
+          "REWRITE": "002a.6312.6ac1",
+          "INTERFACE": "Vlan182"
+        },
+        {
+          "NEXTHOP": "10.111.254.6",
+          "REWRITE": "002a.6312.6ac1",
+          "INTERFACE": "Vlan254"
+        },
+        {
+          "NEXTHOP": "10.6.140.234",
+          "REWRITE": "000e.b6b2.ff01",
+          "INTERFACE": "Ethernet1/16"
+        },
+        {
+          "NEXTHOP": "10.6.140.238",
+          "REWRITE": "54a2.72da.b651",
+          "INTERFACE": "Ethernet1/16"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IPv4 adjacency information\n\nnext-hop         rewrite info    interface\n-------------- --------------- -------------\n10.111.1.3      cc16.7c1f.9852 Vlan10\n10.111.1.4      cc16.7c1f.6900 Vlan10\n10.111.1.5      84b8.025a.f786 Vlan10\n10.111.1.6      a89d.2121.bc7b Vlan10\n10.5.111.213    0050.528c.5b4c Vlan182\n10.5.111.221    002a.6312.6ac1 Vlan182\n10.111.254.6    002a.6312.6ac1 Vlan254\n10.6.140.234    000e.b6b2.ff01 Ethernet1/16\n10.6.140.238    54a2.72da.b651 Ethernet1/16",
+  "textfsm_template": "# Nexus 7k have multiple slots\nValue Filldown SLOT (\\d+)\nValue Required NEXTHOP ((?:\\d{1,3}\\.){3}\\d{1,3})\nValue Required REWRITE (\\S+)\nValue Required INTERFACE (\\S+)\nValue ORIGIN_AS (\\S+)\nValue PEER_AS (\\S+)\nValue NEIGHBOR (\\S+)\n\nStart\n  # Extract slot #, if available (Nexus 7k)\n  ^slot\\s+${SLOT}\n  ^====\n  # Match headers\n  ^IPv4\\s+adjacency\\s+information\n  ^next-hop\\s+rewrite\\s+info\\s+interface\\s*$$ -> Entries\n  ^next-hop\\s+rewrite\\s+info\\s+interface\\s+Origin\\s+AS\\s+Peer\\s+AS\\s+Neighbor -> EntriesDetail\n  # Empty and unknowns lines\n  ^\\s*$$\n  ^. -> Error\n\nEntries\n  # Ignore delimiter\n  ^--------\n  # Match single adjacency entry (brief view)\n  ^${NEXTHOP}\\s+${REWRITE}\\s+${INTERFACE} -> Record\n  # New slot?\n  ^slot\\s+${SLOT} -> Start\n  # Empty and unknowns lines\n  ^\\s*$$\n  ^. -> Error\n\nEntriesDetail\n  # Ignore delimiter\n  ^--------\n  # Match single adjacency entry (detailed view)\n  ^${NEXTHOP}\\s+${REWRITE}\\s+${INTERFACE}\\s*(?:${ORIGIN_AS}\\s+${PEER_AS}\\s+${NEIGHBOR})? -> Record\n  # New slot?\n  ^slot\\s+${SLOT} -> Start\n  # Empty and unknowns lines\n  ^\\s*$$\n  ^. -> Error"
+}

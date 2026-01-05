@@ -1,0 +1,52 @@
+{
+  "command": "show cdp neighbor detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"capabilities_device_id_holdtime_ip_address\">\nPlatform: {{PLATFORM | ORPHRASE}},  Capabilities: {{CAPABILITIES | ORPHRASE}}\nDevice ID: {{DEVICE_ID | ORPHRASE}}\n  IP address: {{IP_ADDRESS | ORPHRASE}}\nInterface: {{LOCAL_INTERFACE}},  Port ID (outgoing port): {{PORT_ID | ORPHRASE}}\nHoldtime : {{HOLDTIME | ORPHRASE}} sec\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DEVICE_ID": "R1",
+      "IP_ADDRESS": "192.168.1.1",
+      "PLATFORM": "cisco 3600",
+      "CAPABILITIES": "Router",
+      "LOCAL_INTERFACE": "Ethernet0",
+      "PORT_ID": "Ethernet0",
+      "HOLDTIME": "139"
+    },
+    {
+      "DEVICE_ID": "SW1",
+      "IP_ADDRESS": "192.168.1.2",
+      "LOCAL_INTERFACE": "FastEthernet0/1",
+      "PORT_ID": "FastEthernet0/24",
+      "HOLDTIME": "120"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "capabilities_device_id_holdtime_ip_address": [
+        {
+          "IP_ADDRESS": "192.168.1.2",
+          "DEVICE_ID": "SW1",
+          "HOLDTIME": "139",
+          "LOCAL_INTERFACE": "Ethernet0",
+          "PORT_ID": "Ethernet0",
+          "PLATFORM": "cisco 3600",
+          "CAPABILITIES": "Router"
+        },
+        {
+          "HOLDTIME": "120",
+          "LOCAL_INTERFACE": "FastEthernet0/1",
+          "PORT_ID": "FastEthernet0/24",
+          "PLATFORM": "cisco WS-C2960",
+          "CAPABILITIES": "Switch IGMP"
+        }
+      ]
+    }
+  ],
+  "cli_content": "-------------------------\nDevice ID: R1\nEntry address(es): \n  IP address: 192.168.1.1\nPlatform: cisco 3600,  Capabilities: Router\nInterface: Ethernet0,  Port ID (outgoing port): Ethernet0\nHoldtime : 139 sec\n\nVersion :\nCisco IOS Software, 3600 Software (C3640-JK9S-M), Version 12.4(24)T8, RELEASE SOFTWARE (fc1)\nTechnical Support: http://www.cisco.com/techsupport\nCopyright (c) 1986-2009 by Cisco Systems, Inc.\nCompiled Thu 29-Oct-09 07:36 by prod_rel_team\n\n-------------------------\nDevice ID: SW1\nEntry address(es): \n  IP address: 192.168.1.2\nPlatform: cisco WS-C2960,  Capabilities: Switch IGMP\nInterface: FastEthernet0/1,  Port ID (outgoing port): FastEthernet0/24\nHoldtime : 120 sec\n\nVersion :\nCisco IOS Software, C2960-LANBASEK9-M, Version 15.0(2)SE4, RELEASE SOFTWARE (fc1)\nTechnical Support: http://www.cisco.com/techsupport\nCopyright (c) 1986-2010 by Cisco Systems, Inc.\nCompiled Thu 29-Apr-10 15:53 by prod_rel_team\n",
+  "textfsm_template": "Value DEVICE_ID (\\S+)\nValue IP_ADDRESS (\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})\nValue PLATFORM (\\S+ \\S+)\nValue CAPABILITIES (\\S+)\nValue LOCAL_INTERFACE (\\S+)\nValue PORT_ID (\\S+)\nValue HOLDTIME (\\d+)\n\nStart\n  ^Device\\s+ID:\\s+${DEVICE_ID}\\s*$$\n  ^\\s+IP\\s+address:\\s+${IP_ADDRESS}\\s*$$\n  ^Platform:\\s+${PLATFORM},\\s+Capabilities:\\s+${CAPABILITIES}\\s*$$\n  ^Interface:\\s+${LOCAL_INTERFACE},\\s+Port\\s+ID\\s+\\(outgoing\\s+port\\):\\s+${PORT_ID}\\s*$$\n  ^Holdtime\\s+:\\s+${HOLDTIME}\\s+sec\\s*$$ -> Record"
+}

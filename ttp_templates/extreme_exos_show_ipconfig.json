@@ -1,0 +1,45 @@
+{
+  "command": "extreme_exos_show_ipconfig",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"ip_option_lsrr\">\n       IpOption LSRR : {{IP_OPTION_LSRR | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "USE_REDIRECTS": "Disabled",
+      "IP_OPTION_LSRR": "Enabled",
+      "IP_OPTION_SSRR": "Enabled",
+      "IP_OPTION_RR": "Enabled",
+      "IP_OPTION_TS": "Enabled",
+      "IP_OPTION_RA": "Enabled",
+      "ROUTE_SHARING": "Disabled",
+      "ROUTE_COMPRESSION": "Disabled",
+      "ORIGINATED_PACKETS": "Don't require ipforwarding",
+      "MAX_SHARED_GATEWAYS_CURRENT": "4",
+      "MAX_SHARED_GATEWAYS_CONFIGURED": "4",
+      "ROUTE_SHARING_HASH": "CRC Lower",
+      "IRDP_ADVERTISEMENT_ADDRESS": "255.255.255.255",
+      "IRDP_MAX_INTERVAL": "600",
+      "IRDP_MIN_INTERVAL": "450",
+      "IRDP_LIFETIME": "1800",
+      "IRDP_PREFERENCE": "0",
+      "INTERFACE": "VLAN0255, VLAN2222",
+      "IP": "10.255.254.3, 10.1.222.3",
+      "SUBNET": "/16, /24",
+      "FLAGS": "EU----MPuRX---------, EUf---MPuRX---------",
+      "NSIA": "0, 0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_option_lsrr": {
+        "IP_OPTION_LSRR": "Enabled"
+      }
+    }
+  ],
+  "cli_content": "       Use Redirects : Disabled\n       IpOption LSRR : Enabled\n       IpOption SSRR : Enabled\n         IpOption RR : Enabled\n         IpOption TS : Enabled\n         IpOption RA : Enabled\n       Route Sharing : Disabled\n   Route Compression : Disabled\n  Originated Packets : Don't require ipforwarding\n Max Shared Gateways : Current: 4  Configured: 4\n  Route Sharing Hash : CRC Lower\n\n      IRDP:\n         Advertisement Address: 255.255.255.255      Maximum Interval: 600\n         Minimum Interval: 450     Lifetime: 1800  Preference: 0\n\nInterface    IP Address          Flags                   nSIA\nVLAN0255     10.255.254.3    /16 EU----MPuRX---------    0\nVLAN2222     10.1.222.3      /24 EUf---MPuRX---------    0\n\nFlags: (A) Address Mask Reply Enabled (B) BOOTP Enabled\n       (b) Broadcast Forwarding Enabled\n       (D) Duplicate address detected on VLAN, (E) Interface Enabled\n       (f) Forwarding Enabled (g) Ignore IP Broadcast Enabled\n       (h) Directed Broadcast Forwarding by Hardware Enabled\n       (I) IRDP Advertisement Enabled, (M) Send Parameter Problem Enabled\n       (m) Multicast forwarding Enabled, (n) Multinetted VLAN\n       (nSIA ) Number of Secondary IP Addresses\n       (P) Send Port Unreachables Enabled, (R) Send Redirects Enabled\n       (r) Unicast Reverse Path Enabled on at least one port of the VLAN\n       (t) Tentative address, (T) Time Stamp Reply Enabled\n       (u) Send Unreachables Enabled, (U) Interface Up\n       (v) VRRP Enabled, (X) Send Time Exceeded Enabled\n",
+  "textfsm_template": "Value USE_REDIRECTS (.*)\nValue IP_OPTION_LSRR (.*)\nValue IP_OPTION_SSRR (.*)\nValue IP_OPTION_RR (.*)\nValue IP_OPTION_TS (.*)\nValue IP_OPTION_RA (.*)\nValue ROUTE_SHARING (.*)\nValue ROUTE_COMPRESSION (.*)\nValue ORIGINATED_PACKETS (.*)\nValue MAX_SHARED_GATEWAYS_CURRENT (\\d+)\nValue MAX_SHARED_GATEWAYS_CONFIGURED (\\d+)\nValue ROUTE_SHARING_HASH (.*)\nValue IRDP_ADVERTISEMENT_ADDRESS (\\S+)\nValue IRDP_MAX_INTERVAL (\\d+)\nValue IRDP_MIN_INTERVAL (\\d+)\nValue IRDP_LIFETIME (\\d+)\nValue IRDP_PREFERENCE (\\d+)\nValue List INTERFACE (\\S+)\nValue List IP (\\S+)\nValue List SUBNET (/\\d+)\nValue List FLAGS (\\S+)\nValue List NSIA (\\d+)\n\nStart\n  ^\\s*Use\\s+Redirects\\s*:\\s*${USE_REDIRECTS}\\s*$$\n  ^\\s*IpOption\\s+LSRR\\s*:\\s*${IP_OPTION_LSRR}\\s*$$\n  ^\\s*IpOption\\s+SSRR\\s*:\\s*${IP_OPTION_SSRR}\\s*$$\n  ^\\s*IpOption\\s+RR\\s*:\\s*${IP_OPTION_RR}\\s*$$\n  ^\\s*IpOption\\s+TS\\s*:\\s*${IP_OPTION_TS}\\s*$$\n  ^\\s*IpOption\\s+RA\\s*:\\s*${IP_OPTION_RA}\\s*$$\n  ^\\s*Route\\s+Sharing\\s*:\\s*${ROUTE_SHARING}\\s*$$\n  ^\\s*Route\\s+Compression\\s*:\\s*${ROUTE_COMPRESSION}\\s*$$\n  ^\\s*Originated\\s+Packets\\s*:\\s*${ORIGINATED_PACKETS}\\s*$$\n  ^\\s*Max\\s+Shared\\s+Gateways\\s*:\\s*Current:\\s*${MAX_SHARED_GATEWAYS_CURRENT}\\s+Configured:\\s*${MAX_SHARED_GATEWAYS_CONFIGURED}\\s*$$\n  ^\\s*Route\\s+Sharing\\s+Hash\\s*:\\s*${ROUTE_SHARING_HASH}\\s*$$\n  ^\\s*IRDP:\\s*$$ -> Irdp\n  ^\\s*Interface\\s+IP\\s+Address\\s+Flags\\s+nSIA\\s*$$ -> IpAdresses\n  ^\\s*Flags:\\s+\\(A\\)\\s+Address\\s+Mask\\s+Reply\\s+Enabled\\s+\\(B\\)\\s+BOOTP\\s+Enabled\\s*$$\n  ^\\s*\\(b\\)\\s+Broadcast\\s+Forwarding\\s+Enabled\\s*$$\n  ^\\s*\\(D\\)\\s+Duplicate\\s+address\\s+detected\\s+on\\s+VLAN,\\s+\\(E\\)\\s+Interface\\s+Enabled\\s*$$\n  ^\\s*\\(f\\)\\s+Forwarding\\s+Enabled\\s+\\(g\\)\\s+Ignore\\s+IP\\s+Broadcast\\s+Enabled\\s*$$\n  ^\\s*\\(h\\)\\s+Directed\\s+Broadcast\\s+Forwarding\\s+by\\s+Hardware\\s+Enabled\\s*$$\n  ^\\s*\\(I\\)\\s+IRDP\\s+Advertisement\\s+Enabled,\\s+\\(M\\)\\s+Send\\s+Parameter\\s+Problem\\s+Enabled\\s*$$\n  ^\\s*\\(m\\)\\s+Multicast\\s+forwarding\\s+Enabled,\\s+\\(n\\)\\s+Multinetted\\s+VLAN\\s*$$\n  ^\\s*\\(nSIA\\s+\\)\\s+Number\\s+of\\s+Secondary\\s+IP\\s+Addresses\\s*$$\n  ^\\s*\\(P\\)\\s+Send\\s+Port\\s+Unreachables\\s+Enabled,\\s+\\(R\\)\\s+Send\\s+Redirects\\s+Enabled\\s*$$\n  ^\\s*\\(r\\)\\s+Unicast\\s+Reverse\\s+Path\\s+Enabled\\s+on\\s+at\\s+least\\s+one\\s+port\\s+of\\s+the\\s+VLAN\\s*$$\n  ^\\s*\\(t\\)\\s+Tentative\\s+address,\\s+\\(T\\)\\s+Time\\s+Stamp\\s+Reply\\s+Enabled\\s*$$\n  ^\\s*\\(u\\)\\s+Send\\s+Unreachables\\s+Enabled,\\s+\\(U\\)\\s+Interface\\s+Up\\s*$$\n  ^\\s*\\(v\\)\\s+VRRP\\s+Enabled,\\s+\\(X\\)\\s+Send\\s+Time\\s+Exceeded\\s+Enabled\\s*$$\n  ^\\s*\n  ^. -> Error\n\nIrdp\n  ^\\s*Advertisement\\s+Address:\\s+${IRDP_ADVERTISEMENT_ADDRESS}\\s+Maximum\\s+Interval:\\s+${IRDP_MAX_INTERVAL}\\s*$$\n  ^\\s*Minimum\\s+Interval:\\s+${IRDP_MIN_INTERVAL}\\s+Lifetime:\\s+${IRDP_LIFETIME}\\s+Preference:\\s+${IRDP_PREFERENCE}\\s*$$\n  ^\\s* -> Start\n  ^. -> Error\n\nIpAdresses\n  ^\\s*${INTERFACE}\\s+${IP}\\s+${SUBNET}\\s+${FLAGS}\\s+${NSIA}\\s*$$\n  ^\\s* -> Start\n  ^. -> Error\n"
+}

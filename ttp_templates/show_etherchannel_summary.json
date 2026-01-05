@@ -1,0 +1,42 @@
+{
+  "command": "show etherchannel summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"group_port_channel_protocol_ports\">\n{{GROUP}} {{PORT_CHANNEL}} {{PROTOCOL}} {{PORTS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "GROUP": "1",
+      "PORT_CHANNEL": "Po1",
+      "PROTOCOL": "LACP",
+      "PORTS": "Gi0/1(P)  Gi0/2(P)"
+    },
+    {
+      "GROUP": "2",
+      "PORT_CHANNEL": "Po2",
+      "PROTOCOL": "LACP",
+      "PORTS": "Gi0/3(D)  Gi0/4(d)  Gi0/5(P)"
+    },
+    {
+      "GROUP": "3",
+      "PORT_CHANNEL": "Po3",
+      "PROTOCOL": "LACP",
+      "PORTS": "Gi0/6(s)  Gi0/7(S)"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "group_port_channel_protocol_ports": {
+        "GROUP": "Group",
+        "PORT_CHANNEL": "Port-channel",
+        "PROTOCOL": "Protocol",
+        "PORTS": "Ports"
+      }
+    }
+  ],
+  "cli_content": "Flags:  D - down        P - bundled in port-channel\n        I - stand-alone s - suspended\n        d - down        S - default port\n\nGroup  Port-channel  Protocol    Ports\n------+-------------+-----------+-------------------------------------------------\n1      Po1          LACP         Gi0/1(P)  Gi0/2(P)\n2      Po2          LACP         Gi0/3(D)  Gi0/4(d)  Gi0/5(P)\n3      Po3          LACP         Gi0/6(s)  Gi0/7(S)\n",
+  "textfsm_template": "Value GROUP (\\d+)\nValue PORT_CHANNEL (Po\\d+)\nValue PROTOCOL (\\S+)\nValue PORTS (.+)\n\nStart\n  ^Group\\s+Port-channel\\s+Protocol\\s+Ports\\s*$$\n  ^-+\\s+-+\\s+-+\\s+-+\\s*$$\n  ^\\s*${GROUP}\\s+${PORT_CHANNEL}\\s+${PROTOCOL}\\s+${PORTS}\\s*$$ -> Record"
+}

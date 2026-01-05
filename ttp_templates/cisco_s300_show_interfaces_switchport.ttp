@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_s300_show_interfaces_switchport
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="acceptable_frame_type_egress_rule_gvrp_status_ingress_filtering_status">
+Port : {{INTERFACE | ORPHRASE}}
+Port Mode: {{INTERFACE_MODE | ORPHRASE}}
+Gvrp Status: {{GVRP_STATUS | ORPHRASE}}
+Ingress Filtering: {{INGRESS_FILTERING_STATUS | ORPHRASE}}
+Acceptable Frame Type: {{ACCEPTABLE_FRAME_TYPE | ORPHRASE}}
+Ingress UnTagged VLAN ( NATIVE ): {{NATIVE_VLAN | ORPHRASE}}
+</group>

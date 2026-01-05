@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show access-lists extended
+# Source: chatgpt
+# TextFSM rows: 6
+# TTP rows: 18
+# Match ratio: 3.00
+
+<group name="seq_action_proto_source_destination_detail">
+{{SEQ}} {{ACTION}} {{PROTO}} {{SOURCE}} {{DESTINATION}} {{DETAIL | ORPHRASE}}
+</group>
+<group name="seq_action_proto_source_detail">
+{{SEQ}} {{ACTION}} {{PROTO}} {{SOURCE | ORPHRASE}} {{DETAIL}}
+</group>

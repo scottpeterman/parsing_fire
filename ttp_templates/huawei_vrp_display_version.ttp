@@ -1,0 +1,11 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_vrp_display_version
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="model_product_version_uptime_vrp_version">
+VRP (R) software, Version {{VRP_VERSION | re("[\\d\\.\\(\\)A-Za-z]+")}} ({{PRODUCT_VERSION | ORPHRASE}})
+Huawei {{MODEL}} Router uptime is {{UPTIME | ORPHRASE}}
+</group>

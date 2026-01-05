@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_smartax_display_board
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="slot_id_boardname_status">
+  {{SLOT_ID | re("\\d+")}} {{BOARDNAME}} {{STATUS | ORPHRASE}} 
+</group>
+<group name="slot_id_boardname_status_subtype_0">
+  {{SLOT_ID | re("\\d+")}} {{BOARDNAME}} {{STATUS | ORPHRASE}} {{SUBTYPE_0 | ORPHRASE}} 
+</group>
+<group name="slot_id_boardname_status_subtype_0_online_offline">
+  {{SLOT_ID | re("\\d+")}} {{BOARDNAME}} {{STATUS | ORPHRASE}} {{SUBTYPE_0}} {{ONLINE_OFFLINE | ORPHRASE}} 
+</group>

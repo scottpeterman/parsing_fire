@@ -1,0 +1,51 @@
+{
+  "command": "show cts interface all",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 3.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"cts_mode_device_id_encrypted_packets_interface\">\nCTS Interface: GigabitEthernet{{ENCRYPTED_PACKETS | ORPHRASE}}/0\n  CTS is enabled, mode is {{CTS_MODE | ORPHRASE}}, default packet handling is disabled\n  Policy status is {{POLICY_STATUS | ORPHRASE}}, peer {{IP4_TRUSTS | ORPHRASE}} list empty\nCTS Interface: {{INTERFACE | ORPHRASE}}\n  IPv4 ingress access list: {{IP4_IN_ACL | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "GigabitEthernet0/2",
+      "CTS_MODE": "MANUAL",
+      "POLICY_STATUS": "ACTIVE",
+      "IP4_TRUSTS": "configured",
+      "IP4_IN_ACL": "-",
+      "IP4_OUT_ACL": "-",
+      "DEVICE_ID": "-",
+      "ENCRYPTED_PACKETS": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "cts_mode_device_id_encrypted_packets_interface": [
+        {
+          "IP4_IN_ACL": "cts_acl_in",
+          "POLICY_STATUS": "ACTIVE",
+          "IP4_TRUSTS": "configured",
+          "CTS_MODE": "MANUAL",
+          "ENCRYPTED_PACKETS": "0"
+        },
+        {
+          "IP4_IN_ACL": "cts_acl_in_1",
+          "POLICY_STATUS": "ACTIVE",
+          "IP4_TRUSTS": "configured",
+          "CTS_MODE": "MANUAL",
+          "ENCRYPTED_PACKETS": "0"
+        },
+        {
+          "IP4_IN_ACL": "-",
+          "POLICY_STATUS": "ACTIVE",
+          "IP4_TRUSTS": "configured",
+          "CTS_MODE": "MANUAL",
+          "ENCRYPTED_PACKETS": "0"
+        }
+      ]
+    }
+  ],
+  "cli_content": "CTS Interface: GigabitEthernet0/0\n  CTS is enabled, mode is MANUAL, default packet handling is disabled\n  Policy status is ACTIVE, peer configured list empty\n  IPv4 trusts: configured default\n  IPv4 ingress access list: cts_acl_in\n  IPv4 egress access list: cts_acl_out\n  Device ID CDP: my_device\n  Monitor mode: None\n  CTS statistics: 0   packets encrypted, 0   packets decrypted\nCTS Interface: GigabitEthernet0/1\n  CTS is enabled, mode is MANUAL, default packet handling is disabled\n  Policy status is ACTIVE, peer configured list empty\n  IPv4 trusts: configured default\n  IPv4 ingress access list: cts_acl_in_1\n  IPv4 egress access list: cts_acl_out_1\n  Device ID CDP: my_device_2\n  Monitor mode: None\n  CTS statistics: 10  packets encrypted, 5   packets decrypted\nCTS Interface: GigabitEthernet0/2\n  CTS is enabled, mode is MANUAL, default packet handling is disabled\n  Policy status is ACTIVE, peer configured list empty\n  IPv4 trusts: configured default\n  IPv4 ingress access list: -\n  IPv4 egress access list: -\n  Device ID CDP: -\n  Monitor mode: None\n  CTS statistics: 0   packets encrypted, 0   packets decrypted\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue CTS_MODE (\\S+)\nValue POLICY_STATUS (\\S+)\nValue IP4_TRUSTS (\\S+)\nValue IP4_IN_ACL (\\S+)\nValue IP4_OUT_ACL (\\S+)\nValue DEVICE_ID (.+)\nValue ENCRYPTED_PACKETS (\\d+)\nValue DECRYPTED_PACKETS (\\d+)\n\nStart\n  ^CTS\\sInterface:\\s${INTERFACE}\\s*$$\n  ^\\s*CTS\\sis\\senabled,\\smode\\sis\\s${CTS_MODE},.*$$\n  ^\\s*Policy\\sstatus\\sis\\s${POLICY_STATUS},.*$$\n  ^\\s*IPv4\\strusts:\\s${IP4_TRUSTS}.*$$\n  ^\\s*IPv4\\singress\\saccess\\slist:\\s${IP4_IN_ACL}\\s*$$\n  ^\\s*IPv4\\segress\\saccess\\slist:\\s${IP4_OUT_ACL}\\s*$$\n  ^\\s*Device\\sID\\sCDP:\\s${DEVICE_ID}\\s*$$\n  ^\\s*Monitor\\smode:.*$$\n  ^\\s*CTS\\sstatistics:\\s${ENCRYPTED_PACKETS}\\s+packets\\sencrypted,.*$$\n  ^\\s*${DECRYPTED_PACKETS}\\s+packets\\sdecrypted\\s*$$ -> Record"
+}

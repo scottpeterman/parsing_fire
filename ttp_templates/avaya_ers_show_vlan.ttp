@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: avaya_ers_show_vlan
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="vlan_id_vlan_name_vlan_type_vlan_protocol_vlan_pid_vlan_active_vlan_ivl_svl_vlan_mgmt">
+{{VLAN_ID | re("\\d+")}} {{VLAN_NAME}} {{VLAN_TYPE}} {{VLAN_PROTOCOL}} {{VLAN_PID}} {{VLAN_ACTIVE}} {{VLAN_IVL_SVL | ORPHRASE}} {{VLAN_MGMT}}
+</group>

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show disk info
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 4
+# Match ratio: 1.33
+
+<group name="disk_number_size_used_available_use_percent">
+{{DISK_NUMBER}} {{SIZE}} {{USED}} {{AVAILABLE}} {{USE_PERCENT | ORPHRASE}}
+</group>

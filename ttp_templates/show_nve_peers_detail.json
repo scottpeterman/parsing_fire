@@ -1,0 +1,90 @@
+{
+  "command": "show nve peers detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"interface_peer_ip_peer_state_learn_type_uptime\">\nInterface: {{INTERFACE}}, Peer-Ip: {{PEER_IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}, Peer-state: {{PEER_STATE | ORPHRASE}}, Learn-type: {{LEARN_TYPE}}, Uptime: {{UPTIME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "nve1",
+      "PEER_IP": "192.168.100.1",
+      "PEER_STATE": "Up",
+      "LEARN_TYPE": "CP",
+      "UPTIME": "2d20h"
+    },
+    {
+      "INTERFACE": "nve1",
+      "PEER_IP": "192.168.100.2",
+      "PEER_STATE": "Down",
+      "LEARN_TYPE": "DP",
+      "UPTIME": "0d0h"
+    },
+    {
+      "INTERFACE": "nve1",
+      "PEER_IP": "192.168.100.3",
+      "PEER_STATE": "Up",
+      "LEARN_TYPE": "CP",
+      "UPTIME": "1d12h"
+    },
+    {
+      "INTERFACE": "nve2",
+      "PEER_IP": "192.168.200.1",
+      "PEER_STATE": "Up",
+      "LEARN_TYPE": "DP",
+      "UPTIME": "5d3h"
+    },
+    {
+      "INTERFACE": "nve2",
+      "PEER_IP": "192.168.200.2",
+      "PEER_STATE": "Down",
+      "LEARN_TYPE": "CP",
+      "UPTIME": "0d0h"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_peer_ip_peer_state_learn_type_uptime": [
+        {
+          "INTERFACE": "nve1",
+          "PEER_IP": "192.168.100.1",
+          "PEER_STATE": "Up",
+          "LEARN_TYPE": "CP",
+          "UPTIME": "2d20h"
+        },
+        {
+          "INTERFACE": "nve1",
+          "PEER_IP": "192.168.100.2",
+          "PEER_STATE": "Down",
+          "LEARN_TYPE": "DP",
+          "UPTIME": "0d0h"
+        },
+        {
+          "INTERFACE": "nve1",
+          "PEER_IP": "192.168.100.3",
+          "PEER_STATE": "Up",
+          "LEARN_TYPE": "CP",
+          "UPTIME": "1d12h"
+        },
+        {
+          "INTERFACE": "nve2",
+          "PEER_IP": "192.168.200.1",
+          "PEER_STATE": "Up",
+          "LEARN_TYPE": "DP",
+          "UPTIME": "5d3h"
+        },
+        {
+          "INTERFACE": "nve2",
+          "PEER_IP": "192.168.200.2",
+          "PEER_STATE": "Down",
+          "LEARN_TYPE": "CP",
+          "UPTIME": "0d0h"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface: nve1, Peer-Ip: 192.168.100.1, Peer-state: Up, Learn-type: CP, Uptime: 2d20h\nInterface: nve1, Peer-Ip: 192.168.100.2, Peer-state: Down, Learn-type: DP, Uptime: 0d0h\nInterface: nve1, Peer-Ip: 192.168.100.3, Peer-state: Up, Learn-type: CP, Uptime: 1d12h\nInterface: nve2, Peer-Ip: 192.168.200.1, Peer-state: Up, Learn-type: DP, Uptime: 5d3h\nInterface: nve2, Peer-Ip: 192.168.200.2, Peer-state: Down, Learn-type: CP, Uptime: 0d0h\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue PEER_IP (\\S+)\nValue PEER_STATE (\\S+)\nValue LEARN_TYPE (\\S+)\nValue UPTIME (\\S+)\n\nStart\n  ^Interface:\\s+${INTERFACE},\\s+Peer-Ip:\\s+${PEER_IP},\\s+Peer-state:\\s+${PEER_STATE},\\s+Learn-type:\\s+${LEARN_TYPE},\\s+Uptime:\\s+${UPTIME}\\s*$$ -> Record"
+}

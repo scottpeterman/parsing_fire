@@ -1,0 +1,69 @@
+{
+  "command": "show ip msdp summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"peer_connect_state_uptime_sa_messages\">\n{{PEER}} {{CONNECT}} {{STATE | ORPHRASE}} {{UPTIME | ORPHRASE}} {{SA_MESSAGES | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PEER": "10.1.1.1",
+      "CONNECT": "Up",
+      "STATE": "Up",
+      "UPTIME": "1w0d/0",
+      "SA_MESSAGES": "564"
+    },
+    {
+      "PEER": "10.2.2.2",
+      "CONNECT": "Up",
+      "STATE": "Up",
+      "UPTIME": "2w3d/1",
+      "SA_MESSAGES": "2437"
+    },
+    {
+      "PEER": "10.3.3.3",
+      "CONNECT": "Up",
+      "STATE": "Down",
+      "UPTIME": "0w3d/4",
+      "SA_MESSAGES": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "peer_connect_state_uptime_sa_messages": [
+        {
+          "PEER": "Peer",
+          "CONNECT": "Connect",
+          "STATE": "State",
+          "UPTIME": "Uptime/Changes",
+          "SA_MESSAGES": "SA Messages"
+        },
+        {
+          "PEER": "10.1.1.1",
+          "CONNECT": "Up",
+          "STATE": "Up",
+          "UPTIME": "1w0d/0",
+          "SA_MESSAGES": "564"
+        },
+        {
+          "PEER": "10.2.2.2",
+          "CONNECT": "Up",
+          "STATE": "Up",
+          "UPTIME": "2w3d/1",
+          "SA_MESSAGES": "2437"
+        },
+        {
+          "PEER": "10.3.3.3",
+          "CONNECT": "Up",
+          "STATE": "Down",
+          "UPTIME": "0w3d/4",
+          "SA_MESSAGES": "0"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Peer          Connect  State   Uptime/Changes    SA Messages                         \n10.1.1.1      Up       Up      1w0d/0            564      \n10.2.2.2      Up       Up      2w3d/1            2437     \n10.3.3.3      Up       Down    0w3d/4            0        \n",
+  "textfsm_template": "Value PEER (\\S+)\nValue CONNECT (\\S+)\nValue STATE (\\S+)\nValue UPTIME (\\S+)\nValue SA_MESSAGES (\\d+)\n\nStart\n  ^Peer\\s+Connect\\s+State\\s+Uptime/Changes\\s+SA\\s+Messages\\s*$$\n  ^${PEER}\\s+${CONNECT}\\s+${STATE}\\s+${UPTIME}\\s+${SA_MESSAGES}\\s*$$ -> Record"
+}

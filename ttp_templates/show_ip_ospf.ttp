@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip ospf
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="type_subnet_metric_nexthop_uptime_interface">
+{{TYPE}} {{SUBNET}} [{{METRIC}}] via {{NEXTHOP}}, {{UPTIME | ORPHRASE}}, {{INTERFACE | ORPHRASE}}
+</group>

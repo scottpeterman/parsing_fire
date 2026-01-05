@@ -1,0 +1,11 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nvfis_show_running-config_system_upgrade
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="apply_image_image_location_image_name_schedule_time">
+system upgrade apply-image {{APPLY_IMAGE}} scheduled-time {{SCHEDULE_TIME | ORPHRASE}}
+ location {{IMAGE_LOCATION | ORPHRASE}}
+</group>

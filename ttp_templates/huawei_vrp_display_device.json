@@ -1,0 +1,270 @@
+{
+  "command": "huawei_vrp_display_device",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.08695652173913043,
+  "textfsm_rows": 23,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"slot_card_pid_online_status_power_status_register_status_alarm_status_ha_status\">\n{{SLOT | re(\"\\\\d+\")}} {{CARD | re(\".*\\\\w.*\")}} {{PID | ORPHRASE}} {{ONLINE_STATUS | ORPHRASE}} {{POWER_STATUS | ORPHRASE}} {{REGISTER_STATUS | ORPHRASE}} {{ALARM_STATUS | ORPHRASE}} {{HA_STATUS | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SLOT": "3",
+      "CARD": "-",
+      "PID": "CE-L24LQ-EC1",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    },
+    {
+      "SLOT": "4",
+      "CARD": "-",
+      "PID": "CE-L24LQ-EC1",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    },
+    {
+      "SLOT": "6",
+      "CARD": "-",
+      "PID": "CE-L24LQ-EC1",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    },
+    {
+      "SLOT": "7",
+      "CARD": "-",
+      "PID": "CE-L24LQ-EC1",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    },
+    {
+      "SLOT": "8",
+      "CARD": "-",
+      "PID": "CE-L48XS-EC",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    },
+    {
+      "SLOT": "9",
+      "CARD": "-",
+      "PID": "CE-MPUA-S",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "Master"
+    },
+    {
+      "SLOT": "10",
+      "CARD": "-",
+      "PID": "CE-MPUA-S",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "Slave"
+    },
+    {
+      "SLOT": "11",
+      "CARD": "-",
+      "PID": "CE-SFUC-S",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    },
+    {
+      "SLOT": "12",
+      "CARD": "-",
+      "PID": "CE-SFUC-S",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    },
+    {
+      "SLOT": "13",
+      "CARD": "-",
+      "PID": "CE-SFUC-S",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    },
+    {
+      "SLOT": "14",
+      "CARD": "-",
+      "PID": "CE-SFUC-S",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    },
+    {
+      "SLOT": "15",
+      "CARD": "-",
+      "PID": "CMU(MPU 9)",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "Master"
+    },
+    {
+      "SLOT": "16",
+      "CARD": "-",
+      "PID": "CMU(MPU 10)",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "Slave"
+    },
+    {
+      "SLOT": "PWR1",
+      "CARD": "-",
+      "PID": "PHD-3000WA",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    },
+    {
+      "SLOT": "PWR2",
+      "CARD": "-",
+      "PID": "PHD-3000WA",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    },
+    {
+      "SLOT": "PWR3",
+      "CARD": "-",
+      "PID": "PHD-3000WA",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    },
+    {
+      "SLOT": "PWR4",
+      "CARD": "-",
+      "PID": "PHD-3000WA",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    },
+    {
+      "SLOT": "FAN1",
+      "CARD": "-",
+      "PID": "FAN-600A-B",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    },
+    {
+      "SLOT": "FAN2",
+      "CARD": "-",
+      "PID": "FAN-600A-B",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    },
+    {
+      "SLOT": "FAN3",
+      "CARD": "-",
+      "PID": "FAN-600A-B",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    },
+    {
+      "SLOT": "FAN4",
+      "CARD": "-",
+      "PID": "FAN-600A-B",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    },
+    {
+      "SLOT": "FAN5",
+      "CARD": "-",
+      "PID": "FAN-600A-B",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    },
+    {
+      "SLOT": "FAN6",
+      "CARD": "-",
+      "PID": "FAN-600A-B",
+      "ONLINE_STATUS": "Present",
+      "POWER_STATUS": "On",
+      "REGISTER_STATUS": "Registered",
+      "ALARM_STATUS": "Normal",
+      "HA_STATUS": "NA"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "slot_card_pid_online_status_power_status_register_status_alarm_status_ha_status": [
+        {
+          "SLOT": "15",
+          "CARD": "-      CMU(MPU",
+          "PID": "9)",
+          "ONLINE_STATUS": "Present",
+          "POWER_STATUS": "On",
+          "REGISTER_STATUS": "Registered",
+          "ALARM_STATUS": "Normal",
+          "HA_STATUS": "Master"
+        },
+        {
+          "SLOT": "16",
+          "CARD": "-      CMU(MPU",
+          "PID": "10)",
+          "ONLINE_STATUS": "Present",
+          "POWER_STATUS": "On",
+          "REGISTER_STATUS": "Registered",
+          "ALARM_STATUS": "Normal",
+          "HA_STATUS": "Slave"
+        }
+      ]
+    }
+  ],
+  "cli_content": "CE12808S's Device status:\n-------------------------------------------------------------------------------------------\nSlot  Card   Type                     Online   Power Register     Alarm     Primary        \n-------------------------------------------------------------------------------------------\n3     -      CE-L24LQ-EC1             Present  On    Registered   Normal    NA             \n4     -      CE-L24LQ-EC1             Present  On    Registered   Normal    NA             \n6     -      CE-L24LQ-EC1             Present  On    Registered   Normal    NA             \n7     -      CE-L24LQ-EC1             Present  On    Registered   Normal    NA             \n8     -      CE-L48XS-EC              Present  On    Registered   Normal    NA             \n9     -      CE-MPUA-S                Present  On    Registered   Normal    Master         \n10    -      CE-MPUA-S                Present  On    Registered   Normal    Slave          \n11    -      CE-SFUC-S                Present  On    Registered   Normal    NA             \n12    -      CE-SFUC-S                Present  On    Registered   Normal    NA             \n13    -      CE-SFUC-S                Present  On    Registered   Normal    NA             \n14    -      CE-SFUC-S                Present  On    Registered   Normal    NA             \n15    -      CMU(MPU 9)               Present  On    Registered   Normal    Master         \n16    -      CMU(MPU 10)              Present  On    Registered   Normal    Slave          \nPWR1  -      PHD-3000WA               Present  On    Registered   Normal    NA             \nPWR2  -      PHD-3000WA               Present  On    Registered   Normal    NA             \nPWR3  -      PHD-3000WA               Present  On    Registered   Normal    NA             \nPWR4  -      PHD-3000WA               Present  On    Registered   Normal    NA             \nFAN1  -      FAN-600A-B               Present  On    Registered   Normal    NA             \nFAN2  -      FAN-600A-B               Present  On    Registered   Normal    NA             \nFAN3  -      FAN-600A-B               Present  On    Registered   Normal    NA             \nFAN4  -      FAN-600A-B               Present  On    Registered   Normal    NA             \nFAN5  -      FAN-600A-B               Present  On    Registered   Normal    NA             \nFAN6  -      FAN-600A-B               Present  On    Registered   Normal    NA  \n",
+  "textfsm_template": "Value Filldown SLOT (\\w+)\nValue CARD (\\S+)\nValue Required PID (\\S+(\\s+\\S+)?)\nValue ONLINE_STATUS (\\w+)\nValue POWER_STATUS (\\S+)\nValue REGISTER_STATUS (\\w+)\nValue ALARM_STATUS (\\S+)\nValue HA_STATUS (\\w+)\n\nStart\n  ^\\*.*$$\n  ^\\-+$$\n  ^(\\S+\\s+)?Device\\s+status\\S+$$ -> DeviceStatus\n  ^Slot\\/Card.+$$ -> Card\n  ^. -> Error\n\n# device card\nCard\n  ^${SLOT}/${CARD}\\s+${PID}\\s+${ONLINE_STATUS}\\s+${POWER_STATUS}\\s+${REGISTER_STATUS}\\s+${ALARM_STATUS}\\s*$$ -> Record\n  ^\\-+$$\n  ^. -> Error\n\n# device and device all\nDeviceStatus\n  ^\\-+$$\n  ^Slot.+$$\n  ^\\s+${CARD}\\s+${PID}\\s+${ONLINE_STATUS}\\s+${POWER_STATUS}\\s+${REGISTER_STATUS}\\s+${ALARM_STATUS}\\s+${HA_STATUS}\\s*$$ -> Record\n  ^${SLOT}\\s+${CARD}\\s+\\*?${PID}\\s+${ONLINE_STATUS}\\s+${POWER_STATUS}\\s+${REGISTER_STATUS}\\s+${ALARM_STATUS}\\s+${HA_STATUS}\\s*$$ -> Record\n  ^. -> Error\n"
+}

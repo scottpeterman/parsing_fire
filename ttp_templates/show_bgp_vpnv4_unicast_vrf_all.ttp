@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show bgp vpnv4 unicast vrf all
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="local_pref_metric_network_next_hop">
+BGP table version is 7, local router ID is 192.168.{{METRIC | ORPHRASE}}.1
+Status codes: s suppressed, d damped, h history, {{STATUS | ORPHRASE}} valid, > best, i - internal
+*>i10.2.2.0/24  192.168.0.2  0  {{LOCAL_PREF | ORPHRASE}}  0 i
+*  {{NETWORK}}  {{NEXT_HOP}}  0  100  0 {{PATH | ORPHRASE}}
+</group>

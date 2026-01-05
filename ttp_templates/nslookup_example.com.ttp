@@ -1,0 +1,12 @@
+# TTP Template auto-generated from TextFSM
+# Original command: nslookup example.com
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="name_server_server_address">
+Server:  {{SERVER | ORPHRASE}}
+Name:  {{NAME | ORPHRASE}}
+Address: {{SERVER_ADDRESS | ORPHRASE}}
+</group>

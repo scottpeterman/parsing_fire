@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_inventory
+# Source: ntc
+# TextFSM rows: 11
+# TTP rows: 36
+# Match ratio: 3.27
+
+<group name="name_descr">
+ {{NAME}} {{DESCR | ORPHRASE}}
+</group>
+<group name="port_name_sn">
+ {{PORT | re("\\d+")}} {{NAME}} {{SN | ORPHRASE}}
+</group>
+<group name="port_descr_name_sn_vid">
+ {{PORT | re("\\d+")}} {{DESCR | ORPHRASE}} {{NAME}} {{SN | re("\\w+")}} {{VID | ORPHRASE}}
+</group>

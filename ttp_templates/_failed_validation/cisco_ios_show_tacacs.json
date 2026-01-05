@@ -1,0 +1,41 @@
+{
+  "command": "cisco_ios_show_tacacs",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 2,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"failed_connections_packets_sent_packet_received_server_port\">\n  Server address: 1{{SOCKET_ABORTS | ORPHRASE}}.1.1.14{{SOCKET_ERRORS}}\n  Server port: {{SERVER_PORT | ORPHRASE}}\n  Socket closes:  13799{{FAILED_CONNECTIONS | ORPHRASE}}\n  Server address: {{TACACS_SERVER | ORPHRASE}}\n  Socket opens:  {{SOCKET_OPENS | ORPHRASE}}\n  Total Packets Sent:  {{PACKETS_SENT | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "TACACS_SERVER": "10.1.1.140",
+      "SERVER_PORT": "49",
+      "SOCKET_OPENS": "138084",
+      "SOCKET_CLOSES": "137992",
+      "SOCKET_ABORTS": "0",
+      "SOCKET_ERRORS": "0",
+      "SOCKET_TIMEOUTS": "59",
+      "FAILED_CONNECTIONS": "52",
+      "PACKETS_SENT": "147753",
+      "PACKET_RECEIVED": "147693"
+    },
+    {
+      "TACACS_SERVER": "10.2.1.140",
+      "SERVER_PORT": "49",
+      "SOCKET_OPENS": "2027",
+      "SOCKET_CLOSES": "2027",
+      "SOCKET_ABORTS": "0",
+      "SOCKET_ERRORS": "0",
+      "SOCKET_TIMEOUTS": "0",
+      "FAILED_CONNECTIONS": "2",
+      "PACKETS_SENT": "2053",
+      "PACKET_RECEIVED": "2053"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Tacacs+ Server -  public  :\n            Server address: 10.1.1.140\n               Server port: 49\n              Socket opens:     138084\n             Socket closes:     137992\n             Socket aborts:          0\n             Socket errors:          0\n           Socket Timeouts:         59\n   Failed Connect Attempts:         52\n        Total Packets Sent:     147753\n        Total Packets Recv:     147693\n\n\nTacacs+ Server -  public  :\n            Server address: 10.2.1.140\n               Server port: 49\n              Socket opens:       2027\n             Socket closes:       2027\n             Socket aborts:          0\n             Socket errors:          0\n           Socket Timeouts:          0\n   Failed Connect Attempts:          2\n        Total Packets Sent:       2053\n        Total Packets Recv:       2053\n",
+  "textfsm_template": "Value TACACS_SERVER_NAME (.+?)\nValue TACACS_SERVER (.+?)\nValue SERVER_PORT (\\d+)\nValue SOCKET_OPENS (\\d+)\nValue SOCKET_CLOSES (\\d+)\nValue SOCKET_ABORTS (\\d+)\nValue SOCKET_ERRORS (\\d+)\nValue SOCKET_TIMEOUTS (\\d+)\nValue FAILED_CONNECTIONS (\\d+)\nValue PACKETS_SENT (\\d+)\nValue PACKET_RECEIVED (\\d+)\n\n\nStart\n  ^Tacacs -> Record\n  ^\\s+Server\\s+address:\\s+${TACACS_SERVER}\\s*$$\n  ^\\s+Server\\s+name:\\s+${TACACS_SERVER_NAME}\\s*$$\n  ^\\s+Server\\s+port:\\s+${SERVER_PORT}\\s*$$\n  ^\\s+Socket\\s+opens:\\s+ ${SOCKET_OPENS}\\s*$$\n  ^\\s+Socket\\s+closes:\\s+${SOCKET_CLOSES}\\s*$$\n  ^\\s+Socket\\s+aborts:\\s+${SOCKET_ABORTS}\\s*$$\n  ^\\s+Socket\\s+errors:\\s+${SOCKET_ERRORS}\\s*$$\n  ^\\s+Socket\\s+Timeouts:\\s+${SOCKET_TIMEOUTS}\\s*$$\n  ^\\s+Failed\\s+Connect\\s+Attempts:\\s+${FAILED_CONNECTIONS}\\s*$$\n  ^\\s+Total\\s+Packets\\s+Sent:\\s+${PACKETS_SENT}\\s*$$\n  ^\\s+Total\\s+Packets\\s+Recv:\\s+${PACKET_RECEIVED}\\s*$$\n  ^\\s*$$\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^. -> Error\n"
+}

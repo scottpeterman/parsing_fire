@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip multicast route
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 6
+# Match ratio: 1.50
+
+<group name="group_time_rp_flags">
+(*, {{GROUP}}), {{TIME}}, RP {{RP}}, flags: {{FLAGS | ORPHRASE}}
+</group>
+<group name="out_if_out_status_out_time">
+    {{OUT_IF}}, {{OUT_STATUS | ORPHRASE}}, {{OUT_TIME | ORPHRASE}}
+</group>
+<group name="source_group_flags">
+({{SOURCE}}, {{GROUP}}), {{{{FLAGS | ORPHRASE}}IME}}, flags: T
+</group>

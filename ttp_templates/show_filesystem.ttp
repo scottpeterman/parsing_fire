@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show filesystem
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="filesystem_size_used_avail_capacity_mounted_on">
+{{FILESYSTEM}} {{SIZE}} {{USED}} {{AVAIL}} {{CAPACITY | ORPHRASE}} {{MOUNTED_ON | re(".*\\w.*")}}
+</group>

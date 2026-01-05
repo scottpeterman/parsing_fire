@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show chassis hardware
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="item_version_serial_number_part_number">
+{{ITEM | ORPHRASE}} {{VERSION | re("[\\d\\.\\(\\)A-Za-z]+")}} {{SERIAL_NUMBER | re("\\w+")}} {{PART_NUMBER | ORPHRASE}}
+</group>

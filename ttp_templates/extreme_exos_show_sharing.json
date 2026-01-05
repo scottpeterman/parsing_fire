@@ -1,0 +1,64 @@
+{
+  "command": "extreme_exos_show_sharing",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 4,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"config_master_agg_control\">\n     {{CONFIG_MASTER}} {{AGG_CONTROL | ORPHRASE}} L3_L4 1 - R 0\n</group>\n<group name=\"config_master_current_master_agg_control\">\n    {{CONFIG_MASTER}} {{CURRENT_MASTER}} {{AGG_CONTROL | ORPHRASE}} L2 33 Y A 2\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CONFIG_MASTER": "1",
+      "AGG_CONTROL": "LACP",
+      "LD_SHARE_ALGORITHM": "L3_L4, L3_L4, L3_L4, L3_L4",
+      "LD_SHARE_GROUP": "1, 2, 3, 4",
+      "AGG_MBR": "-, -, -, -",
+      "LINK_STATE": "R, R, R, R",
+      "LINK_UP_TRANSITIONS": "0, 1, 7, 0"
+    },
+    {
+      "CONFIG_MASTER": "29",
+      "AGG_CONTROL": "LACP",
+      "LD_SHARE_ALGORITHM": "L3_L4, L3_L4",
+      "LD_SHARE_GROUP": "29, 34",
+      "AGG_MBR": "-, -",
+      "LINK_STATE": "R, R",
+      "LINK_UP_TRANSITIONS": "12, 7"
+    },
+    {
+      "CONFIG_MASTER": "33",
+      "CURRENT_MASTER": "33",
+      "AGG_CONTROL": "LACP",
+      "LD_SHARE_ALGORITHM": "L2, L2",
+      "LD_SHARE_GROUP": "33, 35",
+      "AGG_MBR": "Y, Y",
+      "LINK_STATE": "A, A",
+      "LINK_UP_TRANSITIONS": "2, 1"
+    },
+    {
+      "CONFIG_MASTER": "38",
+      "AGG_CONTROL": "LACP",
+      "LD_SHARE_ALGORITHM": "L3_L4, L3_L4",
+      "LD_SHARE_GROUP": "38, 39",
+      "AGG_MBR": "-, -",
+      "LINK_STATE": "R, R",
+      "LINK_UP_TRANSITIONS": "0, 0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "config_master_agg_control": {
+        "CONFIG_MASTER": "1",
+        "AGG_CONTROL": "LACP"
+      },
+      "config_master_current_master_agg_control": {
+        "CONFIG_MASTER": "33",
+        "CURRENT_MASTER": "33",
+        "AGG_CONTROL": "LACP"
+      }
+    }
+  ],
+  "cli_content": "Load Sharing Monitor\nConfig    Current    Agg       Ld Share    Ld Share  Agg   Link    Link Up\nMaster    Master     Control   Algorithm   Group     Mbr   State   Transitions\n==============================================================================\n     1               LACP      L3_L4       1          -      R        0\n                               L3_L4       2          -      R        1\n                               L3_L4       3          -      R        7\n                               L3_L4       4          -      R        0\n    29               LACP      L3_L4       29         -      R       12\n                               L3_L4       34         -      R        7\n    33     33        LACP      L2          33         Y      A        2\n                               L2          35         Y      A        1\n    38               LACP      L3_L4       38         -      R        0\n                               L3_L4       39         -      R        0\n==============================================================================\nLink State: A-Active, D-Disabled, R-Ready, NP-Port not present, L-Loopback\nLoad Sharing Algorithm: (L2) Layer 2 address based, (L3) Layer 3 address based\n                        (L3_L4) Layer 3 address and Layer 4 port based\n                        (custom) User-selected address-based configuration\nCustom Algorithm Configuration: ipv4 L3-and-L4, xor\nNumber of load sharing trunks: 4\n",
+  "textfsm_template": "Value Filldown CONFIG_MASTER (\\d+)\nValue Filldown CURRENT_MASTER (\\d+)\nValue Filldown AGG_CONTROL (\\S+)\nValue List LD_SHARE_ALGORITHM (L2|L3|L3_L4|custom)\nValue List LD_SHARE_GROUP (\\d+)\nValue List AGG_MBR (\\S+)\nValue List LINK_STATE (A|D|R|NP|L)\nValue List LINK_UP_TRANSITIONS (\\d+)\n\nStart\n  ^\\s*Load\\s+Sharing\\s+Monitor\\s*$$\n  ^\\s*Config\\s+Current\\s+Agg\\s+Ld\\s+Share\\s+Ld\\s+Share\\s+Agg\\s+Link\\s+Link\\s+Up\\s*$$ -> SharingTable\n  ^\\s*\n  ^. -> Error\n\nSharingTable\n  ^\\s*Master\\s+Master\\s+Control\\s+Algorithm\\s+Group\\s+Mbr\\s+State\\s+Transitions\\s*$$\n  ^(\\s*=+)+\\s*$$\n  ^\\s*\\d.*$$ -> Continue.Record\n  ^\\s+${CONFIG_MASTER}(?:\\s+${CURRENT_MASTER})?\\s+${AGG_CONTROL}\\s+${LD_SHARE_ALGORITHM}\\s+${LD_SHARE_GROUP}\\s+${AGG_MBR}\\s+${LINK_STATE}\\s+${LINK_UP_TRANSITIONS}\\s*$$\n  ^\\s+${LD_SHARE_ALGORITHM}\\s+${LD_SHARE_GROUP}\\s+${AGG_MBR}\\s+${LINK_STATE}\\s+${LINK_UP_TRANSITIONS}\\s*$$\n  ^\\s*Link\\s+State:\\s+A-Active,\\s+D-Disabled,\\s+R-Ready,\\s+NP-Port\\s+not\\s+present,\\s+L-Loopback\\s*$$\n  ^\\s*Load\\s+Sharing\\s+Algorithm:\\s+\\(L2\\)\\s+Layer\\s+2\\s+address\\s+based,\\s+\\(L3\\)\\s+Layer\\s+3\\s+address\\s+based\\s*$$\n  ^\\s*\\(L3_L4\\)\\s+Layer\\s+3\\s+address\\s+and\\s+Layer\\s+4\\s+port\\s+based\\s*$$\n  ^\\s*\\(custom\\)\\s+User-selected\\s+address-based\\s+configuration\\s*$$\n  ^\\s*Custom\\s+Algorithm\\s+Configuration:\\s+.*\\s*$$\n  ^\\s*Number\\s+of\\s+load\\s+sharing\\s+trunks:\\s+\\d+\\s*$$\n  ^\\s*\n  ^. -> Error\n"
+}

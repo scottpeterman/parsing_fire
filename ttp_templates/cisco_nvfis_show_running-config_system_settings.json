@@ -1,0 +1,32 @@
+{
+  "command": "cisco_nvfis_show_running-config_system_settings",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"default_gateway_dpdk_hostname_ip_address\">\nsystem settings hostname {{HOSTNAME | ORPHRASE}}\nsystem settings dpdk {{DPDK | ORPHRASE}}\nsystem settings mgmt ip address {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{NETMASK | ORPHRASE}}\nsystem settings default-gw {{DEFAULT_GATEWAY | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "HOSTNAME": "gandalf",
+      "DPDK": "enable",
+      "IP_ADDRESS": "11.22.33.43",
+      "NETMASK": "255.255.255.240",
+      "DEFAULT_GATEWAY": "11.22.33.41"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "default_gateway_dpdk_hostname_ip_address": {
+        "DEFAULT_GATEWAY": "11.22.33.41",
+        "IP_ADDRESS": "11.22.33.43",
+        "NETMASK": "255.255.255.240",
+        "DPDK": "enable",
+        "HOSTNAME": "gandalf"
+      }
+    }
+  ],
+  "cli_content": "system settings hostname gandalf\nsystem settings dpdk enable\nsystem settings mgmt ip address 11.22.33.43 255.255.255.240\nsystem settings default-gw 11.22.33.41",
+  "textfsm_template": "Value HOSTNAME ([\\w-]+)\nValue DPDK (enable|disable)\nValue IP_ADDRESS ([A-F0-9\\.\\:]+)\nValue NETMASK ([A-F0-9\\.\\:]+)\nValue DEFAULT_GATEWAY ([A-F0-9\\.\\:]+)\n\n\nStart\n  ^system\\ssettings\\shostname\\s+${HOSTNAME}\n  ^system\\ssettings\\sdpdk\\s${DPDK}\n  ^system\\s+settings\\s+mgmt\\s+ip\\s+address\\s+${IP_ADDRESS}\\s+${NETMASK}\n  ^system\\s+settings\\s+default-gw\\s+${DEFAULT_GATEWAY} -> Record\n\nEOF"
+}

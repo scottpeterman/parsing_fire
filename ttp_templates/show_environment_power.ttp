@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show environment power
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="free_model_present_status">
+Present: {{PRESENT | ORPHRASE}}
+Model: {{MODEL | ORPHRASE}}
+Status: {{STATUS | ORPHRASE}}
+Total: {{TOTAL | ORPHRASE}}
+Free: {{FREE | ORPHRASE}}
+</group>

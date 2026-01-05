@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_inventory
+# Source: ntc
+# TextFSM rows: 14
+# TTP rows: 8
+# Match ratio: 0.57
+
+<group name="pid_vid_sn">
+PID: {{PID}} , VID: {{VID}} , SN: {{SN | ORPHRASE}}
+</group>

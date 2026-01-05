@@ -1,0 +1,59 @@
+{
+  "command": "fortinet_execute_ping",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 5.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"address_packet_loss_min_rtt\">\n64 bytes from {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}: icmp_seq=1 ttl=11{{PACKET_LOSS}} time={{MIN_RTT | ORPHRASE}} ms\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SENT_PACKET_SIZE": "64, 64, 64, 64, 64",
+      "SENT_PACKET_ADDRESS": "8.8.8.8, 8.8.8.8, 8.8.8.8, 8.8.8.8, 8.8.8.8",
+      "SENT_PACKET_ICMP_SEQ": "0, 1, 2, 3, 4",
+      "SENT_PACKET_TTL": "110, 110, 110, 110, 110",
+      "SENT_PACKET_TIME": "25.9, 25.8, 25.8, 25.8, 25.8",
+      "ADDRESS": "8.8.8.8",
+      "TRANSMITTED": "5",
+      "RECEIVED": "5",
+      "PACKET_LOSS": "0",
+      "MIN_RTT": "25.8",
+      "AVG_RTT": "25.8",
+      "MAX_RTT": "25.9"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "address_packet_loss_min_rtt": [
+        {
+          "ADDRESS": "8.8.8.8",
+          "PACKET_LOSS": "0",
+          "MIN_RTT": "25.9"
+        },
+        {
+          "ADDRESS": "8.8.8.8",
+          "PACKET_LOSS": "0",
+          "MIN_RTT": "25.8"
+        },
+        {
+          "ADDRESS": "8.8.8.8",
+          "PACKET_LOSS": "0",
+          "MIN_RTT": "25.8"
+        },
+        {
+          "ADDRESS": "8.8.8.8",
+          "PACKET_LOSS": "0",
+          "MIN_RTT": "25.8"
+        },
+        {
+          "ADDRESS": "8.8.8.8",
+          "PACKET_LOSS": "0",
+          "MIN_RTT": "25.8"
+        }
+      ]
+    }
+  ],
+  "cli_content": "PING 8.8.8.8 (8.8.8.8): 56 data bytes\n64 bytes from 8.8.8.8: icmp_seq=0 ttl=110 time=25.9 ms\n64 bytes from 8.8.8.8: icmp_seq=1 ttl=110 time=25.8 ms\n64 bytes from 8.8.8.8: icmp_seq=2 ttl=110 time=25.8 ms\n64 bytes from 8.8.8.8: icmp_seq=3 ttl=110 time=25.8 ms\n64 bytes from 8.8.8.8: icmp_seq=4 ttl=110 time=25.8 ms\n\n--- 8.8.8.8 ping statistics ---\n5 packets transmitted, 5 packets received, 0% packet loss\nround-trip min/avg/max = 25.8/25.8/25.9 ms\n",
+  "textfsm_template": "Value List SENT_PACKET_SIZE (\\d+)\nValue List SENT_PACKET_ADDRESS (\\S+)\nValue List SENT_PACKET_ICMP_SEQ (\\d+)\nValue List SENT_PACKET_TTL (\\d+)\nValue List SENT_PACKET_TIME (\\d+(?:\\.\\d+)?)\nValue ADDRESS (\\S+)\nValue TRANSMITTED (\\d+)\nValue RECEIVED (\\d+)\nValue PACKET_LOSS (\\d+)\nValue MIN_RTT (\\d+(?:\\.\\d+)?)\nValue AVG_RTT (\\d+(?:\\.\\d+)?)\nValue MAX_RTT (\\d+(?:\\.\\d+)?)\n\nStart\n  ^\\s*PING.*\\s*$$\n  ^\\s*${SENT_PACKET_SIZE}\\s+bytes\\s+from\\s+${SENT_PACKET_ADDRESS}:\\s+icmp_seq=${SENT_PACKET_ICMP_SEQ}\\s+ttl=${SENT_PACKET_TTL}\\s+time=${SENT_PACKET_TIME}\\s+.*$$\n  ^\\s*---\\s+${ADDRESS}\\s+ping\\s+statistics\\s+---\\s*$$\n  ^\\s*${TRANSMITTED}\\s+packets\\s+transmitted\\,\\s+${RECEIVED}\\s+packets\\s+received\\,\\s+${PACKET_LOSS}\\%\\s+packet\\s+loss\\s*$$\n  ^\\s*round-trip\\s+min/avg/max\\s+=\\s+${MIN_RTT}/${AVG_RTT}/${MAX_RTT}\\s+ms\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

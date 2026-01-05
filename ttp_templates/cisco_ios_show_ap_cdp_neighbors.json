@@ -1,0 +1,69 @@
+{
+  "command": "cisco_ios_show_ap_cdp_neighbors",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.75,
+  "textfsm_rows": 4,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"ap_name_ap_ip_neighbor_name_neighbor_ip_neighbor_port\">\n{{AP_NAME}} {{AP_IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{NEIGHBOR_NAME}} {{NEIGHBOR_IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{NEIGHBOR_PORT | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "AP_NAME": "AP-INDOOR-01",
+      "AP_IP": "192.0.2.1",
+      "NEIGHBOR_NAME": "sw-test-123.local.lan",
+      "NEIGHBOR_IP": "192.0.2.101",
+      "NEIGHBOR_PORT": "GigabitEthernet1/0/1"
+    },
+    {
+      "AP_NAME": "AP-INDOOR-02",
+      "AP_IP": "192.0.2.2",
+      "NEIGHBOR_NAME": "sw_test",
+      "NEIGHBOR_IP": "192.0.2.103",
+      "NEIGHBOR_PORT": "Ethernet1/1"
+    },
+    {
+      "AP_NAME": "AP-OUTDOOR-01",
+      "AP_IP": "192.0.2.3",
+      "NEIGHBOR_NAME": "sw456.example.lan",
+      "NEIGHBOR_IP": "192.2.0.67",
+      "NEIGHBOR_PORT": "TenGigabitEthernet1/0/10.45"
+    },
+    {
+      "AP_NAME": "AP-OUTDOOR-02",
+      "AP_IP": "2001:db8:abc:def::1234",
+      "NEIGHBOR_NAME": "sw456.example.lan",
+      "NEIGHBOR_IP": "192.2.0.67",
+      "NEIGHBOR_PORT": "TenGigabitEthernet1/0/10.45"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ap_name_ap_ip_neighbor_name_neighbor_ip_neighbor_port": [
+        {
+          "AP_NAME": "AP-INDOOR-01",
+          "AP_IP": "192.0.2.1",
+          "NEIGHBOR_NAME": "sw-test-123.local.lan",
+          "NEIGHBOR_IP": "192.0.2.101",
+          "NEIGHBOR_PORT": "GigabitEthernet1/0/1"
+        },
+        {
+          "AP_NAME": "AP-INDOOR-02",
+          "AP_IP": "192.0.2.2",
+          "NEIGHBOR_NAME": "sw_test",
+          "NEIGHBOR_IP": "192.0.2.103",
+          "NEIGHBOR_PORT": "Ethernet1/1"
+        },
+        {
+          "AP_NAME": "AP-OUTDOOR-01",
+          "AP_IP": "192.0.2.3",
+          "NEIGHBOR_NAME": "sw456.example.lan",
+          "NEIGHBOR_IP": "192.2.0.67",
+          "NEIGHBOR_PORT": "TenGigabitEthernet1/0/10.45"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Number of neighbors: 4\n\nAP Name                          AP IP                                     Neighbor Name                              Neighbor IP        Neighbor Port\n-------------------------------------------------------------------------------------------------------------------------------------------------------------\nAP-INDOOR-01                     192.0.2.1                                 sw-test-123.local.lan                      192.0.2.101       GigabitEthernet1/0/1     \nAP-INDOOR-02                     192.0.2.2                                 sw_test                                    192.0.2.103       Ethernet1/1     \nAP-OUTDOOR-01                    192.0.2.3                                 sw456.example.lan                          192.2.0.67        TenGigabitEthernet1/0/10.45     \nAP-OUTDOOR-02                    2001:db8:abc:def::1234                    sw456.example.lan                          192.2.0.67        TenGigabitEthernet1/0/10.45     \n",
+  "textfsm_template": "Value AP_NAME (\\S+)\nValue AP_IP ([a-fA-F0-9:\\.]+)\nValue NEIGHBOR_NAME (\\S+)\nValue NEIGHBOR_IP ([a-fA-F0-9:\\.]+)\nValue NEIGHBOR_PORT ([a-zA-Z0-9\\/\\.]+)\n\nStart\n  ^[a-zA-Z]+\\s[a-z]+\\s[a-zA-z]+:\\s\\d+$$\n  ^AP\\sName\\s+AP\\sIP\\s+Neighbor\\sName\\s+Neighbor\\sIP\\s+Neighbor\\sPort\\s*$$\n  ^-+\\s*$$\n  ^${AP_NAME}\\s+${AP_IP}\\s+${NEIGHBOR_NAME}\\s+${NEIGHBOR_IP}\\s+${NEIGHBOR_PORT}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

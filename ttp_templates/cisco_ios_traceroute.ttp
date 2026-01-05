@@ -1,0 +1,25 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_traceroute
+# Source: ntc
+# TextFSM rows: 34
+# TTP rows: 37
+# Match ratio: 1.09
+
+<group name="hop_num_ip_address">
+  {{HOP_NUM}} {{IP_ADDRESS | ORPHRASE}} 2 msec 1 msec 1 msec 2 msec 1 msec 1 msec 1 msec 1 msec 1 msec 1 msec
+</group>
+<group name="ip_address_rtt_response">
+    {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{RTT_RESPONSE | ORPHRASE}} msec
+</group>
+<group name="hop_num_fqdn_ip_address_rtt_response">
+  {{HOP_NUM}} {{FQDN}} ({{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}) {{RTT_RESPONSE | ORPHRASE}} msec
+</group>
+<group name="fqdn_ip_address_rtt_response">
+    {{FQDN}} ({{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}) {{RTT_RESPONSE | ORPHRASE}} msec
+</group>
+<group name="fqdn_ip_address">
+    {{FQDN}} ({{IP_ADDRESS | ORPHRASE}}) 13 msec 13 msec
+</group>
+<group name="hop_num_ip_address_rtt_response">
+  {{HOP_NUM}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{RTT_RESPONSE | ORPHRASE}} msec
+</group>

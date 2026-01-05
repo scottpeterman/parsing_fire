@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show interfaces summary
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="interface_physical_operational_mac_speed_mtu_in_out">
+{{INTERFACE}} {{PHYSICAL}} {{OPERATIONAL}} {{MAC | re("[0-9a-fA-F:.-]+")}} {{SPEED}} {{MTU}} {{IN | ORPHRASE}} {{OUT | ORPHRASE}}
+</group>

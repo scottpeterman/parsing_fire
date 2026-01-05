@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show adjacency summary
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 3
+# Match ratio: 0.75
+
+<group name="protocol_interface_address_ok_method_status_age">
+{{PROTOCOL}} {{INTERFACE}} {{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{OK}} {{METHOD}} {{STATUS | ORPHRASE}} {{AGE | ORPHRASE}}
+</group>

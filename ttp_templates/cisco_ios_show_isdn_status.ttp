@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_isdn_status
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="tei_ces_sapi_l2_state">
+        TEI = {{TEI}}, Ces = {{CES}}, SAPI = {{SAPI}}, State = {{L2_STATE | ORPHRASE}}
+</group>

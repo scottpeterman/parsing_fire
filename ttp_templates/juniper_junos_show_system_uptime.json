@@ -1,0 +1,54 @@
+{
+  "command": "juniper_junos_show_system_uptime",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"year_boot_month_boot_day_boot_time_timezone_users\">\nSystem booted: {{YEAR}}-{{BOOT_MONTH}}-{{BOOT_DAY}} {{BOOT_TIME}} {{TIMEZONE | ORPHRASE}} ({{USERS}}2w0d 19:16 ago)\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TIME": "08:48:11",
+      "TIMEZONE": "MSK",
+      "MONTH": "08",
+      "DAY": "31",
+      "YEAR": "2021",
+      "TIME_SOURCE": "NTP CLOCK",
+      "BOOT_TIME": "13:32:05",
+      "BOOT_TIMEZONE": "MSK",
+      "BOOT_MONTH": "03",
+      "BOOT_DAY": "29",
+      "BOOT_YEAR": "2021",
+      "PROTOCOLS_TIME": "13:37:11",
+      "PROTOCOLS_TIMEZONE": "MSK",
+      "PROTOCOLS_MONTH": "03",
+      "PROTOCOLS_DAY": "29",
+      "PROTOCOLS_YEAR": "2021",
+      "LAST_CONFIG_TIME": "16:35:35",
+      "LAST_CONFIG_TIMEZONE": "MSK",
+      "LAST_CONFIG_MONTH": "07",
+      "LAST_CONFIG_DAY": "13",
+      "LAST_CONFIG_YEAR": "2021",
+      "LAST_CONFIG_USER": "admin",
+      "USERS": "2",
+      "LOAD_AVERAGE_1MIN": "0.04",
+      "LOAD_AVERAGE_5MIN": "0.04",
+      "LOAD_AVERAGE_15MIN": "0.01"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "year_boot_month_boot_day_boot_time_timezone_users": {
+        "YEAR": "2021",
+        "BOOT_MONTH": "03",
+        "BOOT_DAY": "29",
+        "BOOT_TIME": "13:32:05",
+        "TIMEZONE": "MSK",
+        "USERS": "2"
+      }
+    }
+  ],
+  "cli_content": "Current time: 2021-08-31 08:48:11 MSK\nTime Source:  NTP CLOCK\nSystem booted: 2021-03-29 13:32:05 MSK (22w0d 19:16 ago)\nProtocols started: 2021-03-29 13:37:11 MSK (22w0d 19:11 ago)\nLast configured: 2021-07-13 16:35:35 MSK (6w6d 16:12 ago) by admin\n 8:48AM  up 154 days, 19:16, 2 users, load averages: 0.04, 0.04, 0.01\n",
+  "textfsm_template": "Value TIME (\\d+:\\d+:\\d+)\nValue TIMEZONE (\\S+)\nValue MONTH (\\w+)\nValue DAY (\\d+)\nValue YEAR (\\d+)\nValue TIME_SOURCE (.*)\nValue BOOT_TIME (\\d+:\\d+:\\d+)\nValue BOOT_TIMEZONE (\\S+)\nValue BOOT_MONTH (\\w+)\nValue BOOT_DAY (\\d+)\nValue BOOT_YEAR (\\d+)\nValue PROTOCOLS_TIME (\\d+:\\d+:\\d+)\nValue PROTOCOLS_TIMEZONE (\\S+)\nValue PROTOCOLS_MONTH (\\w+)\nValue PROTOCOLS_DAY (\\d+)\nValue PROTOCOLS_YEAR (\\d+)\nValue LAST_CONFIG_TIME (\\d+:\\d+:\\d+)\nValue LAST_CONFIG_TIMEZONE (\\S+)\nValue LAST_CONFIG_MONTH (\\w+)\nValue LAST_CONFIG_DAY (\\d+)\nValue LAST_CONFIG_YEAR (\\d+)\nValue LAST_CONFIG_USER (\\w+)\nValue USERS (\\d+)\nValue LOAD_AVERAGE_1MIN (\\d+\\.\\d{2})\nValue LOAD_AVERAGE_5MIN (\\d+\\.\\d{2})\nValue LOAD_AVERAGE_15MIN (\\d+\\.\\d{2})\n\nStart\n  ^Current\\s+time:\\s*${YEAR}-${MONTH}-${DAY}\\s+${TIME}\\s+${TIMEZONE}\n  ^Time\\s+[Ss]ource:\\s*${TIME_SOURCE}\n  ^System\\s+booted:\\s*${BOOT_YEAR}-${BOOT_MONTH}-${BOOT_DAY}\\s+${BOOT_TIME}\\s+${BOOT_TIMEZONE}\\s+\\([^)]+\\)\n  ^Protocols\\s+started:\\s*${PROTOCOLS_YEAR}-${PROTOCOLS_MONTH}-${PROTOCOLS_DAY}\\s+${PROTOCOLS_TIME}\\s+${PROTOCOLS_TIMEZONE}\\s+\\([^)]+\\)\n  ^Last\\s+configured:\\s*${LAST_CONFIG_YEAR}-${LAST_CONFIG_MONTH}-${LAST_CONFIG_DAY}\\s+${LAST_CONFIG_TIME}\\s+${LAST_CONFIG_TIMEZONE}\\s+\\([^)]+\\)\\s+by\\s+${LAST_CONFIG_USER}\n  ^.*,\\s*${USERS}\\s+users?,\\s*load\\s+averages:\\s*${LOAD_AVERAGE_1MIN},\\s*${LOAD_AVERAGE_5MIN},\\s*${LOAD_AVERAGE_15MIN}\n  ^\\s*$$\n  ^. -> Error"
+}

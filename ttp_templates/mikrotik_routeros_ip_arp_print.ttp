@@ -1,0 +1,22 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_ip_arp_print
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 12
+# Match ratio: 2.40
+
+<group name="num_flags_ip_address_mac_address_interface">
+ {{NUM}} {{FLAGS}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{INTERFACE | ORPHRASE}}
+</group>
+<group name="num_ip_address_mac_address_interface">
+ {{NUM}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{INTERFACE | ORPHRASE}}
+</group>
+<group name="num_ip_address_mac_address">
+ {{NUM}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MAC_ADDRESS | ORPHRASE}}
+</group>
+<group name="num_ip_address_interface">
+ {{NUM}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{INTERFACE | ORPHRASE}}
+</group>
+<group name="num_flags_ip_address">
+ {{NUM}} {{FLAGS}} {{IP_ADDRESS | ORPHRASE}}
+</group>

@@ -1,0 +1,68 @@
+{
+  "command": "show ip cef detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"prefix_next_hop_interface_adjacency\">\n{{PREFIX}} {{NEXT_HOP}} {{INTERFACE}} {{ADJACENCY | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PREFIX": "0.0.0.0/0",
+      "NEXT_HOP": "192.168.10.1",
+      "INTERFACE": "Vlan10",
+      "ADJACENCY": "192.168.10.1(ARPA)"
+    },
+    {
+      "PREFIX": "10.0.0.0/8",
+      "NEXT_HOP": "10.0.0.1",
+      "INTERFACE": "GigabitEthernet0/1",
+      "ADJACENCY": "10.0.0.1(ARPA)"
+    },
+    {
+      "PREFIX": "172.16.0.0/16",
+      "NEXT_HOP": "172.16.0.1",
+      "INTERFACE": "GigabitEthernet0/2",
+      "ADJACENCY": "172.16.0.1(ARPA)"
+    },
+    {
+      "PREFIX": "192.168.1.0/24",
+      "NEXT_HOP": "192.168.1.1",
+      "INTERFACE": "Vlan20",
+      "ADJACENCY": "192.168.1.1(ARPA)"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "prefix_next_hop_interface_adjacency": [
+        {
+          "PREFIX": "0.0.0.0/0",
+          "NEXT_HOP": "192.168.10.1",
+          "INTERFACE": "Vlan10",
+          "ADJACENCY": "192.168.10.1(ARPA)"
+        },
+        {
+          "PREFIX": "10.0.0.0/8",
+          "NEXT_HOP": "10.0.0.1",
+          "INTERFACE": "GigabitEthernet0/1",
+          "ADJACENCY": "10.0.0.1(ARPA)"
+        },
+        {
+          "PREFIX": "172.16.0.0/16",
+          "NEXT_HOP": "172.16.0.1",
+          "INTERFACE": "GigabitEthernet0/2",
+          "ADJACENCY": "172.16.0.1(ARPA)"
+        },
+        {
+          "PREFIX": "192.168.1.0/24",
+          "NEXT_HOP": "192.168.1.1",
+          "INTERFACE": "Vlan20",
+          "ADJACENCY": "192.168.1.1(ARPA)"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Prefix              Next Hop             Interface      Adjacency\n0.0.0.0/0           192.168.10.1         Vlan10         192.168.10.1(ARPA)\n10.0.0.0/8          10.0.0.1             GigabitEthernet0/1  10.0.0.1(ARPA)\n172.16.0.0/16       172.16.0.1           GigabitEthernet0/2  172.16.0.1(ARPA)\n192.168.1.0/24      192.168.1.1          Vlan20         192.168.1.1(ARPA)\n",
+  "textfsm_template": "Value PREFIX (\\d+\\.\\d+\\.\\d+\\.\\d+\\/\\d+)\nValue NEXT_HOP (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue INTERFACE (\\S+)\nValue ADJACENCY (\\S+\\(\\S+\\))\n\nStart\n  ^\\s*Prefix\\s+Next\\s+Hop\\s+Interface\\s+Adjacency\\s*$$\n  ^\\s*${PREFIX}\\s+${NEXT_HOP}\\s+${INTERFACE}\\s+${ADJACENCY}\\s*$$ -> Record"
+}

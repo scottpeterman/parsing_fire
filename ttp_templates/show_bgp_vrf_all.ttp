@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show bgp vrf all
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="loc_prf_metric_network_next_hop">
+BGP rout{{PATH | ORPHRASE}}ng table information for VRF default
+Router identifier 192.168.1.1, local AS number 65{{METRIC | ORPHRASE}}{{WEIGHT}}0
+>  10.1.1.0/24  192.168.1.2  0  {{LOC_PRF | ORPHRASE}}  0 i
+BGP routing table information for VRF {{VRF | ORPHRASE}}
+>  {{NETWORK}}  {{NEXT_HOP | ORPHRASE}}  0  100  0 i
+</group>

@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_dir
+# Source: ntc
+# TextFSM rows: 12
+# TTP rows: 6
+# Match ratio: 0.50
+
+<group name="file_system">
+Directory of {{FILE_SYSTEM | ORPHRASE}}
+<group name="date_time_id_name">
+   {{ID | re("\\d+")}} {{PERMISSIONS | ORPHRASE}} {{SIZE}} {{DATE_TIME | ORPHRASE}} {{NAME | ORPHRASE}}
+</group>
+</group>

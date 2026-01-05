@@ -1,0 +1,22 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_sysinfo
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="bootloader_version_build_type_configured_country_field_recovery_image_version">
+Product Version.................................. {{PRODUCT_VERSION | ORPHRASE}}
+Bootloader Version............................... {{BOOTLOADER_VERSION | ORPHRASE}}
+Field Recovery Image Version..................... {{FIELD_RECOVERY_IMAGE_VERSION | ORPHRASE}}
+Firmware Version................................. {{FIRMWARE_VERSION | ORPHRASE}}
+Build Type....................................... {{BUILD_TYPE | ORPHRASE}}
+System Name...................................... {{SYSTEM_NAME | ORPHRASE}}
+IP Address....................................... {{IP_ADDRESS | ORPHRASE}}
+Last Reset....................................... {{LAST_RESET | ORPHRASE}}
+System Up Time................................... {{SYSTEM_UP_TIME | ORPHRASE}}
+Configured Country............................... {{CONFIGURED_COUNTRY | ORPHRASE}}
+Number of Active Clients......................... {{NUMBER_ACTIVE_CLIENTS | ORPHRASE}}
+Burned-in MAC Address............................ {{MAC_ADDRESS | ORPHRASE}}
+Maximum number of APs supported.................. {{MAXIMUM_APS | ORPHRASE}}
+</group>

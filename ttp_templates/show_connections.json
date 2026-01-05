@@ -1,0 +1,90 @@
+{
+  "command": "show connections",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"session_id_src_address_dst_address_state_duration\">\n{{SESSION_ID | re(\"\\\\d+\")}} {{SRC_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{DST_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATE | ORPHRASE}} {{DURATION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SESSION_ID": "1",
+      "SRC_ADDRESS": "192.168.10.1",
+      "DST_ADDRESS": "10.0.0.1",
+      "STATE": "ESTABLISHED",
+      "DURATION": "02:10:15"
+    },
+    {
+      "SESSION_ID": "2",
+      "SRC_ADDRESS": "192.168.20.1",
+      "DST_ADDRESS": "10.0.0.2",
+      "STATE": "TIME_WAIT",
+      "DURATION": "00:00:03"
+    },
+    {
+      "SESSION_ID": "3",
+      "SRC_ADDRESS": "192.168.30.1",
+      "DST_ADDRESS": "10.0.0.3",
+      "STATE": "CLOSE_WAIT",
+      "DURATION": "01:12:22"
+    },
+    {
+      "SESSION_ID": "4",
+      "SRC_ADDRESS": "192.168.40.1",
+      "DST_ADDRESS": "10.0.0.4",
+      "STATE": "ESTABLISHED",
+      "DURATION": "03:05:35"
+    },
+    {
+      "SESSION_ID": "5",
+      "SRC_ADDRESS": "192.168.50.1",
+      "DST_ADDRESS": "10.0.0.5",
+      "STATE": "FIN_WAIT_1",
+      "DURATION": "00:15:42"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "session_id_src_address_dst_address_state_duration": [
+        {
+          "SESSION_ID": "1",
+          "SRC_ADDRESS": "192.168.10.1",
+          "DST_ADDRESS": "10.0.0.1",
+          "STATE": "ESTABLISHED",
+          "DURATION": "02:10:15"
+        },
+        {
+          "SESSION_ID": "2",
+          "SRC_ADDRESS": "192.168.20.1",
+          "DST_ADDRESS": "10.0.0.2",
+          "STATE": "TIME_WAIT",
+          "DURATION": "00:00:03"
+        },
+        {
+          "SESSION_ID": "3",
+          "SRC_ADDRESS": "192.168.30.1",
+          "DST_ADDRESS": "10.0.0.3",
+          "STATE": "CLOSE_WAIT",
+          "DURATION": "01:12:22"
+        },
+        {
+          "SESSION_ID": "4",
+          "SRC_ADDRESS": "192.168.40.1",
+          "DST_ADDRESS": "10.0.0.4",
+          "STATE": "ESTABLISHED",
+          "DURATION": "03:05:35"
+        },
+        {
+          "SESSION_ID": "5",
+          "SRC_ADDRESS": "192.168.50.1",
+          "DST_ADDRESS": "10.0.0.5",
+          "STATE": "FIN_WAIT_1",
+          "DURATION": "00:15:42"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Session ID  Src Address     Dst Address     State          Duration\n----------  --------------- --------------- -------------- -------------\n1           192.168.10.1    10.0.0.1        ESTABLISHED    02:10:15\n2           192.168.20.1    10.0.0.2        TIME_WAIT      00:00:03\n3           192.168.30.1    10.0.0.3        CLOSE_WAIT     01:12:22\n4           192.168.40.1    10.0.0.4        ESTABLISHED    03:05:35\n5           192.168.50.1    10.0.0.5        FIN_WAIT_1     00:15:42\n",
+  "textfsm_template": "Value SESSION_ID (\\d+)\nValue SRC_ADDRESS (\\S+)\nValue DST_ADDRESS (\\S+)\nValue STATE (\\S+)\nValue DURATION (\\S+)\n\nStart\n  ^Session\\sID\\s+Src\\sAddress\\s+Dst\\sAddress\\s+State\\s+Duration\\s*$$\n  ^${SESSION_ID}\\s+${SRC_ADDRESS}\\s+${DST_ADDRESS}\\s+${STATE}\\s+${DURATION}\\s*$$ -> Record"
+}

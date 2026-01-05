@@ -1,0 +1,28 @@
+{
+  "command": "cisco_nvfis_show_version",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"build_date_last_reboot_version\">\nVersion {{VERSION | ORPHRASE}}\nBuild date {{BUILD_DATE | ORPHRASE}}\nLast Reboot {{LAST_REBOOT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VERSION": "4.9.1-FC3",
+      "BUILD_DATE": "Thursday, September 15, 2022 [10:56:47 PDT]",
+      "LAST_REBOOT": "Wednesday, December 07 [18:17]"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "build_date_last_reboot_version": {
+        "LAST_REBOOT": "Wednesday, December 07 [18:17]",
+        "BUILD_DATE": "Thursday, September 15, 2022 [10:56:47 PDT]",
+        "VERSION": "4.9.1-FC3"
+      }
+    }
+  ],
+  "cli_content": "Cisco NFV Infrastructure Software\nVersion 4.9.1-FC3\nBuild date Thursday, September 15, 2022 [10:56:47 PDT]\nLast Reboot Wednesday, December 07 [18:17]",
+  "textfsm_template": "Value VERSION (\\S+)\nValue BUILD_DATE (.+)\nValue LAST_REBOOT (.+)\n\n\nStart\n  ^Version\\s${VERSION}\n  ^Build\\sdate\\s${BUILD_DATE}\n  ^Last\\sReboot\\s${LAST_REBOOT} -> Record\n"
+}

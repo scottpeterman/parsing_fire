@@ -1,0 +1,62 @@
+{
+  "command": "show interfaces",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 4,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"interface_status_protocol_address_mtu\">\n{{INTERFACE}} {{STATUS | ORPHRASE}} {{PROTOCOL}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{MTU | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Ethernet0/0",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "ADDRESS": "192.168.1.1",
+      "MTU": "1500"
+    },
+    {
+      "INTERFACE": "Ethernet0/1",
+      "STATUS": "down",
+      "PROTOCOL": "down",
+      "ADDRESS": "unassigned",
+      "MTU": "1500"
+    },
+    {
+      "INTERFACE": "Ethernet0/2",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "ADDRESS": "10.0.0.1",
+      "MTU": "1500"
+    },
+    {
+      "INTERFACE": "Ethernet0/3",
+      "STATUS": "administratively down",
+      "PROTOCOL": "down",
+      "ADDRESS": "unassigned",
+      "MTU": "1500"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_status_protocol_address_mtu": [
+        {
+          "INTERFACE": "Ethernet0/0",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "ADDRESS": "192.168.1.1",
+          "MTU": "1500"
+        },
+        {
+          "INTERFACE": "Ethernet0/2",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "ADDRESS": "10.0.0.1",
+          "MTU": "1500"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface    Status         Protocol       Address                 MTU\nEthernet0/0  up             up             192.168.1.1             1500\nEthernet0/1  down           down           unassigned              1500\nEthernet0/2  up             up             10.0.0.1                1500\nEthernet0/3  administratively down down    unassigned              1500\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue STATUS (up|down|administratively down)\nValue PROTOCOL (up|down)\nValue ADDRESS (\\S+)\nValue MTU (\\d+)\n\nStart\n  ^Interface\\s+Status\\s+Protocol\\s+Address\\s+MTU\\s*$$\n  ^${INTERFACE}\\s+${STATUS}\\s+${PROTOCOL}\\s+${ADDRESS}\\s+${MTU}\\s*$$ -> Record"
+}

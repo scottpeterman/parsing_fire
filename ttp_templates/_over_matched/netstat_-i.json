@@ -1,0 +1,111 @@
+{
+  "command": "netstat -i",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"iface_mtu_rx_ok_rx_err_rx_drp_rx_ovr_tx_ok_tx_err_tx_drp_tx_ovr_flg\">\n{{IFACE}} {{MTU}} {{RX_OK}} {{RX_ERR}} {{RX_DRP}} {{RX_OVR}} {{TX_OK}} {{TX_ERR}} {{TX_DRP}} {{TX_OVR}} {{FLG | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IFACE": "eth0",
+      "MTU": "1500",
+      "RX_OK": "1000000",
+      "RX_ERR": "0",
+      "RX_DRP": "0",
+      "RX_OVR": "0",
+      "TX_OK": "2000000",
+      "TX_ERR": "0",
+      "TX_DRP": "0",
+      "TX_OVR": "0",
+      "FLG": "BMRU"
+    },
+    {
+      "IFACE": "eth1",
+      "MTU": "1500",
+      "RX_OK": "500000",
+      "RX_ERR": "0",
+      "RX_DRP": "0",
+      "RX_OVR": "0",
+      "TX_OK": "1000000",
+      "TX_ERR": "0",
+      "TX_DRP": "0",
+      "TX_OVR": "0",
+      "FLG": "BMRU"
+    },
+    {
+      "IFACE": "lo",
+      "MTU": "65536",
+      "RX_OK": "10",
+      "RX_ERR": "0",
+      "RX_DRP": "0",
+      "RX_OVR": "0",
+      "TX_OK": "10",
+      "TX_ERR": "0",
+      "TX_DRP": "0",
+      "TX_OVR": "0",
+      "FLG": "LRU"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "iface_mtu_rx_ok_rx_err_rx_drp_rx_ovr_tx_ok_tx_err_tx_drp_tx_ovr_flg": [
+        {
+          "IFACE": "Iface",
+          "MTU": "MTU",
+          "RX_OK": "RX-OK",
+          "RX_ERR": "RX-ERR",
+          "RX_DRP": "RX-DRP",
+          "RX_OVR": "RX-OVR",
+          "TX_OK": "TX-OK",
+          "TX_ERR": "TX-ERR",
+          "TX_DRP": "TX-DRP",
+          "TX_OVR": "TX-OVR",
+          "FLG": "Flg"
+        },
+        {
+          "IFACE": "eth0",
+          "MTU": "1500",
+          "RX_OK": "1000000",
+          "RX_ERR": "0",
+          "RX_DRP": "0",
+          "RX_OVR": "0",
+          "TX_OK": "2000000",
+          "TX_ERR": "0",
+          "TX_DRP": "0",
+          "TX_OVR": "0",
+          "FLG": "BMRU"
+        },
+        {
+          "IFACE": "eth1",
+          "MTU": "1500",
+          "RX_OK": "500000",
+          "RX_ERR": "0",
+          "RX_DRP": "0",
+          "RX_OVR": "0",
+          "TX_OK": "1000000",
+          "TX_ERR": "0",
+          "TX_DRP": "0",
+          "TX_OVR": "0",
+          "FLG": "BMRU"
+        },
+        {
+          "IFACE": "lo",
+          "MTU": "65536",
+          "RX_OK": "10",
+          "RX_ERR": "0",
+          "RX_DRP": "0",
+          "RX_OVR": "0",
+          "TX_OK": "10",
+          "TX_ERR": "0",
+          "TX_DRP": "0",
+          "TX_OVR": "0",
+          "FLG": "LRU"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Kernel Interface table\nIface       MTU   RX-OK RX-ERR RX-DRP RX-OVR TX-OK TX-ERR TX-DRP TX-OVR Flg\neth0       1500 1000000      0      0      0 2000000      0      0      0 BMRU\neth1       1500  500000      0      0      0 1000000      0      0      0 BMRU\nlo        65536      10      0      0      0     10      0      0      0 LRU\n",
+  "textfsm_template": "Value Required IFACE (\\S+)\nValue MTU (\\d+)\nValue RX_OK (\\d+)\nValue RX_ERR (\\d+)\nValue RX_DRP (\\d+)\nValue RX_OVR (\\d+)\nValue TX_OK (\\d+)\nValue TX_ERR (\\d+)\nValue TX_DRP (\\d+)\nValue TX_OVR (\\d+)\nValue FLG (\\S+)\n\nStart\n  ^Iface\\s+MTU\\s+RX-OK\\s+RX-ERR\\s+RX-DRP\\s+RX-OVR\\s+TX-OK\\s+TX-ERR\\s+TX-DRP\\s+TX-OVR\\s+Flg\\s*$$\n  ^${IFACE}\\s+${MTU}\\s+${RX_OK}\\s+${RX_ERR}\\s+${RX_DRP}\\s+${RX_OVR}\\s+${TX_OK}\\s+${TX_ERR}\\s+${TX_DRP}\\s+${TX_OVR}\\s+${FLG}\\s*$$ -> Record"
+}

@@ -1,0 +1,32 @@
+{
+  "command": "arista_eos_show_version",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"free_memory_model_software_version_sys_mac\">\nArista {{MODEL | ORPHRASE}}\nSystem MAC address:  {{SYS_MAC | ORPHRASE}}\nSoftware image version: {{SOFTWARE_VERSION | ORPHRASE}}\nTotal memory:  {{TOTAL_MEMORY | ORPHRASE}} kB\nFree memory:  {{FREE_MEMORY | ORPHRASE}} kB\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "MODEL": "vEOS",
+      "SYS_MAC": "2803.829a.1347",
+      "SOFTWARE_VERSION": "4.14.7M",
+      "TOTAL_MEMORY": "2028860",
+      "FREE_MEMORY": "301240"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "free_memory_model_software_version_sys_mac": {
+        "FREE_MEMORY": "301240",
+        "TOTAL_MEMORY": "2028860",
+        "SOFTWARE_VERSION": "4.14.7M",
+        "SYS_MAC": "2803.829a.1347",
+        "MODEL": "vEOS"
+      }
+    }
+  ],
+  "cli_content": "Arista vEOS\nHardware version:    \nSerial number:       \nSystem MAC address:  2803.829a.1347\n\nSoftware image version: 4.14.7M\nArchitecture:           i386\nInternal build version: 4.14.7M-2384414.4147M\nInternal build ID:      92a53fad-f853-42a5-9f57-c3c4ea3c26b3\n\nUptime:                 1 hour and 5 minutes\nTotal memory:           2028860 kB\nFree memory:            301240 kB\n",
+  "textfsm_template": "Value MODEL (\\S+)\nValue HW_VERSION (\\S+)\nValue SERIAL_NUMBER (\\S+)\nValue SYS_MAC (\\S+)\nValue SOFTWARE_VERSION (\\S+)\nValue TOTAL_MEMORY (\\d+)\nValue FREE_MEMORY (\\d+)\n\nStart\n  ^Arista\\s+${MODEL}\n  ^Hardware\\s+version:\\s+${HW_VERSION}\n  ^Serial\\s+number:\\s+${SERIAL_NUMBER}\n  ^System\\s+MAC\\s+address:\\s+${SYS_MAC}\n  ^Software\\s+image\\s+version:\\s+${SOFTWARE_VERSION}\n  ^Total\\s+memory:\\s+${TOTAL_MEMORY}\n  ^Free\\s+memory:\\s+${FREE_MEMORY} -> Record\n"
+}

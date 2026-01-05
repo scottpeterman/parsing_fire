@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: brocade_netiron_show_running-config_vlan
+# Source: ntc
+# TextFSM rows: 16
+# TTP rows: 32
+# Match ratio: 2.00
+
+<group name="taggedports">
+ tagged {{taggedports | ORPHRASE}} 
+</group>
+<group name="vlanid_vlanname">
+vlan {{vlanid | re("\\d+")}} name {{vlanname | ORPHRASE}} 
+</group>

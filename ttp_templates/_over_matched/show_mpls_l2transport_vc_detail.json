@@ -1,0 +1,69 @@
+{
+  "command": "show mpls l2transport vc detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"interface_state\">\nLocal interface: {{INTERFACE | ORPHRASE}} aaaa.34c5.b34d.green {{STATE | ORPHRASE}}\n</group>\n<group name=\"state_preferred_path\">\n    VC status: {{STATE | ORPHRASE}}, Preferred path: {{PREFERRED_PATH | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "VFI VPLS-RED,",
+      "STATE": "up",
+      "LOCAL_LABEL": "16",
+      "REMOTE_LABEL": "17",
+      "GROUP_ID": "0x1",
+      "VC_STATUS": "up",
+      "PREFERRED_PATH": "not configured",
+      "DEFAULT_PATH": "active",
+      "NEXT_HOP": "10.0.0.2"
+    },
+    {
+      "INTERFACE": "VFI VPLS-BLUE,",
+      "STATE": "up",
+      "LOCAL_LABEL": "18",
+      "REMOTE_LABEL": "19",
+      "GROUP_ID": "0x2",
+      "VC_STATUS": "up",
+      "PREFERRED_PATH": "not configured",
+      "DEFAULT_PATH": "active",
+      "NEXT_HOP": "10.0.0.3"
+    },
+    {
+      "INTERFACE": "VFI VPLS-GREEN,",
+      "STATE": "up",
+      "LOCAL_LABEL": "20",
+      "REMOTE_LABEL": "21",
+      "GROUP_ID": "0x3",
+      "VC_STATUS": "down",
+      "PREFERRED_PATH": "not configured",
+      "DEFAULT_PATH": "inactive",
+      "NEXT_HOP": "10.0.0.4"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_state": {
+        "INTERFACE": "VFI VPLS-RED,",
+        "STATE": "up"
+      },
+      "state_preferred_path": [
+        {
+          "STATE": "up",
+          "PREFERRED_PATH": "not configured"
+        },
+        {
+          "STATE": "up",
+          "PREFERRED_PATH": "not configured"
+        },
+        {
+          "STATE": "down",
+          "PREFERRED_PATH": "not configured"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Local interface: VFI VPLS-RED, aaaa.34c5.b34d.green up\n    MPLS VC labels: local 16, remote 17\n    Group ID: 0x1,\n    VC ID: 500, \n    VC status: up, Preferred path: not configured\n    Default path: active, Next hop: 10.0.0.2\n\nLocal interface: VFI VPLS-BLUE, 7ada.33ff.22aa.blue up\n    MPLS VC labels: local 18, remote 19\n    Group ID: 0x2,\n    VC ID: 501, \n    VC status: up, Preferred path: not configured\n    Default path: active, Next hop: 10.0.0.3\n\nLocal interface: VFI VPLS-GREEN, 9aad.b22f.3ff2.green up\n    MPLS VC labels: local 20, remote 21\n    Group ID: 0x3,\n    VC ID: 502, \n    VC status: down, Preferred path: not configured\n    Default path: inactive, Next hop: 10.0.0.4\n",
+  "textfsm_template": "Value INTERFACE (\\S+ \\S+)\nValue STATE (\\S+)\nValue LOCAL_LABEL (\\d+)\nValue REMOTE_LABEL (\\d+)\nValue GROUP_ID (\\S+)\nValue VC_ID (\\d+)\nValue VC_STATUS (\\S+)\nValue PREFERRED_PATH (\\S+ \\S+)\nValue DEFAULT_PATH (\\S+)\nValue NEXT_HOP (\\S+)\n\nStart\n  ^Local interface: ${INTERFACE} [\\s\\S]+ ${STATE}$$\n  ^\\s*MPLS VC labels: local ${LOCAL_LABEL}, remote ${REMOTE_LABEL}$$\n  ^\\s*Group ID: ${GROUP_ID},$$\n  ^\\s*VC ID: ${VC_ID},$$\n  ^\\s*VC status: ${VC_STATUS}, Preferred path: ${PREFERRED_PATH}$$\n  ^\\s*Default path: ${DEFAULT_PATH}, Next hop: ${NEXT_HOP}$$ -> Record"
+}

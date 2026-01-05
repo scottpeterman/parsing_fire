@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show interfaces
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 2
+# Match ratio: 0.50
+
+<group name="interface_status_protocol_address_mtu">
+{{INTERFACE}} {{STATUS | ORPHRASE}} {{PROTOCOL}} {{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MTU | ORPHRASE}}
+</group>

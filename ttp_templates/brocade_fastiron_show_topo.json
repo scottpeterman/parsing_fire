@@ -1,0 +1,48 @@
+{
+  "command": "brocade_fastiron_show_topo",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"topogroup\">\nTopology Group {{topogroup | ORPHRASE}}\n</group>\n<group name=\"topogroup_mastervlan\">\n member-vlan {{topogroup | ORPHRASE}}6 {{mastervlan | re(\"\\\\d+\")}}9 151 to 152 154 200 300 to 303 350 400 453 1280 to 1283\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "topogroup": "10",
+      "mastervlan": "10",
+      "l2proto": "MRP"
+    },
+    {
+      "topogroup": "14",
+      "mastervlan": "14",
+      "l2proto": "MRP"
+    },
+    {
+      "topogroup": "175",
+      "mastervlan": "175",
+      "l2proto": "MRP"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "topogroup": [
+        {
+          "topogroup": "10"
+        },
+        {
+          "topogroup": "14"
+        },
+        {
+          "topogroup": "175"
+        }
+      ],
+      "topogroup_mastervlan": {
+        "topogroup": "14",
+        "mastervlan": "14"
+      }
+    }
+  ],
+  "cli_content": "Topology Group 10\n=================\n master-vlan 10\n member-vlan 146 149 151 to 152 154 200 300 to 303 350 400 453 1280 to 1283\n member-vlan 1295 1335 1395 2005 2022 2024 2030 2033 2035 2039 2049 to 2050\n member-vlan 2054 2069 to 2070 2086 2091 to 2092 2096 to 2097 2099 to 2100\n member-vlan 2129 2184 2188 to 2189 2204 2215 2226 2241 to 2242 2250 2253\n member-vlan 2277 2325 to 2326 2340 2342 2349 to 2351 2360 2367 2414 to 2415\n member-vlan 2442 2895 3008 3840 4001\n\n Common control ports           L2 protocol         \n ethernet 2                     MRP                 \n ethernet 11                    MRP                 \n Per vlan free ports                                \n ethernet 16                     Vlan 149           \n ethernet 21                     Vlan 149           \n ethernet 10                     Vlan 152           \n ethernet 20                     Vlan 152           \n ethernet 14                     Vlan 154           \n ethernet 19                     Vlan 154           \n ethernet 23                     Vlan 4001          \n ethernet 4                      Vlan 2033          \n ethernet 17                     Vlan 2277          \n                                                                  \nTopology Group 14\n=================\n master-vlan 14\n member-vlan 13 451 to 452 512 820 830 840 2076 to 2078 2089 to 2090 2123 to 2124\n member-vlan 2130 to 2132 2233 2236 2297 2327 to 2328 2365 2380\n\n Common control ports           L2 protocol         \n ethernet 1                     MRP                 \n ethernet 2                     MRP                 \n Per vlan free ports                                \n ethernet 7                      Vlan 451           \n ethernet 22                     Vlan 451           \n ethernet 23                     Vlan 2076          \n ethernet 23                     Vlan 2077          \n ethernet 23                     Vlan 2078          \n ethernet 23                     Vlan 2123          \n ethernet 23                     Vlan 2124          \n ethernet 23                     Vlan 512           \n ethernet 23                     Vlan 2236          \n ethernet 23                     Vlan 2130          \n ethernet 23                     Vlan 2131          \n ethernet 23                     Vlan 2132          \n ethernet 23                     Vlan 2297                        \n ethernet 23                     Vlan 2327          \n ethernet 23                     Vlan 2328          \n ethernet 23                     Vlan 2365          \n\nTopology Group 175\n=================\n master-vlan 175\n member-vlan 100 450 850 2206 2752 to 2753\n\n Common control ports           L2 protocol         \n ethernet 1                     MRP                 \n ethernet 2                     MRP                 \n Per vlan free ports                                \n ethernet 9                      Vlan 450           \n ethernet 24                     Vlan 450           \n",
+  "textfsm_template": "Value topogroup (\\d+)\nValue mastervlan (\\d+)\nValue l2proto (MRP|STP|RSTP|VSRP|ERP)\nValue membervlans ([0-9\\ to]+)\nValue controlports ([0-9\\ \\/eto]+)\nValue freeports ([0-9\\ \\/eto]+)\n\nStart\n  ^Topology Group\\s+${topogroup} -> Continue\n  ^\\s+master-vlan\\s+${mastervlan} -> Continue\n  ^\\s+ethernet\\s+([0-9\\/]+)\\s+${l2proto} -> Continue\n  ^\\s+Per -> Record"
+}

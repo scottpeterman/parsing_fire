@@ -1,0 +1,74 @@
+{
+  "command": "cisco_ios_show_ip_device_tracking_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"ip_address_mac_address_vlan_id_interface_probe_timeout_state_source\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{VLAN_ID | re(\"\\\\d+\")}} {{INTERFACE}} {{PROBE_TIMEOUT}} {{STATE | ORPHRASE}} {{SOURCE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP_ADDRESS": "192.168.1.104",
+      "MAC_ADDRESS": "8c12.9011.00e2",
+      "VLAN_ID": "1",
+      "INTERFACE": "GigabitEthernet1/0/9",
+      "PROBE_TIMEOUT": "30",
+      "STATE": "ACTIVE",
+      "SOURCE": "ARP"
+    },
+    {
+      "IP_ADDRESS": "192.168.1.108",
+      "MAC_ADDRESS": "0065.2da2.5d6e",
+      "VLAN_ID": "1",
+      "INTERFACE": "GigabitEthernet1/0/1",
+      "PROBE_TIMEOUT": "30",
+      "STATE": "ACTIVE",
+      "SOURCE": "ARP"
+    },
+    {
+      "IP_ADDRESS": "192.168.1.110",
+      "MAC_ADDRESS": "000c.29ed.e090",
+      "VLAN_ID": "1",
+      "INTERFACE": "GigabitEthernet1/0/1",
+      "PROBE_TIMEOUT": "30",
+      "STATE": "ACTIVE",
+      "SOURCE": "ARP"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_address_mac_address_vlan_id_interface_probe_timeout_state_source": [
+        {
+          "IP_ADDRESS": "192.168.1.104",
+          "MAC_ADDRESS": "8c12.9011.00e2",
+          "VLAN_ID": "1",
+          "INTERFACE": "GigabitEthernet1/0/9",
+          "PROBE_TIMEOUT": "30",
+          "STATE": "ACTIVE",
+          "SOURCE": "ARP"
+        },
+        {
+          "IP_ADDRESS": "192.168.1.108",
+          "MAC_ADDRESS": "0065.2da2.5d6e",
+          "VLAN_ID": "1",
+          "INTERFACE": "GigabitEthernet1/0/1",
+          "PROBE_TIMEOUT": "30",
+          "STATE": "ACTIVE",
+          "SOURCE": "ARP"
+        },
+        {
+          "IP_ADDRESS": "192.168.1.110",
+          "MAC_ADDRESS": "000c.29ed.e090",
+          "VLAN_ID": "1",
+          "INTERFACE": "GigabitEthernet1/0/1",
+          "PROBE_TIMEOUT": "30",
+          "STATE": "ACTIVE",
+          "SOURCE": "ARP"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Global IP Device Tracking for clients = Enabled\nGlobal IP Device Tracking Probe Count = 3\nGlobal IP Device Tracking Probe Interval = 30\nGlobal IP Device Tracking Probe Delay Interval = 0\n-----------------------------------------------------------------------------------------------\n  IP Address    MAC Address   Vlan  Interface           Probe-Timeout      State    Source\n-----------------------------------------------------------------------------------------------\n192.168.1.104   8c12.9011.00e2 1    GigabitEthernet1/0/9   30              ACTIVE   ARP\n192.168.1.108   0065.2da2.5d6e 1    GigabitEthernet1/0/1   30              ACTIVE   ARP\n192.168.1.110   000c.29ed.e090 1    GigabitEthernet1/0/1   30              ACTIVE   ARP\n\nTotal number interfaces enabled: 32\nEnabled interfaces:\n  Vl1, Vl3, Vl42, Fa0, Gi1/0/1, Gi1/0/2, Gi1/0/3,\n  Gi1/0/4, Gi1/0/5, Gi1/0/6, Gi1/0/7, Gi1/0/8, Gi1/0/9, Gi1/0/10,\n  Gi1/0/11, Gi1/0/12, Gi1/0/13, Gi1/0/14, Gi1/0/15, Gi1/0/16, Gi1/0/17,\n  Gi1/0/18, Gi1/0/19, Gi1/0/20, Gi1/0/21, Gi1/0/22, Gi1/0/23, Gi1/0/24,\n  Gi1/0/25, Gi1/0/26, Gi1/0/27, Gi1/0/28\n",
+  "textfsm_template": "Value Required IP_ADDRESS ((?:[0-9]{1,3}\\.){3}[0-9]{1,3})\nValue MAC_ADDRESS ([0-9a-fA-F]{4}\\.[0-9a-fA-F]{4}\\.[0-9a-fA-F]{4})\nValue Required VLAN_ID ([0-9]+)\nValue Required INTERFACE (\\S+)\nValue Required PROBE_TIMEOUT (\\S+)\nValue Required STATE (\\S+)\nValue Required SOURCE (\\S+)\n\nStart\n  ^${IP_ADDRESS}\\s+${MAC_ADDRESS}\\s+${VLAN_ID}\\s+${INTERFACE}\\s+${PROBE_TIMEOUT}\\s+${STATE}\\s+${SOURCE} -> Record\n  ^Global\n  ^Total\n  ^Enabled\\s+interfaces\n  ^\\s+(?:\\S+(?:,\\s*|))+$$\n  ^\\s*-+\n  ^\\s+IP Address\\s+MAC\\s+Address\\s+Vlan\\s+Interface\\s+Probe-Timeout\\s+State\\s+Source\n  ^\\s*\\^\\s*$$\n  ^.*Invalid input detected.*\n  ^\\s*$$\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^.* -> Error\n"
+}

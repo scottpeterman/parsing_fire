@@ -1,0 +1,44 @@
+{
+  "command": "show crypto pki certificates",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"issuer_cn_issuer_on_issuer_ou_serial_number\">\n  Status: {{STATUS | ORPHRASE}}\n  Storage: {{STORAGE | ORPHRASE}}\n  Certificate Serial Number (hex): {{SERIAL_NUMBER | ORPHRASE}}\n  Certificate Usage: {{USAGE | ORPHRASE}}\n  Organization Unit: {{ISSUER_OU | ORPHRASE}}\n  Organization Name: {{ISSUER_ON | ORPHRASE}}\n  Common Name: {{ISSUER_CN | ORPHRASE}}\n  Name: {{SUBJECT_NAME | ORPHRASE}}\n  start date: {{VALIDITY_START | ORPHRASE}}\n  end  date: {{VALIDITY_END | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "STATUS": "Available",
+      "SERIAL_NUMBER": "789DEF012",
+      "USAGE": "Server Auth",
+      "ISSUER_OU": "Another Unit",
+      "ISSUER_ON": "Another Org",
+      "ISSUER_CN": "Another Root CA",
+      "SUBJECT_NAME": "Another Cert",
+      "VALIDITY_START": "00:00:00 UTC Feb 1 2023",
+      "VALIDITY_END": "00:00:00 UTC Feb 1 2026",
+      "STORAGE": "nvram"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "issuer_cn_issuer_on_issuer_ou_serial_number": [
+        {
+          "STORAGE": "nvram",
+          "USAGE": "General Purpose",
+          "SERIAL_NUMBER": "123ABC456",
+          "STATUS": "Available"
+        },
+        {
+          "STORAGE": "nvram",
+          "USAGE": "Server Auth",
+          "SERIAL_NUMBER": "789DEF012",
+          "STATUS": "Available"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Certificate\n  Status: Available\n  Certificate Serial Number (hex): 123ABC456\n  Certificate Usage: General Purpose\n  Issuer: \n    Organization Unit: Example Unit\n    Organization Name: Example Org\n    Common Name: Example Root CA\n  Subject:\n    Name: Example Cert\n  Validity Date:\n    start date: 12:00:00 UTC Jan 1 2022\n    end   date: 12:00:00 UTC Jan 1 2025\n  Storage: nvram\n\nCertificate\n  Status: Available\n  Certificate Serial Number (hex): 789DEF012\n  Certificate Usage: Server Auth\n  Issuer: \n    Organization Unit: Another Unit\n    Organization Name: Another Org\n    Common Name: Another Root CA\n  Subject:\n    Name: Another Cert\n  Validity Date:\n    start date: 00:00:00 UTC Feb 1 2023\n    end   date: 00:00:00 UTC Feb 1 2026\n  Storage: nvram\n",
+  "textfsm_template": "Value STATUS (Available|Revoked|Expired)\nValue SERIAL_NUMBER (\\S+)\nValue USAGE (\\S+ \\S+)\nValue ISSUER_OU (.*)\nValue ISSUER_ON (.*)\nValue ISSUER_CN (.*)\nValue SUBJECT_NAME (.*)\nValue VALIDITY_START (.*)\nValue VALIDITY_END (.*)\nValue STORAGE (\\S+)\n\nStart\n  ^Certificate -> Record StartRecord\n\nStartRecord\n  ^\\s*Status:\\s+${STATUS}\\s*$$\n  ^\\s*Certificate Serial Number \\(hex\\):\\s+${SERIAL_NUMBER}\\s*$$\n  ^\\s*Certificate Usage:\\s+${USAGE}\\s*$$\n  ^\\s*Issuer:\\s*$$\n  ^\\s*Organization Unit:\\s+${ISSUER_OU}\\s*$$\n  ^\\s*Organization Name:\\s+${ISSUER_ON}\\s*$$\n  ^\\s*Common Name:\\s+${ISSUER_CN}\\s*$$\n  ^\\s*Subject:\\s*$$\n  ^\\s*Name:\\s+${SUBJECT_NAME}\\s*$$\n  ^\\s*Validity Date:\\s*$$\n  ^\\s*start date:\\s+${VALIDITY_START}\\s*$$\n  ^\\s*end\\s*date:\\s+${VALIDITY_END}\\s*$$\n  ^\\s*Storage:\\s+${STORAGE}\\s*$$"
+}

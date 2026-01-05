@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_aliases
+# Source: ntc
+# TextFSM rows: 10
+# TTP rows: 12
+# Match ratio: 1.20
+
+<group name="alias_command">
+  {{ALIAS}} {{COMMAND | ORPHRASE}}
+</group>
+<group name="mode_alias">
+{{MODE | ORPHRASE}} alia{{ALIAS | ORPHRASE}}es:
+</group>

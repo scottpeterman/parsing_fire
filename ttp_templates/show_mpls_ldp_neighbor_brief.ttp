@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show mpls ldp neighbor brief
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="ldp_id_transport_addr_discovery_addr_status">
+{{LDP_ID}} {{TRANSPORT_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{DISCOVERY_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATUS | ORPHRASE}}
+</group>

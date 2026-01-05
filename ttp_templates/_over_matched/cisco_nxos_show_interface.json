@@ -1,0 +1,88 @@
+{
+  "command": "cisco_nxos_show_interface",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"interface_link_status_admin_state\">\n{{INTERFACE}} is {{LINK_STATUS | ORPHRASE}}, line protocol is {{ADMIN_STATE | ORPHRASE}}\n</group>\n<group name=\"duplex_speed\">\n  {{DUPLEX}}, {{SPEED | ORPHRASE}}\n</group>\n<group name=\"duplex_speed_input_errors\">\n  {{DUPLEX}}, {{SPEED | ORPHRASE}}, media type is 1{{INPUT_ERRORS}}G\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Vlan20",
+      "LINK_STATUS": "down (VLAN/BD is down)",
+      "ADMIN_STATE": "down",
+      "HARDWARE_TYPE": "EtherSVI",
+      "MAC_ADDRESS": "5087.89a1.d8d5",
+      "IP_ADDRESS": "10.1.20.3",
+      "PREFIX_LENGTH": "24",
+      "MTU": "1500",
+      "BANDWIDTH": "1000000 Kbit",
+      "DELAY": "10 usec",
+      "ENCAPSULATION": "ARPA"
+    },
+    {
+      "INTERFACE": "mgmt0",
+      "LINK_STATUS": "up",
+      "ADMIN_STATE": "up",
+      "HARDWARE_TYPE": "GigabitEthernet",
+      "MAC_ADDRESS": "5087.89a1.d8ce",
+      "BIA": "5087.89a1.d8ce",
+      "DESCRIPTION": "out of band mgmt interface",
+      "IP_ADDRESS": "10.1.100.21",
+      "PREFIX_LENGTH": "24",
+      "MTU": "1500",
+      "DUPLEX": "full-duplex",
+      "SPEED": "100 Mb/s",
+      "BANDWIDTH": "100000 Kbit",
+      "DELAY": "10 usec",
+      "ENCAPSULATION": "ARPA"
+    },
+    {
+      "INTERFACE": "Ethernet1/1",
+      "LINK_STATUS": "up",
+      "ADMIN_STATE": "up",
+      "HARDWARE_TYPE": "1000/10000 Ethernet",
+      "MAC_ADDRESS": "5087.89a1.d8d6",
+      "BIA": "5087.89a1.d8d6",
+      "MTU": "1500",
+      "MODE": "access",
+      "DUPLEX": "full-duplex",
+      "SPEED": "10 Gb/s",
+      "INPUT_PACKETS": "68448",
+      "OUTPUT_PACKETS": "754962",
+      "INPUT_ERRORS": "0",
+      "OUTPUT_ERRORS": "0",
+      "BANDWIDTH": "10000000 Kbit",
+      "DELAY": "10 usec",
+      "ENCAPSULATION": "ARPA",
+      "LAST_LINK_FLAPPED": "2week(s) 1day(s)"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_link_status_admin_state": {
+        "INTERFACE": "Vlan20",
+        "LINK_STATUS": "down (VLAN/BD is down)",
+        "ADMIN_STATE": "down"
+      },
+      "duplex_speed": [
+        {
+          "DUPLEX": "full-duplex",
+          "SPEED": "100 Mb/s"
+        },
+        {
+          "DUPLEX": "full-duplex",
+          "SPEED": "10 Gb/s, media type is 10G"
+        }
+      ],
+      "duplex_speed_input_errors": {
+        "DUPLEX": "full-duplex",
+        "SPEED": "10 Gb/s",
+        "INPUT_ERRORS": "0"
+      }
+    }
+  ],
+  "cli_content": "Vlan20 is down (VLAN/BD is down), line protocol is down\n  Hardware is EtherSVI, address is  5087.89a1.d8d5\n  Internet Address is 10.1.20.3/24\n  MTU 1500 bytes, BW 1000000 Kbit, DLY 10 usec,\n   reliability 255/255, txload 1/255, rxload 1/255\n  Encapsulation ARPA, loopback not set\n  Keepalive not supported\n  ARP type: ARPA\n  Last clearing of \"show interface\" counters never\n  L3 in Switched:\n    ucast: 0 pkts, 0 bytes\n\nmgmt0 is up\nadmin state is up,\n  Hardware: GigabitEthernet, address: 5087.89a1.d8ce (bia 5087.89a1.d8ce)\n  Description: out of band mgmt interface\n  Internet Address is 10.1.100.21/24\n  MTU 1500 bytes, BW 100000 Kbit, DLY 10 usec\n  reliability 255/255, txload 1/255, rxload 1/255\n  Encapsulation ARPA, medium is broadcast\n  full-duplex, 100 Mb/s\n  Auto-Negotiation is turned on\n  Auto-mdix is turned off\n  EtherType is 0x0000\n  1 minute input rate 744 bits/sec, 0 packets/sec\n  1 minute output rate 1608 bits/sec, 0 packets/sec\n  Rx\n    3093618 input packets 224819 unicast packets 2319461 multicast packets\n    549338 broadcast packets 267225622 bytes\n  Tx\n    394746 output packets 206870 unicast packets 187869 multicast packets\n    7 broadcast packets 117206151 bytes\n\nEthernet1/1 is up\nadmin state is up, Dedicated Interface\n  Hardware: 1000/10000 Ethernet, address: 5087.89a1.d8d6 (bia 5087.89a1.d8d6)\n  MTU 1500 bytes, BW 10000000 Kbit, DLY 10 usec\n  reliability 255/255, txload 1/255, rxload 1/255\n  Encapsulation ARPA, medium is broadcast\n  Port mode is access\n  full-duplex, 10 Gb/s, media type is 10G\n  Beacon is turned off\n  Auto-Negotiation is turned on\n  Input flow-control is off, output flow-control is off\n  Auto-mdix is turned off\n  Rate mode is dedicated\n  Switchport monitor is off\n  EtherType is 0x8100\n  EEE (efficient-ethernet) : n/a\n  Last link flapped 2week(s) 1day(s)\n  Last clearing of \"show interface\" counters 2w1d\n  111 interface resets\n  30 seconds input rate 80 bits/sec, 0 packets/sec\n  30 seconds output rate 256 bits/sec, 0 packets/sec\n  Load-Interval #2: 5 minute (300 seconds)\n    input rate 112 bps, 0 pps; output rate 248 bps, 0 pps\n  RX\n    0 unicast packets  68448 multicast packets  0 broadcast packets\n    68448 input packets  19188106 bytes\n    0 jumbo packets  0 storm suppression packets\n    0 runts  0 giants  0 CRC  0 no buffer\n    0 input error  0 short frame  0 overrun   0 underrun  0 ignored\n    0 watchdog  0 bad etype drop  0 bad proto drop  0 if down drop\n    0 input with dribble  0 input discard\n    0 Rx pause\n  TX\n    0 unicast packets  754962 multicast packets  0 broadcast packets\n    754962 output packets  62262008 bytes\n    0 jumbo packets\n    0 output error  0 collision  0 deferred  0 late collision\n    0 lost carrier  0 no carrier  0 babble  0 output discard\n    0 Tx pause\n",
+  "textfsm_template": "Value Required INTERFACE (\\S+)\nValue LINK_STATUS (.+?)\nValue ADMIN_STATE (.+?)\nValue HARDWARE_TYPE (.*)\nValue MAC_ADDRESS ([a-zA-Z0-9]+.[a-zA-Z0-9]+.[a-zA-Z0-9]+)\nValue BIA ([a-zA-Z0-9]+.[a-zA-Z0-9]+.[a-zA-Z0-9]+)\nValue DESCRIPTION (\\S+((\\s+\\S+)+)?)\nValue IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue PREFIX_LENGTH (\\d+)\nValue MTU (\\d+)\nValue MODE (\\S+)\nValue DUPLEX (.+duplex?)\nValue SPEED (.+?)\nValue INPUT_PACKETS (\\d+)\nValue OUTPUT_PACKETS (\\d+)\nValue INPUT_ERRORS (\\d+)\nValue OUTPUT_ERRORS (\\d+)\nValue BANDWIDTH (\\d+\\s+\\w+)\nValue DELAY (\\d+\\s+\\w+)\nValue ENCAPSULATION ([\\w\\.]+)\nValue LAST_LINK_FLAPPED (.+?)\nValue VLAN_ID (\\d+)\n\nStart\n  ^\\S+\\s+is.+ -> Continue.Record\n  ^${INTERFACE}\\s+is\\s+${LINK_STATUS},\\sline\\sprotocol\\sis\\s${ADMIN_STATE}$$\n  ^${INTERFACE}\\s+is\\s+${LINK_STATUS}$$\n  ^admin\\s+state\\s+is\\s+${ADMIN_STATE},\n  ^\\s+Hardware(:|\\s+is)\\s+${HARDWARE_TYPE},\\s+address(:|\\s+is)\\s+${MAC_ADDRESS}(.*bia\\s+${BIA})*\n  ^\\s+Description:\\s+${DESCRIPTION}\\s*$$\n  ^\\s+Internet\\s+Address\\s+is\\s+${IP_ADDRESS}\\/${PREFIX_LENGTH}\n  ^\\s+Port\\s+mode\\s+is\\s+${MODE}\n  ^\\s+${DUPLEX}, ${SPEED}(,|$$)\n  ^\\s+MTU\\s+${MTU}.*BW\\s+${BANDWIDTH}.*DLY\\s+${DELAY}\n  ^\\s+Encapsulation\\s+${ENCAPSULATION}(,)?(\\s+Virtual\\s+LAN,\\s+Vlan\\s+ID\\s+${VLAN_ID},)?\n  ^\\s+${INPUT_PACKETS}\\s+input\\s+packets\\s+\\d+\\s+bytes\\s*$$\n  ^\\s+${INPUT_ERRORS}\\s+input\\s+error\\s+\\d+\\s+short\\s+frame\\s+\\d+\\s+overrun\\s+\\d+\\s+underrun\\s+\\d+\\s+ignored\\s*$$\n  ^\\s+${OUTPUT_PACKETS}\\s+output\\s+packets\\s+\\d+\\s+bytes\\s*$$\n  ^\\s+${OUTPUT_ERRORS}\\s+output\\s+error\\s+\\d+\\s+collision\\s+\\d+\\s+deferred\\s+\\d+\\s+late\\s+collision\\s*$$\n  ^\\s+Last\\s+link\\s+flapped\\s+${LAST_LINK_FLAPPED}\\s*$$\n"
+}

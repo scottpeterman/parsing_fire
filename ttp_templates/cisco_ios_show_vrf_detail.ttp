@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_vrf_detail
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="vrf_rd_vpn_id">
+VRF {{VRF}} (VRF Id = 1); default RD {{RD | ORPHRASE}}; default VPNID {{VPN_ID | ORPHRASE}}
+</group>

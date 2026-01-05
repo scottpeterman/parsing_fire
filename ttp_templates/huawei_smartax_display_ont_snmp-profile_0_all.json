@@ -1,0 +1,28 @@
+{
+  "command": "huawei_smartax_display_ont_snmp-profile_0_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"ont_id_snmp_profile_id_snmp_profile_name\">\n       {{ONT_ID | re(\"\\\\d+\")}} {{SNMP_PROFILE_ID | re(\"\\\\d+\")}} {{SNMP_PROFILE_NAME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ONT_ID": "1",
+      "SNMP_PROFILE_ID": "1",
+      "SNMP_PROFILE_NAME": "snmp-profile_1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ont_id_snmp_profile_id_snmp_profile_name": {
+        "ONT_ID": "1",
+        "SNMP_PROFILE_ID": "1",
+        "SNMP_PROFILE_NAME": "snmp-profile_1"
+      }
+    }
+  ],
+  "cli_content": "  --------------------------------------------------------------------\n  ONT ID     SNMP profile ID     SNMP profile name\n  --------------------------------------------------------------------\n       1              1          snmp-profile_1\n  --------------------------------------------------------------------\n",
+  "textfsm_template": "Value ONT_ID (\\d+)\nValue SNMP_PROFILE_ID (\\d+)\nValue SNMP_PROFILE_NAME (\\S+)\n\nStart\n  ^\\s*ONT\\s*ID\\s*SNMP\\s*profile\\s*ID\\s*SNMP\\s*profile\\s*name\\s*\n  ^\\s*${ONT_ID}\\s*${SNMP_PROFILE_ID}\\s*${SNMP_PROFILE_NAME}\n  ^\\s*\n  ^. -> Error\n"
+}

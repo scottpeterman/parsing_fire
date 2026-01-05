@@ -1,0 +1,53 @@
+{
+  "command": "show licenses",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 6,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"feature_license_state_period_left_comments\">\n{{FEATURE}} {{LICENSE_STATE | ORPHRASE}} {{PERIOD_LEFT}} {{COMMENTS | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "FEATURE": "Advanced",
+      "LICENSE_STATE": "Security",
+      "PERIOD_LEFT": "Active",
+      "COMMENTS": "Lifetime      -"
+    },
+    {
+      "FEATURE": "Network",
+      "LICENSE_STATE": "Advantage",
+      "PERIOD_LEFT": "Active",
+      "COMMENTS": "Lifetime      -"
+    },
+    {
+      "FEATURE": "IP",
+      "LICENSE_STATE": "Base",
+      "PERIOD_LEFT": "Active",
+      "COMMENTS": "Lifetime      -"
+    },
+    {
+      "FEATURE": "DNA",
+      "LICENSE_STATE": "Advantage",
+      "PERIOD_LEFT": "Inactive",
+      "COMMENTS": "30 days       License expired"
+    },
+    {
+      "FEATURE": "Network",
+      "LICENSE_STATE": "Essentials",
+      "PERIOD_LEFT": "Active",
+      "COMMENTS": "Lifetime      -"
+    },
+    {
+      "FEATURE": "DNA",
+      "LICENSE_STATE": "Essentials",
+      "PERIOD_LEFT": "Inactive",
+      "COMMENTS": "7 days        Evaluation"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Feature                                             License State   Period Left   Comments\n--------------------------------------------------------------------------------------\nAdvanced Security                                   Active           Lifetime      -\nNetwork Advantage                                   Active           Lifetime      -\nIP Base                                             Active           Lifetime      -\nDNA Advantage                                       Inactive         30 days       License expired\nNetwork Essentials                                  Active           Lifetime      -\nDNA Essentials                                      Inactive         7 days        Evaluation\n--------------------------------------------------------------------------------------\n",
+  "textfsm_template": "Value FEATURE (\\S+)\nValue LICENSE_STATE (\\S+)\nValue PERIOD_LEFT (\\S+)\nValue COMMENTS (.*)\n\nStart\n  ^\\s*Feature\\s+License State\\s+Period Left\\s+Comments\\s*$$\n  ^\\s*[\\-]+\\s*$$\n  ^\\s*${FEATURE}\\s+${LICENSE_STATE}\\s+${PERIOD_LEFT}\\s+${COMMENTS}\\s*$$ -> Record"
+}

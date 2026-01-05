@@ -1,0 +1,36 @@
+{
+  "command": "mikrotik_routeros_user_print",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"comment_group_id_last_logged_in\">\n 0  ;;; {{COMMENT | ORPHRASE}}\n  admin  {{GROUP}}  jun/30/2023 0{{ID | ORPHRASE}}:08:59\n 1  {{NAME}}  full  {{LAST_LOGGED_IN | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ID": "0",
+      "COMMENT": "system default user",
+      "NAME": "admin",
+      "GROUP": "full",
+      "LAST_LOGGED_IN": "jun/30/2023 01:08:59"
+    },
+    {
+      "ID": "1",
+      "NAME": "user1",
+      "GROUP": "full",
+      "LAST_LOGGED_IN": "jul/18/2023 05:12:46"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "comment_group_id_last_logged_in": {
+        "NAME": "user1",
+        "LAST_LOGGED_IN": "jul/18/2023 05:12:46",
+        "COMMENT": "system default user"
+      }
+    }
+  ],
+  "cli_content": "Flags: X - disabled\n #   NAME                     GROUP  ADDRESS            LAST-LOGGED-IN\n 0   ;;; system default user\n     admin                    full                      jun/30/2023 01:08:59\n 1   user1                    full                      jul/18/2023 05:12:46\n",
+  "textfsm_template": "Value ID (\\d+)\nValue COMMENT (.*)\nValue NAME ([a-zA-Z0-9*_.@]+)\nValue GROUP (\\S+)\nValue ADDRESS (\\S+)\nValue LAST_LOGGED_IN ([a-z]{3}/\\d{1,2}/\\d{4} \\d{1,2}:\\d{1,2}:\\d{1,2})\n\nStart\n  ^\\s*Flags:\\s+X\\s+-\\s+disabled\\s*$$\n  ^\\s*#\\s+NAME\\s+GROUP\\s+ADDRESS\\s+LAST-LOGGED-IN\\s*$$ -> UsersTable\n  ^\\s*$$\n  ^. -> Error\n\nUsersTable\n  ^\\s*${ID}\\s+${NAME}\\s+${GROUP}\\s+(?:${ADDRESS})?\\s+${LAST_LOGGED_IN}\\s*$$ -> Record\n  ^\\s*${ID}\\s+;;;\\s+${COMMENT}\\s*$$\n  ^\\s*${NAME}\\s+${GROUP}\\s+(?:${ADDRESS})?\\s+${LAST_LOGGED_IN}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

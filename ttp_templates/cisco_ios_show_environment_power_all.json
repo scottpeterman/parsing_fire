@@ -1,0 +1,128 @@
+{
+  "command": "cisco_ios_show_environment_power_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"ps_module_pid_serial_status_sys_pwr_poe_pwr_watts\">\n{{PS_MODULE}} {{PID}} {{SERIAL | re(\"\\\\w+\")}} {{STATUS | ORPHRASE}} {{SYS_PWR | ORPHRASE}} {{POE_PWR}} {{WATTS}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PS_MODULE": "1A",
+      "PID": "PWR-C1-1100WAC",
+      "SERIAL": "ABC123456AB",
+      "STATUS": "OK",
+      "SYS_PWR": "Good",
+      "POE_PWR": "Good",
+      "WATTS": "1100"
+    },
+    {
+      "PS_MODULE": "1B",
+      "PID": "PWR-C1-1100WAC",
+      "SERIAL": "ABC123456CD",
+      "STATUS": "OK",
+      "SYS_PWR": "Good",
+      "POE_PWR": "Good",
+      "WATTS": "1100"
+    },
+    {
+      "PS_MODULE": "2A",
+      "PID": "PWR-C1-1100WAC",
+      "SERIAL": "ABC123456EF",
+      "STATUS": "OK",
+      "SYS_PWR": "Good",
+      "POE_PWR": "Good",
+      "WATTS": "1100"
+    },
+    {
+      "PS_MODULE": "2B",
+      "PID": "PWR-C1-1100WAC",
+      "SERIAL": "ABC123456GH",
+      "STATUS": "OK",
+      "SYS_PWR": "Good",
+      "POE_PWR": "Good",
+      "WATTS": "1100"
+    },
+    {
+      "PS_MODULE": "3A",
+      "PID": "Unknown",
+      "SERIAL": "Unknown",
+      "STATUS": "No Input Power",
+      "SYS_PWR": "Bad",
+      "POE_PWR": "Bad",
+      "WATTS": "235"
+    },
+    {
+      "PS_MODULE": "3B",
+      "PID": "PWR-C1-1100WAC",
+      "SERIAL": "ABC123456KL",
+      "STATUS": "OK",
+      "SYS_PWR": "Good",
+      "POE_PWR": "Good",
+      "WATTS": "1100"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ps_module_pid_serial_status_sys_pwr_poe_pwr_watts": [
+        {
+          "PS_MODULE": "1A",
+          "PID": "PWR-C1-1100WAC",
+          "SERIAL": "ABC123456AB",
+          "STATUS": "OK",
+          "SYS_PWR": "Good",
+          "POE_PWR": "Good",
+          "WATTS": "1100"
+        },
+        {
+          "PS_MODULE": "1B",
+          "PID": "PWR-C1-1100WAC",
+          "SERIAL": "ABC123456CD",
+          "STATUS": "OK",
+          "SYS_PWR": "Good",
+          "POE_PWR": "Good",
+          "WATTS": "1100"
+        },
+        {
+          "PS_MODULE": "2A",
+          "PID": "PWR-C1-1100WAC",
+          "SERIAL": "ABC123456EF",
+          "STATUS": "OK",
+          "SYS_PWR": "Good",
+          "POE_PWR": "Good",
+          "WATTS": "1100"
+        },
+        {
+          "PS_MODULE": "2B",
+          "PID": "PWR-C1-1100WAC",
+          "SERIAL": "ABC123456GH",
+          "STATUS": "OK",
+          "SYS_PWR": "Good",
+          "POE_PWR": "Good",
+          "WATTS": "1100"
+        },
+        {
+          "PS_MODULE": "3A",
+          "PID": "Unknown",
+          "SERIAL": "Unknown",
+          "STATUS": "No Input Power",
+          "SYS_PWR": "Bad",
+          "POE_PWR": "Bad",
+          "WATTS": "235"
+        },
+        {
+          "PS_MODULE": "3B",
+          "PID": "PWR-C1-1100WAC",
+          "SERIAL": "ABC123456KL",
+          "STATUS": "OK",
+          "SYS_PWR": "Good",
+          "POE_PWR": "Good",
+          "WATTS": "1100"
+        }
+      ]
+    }
+  ],
+  "cli_content": "SW  PID                 Serial#     Status           Sys Pwr  PoE Pwr  Watts\n--  ------------------  ----------  ---------------  -------  -------  -----\n1A  PWR-C1-1100WAC      ABC123456AB  OK              Good     Good     1100\n1B  PWR-C1-1100WAC      ABC123456CD  OK              Good     Good     1100\n2A  PWR-C1-1100WAC      ABC123456EF  OK              Good     Good     1100\n2B  PWR-C1-1100WAC      ABC123456GH  OK              Good     Good     1100\n3A  Unknown             Unknown      No Input Power  Bad      Bad      235 \n3B  PWR-C1-1100WAC      ABC123456KL  OK              Good     Good     1100\n",
+  "textfsm_template": "####\n# For 3850 switches, does not work on 3750 switches\n###\nValue PS_MODULE (\\w+)\nValue PID (\\S+)\nValue SERIAL (\\w+)\nValue STATUS (.+?)\nValue SYS_PWR (Good|Bad)\nValue POE_PWR (\\w+)\nValue WATTS (\\w+)\n\nStart\n  ^${PS_MODULE}\\s+${PID}\\s+${SERIAL}\\s+${STATUS}\\s+${SYS_PWR}\\s+${POE_PWR}\\s+${WATTS} -> Record\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n"
+}

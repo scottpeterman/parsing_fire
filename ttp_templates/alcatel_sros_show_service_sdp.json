@@ -1,0 +1,150 @@
+{
+  "command": "alcatel_sros_show_service_sdp",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"sdp_id_adm_mtu_opr_mtu_far_end_adm_opr_del_lsp_sig\">\n{{SDP_ID | re(\"\\\\d+\")}} {{ADM_MTU}} {{OPR_MTU}} {{FAR_END}} {{ADM}} {{OPR}} {{DEL}} {{LSP}} {{SIG | ORPHRASE}}\n</group>\n<group name=\"sdp_id_adm_mtu_lsp_far_end_adm_opr_del_sig\">\n{{SDP_ID | re(\"\\\\d+\")}} {{ADM_MTU}} {{OP{{LSP}}_MTU}} {{FAR_END}} {{ADM}} {{OPR}} {{DEL}} R {{SIG | ORPHRASE}}\n</group>\n<group name=\"sdp_id_adm_mtu_opr_mtu_adm_opr_del_lsp_sig\">\n{{SDP_ID | re(\"\\\\d+\")}} {{ADM_MTU}} {{OPR_MTU}} {{ADM}} {{OPR}} {{DEL}} {{LSP}} {{SIG | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SDP_ID": "1",
+      "ADM_MTU": "0",
+      "OPR_MTU": "9170",
+      "FAR_END": "192.168.0.1",
+      "ADM": "Down",
+      "OPR": "Down",
+      "DEL": "GRE",
+      "LSP": "n/a",
+      "SIG": "TLDP"
+    },
+    {
+      "SDP_ID": "31",
+      "ADM_MTU": "0",
+      "OPR_MTU": "0",
+      "FAR_END": "10.10.10.1",
+      "ADM": "Up",
+      "OPR": "Down",
+      "DEL": "MPLS",
+      "LSP": "R",
+      "SIG": "TLDP"
+    },
+    {
+      "SDP_ID": "32",
+      "ADM_MTU": "0",
+      "OPR_MTU": "0",
+      "FAR_END": "10.10.10.2",
+      "ADM": "Up",
+      "OPR": "Down",
+      "DEL": "MPLS",
+      "LSP": "R",
+      "SIG": "TLDP"
+    },
+    {
+      "SDP_ID": "34",
+      "ADM_MTU": "0",
+      "OPR_MTU": "0",
+      "FAR_END": "10.10.10.4",
+      "ADM": "Up",
+      "OPR": "Down",
+      "DEL": "MPLS",
+      "LSP": "R",
+      "SIG": "TLDP"
+    },
+    {
+      "SDP_ID": "38",
+      "ADM_MTU": "0",
+      "OPR_MTU": "492",
+      "FAR_END": "10.10.10.8",
+      "ADM": "Up",
+      "OPR": "Down",
+      "DEL": "MPLS",
+      "LSP": "R",
+      "SIG": "TLDP"
+    },
+    {
+      "SDP_ID": "2000",
+      "ADM_MTU": "0",
+      "OPR_MTU": "0",
+      "ADM": "Down",
+      "OPR": "Down",
+      "DEL": "GRE",
+      "LSP": "n/a",
+      "SIG": "TLDP"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "sdp_id_adm_mtu_opr_mtu_far_end_adm_opr_del_lsp_sig": [
+        {
+          "SDP_ID": "1",
+          "ADM_MTU": "0",
+          "OPR_MTU": "9170",
+          "FAR_END": "192.168.0.1",
+          "ADM": "Down",
+          "OPR": "Down",
+          "DEL": "GRE",
+          "LSP": "n/a",
+          "SIG": "TLDP"
+        },
+        {
+          "SDP_ID": "31",
+          "ADM_MTU": "0",
+          "OPR_MTU": "0",
+          "FAR_END": "10.10.10.1",
+          "ADM": "Up",
+          "OPR": "Down",
+          "DEL": "MPLS",
+          "LSP": "R",
+          "SIG": "TLDP"
+        },
+        {
+          "SDP_ID": "32",
+          "ADM_MTU": "0",
+          "OPR_MTU": "0",
+          "FAR_END": "10.10.10.2",
+          "ADM": "Up",
+          "OPR": "Down",
+          "DEL": "MPLS",
+          "LSP": "R",
+          "SIG": "TLDP"
+        },
+        {
+          "SDP_ID": "34",
+          "ADM_MTU": "0",
+          "OPR_MTU": "0",
+          "FAR_END": "10.10.10.4",
+          "ADM": "Up",
+          "OPR": "Down",
+          "DEL": "MPLS",
+          "LSP": "R",
+          "SIG": "TLDP"
+        },
+        {
+          "SDP_ID": "38",
+          "ADM_MTU": "0",
+          "OPR_MTU": "492",
+          "FAR_END": "10.10.10.8",
+          "ADM": "Up",
+          "OPR": "Down",
+          "DEL": "MPLS",
+          "LSP": "R",
+          "SIG": "TLDP"
+        }
+      ],
+      "sdp_id_adm_mtu_opr_mtu_adm_opr_del_lsp_sig": {
+        "SDP_ID": "2000",
+        "ADM_MTU": "0",
+        "OPR_MTU": "0",
+        "ADM": "Down",
+        "OPR": "Down",
+        "DEL": "GRE",
+        "LSP": "n/a",
+        "SIG": "TLDP"
+      }
+    }
+  ],
+  "cli_content": "\n============================================================================\nServices: Service Destination Points\n============================================================================\nSdpId  AdmMTU  OprMTU  Far End          Adm  Opr         Del     LSP   Sig\n----------------------------------------------------------------------------\n1      0       9170    192.168.0.1      Down Down        GRE     n/a   TLDP\n31     0       0       10.10.10.1       Up   Down        MPLS    R     TLDP\n32     0       0       10.10.10.2       Up   Down        MPLS    R     TLDP\n34     0       0       10.10.10.4       Up   Down        MPLS    R     TLDP\n38     0       492     10.10.10.8       Up   Down        MPLS    R     TLDP\n2000   0       0                        Down Down        GRE     n/a   TLDP\n----------------------------------------------------------------------------\nNumber of SDPs : 6\n----------------------------------------------------------------------------\nLegend: R = RSVP, L = LDP, B = BGP, M = MPLS-TP, n/a = Not Applicable\n        I = SR-ISIS, O = SR-OSPF, T = SR-TE, F = FPE\n============================================================================\n",
+  "textfsm_template": "Value Required SDP_ID (\\d+)\nValue Required ADM_MTU (\\d+)\nValue Required OPR_MTU (\\d+)\nValue FAR_END (\\d+.\\d+.\\d+.\\d+)\nValue Required ADM (Up|Down)\nValue Required OPR (Up|Down)\nValue Required DEL (\\S+)\nValue Required LSP (\\S+)\nValue Required SIG (\\S+)\n\nStart\n  ^=+\n  ^Services:\n  ^SdpId\\s+AdmMTU\\s+OprMTU\\s+Far\\s+End\\s+Adm\\s+Opr\\s+Del\\s+LSP\\s+Sig\\s*$$\n  ^-+ -> SDP\n  ^\\s*$$\n  ^. -> Error\n\nSDP\n  ^${SDP_ID}\\s+${ADM_MTU}\\s+${OPR_MTU}\\s+${FAR_END}\\s+${ADM}\\s+${OPR}\\s+${DEL}\\s+${LSP}\\s+${SIG} -> Record\n  ^${SDP_ID}\\s+${ADM_MTU}\\s+${OPR_MTU}\\s+${ADM}\\s+${OPR}\\s+${DEL}\\s+${LSP}\\s+${SIG} -> Record\n  ^-+ -> Done\n  ^\\s*$$\n  ^=+\n  ^. -> Error\n\nDone\n"
+}

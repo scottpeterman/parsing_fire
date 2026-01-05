@@ -1,0 +1,38 @@
+{
+  "command": "show ha status",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"active_uptime_cluster_ha_mode_failover_count_ha_state\">\nHA State: {{HA_STATE | ORPHRASE}}\nOverall HA Status: {{HA_STATUS | ORPHRASE}}\nLocal HA ID: {{LOCAL_HA_ID | ORPHRASE}}\nPeer HA ID: {{PEER_HA_ID | ORPHRASE}}\nCluster HA Mode: {{CLUSTER_HA_MODE | ORPHRASE}}\nLast Heartbeat: {{LAST_HEARTBEAT | ORPHRASE}}\nFailover Count: {{FAILOVER_COUNT | ORPHRASE}}\nActive Uptime: {{ACTIVE_UPTIME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "HA_STATE": "Active",
+      "HA_STATUS": "Ready",
+      "LOCAL_HA_ID": "1",
+      "PEER_HA_ID": "2",
+      "CLUSTER_HA_MODE": "Active-Passive",
+      "LAST_HEARTBEAT": "15 seconds ago",
+      "FAILOVER_COUNT": "3",
+      "ACTIVE_UPTIME": "12 days, 6 hours, 15 minutes"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "active_uptime_cluster_ha_mode_failover_count_ha_state": {
+        "ACTIVE_UPTIME": "12 days, 6 hours, 15 minutes",
+        "FAILOVER_COUNT": "3",
+        "LAST_HEARTBEAT": "15 seconds ago",
+        "CLUSTER_HA_MODE": "Active-Passive",
+        "PEER_HA_ID": "2",
+        "LOCAL_HA_ID": "1",
+        "HA_STATUS": "Ready",
+        "HA_STATE": "Active"
+      }
+    }
+  ],
+  "cli_content": "HA State: Active\nOverall HA Status: Ready\nLocal HA ID: 1\nPeer HA ID: 2\nCluster HA Mode: Active-Passive\nLast Heartbeat: 15 seconds ago\nFailover Count: 3\nActive Uptime: 12 days, 6 hours, 15 minutes\n",
+  "textfsm_template": "Value HA_STATE (Active|Standby)\nValue HA_STATUS (Ready|Not Ready)\nValue LOCAL_HA_ID (\\d+)\nValue PEER_HA_ID (\\d+)\nValue CLUSTER_HA_MODE (Active-Passive|Active-Active)\nValue LAST_HEARTBEAT (.+)\nValue FAILOVER_COUNT (\\d+)\nValue ACTIVE_UPTIME (\\d+ days, \\d+ hours, \\d+ minutes)\n\nStart\n  ^HA State: ${HA_STATE}\\s*$$\n  ^Overall HA Status: ${HA_STATUS}\\s*$$\n  ^Local HA ID: ${LOCAL_HA_ID}\\s*$$\n  ^Peer HA ID: ${PEER_HA_ID}\\s*$$\n  ^Cluster HA Mode: ${CLUSTER_HA_MODE}\\s*$$\n  ^Last Heartbeat: ${LAST_HEARTBEAT}$$\n  ^Failover Count: ${FAILOVER_COUNT}\\s*$$\n  ^Active Uptime: ${ACTIVE_UPTIME}\\s*$$ -> Record"
+}

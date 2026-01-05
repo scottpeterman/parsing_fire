@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_time
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 3
+# Match ratio: 1.50
+
+<group name="ntp_polling_interval_ntp_version_time">
+Time............................................. {{TIME | ORPHRASE}}
+<group name="index_ntp_key_index_ntp_msg_auth_status">
+       {{INDEX}} {{NTP_KEY_INDEX}} {{NTP_SERVER | re("[\\d\\.\\(\\)A-Za-z]+")}} {{STATUS | ORPHRASE}} {{NTP_MSG_AUTH_STATUS | ORPHRASE}}
+</group>
+</group>

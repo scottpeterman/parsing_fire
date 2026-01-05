@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: arista_eos_show_isis_neighbors
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="instance_vrf_system_id_type_interface_snpa_state_hold_time_circuit_id">
+{{INSTANCE}} {{VRF}} {{SYSTEM_ID}} {{TYPE}} {{INTERFACE}} {{SNPA | re("\\w+")}} {{STATE | ORPHRASE}} {{HOLD_TIME}} {{CIRCUIT_ID | ORPHRASE}}
+</group>

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show adjacencies
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 6
+# Match ratio: 1.20
+
+<group name="neighbor_age_link_state_mtu_protocol">
+{{NEIGHBOR}} {{AGE}} {{LINK}} {{STATE | ORPHRASE}} {{MTU}} {{PROTOCOL | ORPHRASE}}
+</group>

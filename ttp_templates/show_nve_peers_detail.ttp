@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show nve peers detail
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="interface_peer_ip_peer_state_learn_type_uptime">
+Interface: {{INTERFACE}}, Peer-Ip: {{PEER_IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}, Peer-state: {{PEER_STATE | ORPHRASE}}, Learn-type: {{LEARN_TYPE}}, Uptime: {{UPTIME | ORPHRASE}}
+</group>

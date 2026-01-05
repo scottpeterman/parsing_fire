@@ -1,0 +1,84 @@
+{
+  "command": "show df",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"filesystem_blocks_used_available_use_percent_mounted\">\n{{FILESYSTEM}} {{BLOCKS}} {{USED}} {{AVAILABLE}} {{USE_PERCENT | ORPHRASE}} {{MOUNTED | re(\".*\\\\w.*\")}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FILESYSTEM": "/dev/sda1",
+      "BLOCKS": "20471524",
+      "USED": "4815644",
+      "AVAILABLE": "14651908",
+      "USE_PERCENT": "25%",
+      "MOUNTED": "/"
+    },
+    {
+      "FILESYSTEM": "tmpfs",
+      "BLOCKS": "1036392",
+      "USED": "0",
+      "AVAILABLE": "1036392",
+      "USE_PERCENT": "0%",
+      "MOUNTED": "/dev/shm"
+    },
+    {
+      "FILESYSTEM": "/dev/sdb1",
+      "BLOCKS": "409609600",
+      "USED": "167291376",
+      "AVAILABLE": "221124324",
+      "USE_PERCENT": "44%",
+      "MOUNTED": "/data"
+    },
+    {
+      "FILESYSTEM": "/dev/sdc1",
+      "BLOCKS": "511999488",
+      "USED": "303329476",
+      "AVAILABLE": "183374856",
+      "USE_PERCENT": "63%",
+      "MOUNTED": "/backup"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "filesystem_blocks_used_available_use_percent_mounted": [
+        {
+          "FILESYSTEM": "Filesystem",
+          "BLOCKS": "1K-blocks",
+          "USED": "Used",
+          "AVAILABLE": "Available",
+          "USE_PERCENT": "Use%",
+          "MOUNTED": "Mounted on"
+        },
+        {
+          "FILESYSTEM": "tmpfs",
+          "BLOCKS": "1036392",
+          "USED": "0",
+          "AVAILABLE": "1036392",
+          "USE_PERCENT": "0%",
+          "MOUNTED": "/dev/shm"
+        },
+        {
+          "FILESYSTEM": "/dev/sdb1",
+          "BLOCKS": "409609600",
+          "USED": "167291376",
+          "AVAILABLE": "221124324",
+          "USE_PERCENT": "44%",
+          "MOUNTED": "/data"
+        },
+        {
+          "FILESYSTEM": "/dev/sdc1",
+          "BLOCKS": "511999488",
+          "USED": "303329476",
+          "AVAILABLE": "183374856",
+          "USE_PERCENT": "63%",
+          "MOUNTED": "/backup"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Filesystem           1K-blocks      Used Available Use% Mounted on\n/dev/sda1            20471524   4815644  14651908  25% /\ntmpfs                 1036392         0   1036392   0% /dev/shm\n/dev/sdb1           409609600 167291376 221124324  44% /data\n/dev/sdc1           511999488 303329476 183374856  63% /backup\n",
+  "textfsm_template": "Value FILESYSTEM (\\S+)\nValue BLOCKS (\\d+)\nValue USED (\\d+)\nValue AVAILABLE (\\d+)\nValue USE_PERCENT (\\d+%)\nValue MOUNTED (\\S+)\n\nStart\n  ^\\s*Filesystem\\s+1K-blocks\\s+Used\\s+Available\\s+Use%\\s+Mounted on\\s*$$\n  ^\\s*${FILESYSTEM}\\s+${BLOCKS}\\s+${USED}\\s+${AVAILABLE}\\s+${USE_PERCENT}\\s+${MOUNTED}\\s*$$ -> Record"
+}

@@ -1,0 +1,115 @@
+{
+  "command": "fortinet_execute_log_display",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"message_number_year_month_logs_returned_hour_minute_second_message\">\n{{MESSAGE_NUMBER}}: date={{YEAR}}-{{MONTH}}-{{LOGS_RETURNED}} time={{HOUR}}:{{MINUTE}}:{{SECOND}} {{MESSAGE | ORPHRASE}}\n</group>\n<group name=\"message_number_year_month_day_hour_minute_second_message\">\n{{MESSAGE_NUMBER}}: date={{YEAR}}-{{MONTH}}-{{DAY}} time={{HOUR}}:{{MINUTE}}:{{SECOND}} {{MESSAGE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOGS_FOUND": "2492",
+      "LOGS_RETURNED": "10",
+      "LOGS_SEARCHED": "5.8",
+      "MESSAGE_NUMBER": "1",
+      "YEAR": "2023",
+      "MONTH": "08",
+      "DAY": "10",
+      "HOUR": "19",
+      "MINUTE": "41",
+      "SECOND": "18",
+      "MESSAGE": "logid=\"0000000013\" type=\"traffic\" subtype=\"forward\" level=\"notice\" vd=\"root\" eventtime=1691685678378886140 tz=\"+0300\" srcip=10.18.158.26 srcname=\"SPA112\" srcport=51753 srcintf=\"Vlan10\" srcintfrole=\"lan\" dstip=192.168.211.2 dstport=69 dstintf=\"Tu-Hub01-Main\" dstintfrole=\"undefined\" srccountry=\"Reserved\" dstcountry=\"Reserved\" sessionid=27409697 proto=17 action=\"accept\" policyid=17 policytype=\"policy\" poluuid=\"764f657a-c0dd-51ec-9d9c-2374a4d1b1d4\" policyname=\"Permit IP-Phones Vlan10 OUT\" service=\"TFTP\" trandisp=\"noop\" duration=1805 sentbyte=66 rcvdbyte=0 sentpkt=1 rcvdpkt=0 vpn=\"Tu-Hub01-Main\" vpntype=\"ipsec-static\" appcat=\"unscanned\" srchwvendor=\"Cisco\" devtype=\"IP Phone\" srcfamily=\"ATA\" srchwversion=\"SPA112\" mastersrcmac=\"50:67:ae:f0:6c:80\" srcmac=\"50:67:ae:f0:6c:80\" srcserver=0"
+    },
+    {
+      "MESSAGE_NUMBER": "2",
+      "YEAR": "2023",
+      "MONTH": "08",
+      "DAY": "10",
+      "HOUR": "19",
+      "MINUTE": "40",
+      "SECOND": "47",
+      "MESSAGE": "logid=\"0000000013\" type=\"traffic\" subtype=\"forward\" level=\"notice\" vd=\"root\" eventtime=1691685647648897600 tz=\"+0300\" srcip=10.18.158.26 srcname=\"SPA112\" srcport=46212 srcintf=\"Vlan10\" srcintfrole=\"lan\" dstip=192.168.211.2 dstport=69 dstintf=\"Tu-Hub01-Main\" dstintfrole=\"undefined\" srccountry=\"Reserved\" dstcountry=\"Reserved\" sessionid=27408109 proto=17 action=\"accept\" policyid=17 policytype=\"policy\" poluuid=\"764f657a-c0dd-51ec-9d9c-2374a4d1b1d4\" policyname=\"Permit IP-Phones Vlan10 OUT\" service=\"TFTP\" trandisp=\"noop\" duration=1804 sentbyte=66 rcvdbyte=0 sentpkt=1 rcvdpkt=0 vpn=\"Tu-Hub01-Main\" vpntype=\"ipsec-static\" appcat=\"unscanned\" srchwvendor=\"Cisco\" devtype=\"IP Phone\" srcfamily=\"ATA\" srchwversion=\"SPA112\" mastersrcmac=\"50:67:ae:f0:6c:80\" srcmac=\"50:67:ae:f0:6c:80\" srcserver=0"
+    },
+    {
+      "MESSAGE_NUMBER": "3",
+      "YEAR": "2023",
+      "MONTH": "08",
+      "DAY": "10",
+      "HOUR": "19",
+      "MINUTE": "40",
+      "SECOND": "28",
+      "MESSAGE": "logid=\"0000000020\" type=\"traffic\" subtype=\"forward\" level=\"notice\" vd=\"root\" eventtime=1691685628534615260 tz=\"+0300\" srcip=10.18.158.26 srcname=\"SPA112\" srcport=5060 srcintf=\"Vlan10\" srcintfrole=\"lan\" dstip=10.18.253.10 dstport=5060 dstintf=\"Tu-Hub01-Main\" dstintfrole=\"undefined\" srccountry=\"Reserved\" dstcountry=\"Reserved\" sessionid=1920 proto=17 action=\"accept\" policyid=17 policytype=\"policy\" poluuid=\"764f657a-c0dd-51ec-9d9c-2374a4d1b1d4\" policyname=\"Permit IP-Phones Vlan10 OUT\" service=\"SIP\" trandisp=\"noop\" duration=1506311 sentbyte=12959083 rcvdbyte=16082785 sentpkt=27800 rcvdpkt=27778 vpn=\"Tu-Hub01-Main\" vpntype=\"ipsec-static\" appcat=\"unscanned\" sentdelta=890 rcvddelta=1158 srchwvendor=\"Cisco\" devtype=\"IP Phone\" srcfamily=\"ATA\" srchwversion=\"SPA112\" mastersrcmac=\"50:67:ae:f0:6c:80\" srcmac=\"50:67:ae:f0:6c:80\" srcserver=0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "message_number_year_month_logs_returned_hour_minute_second_message": [
+        {
+          "MESSAGE_NUMBER": "1",
+          "YEAR": "2023",
+          "MONTH": "08",
+          "LOGS_RETURNED": "10",
+          "HOUR": "19",
+          "MINUTE": "41",
+          "SECOND": "18",
+          "MESSAGE": "logid=\"0000000013\" type=\"traffic\" subtype=\"forward\" level=\"notice\" vd=\"root\" eventtime=1691685678378886140 tz=\"+0300\" srcip=10.18.158.26 srcname=\"SPA112\" srcport=51753 srcintf=\"Vlan10\" srcintfrole=\"lan\" dstip=192.168.211.2 dstport=69 dstintf=\"Tu-Hub01-Main\" dstintfrole=\"undefined\" srccountry=\"Reserved\" dstcountry=\"Reserved\" sessionid=27409697 proto=17 action=\"accept\" policyid=17 policytype=\"policy\" poluuid=\"764f657a-c0dd-51ec-9d9c-2374a4d1b1d4\" policyname=\"Permit IP-Phones Vlan10 OUT\" service=\"TFTP\" trandisp=\"noop\" duration=1805 sentbyte=66 rcvdbyte=0 sentpkt=1 rcvdpkt=0 vpn=\"Tu-Hub01-Main\" vpntype=\"ipsec-static\" appcat=\"unscanned\" srchwvendor=\"Cisco\" devtype=\"IP Phone\" srcfamily=\"ATA\" srchwversion=\"SPA112\" mastersrcmac=\"50:67:ae:f0:6c:80\" srcmac=\"50:67:ae:f0:6c:80\" srcserver=0"
+        },
+        {
+          "MESSAGE_NUMBER": "2",
+          "YEAR": "2023",
+          "MONTH": "08",
+          "LOGS_RETURNED": "10",
+          "HOUR": "19",
+          "MINUTE": "40",
+          "SECOND": "47",
+          "MESSAGE": "logid=\"0000000013\" type=\"traffic\" subtype=\"forward\" level=\"notice\" vd=\"root\" eventtime=1691685647648897600 tz=\"+0300\" srcip=10.18.158.26 srcname=\"SPA112\" srcport=46212 srcintf=\"Vlan10\" srcintfrole=\"lan\" dstip=192.168.211.2 dstport=69 dstintf=\"Tu-Hub01-Main\" dstintfrole=\"undefined\" srccountry=\"Reserved\" dstcountry=\"Reserved\" sessionid=27408109 proto=17 action=\"accept\" policyid=17 policytype=\"policy\" poluuid=\"764f657a-c0dd-51ec-9d9c-2374a4d1b1d4\" policyname=\"Permit IP-Phones Vlan10 OUT\" service=\"TFTP\" trandisp=\"noop\" duration=1804 sentbyte=66 rcvdbyte=0 sentpkt=1 rcvdpkt=0 vpn=\"Tu-Hub01-Main\" vpntype=\"ipsec-static\" appcat=\"unscanned\" srchwvendor=\"Cisco\" devtype=\"IP Phone\" srcfamily=\"ATA\" srchwversion=\"SPA112\" mastersrcmac=\"50:67:ae:f0:6c:80\" srcmac=\"50:67:ae:f0:6c:80\" srcserver=0"
+        },
+        {
+          "MESSAGE_NUMBER": "3",
+          "YEAR": "2023",
+          "MONTH": "08",
+          "LOGS_RETURNED": "10",
+          "HOUR": "19",
+          "MINUTE": "40",
+          "SECOND": "28",
+          "MESSAGE": "logid=\"0000000020\" type=\"traffic\" subtype=\"forward\" level=\"notice\" vd=\"root\" eventtime=1691685628534615260 tz=\"+0300\" srcip=10.18.158.26 srcname=\"SPA112\" srcport=5060 srcintf=\"Vlan10\" srcintfrole=\"lan\" dstip=10.18.253.10 dstport=5060 dstintf=\"Tu-Hub01-Main\" dstintfrole=\"undefined\" srccountry=\"Reserved\" dstcountry=\"Reserved\" sessionid=1920 proto=17 action=\"accept\" policyid=17 policytype=\"policy\" poluuid=\"764f657a-c0dd-51ec-9d9c-2374a4d1b1d4\" policyname=\"Permit IP-Phones Vlan10 OUT\" service=\"SIP\" trandisp=\"noop\" duration=1506311 sentbyte=12959083 rcvdbyte=16082785 sentpkt=27800 rcvdpkt=27778 vpn=\"Tu-Hub01-Main\" vpntype=\"ipsec-static\" appcat=\"unscanned\" sentdelta=890 rcvddelta=1158 srchwvendor=\"Cisco\" devtype=\"IP Phone\" srcfamily=\"ATA\" srchwversion=\"SPA112\" mastersrcmac=\"50:67:ae:f0:6c:80\" srcmac=\"50:67:ae:f0:6c:80\" srcserver=0"
+        }
+      ],
+      "message_number_year_month_day_hour_minute_second_message": [
+        {
+          "MESSAGE_NUMBER": "1",
+          "YEAR": "2023",
+          "MONTH": "08",
+          "DAY": "10",
+          "HOUR": "19",
+          "MINUTE": "41",
+          "SECOND": "18",
+          "MESSAGE": "logid=\"0000000013\" type=\"traffic\" subtype=\"forward\" level=\"notice\" vd=\"root\" eventtime=1691685678378886140 tz=\"+0300\" srcip=10.18.158.26 srcname=\"SPA112\" srcport=51753 srcintf=\"Vlan10\" srcintfrole=\"lan\" dstip=192.168.211.2 dstport=69 dstintf=\"Tu-Hub01-Main\" dstintfrole=\"undefined\" srccountry=\"Reserved\" dstcountry=\"Reserved\" sessionid=27409697 proto=17 action=\"accept\" policyid=17 policytype=\"policy\" poluuid=\"764f657a-c0dd-51ec-9d9c-2374a4d1b1d4\" policyname=\"Permit IP-Phones Vlan10 OUT\" service=\"TFTP\" trandisp=\"noop\" duration=1805 sentbyte=66 rcvdbyte=0 sentpkt=1 rcvdpkt=0 vpn=\"Tu-Hub01-Main\" vpntype=\"ipsec-static\" appcat=\"unscanned\" srchwvendor=\"Cisco\" devtype=\"IP Phone\" srcfamily=\"ATA\" srchwversion=\"SPA112\" mastersrcmac=\"50:67:ae:f0:6c:80\" srcmac=\"50:67:ae:f0:6c:80\" srcserver=0"
+        },
+        {
+          "MESSAGE_NUMBER": "2",
+          "YEAR": "2023",
+          "MONTH": "08",
+          "DAY": "10",
+          "HOUR": "19",
+          "MINUTE": "40",
+          "SECOND": "47",
+          "MESSAGE": "logid=\"0000000013\" type=\"traffic\" subtype=\"forward\" level=\"notice\" vd=\"root\" eventtime=1691685647648897600 tz=\"+0300\" srcip=10.18.158.26 srcname=\"SPA112\" srcport=46212 srcintf=\"Vlan10\" srcintfrole=\"lan\" dstip=192.168.211.2 dstport=69 dstintf=\"Tu-Hub01-Main\" dstintfrole=\"undefined\" srccountry=\"Reserved\" dstcountry=\"Reserved\" sessionid=27408109 proto=17 action=\"accept\" policyid=17 policytype=\"policy\" poluuid=\"764f657a-c0dd-51ec-9d9c-2374a4d1b1d4\" policyname=\"Permit IP-Phones Vlan10 OUT\" service=\"TFTP\" trandisp=\"noop\" duration=1804 sentbyte=66 rcvdbyte=0 sentpkt=1 rcvdpkt=0 vpn=\"Tu-Hub01-Main\" vpntype=\"ipsec-static\" appcat=\"unscanned\" srchwvendor=\"Cisco\" devtype=\"IP Phone\" srcfamily=\"ATA\" srchwversion=\"SPA112\" mastersrcmac=\"50:67:ae:f0:6c:80\" srcmac=\"50:67:ae:f0:6c:80\" srcserver=0"
+        },
+        {
+          "MESSAGE_NUMBER": "3",
+          "YEAR": "2023",
+          "MONTH": "08",
+          "DAY": "10",
+          "HOUR": "19",
+          "MINUTE": "40",
+          "SECOND": "28",
+          "MESSAGE": "logid=\"0000000020\" type=\"traffic\" subtype=\"forward\" level=\"notice\" vd=\"root\" eventtime=1691685628534615260 tz=\"+0300\" srcip=10.18.158.26 srcname=\"SPA112\" srcport=5060 srcintf=\"Vlan10\" srcintfrole=\"lan\" dstip=10.18.253.10 dstport=5060 dstintf=\"Tu-Hub01-Main\" dstintfrole=\"undefined\" srccountry=\"Reserved\" dstcountry=\"Reserved\" sessionid=1920 proto=17 action=\"accept\" policyid=17 policytype=\"policy\" poluuid=\"764f657a-c0dd-51ec-9d9c-2374a4d1b1d4\" policyname=\"Permit IP-Phones Vlan10 OUT\" service=\"SIP\" trandisp=\"noop\" duration=1506311 sentbyte=12959083 rcvdbyte=16082785 sentpkt=27800 rcvdpkt=27778 vpn=\"Tu-Hub01-Main\" vpntype=\"ipsec-static\" appcat=\"unscanned\" sentdelta=890 rcvddelta=1158 srchwvendor=\"Cisco\" devtype=\"IP Phone\" srcfamily=\"ATA\" srchwversion=\"SPA112\" mastersrcmac=\"50:67:ae:f0:6c:80\" srcmac=\"50:67:ae:f0:6c:80\" srcserver=0"
+        }
+      ]
+    }
+  ],
+  "cli_content": "2492 logs found.\n10 logs returned.\n5.8% of logs has been searched.\n\n1: date=2023-08-10 time=19:41:18 logid=\"0000000013\" type=\"traffic\" subtype=\"forward\" level=\"notice\" vd=\"root\" eventtime=1691685678378886140 tz=\"+0300\" srcip=10.18.158.26 srcname=\"SPA112\" srcport=51753 srcintf=\"Vlan10\" srcintfrole=\"lan\" dstip=192.168.211.2 dstport=69 dstintf=\"Tu-Hub01-Main\" dstintfrole=\"undefined\" srccountry=\"Reserved\" dstcountry=\"Reserved\" sessionid=27409697 proto=17 action=\"accept\" policyid=17 policytype=\"policy\" poluuid=\"764f657a-c0dd-51ec-9d9c-2374a4d1b1d4\" policyname=\"Permit IP-Phones Vlan10 OUT\" service=\"TFTP\" trandisp=\"noop\" duration=1805 sentbyte=66 rcvdbyte=0 sentpkt=1 rcvdpkt=0 vpn=\"Tu-Hub01-Main\" vpntype=\"ipsec-static\" appcat=\"unscanned\" srchwvendor=\"Cisco\" devtype=\"IP Phone\" srcfamily=\"ATA\" srchwversion=\"SPA112\" mastersrcmac=\"50:67:ae:f0:6c:80\" srcmac=\"50:67:ae:f0:6c:80\" srcserver=0\n\n2: date=2023-08-10 time=19:40:47 logid=\"0000000013\" type=\"traffic\" subtype=\"forward\" level=\"notice\" vd=\"root\" eventtime=1691685647648897600 tz=\"+0300\" srcip=10.18.158.26 srcname=\"SPA112\" srcport=46212 srcintf=\"Vlan10\" srcintfrole=\"lan\" dstip=192.168.211.2 dstport=69 dstintf=\"Tu-Hub01-Main\" dstintfrole=\"undefined\" srccountry=\"Reserved\" dstcountry=\"Reserved\" sessionid=27408109 proto=17 action=\"accept\" policyid=17 policytype=\"policy\" poluuid=\"764f657a-c0dd-51ec-9d9c-2374a4d1b1d4\" policyname=\"Permit IP-Phones Vlan10 OUT\" service=\"TFTP\" trandisp=\"noop\" duration=1804 sentbyte=66 rcvdbyte=0 sentpkt=1 rcvdpkt=0 vpn=\"Tu-Hub01-Main\" vpntype=\"ipsec-static\" appcat=\"unscanned\" srchwvendor=\"Cisco\" devtype=\"IP Phone\" srcfamily=\"ATA\" srchwversion=\"SPA112\" mastersrcmac=\"50:67:ae:f0:6c:80\" srcmac=\"50:67:ae:f0:6c:80\" srcserver=0\n\n3: date=2023-08-10 time=19:40:28 logid=\"0000000020\" type=\"traffic\" subtype=\"forward\" level=\"notice\" vd=\"root\" eventtime=1691685628534615260 tz=\"+0300\" srcip=10.18.158.26 srcname=\"SPA112\" srcport=5060 srcintf=\"Vlan10\" srcintfrole=\"lan\" dstip=10.18.253.10 dstport=5060 dstintf=\"Tu-Hub01-Main\" dstintfrole=\"undefined\" srccountry=\"Reserved\" dstcountry=\"Reserved\" sessionid=1920 proto=17 action=\"accept\" policyid=17 policytype=\"policy\" poluuid=\"764f657a-c0dd-51ec-9d9c-2374a4d1b1d4\" policyname=\"Permit IP-Phones Vlan10 OUT\" service=\"SIP\" trandisp=\"noop\" duration=1506311 sentbyte=12959083 rcvdbyte=16082785 sentpkt=27800 rcvdpkt=27778 vpn=\"Tu-Hub01-Main\" vpntype=\"ipsec-static\" appcat=\"unscanned\" sentdelta=890 rcvddelta=1158 srchwvendor=\"Cisco\" devtype=\"IP Phone\" srcfamily=\"ATA\" srchwversion=\"SPA112\" mastersrcmac=\"50:67:ae:f0:6c:80\" srcmac=\"50:67:ae:f0:6c:80\" srcserver=0\n",
+  "textfsm_template": "Value LOGS_FOUND (\\d+)\nValue LOGS_RETURNED (\\d+)\nValue LOGS_SEARCHED (\\d+(?:\\.\\d+)?)\nValue MESSAGE_NUMBER (\\d+)\nValue YEAR (\\d{4})\nValue MONTH (\\d{2})\nValue DAY (\\d{2})\nValue HOUR (\\d{2})\nValue MINUTE (\\d{2})\nValue SECOND (\\d{2})\nValue MESSAGE (.+?)\n\nStart\n  ^\\s*${LOGS_FOUND}\\s+logs\\s+found\\.\\s*$$\n  ^\\s*${LOGS_RETURNED}\\s+logs\\s+returned\\.\\s*$$\n  ^\\s*${LOGS_SEARCHED}%\\s+of\\s+logs\\s+has\\s+been\\s+searched\\.\\s*$$\n  ^\\s*${MESSAGE_NUMBER}:\\s+date=${YEAR}-${MONTH}-${DAY}\\s+time=${HOUR}:${MINUTE}:${SECOND}\\s+${MESSAGE}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

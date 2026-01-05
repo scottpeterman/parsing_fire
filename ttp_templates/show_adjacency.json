@@ -1,0 +1,76 @@
+{
+  "command": "show adjacency",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.6,
+  "textfsm_rows": 5,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"protocol_interface_address_age_adj_type\">\n{{PROTOCOL}} {{INTERFACE}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{AGE | ORPHRASE}} {{ADJ_TYPE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "IPv4",
+      "INTERFACE": "FastEthernet0/0",
+      "ADDRESS": "192.168.1.1",
+      "AGE": "00:00:10",
+      "ADJ_TYPE": "2"
+    },
+    {
+      "PROTOCOL": "IPv4",
+      "INTERFACE": "FastEthernet0/1",
+      "ADDRESS": "192.168.2.1",
+      "AGE": "01:23:45",
+      "ADJ_TYPE": "4"
+    },
+    {
+      "PROTOCOL": "IPv6",
+      "INTERFACE": "GigabitEthernet0/0",
+      "ADDRESS": "FE80::1",
+      "AGE": "00:15:23",
+      "ADJ_TYPE": "8"
+    },
+    {
+      "PROTOCOL": "IPv4",
+      "INTERFACE": "FastEthernet0/2",
+      "ADDRESS": "192.168.3.1",
+      "AGE": "00:05:20",
+      "ADJ_TYPE": "3"
+    },
+    {
+      "PROTOCOL": "IPv6",
+      "INTERFACE": "FastEthernet0/3",
+      "ADDRESS": "FE80::2",
+      "AGE": "02:24:13",
+      "ADJ_TYPE": "5"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "protocol_interface_address_age_adj_type": [
+        {
+          "PROTOCOL": "IPv4",
+          "INTERFACE": "FastEthernet0/0",
+          "ADDRESS": "192.168.1.1",
+          "AGE": "00:00:10",
+          "ADJ_TYPE": "2"
+        },
+        {
+          "PROTOCOL": "IPv4",
+          "INTERFACE": "FastEthernet0/1",
+          "ADDRESS": "192.168.2.1",
+          "AGE": "01:23:45",
+          "ADJ_TYPE": "4"
+        },
+        {
+          "PROTOCOL": "IPv4",
+          "INTERFACE": "FastEthernet0/2",
+          "ADDRESS": "192.168.3.1",
+          "AGE": "00:05:20",
+          "ADJ_TYPE": "3"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Protocol Interface              Address                Age       Adj. Type\nIPv4     FastEthernet0/0        192.168.1.1            00:00:10  2\nIPv4     FastEthernet0/1        192.168.2.1            01:23:45  4\nIPv6     GigabitEthernet0/0     FE80::1                00:15:23  8\n\nProtocol Interface              Address                Age       Adj. Type\nIPv4     FastEthernet0/2        192.168.3.1            00:05:20  3\nIPv6     FastEthernet0/3        FE80::2                02:24:13  5\n",
+  "textfsm_template": "Value PROTOCOL (\\S+)\nValue INTERFACE (\\S+)\nValue ADDRESS (\\S+)\nValue AGE (\\S{8})\nValue ADJ_TYPE (\\d+)\n\nStart\n  ^\\s*Protocol\\s+Interface\\s+Address\\s+Age\\s+Adj. Type\\s*$$\n  ^\\s*${PROTOCOL}\\s+${INTERFACE}\\s+${ADDRESS}\\s+${AGE}\\s+${ADJ_TYPE}\\s*$$ -> Record"
+}

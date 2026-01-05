@@ -1,0 +1,161 @@
+{
+  "command": "brocade_fastiron_show_metro",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 3.3333333333333335,
+  "textfsm_rows": 3,
+  "ttp_rows": 10,
+  "ttp_template": "<group name=\"ringid_ringstate_ringrole_mastervlan_topogroup_hellotime_prefwingtime\">\n{{ringid | re(\"\\\\d+\")}} {{ringstate | ORPHRASE}} {{ringrole}} {{mastervlan | re(\"\\\\d+\")}} {{topogroup}} {{hellotime}} {{prefwingtime | ORPHRASE}}\n</group>\n<group name=\"rhpssent_rhpsrecvd_tcrbpdusrecvd_statechanges\">\n{{rhpssent}} {{rhpsrecvd}} {{tcrbpdusrecvd}} {{statechanges | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ringid": "10",
+      "ringstate": "enabled",
+      "ringrole": "member",
+      "mastervlan": "10",
+      "topogroup": "10",
+      "hellotime": "100",
+      "prefwingtime": "300",
+      "port1interface": "11",
+      "port1role": "primary",
+      "port1state": "forwarding",
+      "port1activeint": "11",
+      "port1inttype": "regular",
+      "port2interface": "2",
+      "port2role": "secondary",
+      "port2state": "forwarding",
+      "port2activeint": "2",
+      "port2inttype": "regular",
+      "rhpssent": "0",
+      "rhpsrecvd": "1432850207",
+      "tcrbpdusrecvd": "7970",
+      "statechanges": "154"
+    },
+    {
+      "ringid": "14",
+      "ringstate": "enabled",
+      "ringrole": "member",
+      "mastervlan": "14",
+      "topogroup": "14",
+      "hellotime": "100",
+      "prefwingtime": "300",
+      "port1interface": "1",
+      "port1role": "primary",
+      "port1state": "forwarding",
+      "port1activeint": "1",
+      "port1inttype": "regular",
+      "port2interface": "2",
+      "port2role": "secondary",
+      "port2state": "forwarding",
+      "port2activeint": "2",
+      "port2inttype": "regular",
+      "rhpssent": "0",
+      "rhpsrecvd": "1441064488",
+      "tcrbpdusrecvd": "1728",
+      "statechanges": "86"
+    },
+    {
+      "ringid": "176",
+      "ringname": "CLMAMOFW-to-CLMAMO10G",
+      "ringstate": "enabled",
+      "ringrole": "member",
+      "mastervlan": "175",
+      "topogroup": "175",
+      "hellotime": "100",
+      "prefwingtime": "300",
+      "port1interface": "1",
+      "port1role": "primary",
+      "port1state": "forwarding",
+      "port1activeint": "1",
+      "port1inttype": "regular",
+      "port2interface": "2",
+      "port2role": "secondary",
+      "port2state": "forwarding",
+      "port2activeint": "2",
+      "port2inttype": "regular",
+      "rhpssent": "0",
+      "rhpsrecvd": "355056325",
+      "tcrbpdusrecvd": "689",
+      "statechanges": "9"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ringid_ringstate_ringrole_mastervlan_topogroup_hellotime_prefwingtime": [
+        {
+          "ringid": "10",
+          "ringstate": "enabled",
+          "ringrole": "member",
+          "mastervlan": "10",
+          "topogroup": "10",
+          "hellotime": "100",
+          "prefwingtime": "300"
+        },
+        {
+          "ringid": "14",
+          "ringstate": "enabled",
+          "ringrole": "member",
+          "mastervlan": "14",
+          "topogroup": "14",
+          "hellotime": "100",
+          "prefwingtime": "300"
+        },
+        {
+          "ringid": "176",
+          "ringstate": "enabled",
+          "ringrole": "member",
+          "mastervlan": "175",
+          "topogroup": "175",
+          "hellotime": "100",
+          "prefwingtime": "300"
+        }
+      ],
+      "rhpssent_rhpsrecvd_tcrbpdusrecvd_statechanges": [
+        {
+          "rhpssent": "Ring",
+          "rhpsrecvd": "interfaces",
+          "tcrbpdusrecvd": "Interface",
+          "statechanges": "role Forwarding state Active interface interface type"
+        },
+        {
+          "rhpssent": "0",
+          "rhpsrecvd": "1432850207",
+          "tcrbpdusrecvd": "7970",
+          "statechanges": "154"
+        },
+        {
+          "rhpssent": "Ring",
+          "rhpsrecvd": "interfaces",
+          "tcrbpdusrecvd": "Interface",
+          "statechanges": "role Forwarding state Active interface interface type"
+        },
+        {
+          "rhpssent": "0",
+          "rhpsrecvd": "1441064488",
+          "tcrbpdusrecvd": "1728",
+          "statechanges": "86"
+        },
+        {
+          "rhpssent": "Metro",
+          "rhpsrecvd": "Ring",
+          "tcrbpdusrecvd": "176",
+          "statechanges": "- CLMAMOFW-to-CLMAMO10G"
+        },
+        {
+          "rhpssent": "Ring",
+          "rhpsrecvd": "interfaces",
+          "tcrbpdusrecvd": "Interface",
+          "statechanges": "role Forwarding state Active interface interface type"
+        },
+        {
+          "rhpssent": "0",
+          "rhpsrecvd": "355056325",
+          "tcrbpdusrecvd": "689",
+          "statechanges": "9"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Metro Ring 10\n=============\nRing       State      Ring       Master     Topo       Hello      Prefwing\nid                    role       vlan       group      time(ms)   time(ms)\n10         enabled    member     10         10         100        300\n\nRing interfaces Interface role Forwarding state Active interface interface type \nethernet 11     primary        forwarding       ethernet 11      regular        \nethernet 2      secondary      forwarding       ethernet 2       regular        \n\nRHPs sent            RHPs rcvd            TC RBPDUs rcvd       State changes\n0                    1432850207           7970                 154\n\n\nMetro Ring 14\n=============\nRing       State      Ring       Master     Topo       Hello      Prefwing\nid                    role       vlan       group      time(ms)   time(ms)\n14         enabled    member     14         14         100        300\n\nRing interfaces Interface role Forwarding state Active interface interface type \nethernet 1      primary        forwarding       ethernet 1       regular        \nethernet 2      secondary      forwarding       ethernet 2       regular        \n\nRHPs sent            RHPs rcvd            TC RBPDUs rcvd       State changes\n0                    1441064488           1728                 86\n\n\nMetro Ring 176 - CLMAMOFW-to-CLMAMO10G\n=============\nRing       State      Ring       Master     Topo       Hello      Prefwing\nid                    role       vlan       group      time(ms)   time(ms)\n176        enabled    member     175        175        100        300\n\nRing interfaces Interface role Forwarding state Active interface interface type \nethernet 1      primary        forwarding       ethernet 1       regular        \nethernet 2      secondary      forwarding       ethernet 2       regular        \n\nRHPs sent            RHPs rcvd            TC RBPDUs rcvd       State changes\n0                    355056325            689                  9\n\n",
+  "textfsm_template": "Value ringid (\\d+)\nValue ringname ([a-zA-Z0-9\\-\\\"\\ ]+)\nValue ringstate (enabled|disabled)\nValue ringrole (member|master)\nValue mastervlan (\\d+)\nValue topogroup (\\d+|not conf)\nValue hellotime (\\d+)\nValue prefwingtime (\\d+)\nValue port1interface ([0-9\\/]+)\nValue port1role (primary|secondary)\nValue port1state (\\w+)\nValue port1activeint ([0-9\\/]+)\nValue port1inttype (\\w+)\nValue port2interface ([0-9\\/]+)\nValue port2role (primary|secondary)\nValue port2state (\\w+)\nValue port2activeint ([0-9\\/]+)\nValue port2inttype (\\w+)\nValue rhpssent (\\d+)\nValue rhpsrecvd (\\d+)\nValue tcrbpdusrecvd (\\d+)\nValue statechanges (\\d+)\n\nStart\n  ^Metro Ring ${ringid} -> Continue\n  ^Metro Ring ${ringid} - ${ringname}\n  ^\\d+\\s+${ringstate}\\s+${ringrole}\\s+${mastervlan}\\s+${topogroup}\\s+${hellotime}\\s+${prefwingtime}\n  ^${rhpssent}\\s+${rhpsrecvd}\\s+${tcrbpdusrecvd}\\s+${statechanges} -> Record\n  ^ethernet\\s+${port1interface}\\s+${port1role}\\s+${port1state}\\s+ethernet\\s+${port1activeint}\\s+${port1inttype} -> PORT2\n\nPORT2\n  ^ethernet\\s+${port2interface}\\s+${port2role}\\s+${port2state}\\s+ethernet\\s+${port2activeint}\\s+${port2inttype} -> Start\n\n"
+}

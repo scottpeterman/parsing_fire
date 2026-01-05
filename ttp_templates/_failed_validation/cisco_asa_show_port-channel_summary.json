@@ -1,0 +1,33 @@
+{
+  "command": "cisco_asa_show_port-channel_summary",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 2,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"bundle_name_bundle_protocol_bundle_status_group\">\n  H - Hot-standby ({{BUNDLE_PROTOCOL | ORPHRASE}} only)\n  {{BUNDLE_STATUS | ORPHRASE}} - in use  N - not in use, no aggregation/nameif\n{{GROUP}}  {{BUNDLE_NAME | ORPHRASE}}(U)  LACP  No  Gi0/2(P)  Gi0/3(P)\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "GROUP": "1",
+      "BUNDLE_NAME": "Po1",
+      "BUNDLE_STATUS": "U",
+      "BUNDLE_PROTOCOL": "LACP",
+      "MEMBER_INTERFACE": "Gi0/0, Gi0/1",
+      "MEMBER_INTERFACE_STATUS": "P, P"
+    },
+    {
+      "GROUP": "2",
+      "BUNDLE_NAME": "Po2",
+      "BUNDLE_STATUS": "U",
+      "BUNDLE_PROTOCOL": "LACP",
+      "MEMBER_INTERFACE": "Gi0/2, Gi0/3",
+      "MEMBER_INTERFACE_STATUS": "P, P"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Flags:  D - down        P - bundled in port-channel\n        I - stand-alone s - suspended\n        H - Hot-standby (LACP only)\n        U - in use      N - not in use, no aggregation/nameif\n        M - not in use, no aggregation due to minimum links not met\n        w - waiting to be aggregated\nNumber of channel-groups in use: 3\nGroup  Port-channel  Protocol  Span-cluster  Ports\n------+-------------+---------+------------+------------------------------------\n1      Po1(U)            LACP          No     Gi0/0(P)   Gi0/1(P)\n2      Po2(U)            LACP          No     Gi0/2(P)   Gi0/3(P)\n",
+  "textfsm_template": "Value Required GROUP (\\d+)\nValue BUNDLE_NAME (\\S+)\nValue BUNDLE_STATUS (\\D+)\nValue BUNDLE_PROTOCOL (\\S+)\nValue List MEMBER_INTERFACE ([\\w\\.\\/]+)\nValue List MEMBER_INTERFACE_STATUS (\\D+)\n\nStart\n  ^Group\\s+Port-channel\\s+Protocol\\s+Span-cluster\\s+Ports -> PortChannel\n  ^\\s*$$\n\nPortChannel\n  ^\\d+ -> Continue.Record\n  ^${GROUP}\\s+${BUNDLE_NAME}\\(${BUNDLE_STATUS}\\)\\s+${BUNDLE_PROTOCOL}\\s* -> Continue\n  ^.+(-|LACP|PAgP)\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\) -> Continue\n  ^.+(-|LACP|PAgP)\\s+[\\w\\.\\/\\(\\)]+\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\) -> Continue\n  ^.+(-|LACP|PAgP)\\s+[\\w\\.\\/\\(\\)]+\\s+[\\w\\.\\/\\(\\)]+\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\) -> Continue\n  ^.+(-|LACP|PAgP)\\s+[\\w\\.\\/\\(\\)]+\\s+[\\w\\.\\/\\(\\)]+\\s+[\\w\\.\\/\\(\\)]+\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\) -> Continue\n  ^\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\) -> Continue\n  ^\\s+[\\w\\.\\/\\(\\)]+\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\) -> Continue\n  ^\\s+[\\w\\.\\/\\(\\)]+\\s+[\\w\\.\\/\\(\\)]+\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\) -> Continue\n  ^\\s+[\\w\\.\\/\\(\\)]+\\s+[\\w\\.\\/\\(\\)]+\\s+[\\w\\.\\/\\(\\)]+\\s+${MEMBER_INTERFACE}\\(${MEMBER_INTERFACE_STATUS}\\) -> Continue\n  ^\\d+\n  ^\\s+\n  ^-+\\++\n  ^(RU|SU)\\s+-\\s+L(2|3)\\s+port-channel\\s+UP\\s+(s|S)tate\n  ^(P|S)/(bndl|susp)\\s+-\\s+(Bundled|Suspended)\n  ^\\s*$$\n  ^. -> Error\n  "
+}

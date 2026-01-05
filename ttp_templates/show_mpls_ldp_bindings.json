@@ -1,0 +1,49 @@
+{
+  "command": "show mpls ldp bindings",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"remote_peer_remote_label\">\n    remote binding: peer {{REMOTE_PEER}}:0, label: {{REMOTE_LABEL | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SUBNET": "10.10.10.0/24",
+      "REMOTE_PEER": "192.168.1.1",
+      "REMOTE_LABEL": "24001"
+    },
+    {
+      "SUBNET": "192.168.5.0/30",
+      "LOCAL_LABEL": "24002",
+      "REMOTE_PEER": "192.168.1.1",
+      "REMOTE_LABEL": "24003"
+    },
+    {
+      "SUBNET": "172.16.0.0/16",
+      "LOCAL_LABEL": "24004",
+      "REMOTE_PEER": "192.168.1.2",
+      "REMOTE_LABEL": "24005"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "remote_peer_remote_label": [
+        {
+          "REMOTE_PEER": "192.168.1.1",
+          "REMOTE_LABEL": "24001"
+        },
+        {
+          "REMOTE_PEER": "192.168.1.1",
+          "REMOTE_LABEL": "24003"
+        },
+        {
+          "REMOTE_PEER": "192.168.1.2",
+          "REMOTE_LABEL": "24005"
+        }
+      ]
+    }
+  ],
+  "cli_content": "  lib entry: 10.10.10.0/24, rev 62\n    local binding: label: implicit-null \n    remote binding: peer 192.168.1.1:0, label: 24001\n  lib entry: 192.168.5.0/30, rev 33\n    local binding: label: 24002\n    remote binding: peer 192.168.1.1:0, label: 24003\n  lib entry: 172.16.0.0/16, rev 101\n    local binding: label: 24004\n    remote binding: peer 192.168.1.2:0, label: 24005\n",
+  "textfsm_template": "Value SUBNET (\\S+)\nValue LOCAL_LABEL (\\S+)\nValue REMOTE_PEER (\\S+)\nValue REMOTE_LABEL (\\S+)\n\nStart\n  ^\\s*lib entry:\\s+${SUBNET},\\s+rev\\s+\\d+$$\n  ^\\s*local binding:\\s+label:\\s+(implicit-null|${LOCAL_LABEL})\\s*$$\n  ^\\s*remote binding:\\s+peer\\s+${REMOTE_PEER}:\\d+,\\s+label:\\s+${REMOTE_LABEL}\\s*$$ -> Record"
+}

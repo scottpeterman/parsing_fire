@@ -1,0 +1,108 @@
+{
+  "command": "display ip interface brief",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.2,
+  "textfsm_rows": 5,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"interface_ip_address_ok_method_status_protocol\">\n{{INTERFACE}} {{IP_ADDRESS}} {{OK}} {{METHOD}} {{STATUS | ORPHRASE}} {{PROTOCOL}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Vlan2",
+      "IP_ADDRESS": "unassigned",
+      "OK": "YES",
+      "METHOD": "DHCP",
+      "STATUS": "administratively down",
+      "PROTOCOL": "down"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/0/1",
+      "IP_ADDRESS": "192.168.10.1",
+      "OK": "YES",
+      "METHOD": "manual",
+      "STATUS": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/0/2",
+      "IP_ADDRESS": "192.168.10.2",
+      "OK": "YES",
+      "METHOD": "manual",
+      "STATUS": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/0/3",
+      "IP_ADDRESS": "unassigned",
+      "OK": "YES",
+      "METHOD": "DHCP",
+      "STATUS": "down",
+      "PROTOCOL": "down"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/0/4",
+      "IP_ADDRESS": "10.10.0.1",
+      "OK": "YES",
+      "METHOD": "manual",
+      "STATUS": "up",
+      "PROTOCOL": "up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_ok_method_status_protocol": [
+        {
+          "INTERFACE": "Interface",
+          "IP_ADDRESS": "IP-Address",
+          "OK": "OK?",
+          "METHOD": "Method",
+          "STATUS": "Status",
+          "PROTOCOL": "Protocol"
+        },
+        {
+          "INTERFACE": "Vlan2",
+          "IP_ADDRESS": "unassigned",
+          "OK": "YES",
+          "METHOD": "DHCP",
+          "STATUS": "administratively down",
+          "PROTOCOL": "down"
+        },
+        {
+          "INTERFACE": "GigabitEthernet1/0/1",
+          "IP_ADDRESS": "192.168.10.1",
+          "OK": "YES",
+          "METHOD": "manual",
+          "STATUS": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "INTERFACE": "GigabitEthernet1/0/2",
+          "IP_ADDRESS": "192.168.10.2",
+          "OK": "YES",
+          "METHOD": "manual",
+          "STATUS": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "INTERFACE": "GigabitEthernet1/0/3",
+          "IP_ADDRESS": "unassigned",
+          "OK": "YES",
+          "METHOD": "DHCP",
+          "STATUS": "down",
+          "PROTOCOL": "down"
+        },
+        {
+          "INTERFACE": "GigabitEthernet1/0/4",
+          "IP_ADDRESS": "10.10.0.1",
+          "OK": "YES",
+          "METHOD": "manual",
+          "STATUS": "up",
+          "PROTOCOL": "up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              IP-Address      OK? Method Status                Protocol\nVlan2                  unassigned      YES DHCP    administratively down down\nGigabitEthernet1/0/1   192.168.10.1    YES manual  up                    up\nGigabitEthernet1/0/2   192.168.10.2    YES manual  up                    up\nGigabitEthernet1/0/3   unassigned      YES DHCP    down                  down\nGigabitEthernet1/0/4   10.10.0.1       YES manual  up                    up\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue IP_ADDRESS (\\S+)\nValue OK (\\S+)\nValue METHOD (\\S+)\nValue STATUS (administratively down|up|down)\nValue PROTOCOL (\\S+)\n\nStart\n  ^\\s*Interface\\s+IP-Address\\s+OK\\?\\s+Method\\s+Status\\s+Protocol\\s*$$\n  ^\\s*${INTERFACE}\\s+${IP_ADDRESS}\\s+${OK}\\s+${METHOD}\\s+${STATUS}\\s+${PROTOCOL}\\s*$$ -> Record"
+}

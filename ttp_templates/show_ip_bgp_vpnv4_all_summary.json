@@ -1,0 +1,128 @@
+{
+  "command": "show ip bgp vpnv4 all summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"neighbor_bgp_ver_as_number_msgrcvd_msent_tblver_inq_outq_uptime_state_pfx\">\n{{NEIGHBOR}} {{BGP_VER | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{AS_NUMBER}} {{MSGRCVD}} {{MSENT}} {{TBLVER | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{INQ}} {{OUTQ}} {{UPTIME | ORPHRASE}} {{STATE_PFX | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR": "10.1.1.2",
+      "BGP_VER": "4",
+      "AS_NUMBER": "65001",
+      "MSGRCVD": "35",
+      "MSENT": "40",
+      "TBLVER": "2",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPTIME": "02:10:48",
+      "STATE_PFX": "5"
+    },
+    {
+      "NEIGHBOR": "10.1.1.3",
+      "BGP_VER": "4",
+      "AS_NUMBER": "65002",
+      "MSGRCVD": "50",
+      "MSENT": "45",
+      "TBLVER": "2",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPTIME": "01:05:22",
+      "STATE_PFX": "10"
+    },
+    {
+      "NEIGHBOR": "10.2.2.2",
+      "BGP_VER": "4",
+      "AS_NUMBER": "65003",
+      "MSGRCVD": "20",
+      "MSENT": "25",
+      "TBLVER": "2",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPTIME": "03:15:30",
+      "STATE_PFX": "7"
+    },
+    {
+      "NEIGHBOR": "10.2.2.3",
+      "BGP_VER": "4",
+      "AS_NUMBER": "65004",
+      "MSGRCVD": "30",
+      "MSENT": "20",
+      "TBLVER": "2",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPTIME": "04:25:11",
+      "STATE_PFX": "12"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neighbor_bgp_ver_as_number_msgrcvd_msent_tblver_inq_outq_uptime_state_pfx": [
+        {
+          "NEIGHBOR": "BGP",
+          "BGP_VER": "table",
+          "AS_NUMBER": "version",
+          "MSGRCVD": "is",
+          "MSENT": "2,",
+          "TBLVER": "main",
+          "INQ": "routing",
+          "OUTQ": "table",
+          "UPTIME": "version",
+          "STATE_PFX": "2"
+        },
+        {
+          "NEIGHBOR": "10.1.1.2",
+          "BGP_VER": "4",
+          "AS_NUMBER": "65001",
+          "MSGRCVD": "35",
+          "MSENT": "40",
+          "TBLVER": "2",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UPTIME": "02:10:48",
+          "STATE_PFX": "5"
+        },
+        {
+          "NEIGHBOR": "10.1.1.3",
+          "BGP_VER": "4",
+          "AS_NUMBER": "65002",
+          "MSGRCVD": "50",
+          "MSENT": "45",
+          "TBLVER": "2",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UPTIME": "01:05:22",
+          "STATE_PFX": "10"
+        },
+        {
+          "NEIGHBOR": "10.2.2.2",
+          "BGP_VER": "4",
+          "AS_NUMBER": "65003",
+          "MSGRCVD": "20",
+          "MSENT": "25",
+          "TBLVER": "2",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UPTIME": "03:15:30",
+          "STATE_PFX": "7"
+        },
+        {
+          "NEIGHBOR": "10.2.2.3",
+          "BGP_VER": "4",
+          "AS_NUMBER": "65004",
+          "MSGRCVD": "30",
+          "MSENT": "20",
+          "TBLVER": "2",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UPTIME": "04:25:11",
+          "STATE_PFX": "12"
+        }
+      ]
+    }
+  ],
+  "cli_content": "BGP router identifier 10.0.0.1, local AS number 65000\nBGP table version is 2, main routing table version 2\n\nVRF: Customer_A\n   Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd\n10.1.1.2           4        65001      35      40        2    0    0 02:10:48          5        \n10.1.1.3           4        65002      50      45        2    0    0 01:05:22          10       \n\nVRF: Customer_B\n   Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd\n10.2.2.2           4        65003      20      25        2    0    0 03:15:30          7        \n10.2.2.3           4        65004      30      20        2    0    0 04:25:11          12       \n",
+  "textfsm_template": "Value VRF (\\S+)\nValue NEIGHBOR (\\S+)\nValue BGP_VER (\\d+)\nValue AS_NUMBER (\\d+)\nValue MSGRCVD (\\d+)\nValue MSENT (\\d+)\nValue TBLVER (\\d+)\nValue INQ (\\d+)\nValue OUTQ (\\d+)\nValue UPTIME (\\d{1,2}:\\d{2}:\\d{2})\nValue STATE_PFX (\\S+)\n\nStart\n  ^VRF: ${VRF}$$ -> Continue.Record\n  ^\\s*Neighbor\\s+V\\s+AS\\s+MsgRcvd\\s+MsgSent\\s+TblVer\\s+InQ\\s+OutQ\\s+Up/Down\\s+State\\/PfxRcd$$\n  ^\\s*${NEIGHBOR}\\s+${BGP_VER}\\s+${AS_NUMBER}\\s+${MSGRCVD}\\s+${MSENT}\\s+${TBLVER}\\s+${INQ}\\s+${OUTQ}\\s+${UPTIME}\\s+${STATE_PFX}\\s*$$ -> Record"
+}

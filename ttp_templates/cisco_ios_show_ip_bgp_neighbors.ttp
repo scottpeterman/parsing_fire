@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_bgp_neighbors
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="bgp_state_localhost_ip_localhost_port_neighbor">
+BGP neighbor is {{NEIGHBOR}},  remote AS {{REMOTE_AS | ORPHRASE}}, internal link
+ Member of peer-group {{PEER_GROUP | ORPHRASE}} for session parameters
+  BGP version 4, remote router ID {{REMOTE_ROUTER_ID | ORPHRASE}}
+  BGP state = {{BGP_STATE | ORPHRASE}}, up for 7w3d
+Local host: {{LOCALHOST_IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}, Local port: {{LOCALHOST_PORT | ORPHRASE}}
+Foreign host: 20.30.255.14, Foreign port: {{REMOTE_PORT | ORPHRASE}}
+</group>

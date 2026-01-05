@@ -1,0 +1,188 @@
+{
+  "command": "alcatel_sros_show_router_bgp_summary_family",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.6666666666666667,
+  "textfsm_rows": 6,
+  "ttp_rows": 10,
+  "ttp_template": "<group name=\"as_pktrcvd_pktsent_inq_outq_up_down_rcv_act_sent\">\n               {{AS}} {{PKTRCVD}} {{PKTSENT}} {{INQ}} {{OUTQ}} {{UP_DOWN | ORPHRASE}} {{RCV}}/{{ACT}}/{{SENT}}\n</group>\n<group name=\"as_pktrcvd_pktsent_inq_outq_up_down_state\">\n               {{AS}} {{PKTRCVD}} {{PKTSENT}} {{INQ}} {{OUTQ}} {{UP_DOWN}} {{STATE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR": "192.0.2.118",
+      "AS": "42598*",
+      "PKTRCVD": "228872",
+      "PKTSENT": "215409",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UP_DOWN": "25d10h18m",
+      "RCV": "2",
+      "ACT": "2",
+      "SENT": "1"
+    },
+    {
+      "NEIGHBOR": "192.0.2.110",
+      "AS": "42598",
+      "PKTRCVD": "271035",
+      "PKTSENT": "249777",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UP_DOWN": "29d11h41m",
+      "RCV": "1",
+      "ACT": "1",
+      "SENT": "1"
+    },
+    {
+      "NEIGHBOR": "192.0.2.126",
+      "AS": "42598*",
+      "PKTRCVD": "0",
+      "PKTSENT": "0",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UP_DOWN": "54d18h43m",
+      "STATE": "Connect"
+    },
+    {
+      "NEIGHBOR": "192.0.2.254",
+      "AS": "42598*",
+      "PKTRCVD": "0",
+      "PKTSENT": "0",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UP_DOWN": "36d13h37m",
+      "STATE": "Active"
+    },
+    {
+      "NEIGHBOR": "192.0.2.103",
+      "AS": "65535",
+      "PKTRCVD": "390698*",
+      "PKTSENT": "749512",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UP_DOWN": "54d18h40m",
+      "RCV": "862440",
+      "ACT": "627895",
+      "SENT": "373"
+    },
+    {
+      "NEIGHBOR": "192.0.2.104",
+      "AS": "65535",
+      "PKTRCVD": "355316*",
+      "PKTSENT": "749512",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UP_DOWN": "54d18h40m",
+      "RCV": "862439",
+      "ACT": "234172",
+      "SENT": "373"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "as_pktrcvd_pktsent_inq_outq_up_down_rcv_act_sent": [
+        {
+          "AS": "42598*",
+          "PKTRCVD": "228872",
+          "PKTSENT": "215409",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UP_DOWN": "25d10h18m",
+          "RCV": "2",
+          "ACT": "2",
+          "SENT": "1"
+        },
+        {
+          "AS": "42598",
+          "PKTRCVD": "271035",
+          "PKTSENT": "249777",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UP_DOWN": "29d11h41m",
+          "RCV": "1",
+          "ACT": "1",
+          "SENT": "1"
+        },
+        {
+          "AS": "65535",
+          "PKTRCVD": "390698*",
+          "PKTSENT": "749512",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UP_DOWN": "54d18h40m",
+          "RCV": "862440",
+          "ACT": "627895",
+          "SENT": "373"
+        },
+        {
+          "AS": "65535",
+          "PKTRCVD": "355316*",
+          "PKTSENT": "749512",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UP_DOWN": "54d18h40m",
+          "RCV": "862439",
+          "ACT": "234172",
+          "SENT": "373"
+        }
+      ],
+      "as_pktrcvd_pktsent_inq_outq_up_down_state": [
+        {
+          "AS": "42598*",
+          "PKTRCVD": "228872",
+          "PKTSENT": "215409",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UP_DOWN": "25d10h18m",
+          "STATE": "2/2/1"
+        },
+        {
+          "AS": "42598",
+          "PKTRCVD": "271035",
+          "PKTSENT": "249777",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UP_DOWN": "29d11h41m",
+          "STATE": "1/1/1"
+        },
+        {
+          "AS": "42598*",
+          "PKTRCVD": "0",
+          "PKTSENT": "0",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UP_DOWN": "54d18h43m",
+          "STATE": "Connect"
+        },
+        {
+          "AS": "42598*",
+          "PKTRCVD": "0",
+          "PKTSENT": "0",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UP_DOWN": "36d13h37m",
+          "STATE": "Active"
+        },
+        {
+          "AS": "65535",
+          "PKTRCVD": "390698*",
+          "PKTSENT": "749512",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UP_DOWN": "54d18h40m",
+          "STATE": "862440/627895/373"
+        },
+        {
+          "AS": "65535",
+          "PKTRCVD": "355316*",
+          "PKTSENT": "749512",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UP_DOWN": "54d18h40m",
+          "STATE": "862439/234172/373"
+        }
+      ]
+    }
+  ],
+  "cli_content": "[kvanlang@steffi upgrade-support]$ cat ../ntc-templates-test/lib/test-bgp-sum-family.raw\nA:SRHERE01# show router \"Base\" bgp summary family ipv4\n===============================================================================\n BGP Router ID:192.0.2.11   AS:6848        Local AS:65535\n===============================================================================\nBGP Admin State         : Up          BGP Oper State              : Up\nTotal Peer Groups       : 6           Total Peers                 : 150\nTotal VPN Peer Groups   : 79          Total VPN Peers             : 207\nTotal BGP Paths         : 407944      Total Path Memory           : 160791243\n\nTotal IPv4 Remote Rts   : 1725031     Total IPv4 Rem. Active Rts  : 862201\nTotal IPv6 Remote Rts   : 0           Total IPv6 Rem. Active Rts  : 0\nTotal IPv4 Backup Rts   : 0           Total IPv6 Backup Rts       : 0\nTotal LblIpv4 Rem Rts   : 2844        Total LblIpv4 Rem. Act Rts  : 311\nTotal LblIpv6 Rem Rts   : 196896      Total LblIpv6 Rem. Act Rts  : 98446\nTotal LblIpv4 Bkp Rts   : 0           Total LblIpv6 Bkp Rts       : 0\nTotal Supressed Rts     : 0           Total Hist. Rts             : 0\nTotal Decay Rts         : 0\n\nTotal VPN-IPv4 Rem. Rts : 93000       Total VPN-IPv4 Rem. Act. Rts: 45689\nTotal VPN-IPv6 Rem. Rts : 0           Total VPN-IPv6 Rem. Act. Rts: 0\nTotal VPN-IPv4 Bkup Rts : 0           Total VPN-IPv6 Bkup Rts     : 0\nTotal VPN Local Rts     : 1147        Total VPN Supp. Rts         : 0\nTotal VPN Hist. Rts     : 0           Total VPN Decay Rts         : 0\n\nTotal MVPN-IPv4 Rem Rts : 0           Total MVPN-IPv4 Rem Act Rts : 0\nTotal MVPN-IPv6 Rem Rts : 0           Total MVPN-IPv6 Rem Act Rts : 0\nTotal MDT-SAFI Rem Rts  : 0           Total MDT-SAFI Rem Act Rts  : 0\nTotal McIPv4 Remote Rts : 0           Total McIPv4 Rem. Active Rts: 0\nTotal McIPv6 Remote Rts : 0           Total McIPv6 Rem. Active Rts: 0\nTotal McVpnIPv4 Rem Rts : 0           Total McVpnIPv4 Rem Act Rts : 0\nTotal McVpnIPv6 Rem Rts : 0           Total McVpnIPv6 Rem Act Rts : 0\n\nTotal EVPN Rem Rts      : 692         Total EVPN Rem Act Rts      : 338\nTotal L2-VPN Rem. Rts   : 0           Total L2VPN Rem. Act. Rts   : 0\nTotal MSPW Rem Rts      : 0           Total MSPW Rem Act Rts      : 0\nTotal RouteTgt Rem Rts  : 1546        Total RouteTgt Rem Act Rts  : 1546\nTotal FlowIpv4 Rem Rts  : 0           Total FlowIpv4 Rem Act Rts  : 0\nTotal FlowIpv6 Rem Rts  : 0           Total FlowIpv6 Rem Act Rts  : 0\nTotal Link State Rem Rts: 0           Total Link State Rem Act Rts: 0\nTotal SrPlcyIpv4 Rem Rts: 0           Total SrPlcyIpv4 Rem Act Rts: 0\n\n===============================================================================\nBGP IPv4 Summary\n===============================================================================\nLegend : D - Dynamic Neighbor\n===============================================================================\nNeighbor\n                   AS PktRcvd PktSent  InQ OutQ Up/Down   State|Recv/Actv/Sent\n-------------------------------------------------------------------------------\n192.0.2.118\n               42598*  228872  215409    0    0 25d10h18m 2/2/1\n192.0.2.110\n               42598   271035  249777    0    0 29d11h41m 1/1/1\n192.0.2.126\n               42598*       0       0    0    0 54d18h43m Connect\n192.0.2.254\n               42598*       0       0    0    0 36d13h37m Active\n192.0.2.103\n               65535  390698*  749512    0    0 54d18h40m 862440/627895/373\n192.0.2.104\n               65535  355316*  749512    0    0 54d18h40m 862439/234172/373\n-------------------------------------------------------------------------------\n* indicates that the corresponding row element may have been truncated.\n",
+  "textfsm_template": "Value NEIGHBOR (\\d+\\.\\d+\\.\\d+\\.\\d+|[0-9a-f:]*)\nValue Required AS (\\d+\\**)\nValue PKTRCVD (\\d+\\**)\nValue PKTSENT (\\d+\\**)\nValue INQ (\\d+\\**)\nValue OUTQ (\\d+\\**)\nValue UP_DOWN (\\S+)\nValue STATE (\\w+)\nValue RCV (\\d+)\nValue ACT (\\d+)\nValue SENT (\\d+)\n\nStart\n  ^----------- -> Neighbor\n\nNeighbor\n  ^${NEIGHBOR}(\\s|$$) -> NeighborData\n\nNeighborData\n  ^\\s+${AS}\\s+${PKTRCVD}\\s+${PKTSENT}\\s+${INQ}\\s+${OUTQ}\\s+${UP_DOWN}\\s+(${STATE}|${RCV}/${ACT}/${SENT})(\\s|$$) -> Record Neighbor\n  ^.*indicates\n  ^-----------\n  ^\\s*$$\n  ^. -> Error\n"
+}

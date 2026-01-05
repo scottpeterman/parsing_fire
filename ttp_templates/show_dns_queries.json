@@ -1,0 +1,92 @@
+{
+  "command": "show dns queries",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"query_type_query_time_interface_query_name\">\n{{QUERY_TYPE}} {{QUERY_TIME}} {{INTERFACE}} {{QUERY_NAME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "QUERY_TYPE": "A",
+      "QUERY_TIME": "10:21:17",
+      "INTERFACE": "eth0",
+      "QUERY_NAME": "example.com"
+    },
+    {
+      "QUERY_TYPE": "AAAA",
+      "QUERY_TIME": "10:23:22",
+      "INTERFACE": "eth0",
+      "QUERY_NAME": "subdomain.example.com"
+    },
+    {
+      "QUERY_TYPE": "MX",
+      "QUERY_TIME": "10:25:10",
+      "INTERFACE": "eth1",
+      "QUERY_NAME": "mail.example.net"
+    },
+    {
+      "QUERY_TYPE": "CNAME",
+      "QUERY_TIME": "10:30:05",
+      "INTERFACE": "eth2",
+      "QUERY_NAME": "alias.example.org"
+    },
+    {
+      "QUERY_TYPE": "PTR",
+      "QUERY_TIME": "10:35:45",
+      "INTERFACE": "eth1",
+      "QUERY_NAME": "1.0.0.127.in-addr.arpa"
+    },
+    {
+      "QUERY_TYPE": "A",
+      "QUERY_TIME": "10:40:30",
+      "INTERFACE": "eth0",
+      "QUERY_NAME": "anotherexample.com"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "query_type_query_time_interface_query_name": [
+        {
+          "QUERY_TYPE": "A",
+          "QUERY_TIME": "10:21:17",
+          "INTERFACE": "eth0",
+          "QUERY_NAME": "example.com"
+        },
+        {
+          "QUERY_TYPE": "AAAA",
+          "QUERY_TIME": "10:23:22",
+          "INTERFACE": "eth0",
+          "QUERY_NAME": "subdomain.example.com"
+        },
+        {
+          "QUERY_TYPE": "MX",
+          "QUERY_TIME": "10:25:10",
+          "INTERFACE": "eth1",
+          "QUERY_NAME": "mail.example.net"
+        },
+        {
+          "QUERY_TYPE": "CNAME",
+          "QUERY_TIME": "10:30:05",
+          "INTERFACE": "eth2",
+          "QUERY_NAME": "alias.example.org"
+        },
+        {
+          "QUERY_TYPE": "PTR",
+          "QUERY_TIME": "10:35:45",
+          "INTERFACE": "eth1",
+          "QUERY_NAME": "1.0.0.127.in-addr.arpa"
+        },
+        {
+          "QUERY_TYPE": "A",
+          "QUERY_TIME": "10:40:30",
+          "INTERFACE": "eth0",
+          "QUERY_NAME": "anotherexample.com"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Query Type                    Query Time   Interface   Query Name\nA                            10:21:17     eth0        example.com\nAAAA                         10:23:22     eth0        subdomain.example.com\nMX                           10:25:10     eth1        mail.example.net\nCNAME                        10:30:05     eth2        alias.example.org\nPTR                          10:35:45     eth1        1.0.0.127.in-addr.arpa\nA                            10:40:30     eth0        anotherexample.com\n",
+  "textfsm_template": "Value QUERY_TYPE ([A-Z]+)\nValue QUERY_TIME (\\d{2}:\\d{2}:\\d{2})\nValue INTERFACE (\\S+)\nValue QUERY_NAME (\\S+)\n\nStart\n  ^\\s*Query Type\\s+Query Time\\s+Interface\\s+Query Name\\s*$$\n  ^\\s*${QUERY_TYPE}\\s+${QUERY_TIME}\\s+${INTERFACE}\\s+${QUERY_NAME}\\s*$$ -> Record"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: aruba_os_show_arp
+# Source: ntc
+# TextFSM rows: 12
+# TTP rows: 12
+# Match ratio: 1.00
+
+<group name="protocol_ip_address_mac_address_interface_age">
+   {{PROTOCOL}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{INTERFACE}} {{AGE | ORPHRASE}}
+</group>

@@ -1,0 +1,44 @@
+{
+  "command": "cisco_s300_show_lldp_neighbors",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"local_interface_chassis_id_neighbor_interface_neighbor_name\">\n{{LOCAL_INTERFACE}} {{CHASSIS_ID}} {{NEIGHBOR_INTERFACE}} {{NEIGHBOR_NAME | ORPHRASE}} B 99\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR_NAME": "prsw03freeporil",
+      "LOCAL_INTERFACE": "gi27",
+      "NEIGHBOR_INTERFACE": "gi27",
+      "CHASSIS_ID": "00:08:32:0f:1e:bd"
+    },
+    {
+      "NEIGHBOR_NAME": "prsw01freeportin",
+      "LOCAL_INTERFACE": "gi28",
+      "NEIGHBOR_INTERFACE": "gi28",
+      "CHASSIS_ID": "00:08:32:0f:04:cc"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "local_interface_chassis_id_neighbor_interface_neighbor_name": [
+        {
+          "LOCAL_INTERFACE": "gi27",
+          "CHASSIS_ID": "00:08:32:0f:1e:bd",
+          "NEIGHBOR_INTERFACE": "gi27",
+          "NEIGHBOR_NAME": "prsw03freeporil"
+        },
+        {
+          "LOCAL_INTERFACE": "gi28",
+          "CHASSIS_ID": "00:08:32:0f:04:cc",
+          "NEIGHBOR_INTERFACE": "gi28",
+          "NEIGHBOR_NAME": "prsw01freeportin"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nSystem capability legend:\nB - Bridge; R - Router; W - Wlan Access Point; T - telephone;\nD - DOCSIS Cable Device; H - Host; r - Repeater;\nTP - Two Ports MAC Relay; S - S-VLAN; C - C-VLAN; O - Other\n\n  Port        Device ID        Port ID       System Name    Capabilities  TTL\n--------- ----------------- ------------- ----------------- ------------ -----\ngi27      00:08:32:0f:1e:bd     gi27       prsw03freeporil       B        99\ngi28      00:08:32:0f:04:cc     gi28      prsw01freeportin       B        90\n",
+  "textfsm_template": "Value NEIGHBOR_NAME (\\S+)\nValue LOCAL_INTERFACE (\\S+)\nValue NEIGHBOR_INTERFACE (\\S+)\nValue CHASSIS_ID (([0-9a-f]{2}[:-]){5}([0-9a-f]{2}))\n\nStart\n  ^System\\s+capability\\s+legend\n  ^\\S+\\s*-\n  ^\\s*Port\\s+Device\\s+ID\\s+Port\\s+ID\\s+System\\s+Name\\s+Capabilities\\s+TTL -> Begin\n  ^\\s*$$\n  ^. -> Error\n\nBegin\n  ^-+\n  ^${LOCAL_INTERFACE}\\s+${CHASSIS_ID}\\s+${NEIGHBOR_INTERFACE}\\s+${NEIGHBOR_NAME}.+ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

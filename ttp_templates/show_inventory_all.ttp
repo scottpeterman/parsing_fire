@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show inventory all
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="pid_vid_sn">
+PID: {{PID}} , VID: {{VID}} , SN: {{SN | ORPHRASE}}
+</group>

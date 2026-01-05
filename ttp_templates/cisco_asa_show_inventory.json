@@ -1,0 +1,44 @@
+{
+  "command": "cisco_asa_show_inventory",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"pid_vid_sn\">\nPID: {{PID}} , VID: {{VID}} , SN: {{SN | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "Chassis",
+      "DESCR": "ASA 5515-X with SW, 6 GE Data, 1 GE Mgmt, AC",
+      "PID": "ASA5515",
+      "VID": "V03",
+      "SN": "FTX1930101U"
+    },
+    {
+      "NAME": "power supply",
+      "DESCR": "ASA/IPS 180W AC Power Supply",
+      "PID": "ASA-180W-PWR-AC",
+      "VID": "V01",
+      "SN": "DTN111381AC"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "pid_vid_sn": [
+        {
+          "PID": "ASA5515",
+          "VID": "V03",
+          "SN": "FTX1930101U"
+        },
+        {
+          "PID": "ASA-180W-PWR-AC",
+          "VID": "V01",
+          "SN": "DTN111381AC"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Name: \"Chassis\", DESCR: \"ASA 5515-X with SW, 6 GE Data, 1 GE Mgmt, AC\"\nPID: ASA5515           , VID: V03     , SN: FTX1930101U\n\nName: \"power supply\", DESCR: \"ASA/IPS 180W AC Power Supply\"\nPID: ASA-180W-PWR-AC   , VID: V01     , SN: DTN111381AC\n",
+  "textfsm_template": "Value NAME (.*)\nValue DESCR (.*)\nValue PID ([\\w\\d\\s/-]+[\\S]+)\nValue VID (\\S+)\nValue SN (\\S+)\n\nStart\n  ^Name:\\s+\"${NAME}\"\\s*,\\s+DESCR:\\s+\"${DESCR}\"\n  ^PID:\\s+${PID}\\s*,\\s+VID:\\s+${VID}\\s*,\\s+SN:\\s+${SN} -> Record\n  ^PID:\\s+${PID}\\s*,\\s+VID:\\s+${VID}\\s*,\\s+SN: -> Record\n  ^\\s*$$\n  ^show_inventory_all\\s+\\S+ -> NoRecord\n  ^.+ -> Error\n"
+}

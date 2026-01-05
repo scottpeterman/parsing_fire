@@ -1,0 +1,92 @@
+{
+  "command": "show ip multicast route",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.5,
+  "textfsm_rows": 4,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"group_time_rp_flags\">\n(*, {{GROUP}}), {{TIME}}, RP {{RP}}, flags: {{FLAGS | ORPHRASE}}\n</group>\n<group name=\"out_if_out_status_out_time\">\n    {{OUT_IF}}, {{OUT_STATUS | ORPHRASE}}, {{OUT_TIME | ORPHRASE}}\n</group>\n<group name=\"source_group_flags\">\n({{SOURCE}}, {{GROUP}}), {{{{FLAGS | ORPHRASE}}IME}}, flags: T\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "GROUP": "239.0.0.1",
+      "TIME": "00:07:19/00:02:10",
+      "RP": "172.16.0.1",
+      "FLAGS": "S",
+      "INC_IF": "FastEthernet0/0",
+      "RPF_NBR": "10.1.1.1",
+      "OUT_IF": "FastEthernet0/1",
+      "OUT_STATUS": "Forward/Dense",
+      "OUT_TIME": "00:05:17/00:00:03"
+    },
+    {
+      "OUT_IF": "FastEthernet0/2",
+      "OUT_STATUS": "Prune/Dense",
+      "OUT_TIME": "00:05:17/00:00:03"
+    },
+    {
+      "GROUP": "239.0.0.1",
+      "SOURCE": "192.168.1.1",
+      "TIME": "00:03:18/00:01:35",
+      "FLAGS": "T",
+      "INC_IF": "FastEthernet0/1",
+      "RPF_NBR": "10.2.2.2",
+      "OUT_IF": "FastEthernet0/3",
+      "OUT_STATUS": "Forward/Dense",
+      "OUT_TIME": "00:03:14/00:01:35"
+    },
+    {
+      "GROUP": "239.0.0.2",
+      "TIME": "00:05:19/00:02:15",
+      "RP": "172.16.0.2",
+      "FLAGS": "S",
+      "INC_IF": "FastEthernet0/1",
+      "RPF_NBR": "10.3.3.3",
+      "OUT_IF": "FastEthernet0/4",
+      "OUT_STATUS": "Forward/Sparse",
+      "OUT_TIME": "00:05:10/00:01:50"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "group_time_rp_flags": [
+        {
+          "GROUP": "239.0.0.1",
+          "TIME": "00:07:19/00:02:10",
+          "RP": "172.16.0.1",
+          "FLAGS": "S"
+        },
+        {
+          "GROUP": "239.0.0.2",
+          "TIME": "00:05:19/00:02:15",
+          "RP": "172.16.0.2",
+          "FLAGS": "S"
+        }
+      ],
+      "out_if_out_status_out_time": [
+        {
+          "OUT_IF": "FastEthernet0/1",
+          "OUT_STATUS": "Forward/Dense",
+          "OUT_TIME": "00:05:17/00:00:03"
+        },
+        {
+          "OUT_IF": "FastEthernet0/2",
+          "OUT_STATUS": "Prune/Dense",
+          "OUT_TIME": "00:05:17/00:00:03"
+        },
+        {
+          "OUT_IF": "FastEthernet0/3",
+          "OUT_STATUS": "Forward/Dense",
+          "OUT_TIME": "00:03:14/00:01:35"
+        },
+        {
+          "OUT_IF": "FastEthernet0/4",
+          "OUT_STATUS": "Forward/Sparse",
+          "OUT_TIME": "00:05:10/00:01:50"
+        }
+      ]
+    }
+  ],
+  "cli_content": "(*, 239.0.0.1), 00:07:19/00:02:10, RP 172.16.0.1, flags: S\n  Incoming interface: FastEthernet0/0, RPF nbr 10.1.1.1\n  Outgoing interface list:\n    FastEthernet0/1, Forward/Dense, 00:05:17/00:00:03\n    FastEthernet0/2, Prune/Dense, 00:05:17/00:00:03\n\n(192.168.1.1, 239.0.0.1), 00:03:18/00:01:35, flags: T\n  Incoming interface: FastEthernet0/1, RPF nbr 10.2.2.2\n  Outgoing interface list:\n    FastEthernet0/3, Forward/Dense, 00:03:14/00:01:35\n\n(*, 239.0.0.2), 00:05:19/00:02:15, RP 172.16.0.2, flags: S\n  Incoming interface: FastEthernet0/1, RPF nbr 10.3.3.3\n  Outgoing interface list:\n    FastEthernet0/4, Forward/Sparse, 00:05:10/00:01:50\n",
+  "textfsm_template": "Value GROUP (\\S+)\nValue SOURCE (\\S+)\nValue TIME (\\d+:\\d+:\\d+\\/\\d+:\\d+:\\d+)\nValue RP (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue FLAGS (\\S+)\nValue INC_IF (\\S+)\nValue RPF_NBR (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue OUT_IF (\\S+)\nValue OUT_STATUS (\\S+)\nValue OUT_TIME (\\d+:\\d+:\\d+\\/\\d+:\\d+:\\d+)\n\nStart\n  ^\\(\\*,\\s+${GROUP}\\),\\s+${TIME},\\s+RP\\s+${RP},\\s+flags:\\s+${FLAGS}\\s*$$\n  ^\\s+Incoming\\s+interface:\\s+${INC_IF},\\s+RPF\\s+nbr\\s+${RPF_NBR}\\s*$$\n  ^\\s+Outgoing\\s+interface\\s+list:\\s*$$\n  ^\\s+${OUT_IF},\\s+${OUT_STATUS},\\s+${OUT_TIME}\\s*$$ -> Record\n  ^\\(${SOURCE},\\s+${GROUP}\\),\\s+${TIME},\\s+flags:\\s+${FLAGS}\\s*$$\n  ^\\s+Incoming\\s+interface:\\s+${INC_IF},\\s+RPF\\s+nbr\\s+${RPF_NBR}\\s*$$\n  ^\\s+Outgoing\\s+interface\\s+list:\\s*$$\n  ^\\s+${OUT_IF},\\s+${OUT_STATUS},\\s+${OUT_TIME}\\s*$$ -> Record"
+}

@@ -1,0 +1,106 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_access-list
+# Source: ntc
+# TextFSM rows: 69
+# TTP rows: 86
+# Match ratio: 1.25
+
+<group name="acl_name_acl_tot_elem_acl_name_hash">
+access-list {{ACL_NAME}}; {{ACL_TOT_ELEM}} elements; name hash: {{ACL_NAME_HASH | ORPHRASE}}
+</group>
+<group name="acl_name_line_num_type_action_protocol_src_any_dst_intfc_log_level_log_interval_state_hit_count_line_hash">
+access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} interface {{DST_INTFC}} log {{LOG_LEVEL}} interval {{LOG_INTERVAL}} {{STATE | ORPHRASE}} (hitcnt={{HIT_COUNT | re("\\d+")}}) (inactive) {{LINE_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_protocol_src_host_dst_host_dst_port_hit_count_line_hash">
+access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{PROTOCOL}} host {{SRC_HOST | re("\\S+")}} host {{DST_HOST | re("\\S+")}} eq {{DST_PORT}} (hitcnt={{HIT_COUNT | re("\\d+")}}) {{LINE_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_svc_object_src_object_dst_object_log_level_log_interval_hit_count_line_hash">
+access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} object {{SVC_OBJECT}} object {{SRC_OBJECT}} object {{DST_OBJECT}} log {{LOG_LEVEL}} interval {{LOG_INTERVAL}} (hitcnt={{HIT_COUNT | re("\\d+")}}) {{LINE_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_entry_protocol_icmp_entry_src_fqdn_entry_src_fqdn_state_entry_dst_host_entry_icmp_type_entry_icmp_code_log_level_log_interval_entry_state_entry_hash">
+  access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{ENTRY_PROTOCOL_ICMP}} fqdn {{ENTRY_SRC_FQDN}} ({{ENTRY_SRC_FQDN_STATE | ORPHRASE}}) host {{ENTRY_DST_HOST | re("\\S+")}} {{ENTRY_ICMP_TYPE}} {{ENTRY_ICMP_CODE}} log {{LOG_LEVEL}} interval {{LOG_INTERVAL}} ({{ENTRY_STATE | ORPHRASE}}) {{ENTRY_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_protocol_src_object_grp_dst_network_dst_mask_hit_count_line_hash">
+access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{PROTOCOL}} object-group {{SRC_OBJECT_GRP}} {{DST_NETWORK}} {{DST_MASK}} (hitcnt={{HIT_COUNT | re("\\d+")}}) {{LINE_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_entry_protocol_entry_src_host_entry_dst_network_entry_dst_mask_entry_hit_count_entry_hash">
+  access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{ENTRY_PROTOCOL}} host {{ENTRY_SRC_HOST | re("\\S+")}} {{ENTRY_DST_NETWORK}} {{ENTRY_DST_MASK}} (hitcnt={{ENTRY_HIT_COUNT | re("\\d+")}}) {{ENTRY_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_entry_protocol_entry_src_fqdn_entry_src_fqdn_state_entry_dst_network_entry_dst_mask_entry_state_entry_hash">
+  access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{ENTRY_PROTOCOL}} fqdn {{ENTRY_SRC_FQDN}} ({{ENTRY_SRC_FQDN_STATE | ORPHRASE}}) {{ENTRY_DST_NETWORK}} {{ENTRY_DST_MASK}} ({{ENTRY_STATE | ORPHRASE}}) {{ENTRY_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_entry_protocol_entry_src_network_entry_src_mask_entry_dst_network_entry_dst_mask_entry_hit_count_entry_hash">
+  access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{ENTRY_PROTOCOL}} {{ENTRY_SRC_NETWORK}} {{ENTRY_SRC_MASK}} {{ENTRY_DST_NETWORK}} {{ENTRY_DST_MASK}} (hitcnt={{ENTRY_HIT_COUNT | re("\\d+")}}) {{ENTRY_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_svc_object_grp_src_object_dst_object_hit_count_line_hash">
+access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} object-group {{SVC_OBJECT_GRP}} object {{SRC_OBJECT}} object {{DST_OBJECT}} (hitcnt={{HIT_COUNT | re("\\d+")}}) {{LINE_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_entry_protocol_entry_src_host_entry_dst_range_start_entry_dst_range_end_entry_port_entry_hit_count_entry_hash">
+  access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{ENTRY_PROTOCOL}} host {{ENTRY_SRC_HOST | re("\\S+")}} range {{ENTRY_DST_RANGE_START}} {{ENTRY_DST_RANGE_END}} eq {{ENTRY_PORT | re("\\d+")}} (hitcnt={{ENTRY_HIT_COUNT | re("\\d+")}}) {{ENTRY_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_entry_protocol_entry_src_host_entry_dst_range_start_entry_dst_range_end_entry_port_greater_than_entry_hit_count_entry_hash">
+  access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{ENTRY_PROTOCOL}} host {{ENTRY_SRC_HOST | re("\\S+")}} range {{ENTRY_DST_RANGE_START}} {{ENTRY_DST_RANGE_END}} gt {{ENTRY_PORT_GREATER_THAN | re("\\d+")}} (hitcnt={{ENTRY_HIT_COUNT | re("\\d+")}}) {{ENTRY_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_entry_protocol_entry_src_host_entry_dst_range_start_entry_dst_range_end_entry_port_range_start_entry_port_range_end_entry_hit_count_entry_hash">
+  access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{ENTRY_PROTOCOL}} host {{ENTRY_SRC_HOST | re("\\S+")}} range {{ENTRY_DST_RANGE_START}} {{ENTRY_DST_RANGE_END}} range {{ENTRY_PORT_RANGE_START}} {{ENTRY_PORT_RANGE_END | re("\\d+")}} (hitcnt={{ENTRY_HIT_COUNT | re("\\d+")}}) {{ENTRY_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_protocol_src_object_grp_dst_any_hit_count_line_hash">
+access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{PROTOCOL}} object-group {{SRC_OBJECT_GRP}} {{DST_ANY}} (hitcnt={{HIT_COUNT | re("\\d+")}}) {{LINE_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_entry_protocol_entry_src_host_entry_dst_any_entry_hit_count_entry_hash">
+  access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{ENTRY_PROTOCOL}} host {{ENTRY_SRC_HOST | re("\\S+")}} {{ENTRY_DST_ANY}} (hitcnt={{ENTRY_HIT_COUNT | re("\\d+")}}) {{ENTRY_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_entry_protocol_entry_src_fqdn_entry_src_fqdn_state_entry_dst_any_entry_state_entry_hash">
+  access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{ENTRY_PROTOCOL}} fqdn {{ENTRY_SRC_FQDN}} ({{ENTRY_SRC_FQDN_STATE | ORPHRASE}}) {{ENTRY_DST_ANY}} ({{ENTRY_STATE | ORPHRASE}}) {{ENTRY_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_entry_protocol_entry_src_network_entry_src_mask_entry_dst_any_entry_hit_count_entry_hash">
+  access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{ENTRY_PROTOCOL}} {{ENTRY_SRC_NETWORK}} {{ENTRY_SRC_MASK}} {{ENTRY_DST_ANY}} (hitcnt={{ENTRY_HIT_COUNT | re("\\d+")}}) {{ENTRY_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_entry_protocol_entry_src_range_start_entry_src_range_end_entry_dst_host_entry_port_entry_hit_count_entry_hash">
+  access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{ENTRY_PROTOCOL}} range {{ENTRY_SRC_RANGE_START}} {{ENTRY_SRC_RANGE_END}} host {{ENTRY_DST_HOST | re("\\S+")}} eq {{ENTRY_PORT}} (hitcnt={{ENTRY_HIT_COUNT | re("\\d+")}}) {{ENTRY_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_protocol_src_object_dst_object_dst_port_grp_hit_count_line_hash">
+access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{PROTOCOL}} object {{SRC_OBJECT}} object {{DST_OBJECT}} object-group {{DST_PORT_GRP}} (hitcnt={{HIT_COUNT | re("\\d+")}}) {{LINE_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_entry_protocol_entry_src_fqdn_entry_src_fqdn_state_entry_dst_fqdn_entry_dst_fqdn_state_entry_port_entry_state_entry_hash">
+  access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{ENTRY_PROTOCOL}} fqdn {{ENTRY_SRC_FQDN}} ({{ENTRY_SRC_FQDN_STATE | ORPHRASE}}) fqdn {{ENTRY_DST_FQDN}} ({{ENTRY_DST_FQDN_STATE | ORPHRASE}}) eq {{ENTRY_PORT}} ({{ENTRY_STATE | ORPHRASE}}) {{ENTRY_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_svc_object_grp_src_any_dst_any_hit_count_line_hash">
+access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} object-group {{SVC_OBJECT_GRP}} {{SRC_ANY}} {{DST_ANY}} (hitcnt={{HIT_COUNT | re("\\d+")}}) {{LINE_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_entry_protocol_entry_src_any_entry_dst_any_entry_hit_count_entry_hash">
+  access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{ENTRY_PROTOCOL}} {{ENTRY_SRC_ANY}} {{ENTRY_DST_ANY}} (hitcnt={{ENTRY_HIT_COUNT | re("\\d+")}}) {{ENTRY_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_protocol_src_object_grp_dst_object_dst_port_grp_hit_count_line_hash">
+access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{PROTOCOL}} object-group {{SRC_OBJECT_GRP}} object {{DST_OBJECT}} object-group {{DST_PORT_GRP}} (hitcnt={{HIT_COUNT | re("\\d+")}}) {{LINE_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_entry_protocol_entry_src_host_entry_dst_fqdn_entry_dst_fqdn_state_entry_port_entry_state_entry_hash">
+  access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{ENTRY_PROTOCOL}} host {{ENTRY_SRC_HOST | re("\\S+")}} fqdn {{ENTRY_DST_FQDN}} ({{ENTRY_DST_FQDN_STATE | ORPHRASE}}) eq {{ENTRY_PORT}} ({{ENTRY_STATE | ORPHRASE}}) {{ENTRY_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_entry_protocol_entry_src_network_entry_src_mask_entry_dst_fqdn_entry_dst_fqdn_state_entry_port_entry_state_entry_hash">
+  access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{ENTRY_PROTOCOL}} {{ENTRY_SRC_NETWORK}} {{ENTRY_SRC_MASK}} fqdn {{ENTRY_DST_FQDN}} ({{ENTRY_DST_FQDN_STATE | ORPHRASE}}) eq {{ENTRY_PORT}} ({{ENTRY_STATE | ORPHRASE}}) {{ENTRY_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_protocol_src_network_src_mask_dst_network_dst_mask_dst_port_hit_count_line_hash">
+access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{PROTOCOL}} {{SRC_NETWORK}} {{SRC_MASK}} {{DST_NETWORK}} {{DST_MASK}} eq {{DST_PORT}} (hitcnt={{HIT_COUNT | re("\\d+")}}) {{LINE_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_svc_object_src_host_dst_host_hit_count_line_hash">
+access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} object {{SVC_OBJECT}} host {{SRC_HOST | re("\\S+")}} host {{DST_HOST | re("\\S+")}} (hitcnt={{HIT_COUNT | re("\\d+")}}) {{LINE_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_entry_protocol_entry_src_host_entry_dst_host_entry_port_range_start_entry_port_range_end_entry_hit_count_entry_hash">
+  access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{ENTRY_PROTOCOL}} host {{ENTRY_SRC_HOST | re("\\S+")}} host {{ENTRY_DST_HOST | re("\\S+")}} range {{ENTRY_PORT_RANGE_START}} {{ENTRY_PORT_RANGE_END | re("\\d+")}} (hitcnt={{ENTRY_HIT_COUNT | re("\\d+")}}) {{ENTRY_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_protocol_src_host_dst_network_dst_mask_dst_port_hit_count_line_hash">
+access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{PROTOCOL}} host {{SRC_HOST | re("\\S+")}} {{DST_NETWORK}} {{DST_MASK}} eq {{DST_PORT}} (hitcnt={{HIT_COUNT | re("\\d+")}}) {{LINE_HASH | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_remark">
+access-list {{ACL_NAME}} line {{LINE_NUM}} remark {{REMARK | ORPHRASE}} 
+</group>
+<group name="acl_name_line_num_type_action_protocol_src_any_dst_any_hit_count_line_hash">
+access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} {{DST_ANY}} (hitcnt={{HIT_COUNT | re("\\d+")}}) {{LINE_HASH | ORPHRASE}}
+</group>
+<group name="acl_name_line_num_type_action_protocol_src_any_dst_any_entry_icmp_type_log_level_log_interval_hit_count_line_hash">
+access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} {{DST_ANY}} {{ENTRY_ICMP_TYPE}} log {{LOG_LEVEL}} interval {{LOG_INTERVAL}} (hitcnt={{HIT_COUNT | re("\\d+")}}) {{LINE_HASH | ORPHRASE}}
+</group>
+<group name="acl_name_line_num_type_action_protocol_src_any_dst_network_dst_mask_entry_icmp_type_hit_count_line_hash">
+access-list {{ACL_NAME}} line {{LINE_NUM}} {{TYPE}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} {{DST_NETWORK}} {{DST_MASK}} {{ENTRY_ICMP_TYPE}} (hitcnt={{HIT_COUNT | re("\\d+")}}) {{LINE_HASH | ORPHRASE}}
+</group>

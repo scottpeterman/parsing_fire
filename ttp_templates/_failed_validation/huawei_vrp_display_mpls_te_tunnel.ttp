@@ -1,0 +1,11 @@
+# TTP Template - FAILED VALIDATION
+# Original command: huawei_vrp_display_mpls_te_tunnel
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="source_role_id_in_label_out_label_name">
+{{SOURCE}} {{DEST{{ROLE}}NATION}} {{ID | re("\\d+")}} {{IN_LABEL | re(".*\\w.*")}}/{{OUT_LABEL}} I {{NAME | ORPHRASE}}
+</group>
+<group name="role_destination_id_in_label_out_label_name">
+{{SOURC{{ROLE}}}} {{DESTINATION}} {{ID | re("\\d+")}} {{IN_LABEL}}/{{OUT_LABEL | re(".*\\w.*")}} E {{NAME | ORPHRASE}}
+</group>

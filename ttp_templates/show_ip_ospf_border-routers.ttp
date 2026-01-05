@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip ospf border-routers
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 14
+# Match ratio: 4.67
+
+<group name="router_id_designated_adjacency_state_networks">
+    {{ROUTER_ID}} {{DESIGNATED_ADJACENCY}} {{STATE | ORPHRASE}} {{NETWORKS}}
+</group>
+<group name="router_id_designated_adjacency_abr_networks">
+    {{ROUTER_ID}} {{DESIGNATED_ADJACENCY}} {{ABR | ORPHRASE}} {{NETWORKS}}
+</group>

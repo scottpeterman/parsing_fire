@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_xlate
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 6
+# Match ratio: 1.00
+
+<group name="source_intf_source_destination_intf_destination">
+NAT from {{SOURCE_INTF}}:{{SOURCE | ORPHRASE}} to {{DESTINATION_INTF}}:{{DESTINATION | ORPHRASE}}
+</group>
+<group name="source_intf_destination">
+10.9.0.44/31 to {{SOURCE_INTF}}:{{DESTINATION | ORPHRASE}}
+</group>

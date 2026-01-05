@@ -1,0 +1,100 @@
+{
+  "command": "show pim interface",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"interface_address_vrf_mode_nbr_count_dr_dr_prior_hello_time\">\n{{INTERFACE}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{VRF}} {{MODE}} {{NBR_COUNT | re(\"\\\\d+\")}} {{DR}} {{DR_PRIOR}} {{HELLO_TIME | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Ethernet1/1",
+      "ADDRESS": "192.168.1.1",
+      "VRF": "default",
+      "MODE": "sparse",
+      "NBR_COUNT": "2",
+      "DR": "self",
+      "DR_PRIOR": "1",
+      "HELLO_TIME": "30"
+    },
+    {
+      "INTERFACE": "Ethernet1/2",
+      "ADDRESS": "192.168.2.1",
+      "VRF": "global",
+      "MODE": "dense",
+      "NBR_COUNT": "1",
+      "DR": "192.168.2.2",
+      "DR_PRIOR": "1",
+      "HELLO_TIME": "45"
+    },
+    {
+      "INTERFACE": "Ethernet1/3",
+      "ADDRESS": "10.0.0.1",
+      "VRF": "default",
+      "MODE": "dense",
+      "NBR_COUNT": "3",
+      "DR": "self",
+      "DR_PRIOR": "1",
+      "HELLO_TIME": "60"
+    },
+    {
+      "INTERFACE": "Ethernet1/4",
+      "ADDRESS": "172.16.0.1",
+      "VRF": "global",
+      "MODE": "sparse",
+      "NBR_COUNT": "0",
+      "DR": "172.16.0.2",
+      "DR_PRIOR": "1",
+      "HELLO_TIME": "90"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_address_vrf_mode_nbr_count_dr_dr_prior_hello_time": [
+        {
+          "INTERFACE": "Ethernet1/1",
+          "ADDRESS": "192.168.1.1",
+          "VRF": "default",
+          "MODE": "sparse",
+          "NBR_COUNT": "2",
+          "DR": "self",
+          "DR_PRIOR": "1",
+          "HELLO_TIME": "30"
+        },
+        {
+          "INTERFACE": "Ethernet1/2",
+          "ADDRESS": "192.168.2.1",
+          "VRF": "global",
+          "MODE": "dense",
+          "NBR_COUNT": "1",
+          "DR": "192.168.2.2",
+          "DR_PRIOR": "1",
+          "HELLO_TIME": "45"
+        },
+        {
+          "INTERFACE": "Ethernet1/3",
+          "ADDRESS": "10.0.0.1",
+          "VRF": "default",
+          "MODE": "dense",
+          "NBR_COUNT": "3",
+          "DR": "self",
+          "DR_PRIOR": "1",
+          "HELLO_TIME": "60"
+        },
+        {
+          "INTERFACE": "Ethernet1/4",
+          "ADDRESS": "172.16.0.1",
+          "VRF": "global",
+          "MODE": "sparse",
+          "NBR_COUNT": "0",
+          "DR": "172.16.0.2",
+          "DR_PRIOR": "1",
+          "HELLO_TIME": "90"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              Address          Vrf              Mode     Nbr Count   DR        DR Prior     Hello Time\nEthernet1/1            192.168.1.1      default          sparse   2           self      1            30           \nEthernet1/2            192.168.2.1      global           dense    1           192.168.2.2 1            45           \nEthernet1/3            10.0.0.1         default          dense    3           self      1            60           \nEthernet1/4            172.16.0.1       global           sparse   0           172.16.0.2 1            90           \n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue ADDRESS (\\S+)\nValue VRF (\\S+)\nValue MODE (\\S+)\nValue NBR_COUNT (\\d+)\nValue DR (\\S+)\nValue DR_PRIOR (\\d+)\nValue HELLO_TIME (\\d+)\n\nStart\n  ^\\s*Interface\\s+Address\\s+Vrf\\s+Mode\\s+Nbr\\s+Count\\s+DR\\s+DR\\s+Prior\\s+Hello\\s+Time\\s*$$\n  ^\\s*${INTERFACE}\\s+${ADDRESS}\\s+${VRF}\\s+${MODE}\\s+${NBR_COUNT}\\s+${DR}\\s+${DR_PRIOR}\\s+${HELLO_TIME}\\s*$$ -> Record"
+}

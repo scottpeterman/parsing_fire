@@ -1,0 +1,85 @@
+{
+  "command": "show policy qos",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 10,
+  "ttp_template": "<group name=\"bandwidth\">\n   Bandwidth {{BANDWIDTH | ORPHRASE}} kbps\n</group>\n<group name=\"queue_limit\">\n   Queue-limit {{QUEUE_LIMIT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "POLICY": "MyQoS",
+      "CLASS_MAP": "HighPriority",
+      "PRIORITY_LEVEL": "1",
+      "BANDWIDTH": "10000",
+      "QUEUE_LIMIT": "200 ms"
+    },
+    {
+      "CLASS_MAP": "MediumPriority",
+      "MATCH": "dscp 26",
+      "BANDWIDTH": "2000",
+      "QUEUE_LIMIT": "400 ms"
+    },
+    {
+      "CLASS_MAP": "LowPriority",
+      "MATCH": "dscp 20",
+      "BANDWIDTH": "500",
+      "QUEUE_LIMIT": "800 ms"
+    },
+    {
+      "POLICY": "AnotherQoS",
+      "CLASS_MAP": "HighPriority",
+      "MATCH": "dscp 34",
+      "PRIORITY_LEVEL": "2",
+      "BANDWIDTH": "15000",
+      "QUEUE_LIMIT": "100 ms"
+    },
+    {
+      "CLASS_MAP": "DefaultClass",
+      "MATCH": "any",
+      "BANDWIDTH": "1000",
+      "QUEUE_LIMIT": "1000 ms"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "bandwidth": [
+        {
+          "BANDWIDTH": "10000"
+        },
+        {
+          "BANDWIDTH": "2000"
+        },
+        {
+          "BANDWIDTH": "500"
+        },
+        {
+          "BANDWIDTH": "15000"
+        },
+        {
+          "BANDWIDTH": "1000"
+        }
+      ],
+      "queue_limit": [
+        {
+          "QUEUE_LIMIT": "200 ms"
+        },
+        {
+          "QUEUE_LIMIT": "400 ms"
+        },
+        {
+          "QUEUE_LIMIT": "800 ms"
+        },
+        {
+          "QUEUE_LIMIT": "100 ms"
+        },
+        {
+          "QUEUE_LIMIT": "1000 ms"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Policy: MyQoS\n Class Map: HighPriority\n  Match: dscp 46 (ef)\n  Actions: \n   Priority level 1\n   Bandwidth 10000 kbps\n   Queue-limit 200 ms\n\n Class Map: MediumPriority\n  Match: dscp 26\n  Actions: \n   Bandwidth 2000 kbps\n   Queue-limit 400 ms\n\n Class Map: LowPriority\n  Match: dscp 20\n  Actions: \n   Bandwidth 500 kbps\n   Queue-limit 800 ms\n\nPolicy: AnotherQoS\n Class Map: HighPriority\n  Match: dscp 34\n  Actions: \n   Priority level 2\n   Bandwidth 15000 kbps\n   Queue-limit 100 ms\n\n Class Map: DefaultClass\n  Match: any\n  Actions: \n   Bandwidth 1000 kbps\n   Queue-limit 1000 ms\n",
+  "textfsm_template": "Value POLICY (\\S+)\nValue CLASS_MAP (\\S+)\nValue MATCH (dscp \\d+|any)\nValue PRIORITY_LEVEL (\\d+)\nValue BANDWIDTH (\\d+)\nValue QUEUE_LIMIT (\\d+ ms)\n\nStart\n  ^Policy: ${POLICY}$$\n  ^\\s*Class Map: ${CLASS_MAP}$$\n  ^\\s*Match: ${MATCH}$$\n  ^\\s*Actions:$$\n  ^\\s*Priority level ${PRIORITY_LEVEL}$$\n  ^\\s*Bandwidth ${BANDWIDTH} kbps$$\n  ^\\s*Queue-limit ${QUEUE_LIMIT}$$ -> Record"
+}

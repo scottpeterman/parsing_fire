@@ -1,0 +1,47 @@
+{
+  "command": "show mpls ldp neighbor",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"int_ip_local_ldp_ident_msgs_rcvd\">\nPeer LDP Ident: 192.168.0.2:0; Local LDP Ident {{LOCAL_LDP_IDENT | ORPHRASE}}\nState: {{STATE | ORPHRASE}}; Msgs sent/rcvd: 100000/100100; Downstream\nPeer LDP Ident: {{PEER_LDP_IDENT | ORPHRASE}}; Local LDP Ident 192.168.0.1:0\nTCP connection: {{TCP_CONNECTION | ORPHRASE}}\nState: Oper; Msgs sent/rcvd: {{MSGS_SENT}}/{{MSGS_RCVD | ORPHRASE}}; Downstream\nUp time: {{UPTIME | ORPHRASE}}\n  Interface {{INT}} {{IP | ORPHRASE}}  \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PEER_LDP_IDENT": "192.168.0.3:0",
+      "LOCAL_LDP_IDENT": "192.168.0.1:0",
+      "TCP_CONNECTION": "192.168.0.3:179 -> 192.168.0.1:51053",
+      "STATE": "Oper",
+      "MSGS_SENT": "100200",
+      "MSGS_RCVD": "100300",
+      "UPTIME": "02:30:40",
+      "INT": "Ethernet0/1",
+      "IP": "(1.1.2.1)"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "int_ip_local_ldp_ident_msgs_rcvd": [
+        {
+          "INT": "Ethernet0/0",
+          "IP": "(1.1.1.1)",
+          "UPTIME": "01:20:30",
+          "STATE": "Oper",
+          "TCP_CONNECTION": "192.168.0.2:179 -> 192.168.0.1:51052",
+          "LOCAL_LDP_IDENT": "192.168.0.1:0"
+        },
+        {
+          "INT": "Ethernet0/1",
+          "IP": "(1.1.2.1)",
+          "UPTIME": "02:30:40",
+          "STATE": "Oper",
+          "TCP_CONNECTION": "192.168.0.3:179 -> 192.168.0.1:51053",
+          "LOCAL_LDP_IDENT": "192.168.0.1:0"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Peer LDP Ident: 192.168.0.2:0; Local LDP Ident 192.168.0.1:0\nTCP connection: 192.168.0.2:179 -> 192.168.0.1:51052\nState: Oper; Msgs sent/rcvd: 100000/100100; Downstream\nUp time: 01:20:30\nLDP discovery sources:\n  Interface Ethernet0/0 (1.1.1.1)  \n  Addresses bound to peer LDP Ident:\n    192.168.0.2       1.1.1.2\n\nPeer LDP Ident: 192.168.0.3:0; Local LDP Ident 192.168.0.1:0\nTCP connection: 192.168.0.3:179 -> 192.168.0.1:51053\nState: Oper; Msgs sent/rcvd: 100200/100300; Downstream\nUp time: 02:30:40\nLDP discovery sources:\n  Interface Ethernet0/1 (1.1.2.1)  \n  Addresses bound to peer LDP Ident:\n    192.168.0.3       1.1.2.2\n\n",
+  "textfsm_template": "Value PEER_LDP_IDENT (\\S+:\\d+)\nValue LOCAL_LDP_IDENT (\\S+:\\d+)\nValue TCP_CONNECTION (\\S+:\\d+ -> \\S+:\\d+)\nValue STATE (\\S+)\nValue MSGS_SENT (\\d+)\nValue MSGS_RCVD (\\d+)\nValue LABEL_SPACE_ID (\\S+)\nValue UPTIME (\\d{2}:\\d{2}:\\d{2})\nValue INT (Ethernet\\S+)\nValue IP (\\(\\d+\\.\\d+\\.\\d+\\.\\d+\\))\nValue ADDR (\\d+\\.\\d+\\.\\d+\\.\\d+)\n\nStart\n  ^Peer LDP Ident:\\s+${PEER_LDP_IDENT}\\; Local LDP Ident\\s+${LOCAL_LDP_IDENT}\\s*$$\n  ^TCP connection:\\s+${TCP_CONNECTION}\\s*$$\n  ^State:\\s+${STATE};\\s+Msgs sent\\/rcvd:\\s+${MSGS_SENT}\\/${MSGS_RCVD}\\;\\s+Downstream\\s*$$\n  ^Up time:\\s+${UPTIME}\\s*$$\n  ^LDP discovery sources:\\s*$$\n  ^\\s+Interface ${INT}\\s${IP}\\s*$$\n  ^\\s+Addresses bound to peer LDP Ident:\\s*$$\n  ^\\s+${ADDR}\\s+${IP}\\s*$$ -> Record"
+}

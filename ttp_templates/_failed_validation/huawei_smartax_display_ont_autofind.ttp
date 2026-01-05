@@ -1,0 +1,19 @@
+# TTP Template - FAILED VALIDATION
+# Original command: huawei_smartax_display_ont_autofind
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="fsp_number_ont_autofind_time_ont_customized_info">
+  F/S/P  : {{FSP | ORPHRASE}}
+  Ont SN  : 4857544311E70E9A ({{VENDOR_ID | ORPHRASE}}-11E70E9A)
+  Password  : {{PASSWORD | ORPHRASE}}
+  Ont EquipmentID  : {{NUMBER | ORPHRASE}}45H
+  Ont Customized Info : {{ONT_CUSTOMIZED_INFO | ORPHRASE}}
+  Ont MAC  : {{ONT_MAC | ORPHRASE}}
+  Ont Equipment SN  : {{ONT_EQUIPMENT_SERIAL_NUMBER | ORPHRASE}}
+  Ont autofind time  : {{ONT_AUTOFIND_TIME | ORPHRASE}}
+  Ont SN  : {{SERIAL_NUMBER | ORPHRASE}}
+  Ont Version  : {{ONT_VERSION | ORPHRASE}}
+  Ont SoftwareVersion : {{ONT_SOFTWARE_VERSION | ORPHRASE}}
+  Ont EquipmentID  : {{ONT_EQUIPMENT_ID | ORPHRASE}}
+</group>

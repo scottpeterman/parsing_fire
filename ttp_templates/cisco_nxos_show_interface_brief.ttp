@@ -1,0 +1,28 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_interface_brief
+# Source: ntc
+# TextFSM rows: 111
+# TTP rows: 308
+# Match ratio: 2.77
+
+<group name="interface_vrf_status_ip_address_speed_mtu">
+{{INTERFACE}} {{VRF | re(".*\\w.*")}} {{STATUS | ORPHRASE}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{SPEED}} {{MTU | ORPHRASE}}
+</group>
+<group name="interface_vlan_id_type_mode_status_reason_speed_portch">
+{{INTERFACE}} {{VLAN_ID | re(".*\\w.*")}} {{TYPE}} {{MODE}} {{STATUS | ORPHRASE}} {{REASON | ORPHRASE}} {{SPEED}} {{PORTCH | ORPHRASE}}
+</group>
+<group name="interface_vlan_id_type_mode_status_reason_speed_protocol">
+{{INTERFACE}} {{VLAN_ID | re(".*\\w.*")}} {{TYPE}} {{MODE}} {{STATUS | ORPHRASE}} {{REASON | ORPHRASE}} {{SPEED}} {{PROTOCOL | ORPHRASE}}
+</group>
+<group name="interface_status_description">
+{{INTERFACE}} {{STATUS | ORPHRASE}} {{DESCRIPTION | ORPHRASE}}
+</group>
+<group name="interface_type_status_reason">
+{{INTERFACE}} {{TYPE | re(".*\\w.*")}} {{STATUS | ORPHRASE}} {{REASON | ORPHRASE}} 
+</group>
+<group name="interface_status_reason_mtu_vrf">
+{{INTERFACE}} {{STATUS | ORPHRASE}} {{REASON | ORPHRASE}} {{MTU}} {{VRF | ORPHRASE}}
+</group>
+<group name="interface_status_peer_ip_address_vcid">
+{{INTERFACE}} {{STATUS | ORPHRASE}} {{PEER_IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{VCID | ORPHRASE}}
+</group>

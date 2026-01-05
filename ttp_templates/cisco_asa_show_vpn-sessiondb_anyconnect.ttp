@@ -1,0 +1,23 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_vpn-sessiondb_anyconnect
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="assigned_ip_audt_sess_id_bytes_rx_bytes_tx">
+Session Type: {{SESSION_TYPE | ORPHRASE}}
+Username  : {{USERNAME}}  Index  : {{INDEX | ORPHRASE}}
+Assigned IP  : {{ASSIGNED_IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}  Public IP  : {{PUBLIC_IP | ORPHRASE}}
+Protocol  : {{PROTOCOL | ORPHRASE}}
+License  : {{LICENSE | ORPHRASE}}
+Encryption  : {{ENCRYPTION | ORPHRASE}}
+Hashing  : {{HASHING | ORPHRASE}}
+Bytes Tx  : {{BYTES_TX}}  Bytes Rx  : {{BYTES_RX | ORPHRASE}}
+Group Policy : {{GROUP_POLICY | ORPHRASE}}  Tunnel Group : {{TUNNEL_GROUP}}
+Login Time  : {{LOGIN_TIME}} {{LOGIN_TIME_ZONE}} {{LOGIN_WEEKDAY}} {{LOGIN_MONTH}} 17 {{LOGIN_YEAR | ORPHRASE}}
+Duration  : {{DURATION | ORPHRASE}}
+Inactivity  : {{INACTIVITY | ORPHRASE}}
+VLAN Mapping : {{VLAN_MAPPING | ORPHRASE}}  VLAN  : none
+Audt Sess ID : {{AUDT_SESS_ID | ORPHRASE}}
+</group>

@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_ipv6_bgp_summary
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 2
+# Match ratio: 0.67
+
+<group name="local_as_router_id_vrf">
+BGP summary information for VRF {{VRF | ORPHRASE}}
+<group name="in_queue_msg_rcvd_msg_sent">
+Router identifier 1{{MSG_RCVD | ORPHRASE}}.{{MSG_SENT}}.65.72, local AS number 64911
+</group>
+</group>

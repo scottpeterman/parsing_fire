@@ -1,0 +1,195 @@
+{
+  "command": "cisco_nxos_show_interface_transceiver_details",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.8333333333333333,
+  "textfsm_rows": 6,
+  "ttp_rows": 11,
+  "ttp_template": "<group name=\"interface\">\n{{INTERFACE | ORPHRASE}}\n<group name=\"amps_warn_low_temperature_alarm_high_temperature_alarm_low\">\n  Temperature {{TEMPERATURE_VALUE}} C {{TEMPERATURE_ALARM_HIGH}} C {{TEMPERATURE_ALARM_LOW}} C {{TEMPERATURE_WARN_HIGH | ORPHRASE}} C {{TEMPERATURE_WARN_LOW}} C\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Ethernet3/1",
+      "TEMPERATURE_VALUE": "35.66",
+      "TEMPERATURE_ALARM_HIGH": "75.00",
+      "TEMPERATURE_ALARM_LOW": "-5.00",
+      "TEMPERATURE_WARN_HIGH": "70.00",
+      "TEMPERATURE_WARN_LOW": "0.00",
+      "VOLTAGE_VALUE": "3.29",
+      "VOLTAGE_ALARM_HIGH": "3.63",
+      "VOLTAGE_ALARM_LOW": "2.97",
+      "VOLTAGE_WARN_HIGH": "3.46",
+      "VOLTAGE_WARN_LOW": "3.13",
+      "AMPS_VALUE": "N/A",
+      "AMPS_ALARM_HIGH": "11.80",
+      "AMPS_ALARM_LOW": "4.00",
+      "AMPS_WARN_HIGH": "10.80",
+      "AMPS_WARN_LOW": "5.00",
+      "RX_VALUE": "-30.45",
+      "RX_ALARM_HIGH": "2.00",
+      "RX_ALARM_LOW": "-13.90",
+      "RX_WARN_HIGH": "-1.00",
+      "RX_WARN_LOW": "-9.90",
+      "TX_VALUE": "-14.05",
+      "TX_ALARM_HIGH": "1.69",
+      "TX_ALARM_LOW": "-11.30",
+      "TX_WARN_HIGH": "-1.30",
+      "TX_WARN_LOW": "-7.30"
+    },
+    {
+      "INTERFACE": "Ethernet3/2",
+      "TEMPERATURE_VALUE": "38.28",
+      "TEMPERATURE_ALARM_HIGH": "75.00",
+      "TEMPERATURE_ALARM_LOW": "-5.00",
+      "TEMPERATURE_WARN_HIGH": "70.00",
+      "TEMPERATURE_WARN_LOW": "0.00",
+      "VOLTAGE_VALUE": "3.29",
+      "VOLTAGE_ALARM_HIGH": "3.63",
+      "VOLTAGE_ALARM_LOW": "2.97",
+      "VOLTAGE_WARN_HIGH": "3.46",
+      "VOLTAGE_WARN_LOW": "3.13",
+      "AMPS_VALUE": "0.43",
+      "AMPS_ALARM_HIGH": "11.80",
+      "AMPS_ALARM_LOW": "4.00",
+      "AMPS_WARN_HIGH": "10.80",
+      "AMPS_WARN_LOW": "5.00",
+      "RX_VALUE": "-33.97",
+      "RX_ALARM_HIGH": "2.00",
+      "RX_ALARM_LOW": "-13.90",
+      "RX_WARN_HIGH": "-1.00",
+      "RX_WARN_LOW": "-9.90",
+      "TX_VALUE": "-16.19",
+      "TX_ALARM_HIGH": "1.69",
+      "TX_ALARM_LOW": "-11.30",
+      "TX_WARN_HIGH": "-1.30",
+      "TX_WARN_LOW": "-7.30"
+    },
+    {
+      "INTERFACE": "Ethernet3/3",
+      "TEMPERATURE_VALUE": "37.07",
+      "TEMPERATURE_ALARM_HIGH": "75.00",
+      "TEMPERATURE_ALARM_LOW": "-5.00",
+      "TEMPERATURE_WARN_HIGH": "70.00",
+      "TEMPERATURE_WARN_LOW": "0.00",
+      "VOLTAGE_VALUE": "3.29",
+      "VOLTAGE_ALARM_HIGH": "3.63",
+      "VOLTAGE_ALARM_LOW": "2.97",
+      "VOLTAGE_WARN_HIGH": "3.46",
+      "VOLTAGE_WARN_LOW": "3.13",
+      "AMPS_VALUE": "0.21",
+      "AMPS_ALARM_HIGH": "11.80",
+      "AMPS_ALARM_LOW": "4.00",
+      "AMPS_WARN_HIGH": "10.80",
+      "AMPS_WARN_LOW": "5.00",
+      "RX_VALUE": "-33.97",
+      "RX_ALARM_HIGH": "2.00",
+      "RX_ALARM_LOW": "-13.90",
+      "RX_WARN_HIGH": "-1.00",
+      "RX_WARN_LOW": "-9.90",
+      "TX_VALUE": "N/A",
+      "TX_ALARM_HIGH": "1.69",
+      "TX_ALARM_LOW": "-11.30",
+      "TX_WARN_HIGH": "-1.30",
+      "TX_WARN_LOW": "-7.30"
+    },
+    {
+      "INTERFACE": "Ethernet4/1",
+      "LANE": "1",
+      "TEMPERATURE_VALUE": "40.44",
+      "TEMPERATURE_ALARM_HIGH": "74.00",
+      "TEMPERATURE_ALARM_LOW": "-4.00",
+      "TEMPERATURE_WARN_HIGH": "70.00",
+      "TEMPERATURE_WARN_LOW": "0.00",
+      "VOLTAGE_VALUE": "3.28",
+      "VOLTAGE_ALARM_HIGH": "3.66",
+      "VOLTAGE_ALARM_LOW": "2.93",
+      "VOLTAGE_WARN_HIGH": "3.46",
+      "VOLTAGE_WARN_LOW": "3.13"
+    },
+    {
+      "INTERFACE": "Ethernet4/1",
+      "LANE": "2",
+      "RX_VALUE": "-1.77",
+      "RX_ALARM_HIGH": "7.49",
+      "RX_ALARM_LOW": "-14.60",
+      "RX_WARN_HIGH": "4.49",
+      "RX_WARN_LOW": "-10.59",
+      "TX_VALUE": "0.76",
+      "TX_ALARM_HIGH": "7.49",
+      "TX_ALARM_LOW": "-8.30",
+      "TX_WARN_HIGH": "4.49",
+      "TX_WARN_LOW": "-4.30"
+    },
+    {
+      "INTERFACE": "Ethernet4/1",
+      "LANE": "3",
+      "RX_VALUE": "-1.57",
+      "RX_ALARM_HIGH": "7.49",
+      "RX_ALARM_LOW": "-14.60",
+      "RX_WARN_HIGH": "4.49",
+      "RX_WARN_LOW": "-10.59",
+      "TX_VALUE": "0.44",
+      "TX_ALARM_HIGH": "7.49",
+      "TX_ALARM_LOW": "-8.30",
+      "TX_WARN_HIGH": "4.49",
+      "TX_WARN_LOW": "-4.30"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface": [
+        {
+          "INTERFACE": "Ethernet3/1",
+          "amps_warn_low_temperature_alarm_high_temperature_alarm_low": {
+            "TEMPERATURE_VALUE": "35.66",
+            "TEMPERATURE_ALARM_HIGH": "75.00",
+            "TEMPERATURE_ALARM_LOW": "-5.00",
+            "TEMPERATURE_WARN_HIGH": "70.00",
+            "TEMPERATURE_WARN_LOW": "0.00"
+          }
+        },
+        {
+          "INTERFACE": "Ethernet3/2",
+          "amps_warn_low_temperature_alarm_high_temperature_alarm_low": {
+            "TEMPERATURE_VALUE": "38.28",
+            "TEMPERATURE_ALARM_HIGH": "75.00",
+            "TEMPERATURE_ALARM_LOW": "-5.00",
+            "TEMPERATURE_WARN_HIGH": "70.00",
+            "TEMPERATURE_WARN_LOW": "0.00"
+          }
+        },
+        {
+          "INTERFACE": "Ethernet3/3",
+          "amps_warn_low_temperature_alarm_high_temperature_alarm_low": {
+            "TEMPERATURE_VALUE": "37.07",
+            "TEMPERATURE_ALARM_HIGH": "75.00",
+            "TEMPERATURE_ALARM_LOW": "-5.00",
+            "TEMPERATURE_WARN_HIGH": "70.00",
+            "TEMPERATURE_WARN_LOW": "0.00"
+          }
+        },
+        {
+          "INTERFACE": "Ethernet4/1"
+        },
+        {
+          "INTERFACE": "Lane Number:1 Common Diagnostic Information",
+          "amps_warn_low_temperature_alarm_high_temperature_alarm_low": {
+            "TEMPERATURE_VALUE": "40.44",
+            "TEMPERATURE_ALARM_HIGH": "74.00",
+            "TEMPERATURE_ALARM_LOW": "-4.00",
+            "TEMPERATURE_WARN_HIGH": "70.00",
+            "TEMPERATURE_WARN_LOW": "0.00"
+          }
+        },
+        {
+          "INTERFACE": "Lane Number:2 Network Lane"
+        },
+        {
+          "INTERFACE": "Lane Number:3 Network Lane"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Ethernet3/1\n    transceiver is present\n    type is 10Gbase-SR\n    name is CISCO-FINISAR   \n    part number is FTLX8571D3BCL-C2\n    revision is A   \n    serial number is FNS18510TXL     \n    nominal bitrate is 10300 MBit/sec\n    Link length supported for 50/125um OM2 fiber is 82 m\n    Link length supported for 62.5/125um fiber is 26 m\n    Link length supported for 50/125um OM3 fiber is 300 m\n    cisco id is --\n    cisco extended id number is 4\n    cisco part number is 10-2415-03\n    cisco product id is SFP-10G-SR          \n    cisco vendor id is V03 \n    number of lanes 1\n\n           SFP Detail Diagnostics Information (internal calibration)\n  ----------------------------------------------------------------------------\n                Current              Alarms                  Warnings\n                Measurement     High        Low         High          Low\n  ----------------------------------------------------------------------------\n  Temperature   35.66 C        75.00 C     -5.00 C     70.00 C        0.00 C\n  Voltage        3.29 V         3.63 V      2.97 V      3.46 V        3.13 V\n  Current           N/A        11.80 mA     4.00 mA    10.80 mA       5.00 mA\n  Tx Power     -14.05 dBm --    1.69 dBm  -11.30 dBm   -1.30 dBm     -7.30 dBm\n  Rx Power     -30.45 dBm --    2.00 dBm  -13.90 dBm   -1.00 dBm     -9.90 dBm\n  Transmit Fault Count = 0\n  ----------------------------------------------------------------------------\n  Note: ++  high-alarm; +  high-warning; --  low-alarm; -  low-warning\n\nEthernet3/2\n    transceiver is present\n    type is 10Gbase-SR\n    name is CISCO-FINISAR   \n    part number is FTLX8571D3BCL-C2\n    revision is A   \n    serial number is FNS18510TXV     \n    nominal bitrate is 10300 MBit/sec\n    Link length supported for 50/125um OM2 fiber is 82 m\n    Link length supported for 62.5/125um fiber is 26 m\n    Link length supported for 50/125um OM3 fiber is 300 m\n    cisco id is --\n    cisco extended id number is 4\n    cisco part number is 10-2415-03\n    cisco product id is SFP-10G-SR          \n    cisco vendor id is V03 \n    number of lanes 1\n\n           SFP Detail Diagnostics Information (internal calibration)\n  ----------------------------------------------------------------------------\n                Current              Alarms                  Warnings\n                Measurement     High        Low         High          Low\n  ----------------------------------------------------------------------------\n  Temperature   38.28 C        75.00 C     -5.00 C     70.00 C        0.00 C\n  Voltage        3.29 V         3.63 V      2.97 V      3.46 V        3.13 V\n  Current        0.43 mA  --   11.80 mA     4.00 mA    10.80 mA       5.00 mA\n  Tx Power     -16.19 dBm --    1.69 dBm  -11.30 dBm   -1.30 dBm     -7.30 dBm\n  Rx Power     -33.97 dBm --    2.00 dBm  -13.90 dBm   -1.00 dBm     -9.90 dBm\n  Transmit Fault Count = 0\n  ----------------------------------------------------------------------------\n  Note: ++  high-alarm; +  high-warning; --  low-alarm; -  low-warning\n\nEthernet3/3\n    transceiver is present\n    type is 10Gbase-SR\n    name is CISCO-FINISAR   \n    part number is FTLX8571D3BCL-C2\n    revision is A   \n    serial number is FNS18510TYD     \n    nominal bitrate is 10300 MBit/sec\n    Link length supported for 50/125um OM2 fiber is 82 m\n    Link length supported for 62.5/125um fiber is 26 m\n    Link length supported for 50/125um OM3 fiber is 300 m\n    cisco id is --\n    cisco extended id number is 4\n    cisco part number is 10-2415-03\n    cisco product id is SFP-10G-SR          \n    cisco vendor id is V03 \n    number of lanes 1\n\n           SFP Detail Diagnostics Information (internal calibration)\n  ----------------------------------------------------------------------------\n                Current              Alarms                  Warnings\n                Measurement     High        Low         High          Low\n  ----------------------------------------------------------------------------\n  Temperature   37.07 C        75.00 C     -5.00 C     70.00 C        0.00 C\n  Voltage        3.29 V         3.63 V      2.97 V      3.46 V        3.13 V\n  Current        0.21 mA  --   11.80 mA     4.00 mA    10.80 mA       5.00 mA\n  Tx Power          N/A         1.69 dBm  -11.30 dBm   -1.30 dBm     -7.30 dBm\n  Rx Power     -33.97 dBm --    2.00 dBm  -13.90 dBm   -1.00 dBm     -9.90 dBm\n  Transmit Fault Count = 0\n  ----------------------------------------------------------------------------\n  Note: ++  high-alarm; +  high-warning; --  low-alarm; -  low-warning\n\nEthernet4/1\n    transceiver is present\n    type is CFP-100G-LR4\n    name is CISCO           \n    part number is SCF1001L4CNC101 \n    revision is 11\n    serial number is ECL190200BA     \n    nominal bitrate is 129 MBit/sec per channel\n    Link length supported for 9/125um fiber is 10 km\n    cisco id is --\n    cisco extended id number is 85\n    cisco part number is 10-2549-02\n    cisco product id is CFP-100G-LR4    \n    cisco vendor id is V02 \n    number of lanes 3\n\nLane Number:1 Common Diagnostic Information\n           SFP Detail Diagnostics Information (internal calibration)\n  ----------------------------------------------------------------------------\n                Current              Alarms                  Warnings\n                Measurement     High        Low         High          Low\n  ----------------------------------------------------------------------------\n  Temperature   40.44 C        74.00 C     -4.00 C     70.00 C        0.00 C\n  Voltage        3.28 V         3.66 V      2.93 V      3.46 V        3.13 V\n  ----------------------------------------------------------------------------\n  Note: ++  high-alarm; +  high-warning; --  low-alarm; -  low-warning\n\nLane Number:2 Network Lane\n           SFP Detail Diagnostics Information (internal calibration)\n  ----------------------------------------------------------------------------\n                Current              Alarms                  Warnings\n                Measurement     High        Low         High          Low\n  ----------------------------------------------------------------------------\n  Tx Power       0.76 dBm       7.49 dBm   -8.30 dBm    4.49 dBm     -4.30 dBm\n  Rx Power      -1.77 dBm       7.49 dBm  -14.60 dBm    4.49 dBm    -10.59 dBm\n  Transmit Fault Count = 0\n  ----------------------------------------------------------------------------\n  Note: ++  high-alarm; +  high-warning; --  low-alarm; -  low-warning\n\nLane Number:3 Network Lane\n           SFP Detail Diagnostics Information (internal calibration)\n  ----------------------------------------------------------------------------\n                Current              Alarms                  Warnings\n                Measurement     High        Low         High          Low\n  ----------------------------------------------------------------------------\n  Tx Power       0.44 dBm       7.49 dBm   -8.30 dBm    4.49 dBm     -4.30 dBm\n  Rx Power      -1.57 dBm       7.49 dBm  -14.60 dBm    4.49 dBm    -10.59 dBm\n  Transmit Fault Count = 0\n  ----------------------------------------------------------------------------\n  Note: ++  high-alarm; +  high-warning; --  low-alarm; -  low-warning\n",
+  "textfsm_template": "Value Filldown INTERFACE (\\S+/\\S+)\nValue LANE (\\d+)\nValue TEMPERATURE_VALUE (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue TEMPERATURE_ALARM_HIGH (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue TEMPERATURE_ALARM_LOW (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue TEMPERATURE_WARN_HIGH (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue TEMPERATURE_WARN_LOW (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue VOLTAGE_VALUE (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue VOLTAGE_ALARM_HIGH (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue VOLTAGE_ALARM_LOW (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue VOLTAGE_WARN_HIGH (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue VOLTAGE_WARN_LOW (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue AMPS_VALUE (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue AMPS_ALARM_HIGH (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue AMPS_ALARM_LOW (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue AMPS_WARN_HIGH (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue AMPS_WARN_LOW (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue RX_VALUE (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue RX_ALARM_HIGH (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue RX_ALARM_LOW (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue RX_WARN_HIGH (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue RX_WARN_LOW (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue TX_VALUE (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue TX_ALARM_HIGH (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue TX_ALARM_LOW (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue TX_WARN_HIGH (([-\\+]?\\d+\\.\\d+|(N\\/A)))\nValue TX_WARN_LOW (([-\\+]?\\d+\\.\\d+|(N\\/A)))\n\n\nStart\n  ^${INTERFACE}\n  ^Lane Number:${LANE}\n  ^\\s+Temperature\\s+${TEMPERATURE_VALUE}\\s+(\\w+\\s+)?[+-]*\\s+${TEMPERATURE_ALARM_HIGH}\\s+(\\w+\\s+)?[+-]*\\s+${TEMPERATURE_ALARM_LOW}\\s+(\\w+\\s+)?[+-]*\\s+${TEMPERATURE_WARN_HIGH}\\s+(\\w+\\s+)?[+-]*\\s+${TEMPERATURE_WARN_LOW}\n  ^\\s+Voltage\\s+${VOLTAGE_VALUE}\\s+(\\w+\\s+)?[+-]*\\s+${VOLTAGE_ALARM_HIGH}\\s+(\\w+\\s+)?[+-]*\\s+${VOLTAGE_ALARM_LOW}\\s+(\\w+\\s+)?[+-]*\\s+${VOLTAGE_WARN_HIGH}\\s+(\\w+\\s+)?[+-]*\\s+${VOLTAGE_WARN_LOW}\n  ^\\s+Current\\s+${AMPS_VALUE}\\s+(\\w+\\s+)?[+-]*\\s+${AMPS_ALARM_HIGH}\\s+(\\w+\\s+)?[+-]*\\s+${AMPS_ALARM_LOW}\\s+(\\w+\\s+)?[+-]*\\s+${AMPS_WARN_HIGH}\\s+(\\w+\\s+)?[+-]*\\s+${AMPS_WARN_LOW}\n  ^\\s+Rx\\s+Power\\s+${RX_VALUE}\\s+(\\w+\\s+)?[+-]*\\s+${RX_ALARM_HIGH}\\s+(\\w+\\s+)?[+-]*\\s+${RX_ALARM_LOW}\\s+(\\w+\\s+)?[+-]*\\s+${RX_WARN_HIGH}\\s+(\\w+\\s+)?[+-]*\\s+${RX_WARN_LOW}\n  ^\\s+Tx\\s+Power\\s+${TX_VALUE}\\s+(\\w+\\s+)?[+-]*\\s+${TX_ALARM_HIGH}\\s+(\\w+\\s+)?[+-]*\\s+${TX_ALARM_LOW}\\s+(\\w+\\s+)?[+-]*\\s+${TX_WARN_HIGH}\\s+(\\w+\\s+)?[+-]*\\s+${TX_WARN_LOW}\n  ^\\s+Note: -> Record\n\nEOF"
+}

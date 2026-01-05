@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show dns lookups
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 4
+# Match ratio: 4.00
+
+<group name="server_address">
+Address: {{SERVER_ADDRESS | ORPHRASE}}
+</group>

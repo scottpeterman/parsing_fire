@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: brocade_fastiron_show_mac-address
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="mac_address_destination_port_vlan_id">
+{{MAC_ADDRESS | re("[{{AGE}}-9a-fA-F:.-]+")}} {{DESTINATION_PORT}} 0 {{VLAN_ID | ORPHRASE}}
+</group>

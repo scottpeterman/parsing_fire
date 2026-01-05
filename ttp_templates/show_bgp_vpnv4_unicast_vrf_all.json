@@ -1,0 +1,35 @@
+{
+  "command": "show bgp vpnv4 unicast vrf all",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"local_pref_metric_network_next_hop\">\nBGP table version is 7, local router ID is 192.168.{{METRIC | ORPHRASE}}.1\nStatus codes: s suppressed, d damped, h history, {{STATUS | ORPHRASE}} valid, > best, i - internal\n*>i10.2.2.0/24  192.168.0.2  0  {{LOCAL_PREF | ORPHRASE}}  0 i\n*  {{NETWORK}}  {{NEXT_HOP}}  0  100  0 {{PATH | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "STATUS": "*",
+      "NETWORK": "10.6.6.0/24",
+      "NEXT_HOP": "192.168.0.6",
+      "METRIC": "0",
+      "LOCAL_PREF": "100",
+      "WEIGHT": "0",
+      "PATH": "65100 65200 i"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "local_pref_metric_network_next_hop": {
+        "NETWORK": "10.6.6.0/24",
+        "NEXT_HOP": "192.168.0.6",
+        "PATH": "65100 65200 i",
+        "LOCAL_PREF": "100",
+        "STATUS": "*",
+        "METRIC": "0"
+      }
+    }
+  ],
+  "cli_content": "BGP table version is 7, local router ID is 192.168.0.1\nStatus codes: s suppressed, d damped, h history, * valid, > best, i - internal\nOrigin codes: i - IGP, e - EGP, ? - incomplete\n\n   Network          Next Hop            Metric LocPrf Weight Path\n*> 10.1.1.0/24      0.0.0.0                  0         32768 i\n*>i10.2.2.0/24      192.168.0.2              0    100      0 i\n   10.3.3.0/24      192.168.0.3              0    100      0 i\n*>i10.4.4.0/24      192.168.0.4              0    100      0 i\n   10.5.5.0/24      192.168.0.5              0    100      0 65000 65100 i\n*  10.6.6.0/24      192.168.0.6              0    100      0 65100 65200 i\n>",
+  "textfsm_template": "Value STATUS (\\S+)\nValue NETWORK (\\S+)\nValue NEXT_HOP (\\S+)\nValue METRIC (\\d+)\nValue LOCAL_PREF (\\d+)\nValue WEIGHT (\\d+)\nValue PATH ([\\d\\sa-zA-Z]+)\n\nStart\n  ^\\s*Network\\s+Next Hop\\s+.*$$\n  ^${STATUS}\\s+${NETWORK}\\s+${NEXT_HOP}\\s+${METRIC}\\s+${LOCAL_PREF}\\s+${WEIGHT}\\s+${PATH}\\s*$$ -> Record"
+}

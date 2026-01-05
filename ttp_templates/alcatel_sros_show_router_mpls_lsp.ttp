@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: alcatel_sros_show_router_mpls_lsp
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 6
+# Match ratio: 1.00
+
+<group name="lsp_name_tunnel_id_fastfail_config_admin_state_oper_state">
+{{LSP_NAME}} {{TUNNEL_ID | re("\\d+")}} {{FASTFAIL_CONFIG}} {{ADMIN_STATE | ORPHRASE}} {{OPER_STATE | ORPHRASE}}
+</group>

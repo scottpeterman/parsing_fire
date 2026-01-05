@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: mikrotik_routeros_routing_bgp_peer_print_status_without-paging
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="flag_name_instance_remote_address_remote_as_nexthop_choice_multihop_route_reflect_hold_time_ttl_in_filter_out_filter_address_families_update_source_default_originate_remove_private_as_as_override_passive_use_bfd_remote_id_local_address_uptime_prefix_count_updates_sent_updates_received_withdrawn_sent_withdrawn_received_remote_hold_time_used_hold_time_used_keepalive_time_refresh_capability_as4_capability_state">
+ {{IND{{FLAG}}X}} E name="{{NAME}}" instance={{INSTANCE}} remote-address={{REMOTE_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} remote-as={{REMOTE_AS}} tcp-md5-key="" nexthop-choice={{NEXTHOP_CHOICE}} multihop={{MULTIHOP}} route-reflect={{ROUTE_REFLECT}} hold-time={{HOLD_TIME}} ttl={{TTL}} in-filter={{IN_FILTER}} out-filter={{OUT_FILTER}} address-families={{ADDRESS_FAMILIES}} update-source={{UPDATE_SOURCE}} default-originate={{DEFAULT_ORIGINATE}} remove-private-as={{REMOVE_PRIVATE_AS}} as-override={{AS_OVERRIDE | re("[\\d\\.\\(\\)A-Za-z]+")}} passive={{PASSIVE}} use-bfd={{USE_BFD}} remote-id={{REMOTE_ID}} local-address={{LOCAL_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} uptime={{UPTIME | ORPHRASE}} prefix-count={{PREFIX_COUNT | re("\\d+")}} updates-sent={{UPDATES_SENT}} updates-received={{UPDATES_RECEIVED}} withdrawn-sent={{WITHDRAWN_SENT}} withdrawn-received={{WITHDRAWN_RECEIVED}} remote-hold-time={{REMOTE_HOLD_TIME}} used-hold-time={{USED_HOLD_TIME}} used-keepalive-time={{USED_KEEPALIVE_TIME}} refresh-capability={{REFRESH_CAPABILITY}} as4-capability={{AS4_CAPABILITY}} state={{STATE | ORPHRASE}}
+</group>

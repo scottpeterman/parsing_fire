@@ -1,0 +1,69 @@
+{
+  "command": "show nat translations",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"proto_inside_global_inside_local_outside_local_outside_global\">\n{{PROTO}} {{INSIDE_GLOBAL}} {{INSIDE_LOCAL}} {{OUTSIDE_LOCAL | ORPHRASE}} {{OUTSIDE_GLOBAL}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROTO": "tcp",
+      "INSIDE_GLOBAL": "173.194.5.19:10123",
+      "INSIDE_LOCAL": "192.168.0.2:12345",
+      "OUTSIDE_LOCAL": "93.184.216.34:80",
+      "OUTSIDE_GLOBAL": "93.184.216.34:80"
+    },
+    {
+      "PROTO": "udp",
+      "INSIDE_GLOBAL": "173.194.5.19:5050",
+      "INSIDE_LOCAL": "192.168.0.3:5050",
+      "OUTSIDE_LOCAL": "93.184.216.34:9000",
+      "OUTSIDE_GLOBAL": "93.184.216.34:9000"
+    },
+    {
+      "PROTO": "tcp",
+      "INSIDE_GLOBAL": "173.194.5.20:30331",
+      "INSIDE_LOCAL": "192.168.0.4:54321",
+      "OUTSIDE_LOCAL": "93.184.216.35:22",
+      "OUTSIDE_GLOBAL": "93.184.216.35:22"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "proto_inside_global_inside_local_outside_local_outside_global": [
+        {
+          "PROTO": "---",
+          "INSIDE_GLOBAL": "---------------------",
+          "INSIDE_LOCAL": "---------------------",
+          "OUTSIDE_LOCAL": "---------------------",
+          "OUTSIDE_GLOBAL": "---------------------"
+        },
+        {
+          "PROTO": "tcp",
+          "INSIDE_GLOBAL": "173.194.5.19:10123",
+          "INSIDE_LOCAL": "192.168.0.2:12345",
+          "OUTSIDE_LOCAL": "93.184.216.34:80",
+          "OUTSIDE_GLOBAL": "93.184.216.34:80"
+        },
+        {
+          "PROTO": "udp",
+          "INSIDE_GLOBAL": "173.194.5.19:5050",
+          "INSIDE_LOCAL": "192.168.0.3:5050",
+          "OUTSIDE_LOCAL": "93.184.216.34:9000",
+          "OUTSIDE_GLOBAL": "93.184.216.34:9000"
+        },
+        {
+          "PROTO": "tcp",
+          "INSIDE_GLOBAL": "173.194.5.20:30331",
+          "INSIDE_LOCAL": "192.168.0.4:54321",
+          "OUTSIDE_LOCAL": "93.184.216.35:22",
+          "OUTSIDE_GLOBAL": "93.184.216.35:22"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Pro Inside global         Inside local          Outside local         Outside global\n--- --------------------- --------------------- --------------------- ---------------------\ntcp 173.194.5.19:10123    192.168.0.2:12345     93.184.216.34:80      93.184.216.34:80\nudp 173.194.5.19:5050     192.168.0.3:5050      93.184.216.34:9000    93.184.216.34:9000\ntcp 173.194.5.20:30331    192.168.0.4:54321     93.184.216.35:22      93.184.216.35:22\n",
+  "textfsm_template": "Value PROTO (\\S+)\nValue INSIDE_GLOBAL (\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+)\nValue INSIDE_LOCAL (\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+)\nValue OUTSIDE_LOCAL (\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+)\nValue OUTSIDE_GLOBAL (\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+)\n\nStart\n  ^Pro\\s+Inside\\s+global\\s+Inside\\s+local\\s+Outside\\s+local\\s+Outside\\s+global\\s*$$\n  ^---\\s+---------------------\\s+---------------------\\s+---------------------\\s+---------------------\\s*$$\n  ^${PROTO}\\s+${INSIDE_GLOBAL}\\s+${INSIDE_LOCAL}\\s+${OUTSIDE_LOCAL}\\s+${OUTSIDE_GLOBAL}\\s*$$ -> Record"
+}

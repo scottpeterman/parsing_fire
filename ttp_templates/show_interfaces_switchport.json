@@ -1,0 +1,84 @@
+{
+  "command": "show interfaces switchport",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 3.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 9,
+  "ttp_template": "<group name=\"name\">\nName: {{NAME | ORPHRASE}}\n</group>\n<group name=\"admin_mode\">\nAdministrative Mode: {{ADMIN_MODE | ORPHRASE}}\n</group>\n<group name=\"access_vlan\">\nAccess Mode VLAN: {{ACCESS_VLAN | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "Gi0/1",
+      "SWITCHPORT": "Enabled",
+      "ADMIN_MODE": "dynamic desirable",
+      "OPER_MODE": "dynamic auto",
+      "ADMIN_ENCAP": "dot1q",
+      "OPER_ENCAP": "native",
+      "NEGOTIATION": "On",
+      "ACCESS_VLAN": "1",
+      "TRUNK_VLAN": "1 (default)"
+    },
+    {
+      "NAME": "Gi0/2",
+      "SWITCHPORT": "Enabled",
+      "ADMIN_MODE": "static access",
+      "OPER_MODE": "static access",
+      "ADMIN_ENCAP": "dot1q",
+      "OPER_ENCAP": "native",
+      "NEGOTIATION": "Off",
+      "ACCESS_VLAN": "10",
+      "TRUNK_VLAN": "1 (default)"
+    },
+    {
+      "NAME": "Gi0/3",
+      "SWITCHPORT": "Disabled",
+      "ADMIN_MODE": "static access",
+      "OPER_MODE": "down",
+      "ADMIN_ENCAP": "dot1q",
+      "OPER_ENCAP": "native",
+      "NEGOTIATION": "Off",
+      "ACCESS_VLAN": "none",
+      "TRUNK_VLAN": "none"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name": [
+        {
+          "NAME": "Gi0/1"
+        },
+        {
+          "NAME": "Gi0/2"
+        },
+        {
+          "NAME": "Gi0/3"
+        }
+      ],
+      "admin_mode": [
+        {
+          "ADMIN_MODE": "dynamic desirable"
+        },
+        {
+          "ADMIN_MODE": "static access"
+        },
+        {
+          "ADMIN_MODE": "static access"
+        }
+      ],
+      "access_vlan": [
+        {
+          "ACCESS_VLAN": "1 (default)"
+        },
+        {
+          "ACCESS_VLAN": "10"
+        },
+        {
+          "ACCESS_VLAN": "none"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Name: Gi0/1\nSwitchport: Enabled\nAdministrative Mode: dynamic desirable\nOperational Mode: dynamic auto\nAdministrative Trunking Encapsulation: dot1q\nOperational Trunking Encapsulation: native\nNegotiation of Trunking: On\nAccess Mode VLAN: 1 (default)\nTrunking Native Mode VLAN: 1 (default)\n\nName: Gi0/2\nSwitchport: Enabled\nAdministrative Mode: static access\nOperational Mode: static access\nAdministrative Trunking Encapsulation: dot1q\nOperational Trunking Encapsulation: native\nNegotiation of Trunking: Off\nAccess Mode VLAN: 10 \nTrunking Native Mode VLAN: 1 (default)\n\nName: Gi0/3\nSwitchport: Disabled\nAdministrative Mode: static access\nOperational Mode: down\nAdministrative Trunking Encapsulation: dot1q\nOperational Trunking Encapsulation: native\nNegotiation of Trunking: Off\nAccess Mode VLAN: none\nTrunking Native Mode VLAN: none\n",
+  "textfsm_template": "Value NAME (\\S+)\nValue SWITCHPORT (Enabled|Disabled)\nValue ADMIN_MODE (dynamic desirable|dynamic auto|static access)\nValue OPER_MODE (dynamic auto|static access|down)\nValue ADMIN_ENCAP (dot1q)\nValue OPER_ENCAP (native)\nValue NEGOTIATION (On|Off)\nValue ACCESS_VLAN (\\d+|none)\nValue TRUNK_VLAN (\\d+ \\(default\\)|none)\n\nStart\n  ^Name: ${NAME}\n  ^\\s*Switchport: ${SWITCHPORT}\n  ^\\s*Administrative Mode: ${ADMIN_MODE}\n  ^\\s*Operational Mode: ${OPER_MODE}\n  ^\\s*Administrative Trunking Encapsulation: ${ADMIN_ENCAP}\n  ^\\s*Operational Trunking Encapsulation: ${OPER_ENCAP}\n  ^\\s*Negotiation of Trunking: ${NEGOTIATION}\n  ^\\s*Access Mode VLAN: ${ACCESS_VLAN}\n  ^\\s*Trunking Native Mode VLAN: ${TRUNK_VLAN}\\s*$$ -> Record"
+}

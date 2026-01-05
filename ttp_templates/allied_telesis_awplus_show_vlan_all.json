@@ -1,0 +1,76 @@
+{
+  "command": "allied_telesis_awplus_show_vlan_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.25,
+  "textfsm_rows": 8,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"vlan_id_name_status\">\n{{VLAN_ID | re(\"\\\\d+\")}} {{NAME}} STATIC {{STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN_ID": "1",
+      "NAME": "default",
+      "STATUS": "ACTIVE"
+    },
+    {
+      "VLAN_ID": "479",
+      "NAME": "VLAN0479",
+      "STATUS": "ACTIVE",
+      "INTERFACES": "port1.0.13(t), port1.0.14(t)"
+    },
+    {
+      "VLAN_ID": "504",
+      "NAME": "VLAN0504",
+      "STATUS": "ACTIVE",
+      "INTERFACES": "sa1(t), port1.0.23(t), port1.0.24(t)"
+    },
+    {
+      "VLAN_ID": "508",
+      "NAME": "VLAN0508",
+      "STATUS": "ACTIVE",
+      "INTERFACES": "sa1(t), port1.0.25(t), port1.0.26(t)"
+    },
+    {
+      "VLAN_ID": "511",
+      "NAME": "DMZ-G",
+      "STATUS": "ACTIVE"
+    },
+    {
+      "VLAN_ID": "767",
+      "NAME": "VLAN0767",
+      "STATUS": "ACTIVE",
+      "INTERFACES": "sa1(t), port1.0.1(t), port1.0.2(t), port1.0.13(t), port1.0.14(t), port1.0.21(t), port1.0.22(t), port1.0.23(t), port1.0.24(t)"
+    },
+    {
+      "VLAN_ID": "793",
+      "NAME": "VLAN0793",
+      "STATUS": "ACTIVE",
+      "INTERFACES": "sa1(t), port1.0.1(t), port1.0.2(t), port1.0.4(t), port1.0.13(t), port1.0.14(t), port1.0.17(t), port1.0.24(t), port1.0.25(t), port1.0.26(t), port1.0.28(t)"
+    },
+    {
+      "VLAN_ID": "795",
+      "NAME": "VLAN0795",
+      "STATUS": "ACTIVE",
+      "INTERFACES": "port1.0.3(t), port1.0.12(t), port1.0.29(t)"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_id_name_status": [
+        {
+          "VLAN_ID": "1",
+          "NAME": "default",
+          "STATUS": "ACTIVE"
+        },
+        {
+          "VLAN_ID": "511",
+          "NAME": "DMZ-G",
+          "STATUS": "ACTIVE"
+        }
+      ]
+    }
+  ],
+  "cli_content": "VLAN ID  Name            Type    State   Member ports\n                                         (u)-Untagged, (t)-Tagged\n======= ================ ======= ======= ====================================\n1       default          STATIC  ACTIVE\n479     VLAN0479         STATIC  ACTIVE  port1.0.13(t) port1.0.14(t)\n504     VLAN0504         STATIC  ACTIVE  sa1(t) port1.0.23(t) port1.0.24(t)\n508     VLAN0508         STATIC  ACTIVE  sa1(t) port1.0.25(t) port1.0.26(t)\n511     DMZ-G            STATIC  ACTIVE\n767     VLAN0767         STATIC  ACTIVE  sa1(t) port1.0.1(t) port1.0.2(t)\n                                         port1.0.13(t) port1.0.14(t)\n                                         port1.0.21(t) port1.0.22(t)\n                                         port1.0.23(t) port1.0.24(t)\n793     VLAN0793         STATIC  ACTIVE  sa1(t) port1.0.1(t) port1.0.2(t)\n                                         port1.0.4(t) port1.0.13(t)\n                                         port1.0.14(t) port1.0.17(t)\n                                         port1.0.24(t) port1.0.25(t)\n                                         port1.0.26(t) port1.0.28(t)\n795     VLAN0795         STATIC  ACTIVE  port1.0.3(t) port1.0.12(t)\n                                         port1.0.29(t)",
+  "textfsm_template": "Value Required VLAN_ID (\\d+)\nValue NAME (\\S+)\nValue STATUS (\\S+)\nValue List INTERFACES (\\w+\\.\\d\\.\\d+\\(\\S\\)|\\S+\\(\\S\\))\n\nStart\n  ^\\s*VLAN\\s+ID\\s+Name\\s+Type\\s+State\\s+Member\\s+ports\n  ^\\s{8,}\\(u\\)-Untagged,\\s+\\(t\\)-Tagged\n  ^=== -> VLANS\n  ^. -> Error\n\nVLANS\n  ^\\d+ -> Continue.Record\n  ^${VLAN_ID}\\s+${NAME}\\s+\\w+\\s+${STATUS}\\s*$$\n  ^${VLAN_ID}\\s+${NAME}\\s+\\w+\\s+${STATUS}\\s+${INTERFACES}\\s\\S* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){4}${INTERFACES}\\s* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){5}${INTERFACES}\\s* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){6}${INTERFACES}\\s* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){7}${INTERFACES}\\s* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){8}${INTERFACES}\\s* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){9}${INTERFACES}\\s* -> Continue\n  ^\\d+\\s+(?:\\S+\\s+){10}${INTERFACES}\\s* -> Continue\n  ^\\d+\\s+\n  ^\\s{8,}${INTERFACES}\\s* -> Continue\n  ^\\s{8,}(?:\\S+\\s+){1}${INTERFACES}\\s* -> Continue\n  ^\\s{8,}(?:\\S+\\s+){2}${INTERFACES}\\s* -> Continue\n  ^\\s{8,}(?:\\S+\\s+){3}${INTERFACES}\\s* -> Continue\n  ^\\s{8,}(?:\\S+\\s+){4}${INTERFACES}\\s* -> Continue\n  ^\\s{8,}(?:\\S+\\s+){5}${INTERFACES}\\s* -> Continue\n  ^\\s{8,}(?:\\S+\\s+){6}${INTERFACES}\\s* -> Continue\n  ^\\s{8,}(?:\\S+\\s+){7}${INTERFACES}\\s* -> Continue\n  ^\\s{8,}(?:\\S+\\s+){8}${INTERFACES}\\s* -> Continue\n  ^\\s{8,}\n  ^. -> Error\n"
+}

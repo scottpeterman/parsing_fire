@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_access-list_brief
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="acl_name_acl_name_hash_acl_total_elements">
+access-list {{ACL_NAME}}; {{ACL_TOTAL_ELEMENTS}} elements; name hash: {{ACL_NAME_HASH | ORPHRASE}}
+<group name="counter_group_hash_last_hit">
+{{LINE_HASH}} {{GROUP_HASH}} {{COUNTER | re("\\d+")}} {{LAST_HIT | ORPHRASE}}
+</group>
+</group>

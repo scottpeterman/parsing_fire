@@ -1,0 +1,324 @@
+{
+  "command": "paloalto_panos_show_interface_logical",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 18,
+  "ttp_rows": 18,
+  "ttp_template": "<group name=\"interface_id_vsys_forwarding_vlan_id_ip_address\">\n{{INTERFACE}} {{ID | re(\"\\\\d+\")}} {{VSYS}} {{FORWARDING}} {{VLAN_ID | ORPHRASE}} {{IP_ADDRESS}} \n</group>\n<group name=\"interface_id_vsys_zone_forwarding_vlan_id_ip_address\">\n{{INTERFACE}} {{ID | re(\"\\\\d+\")}} {{VSYS}} {{ZONE}} {{FORWARDING}} {{VLAN_ID | re(\"\\\\d+\")}} {{IP_ADDRESS | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "ethernet1/1",
+      "ID": "16",
+      "VSYS": "1",
+      "FORWARDING": "N/A",
+      "VLAN_ID": "0",
+      "IP_ADDRESS": "N/A"
+    },
+    {
+      "INTERFACE": "ethernet1/2",
+      "ID": "17",
+      "VSYS": "1",
+      "FORWARDING": "N/A",
+      "VLAN_ID": "0",
+      "IP_ADDRESS": "N/A"
+    },
+    {
+      "INTERFACE": "ethernet1/2.100",
+      "ID": "275",
+      "VSYS": "1",
+      "ZONE": "ISP1",
+      "FORWARDING": "vr:default",
+      "VLAN_ID": "100",
+      "IP_ADDRESS": "65.5.44.46/30"
+    },
+    {
+      "INTERFACE": "ethernet1/3",
+      "ID": "18",
+      "VSYS": "1",
+      "FORWARDING": "N/A",
+      "VLAN_ID": "0",
+      "IP_ADDRESS": "N/A"
+    },
+    {
+      "INTERFACE": "ethernet1/3.101",
+      "ID": "278",
+      "VSYS": "1",
+      "ZONE": "ISP2",
+      "FORWARDING": "vr:default",
+      "VLAN_ID": "101",
+      "IP_ADDRESS": "65.5.26.46/30"
+    },
+    {
+      "INTERFACE": "ethernet1/4",
+      "ID": "19",
+      "VSYS": "1",
+      "FORWARDING": "N/A",
+      "VLAN_ID": "0",
+      "IP_ADDRESS": "N/A"
+    },
+    {
+      "INTERFACE": "ethernet1/4.102",
+      "ID": "256",
+      "VSYS": "1",
+      "ZONE": "WAN",
+      "FORWARDING": "vr:default",
+      "VLAN_ID": "102",
+      "IP_ADDRESS": "10.10.134.1/24"
+    },
+    {
+      "INTERFACE": "ethernet1/5",
+      "ID": "20",
+      "VSYS": "1",
+      "FORWARDING": "N/A",
+      "VLAN_ID": "0",
+      "IP_ADDRESS": "N/A"
+    },
+    {
+      "INTERFACE": "ethernet1/5.103",
+      "ID": "261",
+      "VSYS": "1",
+      "ZONE": "Voice",
+      "FORWARDING": "vr:default",
+      "VLAN_ID": "101",
+      "IP_ADDRESS": "10.10.248.49/24"
+    },
+    {
+      "INTERFACE": "ethernet1/6",
+      "ID": "21",
+      "VSYS": "1",
+      "FORWARDING": "N/A",
+      "VLAN_ID": "0",
+      "IP_ADDRESS": "N/A"
+    },
+    {
+      "INTERFACE": "ethernet1/6.104",
+      "ID": "265",
+      "VSYS": "1",
+      "ZONE": "Video",
+      "FORWARDING": "vr:default",
+      "VLAN_ID": "901",
+      "IP_ADDRESS": "10.10.10.1/24"
+    },
+    {
+      "INTERFACE": "ethernet1/7",
+      "ID": "22",
+      "VSYS": "1",
+      "ZONE": "Guest1",
+      "FORWARDING": "N/A",
+      "VLAN_ID": "0",
+      "IP_ADDRESS": "N/A"
+    },
+    {
+      "INTERFACE": "ethernet1/7.700",
+      "ID": "267",
+      "VSYS": "1",
+      "ZONE": "Guest1",
+      "FORWARDING": "vr:default",
+      "VLAN_ID": "700",
+      "IP_ADDRESS": "10.10.100.1/23"
+    },
+    {
+      "INTERFACE": "dedicated-ha1",
+      "ID": "5",
+      "VSYS": "1",
+      "FORWARDING": "ha",
+      "VLAN_ID": "0",
+      "IP_ADDRESS": "10.1.1.1/30"
+    },
+    {
+      "INTERFACE": "dedicated-ha2",
+      "ID": "6",
+      "VSYS": "1",
+      "FORWARDING": "ha",
+      "VLAN_ID": "0",
+      "IP_ADDRESS": "10.2.2.1/30"
+    },
+    {
+      "INTERFACE": "vlan",
+      "ID": "1",
+      "VSYS": "1",
+      "FORWARDING": "N/A",
+      "VLAN_ID": "0",
+      "IP_ADDRESS": "N/A"
+    },
+    {
+      "INTERFACE": "loopback",
+      "ID": "3",
+      "VSYS": "1",
+      "FORWARDING": "N/A",
+      "VLAN_ID": "0",
+      "IP_ADDRESS": "N/A"
+    },
+    {
+      "INTERFACE": "tunnel",
+      "ID": "4",
+      "VSYS": "1",
+      "FORWARDING": "N/A",
+      "VLAN_ID": "0",
+      "IP_ADDRESS": "N/A"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_id_vsys_forwarding_vlan_id_ip_address": [
+        {
+          "INTERFACE": "ethernet1/1",
+          "ID": "16",
+          "VSYS": "1",
+          "FORWARDING": "N/A",
+          "VLAN_ID": "0",
+          "IP_ADDRESS": "N/A"
+        },
+        {
+          "INTERFACE": "ethernet1/2",
+          "ID": "17",
+          "VSYS": "1",
+          "FORWARDING": "N/A",
+          "VLAN_ID": "0",
+          "IP_ADDRESS": "N/A"
+        },
+        {
+          "INTERFACE": "ethernet1/3",
+          "ID": "18",
+          "VSYS": "1",
+          "FORWARDING": "N/A",
+          "VLAN_ID": "0",
+          "IP_ADDRESS": "N/A"
+        },
+        {
+          "INTERFACE": "ethernet1/4",
+          "ID": "19",
+          "VSYS": "1",
+          "FORWARDING": "N/A",
+          "VLAN_ID": "0",
+          "IP_ADDRESS": "N/A"
+        },
+        {
+          "INTERFACE": "ethernet1/5",
+          "ID": "20",
+          "VSYS": "1",
+          "FORWARDING": "N/A",
+          "VLAN_ID": "0",
+          "IP_ADDRESS": "N/A"
+        },
+        {
+          "INTERFACE": "ethernet1/6",
+          "ID": "21",
+          "VSYS": "1",
+          "FORWARDING": "N/A",
+          "VLAN_ID": "0",
+          "IP_ADDRESS": "N/A"
+        },
+        {
+          "INTERFACE": "dedicated-ha1",
+          "ID": "5",
+          "VSYS": "1",
+          "FORWARDING": "ha",
+          "VLAN_ID": "0",
+          "IP_ADDRESS": "10.1.1.1/30"
+        },
+        {
+          "INTERFACE": "dedicated-ha2",
+          "ID": "6",
+          "VSYS": "1",
+          "FORWARDING": "ha",
+          "VLAN_ID": "0",
+          "IP_ADDRESS": "10.2.2.1/30"
+        },
+        {
+          "INTERFACE": "vlan",
+          "ID": "1",
+          "VSYS": "1",
+          "FORWARDING": "N/A",
+          "VLAN_ID": "0",
+          "IP_ADDRESS": "N/A"
+        },
+        {
+          "INTERFACE": "loopback",
+          "ID": "3",
+          "VSYS": "1",
+          "FORWARDING": "N/A",
+          "VLAN_ID": "0",
+          "IP_ADDRESS": "N/A"
+        },
+        {
+          "INTERFACE": "tunnel",
+          "ID": "4",
+          "VSYS": "1",
+          "FORWARDING": "N/A",
+          "VLAN_ID": "0",
+          "IP_ADDRESS": "N/A"
+        }
+      ],
+      "interface_id_vsys_zone_forwarding_vlan_id_ip_address": [
+        {
+          "INTERFACE": "ethernet1/2.100",
+          "ID": "275",
+          "VSYS": "1",
+          "ZONE": "ISP1",
+          "FORWARDING": "vr:default",
+          "VLAN_ID": "100",
+          "IP_ADDRESS": "65.5.44.46/30"
+        },
+        {
+          "INTERFACE": "ethernet1/3.101",
+          "ID": "278",
+          "VSYS": "1",
+          "ZONE": "ISP2",
+          "FORWARDING": "vr:default",
+          "VLAN_ID": "101",
+          "IP_ADDRESS": "65.5.26.46/30"
+        },
+        {
+          "INTERFACE": "ethernet1/4.102",
+          "ID": "256",
+          "VSYS": "1",
+          "ZONE": "WAN",
+          "FORWARDING": "vr:default",
+          "VLAN_ID": "102",
+          "IP_ADDRESS": "10.10.134.1/24"
+        },
+        {
+          "INTERFACE": "ethernet1/5.103",
+          "ID": "261",
+          "VSYS": "1",
+          "ZONE": "Voice",
+          "FORWARDING": "vr:default",
+          "VLAN_ID": "101",
+          "IP_ADDRESS": "10.10.248.49/24"
+        },
+        {
+          "INTERFACE": "ethernet1/6.104",
+          "ID": "265",
+          "VSYS": "1",
+          "ZONE": "Video",
+          "FORWARDING": "vr:default",
+          "VLAN_ID": "901",
+          "IP_ADDRESS": "10.10.10.1/24"
+        },
+        {
+          "INTERFACE": "ethernet1/7",
+          "ID": "22",
+          "VSYS": "1",
+          "ZONE": "Guest1",
+          "FORWARDING": "N/A",
+          "VLAN_ID": "0",
+          "IP_ADDRESS": "N/A"
+        },
+        {
+          "INTERFACE": "ethernet1/7.700",
+          "ID": "267",
+          "VSYS": "1",
+          "ZONE": "Guest1",
+          "FORWARDING": "vr:default",
+          "VLAN_ID": "700",
+          "IP_ADDRESS": "10.10.100.1/23"
+        }
+      ]
+    }
+  ],
+  "cli_content": "total configured logical interfaces: 38\n\u200b\nname                id    vsys zone             forwarding               tag    address                                         \n------------------- ----- ---- ---------------- ------------------------ ------ ------------------\nethernet1/1         16    1                     N/A                      0      N/A               \nethernet1/2         17    1                     N/A                      0      N/A               \nethernet1/2.100     275   1    ISP1         vr:default               100    65.5.44.46/30  \nethernet1/3         18    1                     N/A                      0      N/A               \nethernet1/3.101     278   1    ISP2         vr:default               101    65.5.26.46/30  \nethernet1/4         19    1                     N/A                      0      N/A               \nethernet1/4.102     256   1    WAN     vr:default               102    10.10.134.1/24  \nethernet1/5         20    1                     N/A                      0      N/A               \nethernet1/5.103     261   1    Voice            vr:default               101    10.10.248.49/24\nethernet1/6         21    1                     N/A                      0      N/A               \nethernet1/6.104     265   1    Video            vr:default               901    10.10.10.1/24    \nethernet1/7         22    1    Guest1   N/A                      0      N/A               \nethernet1/7.700     267   1    Guest1   vr:default               700    10.10.100.1/23     \ndedicated-ha1       5     1                     ha                       0      10.1.1.1/30       \ndedicated-ha2       6     1                     ha                       0      10.2.2.1/30       \nvlan                1     1                     N/A                      0      N/A               \nloopback            3     1                     N/A                      0      N/A               \ntunnel              4     1                     N/A                      0      N/A   \n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue ID (\\d+)\nValue VSYS (\\d+)\nValue ZONE (\\S+)\nValue FORWARDING (\\S+)\nValue VLAN_ID (\\d+)\nValue IP_ADDRESS (\\S+)\n\nStart\n  ^${INTERFACE}\\s+${ID}\\s+${VSYS}\\s+${ZONE}\\s+${FORWARDING}+\\s+${VLAN_ID}\\s+${IP_ADDRESS} -> Record\n  ^${INTERFACE}\\s+${ID}\\s+${VSYS}\\s+${FORWARDING}\\s+${VLAN_ID}\\s+${IP_ADDRESS} -> Record\n"
+}

@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: broadcom_icos_show_isdp_neighbors
+# Source: ntc
+# TextFSM rows: 11
+# TTP rows: 14
+# Match ratio: 1.27
+
+<group name="neighbor_name_local_interface_holdtime_capabilities_platform_neighbor_interface">
+{{NEIGHBOR_NAME}} {{LOCAL_INTERFACE}} {{HOLDTIME}} {{CAPABILITIES | ORPHRASE}} {{PLATFORM | ORPHRASE}} {{NEIGHBOR_INTERFACE | ORPHRASE}}
+</group>
+<group name="capabilities_local_interface_holdtime_platform_neighbor_interface">
+{{NEIGHBO{{CAPABILITIES | ORPHRASE}}_NAME}} {{LOCAL_INTERFACE}} {{HOLDTIME}} R {{PLATFORM | ORPHRASE}} {{NEIGHBOR_INTERFACE | ORPHRASE}}
+</group>

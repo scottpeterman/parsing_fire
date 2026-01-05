@@ -1,0 +1,110 @@
+{
+  "command": "cisco_nxos_show_cdp_neighbors",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"local_interface_holdtime_capabilities_platform_neighbor_interface\">\n                   {{LOCAL_INTERFACE}} {{HOLDTIME}} {{CAPABILITIES | ORPHRASE}} {{PLATFORM}} {{NEIGHBOR_INTERFACE | ORPHRASE}} \n</group>\n<group name=\"local_interface_capabilities_platform_neighbor_interface\">\n                   {{LOCAL_INTERFACE}} {{{{CAPABILITIES | ORPHRASE}}OLDTIME}} H {{PLATFORM}} {{NEIGHBOR_INTERFACE | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR_NAME": "my-dc1-mgt-sw1(FOC213230KP)",
+      "LOCAL_INTERFACE": "mgmt0",
+      "HOLDTIME": "138",
+      "CAPABILITIES": "R S I s",
+      "PLATFORM": "N3K-C3172PQ-XL",
+      "NEIGHBOR_INTERFACE": "Eth1/48"
+    },
+    {
+      "NEIGHBOR_NAME": "lx-dc1-server01.mynetwork.com",
+      "LOCAL_INTERFACE": "Eth1/1/1",
+      "HOLDTIME": "109",
+      "CAPABILITIES": "H",
+      "PLATFORM": "Linux",
+      "NEIGHBOR_INTERFACE": "eth9"
+    },
+    {
+      "NEIGHBOR_NAME": "lx-dc1-server02.mynetwork.com",
+      "LOCAL_INTERFACE": "Eth1/1/2",
+      "HOLDTIME": "106",
+      "CAPABILITIES": "H",
+      "PLATFORM": "Linux",
+      "NEIGHBOR_INTERFACE": "eth9"
+    },
+    {
+      "NEIGHBOR_NAME": "lx-dc1-server03.mynetwork.com",
+      "LOCAL_INTERFACE": "Eth1/1/3",
+      "HOLDTIME": "91",
+      "CAPABILITIES": "H",
+      "PLATFORM": "Linux",
+      "NEIGHBOR_INTERFACE": "eth9"
+    },
+    {
+      "NEIGHBOR_NAME": "lx-dc1-server04.mynetwork.com",
+      "LOCAL_INTERFACE": "Eth1/1/4",
+      "HOLDTIME": "112",
+      "CAPABILITIES": "H",
+      "PLATFORM": "Linux",
+      "NEIGHBOR_INTERFACE": "eth9"
+    },
+    {
+      "NEIGHBOR_NAME": "lx-dc1-server05.mynetwork.com",
+      "LOCAL_INTERFACE": "Eth1/2/1",
+      "HOLDTIME": "100",
+      "CAPABILITIES": "H",
+      "PLATFORM": "Linux",
+      "NEIGHBOR_INTERFACE": "eth9"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "local_interface_holdtime_capabilities_platform_neighbor_interface": [
+        {
+          "LOCAL_INTERFACE": "mgmt0",
+          "HOLDTIME": "138",
+          "CAPABILITIES": "R S I s",
+          "PLATFORM": "N3K-C3172PQ-XL",
+          "NEIGHBOR_INTERFACE": "Eth1/48"
+        },
+        {
+          "LOCAL_INTERFACE": "Eth1/1/1",
+          "HOLDTIME": "109",
+          "CAPABILITIES": "H",
+          "PLATFORM": "Linux",
+          "NEIGHBOR_INTERFACE": "eth9"
+        },
+        {
+          "LOCAL_INTERFACE": "Eth1/1/2",
+          "HOLDTIME": "106",
+          "CAPABILITIES": "H",
+          "PLATFORM": "Linux",
+          "NEIGHBOR_INTERFACE": "eth9"
+        },
+        {
+          "LOCAL_INTERFACE": "Eth1/1/3",
+          "HOLDTIME": "91",
+          "CAPABILITIES": "H",
+          "PLATFORM": "Linux",
+          "NEIGHBOR_INTERFACE": "eth9"
+        },
+        {
+          "LOCAL_INTERFACE": "Eth1/1/4",
+          "HOLDTIME": "112",
+          "CAPABILITIES": "H",
+          "PLATFORM": "Linux",
+          "NEIGHBOR_INTERFACE": "eth9"
+        },
+        {
+          "LOCAL_INTERFACE": "Eth1/2/1",
+          "HOLDTIME": "100",
+          "CAPABILITIES": "H",
+          "PLATFORM": "Linux",
+          "NEIGHBOR_INTERFACE": "eth9"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge\n                 S - Switch, H - Host, I - IGMP, r - Repeater,\n                 V - VoIP-Phone, D - Remotely-Managed-Device,\n                 s - Supports-STP-Dispute\n\n\nDevice-ID             Local Intrfce Hldtme Capability  Platform         Port ID\nmy-dc1-mgt-sw1(FOC213230KP)\n                   mgmt0          138    R S I s   N3K-C3172PQ-XL     Eth1/48       \nlx-dc1-server01.mynetwork.com\n                   Eth1/1/1       109    H         Linux              eth9          \nlx-dc1-server02.mynetwork.com\n                   Eth1/1/2       106    H         Linux              eth9          \nlx-dc1-server03.mynetwork.com\n                   Eth1/1/3       91     H         Linux              eth9          \nlx-dc1-server04.mynetwork.com\n                   Eth1/1/4       112    H         Linux              eth9          \nlx-dc1-server05.mynetwork.com\n                   Eth1/2/1       100    H         Linux              eth9\n",
+  "textfsm_template": "Value Required,Filldown NEIGHBOR_NAME (\\S+)\nValue Required LOCAL_INTERFACE (\\S+)\nValue HOLDTIME (\\d+)\nValue CAPABILITIES ([\\S+\\s+]+?)\nValue PLATFORM (\\S+)\nValue NEIGHBOR_INTERFACE (\\S+)\n\nStart\n  ^Device.*ID -> CDP\n\nCDP\n  ^${NEIGHBOR_NAME}\\s+${LOCAL_INTERFACE}\\s+${HOLDTIME}\\s+${CAPABILITIES}\\s+${PLATFORM}\\s+${NEIGHBOR_INTERFACE}\\s*$$ -> Record\n  ^${NEIGHBOR_NAME}\\s*$$\n  ^\\s+${LOCAL_INTERFACE}\\s+${HOLDTIME}\\s+${CAPABILITIES}\\s+${PLATFORM}\\s+${NEIGHBOR_INTERFACE}\\s*$$ -> Record\n\n\n"
+}

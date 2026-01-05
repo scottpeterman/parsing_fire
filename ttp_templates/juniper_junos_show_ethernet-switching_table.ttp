@@ -1,0 +1,12 @@
+# TTP Template auto-generated from TextFSM
+# Original command: juniper_junos_show_ethernet-switching_table
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="age_logical_interface_mac_address_mac_flag">
+MAC flags (S {{AGE | ORPHRASE}} static MAC, D - dynamic MAC, L - locally learned, P - Persistent static
+  Vlan{{VLAN_ID | re("\\d+")}}  2c:5a:0f:bc:a3:cd  {{MAC_FLAG | re("[0-9a-fA-F:.-]+")}}  -  {{LOGICAL_INTERFACE | ORPHRASE}}
+  Vlan100  {{MAC_ADDRESS | ORPHRASE}}  DL  -  ae112.0
+</group>

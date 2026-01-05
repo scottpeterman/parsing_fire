@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_ospf_interface_brief
+# Source: ntc
+# TextFSM rows: 12
+# TTP rows: 12
+# Match ratio: 1.00
+
+<group name="interface_process_area_ip_address_prefix_length_cost_state_neighbors_fc">
+{{INTERFACE}} {{PROCESS}} {{AREA}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{PREFIX_LENGTH}} {{COST}} {{STATE | ORPHRASE}} {{NEIGHBORS_FC | ORPHRASE}}
+</group>
+<group name="interface_process_area_state_prefix_length_cost_neighbors_fc">
+{{INTERFACE}} {{PROCESS}} {{AREA}} {{IP_AD{{STATE | ORPHRASE}}ESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{PREFIX_LENGTH}} {{COST}} DR {{NEIGHBORS_FC | ORPHRASE}}
+</group>

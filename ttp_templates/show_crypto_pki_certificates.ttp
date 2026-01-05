@@ -1,0 +1,19 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show crypto pki certificates
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 2
+# Match ratio: 2.00
+
+<group name="issuer_cn_issuer_on_issuer_ou_serial_number">
+  Status: {{STATUS | ORPHRASE}}
+  Storage: {{STORAGE | ORPHRASE}}
+  Certificate Serial Number (hex): {{SERIAL_NUMBER | ORPHRASE}}
+  Certificate Usage: {{USAGE | ORPHRASE}}
+  Organization Unit: {{ISSUER_OU | ORPHRASE}}
+  Organization Name: {{ISSUER_ON | ORPHRASE}}
+  Common Name: {{ISSUER_CN | ORPHRASE}}
+  Name: {{SUBJECT_NAME | ORPHRASE}}
+  start date: {{VALIDITY_START | ORPHRASE}}
+  end  date: {{VALIDITY_END | ORPHRASE}}
+</group>

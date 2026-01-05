@@ -1,0 +1,80 @@
+{
+  "command": "display ap all",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"ap_id_name_ip_address_status\">\n{{AP_ID | re(\"\\\\d+\")}} {{NAME}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATUS | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "AP_ID": "1",
+      "NAME": "AP1",
+      "IP_ADDRESS": "192.168.10.2",
+      "STATUS": "Online"
+    },
+    {
+      "AP_ID": "2",
+      "NAME": "AP2",
+      "IP_ADDRESS": "192.168.10.3",
+      "STATUS": "Online"
+    },
+    {
+      "AP_ID": "3",
+      "NAME": "AP3",
+      "IP_ADDRESS": "192.168.10.4",
+      "STATUS": "Offline"
+    },
+    {
+      "AP_ID": "4",
+      "NAME": "AP4",
+      "IP_ADDRESS": "192.168.10.5",
+      "STATUS": "Online"
+    },
+    {
+      "AP_ID": "5",
+      "NAME": "AP5",
+      "IP_ADDRESS": "192.168.10.6",
+      "STATUS": "Offline"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ap_id_name_ip_address_status": [
+        {
+          "AP_ID": "1",
+          "NAME": "AP1",
+          "IP_ADDRESS": "192.168.10.2",
+          "STATUS": "Online"
+        },
+        {
+          "AP_ID": "2",
+          "NAME": "AP2",
+          "IP_ADDRESS": "192.168.10.3",
+          "STATUS": "Online"
+        },
+        {
+          "AP_ID": "3",
+          "NAME": "AP3",
+          "IP_ADDRESS": "192.168.10.4",
+          "STATUS": "Offline"
+        },
+        {
+          "AP_ID": "4",
+          "NAME": "AP4",
+          "IP_ADDRESS": "192.168.10.5",
+          "STATUS": "Online"
+        },
+        {
+          "AP_ID": "5",
+          "NAME": "AP5",
+          "IP_ADDRESS": "192.168.10.6",
+          "STATUS": "Offline"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Total Number of APs: 5\n\nAP ID   Name            IP Address      Status    \n1       AP1             192.168.10.2    Online    \n2       AP2             192.168.10.3    Online    \n3       AP3             192.168.10.4    Offline   \n4       AP4             192.168.10.5    Online    \n5       AP5             192.168.10.6    Offline   \n",
+  "textfsm_template": "Value AP_ID (\\d+)\nValue NAME (\\w+)\nValue IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue STATUS (\\w+)\n\nStart\n  ^Total Number of APs:\\s+\\d+\\s*$$\n  ^\\s*AP ID\\s+Name\\s+IP Address\\s+Status\\s*$$\n  ^\\s*${AP_ID}\\s+${NAME}\\s+${IP_ADDRESS}\\s+${STATUS}\\s*$$ -> Record"
+}

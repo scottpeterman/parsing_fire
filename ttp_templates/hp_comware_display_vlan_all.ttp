@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_comware_display_vlan_all
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="description_route_interface_type_vlan_id">
+ VLAN Type: {{TYPE | ORPHRASE}}
+ Route Interface: {{ROUTE_INTERFACE | ORPHRASE}}
+ VLAN ID: {{VLAN_ID | ORPHRASE}}
+ Description: {{VLAN_NAME | ORPHRASE}}
+</group>

@@ -1,0 +1,178 @@
+{
+  "command": "show bgp vpnv4 unicast vrf all summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 9,
+  "ttp_template": "<group name=\"neighbor_version_as_msgrcvd_msgsent_tblver_inq_outq_updown_statepfxrcd\">\n{{NEIGHBOR}} {{VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{AS}} {{MSGRCVD}} {{MSGSENT}} {{TBLVER | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{INQ}} {{OUTQ}} {{UPDOWN | ORPHRASE}} {{STATEPFXRCD | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VRF": "Customer_A",
+      "NEIGHBOR": "10.2.2.2",
+      "VERSION": "4",
+      "AS": "65002",
+      "MSGRCVD": "12345",
+      "MSGSENT": "12345",
+      "TBLVER": "34",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPDOWN": "1w0d",
+      "STATEPFXRCD": "5"
+    },
+    {
+      "NEIGHBOR": "10.3.3.3",
+      "VERSION": "4",
+      "AS": "65003",
+      "MSGRCVD": "4567",
+      "MSGSENT": "4567",
+      "TBLVER": "34",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPDOWN": "3d12h",
+      "STATEPFXRCD": "10"
+    },
+    {
+      "VRF": "Customer_B",
+      "NEIGHBOR": "10.4.4.4",
+      "VERSION": "4",
+      "AS": "65004",
+      "MSGRCVD": "2345",
+      "MSGSENT": "2345",
+      "TBLVER": "34",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPDOWN": "11d14h",
+      "STATEPFXRCD": "3"
+    },
+    {
+      "NEIGHBOR": "10.5.5.5",
+      "VERSION": "4",
+      "AS": "65005",
+      "MSGRCVD": "6789",
+      "MSGSENT": "6789",
+      "TBLVER": "34",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UPDOWN": "2w5d",
+      "STATEPFXRCD": "20"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neighbor_version_as_msgrcvd_msgsent_tblver_inq_outq_updown_statepfxrcd": [
+        {
+          "NEIGHBOR": "BGP",
+          "VERSION": "table",
+          "AS": "version",
+          "MSGRCVD": "is",
+          "MSGSENT": "34,",
+          "TBLVER": "main",
+          "INQ": "routing",
+          "OUTQ": "table",
+          "UPDOWN": "version",
+          "STATEPFXRCD": "34"
+        },
+        {
+          "NEIGHBOR": "BGP",
+          "VERSION": "table",
+          "AS": "version",
+          "MSGRCVD": "is",
+          "MSGSENT": "34,",
+          "TBLVER": "VRF",
+          "INQ": "routing",
+          "OUTQ": "table",
+          "UPDOWN": "version",
+          "STATEPFXRCD": "34"
+        },
+        {
+          "NEIGHBOR": "Neighbor",
+          "VERSION": "V",
+          "AS": "AS",
+          "MSGRCVD": "MsgRcvd",
+          "MSGSENT": "MsgSent",
+          "TBLVER": "TblVer",
+          "INQ": "InQ",
+          "OUTQ": "OutQ",
+          "UPDOWN": "Up/Down",
+          "STATEPFXRCD": "State/PfxRcd"
+        },
+        {
+          "NEIGHBOR": "10.2.2.2",
+          "VERSION": "4",
+          "AS": "65002",
+          "MSGRCVD": "12345",
+          "MSGSENT": "12345",
+          "TBLVER": "34",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UPDOWN": "1w0d",
+          "STATEPFXRCD": "5"
+        },
+        {
+          "NEIGHBOR": "10.3.3.3",
+          "VERSION": "4",
+          "AS": "65003",
+          "MSGRCVD": "4567",
+          "MSGSENT": "4567",
+          "TBLVER": "34",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UPDOWN": "3d12h",
+          "STATEPFXRCD": "10"
+        },
+        {
+          "NEIGHBOR": "BGP",
+          "VERSION": "table",
+          "AS": "version",
+          "MSGRCVD": "is",
+          "MSGSENT": "34,",
+          "TBLVER": "VRF",
+          "INQ": "routing",
+          "OUTQ": "table",
+          "UPDOWN": "version",
+          "STATEPFXRCD": "34"
+        },
+        {
+          "NEIGHBOR": "Neighbor",
+          "VERSION": "V",
+          "AS": "AS",
+          "MSGRCVD": "MsgRcvd",
+          "MSGSENT": "MsgSent",
+          "TBLVER": "TblVer",
+          "INQ": "InQ",
+          "OUTQ": "OutQ",
+          "UPDOWN": "Up/Down",
+          "STATEPFXRCD": "State/PfxRcd"
+        },
+        {
+          "NEIGHBOR": "10.4.4.4",
+          "VERSION": "4",
+          "AS": "65004",
+          "MSGRCVD": "2345",
+          "MSGSENT": "2345",
+          "TBLVER": "34",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UPDOWN": "11d14h",
+          "STATEPFXRCD": "3"
+        },
+        {
+          "NEIGHBOR": "10.5.5.5",
+          "VERSION": "4",
+          "AS": "65005",
+          "MSGRCVD": "6789",
+          "MSGSENT": "6789",
+          "TBLVER": "34",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UPDOWN": "2w5d",
+          "STATEPFXRCD": "20"
+        }
+      ]
+    }
+  ],
+  "cli_content": "BGP router identifier 10.1.1.1, local AS number 65001\nBGP table version is 34, main routing table version 34\n\nVRF: Customer_A\nBGP router identifier 10.1.1.1, local AS number 65001\nBGP table version is 34, VRF routing table version 34\n<output omitted>\n\nNeighbor        V         AS MsgRcvd MsgSent   TblVer InQ OutQ Up/Down  State/PfxRcd\n10.2.2.2        4      65002  12345   12345       34    0    0 1w0d     5\n10.3.3.3        4      65003   4567    4567       34    0    0 3d12h    10\n\nVRF: Customer_B\nBGP router identifier 10.1.1.1, local AS number 65001\nBGP table version is 34, VRF routing table version 34\n<output omitted>\n\nNeighbor        V         AS MsgRcvd MsgSent   TblVer InQ OutQ Up/Down  State/PfxRcd\n10.4.4.4        4      65004   2345    2345       34    0    0 11d14h   3\n10.5.5.5        4      65005   6789    6789       34    0    0 2w5d     20\n",
+  "textfsm_template": "Value VRF (\\S+)\nValue NEIGHBOR (\\S+)\nValue VERSION (\\d+)\nValue AS (\\d+)\nValue MSGRCVD (\\d+)\nValue MSGSENT (\\d+)\nValue TBLVER (\\d+)\nValue INQ (\\d+)\nValue OUTQ (\\d+)\nValue UPDOWN (\\S+)\nValue STATEPFXRCD (\\S+)\n\nStart\n  ^VRF:\\s+${VRF}\\s*$$\n  ^\\s*Neighbor\\s+V\\s+AS\\s+MsgRcvd\\s+MsgSent\\s+TblVer\\s+InQ\\s+OutQ\\s+Up/Down\\s+State/PfxRcd\\s*$$\n  ^\\s*${NEIGHBOR}\\s+${VERSION}\\s+${AS}\\s+${MSGRCVD}\\s+${MSGSENT}\\s+${TBLVER}\\s+${INQ}\\s+${OUTQ}\\s+${UPDOWN}\\s+${STATEPFXRCD}\\s*$$ -> Record"
+}

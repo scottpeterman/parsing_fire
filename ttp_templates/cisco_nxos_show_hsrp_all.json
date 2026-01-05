@@ -1,0 +1,498 @@
+{
+  "command": "cisco_nxos_show_hsrp_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.3076923076923075,
+  "textfsm_rows": 13,
+  "ttp_rows": 30,
+  "ttp_template": "<group name=\"secondary_ipv4_address\">\n     Secondary Virtual IP address is {{SECONDARY_IPV4_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}\n</group>\n<group name=\"standby_ip_address_group_number_standby_expire\">\n  Standby router is {{STANDBY_IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} , priority {{GROUP_NUMBER}} expires in {{STANDBY_EXPIRE | ORPHRASE}} sec(s)\n</group>\n<group name=\"hsrp_router_state_priority_configured_priority_preempt\">\n  Local state is {{HSRP_ROUTER_STATE | ORPHRASE}}, priority {{PRIORITY}} (Cfged {{CONFIGURED_PRIORITY}}), {{PREEMPT | ORPHRASE}}\n</group>\n<group name=\"standby_ip_address_standby_priority_standby_expire\">\n  Standby router is {{STANDBY_IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} , priority {{STANDBY_PRIORITY}} expires in {{STANDBY_EXPIRE | ORPHRASE}} sec(s)\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Vlan100",
+      "VERSION": "2",
+      "GROUP_NUMBER": "100",
+      "PRIORITY": "250",
+      "HSRP_ROUTER_STATE": "Active",
+      "CONFIGURED_PRIORITY": "250",
+      "PREEMPT": "may preempt",
+      "LOWER_FWD_TRESHOLD": "1",
+      "UPPER_FWD_TRESHOLD": "250",
+      "TIMERS_HELLO_SEC": "3",
+      "TIMERS_HOLD_SEC": "10",
+      "PRIMARY_IPV4_ADDRESS": "192.168.100.1",
+      "SECONDARY_IPV4_ADDRESS": "192.168.100.193",
+      "ACTIVE_ROUTER": "local",
+      "STANDBY_EXPIRE": "10.174000",
+      "STANDBY_IP_ADDRESS": "192.168.100.69",
+      "STANDBY_PRIORITY": "200",
+      "AUTHENTICATION": "MD5",
+      "VIRTUAL_MAC_ADDRESS": "0000.0c9f.f384",
+      "VIRTUAL_MAC_ADDRESS_STATUS": "Default MAC",
+      "NUM_STATE_CHANGES": "2",
+      "LAST_STATE_CHANGE": "1y27w",
+      "SESSION_NAME": "hsrp-Vlan100-100"
+    },
+    {
+      "INTERFACE": "Vlan200",
+      "VERSION": "2",
+      "GROUP_NUMBER": "200",
+      "PRIORITY": "250",
+      "HSRP_ROUTER_STATE": "Active",
+      "CONFIGURED_PRIORITY": "250",
+      "PREEMPT": "may preempt",
+      "LOWER_FWD_TRESHOLD": "1",
+      "UPPER_FWD_TRESHOLD": "250",
+      "TIMERS_HELLO_SEC": "1",
+      "TIMERS_HOLD_SEC": "3",
+      "PRIMARY_IPV4_ADDRESS": "172.11.4.254",
+      "ACTIVE_ROUTER": "local",
+      "STANDBY_EXPIRE": "2.551000",
+      "STANDBY_IP_ADDRESS": "172.11.4.253",
+      "STANDBY_PRIORITY": "200",
+      "AUTHENTICATION": "MD5",
+      "VIRTUAL_MAC_ADDRESS": "0000.0c9f.fd48",
+      "VIRTUAL_MAC_ADDRESS_STATUS": "Default MAC",
+      "NUM_STATE_CHANGES": "2",
+      "LAST_STATE_CHANGE": "1y0w",
+      "SESSION_NAME": "hsrp-Vlan200-200"
+    },
+    {
+      "INTERFACE": "Vlan201",
+      "VERSION": "2",
+      "GROUP_NUMBER": "201",
+      "PRIORITY": "250",
+      "HSRP_ROUTER_STATE": "Active",
+      "CONFIGURED_PRIORITY": "250",
+      "PREEMPT": "may preempt",
+      "LOWER_FWD_TRESHOLD": "1",
+      "UPPER_FWD_TRESHOLD": "250",
+      "TIMERS_HELLO_SEC": "1",
+      "TIMERS_HOLD_SEC": "3",
+      "PRIMARY_IPV4_ADDRESS": "172.11.5.30",
+      "ACTIVE_ROUTER": "local",
+      "STANDBY_EXPIRE": "2.551000",
+      "STANDBY_IP_ADDRESS": "172.11.5.29",
+      "STANDBY_PRIORITY": "200",
+      "AUTHENTICATION": "MD5",
+      "VIRTUAL_MAC_ADDRESS": "0000.0c9f.fd49",
+      "VIRTUAL_MAC_ADDRESS_STATUS": "Default MAC",
+      "NUM_STATE_CHANGES": "2",
+      "LAST_STATE_CHANGE": "1y0w",
+      "SESSION_NAME": "hsrp-Vlan201-201"
+    },
+    {
+      "INTERFACE": "Vlan210",
+      "VERSION": "2",
+      "GROUP_NUMBER": "210",
+      "PRIORITY": "250",
+      "HSRP_ROUTER_STATE": "Active",
+      "CONFIGURED_PRIORITY": "250",
+      "PREEMPT": "may preempt",
+      "LOWER_FWD_TRESHOLD": "1",
+      "UPPER_FWD_TRESHOLD": "250",
+      "TIMERS_HELLO_SEC": "1",
+      "TIMERS_HOLD_SEC": "3",
+      "PRIMARY_IPV4_ADDRESS": "172.12.9.254",
+      "ACTIVE_ROUTER": "local",
+      "STANDBY_EXPIRE": "2.873000",
+      "STANDBY_IP_ADDRESS": "172.12.9.253",
+      "STANDBY_PRIORITY": "200",
+      "AUTHENTICATION": "MD5",
+      "VIRTUAL_MAC_ADDRESS": "0000.0c9f.fdb6",
+      "VIRTUAL_MAC_ADDRESS_STATUS": "Default MAC",
+      "NUM_STATE_CHANGES": "2",
+      "LAST_STATE_CHANGE": "1y0w",
+      "SESSION_NAME": "hsrp-Vlan210-210"
+    },
+    {
+      "INTERFACE": "Vlan211",
+      "VERSION": "2",
+      "GROUP_NUMBER": "211",
+      "PRIORITY": "250",
+      "HSRP_ROUTER_STATE": "Active",
+      "CONFIGURED_PRIORITY": "250",
+      "PREEMPT": "may preempt",
+      "LOWER_FWD_TRESHOLD": "1",
+      "UPPER_FWD_TRESHOLD": "250",
+      "TIMERS_HELLO_SEC": "1",
+      "TIMERS_HOLD_SEC": "3",
+      "PRIMARY_IPV4_ADDRESS": "172.12.10.62",
+      "ACTIVE_ROUTER": "local",
+      "STANDBY_EXPIRE": "2.873000",
+      "STANDBY_IP_ADDRESS": "172.12.10.61",
+      "STANDBY_PRIORITY": "200",
+      "AUTHENTICATION": "MD5",
+      "VIRTUAL_MAC_ADDRESS": "0000.0c9f.fdb7",
+      "VIRTUAL_MAC_ADDRESS_STATUS": "Default MAC",
+      "NUM_STATE_CHANGES": "2",
+      "LAST_STATE_CHANGE": "1y0w",
+      "SESSION_NAME": "hsrp-Vlan211-211"
+    },
+    {
+      "INTERFACE": "Vlan220",
+      "VERSION": "2",
+      "GROUP_NUMBER": "220",
+      "PRIORITY": "250",
+      "HSRP_ROUTER_STATE": "Active",
+      "CONFIGURED_PRIORITY": "250",
+      "PREEMPT": "may preempt",
+      "LOWER_FWD_TRESHOLD": "1",
+      "UPPER_FWD_TRESHOLD": "250",
+      "TIMERS_HELLO_SEC": "1",
+      "TIMERS_HOLD_SEC": "3",
+      "PRIMARY_IPV4_ADDRESS": "172.13.12.254",
+      "ACTIVE_ROUTER": "local",
+      "STANDBY_EXPIRE": "2.281000",
+      "STANDBY_IP_ADDRESS": "172.13.12.253",
+      "STANDBY_PRIORITY": "200",
+      "AUTHENTICATION": "MD5",
+      "VIRTUAL_MAC_ADDRESS": "0000.0c9f.fe24",
+      "VIRTUAL_MAC_ADDRESS_STATUS": "Default MAC",
+      "NUM_STATE_CHANGES": "2",
+      "LAST_STATE_CHANGE": "1y0w",
+      "SESSION_NAME": "hsrp-Vlan220-220"
+    },
+    {
+      "INTERFACE": "Vlan221",
+      "VERSION": "2",
+      "GROUP_NUMBER": "221",
+      "PRIORITY": "250",
+      "HSRP_ROUTER_STATE": "Active",
+      "CONFIGURED_PRIORITY": "250",
+      "PREEMPT": "may preempt",
+      "LOWER_FWD_TRESHOLD": "1",
+      "UPPER_FWD_TRESHOLD": "250",
+      "TIMERS_HELLO_SEC": "1",
+      "TIMERS_HOLD_SEC": "3",
+      "PRIMARY_IPV4_ADDRESS": "172.13.13.30",
+      "ACTIVE_ROUTER": "local",
+      "STANDBY_EXPIRE": "2.281000",
+      "STANDBY_IP_ADDRESS": "172.13.13.29",
+      "STANDBY_PRIORITY": "200",
+      "AUTHENTICATION": "MD5",
+      "VIRTUAL_MAC_ADDRESS": "0000.0c9f.fe25",
+      "VIRTUAL_MAC_ADDRESS_STATUS": "Default MAC",
+      "NUM_STATE_CHANGES": "2",
+      "LAST_STATE_CHANGE": "1y0w",
+      "SESSION_NAME": "hsrp-Vlan221-221"
+    },
+    {
+      "INTERFACE": "Vlan300",
+      "VERSION": "2",
+      "GROUP_NUMBER": "300",
+      "PRIORITY": "250",
+      "HSRP_ROUTER_STATE": "Active",
+      "CONFIGURED_PRIORITY": "250",
+      "PREEMPT": "may preempt",
+      "LOWER_FWD_TRESHOLD": "1",
+      "UPPER_FWD_TRESHOLD": "250",
+      "TIMERS_HELLO_SEC": "1",
+      "TIMERS_HOLD_SEC": "3",
+      "PRIMARY_IPV4_ADDRESS": "172.16.0.254",
+      "ACTIVE_ROUTER": "local",
+      "STANDBY_EXPIRE": "2.551000",
+      "STANDBY_IP_ADDRESS": "172.16.0.253",
+      "STANDBY_PRIORITY": "200",
+      "AUTHENTICATION": "MD5",
+      "VIRTUAL_MAC_ADDRESS": "0000.0c9f.fed8",
+      "VIRTUAL_MAC_ADDRESS_STATUS": "Default MAC",
+      "NUM_STATE_CHANGES": "14",
+      "LAST_STATE_CHANGE": "1y2w",
+      "SESSION_NAME": "hsrp-Vlan300-300"
+    },
+    {
+      "INTERFACE": "Vlan416",
+      "VERSION": "2",
+      "GROUP_NUMBER": "416",
+      "PRIORITY": "130",
+      "HSRP_ROUTER_STATE": "Standby",
+      "CONFIGURED_PRIORITY": "130",
+      "PREEMPT": "may preempt",
+      "LOWER_FWD_TRESHOLD": "1",
+      "UPPER_FWD_TRESHOLD": "130",
+      "TIMERS_HELLO_SEC": "1",
+      "TIMERS_HOLD_SEC": "3",
+      "PRIMARY_IPV4_ADDRESS": "172.17.1.1",
+      "ACTIVE_EXPIRE": "0.661000",
+      "ACTIVE_IP_ADDRESS": "172.17.1.2",
+      "ACTIVE_PRIORITY": "150",
+      "STANDBY_ROUTER": "local",
+      "AUTHENTICATION": "MD5",
+      "VIRTUAL_MAC_ADDRESS": "0000.0c9f.ff4c",
+      "VIRTUAL_MAC_ADDRESS_STATUS": "Default MAC",
+      "NUM_STATE_CHANGES": "105",
+      "LAST_STATE_CHANGE": "21w5d",
+      "SESSION_NAME": "hsrp-Vlan416-416"
+    },
+    {
+      "INTERFACE": "Vlan417",
+      "VERSION": "2",
+      "GROUP_NUMBER": "417",
+      "PRIORITY": "130",
+      "HSRP_ROUTER_STATE": "Standby",
+      "CONFIGURED_PRIORITY": "130",
+      "PREEMPT": "may preempt",
+      "LOWER_FWD_TRESHOLD": "1",
+      "UPPER_FWD_TRESHOLD": "130",
+      "TIMERS_HELLO_SEC": "1",
+      "TIMERS_HOLD_SEC": "3",
+      "PRIMARY_IPV4_ADDRESS": "172.17.1.17",
+      "ACTIVE_EXPIRE": "1.531000",
+      "ACTIVE_IP_ADDRESS": "172.17.1.18",
+      "ACTIVE_PRIORITY": "150",
+      "STANDBY_ROUTER": "local",
+      "AUTHENTICATION": "MD5",
+      "VIRTUAL_MAC_ADDRESS": "0000.0c9f.ff4d",
+      "VIRTUAL_MAC_ADDRESS_STATUS": "Default MAC",
+      "NUM_STATE_CHANGES": "418",
+      "LAST_STATE_CHANGE": "21w5d",
+      "SESSION_NAME": "hsrp-Vlan417-417"
+    },
+    {
+      "INTERFACE": "Vlan418",
+      "VERSION": "2",
+      "GROUP_NUMBER": "418",
+      "PRIORITY": "130",
+      "HSRP_ROUTER_STATE": "Standby",
+      "CONFIGURED_PRIORITY": "130",
+      "PREEMPT": "may preempt",
+      "LOWER_FWD_TRESHOLD": "1",
+      "UPPER_FWD_TRESHOLD": "130",
+      "TIMERS_HELLO_SEC": "1",
+      "TIMERS_HOLD_SEC": "3",
+      "PRIMARY_IPV4_ADDRESS": "172.17.1.33",
+      "ACTIVE_EXPIRE": "0.081000",
+      "ACTIVE_IP_ADDRESS": "172.17.1.2",
+      "ACTIVE_PRIORITY": "150",
+      "STANDBY_ROUTER": "local",
+      "AUTHENTICATION": "MD5",
+      "VIRTUAL_MAC_ADDRESS": "0000.0c9f.ff4e",
+      "VIRTUAL_MAC_ADDRESS_STATUS": "Default MAC",
+      "NUM_STATE_CHANGES": "102",
+      "LAST_STATE_CHANGE": "21w5d",
+      "SESSION_NAME": "hsrp-Vlan418-418"
+    },
+    {
+      "INTERFACE": "Vlan419",
+      "VERSION": "2",
+      "GROUP_NUMBER": "419",
+      "PRIORITY": "130",
+      "HSRP_ROUTER_STATE": "Standby",
+      "CONFIGURED_PRIORITY": "130",
+      "PREEMPT": "may preempt",
+      "LOWER_FWD_TRESHOLD": "1",
+      "UPPER_FWD_TRESHOLD": "130",
+      "TIMERS_HELLO_SEC": "1",
+      "TIMERS_HOLD_SEC": "3",
+      "PRIMARY_IPV4_ADDRESS": "172.17.1.49",
+      "ACTIVE_EXPIRE": "2.281000",
+      "ACTIVE_IP_ADDRESS": "172.17.1.50",
+      "ACTIVE_PRIORITY": "150",
+      "STANDBY_ROUTER": "local",
+      "AUTHENTICATION": "MD5",
+      "VIRTUAL_MAC_ADDRESS": "0000.0c9f.ff4f",
+      "VIRTUAL_MAC_ADDRESS_STATUS": "Default MAC",
+      "NUM_STATE_CHANGES": "448",
+      "LAST_STATE_CHANGE": "21w5d",
+      "SESSION_NAME": "hsrp-Vlan419-419"
+    },
+    {
+      "INTERFACE": "Vlan420",
+      "VERSION": "2",
+      "GROUP_NUMBER": "420",
+      "PRIORITY": "130",
+      "HSRP_ROUTER_STATE": "Standby",
+      "CONFIGURED_PRIORITY": "130",
+      "PREEMPT": "may preempt",
+      "LOWER_FWD_TRESHOLD": "1",
+      "UPPER_FWD_TRESHOLD": "130",
+      "TIMERS_HELLO_SEC": "1",
+      "TIMERS_HOLD_SEC": "3",
+      "PRIMARY_IPV4_ADDRESS": "172.17.1.65",
+      "ACTIVE_EXPIRE": "0.081000",
+      "ACTIVE_IP_ADDRESS": "172.17.1.66",
+      "ACTIVE_PRIORITY": "150",
+      "STANDBY_ROUTER": "local",
+      "AUTHENTICATION": "MD5",
+      "VIRTUAL_MAC_ADDRESS": "0000.0c9f.ff50",
+      "VIRTUAL_MAC_ADDRESS_STATUS": "Default MAC",
+      "NUM_STATE_CHANGES": "103",
+      "LAST_STATE_CHANGE": "21w5d",
+      "SESSION_NAME": "hsrp-Vlan420-420"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "secondary_ipv4_address": {
+        "SECONDARY_IPV4_ADDRESS": "192.168.100.193"
+      },
+      "standby_ip_address_group_number_standby_expire": [
+        {
+          "STANDBY_IP_ADDRESS": "192.168.100.69",
+          "GROUP_NUMBER": "200",
+          "STANDBY_EXPIRE": "10.174000"
+        },
+        {
+          "STANDBY_IP_ADDRESS": "172.11.4.253",
+          "GROUP_NUMBER": "200",
+          "STANDBY_EXPIRE": "2.551000"
+        },
+        {
+          "STANDBY_IP_ADDRESS": "172.11.5.29",
+          "GROUP_NUMBER": "200",
+          "STANDBY_EXPIRE": "2.551000"
+        },
+        {
+          "STANDBY_IP_ADDRESS": "172.12.9.253",
+          "GROUP_NUMBER": "200",
+          "STANDBY_EXPIRE": "2.873000"
+        },
+        {
+          "STANDBY_IP_ADDRESS": "172.12.10.61",
+          "GROUP_NUMBER": "200",
+          "STANDBY_EXPIRE": "2.873000"
+        },
+        {
+          "STANDBY_IP_ADDRESS": "172.13.12.253",
+          "GROUP_NUMBER": "200",
+          "STANDBY_EXPIRE": "2.281000"
+        },
+        {
+          "STANDBY_IP_ADDRESS": "172.13.13.29",
+          "GROUP_NUMBER": "200",
+          "STANDBY_EXPIRE": "2.281000"
+        },
+        {
+          "STANDBY_IP_ADDRESS": "172.16.0.253",
+          "GROUP_NUMBER": "200",
+          "STANDBY_EXPIRE": "2.551000"
+        }
+      ],
+      "hsrp_router_state_priority_configured_priority_preempt": [
+        {
+          "HSRP_ROUTER_STATE": "Active",
+          "PRIORITY": "250",
+          "CONFIGURED_PRIORITY": "250",
+          "PREEMPT": "may preempt"
+        },
+        {
+          "HSRP_ROUTER_STATE": "Active",
+          "PRIORITY": "250",
+          "CONFIGURED_PRIORITY": "250",
+          "PREEMPT": "may preempt"
+        },
+        {
+          "HSRP_ROUTER_STATE": "Active",
+          "PRIORITY": "250",
+          "CONFIGURED_PRIORITY": "250",
+          "PREEMPT": "may preempt"
+        },
+        {
+          "HSRP_ROUTER_STATE": "Active",
+          "PRIORITY": "250",
+          "CONFIGURED_PRIORITY": "250",
+          "PREEMPT": "may preempt"
+        },
+        {
+          "HSRP_ROUTER_STATE": "Active",
+          "PRIORITY": "250",
+          "CONFIGURED_PRIORITY": "250",
+          "PREEMPT": "may preempt"
+        },
+        {
+          "HSRP_ROUTER_STATE": "Active",
+          "PRIORITY": "250",
+          "CONFIGURED_PRIORITY": "250",
+          "PREEMPT": "may preempt"
+        },
+        {
+          "HSRP_ROUTER_STATE": "Active",
+          "PRIORITY": "250",
+          "CONFIGURED_PRIORITY": "250",
+          "PREEMPT": "may preempt"
+        },
+        {
+          "HSRP_ROUTER_STATE": "Active",
+          "PRIORITY": "250",
+          "CONFIGURED_PRIORITY": "250",
+          "PREEMPT": "may preempt"
+        },
+        {
+          "HSRP_ROUTER_STATE": "Standby",
+          "PRIORITY": "130",
+          "CONFIGURED_PRIORITY": "130",
+          "PREEMPT": "may preempt"
+        },
+        {
+          "HSRP_ROUTER_STATE": "Standby",
+          "PRIORITY": "130",
+          "CONFIGURED_PRIORITY": "130",
+          "PREEMPT": "may preempt"
+        },
+        {
+          "HSRP_ROUTER_STATE": "Standby",
+          "PRIORITY": "130",
+          "CONFIGURED_PRIORITY": "130",
+          "PREEMPT": "may preempt"
+        },
+        {
+          "HSRP_ROUTER_STATE": "Standby",
+          "PRIORITY": "130",
+          "CONFIGURED_PRIORITY": "130",
+          "PREEMPT": "may preempt"
+        },
+        {
+          "HSRP_ROUTER_STATE": "Standby",
+          "PRIORITY": "130",
+          "CONFIGURED_PRIORITY": "130",
+          "PREEMPT": "may preempt"
+        }
+      ],
+      "standby_ip_address_standby_priority_standby_expire": [
+        {
+          "STANDBY_IP_ADDRESS": "192.168.100.69",
+          "STANDBY_PRIORITY": "200",
+          "STANDBY_EXPIRE": "10.174000"
+        },
+        {
+          "STANDBY_IP_ADDRESS": "172.11.4.253",
+          "STANDBY_PRIORITY": "200",
+          "STANDBY_EXPIRE": "2.551000"
+        },
+        {
+          "STANDBY_IP_ADDRESS": "172.11.5.29",
+          "STANDBY_PRIORITY": "200",
+          "STANDBY_EXPIRE": "2.551000"
+        },
+        {
+          "STANDBY_IP_ADDRESS": "172.12.9.253",
+          "STANDBY_PRIORITY": "200",
+          "STANDBY_EXPIRE": "2.873000"
+        },
+        {
+          "STANDBY_IP_ADDRESS": "172.12.10.61",
+          "STANDBY_PRIORITY": "200",
+          "STANDBY_EXPIRE": "2.873000"
+        },
+        {
+          "STANDBY_IP_ADDRESS": "172.13.12.253",
+          "STANDBY_PRIORITY": "200",
+          "STANDBY_EXPIRE": "2.281000"
+        },
+        {
+          "STANDBY_IP_ADDRESS": "172.13.13.29",
+          "STANDBY_PRIORITY": "200",
+          "STANDBY_EXPIRE": "2.281000"
+        },
+        {
+          "STANDBY_IP_ADDRESS": "172.16.0.253",
+          "STANDBY_PRIORITY": "200",
+          "STANDBY_EXPIRE": "2.551000"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Vlan100 - Group 100 (HSRP-V2) (IPv4)\n  Local state is Active, priority 250 (Cfged 250), may preempt\n    Forwarding threshold(for vPC), lower: 1 upper: 250 \n  Preemption Delay (Seconds) Reload:120 Minimum:60 Sync:60 \n  Hellotime 3 sec, holdtime 10 sec\n  Next hello sent in 2.676000 sec(s)\n  Virtual IP address is 192.168.100.1 (Cfged)\n     Secondary Virtual IP address is 192.168.100.193\n  Active router is local\n  Standby router is 192.168.100.69 , priority 200 expires in 10.174000 sec(s)\n  Authentication MD5, key-string \"dr-hsrp\"\n  Virtual mac address is 0000.0c9f.f384 (Default MAC)\n  2 state changes, last state change 1y27w\n  IP redundancy name is hsrp-Vlan100-100 (default)\n  Secondary VIP(s):\n                  192.168.100.193\n\nVlan200 - Group 200 (HSRP-V2) (IPv4)\n  Local state is Active, priority 250 (Cfged 250), may preempt\n    Forwarding threshold(for vPC), lower: 1 upper: 250 \n  Preemption Delay (Seconds) Reload:120 Minimum:60 Sync:60 \n  Hellotime 1 sec, holdtime 3 sec\n  Next hello sent in 0.448000 sec(s)\n  Virtual IP address is 172.11.4.254 (Cfged)\n  Active router is local\n  Standby router is 172.11.4.253 , priority 200 expires in 2.551000 sec(s)\n  Authentication MD5, key-string \"hq-hsrp\"\n  Virtual mac address is 0000.0c9f.fd48 (Default MAC)\n  2 state changes, last state change 1y0w\n  IP redundancy name is hsrp-Vlan200-200 (default)\n\nVlan201 - Group 201 (HSRP-V2) (IPv4)\n  Local state is Active, priority 250 (Cfged 250), may preempt\n    Forwarding threshold(for vPC), lower: 1 upper: 250 \n  Preemption Delay (Seconds) Reload:120 Minimum:60 Sync:60 \n  Hellotime 1 sec, holdtime 3 sec\n  Next hello sent in 0.484000 sec(s)\n  Virtual IP address is 172.11.5.30 (Cfged)\n  Active router is local\n  Standby router is 172.11.5.29 , priority 200 expires in 2.551000 sec(s)\n  Authentication MD5, key-string \"hq-hsrp\"\n  Virtual mac address is 0000.0c9f.fd49 (Default MAC)\n  2 state changes, last state change 1y0w\n  IP redundancy name is hsrp-Vlan201-201 (default)\n\nVlan210 - Group 210 (HSRP-V2) (IPv4)\n  Local state is Active, priority 250 (Cfged 250), may preempt\n    Forwarding threshold(for vPC), lower: 1 upper: 250 \n  Preemption Delay (Seconds) Reload:120 Minimum:60 Sync:60 \n  Hellotime 1 sec, holdtime 3 sec\n  Next hello sent in 0.420000 sec(s)\n  Virtual IP address is 172.12.9.254 (Cfged)\n  Active router is local\n  Standby router is 172.12.9.253 , priority 200 expires in 2.873000 sec(s)\n  Authentication MD5, key-string \"hq-hsrp\"\n  Virtual mac address is 0000.0c9f.fdb6 (Default MAC)\n  2 state changes, last state change 1y0w\n  IP redundancy name is hsrp-Vlan210-210 (default)\n\nVlan211 - Group 211 (HSRP-V2) (IPv4)\n  Local state is Active, priority 250 (Cfged 250), may preempt\n    Forwarding threshold(for vPC), lower: 1 upper: 250 \n  Preemption Delay (Seconds) Reload:120 Minimum:60 Sync:60 \n  Hellotime 1 sec, holdtime 3 sec\n  Next hello sent in 0.695000 sec(s)\n  Virtual IP address is 172.12.10.62 (Cfged)\n  Active router is local\n  Standby router is 172.12.10.61 , priority 200 expires in 2.873000 sec(s)\n  Authentication MD5, key-string \"hq-hsrp\"\n  Virtual mac address is 0000.0c9f.fdb7 (Default MAC)\n  2 state changes, last state change 1y0w\n  IP redundancy name is hsrp-Vlan211-211 (default)\n\nVlan220 - Group 220 (HSRP-V2) (IPv4)\n  Local state is Active, priority 250 (Cfged 250), may preempt\n    Forwarding threshold(for vPC), lower: 1 upper: 250 \n  Preemption Delay (Seconds) Reload:120 Minimum:60 Sync:60 \n  Hellotime 1 sec, holdtime 3 sec\n  Next hello sent in 0.484000 sec(s)\n  Virtual IP address is 172.13.12.254 (Cfged)\n  Active router is local\n  Standby router is 172.13.12.253 , priority 200 expires in 2.281000 sec(s)\n  Authentication MD5, key-string \"hq-hsrp\"\n  Virtual mac address is 0000.0c9f.fe24 (Default MAC)\n  2 state changes, last state change 1y0w\n  IP redundancy name is hsrp-Vlan220-220 (default)\n\nVlan221 - Group 221 (HSRP-V2) (IPv4)\n  Local state is Active, priority 250 (Cfged 250), may preempt\n    Forwarding threshold(for vPC), lower: 1 upper: 250 \n  Preemption Delay (Seconds) Reload:120 Minimum:60 Sync:60 \n  Hellotime 1 sec, holdtime 3 sec\n  Next hello sent in 0.614000 sec(s)\n  Virtual IP address is 172.13.13.30 (Cfged)\n  Active router is local\n  Standby router is 172.13.13.29 , priority 200 expires in 2.281000 sec(s)\n  Authentication MD5, key-string \"hq-hsrp\"\n  Virtual mac address is 0000.0c9f.fe25 (Default MAC)\n  2 state changes, last state change 1y0w\n  IP redundancy name is hsrp-Vlan221-221 (default)\n\nVlan300 - Group 300 (HSRP-V2) (IPv4)\n  Local state is Active, priority 250 (Cfged 250), may preempt\n    Forwarding threshold(for vPC), lower: 1 upper: 250 \n  Preemption Delay (Seconds) Reload:120 Minimum:60 Sync:60 \n  Hellotime 1 sec, holdtime 3 sec\n  Next hello sent in 0.448000 sec(s)\n  Virtual IP address is 172.16.0.254 (Cfged)\n  Active router is local\n  Standby router is 172.16.0.253 , priority 200 expires in 2.551000 sec(s)\n  Authentication MD5, key-string \"dr-hsrp\"\n  Virtual mac address is 0000.0c9f.fed8 (Default MAC)\n  14 state changes, last state change 1y2w\n  IP redundancy name is hsrp-Vlan300-300 (default)\n\nVlan416 - Group 416 (HSRP-V2) (IPv4)\n  Local state is Standby, priority 130 (Cfged 130), may preempt\n    Forwarding threshold(for vPC), lower: 1 upper: 130 \n  Preemption Delay (Seconds) Reload:120 Minimum:60 Sync:60 \n  Hellotime 1 sec, holdtime 3 sec\n  Next hello sent in 0.231000 sec(s)\n  Virtual IP address is 172.17.1.1 (Cfged)\n  Active router is 172.17.1.2, priority 150 expires in 0.661000 sec(s)\n  Standby router is local \n  Authentication MD5, key-string \"core-hsrp\"\n  Virtual mac address is 0000.0c9f.ff4c (Default MAC)\n  105 state changes, last state change 21w5d\n  IP redundancy name is hsrp-Vlan416-416 (default)\n\nVlan417 - Group 417 (HSRP-V2) (IPv4)\n  Local state is Standby, priority 130 (Cfged 130), may preempt\n    Forwarding threshold(for vPC), lower: 1 upper: 130 \n  Preemption Delay (Seconds) Reload:120 Minimum:60 Sync:60 \n  Hellotime 1 sec, holdtime 3 sec\n  Next hello sent in 0.610000 sec(s)\n  Virtual IP address is 172.17.1.17 (Cfged)\n  Active router is 172.17.1.18, priority 150 expires in 1.531000 sec(s)\n  Standby router is local \n  Authentication MD5, key-string \"core-hsrp\"\n  Virtual mac address is 0000.0c9f.ff4d (Default MAC)\n  418 state changes, last state change 21w5d\n  IP redundancy name is hsrp-Vlan417-417 (default)\n\nVlan418 - Group 418 (HSRP-V2) (IPv4)\n  Local state is Standby, priority 130 (Cfged 130), may preempt\n    Forwarding threshold(for vPC), lower: 1 upper: 130 \n  Preemption Delay (Seconds) Reload:120 Minimum:60 Sync:60 \n  Hellotime 1 sec, holdtime 3 sec\n  Next hello sent in 0.422000 sec(s)\n  Virtual IP address is 172.17.1.33 (Cfged)\n  Active router is 172.17.1.2, priority 150 expires in 0.081000 sec(s)\n  Standby router is local \n  Authentication MD5, key-string \"core-hsrp\"\n  Virtual mac address is 0000.0c9f.ff4e (Default MAC)\n  102 state changes, last state change 21w5d\n  IP redundancy name is hsrp-Vlan418-418 (default)\n\nVlan419 - Group 419 (HSRP-V2) (IPv4)\n  Local state is Standby, priority 130 (Cfged 130), may preempt\n    Forwarding threshold(for vPC), lower: 1 upper: 130 \n  Preemption Delay (Seconds) Reload:120 Minimum:60 Sync:60 \n  Hellotime 1 sec, holdtime 3 sec\n  Next hello sent in 0.886000 sec(s)\n  Virtual IP address is 172.17.1.49 (Cfged)\n  Active router is 172.17.1.50, priority 150 expires in 2.281000 sec(s)\n  Standby router is local \n  Authentication MD5, key-string \"core-hsrp\"\n  Virtual mac address is 0000.0c9f.ff4f (Default MAC)\n  448 state changes, last state change 21w5d\n  IP redundancy name is hsrp-Vlan419-419 (default)\n\nVlan420 - Group 420 (HSRP-V2) (IPv4)\n  Local state is Standby, priority 130 (Cfged 130), may preempt\n    Forwarding threshold(for vPC), lower: 1 upper: 130 \n  Preemption Delay (Seconds) Reload:120 Minimum:60 Sync:60 \n  Hellotime 1 sec, holdtime 3 sec\n  Next hello sent in 0.301000 sec(s)\n  Virtual IP address is 172.17.1.65 (Cfged)\n  Active router is 172.17.1.66, priority 150 expires in 0.081000 sec(s)\n  Standby router is local \n  Authentication MD5, key-string \"core-hsrp\"\n  Virtual mac address is 0000.0c9f.ff50 (Default MAC)\n  103 state changes, last state change 21w5d\n  IP redundancy name is hsrp-Vlan420-420 (default)\n",
+  "textfsm_template": "# Object names are based on pyATS/Genie parser (boolean values are left out)\nValue INTERFACE (\\S+)\nValue VERSION (\\d+)\nValue GROUP_NUMBER (\\d+)\nValue PRIORITY (\\d+)\nValue HSRP_ROUTER_STATE (\\S+)\nValue CONFIGURED_PRIORITY (\\d+)\nValue PREEMPT (.*)\nValue LOWER_FWD_TRESHOLD (\\d+)\nValue UPPER_FWD_TRESHOLD (\\d+)\n# Value TIMERS_HELLO_MSEC_FLAG\n# Value TIMERS_HOLD_MSEC_FLAG\nValue TIMERS_HELLO_SEC (\\d+)\nValue TIMERS_HOLD_SEC (\\d+)\nValue PRIMARY_IPV4_ADDRESS (\\S+)\n# Value VIRTUAL_IP_LEARN\nValue SECONDARY_IPV4_ADDRESS (\\S+)\nValue ACTIVE_ROUTER (\\S+)\nValue ACTIVE_EXPIRE (\\d+\\.\\d+)\nValue ACTIVE_IP_ADDRESS (\\S+)\nValue ACTIVE_PRIORITY (\\d+)\nValue STANDBY_ROUTER (\\S+)\nValue STANDBY_EXPIRE (\\d+\\.\\d+)\nValue STANDBY_IP_ADDRESS (\\S+)\nValue STANDBY_PRIORITY (\\d+)\nValue AUTHENTICATION (\\S+)\nValue VIRTUAL_MAC_ADDRESS (\\S+)\nValue VIRTUAL_MAC_ADDRESS_STATUS (.*)\nValue NUM_STATE_CHANGES (\\d+)\nValue LAST_STATE_CHANGE (\\S+)\nValue SESSION_NAME (\\S+)\n\nStart\n  ^${INTERFACE}\\s+-\\s+Group\\s${GROUP_NUMBER}\\s+\\(HSRP-V${VERSION}\\)\\s\\(IPv[46]\\)\\s*$$\n  ^\\s+Local\\s+state\\s+is\\s+${HSRP_ROUTER_STATE},\\s+priority\\s+${PRIORITY}\\s+\\(Cfged\\s+${CONFIGURED_PRIORITY}\\),\\s+${PREEMPT}\\s*$$  \n  ^\\s+.*lower:\\s+${LOWER_FWD_TRESHOLD}\\s+upper:\\s+${UPPER_FWD_TRESHOLD}\\s*$$\n  ^\\s+Preemption\\s+Delay.*$$\n  ^\\s+Hellotime\\s+${TIMERS_HELLO_SEC}.*holdtime\\s+${TIMERS_HOLD_SEC}.*$$\n  ^\\s+Next\\s+hello\\s+sent.*$$\n  ^\\s+Virtual\\s+IP\\s+address\\s+is\\s+${PRIMARY_IPV4_ADDRESS}\\s+.*$$\n  ^\\s+Secondary\\s+Virtual\\s+IP\\s+address\\s+is\\s+${SECONDARY_IPV4_ADDRESS}\\s*$$\n  ^\\s+Active\\s+router\\s+is\\s+${ACTIVE_ROUTER}\\s*$$\n  ^\\s+Active\\s+router\\s+is\\s+${ACTIVE_IP_ADDRESS}\\s?,\\s+priority\\s+${ACTIVE_PRIORITY}\\s+expires\\s+in\\s+${ACTIVE_EXPIRE}.*$$\n  ^\\s+Standby\\s+router\\s+is\\s+${STANDBY_ROUTER}\\s*$$\n  ^\\s+Standby\\s+router\\s+is\\s+${STANDBY_IP_ADDRESS}\\s?,\\s+priority\\s+${STANDBY_PRIORITY}\\s+expires\\s+in\\s+${STANDBY_EXPIRE}.*$$\n  # catch clear text authetication:\n  ^\\s+Authentication\\stext\\s+.*$$\n  ^\\s+Authentication\\s+${AUTHENTICATION},.*$$\n  ^\\s+Virtual\\s+mac\\s+address\\s+is\\s+${VIRTUAL_MAC_ADDRESS} \\(${VIRTUAL_MAC_ADDRESS_STATUS}\\)\\s*$$\n  ^\\s+${NUM_STATE_CHANGES}\\s+state\\s+changes,\\s+last\\s+state\\s+change\\s+${LAST_STATE_CHANGE}\\s*$$\n  ^\\s+IP\\s+redundancy\\s+name\\s+is\\s+${SESSION_NAME}\\s.*$$\n  ^\\s+Secondary VIP.*$$\n  # Catch secondary VIPs:\n  ^\\s+\\d+\\.\\d+\\.\\d+\\.\\d+$$\n  # Record data when empty line is found\n  ^\\s*$$ -> Record\n  ^. -> Error\n"
+}

@@ -1,0 +1,290 @@
+{
+  "command": "cisco_nxos_show_ip_arp",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.9565217391304348,
+  "textfsm_rows": 23,
+  "ttp_rows": 22,
+  "ttp_template": "<group name=\"ip_address_age_mac_address_interface\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{AGE}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP_ADDRESS": "1.1.1.2",
+      "AGE": "00:00:57",
+      "MAC_ADDRESS": "3c60.f40e.f9c3",
+      "INTERFACE": "Ethernet1/41"
+    },
+    {
+      "IP_ADDRESS": "1.0.11.2",
+      "AGE": "00:01:02",
+      "MAC_ADDRESS": "3c60.f40e.f9c4",
+      "INTERFACE": "Ethernet1/47"
+    },
+    {
+      "IP_ADDRESS": "10.3.1.101",
+      "AGE": "00:06:06",
+      "MAC_ADDRESS": "d46d.5031.88b0",
+      "INTERFACE": "mgmt0"
+    },
+    {
+      "IP_ADDRESS": "10.3.1.102",
+      "AGE": "00:18:18",
+      "MAC_ADDRESS": "e0ac.b16b.e940",
+      "INTERFACE": "mgmt0"
+    },
+    {
+      "IP_ADDRESS": "10.3.1.104",
+      "AGE": "00:17:17",
+      "MAC_ADDRESS": "e5ac.b16c.aac8",
+      "INTERFACE": "mgmt0"
+    },
+    {
+      "IP_ADDRESS": "10.3.1.105",
+      "AGE": "00:13:08",
+      "MAC_ADDRESS": "d46d.503c.beb0",
+      "INTERFACE": "mgmt0"
+    },
+    {
+      "IP_ADDRESS": "10.3.0.20",
+      "AGE": "00:15:11",
+      "MAC_ADDRESS": "487b.6bad.7b36",
+      "INTERFACE": "mgmt0"
+    },
+    {
+      "IP_ADDRESS": "10.3.0.250",
+      "AGE": "00:14:56",
+      "MAC_ADDRESS": "0000.0c9f.fa14",
+      "INTERFACE": "mgmt0"
+    },
+    {
+      "IP_ADDRESS": "10.3.0.251",
+      "AGE": "00:07:08",
+      "MAC_ADDRESS": "03c5.a4e8.c342",
+      "INTERFACE": "mgmt0"
+    },
+    {
+      "IP_ADDRESS": "10.3.0.252",
+      "AGE": "00:14:14",
+      "MAC_ADDRESS": "02c5.a4ea.56c2",
+      "INTERFACE": "mgmt0"
+    },
+    {
+      "IP_ADDRESS": "192.168.10.12",
+      "AGE": "00:00:57",
+      "MAC_ADDRESS": "8c60.0012.0012",
+      "INTERFACE": "Vlan10"
+    },
+    {
+      "IP_ADDRESS": "10.45.69.110",
+      "AGE": "00:09:49",
+      "MAC_ADDRESS": "70e4.225a.5e6a",
+      "INTERFACE": "Ethernet1/1.2151"
+    },
+    {
+      "IP_ADDRESS": "10.45.69.106",
+      "AGE": "00:00:05",
+      "MAC_ADDRESS": "d46d.501e.2a92",
+      "INTERFACE": "Ethernet1/2.2151"
+    },
+    {
+      "IP_ADDRESS": "10.225.19.113",
+      "AGE": "00:00:57",
+      "MAC_ADDRESS": "8c60.f40e.f9c3",
+      "INTERFACE": "Vlan2051"
+    },
+    {
+      "IP_ADDRESS": "10.254.254.113",
+      "AGE": "00:00:57",
+      "MAC_ADDRESS": "8b60.f40e.f9c3",
+      "INTERFACE": "Vlan2003"
+    },
+    {
+      "IP_ADDRESS": "10.225.19.110",
+      "AGE": "00:09:51",
+      "MAC_ADDRESS": "7ee4.225a.5e6a",
+      "INTERFACE": "Ethernet1/1.2051"
+    },
+    {
+      "IP_ADDRESS": "10.225.19.106",
+      "AGE": "00:00:05",
+      "MAC_ADDRESS": "a16d.501e.2a92",
+      "INTERFACE": "Ethernet1/2.2051"
+    },
+    {
+      "IP_ADDRESS": "10.254.254.106",
+      "AGE": "00:00:05",
+      "MAC_ADDRESS": "a16d.501e.2a92",
+      "INTERFACE": "Ethernet1/2.2003"
+    },
+    {
+      "IP_ADDRESS": "10.254.254.110",
+      "AGE": "00:09:50",
+      "MAC_ADDRESS": "1ee4.125a.5e6a",
+      "INTERFACE": "Ethernet1/1.2003"
+    },
+    {
+      "IP_ADDRESS": "10.15.154.110",
+      "AGE": "00:09:50",
+      "MAC_ADDRESS": "1ee4.125a.5e6a",
+      "INTERFACE": "Ethernet1/1.2103"
+    },
+    {
+      "IP_ADDRESS": "10.15.154.106",
+      "AGE": "00:00:06",
+      "MAC_ADDRESS": "d46d.301e.2a92",
+      "INTERFACE": "Ethernet1/2.2103"
+    },
+    {
+      "IP_ADDRESS": "10.215.51.250",
+      "AGE": "-",
+      "MAC_ADDRESS": "0000.0c9f.f9d3",
+      "INTERFACE": "Vlan2515"
+    },
+    {
+      "IP_ADDRESS": "10.5.6.10",
+      "AGE": "00:00:16",
+      "MAC_ADDRESS": "INCOMPLETE",
+      "INTERFACE": "Vlan1425"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_address_age_mac_address_interface": [
+        {
+          "IP_ADDRESS": "1.1.1.2",
+          "AGE": "00:00:57",
+          "MAC_ADDRESS": "3c60.f40e.f9c3",
+          "INTERFACE": "Ethernet1/41"
+        },
+        {
+          "IP_ADDRESS": "1.0.11.2",
+          "AGE": "00:01:02",
+          "MAC_ADDRESS": "3c60.f40e.f9c4",
+          "INTERFACE": "Ethernet1/47"
+        },
+        {
+          "IP_ADDRESS": "10.3.1.101",
+          "AGE": "00:06:06",
+          "MAC_ADDRESS": "d46d.5031.88b0",
+          "INTERFACE": "mgmt0"
+        },
+        {
+          "IP_ADDRESS": "10.3.1.102",
+          "AGE": "00:18:18",
+          "MAC_ADDRESS": "e0ac.b16b.e940",
+          "INTERFACE": "mgmt0"
+        },
+        {
+          "IP_ADDRESS": "10.3.1.104",
+          "AGE": "00:17:17",
+          "MAC_ADDRESS": "e5ac.b16c.aac8",
+          "INTERFACE": "mgmt0"
+        },
+        {
+          "IP_ADDRESS": "10.3.1.105",
+          "AGE": "00:13:08",
+          "MAC_ADDRESS": "d46d.503c.beb0",
+          "INTERFACE": "mgmt0"
+        },
+        {
+          "IP_ADDRESS": "10.3.0.20",
+          "AGE": "00:15:11",
+          "MAC_ADDRESS": "487b.6bad.7b36",
+          "INTERFACE": "mgmt0"
+        },
+        {
+          "IP_ADDRESS": "10.3.0.250",
+          "AGE": "00:14:56",
+          "MAC_ADDRESS": "0000.0c9f.fa14",
+          "INTERFACE": "mgmt0"
+        },
+        {
+          "IP_ADDRESS": "10.3.0.251",
+          "AGE": "00:07:08",
+          "MAC_ADDRESS": "03c5.a4e8.c342",
+          "INTERFACE": "mgmt0"
+        },
+        {
+          "IP_ADDRESS": "10.3.0.252",
+          "AGE": "00:14:14",
+          "MAC_ADDRESS": "02c5.a4ea.56c2",
+          "INTERFACE": "mgmt0"
+        },
+        {
+          "IP_ADDRESS": "192.168.10.12",
+          "AGE": "00:00:57",
+          "MAC_ADDRESS": "8c60.0012.0012",
+          "INTERFACE": "Vlan10"
+        },
+        {
+          "IP_ADDRESS": "10.45.69.110",
+          "AGE": "00:09:49",
+          "MAC_ADDRESS": "70e4.225a.5e6a",
+          "INTERFACE": "Ethernet1/1.2151"
+        },
+        {
+          "IP_ADDRESS": "10.45.69.106",
+          "AGE": "00:00:05",
+          "MAC_ADDRESS": "d46d.501e.2a92",
+          "INTERFACE": "Ethernet1/2.2151"
+        },
+        {
+          "IP_ADDRESS": "10.225.19.113",
+          "AGE": "00:00:57",
+          "MAC_ADDRESS": "8c60.f40e.f9c3",
+          "INTERFACE": "Vlan2051"
+        },
+        {
+          "IP_ADDRESS": "10.254.254.113",
+          "AGE": "00:00:57",
+          "MAC_ADDRESS": "8b60.f40e.f9c3",
+          "INTERFACE": "Vlan2003"
+        },
+        {
+          "IP_ADDRESS": "10.225.19.110",
+          "AGE": "00:09:51",
+          "MAC_ADDRESS": "7ee4.225a.5e6a",
+          "INTERFACE": "Ethernet1/1.2051"
+        },
+        {
+          "IP_ADDRESS": "10.225.19.106",
+          "AGE": "00:00:05",
+          "MAC_ADDRESS": "a16d.501e.2a92",
+          "INTERFACE": "Ethernet1/2.2051"
+        },
+        {
+          "IP_ADDRESS": "10.254.254.106",
+          "AGE": "00:00:05",
+          "MAC_ADDRESS": "a16d.501e.2a92",
+          "INTERFACE": "Ethernet1/2.2003"
+        },
+        {
+          "IP_ADDRESS": "10.254.254.110",
+          "AGE": "00:09:50",
+          "MAC_ADDRESS": "1ee4.125a.5e6a",
+          "INTERFACE": "Ethernet1/1.2003"
+        },
+        {
+          "IP_ADDRESS": "10.15.154.110",
+          "AGE": "00:09:50",
+          "MAC_ADDRESS": "1ee4.125a.5e6a",
+          "INTERFACE": "Ethernet1/1.2103"
+        },
+        {
+          "IP_ADDRESS": "10.15.154.106",
+          "AGE": "00:00:06",
+          "MAC_ADDRESS": "d46d.301e.2a92",
+          "INTERFACE": "Ethernet1/2.2103"
+        },
+        {
+          "IP_ADDRESS": "10.215.51.250",
+          "AGE": "-",
+          "MAC_ADDRESS": "0000.0c9f.f9d3",
+          "INTERFACE": "Vlan2515"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nFlags: * - Adjacencies learnt on non-active FHRP router\n       + - Adjacencies synced via CFSoE\n       # - Adjacencies Throttled for Glean\n       D - Static Adjacencies attached to down interface\n\nIP ARP Table for all contexts\nTotal number of entries: 22\nAddress         Age       MAC Address     Interface\n1.1.1.2         00:00:57  3c60.f40e.f9c3  Ethernet1/41\n1.0.11.2        00:01:02  3c60.f40e.f9c4  Ethernet1/47\n10.3.1.101      00:06:06  d46d.5031.88b0  mgmt0\n10.3.1.102      00:18:18  e0ac.b16b.e940  mgmt0\n10.3.1.104      00:17:17  e5ac.b16c.aac8  mgmt0\n10.3.1.105      00:13:08  d46d.503c.beb0  mgmt0\n10.3.0.20       00:15:11  487b.6bad.7b36  mgmt0\n10.3.0.250      00:14:56  0000.0c9f.fa14  mgmt0\n10.3.0.251      00:07:08  03c5.a4e8.c342  mgmt0\n10.3.0.252      00:14:14  02c5.a4ea.56c2  mgmt0\n192.168.10.12   00:00:57  8c60.0012.0012  Vlan10\n10.45.69.110    00:09:49  70e4.225a.5e6a  Ethernet1/1.2151\n10.45.69.106    00:00:05  d46d.501e.2a92  Ethernet1/2.2151\n10.225.19.113   00:00:57  8c60.f40e.f9c3  Vlan2051\n10.254.254.113  00:00:57  8b60.f40e.f9c3  Vlan2003\n10.225.19.110   00:09:51  7ee4.225a.5e6a  Ethernet1/1.2051\n10.225.19.106   00:00:05  a16d.501e.2a92  Ethernet1/2.2051\n10.254.254.106  00:00:05  a16d.501e.2a92  Ethernet1/2.2003\n10.254.254.110  00:09:50  1ee4.125a.5e6a  Ethernet1/1.2003\n10.15.154.110   00:09:50  1ee4.125a.5e6a  Ethernet1/1.2103\n10.15.154.106   00:00:06  d46d.301e.2a92  Ethernet1/2.2103\n10.215.51.250      -      0000.0c9f.f9d3  Vlan2515\n10.5.6.10       00:00:16  INCOMPLETE      Vlan1425",
+  "textfsm_template": "Value Required IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue Required AGE (\\S+)\nValue Required MAC_ADDRESS (\\S+)\nValue INTERFACE (\\S+)\n\nStart\n  ^Address\\s+Age\\s+MAC Address\\s+Interface -> Start_record\n\nStart_record\n  ^${IP_ADDRESS}\\s+${AGE}\\s+${MAC_ADDRESS}\\s+${INTERFACE} -> Record\n  ^\\s+$$\n  ^$$\n  ^.* -> Error \"LINE NOT FOUND\"\n"
+}

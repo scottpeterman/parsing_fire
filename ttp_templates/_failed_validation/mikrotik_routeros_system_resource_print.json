@@ -1,0 +1,41 @@
+{
+  "command": "mikrotik_routeros_system_resource_print",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 1,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"architecture_name_bad_blocks_board_name_build_time\">\n  uptime: {{UPTIME | ORPHRASE}}\n  version: {{VERSION | ORPHRASE}}\n  build-time: {{BUILD_TIME | ORPHRASE}}\n  free-memory: {{FREE_MEMORY | ORPHRASE}}\n  total-memory: {{TOTAL_MEMORY | ORPHRASE}}\n  cpu: {{CPU | ORPHRASE}}\n  cpu-frequency: {{CPU_FREQUENCY | ORPHRASE}}\n  cpu-load: {{CPU_LOAD | ORPHRASE}}\n  free-hdd-space: {{FREE_HDD_SPACE | ORPHRASE}}\n  total-hdd-space: {{TOTAL_HDD_SPACE | ORPHRASE}}\n  write-sect-since-reboot: {{WRITE_SECT_SINCE_REBOOT | ORPHRASE}}\n  write-sect-total: {{WRITE_SECT_TOTAL | ORPHRASE}}\n  bad-blocks: {{BAD_BLOCKS | ORPHRASE}}\n  architecture-name: {{ARCHITECTURE_NAME | ORPHRASE}}\n  board-name: {{BOARD_NAME | ORPHRASE}}\n  platform: {{PLATFORM | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "UPTIME": "6w5d11h55m45s",
+      "UPTIME_WEEKS": "6",
+      "UPTIME_DAYS": "5",
+      "UPTIME_HOURS": "11",
+      "UPTIME_MINUTES": "55",
+      "UPTIME_SECONDS": "45",
+      "VERSION": "6.48.6 (long-term)",
+      "BUILD_TIME": "Dec/03/2021 12:15:05",
+      "FREE_MEMORY": "40.2MiB",
+      "TOTAL_MEMORY": "64.0MiB",
+      "CPU": "MIPS 24Kc V7.4",
+      "CPU_COUNT": "1",
+      "CPU_FREQUENCY": "650MHz",
+      "CPU_LOAD": "1%",
+      "FREE_HDD_SPACE": "1196.0KiB",
+      "TOTAL_HDD_SPACE": "16.0MiB",
+      "WRITE_SECT_SINCE_REBOOT": "44663",
+      "WRITE_SECT_TOTAL": "572180",
+      "BAD_BLOCKS": "0%",
+      "ARCHITECTURE_NAME": "mipsbe",
+      "BOARD_NAME": "hEX PoE lite",
+      "PLATFORM": "MikroTik"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "                   uptime: 6w5d11h55m45s\n                  version: 6.48.6 (long-term)\n               build-time: Dec/03/2021 12:15:05\n              free-memory: 40.2MiB\n             total-memory: 64.0MiB\n                      cpu: MIPS 24Kc V7.4\n                cpu-count: 1\n            cpu-frequency: 650MHz\n                 cpu-load: 1%\n           free-hdd-space: 1196.0KiB\n          total-hdd-space: 16.0MiB\n  write-sect-since-reboot: 44663\n         write-sect-total: 572180\n               bad-blocks: 0%\n        architecture-name: mipsbe\n               board-name: hEX PoE lite\n                 platform: MikroTik\n",
+  "textfsm_template": "Value UPTIME (\\w+)\nValue UPTIME_WEEKS (\\d+)\nValue UPTIME_DAYS (\\d+)\nValue UPTIME_HOURS (\\d+)\nValue UPTIME_MINUTES (\\d+)\nValue UPTIME_SECONDS (\\d+)\nValue VERSION (.+)\nValue BUILD_TIME ([A-Za-z]{3}\\/\\d{1,2}\\/\\d{4} \\d{2}:\\d{2}:\\d{2})\nValue FACTORY_SOFTWARE (\\S+)\nValue FREE_MEMORY (\\d+\\.\\d{1}(K|M|G)iB)\nValue TOTAL_MEMORY (\\d+\\.\\d{1}(K|M|G)iB)\nValue CPU (.+)\nValue CPU_COUNT (\\d+)\nValue CPU_FREQUENCY (\\d+(M|G)Hz)\nValue CPU_LOAD (\\d{1,3}%)\nValue FREE_HDD_SPACE (\\d+\\.\\d{1}(K|M|G)iB)\nValue TOTAL_HDD_SPACE (\\d+\\.\\d{1}(K|M|G)iB)\nValue WRITE_SECT_SINCE_REBOOT (\\d+)\nValue WRITE_SECT_TOTAL (\\d+)\nValue BAD_BLOCKS (\\d{1,3}(\\.\\d+)?%)\nValue ARCHITECTURE_NAME (powerpc|x86|mipsbe|mipsle)\nValue BOARD_NAME (.+)\nValue PLATFORM (.+)\n\nStart\n  ^\\s*uptime\\:\\s+${UPTIME}\\s*$$ -> Continue\n  ^\\s*uptime\\:\\s+(?:${UPTIME_WEEKS}w)?(?:${UPTIME_DAYS}d)?(?:${UPTIME_HOURS}h)?(?:${UPTIME_MINUTES}m)?(?:${UPTIME_SECONDS}s)?\\s*$$\n  ^\\s*version\\:\\s+${VERSION}\\s*$$\n  ^\\s*build\\-time\\:\\s+${BUILD_TIME}\\s*$$\n  ^\\s*factory\\-software\\:\\s+${FACTORY_SOFTWARE}\\s*$$\n  ^\\s*free\\-memory\\:\\s+${FREE_MEMORY}\\s*$$\n  ^\\s*total\\-memory\\:\\s+${TOTAL_MEMORY}\\s*$$\n  ^\\s*cpu\\:\\s+${CPU}\\s*$$\n  ^\\s*cpu\\-count\\:\\s+${CPU_COUNT}\\s*$$\n  ^\\s*cpu\\-frequency\\:\\s+${CPU_FREQUENCY}\\s*$$\n  ^\\s*cpu\\-load\\:\\s+${CPU_LOAD}\\s*$$\n  ^\\s*free\\-hdd\\-space\\:\\s+${FREE_HDD_SPACE}\\s*$$\n  ^\\s*total\\-hdd\\-space\\:\\s+${TOTAL_HDD_SPACE}\\s*$$\n  ^\\s*write\\-sect\\-since\\-reboot\\:\\s+${WRITE_SECT_SINCE_REBOOT}\\s*$$\n  ^\\s*write\\-sect\\-total\\:\\s+${WRITE_SECT_TOTAL}\\s*$$\n  ^\\s*bad\\-blocks\\:\\s+${BAD_BLOCKS}\\s*$$\n  ^\\s*architecture\\-name\\:\\s+${ARCHITECTURE_NAME}\\s*$$\n  ^\\s*board\\-name\\:\\s+${BOARD_NAME}\\s*$$\n  ^\\s*platform\\:\\s+${PLATFORM}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

@@ -1,0 +1,38 @@
+{
+  "command": "cisco_ios_show_power_available",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"backplane_avail_watts_backplane_used_watts_inline_avail_watts_inline_used_watts\">\nSystem Power (12V)  {{SYS_USED_WATTS}}  {{SYS_AVAIL_WATTS | ORPHRASE}}\nInline Power (-50V)  {{INLINE_USED_WATTS}}  {{INLINE_AVAIL_WATTS | ORPHRASE}}\nBackplane Power (3.3V)  {{BACKPLANE_USED_WATTS | ORPHRASE}}  {{BACKPLANE_AVAIL_WATTS}}\nTotal  {{TOTAL_USED_WATTS}} (not to exceed Total Maximum Available = {{MAX_AVAIL_WATTS | ORPHRASE}})\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SYS_USED_WATTS": "971",
+      "SYS_AVAIL_WATTS": "1360",
+      "INLINE_USED_WATTS": "683",
+      "INLINE_AVAIL_WATTS": "3189",
+      "BACKPLANE_USED_WATTS": "40",
+      "BACKPLANE_AVAIL_WATTS": "40",
+      "TOTAL_USED_WATTS": "1694",
+      "MAX_AVAIL_WATTS": "4200"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "backplane_avail_watts_backplane_used_watts_inline_avail_watts_inline_used_watts": {
+        "TOTAL_USED_WATTS": "1694",
+        "MAX_AVAIL_WATTS": "4200",
+        "BACKPLANE_USED_WATTS": "40",
+        "BACKPLANE_AVAIL_WATTS": "40",
+        "INLINE_USED_WATTS": "683",
+        "INLINE_AVAIL_WATTS": "3189",
+        "SYS_USED_WATTS": "971",
+        "SYS_AVAIL_WATTS": "1360"
+      }
+    }
+  ],
+  "cli_content": "Power Summary                      Maximum\n (in Watts)              Used     Available\n----------------------   ----     ---------\nSystem Power (12V)        971        1360\nInline Power (-50V)       683        3189\nBackplane Power (3.3V)     40          40\n----------------------   ----     ---------\nTotal                    1694 (not to exceed Total Maximum Available = 4200)\n\nPower Measurement    Inline Power (-50V)\n(in Watts)             (+/- 50Watts)\n------------------   -------------------\nPS1                         250\nPS2                         100\n------------------   -------------------\nTotal                       350\n",
+  "textfsm_template": "####\n# For 4500 switches\n###\nValue SYS_USED_WATTS (\\d+)\nValue SYS_AVAIL_WATTS (\\d+)\nValue INLINE_USED_WATTS (\\d+)\nValue INLINE_AVAIL_WATTS (\\d+)\nValue BACKPLANE_USED_WATTS (\\d+)\nValue BACKPLANE_AVAIL_WATTS (\\d+)\nValue TOTAL_USED_WATTS (\\d+)\nValue MAX_AVAIL_WATTS (\\d+)\n\nStart\n  ^Power.*Maximum -> SUMMARY\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n\nSUMMARY\n  ^System Power \\(12V\\)\\s+${SYS_USED_WATTS}\\s+${SYS_AVAIL_WATTS} -> Continue\n  ^Inline Power \\(-50V\\)\\s+${INLINE_USED_WATTS}\\s+${INLINE_AVAIL_WATTS} -> Continue\n  ^Backplane Power \\(3.3V\\)\\s+${BACKPLANE_USED_WATTS}\\s+${BACKPLANE_AVAIL_WATTS} -> Continue\n  # Capture output that uses a phrase like not to exceed Total Maximum Available\n  ^Total\\s+${TOTAL_USED_WATTS}.*Available\\s=\\s${MAX_AVAIL_WATTS}\n  # Capture output that only displays digits\n  ^Total\\s+${TOTAL_USED_WATTS}\\s+${MAX_AVAIL_WATTS}\n\n"
+}

@@ -1,0 +1,62 @@
+{
+  "command": "show interface",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"interface_status_protocol_description\">\n{{INTERFACE}} {{STATUS | ORPHRASE}} {{PROTOCOL}} {{DESCRIPTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "eth0",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "Main Uplink"
+    },
+    {
+      "INTERFACE": "eth1",
+      "STATUS": "up",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "Backup Link"
+    },
+    {
+      "INTERFACE": "eth2",
+      "STATUS": "down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "Maintenance"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_status_protocol_description": [
+        {
+          "INTERFACE": "Interface",
+          "STATUS": "Status",
+          "PROTOCOL": "Protocol",
+          "DESCRIPTION": "Description"
+        },
+        {
+          "INTERFACE": "eth0",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "Main Uplink"
+        },
+        {
+          "INTERFACE": "eth1",
+          "STATUS": "up",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "Backup Link"
+        },
+        {
+          "INTERFACE": "eth2",
+          "STATUS": "down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "Maintenance"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface    Status         Protocol      Description\neth0         up             up            Main Uplink\neth1         up             down          Backup Link\neth2         down           down          Maintenance\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue STATUS (\\S+)\nValue PROTOCOL (\\S+)\nValue DESCRIPTION (.+)\n\nStart\n  ^\\s*Interface\\s+Status\\s+Protocol\\s+Description\\s*$$\n  ^\\s*${INTERFACE}\\s+${STATUS}\\s+${PROTOCOL}\\s+${DESCRIPTION}\\s*$$ -> Record"
+}

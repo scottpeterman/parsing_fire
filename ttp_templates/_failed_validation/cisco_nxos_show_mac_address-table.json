@@ -1,0 +1,44 @@
+{
+  "command": "cisco_nxos_show_mac_address-table",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 3,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"vlan_id_mac_address_secure_type_ntfy_ports\">\nG {{VLAN_ID | re(\"\\\\d+\")}} {{MAC_ADDRESS | re(\"[0{{AGE | re(\".*\\\\w.*\")}}9a-fA-{{SECURE}}:.-]+\")}} {{TYPE}} - {{NTFY}} F {{PORTS | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "VLAN_ID": "100",
+      "MAC_ADDRESS": "5087.89a1.de75",
+      "TYPE": "static",
+      "AGE": "-",
+      "SECURE": "F",
+      "NTFY": "F",
+      "PORTS": "sup-eth1(R)"
+    },
+    {
+      "VLAN_ID": "145",
+      "MAC_ADDRESS": "000a.000a.000a",
+      "TYPE": "static",
+      "AGE": "-",
+      "SECURE": "F",
+      "NTFY": "F",
+      "PORTS": "Drop"
+    },
+    {
+      "VLAN_ID": "145",
+      "MAC_ADDRESS": "000e.000e.000e",
+      "TYPE": "static",
+      "AGE": "-",
+      "SECURE": "F",
+      "NTFY": "F",
+      "PORTS": "Po10"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Legend:\n        * - primary entry, G - Gateway MAC, (R) - Routed MAC, O - Overlay MAC\n        age - seconds since last seen,+ - primary entry using vPC Peer-Link,\n        (T) - True, (F) - False\n     VLAN       MAC Address       Type     age    Secure  NTFY     Ports\n------------+-----------------+----------+-------+------+------+------------------\nG    100      5087.89a1.de75     static     -        F      F    sup-eth1(R)\n*    145        000a.000a.000a   static     -        F      F    Drop\n*    145        000e.000e.000e   static     -        F      F    Po10\n\n",
+  "textfsm_template": "Value VLAN_ID (\\S+)\nValue MAC_ADDRESS (\\S+)\nValue TYPE (\\S+)\nValue AGE (\\S+)\nValue SECURE ([TF])\nValue NTFY ([TF])\nValue PORTS (\\S+)\n\nStart\n  ^VLAN\\s+MAC\\s+Address\\s+Type\\s+age\\s+Secure\\s+NTFY\\s+Ports -> Continue\n  ^.*\\s${VLAN_ID}\\s+${MAC_ADDRESS}\\s+${TYPE}\\s+${AGE}\\s+${SECURE}\\s+${NTFY}\\s+${PORTS} -> Record\n"
+}

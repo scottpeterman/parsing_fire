@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show license usage
+# Source: chatgpt
+# TextFSM rows: 9
+# TTP rows: 10
+# Match ratio: 1.11
+
+<group name="feature_usage_entitlement_status">
+{{FEATURE | ORPHRASE}} {{USAGE}} {{ENTITLEMENT}} {{STATUS | ORPHRASE}}
+</group>

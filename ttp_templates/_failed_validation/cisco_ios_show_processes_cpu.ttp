@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: cisco_ios_show_processes_cpu
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="cpu_5_min_interrupts_cpu_1_min">
+CPU utilization for five seconds: {{CPU_{{CPU_5_MIN | ORPHRASE}}_SEC}}%/{{INTERRUPTS}}%; one minute: {{CPU_1_MIN}}%; five minutes: 5%
+</group>

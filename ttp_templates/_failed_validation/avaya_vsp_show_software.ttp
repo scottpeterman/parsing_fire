@@ -1,0 +1,12 @@
+# TTP Template - FAILED VALIDATION
+# Original command: avaya_vsp_show_software
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="auto_commit_backup_release_commit_timeout_primary_release">
+  software releases in {{RELEASE_LOCATION | ORPHRASE}}
+{{BACKUP_RELEASE | ORPHRASE}} (Backup Release)
+{{PRIMARY_RELEASE | ORPHRASE}} (Primary Release)
+Auto Commit  : {{AUTO_COMMIT | ORPHRASE}}
+Commit Timeout  : {{COMMIT_TIMEOUT | ORPHRASE}}
+</group>

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: juniper_junos_show_lacp_interfaces
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 7
+# Match ratio: 1.75
+
+<group name="member_interface_receive_state_transmit_state_mux_state">
+      {{MEMBER_INTERFACE | ORPHRASE}} {{RECEIVE_STATE | ORPHRASE}} {{TRANSMIT_STATE | ORPHRASE}} {{MUX_STATE | ORPHRASE}}
+</group>

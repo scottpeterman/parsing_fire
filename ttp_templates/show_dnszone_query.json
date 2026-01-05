@@ -1,0 +1,35 @@
+{
+  "command": "show dnszone query",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"additional_answers_authority_flags\">\nfqdn: {{FQDN | ORPHRASE}}\nqlen: {{QLEN | ORPHRASE}}\nflags: {{FLAGS | ORPHRASE}}\nipindex: {{IPINDEX | ORPHRASE}}\nquestions: {{QUESTIONS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FQDN": "example.com",
+      "QLEN": "0",
+      "FLAGS": "0x20a00000",
+      "IPINDEX": "v4",
+      "QUESTIONS": "1",
+      "ANSWERS": "2",
+      "AUTHORITY": "0",
+      "ADDITIONAL": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "additional_answers_authority_flags": {
+        "QUESTIONS": "1",
+        "IPINDEX": "v4",
+        "FLAGS": "0x20a00000",
+        "QLEN": "0",
+        "FQDN": "example.com"
+      }
+    }
+  ],
+  "cli_content": "fqdn: example.com\nqlen: 0\nflags: 0x20a00000\nipindex: v4\nquestions: 1\nanswers: 2\nauthority: 0\nadditional: 0\n\nquery: example.com IN A\nanswer: 192.0.2.1\nanswer: 192.0.2.2\n",
+  "textfsm_template": "Value FQDN (\\S+)\nValue QLEN (\\d+)\nValue FLAGS (\\S+)\nValue IPINDEX (\\S+)\nValue QUESTIONS (\\d+)\nValue ANSWERS (\\d+)\nValue AUTHORITY (\\d+)\nValue ADDITIONAL (\\d+)\n\nStart\n  ^fqdn:\\s+${FQDN}\\s*$$\n  ^qlen:\\s+${QLEN}\\s*$$\n  ^flags:\\s+${FLAGS}\\s*$$\n  ^ipindex:\\s+${IPINDEX}\\s*$$\n  ^questions:\\s+${QUESTIONS}\\s*$$\n  ^answers:\\s+${ANSWERS}\\s*$$\n  ^authority:\\s+${AUTHORITY}\\s*$$\n  ^additional:\\s+${ADDITIONAL}\\s*$$"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: alcatel_sros_show_router_ospf_interface
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="interface_area_desig_rtr_bkup_desig_rtr_admin_state_oper_state">
+{{INTERFACE}} {{AREA}} {{DESIG_RTR}} {{BKUP_DESIG_RTR}} {{ADMIN_STATE | ORPHRASE}} {{OPER_STATE | ORPHRASE}}
+</group>

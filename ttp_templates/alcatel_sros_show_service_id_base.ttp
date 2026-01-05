@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: alcatel_sros_show_service_id_base
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="admin_state_customer_id_description_mtu">
+Service Id  : {{SERVICE_ID | ORPHRASE}}  Vpn Id  : 0
+Description  : {{DESCRIPTION | ORPHRASE}}
+Customer Id  : {{CUSTOMER_ID | ORPHRASE}}  
+Admin State  : {{ADMIN_STATE | ORPHRASE}}  Oper State  : {{OPER_STATE | ORPHRASE}}
+MTU  : {{MTU | ORPHRASE}}  Def. Mesh VC Id  : 1099
+</group>

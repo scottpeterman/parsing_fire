@@ -1,0 +1,13 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show mpls ldp neighbors
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="discovery_source_addr_interface_msgs_rcvd_msgs_sent">
+  State: {{STATE | ORPHRASE}}; Msgs sent/rcvd: 5460/5475; Downstream
+  Peer LDP Identifier: {{PEER_LDP_IDENTIFIER | ORPHRASE}}
+  TCP connection: {{TCP_CONNECTION | ORPHRASE}}
+  State: Oper; Msgs sent/rcvd: {{MSGS_SENT}}/{{MSGS_RCVD | ORPHRASE}}; Downstream
+  Up time: {{UPTIME | ORPHRASE}}
+  {{INTERFACE | ORPHRASE}} -- 10.2.2.2
+</group>

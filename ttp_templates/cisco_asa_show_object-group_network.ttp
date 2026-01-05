@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_object-group_network
+# Source: ntc
+# TextFSM rows: 14
+# TTP rows: 21
+# Match ratio: 1.50
+
+<group name="description_name">
+object-group network {{NAME | ORPHRASE}}
+<group name="netmask_network_type">
+ {{TYPE}}-object {{NETWORK}} {{NETMASK | ORPHRASE}}
+</group>
+</group>

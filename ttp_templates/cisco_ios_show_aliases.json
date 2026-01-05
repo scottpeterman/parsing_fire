@@ -1,0 +1,120 @@
+{
+  "command": "cisco_ios_show_aliases",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.2,
+  "textfsm_rows": 10,
+  "ttp_rows": 12,
+  "ttp_template": "<group name=\"alias_command\">\n  {{ALIAS}} {{COMMAND | ORPHRASE}}\n</group>\n<group name=\"mode_alias\">\n{{MODE | ORPHRASE}} alia{{ALIAS | ORPHRASE}}es:\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "MODE": "Exec mode",
+      "ALIAS": "h",
+      "COMMAND": "help"
+    },
+    {
+      "MODE": "Exec mode",
+      "ALIAS": "lo",
+      "COMMAND": "logout"
+    },
+    {
+      "MODE": "Exec mode",
+      "ALIAS": "p",
+      "COMMAND": "ping"
+    },
+    {
+      "MODE": "Exec mode",
+      "ALIAS": "r",
+      "COMMAND": "resume"
+    },
+    {
+      "MODE": "Exec mode",
+      "ALIAS": "s",
+      "COMMAND": "show"
+    },
+    {
+      "MODE": "Exec mode",
+      "ALIAS": "u",
+      "COMMAND": "undebug"
+    },
+    {
+      "MODE": "Exec mode",
+      "ALIAS": "un",
+      "COMMAND": "undebug"
+    },
+    {
+      "MODE": "Exec mode",
+      "ALIAS": "w",
+      "COMMAND": "where"
+    },
+    {
+      "MODE": "Exec mode",
+      "ALIAS": "sps",
+      "COMMAND": "show platform software vnic-if interface-mapping"
+    },
+    {
+      "MODE": "ATM virtual circuit configuration mode",
+      "ALIAS": "vbr",
+      "COMMAND": "vbr-nrt"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "alias_command": [
+        {
+          "ALIAS": "h",
+          "COMMAND": "help"
+        },
+        {
+          "ALIAS": "lo",
+          "COMMAND": "logout"
+        },
+        {
+          "ALIAS": "p",
+          "COMMAND": "ping"
+        },
+        {
+          "ALIAS": "r",
+          "COMMAND": "resume"
+        },
+        {
+          "ALIAS": "s",
+          "COMMAND": "show"
+        },
+        {
+          "ALIAS": "u",
+          "COMMAND": "undebug"
+        },
+        {
+          "ALIAS": "un",
+          "COMMAND": "undebug"
+        },
+        {
+          "ALIAS": "w",
+          "COMMAND": "where"
+        },
+        {
+          "ALIAS": "sps",
+          "COMMAND": "show platform software vnic-if interface-mapping"
+        },
+        {
+          "ALIAS": "vbr",
+          "COMMAND": "vbr-nrt"
+        }
+      ],
+      "mode_alias": [
+        {
+          "MODE": "Exec mode",
+          "ALIAS": "s"
+        },
+        {
+          "MODE": "ATM virtual circuit configuration mode",
+          "ALIAS": "s"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Exec mode aliases:\n  h                     help\n  lo                    logout\n  p                     ping\n  r                     resume\n  s                     show\n  u                     undebug\n  un                    undebug\n  w                     where\n  sps                   show platform software vnic-if interface-mapping\n\nATM virtual circuit configuration mode aliases:\n  vbr                   vbr-nrt",
+  "textfsm_template": "Value Filldown MODE (((\\w+)(\\s)?){1,})\nValue ALIAS (\\w+)\nValue COMMAND ((\\w+(\\s|\\S))+)\n\nStart\n  ^${MODE}\\saliases: -> ALIAS\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n\nALIAS\n  ^${MODE}\\saliases: -> ALIAS  \n  ^\\s+${ALIAS}\\s+${COMMAND} -> Record"
+}

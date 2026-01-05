@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: brocade_netiron_show_interfaces_brief
+# Source: ntc
+# TextFSM rows: 11
+# TTP rows: 1
+# Match ratio: 0.09
+
+<group name="interface_linkstate_portstate_duplex_speed_trunkid_tagonly_priority_mac">
+{{interface}} {{linkstate | ORPHRASE}} {{portstate | ORPHRASE}} {{duplex}} {{speed}} {{trunkid}} {{tagonly}} {{priority}} {{mac | ORPHRASE}} ATM1-G0-1 default-port 
+</group>

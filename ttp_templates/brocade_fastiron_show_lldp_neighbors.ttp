@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: brocade_fastiron_show_lldp_neighbors
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="neighbor_name_local_interface_holdtime_capabilities_neighbor_interface">
+{{NEIGHBOR_NAME}} {{LOCAL_INTERFACE}} {{HOLDTIME}} {{CAPABILITIES}} {{NEIGHBOR_INTERFACE | ORPHRASE}}
+</group>

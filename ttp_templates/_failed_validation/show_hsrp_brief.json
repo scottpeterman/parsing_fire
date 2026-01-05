@@ -1,0 +1,47 @@
+{
+  "command": "show hsrp brief",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 3,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"p_group_priority_state_active_standby_virtual_ip\">\n{{INTERF{{P}}CE}} {{GROUP}} {{PRIORITY}} A {{STATE | ORPHRASE}} {{ACTIVE}} {{STANDBY}} {{VIRTUAL_IP | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Gi1/0/1",
+      "GROUP": "10",
+      "PRIORITY": "110",
+      "P": "A",
+      "STATE": "Active",
+      "ACTIVE": "192.168.1.2",
+      "STANDBY": "192.168.1.3",
+      "VIRTUAL_IP": "192.168.1.1"
+    },
+    {
+      "INTERFACE": "Gi1/0/2",
+      "GROUP": "20",
+      "PRIORITY": "100",
+      "P": "A",
+      "STATE": "Standby",
+      "ACTIVE": "192.168.2.2",
+      "STANDBY": "192.168.2.1",
+      "VIRTUAL_IP": "192.168.2.1"
+    },
+    {
+      "INTERFACE": "Gi1/0/3",
+      "GROUP": "30",
+      "PRIORITY": "50",
+      "P": "A",
+      "STATE": "Init",
+      "ACTIVE": "192.168.3.2",
+      "STANDBY": "192.168.3.3",
+      "VIRTUAL_IP": "192.168.3.1"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Interface   Grp  Pri P State   Active          Standby         Virtual IP\nGi1/0/1     10   110 A Active  192.168.1.2     192.168.1.3     192.168.1.1\nGi1/0/2     20   100 A Standby 192.168.2.2     192.168.2.1     192.168.2.1\nGi1/0/3     30   50  A Init    192.168.3.2     192.168.3.3     192.168.3.1\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue GROUP (\\d+)\nValue PRIORITY (\\d+)\nValue P (\\S+)\nValue STATE (\\S+)\nValue ACTIVE (\\S+)\nValue STANDBY (\\S+)\nValue VIRTUAL_IP (\\S+)\n\nStart\n  ^\\s*Interface\\s+Grp\\s+Pri\\s+P\\s+State\\s+Active\\s+Standby\\s+Virtual\\sIP\\s*$$\n  ^\\s*${INTERFACE}\\s+${GROUP}\\s+${PRIORITY}\\s+${P}\\s+${STATE}\\s+${ACTIVE}\\s+${STANDBY}\\s+${VIRTUAL_IP}\\s*$$ -> Record"
+}

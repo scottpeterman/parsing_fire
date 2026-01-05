@@ -1,0 +1,74 @@
+{
+  "command": "show interfaces description",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"interface_status_protocol_description\">\n{{INTERFACE}} {{STATUS | ORPHRASE}} {{PROTOCOL}} {{DESCRIPTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Gi0/0",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "Connects to Router1"
+    },
+    {
+      "INTERFACE": "Gi0/1",
+      "STATUS": "down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "Unused Port"
+    },
+    {
+      "INTERFACE": "Gi0/2",
+      "STATUS": "administratively down",
+      "PROTOCOL": "down",
+      "DESCRIPTION": "Backup Connection"
+    },
+    {
+      "INTERFACE": "Gi0/3",
+      "STATUS": "up",
+      "PROTOCOL": "up",
+      "DESCRIPTION": "Link to Switch2"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_status_protocol_description": [
+        {
+          "INTERFACE": "Interface",
+          "STATUS": "Status",
+          "PROTOCOL": "Protocol",
+          "DESCRIPTION": "Description"
+        },
+        {
+          "INTERFACE": "Gi0/0",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "Connects to Router1"
+        },
+        {
+          "INTERFACE": "Gi0/1",
+          "STATUS": "down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "Unused Port"
+        },
+        {
+          "INTERFACE": "Gi0/2",
+          "STATUS": "administratively down",
+          "PROTOCOL": "down",
+          "DESCRIPTION": "Backup Connection"
+        },
+        {
+          "INTERFACE": "Gi0/3",
+          "STATUS": "up",
+          "PROTOCOL": "up",
+          "DESCRIPTION": "Link to Switch2"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              Status         Protocol        Description\nGi0/0                  up             up              Connects to Router1\nGi0/1                  down           down            Unused Port\nGi0/2                  administratively down down     Backup Connection\nGi0/3                  up             up              Link to Switch2\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue STATUS (up|down|administratively down)\nValue PROTOCOL (up|down)\nValue DESCRIPTION (.+)\n\nStart\n  ^Interface\\s+Status\\s+Protocol\\s+Description\\s*$$\n  ^${INTERFACE}\\s+${STATUS}\\s+${PROTOCOL}\\s+${DESCRIPTION}\\s*$$ -> Record"
+}

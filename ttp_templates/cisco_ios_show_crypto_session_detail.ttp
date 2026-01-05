@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_crypto_session_detail
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="peer_port_fvrf_ivrf">
+Peer: {{PEER}} port {{PORT | re("\\d+")}} fvrf: {{FVRF | ORPHRASE}} ivrf: {{IVRF}}
+</group>

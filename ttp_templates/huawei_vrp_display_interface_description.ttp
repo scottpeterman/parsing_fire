@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_vrp_display_interface_description
+# Source: ntc
+# TextFSM rows: 30
+# TTP rows: 40
+# Match ratio: 1.33
+
+<group name="interface_phy_protocol_description">
+{{INTERFACE}} {{PHY}} {{PROTOCOL}} {{DESCRIPTION | ORPHRASE}}
+</group>
+<group name="interface_phy_protocol">
+{{INTERFACE}} {{PHY | ORPHRASE}} {{PROTOCOL}}
+</group>

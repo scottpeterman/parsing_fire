@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_interface_description
+# Source: ntc
+# TextFSM rows: 96
+# TTP rows: 109
+# Match ratio: 1.14
+
+<group name="port_type_speed_description">
+{{PORT}} {{TYPE}} {{SPEED}} {{DESCRIPTION | ORPHRASE}}
+</group>

@@ -1,0 +1,128 @@
+{
+  "command": "juniper_junos_show_arp_no-resolve",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 9,
+  "ttp_rows": 9,
+  "ttp_template": "<group name=\"mac_address_ip_address_interface_flags\">\n{{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE}} {{FLAGS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "MAC_ADDRESS": "00:00:00:00:00:04",
+      "IP_ADDRESS": "10.1.100.130",
+      "INTERFACE": "vlan.20",
+      "FLAGS": "none"
+    },
+    {
+      "MAC_ADDRESS": "00:00:00:00:00:05",
+      "IP_ADDRESS": "10.1.100.132",
+      "INTERFACE": "vlan.20",
+      "FLAGS": "none"
+    },
+    {
+      "MAC_ADDRESS": "00:00:00:00:00:08",
+      "IP_ADDRESS": "10.1.100.72",
+      "INTERFACE": "vlan.20",
+      "FLAGS": "none"
+    },
+    {
+      "MAC_ADDRESS": "00:00:00:00:00:09",
+      "IP_ADDRESS": "10.1.100.73",
+      "INTERFACE": "vlan.20",
+      "FLAGS": "none"
+    },
+    {
+      "MAC_ADDRESS": "00:00:00:00:00:0a",
+      "IP_ADDRESS": "10.1.100.74",
+      "INTERFACE": "vlan.20",
+      "FLAGS": "none"
+    },
+    {
+      "MAC_ADDRESS": "00:00:00:00:00:0b",
+      "IP_ADDRESS": "10.1.100.75",
+      "INTERFACE": "vlan.20",
+      "FLAGS": "none"
+    },
+    {
+      "MAC_ADDRESS": "00:00:00:00:00:0c",
+      "IP_ADDRESS": "10.1.100.76",
+      "INTERFACE": "vlan.20",
+      "FLAGS": "none"
+    },
+    {
+      "MAC_ADDRESS": "00:00:00:00:11:11",
+      "IP_ADDRESS": "10.1.111.11",
+      "INTERFACE": "vlan.20",
+      "FLAGS": "none"
+    },
+    {
+      "MAC_ADDRESS": "00:00:00:00:13:13",
+      "IP_ADDRESS": "10.1.13.13",
+      "INTERFACE": "vlan.20",
+      "FLAGS": "none"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "mac_address_ip_address_interface_flags": [
+        {
+          "MAC_ADDRESS": "00:00:00:00:00:04",
+          "IP_ADDRESS": "10.1.100.130",
+          "INTERFACE": "vlan.20",
+          "FLAGS": "none"
+        },
+        {
+          "MAC_ADDRESS": "00:00:00:00:00:05",
+          "IP_ADDRESS": "10.1.100.132",
+          "INTERFACE": "vlan.20",
+          "FLAGS": "none"
+        },
+        {
+          "MAC_ADDRESS": "00:00:00:00:00:08",
+          "IP_ADDRESS": "10.1.100.72",
+          "INTERFACE": "vlan.20",
+          "FLAGS": "none"
+        },
+        {
+          "MAC_ADDRESS": "00:00:00:00:00:09",
+          "IP_ADDRESS": "10.1.100.73",
+          "INTERFACE": "vlan.20",
+          "FLAGS": "none"
+        },
+        {
+          "MAC_ADDRESS": "00:00:00:00:00:0a",
+          "IP_ADDRESS": "10.1.100.74",
+          "INTERFACE": "vlan.20",
+          "FLAGS": "none"
+        },
+        {
+          "MAC_ADDRESS": "00:00:00:00:00:0b",
+          "IP_ADDRESS": "10.1.100.75",
+          "INTERFACE": "vlan.20",
+          "FLAGS": "none"
+        },
+        {
+          "MAC_ADDRESS": "00:00:00:00:00:0c",
+          "IP_ADDRESS": "10.1.100.76",
+          "INTERFACE": "vlan.20",
+          "FLAGS": "none"
+        },
+        {
+          "MAC_ADDRESS": "00:00:00:00:11:11",
+          "IP_ADDRESS": "10.1.111.11",
+          "INTERFACE": "vlan.20",
+          "FLAGS": "none"
+        },
+        {
+          "MAC_ADDRESS": "00:00:00:00:13:13",
+          "IP_ADDRESS": "10.1.13.13",
+          "INTERFACE": "vlan.20",
+          "FLAGS": "none"
+        }
+      ]
+    }
+  ],
+  "cli_content": "MAC Address       Address         Interface     Flags\n00:00:00:00:00:04 10.1.100.130    vlan.20        none\n00:00:00:00:00:05 10.1.100.132    vlan.20        none\n00:00:00:00:00:08 10.1.100.72     vlan.20        none\n00:00:00:00:00:09 10.1.100.73     vlan.20        none\n00:00:00:00:00:0a 10.1.100.74     vlan.20        none\n00:00:00:00:00:0b 10.1.100.75     vlan.20        none\n00:00:00:00:00:0c 10.1.100.76     vlan.20        none\n00:00:00:00:11:11 10.1.111.11     vlan.20        none\n00:00:00:00:13:13 10.1.13.13      vlan.20        none\nTotal entries: 9\n\n{master:0}\n",
+  "textfsm_template": "Value Required MAC_ADDRESS ([A-Fa-f0-9\\:]{17})\nValue Required IP_ADDRESS ([A-Fa-f0-9:\\.]+)\nValue Required INTERFACE (\\S+)\nValue FLAGS (\\S+)\n\nStart\n  ^MAC\\s+Address\\s+Address\\s+Interface\\s+Flags\\s*$$\n  ^${MAC_ADDRESS}\\s+${IP_ADDRESS}\\s+${INTERFACE}\\s+${FLAGS} -> Record\n  ^Total.*\n  ^\\s*$$\n  ^{master:\\d+}\n  ^. -> Error\n"
+}

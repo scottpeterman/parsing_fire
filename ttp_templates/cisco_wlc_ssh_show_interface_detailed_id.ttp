@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_interface_detailed_id
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="gateway_interface_name_ip_address_mac_address">
+Interface Name................................... {{INTERFACE_NAME | ORPHRASE}}
+MAC Address...................................... {{MAC_ADDRESS | ORPHRASE}}
+IP Address....................................... {{IP_ADDRESS | ORPHRASE}}
+IP Netmask....................................... {{NETMASK | ORPHRASE}}
+IP Gateway....................................... {{GATEWAY | ORPHRASE}}
+Primary DHCP Server.............................. {{PRIMARY_DHCP_SERVER | ORPHRASE}}
+Secondary DHCP Server............................ {{SECONDARY_DHCP_SERVER | ORPHRASE}}
+</group>

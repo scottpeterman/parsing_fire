@@ -1,0 +1,62 @@
+{
+  "command": "paloalto_panos_show_mac_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"vlan_id_mac_address_interface_status_ttl\">\n{{VLAN_ID}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{INTERFACE}} {{STATUS | ORPHRASE}} {{TTL | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN_ID": "Test",
+      "MAC_ADDRESS": "00:50:00:00:07:00",
+      "INTERFACE": "ethernet1/2.110",
+      "STATUS": "c",
+      "TTL": "1778"
+    },
+    {
+      "VLAN_ID": "Test",
+      "MAC_ADDRESS": "00:50:00:00:08:00",
+      "INTERFACE": "ethernet1/2.111",
+      "STATUS": "c",
+      "TTL": "1796"
+    },
+    {
+      "VLAN_ID": "Test",
+      "MAC_ADDRESS": "50:00:00:02:00:01",
+      "INTERFACE": "ethernet1/2.110",
+      "STATUS": "c",
+      "TTL": "704"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_id_mac_address_interface_status_ttl": [
+        {
+          "VLAN_ID": "Test",
+          "MAC_ADDRESS": "00:50:00:00:07:00",
+          "INTERFACE": "ethernet1/2.110",
+          "STATUS": "c",
+          "TTL": "1778"
+        },
+        {
+          "VLAN_ID": "Test",
+          "MAC_ADDRESS": "00:50:00:00:08:00",
+          "INTERFACE": "ethernet1/2.111",
+          "STATUS": "c",
+          "TTL": "1796"
+        },
+        {
+          "VLAN_ID": "Test",
+          "MAC_ADDRESS": "50:00:00:02:00:01",
+          "INTERFACE": "ethernet1/2.110",
+          "STATUS": "c",
+          "TTL": "704"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nmaximum of entries supported :      1500\ndefault timeout :                   1800 seconds\ntotal MAC entries in table :        3\ntotal MAC entries shown :           3\nstatus: s - static, c - complete, i - incomplete\n\nvlan                hw address        interface         status   ttl\n--------------------------------------------------------------------------------\nTest                00:50:00:00:07:00 ethernet1/2.110     c      1778\nTest                00:50:00:00:08:00 ethernet1/2.111     c      1796\nTest                50:00:00:02:00:01 ethernet1/2.110     c      704\n",
+  "textfsm_template": "Value VLAN_ID (\\S+)\nValue MAC_ADDRESS ([0-9a-fA-F:]+)\nValue INTERFACE (\\S+)\nValue STATUS (\\S+)\nValue TTL (\\d+)\n\nStart\n  ^\\s*--- -> Start_record\n\nStart_record\n  ^${VLAN_ID}\\s+${MAC_ADDRESS}\\s+${INTERFACE}\\s+${STATUS}\\s+${TTL} -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

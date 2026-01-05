@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show cpu utilization
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="cpu_5sec_cpu_1min_cpu_5min">
+CPU Utilization for five seconds: {{CPU_5SEC}}; one minute: {{CPU_1MIN}}; five minutes: {{CPU_5MIN | ORPHRASE}}
+</group>

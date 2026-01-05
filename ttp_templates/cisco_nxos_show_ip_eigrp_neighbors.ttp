@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_ip_eigrp_neighbors
+# Source: ntc
+# TextFSM rows: 8
+# TTP rows: 9
+# Match ratio: 1.12
+
+<group name="as_vrf">
+IP-EIGRP neighbors for process {{AS}} VRF {{VRF | ORPHRASE}}
+<group name="hold_interface_ip_address">
+7 {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{INTERFACE}} {{HOLD}} {{UPTIME | ORPHRASE}} {{SRTT}} {{RTO}} {{Q_CNT}} {{SEQ_NUM | ORPHRASE}}
+</group>
+</group>

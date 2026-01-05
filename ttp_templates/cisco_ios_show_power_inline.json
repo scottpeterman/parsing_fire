@@ -1,0 +1,173 @@
+{
+  "command": "cisco_ios_show_power_inline",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.4285714285714286,
+  "textfsm_rows": 7,
+  "ttp_rows": 10,
+  "ttp_template": "<group name=\"interface_admin_status_operational_status_power_device_class_max\">\n{{INTERFACE}} {{ADMIN_STATUS | ORPHRASE}} {{OPERATIONAL_STATUS | ORPHRASE}} {{POWER}} {{DEVICE}} {{CLASS | ORPHRASE}} {{MAX}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Gi1/0/1",
+      "ADMIN_STATUS": "auto",
+      "OPERATIONAL_STATUS": "on",
+      "POWER": "30.0",
+      "DEVICE": "AIR-AP1562I-E-K9",
+      "CLASS": "4",
+      "MAX": "30.0"
+    },
+    {
+      "INTERFACE": "Gi1/0/2",
+      "ADMIN_STATUS": "auto",
+      "OPERATIONAL_STATUS": "on",
+      "POWER": "30.0",
+      "DEVICE": "AIR-AP1562I-E-K9",
+      "CLASS": "4",
+      "MAX": "30.0"
+    },
+    {
+      "INTERFACE": "Gi1/0/3",
+      "ADMIN_STATUS": "auto",
+      "OPERATIONAL_STATUS": "on",
+      "POWER": "30.0",
+      "DEVICE": "AIR-AP1562I-E-K9",
+      "CLASS": "4",
+      "MAX": "30.0"
+    },
+    {
+      "INTERFACE": "Gi1/0/10",
+      "ADMIN_STATUS": "auto",
+      "OPERATIONAL_STATUS": "on",
+      "POWER": "23.2",
+      "DEVICE": "C9120AXE-E",
+      "CLASS": "4",
+      "MAX": "30.0"
+    },
+    {
+      "INTERFACE": "Gi1/0/11",
+      "ADMIN_STATUS": "auto",
+      "OPERATIONAL_STATUS": "on",
+      "POWER": "30.0",
+      "DEVICE": "AIR-AP1562I-E-K9",
+      "CLASS": "4",
+      "MAX": "30.0"
+    },
+    {
+      "INTERFACE": "Gi1/0/12",
+      "ADMIN_STATUS": "auto",
+      "OPERATIONAL_STATUS": "off",
+      "POWER": "0.0",
+      "DEVICE": "n/a",
+      "CLASS": "n/a",
+      "MAX": "30.0"
+    },
+    {
+      "INTERFACE": "Gi1/0/13",
+      "ADMIN_STATUS": "auto",
+      "OPERATIONAL_STATUS": "off",
+      "POWER": "0.0",
+      "DEVICE": "n/a",
+      "CLASS": "n/a",
+      "MAX": "30.0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_admin_status_operational_status_power_device_class_max": [
+        {
+          "INTERFACE": "Interface",
+          "ADMIN_STATUS": "Admin",
+          "OPERATIONAL_STATUS": "Oper",
+          "POWER": "Power",
+          "DEVICE": "Device",
+          "CLASS": "Class",
+          "MAX": "Max"
+        },
+        {
+          "INTERFACE": "---------",
+          "ADMIN_STATUS": "------",
+          "OPERATIONAL_STATUS": "----------",
+          "POWER": "-------",
+          "DEVICE": "-------------------",
+          "CLASS": "-----",
+          "MAX": "----"
+        },
+        {
+          "INTERFACE": "Gi1/0/1",
+          "ADMIN_STATUS": "auto",
+          "OPERATIONAL_STATUS": "on",
+          "POWER": "30.0",
+          "DEVICE": "AIR-AP1562I-E-K9",
+          "CLASS": "4",
+          "MAX": "30.0"
+        },
+        {
+          "INTERFACE": "Gi1/0/2",
+          "ADMIN_STATUS": "auto",
+          "OPERATIONAL_STATUS": "on",
+          "POWER": "30.0",
+          "DEVICE": "AIR-AP1562I-E-K9",
+          "CLASS": "4",
+          "MAX": "30.0"
+        },
+        {
+          "INTERFACE": "Gi1/0/3",
+          "ADMIN_STATUS": "auto",
+          "OPERATIONAL_STATUS": "on",
+          "POWER": "30.0",
+          "DEVICE": "AIR-AP1562I-E-K9",
+          "CLASS": "4",
+          "MAX": "30.0"
+        },
+        {
+          "INTERFACE": "Gi1/0/10",
+          "ADMIN_STATUS": "auto",
+          "OPERATIONAL_STATUS": "on",
+          "POWER": "23.2",
+          "DEVICE": "C9120AXE-E",
+          "CLASS": "4",
+          "MAX": "30.0"
+        },
+        {
+          "INTERFACE": "Gi1/0/11",
+          "ADMIN_STATUS": "auto",
+          "OPERATIONAL_STATUS": "on",
+          "POWER": "30.0",
+          "DEVICE": "AIR-AP1562I-E-K9",
+          "CLASS": "4",
+          "MAX": "30.0"
+        },
+        {
+          "INTERFACE": "Gi1/0/12",
+          "ADMIN_STATUS": "auto",
+          "OPERATIONAL_STATUS": "off",
+          "POWER": "0.0",
+          "DEVICE": "n/a",
+          "CLASS": "n/a",
+          "MAX": "30.0"
+        },
+        {
+          "INTERFACE": "Gi1/0/13",
+          "ADMIN_STATUS": "auto",
+          "OPERATIONAL_STATUS": "off",
+          "POWER": "0.0",
+          "DEVICE": "n/a",
+          "CLASS": "n/a",
+          "MAX": "30.0"
+        },
+        {
+          "INTERFACE": "---------",
+          "ADMIN_STATUS": "------",
+          "OPERATIONAL_STATUS": "----------",
+          "POWER": "----------",
+          "DEVICE": "----------",
+          "CLASS": "------",
+          "MAX": "-----"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nModule   Available     Used     Remaining\n          (Watts)     (Watts)    (Watts)\n------   ---------   --------   ---------\n1           740.0      330.0       410.0\nInterface Admin  Oper       Power   Device              Class Max\n                            (Watts)\n--------- ------ ---------- ------- ------------------- ----- ----\nGi1/0/1   auto   on         30.0    AIR-AP1562I-E-K9    4     30.0\nGi1/0/2   auto   on         30.0    AIR-AP1562I-E-K9    4     30.0\nGi1/0/3   auto   on         30.0    AIR-AP1562I-E-K9    4     30.0\nGi1/0/10  auto   on         23.2    C9120AXE-E          4     30.0\nGi1/0/11  auto   on         30.0    AIR-AP1562I-E-K9    4     30.0\nGi1/0/12  auto   off        0.0     n/a                 n/a   30.0\nGi1/0/13  auto   off        0.0     n/a                 n/a   30.0\n--------- ------ ---------- ---------- ---------- ------ -----\nTotals:          11   on    330.0\n\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue ADMIN_STATUS (\\S+)\nValue OPERATIONAL_STATUS (on|off)\nValue POWER (\\d+\\.\\d+)\nValue DEVICE (\\S+(\\s\\S+)*)\nValue CLASS (\\d|n/a)\nValue MAX (\\d+\\.\\d+)\n\nStart\n  ^Interface\\s+Admin\\s+Oper\\s+Power\\s+Device\\s+Class\\s+Max -> Interfaces\n  ^Module\n  ^\\d+\n  ^-+\n  ^\\s+\\(Watts\\)\n  ^\\s*$$\n  ^. -> Error\n\nInterfaces\n  ^\\s*${INTERFACE}\\s+${ADMIN_STATUS}\\s+${OPERATIONAL_STATUS}\\s+${POWER}\\s+${DEVICE}\\s+${CLASS}\\s+${MAX}\\s*$$ -> Record\n  ^Totals.*\n  ^\\s+\\(Watts\\)\n  ^-+\n  ^\\s*$$\n  ^. -> Error\n"
+}

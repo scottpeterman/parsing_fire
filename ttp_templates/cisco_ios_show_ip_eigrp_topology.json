@@ -1,0 +1,158 @@
+{
+  "command": "cisco_ios_show_ip_eigrp_topology",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.1428571428571428,
+  "textfsm_rows": 7,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"process_id_router_id\">\nEIGRP-IPv4 Topology Table for AS({{PROCESS_ID | re(\"\\\\d+\")}})/ID({{ROUTER_ID | ORPHRASE}})\n<group name=\"code_fd_network\">\n{{CODE}} {{NETWORK}}/{{PREFIX_LENGTH}}, {{SUCCESSORS}} successors, FD is {{FD | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROCESS_ID": "1",
+      "ROUTER_ID": "172.16.0.1",
+      "CODE": "P",
+      "NETWORK": "172.16.0.1",
+      "PREFIX_LENGTH": "32",
+      "SUCCESSORS": "1",
+      "FD": "128256",
+      "ADV_ROUTER": "Connected",
+      "OUT_INTERFACE": "Loopback0"
+    },
+    {
+      "PROCESS_ID": "1",
+      "ROUTER_ID": "172.16.0.1",
+      "CODE": "P",
+      "NETWORK": "172.16.0.2",
+      "PREFIX_LENGTH": "32",
+      "SUCCESSORS": "1",
+      "FD": "130816",
+      "ADV_ROUTER": "192.168.100.1",
+      "ADV_FD": "130816",
+      "ADV_RD": "128256",
+      "OUT_INTERFACE": "GigabitEthernet0/0"
+    },
+    {
+      "PROCESS_ID": "1",
+      "ROUTER_ID": "172.16.0.1",
+      "CODE": "P",
+      "NETWORK": "10.2.2.0",
+      "PREFIX_LENGTH": "24",
+      "SUCCESSORS": "1",
+      "FD": "3072",
+      "ADV_ROUTER": "192.168.100.1",
+      "ADV_FD": "3072",
+      "ADV_RD": "2816",
+      "OUT_INTERFACE": "GigabitEthernet0/0"
+    },
+    {
+      "PROCESS_ID": "1",
+      "ROUTER_ID": "172.16.0.1",
+      "CODE": "P",
+      "NETWORK": "192.168.100.4",
+      "PREFIX_LENGTH": "31",
+      "SUCCESSORS": "1",
+      "FD": "3072",
+      "ADV_ROUTER": "192.168.100.1",
+      "ADV_FD": "3072",
+      "ADV_RD": "2816",
+      "OUT_INTERFACE": "GigabitEthernet0/0"
+    },
+    {
+      "PROCESS_ID": "1",
+      "ROUTER_ID": "172.16.0.1",
+      "CODE": "P",
+      "NETWORK": "192.168.100.0",
+      "PREFIX_LENGTH": "31",
+      "SUCCESSORS": "1",
+      "FD": "2816",
+      "ADV_ROUTER": "Connected",
+      "OUT_INTERFACE": "GigabitEthernet0/0"
+    },
+    {
+      "PROCESS_ID": "1",
+      "ROUTER_ID": "172.16.0.1",
+      "CODE": "P",
+      "NETWORK": "192.168.100.2",
+      "PREFIX_LENGTH": "31",
+      "SUCCESSORS": "1",
+      "FD": "2816",
+      "ADV_ROUTER": "Connected",
+      "OUT_INTERFACE": "GigabitEthernet0/1"
+    },
+    {
+      "PROCESS_ID": "1",
+      "ROUTER_ID": "172.16.0.1",
+      "CODE": "P",
+      "NETWORK": "192.168.100.6",
+      "PREFIX_LENGTH": "31",
+      "SUCCESSORS": "1",
+      "FD": "3072",
+      "ADV_ROUTER": "192.168.100.1",
+      "ADV_FD": "3072",
+      "ADV_RD": "2816",
+      "OUT_INTERFACE": "GigabitEthernet0/0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "process_id_router_id": {
+        "PROCESS_ID": "1",
+        "ROUTER_ID": "172.16.0.1",
+        "code_fd_network": [
+          {
+            "CODE": "P",
+            "NETWORK": "172.16.0.1",
+            "PREFIX_LENGTH": "32",
+            "SUCCESSORS": "1",
+            "FD": "128256"
+          },
+          {
+            "CODE": "P",
+            "NETWORK": "172.16.0.2",
+            "PREFIX_LENGTH": "32",
+            "SUCCESSORS": "1",
+            "FD": "130816"
+          },
+          {
+            "CODE": "P",
+            "NETWORK": "10.2.2.0",
+            "PREFIX_LENGTH": "24",
+            "SUCCESSORS": "1",
+            "FD": "3072"
+          },
+          {
+            "CODE": "P",
+            "NETWORK": "192.168.100.4",
+            "PREFIX_LENGTH": "31",
+            "SUCCESSORS": "1",
+            "FD": "3072"
+          },
+          {
+            "CODE": "P",
+            "NETWORK": "192.168.100.0",
+            "PREFIX_LENGTH": "31",
+            "SUCCESSORS": "1",
+            "FD": "2816"
+          },
+          {
+            "CODE": "P",
+            "NETWORK": "192.168.100.2",
+            "PREFIX_LENGTH": "31",
+            "SUCCESSORS": "1",
+            "FD": "2816"
+          },
+          {
+            "CODE": "P",
+            "NETWORK": "192.168.100.6",
+            "PREFIX_LENGTH": "31",
+            "SUCCESSORS": "1",
+            "FD": "3072"
+          }
+        ]
+      }
+    }
+  ],
+  "cli_content": "EIGRP-IPv4 Topology Table for AS(1)/ID(172.16.0.1)\nCodes: P - Passive, A - Active, U - Update, Q - Query, R - Reply,\nr - reply Status, s - sia Status\n\nP 172.16.0.1/32, 1 successors, FD is 128256\nvia Connected, Loopback0\nP 172.16.0.2/32, 1 successors, FD is 130816\nvia 192.168.100.1 (130816/128256), GigabitEthernet0/0\nP 10.2.2.0/24, 1 successors, FD is 3072\nvia 192.168.100.1 (3072/2816), GigabitEthernet0/0\nP 192.168.100.4/31, 1 successors, FD is 3072\nvia 192.168.100.1 (3072/2816), GigabitEthernet0/0\nP 192.168.100.0/31, 1 successors, FD is 2816\nvia Connected, GigabitEthernet0/0\nP 192.168.100.2/31, 1 successors, FD is 2816\nvia Connected, GigabitEthernet0/1\nP 192.168.100.6/31, 1 successors, FD is 3072\nvia 192.168.100.1 (3072/2816), GigabitEthernet0/0\n\n",
+  "textfsm_template": "Value Filldown PROCESS_ID (\\d+)\nValue Filldown ROUTER_ID (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue Required CODE (\\S+)\nValue NETWORK (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue PREFIX_LENGTH (\\d+)\nValue SUCCESSORS (\\d+)\nValue FD (\\d+|Inaccessible)\nValue TAG (\\d+)\nValue List ADV_ROUTER (\\d+\\.\\d+\\.\\d+\\.\\d+|\\w+)\nValue List ADV_FD (\\d+)\nValue List ADV_RD (\\d+)\nValue List OUT_INTERFACE (\\S+)\nValue SOURCE (R\\S+)\n\nStart\n  # Captures Process ID and Router ID\n  ^.+AS\\(${PROCESS_ID}\\)/ID\\(${ROUTER_ID}\\)\n  # Skips over the code line that explains what each code means\n  ^Codes:\n  # Skips over the definitions for the codes\n  ^\\s*\\S\\s-\\s\\S+\n  # Matches a route and captures if ${TAG} is use for the route and then moves to Gateway section\n  ^${CODE}\\s+${NETWORK}/${PREFIX_LENGTH},\\s+${SUCCESSORS}\\s+successors,\\s+FD\\s+is\\s+${FD},\\s+tag\\s+is\\s+${TAG} -> Gateway\n  # Matches a route and captures it and then moves to Gateway section\n  ^${CODE}\\s+${NETWORK}/${PREFIX_LENGTH},\\s+${SUCCESSORS}\\s+successors,\\s+FD\\s+is\\s+${FD} -> Gateway\n  # If it doesn't match anything above, this just acknowledges a new line\n  ^\\s*$$\n  # This will throw an error if there are no matches\n  ^. -> Error\n\nGateway\n  # This captures adv router, FD to router, and Reported Distance(RD)\n  ^\\s*via\\s+${ADV_ROUTER}\\s+\\(${ADV_FD}/${ADV_RD}\\),\\s+${OUT_INTERFACE}\n  # This captures the advertising router and outgoing interface\n  ^\\s*via\\s+${ADV_ROUTER},\\s+${OUT_INTERFACE}\n  # This captures the scenarion where the route is injected via Redistribution.\n  ^\\s*via\\s+${SOURCE}\n  # This will not capture anything but if it encounters another route, it will continue and record what it already captured\n  ^\\S+\\s+(?:\\d+(?:\\.|)){4}/\\d+,\\s+\\d+\\s+successors -> Continue.Record\n  # These are the same as above and capture the next set of routes\n  ^${CODE}\\s+${NETWORK}/${PREFIX_LENGTH},\\s+${SUCCESSORS}\\s+successors,\\s+FD\\s+is\\s+${FD},\\s+tag\\s+is\\s+${TAG}\n  ^${CODE}\\s+${NETWORK}/${PREFIX_LENGTH},\\s+${SUCCESSORS}\\s+successors,\\s+FD\\s+is\\s+${FD}\n  # If it encounters another AS/Router ID it will continue and record what it just captured\n  ^.+AS\\(\\d+\\)/ID -> Continue.Record\n  # If it encounters it again, it will continue, but clear all captured data other than Filldown Values\n  ^.+AS\\(\\d+\\)/ID -> Continue.Clearall\n  # It will start the process over again if it encounters a new process ID / router id\n  ^.+AS\\(${PROCESS_ID}\\)/ID\\(${ROUTER_ID}\\)\n  ^Codes: -> Start\n  # If it doesn't match anything above, this just acknowledges a new line\n  ^\\s*$$\n  # This will throw an error if there are no matches\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^. -> Error\n\n"
+}

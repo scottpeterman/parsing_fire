@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_vrp_display_vlan
+# Source: ntc
+# TextFSM rows: 40
+# TTP rows: 8
+# Match ratio: 0.20
+
+<group name="vlan_id_vlan_type_mode_interface">
+{{VLAN_ID | re("\\d+")}} {{VLAN_TYPE}} {{MODE}}:{{INTERFACE | ORPHRASE}}(D) XGE0/0/2(D) XGE0/0/3(D) XGE0/0/4(D)
+</group>
+<group name="vlan_type_mode_interface">
+20 {{VLAN_TYPE}} {{MODE}}:{{INTERFACE}}(D) 40GE0/0/2(D) 40GE0/0/3(D) 40GE0/0/4(D)
+</group>
+<group name="vlan_id_vlan_status_vlan_name">
+{{VLAN_ID | re("\\d+")}} {{VLAN_STATUS | ORPHRASE}} default enable disable {{VLAN_NAME | ORPHRASE}}
+</group>

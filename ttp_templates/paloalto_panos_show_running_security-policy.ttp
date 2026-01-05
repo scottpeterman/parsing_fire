@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: paloalto_panos_show_running_security-policy
+# Source: ntc
+# TextFSM rows: 7
+# TTP rows: 14
+# Match ratio: 2.00
+
+<group name="name">
+{{NAME | ORPHRASE}} {
+<group name="destination_region_icmp_unreachable_source_region">
+        source-region {{SOURCE_REGION | ORPHRASE}};
+</group>
+</group>

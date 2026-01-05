@@ -1,0 +1,63 @@
+{
+  "command": "cisco_wlc_ssh_show_time",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"ntp_polling_interval_ntp_version_time\">\nTime............................................. {{TIME | ORPHRASE}}\n<group name=\"index_ntp_key_index_ntp_msg_auth_status\">\n       {{INDEX}} {{NTP_KEY_INDEX}} {{NTP_SERVER | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{STATUS | ORPHRASE}} {{NTP_MSG_AUTH_STATUS | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TIME": "Tue Dec 22 11:02:42 2020",
+      "TZ_DELTA": "0:0",
+      "TIMEZONE": "GMT -5:00",
+      "TZ_NAME": "Eastern Time (US and Canada)",
+      "NTP_VERSION": "3",
+      "NTP_POLLING_INTERVAL": "72000",
+      "INDEX": "1",
+      "NTP_KEY_INDEX": "0",
+      "NTP_SERVER": "1.1.1.1",
+      "STATUS": "In Sync",
+      "NTP_MSG_AUTH_STATUS": "AUTH DISABLED"
+    },
+    {
+      "TIME": "Tue Dec 22 11:02:42 2020",
+      "TZ_DELTA": "0:0",
+      "TIMEZONE": "GMT -5:00",
+      "TZ_NAME": "Eastern Time (US and Canada)",
+      "NTP_VERSION": "3",
+      "NTP_POLLING_INTERVAL": "72000",
+      "INDEX": "2",
+      "NTP_KEY_INDEX": "0",
+      "NTP_SERVER": "128.138.141.172",
+      "STATUS": "Not Tried",
+      "NTP_MSG_AUTH_STATUS": "AUTH DISABLED"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ntp_polling_interval_ntp_version_time": {
+        "TIME": "Tue Dec 22 11:02:42 2020",
+        "index_ntp_key_index_ntp_msg_auth_status": [
+          {
+            "INDEX": "1",
+            "NTP_KEY_INDEX": "0",
+            "NTP_SERVER": "1.1.1.1",
+            "STATUS": "In Sync",
+            "NTP_MSG_AUTH_STATUS": "AUTH DISABLED"
+          },
+          {
+            "INDEX": "2",
+            "NTP_KEY_INDEX": "0",
+            "NTP_SERVER": "128.138.141.172",
+            "STATUS": "Not Tried",
+            "NTP_MSG_AUTH_STATUS": "AUTH DISABLED"
+          }
+        ]
+      }
+    }
+  ],
+  "cli_content": "\nTime............................................. Tue Dec 22 11:02:42 2020\n\nTimezone delta................................... 0:0\nTimezone location................................ (GMT -5:00) Eastern Time (US and Canada)\n\nNTP Servers\n    NTP Version..................................     3\n    NTP Polling Interval.........................     72000\n\n     Index     NTP Key Index                  NTP Server                Status          NTP Msg Auth Status\n    -------  ---------------------------------------------------------------------\n       1              0                                  1.1.1.1     In Sync              AUTH DISABLED\n       2              0                                    128.138.141.172     Not Tried            AUTH DISABLED\n",
+  "textfsm_template": "Value Filldown TIME (.+)\nValue Filldown TZ_DELTA (\\S+)\nValue Filldown TIMEZONE (.+)\nValue Filldown TZ_NAME (.+)\nValue Filldown NTP_VERSION (\\d)\nValue Filldown NTP_POLLING_INTERVAL (\\d+)\nValue Required INDEX (\\d+)\nValue NTP_KEY_INDEX (\\d+)\nValue NTP_SERVER (\\S+)\nValue STATUS (\\S+\\s?\\S+)\nValue NTP_MSG_AUTH_STATUS (\\S+\\s?\\S+)\n\nStart\n  ^\\s*Time\\s*\\.+\\s+${TIME}\\s*$$\n  ^\\s*Timezone [dD]elta\\s*\\.+\\s+${TZ_DELTA}\\s*$$\n  ^\\s*Timezone [lL]ocation\\s*\\.+\\s+\\(${TIMEZONE}\\)\\s+${TZ_NAME}\\s*$$\n  ^\\s*NTP [sS]ervers\\s*$$\n  ^\\s*NTP [vV]ersion\\s*\\.+\\s+${NTP_VERSION}\\s*$$\n  ^\\s*NTP [pP]olling [iI]nterval\\s*\\.+\\s+${NTP_POLLING_INTERVAL}\\s*$$\n  #\n  # NTP Server Table\n  ^\\s+Index\\s+NTP Key Index\\s+NTP Server\\s+Status\\s+NTP Msg Auth Status\\s*$$ -> NTP_Servers\n  ^\\s*$$\n\nNTP_Servers\n  ^\\s+${INDEX}\\s+${NTP_KEY_INDEX}\\s+${NTP_SERVER}\\s+${STATUS}\\s+${NTP_MSG_AUTH_STATUS}\\s*$$ -> Record\n  ^\\s+[-\\s]+$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

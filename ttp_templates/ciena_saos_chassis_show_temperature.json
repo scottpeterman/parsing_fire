@@ -1,0 +1,28 @@
+{
+  "command": "ciena_saos_chassis_show_temperature",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"current_low_high\">\n| {{CURRENT | ORPHRASE}} | {{LOW | ORPHRASE}} | {{HIGH | ORPHRASE}} |\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CURRENT": "19  C",
+      "LOW": "17  C",
+      "HIGH": "20  C"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "current_low_high": {
+        "CURRENT": "Current",
+        "LOW": "Low",
+        "HIGH": "High"
+      }
+    }
+  ],
+  "cli_content": "+- TEMPERATURE THRESHOLD -+\n| Low        | High       |\n+------------+------------+\n| -40 C      | 65  C      |\n+------------+------------+\n\n+--- TEMPERATURE STATUS --+\n| Current | Low   | High  |\n+---------+-------+-------+\n| 19  C   | 17  C | 20  C |\n+---------+-------+-------+",
+  "textfsm_template": "Value CURRENT (\\d+\\s*\\w+)\nValue LOW (\\d+\\s*\\w+)\nValue HIGH (\\d+\\s*\\w+)\n\nStart\n  ^\\+-+\\s*TEMPERATURE\\s*THRESHOLD\\s*-+\\+\n  ^\\|\\s*Low\\s*\\|\\s*High\\s*\\|\n  ^\\+-+\\+-+\\+\n  ^\\|\\s*-\\d+\\s*\\w+\\s*\\|\\s*\\d+\\s*\\w+\\s*\\|\n  ^\\+-+\\+-+\\+\n  ^\\s*$$\n  ^\\+-+\\s*TEMPERATURE\\s*STATUS\\s*-+\\+\n  ^\\|\\s*Current\\s*\\|\\s*Low\\s*\\|\\s*High\\s*\\|\n  ^\\+-+\\+-+\\+-+\\+\n  ^\\|\\s*${CURRENT}\\s*\\|\\s*${LOW}\\s*\\|\\s*${HIGH}\\s*\\|\n  ^\\+-+\\+-+\\+-+\\+\n  ^\\s*$$\n  ^. -> Error"
+}

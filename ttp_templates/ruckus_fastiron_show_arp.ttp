@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: ruckus_fastiron_show_arp
+# Source: ntc
+# TextFSM rows: 443
+# TTP rows: 427
+# Match ratio: 0.96
+
+<group name="number_ip_address_mac_address_type_port_status">
+{{NUMBER}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MAC_ADDRESS | re("[{{AGE}}-9a-fA-F:.-]+")}} {{TYPE}} 0 {{PORT}} {{STATUS | ORPHRASE}} 
+</group>
+<group name="number_ip_address_mac_address_type_age_port_status">
+{{NUMBER}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{TYPE}} {{AGE}} {{PORT}} {{STATUS | ORPHRASE}} 
+</group>

@@ -1,0 +1,56 @@
+{
+  "command": "mikrotik_routeros_ip_neighbor_print_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"number_interface_ip_address_ipv4_address_mac_address_identity_platform_version_unpack_age_uptime_software_id_board_interface_name_system_description_system_caps_system_caps_enabled\">\n {{NUMBER}} interface={{INTERFACE}} address={{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} address4={{IPV4_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} mac-address={{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} identity=\"{{IDENTITY}}\" platform=\"{{PLATFORM}}\" version=\"{{VERSION | ORPHRASE}}\" unpack={{UNPACK}} age={{AGE}} uptime={{UPTIME | ORPHRASE}} software-id=\"{{SOFTWARE_ID}}\" board=\"{{BOARD}}\" interface-name=\"{{INTERFACE_NAME}}\" system-description=\"{{SYSTEM_DESCRIPTION | ORPHRASE}}\" system-caps={{SYSTEM_CAPS}} system-caps-enabled={{SYSTEM_CAPS_ENABLED | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NUMBER": "0",
+      "INTERFACE": "ether1",
+      "IP_ADDRESS": "10.159.1.159",
+      "IPV4_ADDRESS": "10.159.1.159",
+      "MAC_ADDRESS": "12:34:56:78:90:AB",
+      "IDENTITY": "MikroTik-Dev",
+      "PLATFORM": "MikroTik",
+      "VERSION": "6.48.6 (long-term)",
+      "UNPACK": "none",
+      "AGE": "17s",
+      "UPTIME": "1w5d2h31m30s",
+      "SOFTWARE_ID": "1234-ABCD",
+      "BOARD": "RB750UPr2",
+      "INTERFACE_NAME": "ether2",
+      "SYSTEM_DESCRIPTION": "MikroTik RouterOS 6.48.6 (long-term) RB750UPr2",
+      "SYSTEM_CAPS": "bridge,router",
+      "SYSTEM_CAPS_ENABLED": "bridge,wlan-ap,router"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "number_interface_ip_address_ipv4_address_mac_address_identity_platform_version_unpack_age_uptime_software_id_board_interface_name_system_description_system_caps_system_caps_enabled": {
+        "NUMBER": "0",
+        "INTERFACE": "ether1",
+        "IP_ADDRESS": "10.159.1.159",
+        "IPV4_ADDRESS": "10.159.1.159",
+        "MAC_ADDRESS": "12:34:56:78:90:AB",
+        "IDENTITY": "MikroTik-Dev",
+        "PLATFORM": "MikroTik",
+        "VERSION": "6.48.6 (long-term)",
+        "UNPACK": "none",
+        "AGE": "17s",
+        "UPTIME": "1w5d2h31m30s",
+        "SOFTWARE_ID": "1234-ABCD",
+        "BOARD": "RB750UPr2",
+        "INTERFACE_NAME": "ether2",
+        "SYSTEM_DESCRIPTION": "MikroTik RouterOS 6.48.6 (long-term) RB750UPr2",
+        "SYSTEM_CAPS": "bridge,router",
+        "SYSTEM_CAPS_ENABLED": "bridge,wlan-ap,router"
+      }
+    }
+  ],
+  "cli_content": " 0 interface=ether1 address=10.159.1.159 address4=10.159.1.159 mac-address=12:34:56:78:90:AB identity=\"MikroTik-Dev\" platform=\"MikroTik\" version=\"6.48.6 (long-term)\" unpack=none age=17s uptime=1w5d2h31m30s software-id=\"1234-ABCD\" board=\"RB750UPr2\" interface-name=\"ether2\" system-description=\"MikroTik RouterOS 6.48.6 (long-term) RB750UPr2\" system-caps=bridge,router system-caps-enabled=bridge,wlan-ap,router\n",
+  "textfsm_template": "Value NUMBER (\\d+)\nValue INTERFACE (\\S+)\nValue IP_ADDRESS (\\S+)\nValue IPV4_ADDRESS (\\S+)\nValue MAC_ADDRESS ([a-zA-Z0-9]{2}(:[a-zA-Z0-9]{2}){5})\nValue IDENTITY (.*)\nValue PLATFORM (.*)\nValue VERSION (.*)\nValue UNPACK (none|simple|uncompressed-headers|uncompressed-all)\nValue AGE ([0-9a-z]+)\nValue UPTIME ([0-9a-z]+)\nValue SOFTWARE_ID (\\S+)\nValue BOARD (\\S+)\nValue IPV6 (yes|no)\nValue INTERFACE_NAME (.*?(?=\"))\nValue SYSTEM_DESCRIPTION (.*?(?=\"))\nValue SYSTEM_CAPS ([a-zA-Z0-9,-]*)\nValue SYSTEM_CAPS_ENABLED ([a-zA-Z0-9,-]*)\n\nStart\n  ^\\s*${NUMBER}\\s+interface=${INTERFACE}(?:\\s+address=${IP_ADDRESS})?(?:\\s+address4=${IPV4_ADDRESS})?\\s+mac-address=${MAC_ADDRESS}\\s+identity=\"${IDENTITY}\"\\s+platform=\"${PLATFORM}\"\\s+version=\"${VERSION}\"\\s+unpack=${UNPACK}\\s+age=${AGE}(?:\\s+uptime=${UPTIME})?(?:\\s+software-id=\"${SOFTWARE_ID}\")?(?:\\s+board=\"${BOARD}\")?(?:\\s+ipv6=${IPV6})?\\s+interface-name=\"${INTERFACE_NAME}\"(?:\\s+system-description=\"${SYSTEM_DESCRIPTION}\")?\\s+system-caps=\"?${SYSTEM_CAPS}\"?\\s+system-caps-enabled=\"?${SYSTEM_CAPS_ENABLED}\"?\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

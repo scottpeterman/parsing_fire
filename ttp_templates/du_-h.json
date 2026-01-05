@@ -1,0 +1,68 @@
+{
+  "command": "du -h",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"filesystem_size_used_avail_use_mounted\">\n{{FILESYSTEM}} {{SIZE}} {{USED}} {{AVAIL}} {{USE | ORPHRASE}} {{MOUNTED | re(\".*\\\\w.*\")}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FILESYSTEM": "/dev/sda1",
+      "SIZE": "50G",
+      "USED": "30G",
+      "AVAIL": "20G",
+      "USE": "60%",
+      "MOUNTED": "/"
+    },
+    {
+      "FILESYSTEM": "/dev/sda2",
+      "SIZE": "100G",
+      "USED": "80G",
+      "AVAIL": "20G",
+      "USE": "80%",
+      "MOUNTED": "/var"
+    },
+    {
+      "FILESYSTEM": "/dev/sdb1",
+      "SIZE": "200G",
+      "USED": "50G",
+      "AVAIL": "150G",
+      "USE": "25%",
+      "MOUNTED": "/data"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "filesystem_size_used_avail_use_mounted": [
+        {
+          "FILESYSTEM": "Filesystem",
+          "SIZE": "Size",
+          "USED": "Used",
+          "AVAIL": "Avail",
+          "USE": "Use%",
+          "MOUNTED": "Mounted on"
+        },
+        {
+          "FILESYSTEM": "/dev/sda2",
+          "SIZE": "100G",
+          "USED": "80G",
+          "AVAIL": "20G",
+          "USE": "80%",
+          "MOUNTED": "/var"
+        },
+        {
+          "FILESYSTEM": "/dev/sdb1",
+          "SIZE": "200G",
+          "USED": "50G",
+          "AVAIL": "150G",
+          "USE": "25%",
+          "MOUNTED": "/data"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/sda1       50G   30G   20G  60% /\n/dev/sda2       100G  80G   20G  80% /var\n/dev/sdb1       200G  50G   150G 25% /data\n",
+  "textfsm_template": "Value FILESYSTEM (\\S+)\nValue SIZE (\\S+\\w)\nValue USED (\\S+\\w)\nValue AVAIL (\\S+\\w)\nValue USE (\\d+%)\nValue MOUNTED (\\S+)\n\nStart\n  ^Filesystem\\s+Size\\s+Used\\s+Avail\\s+Use%\\s+Mounted\\son\\s*$$\n  ^${FILESYSTEM}\\s+${SIZE}\\s+${USED}\\s+${AVAIL}\\s+${USE}\\s+${MOUNTED}\\s*$$ -> Record"
+}

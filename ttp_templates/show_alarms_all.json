@@ -1,0 +1,80 @@
+{
+  "command": "show alarms all",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"id_severity_state_description\">\n{{ID | re(\"\\\\d+\")}} {{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{STATE | ORPHRASE}} {{DESCRIPTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ID": "0",
+      "SEVERITY": "Critical",
+      "STATE": "Active",
+      "DESCRIPTION": "Power supply failure"
+    },
+    {
+      "ID": "1",
+      "SEVERITY": "Major",
+      "STATE": "Active",
+      "DESCRIPTION": "High temperature detected"
+    },
+    {
+      "ID": "2",
+      "SEVERITY": "Minor",
+      "STATE": "Active",
+      "DESCRIPTION": "Fan speed below threshold"
+    },
+    {
+      "ID": "3",
+      "SEVERITY": "Warning",
+      "STATE": "Inactive",
+      "DESCRIPTION": "Memory utilization high"
+    },
+    {
+      "ID": "4",
+      "SEVERITY": "Info",
+      "STATE": "Inactive",
+      "DESCRIPTION": "Link flapping detected"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "id_severity_state_description": [
+        {
+          "ID": "0",
+          "SEVERITY": "Critical",
+          "STATE": "Active",
+          "DESCRIPTION": "Power supply failure"
+        },
+        {
+          "ID": "1",
+          "SEVERITY": "Major",
+          "STATE": "Active",
+          "DESCRIPTION": "High temperature detected"
+        },
+        {
+          "ID": "2",
+          "SEVERITY": "Minor",
+          "STATE": "Active",
+          "DESCRIPTION": "Fan speed below threshold"
+        },
+        {
+          "ID": "3",
+          "SEVERITY": "Warning",
+          "STATE": "Inactive",
+          "DESCRIPTION": "Memory utilization high"
+        },
+        {
+          "ID": "4",
+          "SEVERITY": "Info",
+          "STATE": "Inactive",
+          "DESCRIPTION": "Link flapping detected"
+        }
+      ]
+    }
+  ],
+  "cli_content": "ID      Severity    State        Description\n0       Critical    Active       Power supply failure\n1       Major       Active       High temperature detected\n2       Minor       Active       Fan speed below threshold\n3       Warning     Inactive     Memory utilization high\n4       Info        Inactive     Link flapping detected\n",
+  "textfsm_template": "Value ID (\\d+)\nValue SEVERITY (\\S+)\nValue STATE (\\S+)\nValue DESCRIPTION (.+)\n\nStart\n  ^\\s*ID\\s+Severity\\s+State\\s+Description\\s*$$\n  ^\\s*${ID}\\s+${SEVERITY}\\s+${STATE}\\s+${DESCRIPTION}\\s*$$ -> Record"
+}

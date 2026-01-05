@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nvfis_show_nic
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="slotid_adapter_vendor_devid_mode_devno_pnics">
+{{SLOTID | re("\\d+")}} {{ADAPTER | ORPHRASE}} {{VENDOR}} {{DEVID | re("\\d+")}} {{MODE}} {{DEVNO}} {{PNICS | ORPHRASE}}
+</group>

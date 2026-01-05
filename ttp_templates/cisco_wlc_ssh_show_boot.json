@@ -1,0 +1,28 @@
+{
+  "command": "cisco_wlc_ssh_show_boot",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"image_type_image_version_image_status\">\n{{IMAGE_TYPE | ORPHRASE}}............................... {{IMAGE_VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{IMAGE_STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IMAGE_TYPE": "Primary Boot Image",
+      "IMAGE_VERSION": "8.10.183.0",
+      "IMAGE_STATUS": "(default) (active)"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "image_type_image_version_image_status": {
+        "IMAGE_TYPE": "Primary Boot Image",
+        "IMAGE_VERSION": "8.10.183.0",
+        "IMAGE_STATUS": "(default) (active)"
+      }
+    }
+  ],
+  "cli_content": "Primary Boot Image............................... 8.10.183.0 (default) (active)\nBackup Boot Image................................ 8.8.125.0\n",
+  "textfsm_template": "Value IMAGE_TYPE (\\S+\\s+\\S+\\s+[A-z]+)\nValue IMAGE_VERSION (\\S+)\nValue IMAGE_STATUS ((?:\\(\\S+\\))\\s*(?:\\(\\S+\\))?)\n\n\nStart\n  ^${IMAGE_TYPE}\\.+\\s+${IMAGE_VERSION}\\s*(${IMAGE_STATUS})?$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

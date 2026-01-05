@@ -1,0 +1,139 @@
+{
+  "command": "cisco_ios_show_vrrp_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.4,
+  "textfsm_rows": 5,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"state_master_ip_address_priority\">\n  {{STATE | ORPHRASE}} Router is {{MASTER_IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} (local), priority is {{PRIORITY | ORPHRASE}} \n</group>\n<group name=\"master_ip_address_master_priority\">\n  Master Router is {{MASTER_IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}, priority is {{MASTER_PRIORITY | ORPHRASE}} \n</group>\n<group name=\"track_status_master_down_interval_track_obj\">\n  Master {{TRACK_STATUS | ORPHRASE}} interval is {{MASTER_DOWN_INTERVAL}} sec (expires in {{TRACK_OBJ | ORPHRASE}}.738 sec)\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "FastEthernet0/1",
+      "GROUP": "1",
+      "STATE": "Master",
+      "VIRTUAL_IP_ADDRESS": "192.168.88.1",
+      "VIRTUAL_MAC_ADDRESS": "0000.5e00.0101",
+      "ADV_INTERVAL": "1.000",
+      "PREEMPT": "enabled",
+      "PRIORITY": "110",
+      "TRACK_OBJ": "1",
+      "TRACK_STATUS": "Up",
+      "TRACK_ACTION": "decrement 10",
+      "MASTER_IP_ADDRESS": "192.168.88.2",
+      "MASTER_PRIORITY": "110",
+      "MASTER_ADV_INTERVAL": "1.000",
+      "MASTER_DOWN_INTERVAL": "3.570"
+    },
+    {
+      "INTERFACE": "FastEthernet0/1.2",
+      "GROUP": "2",
+      "STATE": "Master",
+      "VIRTUAL_IP_ADDRESS": "10.0.2.1",
+      "VIRTUAL_MAC_ADDRESS": "0000.5e00.0102",
+      "ADV_INTERVAL": "1.000",
+      "PREEMPT": "enabled",
+      "PRIORITY": "110",
+      "TRACK_OBJ": "1",
+      "TRACK_STATUS": "Up",
+      "TRACK_ACTION": "decrement 10",
+      "MASTER_IP_ADDRESS": "10.0.2.2",
+      "MASTER_PRIORITY": "110",
+      "MASTER_ADV_INTERVAL": "1.000",
+      "MASTER_DOWN_INTERVAL": "3.570"
+    },
+    {
+      "INTERFACE": "FastEthernet0/1.3",
+      "GROUP": "3",
+      "STATE": "Backup",
+      "VIRTUAL_IP_ADDRESS": "10.0.3.1",
+      "VIRTUAL_MAC_ADDRESS": "0000.5e00.0103",
+      "ADV_INTERVAL": "1.000",
+      "PREEMPT": "enabled",
+      "PRIORITY": "110",
+      "TRACK_OBJ": "1",
+      "TRACK_STATUS": "Up",
+      "TRACK_ACTION": "decrement 10",
+      "MASTER_IP_ADDRESS": "10.0.3.3",
+      "MASTER_PRIORITY": "120",
+      "MASTER_ADV_INTERVAL": "1.000",
+      "MASTER_DOWN_INTERVAL": "3.570"
+    },
+    {
+      "INTERFACE": "FastEthernet0/1.4",
+      "GROUP": "4",
+      "STATE": "Init",
+      "VIRTUAL_IP_ADDRESS": "10.0.4.1",
+      "VIRTUAL_MAC_ADDRESS": "0000.5e00.0104",
+      "ADV_INTERVAL": "1.000",
+      "PREEMPT": "enabled",
+      "PRIORITY": "100",
+      "MASTER_IP_ADDRESS": "10.0.4.3",
+      "MASTER_PRIORITY": "120",
+      "MASTER_ADV_INTERVAL": "1.000",
+      "MASTER_DOWN_INTERVAL": "3.609"
+    },
+    {
+      "INTERFACE": "FastEthernet0/1.5",
+      "GROUP": "5",
+      "STATE": "Backup",
+      "VIRTUAL_IP_ADDRESS": "10.0.5.1",
+      "VIRTUAL_MAC_ADDRESS": "0000.5e00.0105",
+      "ADV_INTERVAL": "1.000",
+      "PREEMPT": "enabled",
+      "PRIORITY": "90",
+      "PRIORITY_CONFIGURED": "110",
+      "TRACK_OBJ": "2",
+      "TRACK_STATUS": "Down",
+      "TRACK_ACTION": "decrement 20",
+      "MASTER_IP_ADDRESS": "10.0.5.3",
+      "MASTER_PRIORITY": "105",
+      "MASTER_ADV_INTERVAL": "1.000",
+      "MASTER_DOWN_INTERVAL": "3.570"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "state_master_ip_address_priority": [
+        {
+          "STATE": "Master",
+          "MASTER_IP_ADDRESS": "192.168.88.2",
+          "PRIORITY": "110"
+        },
+        {
+          "STATE": "Master",
+          "MASTER_IP_ADDRESS": "10.0.2.2",
+          "PRIORITY": "110"
+        }
+      ],
+      "master_ip_address_master_priority": [
+        {
+          "MASTER_IP_ADDRESS": "10.0.3.3",
+          "MASTER_PRIORITY": "120"
+        },
+        {
+          "MASTER_IP_ADDRESS": "10.0.4.3",
+          "MASTER_PRIORITY": "120"
+        },
+        {
+          "MASTER_IP_ADDRESS": "10.0.5.3",
+          "MASTER_PRIORITY": "105"
+        }
+      ],
+      "track_status_master_down_interval_track_obj": [
+        {
+          "TRACK_STATUS": "Down",
+          "MASTER_DOWN_INTERVAL": "3.570",
+          "TRACK_OBJ": "2"
+        },
+        {
+          "TRACK_STATUS": "Down",
+          "MASTER_DOWN_INTERVAL": "3.570",
+          "TRACK_OBJ": "2"
+        }
+      ]
+    }
+  ],
+  "cli_content": "FastEthernet0/1 - Group 1  \n  State is Master  \n  Virtual IP address is 192.168.88.1\n  Virtual MAC address is 0000.5e00.0101\n  Advertisement interval is 1.000 sec\n  Preemption enabled\n  Priority is 110 \n    Track object 1 state Up decrement 10\n  Authentication MD5, key-string \"highavailability\"\n  Master Router is 192.168.88.2 (local), priority is 110 \n  Master Advertisement interval is 1.000 sec\n  Master Down interval is 3.570 sec\n\nFastEthernet0/1.2 - Group 2  \n  State is Master  \n  Virtual IP address is 10.0.2.1\n  Virtual MAC address is 0000.5e00.0102\n  Advertisement interval is 1.000 sec\n  Preemption enabled\n  Priority is 110 \n    Track object 1 state Up decrement 10\n  Master Router is 10.0.2.2 (local), priority is 110 \n  Master Advertisement interval is 1.000 sec\n  Master Down interval is 3.570 sec\n\nFastEthernet0/1.3 - Group 3  \n  State is Backup  \n  Virtual IP address is 10.0.3.1\n  Virtual MAC address is 0000.5e00.0103\n  Advertisement interval is 1.000 sec\n  Preemption enabled\n  Priority is 110 \n    Track object 1 state Up decrement 10\n  Master Router is 10.0.3.3, priority is 120 \n  Master Advertisement interval is 1.000 sec\n  Master Down interval is 3.570 sec (expires in 2.738 sec)\n\nFastEthernet0/1.4 - Group 4  \n  State is Init    \n  Virtual IP address is 10.0.4.1\n  Virtual MAC address is 0000.5e00.0104\n  Advertisement interval is 1.000 sec\n  Preemption enabled\n  Priority is 100 \n  Master Router is 10.0.4.3, priority is 120 \n  Master Advertisement interval is 1.000 sec\n  Master Down interval is 3.609 sec\n\nFastEthernet0/1.5 - Group 5  \n  State is Backup  \n  Virtual IP address is 10.0.5.1\n  Virtual MAC address is 0000.5e00.0105\n  Advertisement interval is 1.000 sec\n  Preemption enabled\n  Priority is 90  (cfgd 110)\n    Track object 2 state Down decrement 20\n  Master Router is 10.0.5.3, priority is 105 \n  Master Advertisement interval is 1.000 sec\n  Master Down interval is 3.570 sec (expires in 2.706 sec)\n\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue GROUP (\\d+)\nValue ADDR_FAMILY (\\S+)\nValue STATE (\\w+)\nValue STATE_DURATION (.+)\nValue VIRTUAL_IP_ADDRESS ([a-fA-F\\d\\.\\:]+)\nValue VIRTUAL_MAC_ADDRESS ([a-fA-F\\d\\.\\:]+)\nValue ADV_INTERVAL (\\S+)\nValue PREEMPT (\\w+)\nValue PRIORITY (\\d+)\nValue PRIORITY_CONFIGURED (\\d+)\nValue TRACK_OBJ (\\d+)\nValue TRACK_STATUS (\\S+)\nValue TRACK_ACTION (\\S+(\\s+\\S+)?)\nValue MASTER_IP_ADDRESS (\\S+)\nValue MASTER_PRIORITY (\\S+)\nValue MASTER_ADV_INTERVAL (\\S+)\nValue MASTER_DOWN_INTERVAL (\\S+)\n\nStart\n  ^\\S+\\s+-\\s+Group\\s+\\d+.*$$ -> Continue.Record\n  ^\\s*${INTERFACE}\\s+-\\s+Group\\s+${GROUP}(\\s+-\\s+Address-Family\\s+${ADDR_FAMILY})?\\s*$$\n  ^\\s+State is\\s+${STATE}.*\\s*$$\n  ^\\s*State duration\\s+${STATE_DURATION}\\s*$$\n  ^\\s+Virtual IP address is\\s+${VIRTUAL_IP_ADDRESS}\\s*$$\n  ^\\s+Virtual MAC address is\\s+${VIRTUAL_MAC_ADDRESS}\\s*$$\n  ^\\s+Advertisement interval is\\s+${ADV_INTERVAL}\n  ^\\s+Preemption\\s+${PREEMPT}\\s*$$\n  ^\\s+Priority is\\s+${PRIORITY}(\\s+\\((cfgd|[cC]onfigured)\\s+${PRIORITY_CONFIGURED}\\))?\\s*$$\n  ^\\s*Track object\\s+${TRACK_OBJ}\\s+state\\s+${TRACK_STATUS}\\s+${TRACK_ACTION}\\s*$$\n  # ignore authentication output since later VRRP versions do not even support it\n  ^\\s+Authentication\\s\n  # ignoring the \"local\" designation since we can use the STATE value to determine who the master is\n  ^\\s+Master Router is\\s+${MASTER_IP_ADDRESS}(\\s+\\(local\\))?, priority is\\s+${MASTER_PRIORITY}\\s*$$\n  ^\\s+Master Advertisement interval is\\s+${MASTER_ADV_INTERVAL}\n  ^\\s+Master Down interval is\\s+${MASTER_DOWN_INTERVAL}\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^\\s*$$\n  ^. -> Error\n"
+}

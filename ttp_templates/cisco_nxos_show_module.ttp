@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_module
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="module_ports_type_model_status">
+{{MODULE | re("\\d+")}} {{PORTS | re("\\d+")}} {{TYPE | ORPHRASE}} {{MODEL}} {{STATUS | ORPHRASE}}
+</group>

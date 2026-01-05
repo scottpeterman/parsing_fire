@@ -1,0 +1,17 @@
+# TTP Template auto-generated from TextFSM
+# Original command: edgecore_show_version
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="epld_version_hardware_version_loader_version_num_of_ports">
+ Serial Number:  {{SERIAL | ORPHRASE}}
+ Hardware Version:  {{HARDWARE_VERSION | ORPHRASE}}
+ EPLD Version:  {{EPLD_VERSION | ORPHRASE}}
+ Number of Ports:  {{NUM_OF_PORTS | ORPHRASE}}
+ Main Power Status:  {{POWER_STATUS | ORPHRASE}}
+ Loader Version:  {{LOADER_VERSION | ORPHRASE}}
+ Boot ROM Version:  {{ROM_VERSION | ORPHRASE}}
+ Operation Code Version:  {{OPERATION_CODE_VERSION | ORPHRASE}}
+</group>

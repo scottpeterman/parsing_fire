@@ -1,0 +1,84 @@
+{
+  "command": "show ip dns query",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"time_source_ip_type_status_query\">\n{{TIME}} {{SOURCE_IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{DESTIN{{TYPE}}TION_IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATUS | ORPHRASE}} A {{QUERY | ORPHRASE}}\n</group>\n<group name=\"time_source_ip_destination_ip_status_type_query\">\n{{TIME}} {{SOURCE_IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{DESTINATION_IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATUS | ORPHRASE}} {{TYPE}} {{QUERY | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TIME": "1631200800.123",
+      "SOURCE_IP": "192.0.2.1",
+      "DESTINATION_IP": "203.0.113.5",
+      "STATUS": "Success",
+      "TYPE": "A",
+      "QUERY": "example.com"
+    },
+    {
+      "TIME": "1631200801.456",
+      "SOURCE_IP": "192.0.2.1",
+      "DESTINATION_IP": "203.0.113.5",
+      "STATUS": "Success",
+      "TYPE": "AAAA",
+      "QUERY": "example.org"
+    },
+    {
+      "TIME": "1631200802.789",
+      "SOURCE_IP": "192.0.2.2",
+      "DESTINATION_IP": "203.0.113.9",
+      "STATUS": "Failed",
+      "TYPE": "MX",
+      "QUERY": "mail.example.com"
+    },
+    {
+      "TIME": "1631200803.101",
+      "SOURCE_IP": "192.0.2.3",
+      "DESTINATION_IP": "203.0.113.5",
+      "STATUS": "Success",
+      "TYPE": "TXT",
+      "QUERY": "record.example.com"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "time_source_ip_destination_ip_status_type_query": [
+        {
+          "TIME": "1631200800.123",
+          "SOURCE_IP": "192.0.2.1",
+          "DESTINATION_IP": "203.0.113.5",
+          "STATUS": "Success",
+          "TYPE": "A",
+          "QUERY": "example.com"
+        },
+        {
+          "TIME": "1631200801.456",
+          "SOURCE_IP": "192.0.2.1",
+          "DESTINATION_IP": "203.0.113.5",
+          "STATUS": "Success",
+          "TYPE": "AAAA",
+          "QUERY": "example.org"
+        },
+        {
+          "TIME": "1631200802.789",
+          "SOURCE_IP": "192.0.2.2",
+          "DESTINATION_IP": "203.0.113.9",
+          "STATUS": "Failed",
+          "TYPE": "MX",
+          "QUERY": "mail.example.com"
+        },
+        {
+          "TIME": "1631200803.101",
+          "SOURCE_IP": "192.0.2.3",
+          "DESTINATION_IP": "203.0.113.5",
+          "STATUS": "Success",
+          "TYPE": "TXT",
+          "QUERY": "record.example.com"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Time            Source IP       Destination IP  Status     Type       Query\n1631200800.123  192.0.2.1       203.0.113.5     Success    A          example.com\n1631200801.456  192.0.2.1       203.0.113.5     Success    AAAA       example.org\n1631200802.789  192.0.2.2       203.0.113.9     Failed     MX         mail.example.com\n1631200803.101  192.0.2.3       203.0.113.5     Success    TXT        record.example.com\n",
+  "textfsm_template": "Value TIME (\\d+\\.\\d+)\nValue SOURCE_IP (\\d{1,3}(\\.\\d{1,3}){3})\nValue DESTINATION_IP (\\d{1,3}(\\.\\d{1,3}){3})\nValue STATUS (\\w+)\nValue TYPE (\\w+)\nValue QUERY (\\S+)\n\nStart\n  ^\\s*Time\\s+Source IP\\s+Destination IP\\s+Status\\s+Type\\s+Query\\s*$$\n  ^\\s*${TIME}\\s+${SOURCE_IP}\\s+${DESTINATION_IP}\\s+${STATUS}\\s+${TYPE}\\s+${QUERY}\\s*$$ -> Record"
+}

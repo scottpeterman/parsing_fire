@@ -1,0 +1,50 @@
+{
+  "command": "hp_procurve_show_arp",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.6666666666666666,
+  "textfsm_rows": 3,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"ip_address_mac_address_type_port\">\n  {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{TYPE | ORPHRASE}} {{PORT | re(\"\\\\d+\")}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP_ADDRESS": "10.11.12.11",
+      "MAC_ADDRESS": "0015b2-a45078",
+      "TYPE": "dynamic",
+      "PORT": "2"
+    },
+    {
+      "IP_ADDRESS": "10.11.12.12",
+      "MAC_ADDRESS": "0c15b2-a45d78",
+      "TYPE": "dynamic",
+      "PORT": "3"
+    },
+    {
+      "IP_ADDRESS": "10.11.12.13",
+      "MAC_ADDRESS": "001eb2-a45f78",
+      "TYPE": "dynamic",
+      "PORT": "Trk1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_address_mac_address_type_port": [
+        {
+          "IP_ADDRESS": "10.11.12.11",
+          "MAC_ADDRESS": "0015b2-a45078",
+          "TYPE": "dynamic",
+          "PORT": "2"
+        },
+        {
+          "IP_ADDRESS": "10.11.12.12",
+          "MAC_ADDRESS": "0c15b2-a45d78",
+          "TYPE": "dynamic",
+          "PORT": "3"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\n IP ARP table\n\n  IP Address      MAC Address       Type    Port\n  --------------- ----------------- ------- ----\n  10.11.12.11     0015b2-a45078     dynamic 2\n  10.11.12.12     0c15b2-a45d78     dynamic 3\n  10.11.12.13     001eb2-a45f78     dynamic Trk1   \n",
+  "textfsm_template": "Value IP_ADDRESS (\\S+)\r\nValue MAC_ADDRESS ([0-9a-fA-F]{6}-[0-9a-fA-F]{6})\r\nValue TYPE (\\S+)\r\nValue PORT (\\S+)\r\n\r\nStart\r\n  ^Your previous successful login\r\n  ^from\\s+\r\n  ^\\S+#\r\n  ^Invalid input:\r\n  ^Cannot translate\r\n  ^.*IP ARP table -> ARP\r\n  ^\\s*$$\r\n  ^.\r\n\r\nARP\r\n  ^\\s*IP Address\r\n  ^\\s*-+\r\n  ^\\s+${IP_ADDRESS}\\s+${MAC_ADDRESS}\\s+${TYPE}\\s+${PORT} -> Record\r\n  ^\\s+${IP_ADDRESS}\\s+${MAC_ADDRESS}\\s+${TYPE} -> Record\r\n  ^\\s*$$\r\n  ^\\S+#\r\n  ^."
+}

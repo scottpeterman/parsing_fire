@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: ericsson_ipos_show_isis_adjacency
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 1
+# Match ratio: 0.25
+
+<group name="system_id_interface_l_mt_stat_hold_snpa_uptime">
+{{SYSTEM_ID}} {{INTERFACE}} {{L}} {{MT}} {{STAT}} {{HOLD}} {{SNPA | re("\\w+")}} {{UPTIME | ORPHRASE}}
+</group>

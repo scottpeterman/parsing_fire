@@ -1,0 +1,24 @@
+{
+  "command": "avaya_vsp_show_software",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 1,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"auto_commit_backup_release_commit_timeout_primary_release\">\n  software releases in {{RELEASE_LOCATION | ORPHRASE}}\n{{BACKUP_RELEASE | ORPHRASE}} (Backup Release)\n{{PRIMARY_RELEASE | ORPHRASE}} (Primary Release)\nAuto Commit  : {{AUTO_COMMIT | ORPHRASE}}\nCommit Timeout  : {{COMMIT_TIMEOUT | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "RELEASE_LOCATION": "/intflash/release/",
+      "BACKUP_RELEASE": "VOSS8K.4.2.2.0.GA",
+      "PRIMARY_RELEASE": "VOSS8K.6.0.1.2.GA",
+      "AUTO_COMMIT": "enabled",
+      "COMMIT_TIMEOUT": "10 minutes"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "\n====================================================================================================\n                    software releases in /intflash/release/\n====================================================================================================\nVOSS8K.4.2.2.0.GA (Backup Release)\nVOSS8K.6.0.1.2.GA (Primary Release)\n\n----------------------------------------------------------------------------------------------------\nAuto Commit     : enabled\nCommit Timeout  : 10 minutes\n",
+  "textfsm_template": "Value RELEASE_LOCATION (\\S+)\nValue BACKUP_RELEASE (\\S+)\nValue PRIMARY_RELEASE (\\S+)\nValue AUTO_COMMIT (\\S+)\nValue COMMIT_TIMEOUT (.*\\w)\n\nStart\n  ^==+\n  ^\\s+software releases in ${RELEASE_LOCATION}\n  ^${BACKUP_RELEASE}\\s+\\(Backup Release\\)\n  ^${PRIMARY_RELEASE}\\s+\\(Primary Release\\)\n  ^Auto Commit\\s+:\\s+${AUTO_COMMIT}\n  ^Commit Timeout\\s+:\\s+${COMMIT_TIMEOUT}\n\nDone\n"
+}

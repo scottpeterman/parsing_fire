@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_band-select
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="band_select_age_dual_band_band_select_age_suppress_band_select_client_mid_rssi_band_select_client_rssi">
+Band Select Probe Response....................... {{BAND_SELECT_PROBE_RESPONSE | ORPHRASE}}
+  Cycle Count................................... {{BAND_SELECT_CYCLE_COUNT | ORPHRASE}}
+  Cycle Threshold............................... {{BAND_SELECT_CYCLE_THRESH | ORPHRASE}}
+  Age Out Suppression........................... {{BAND_SELECT_AGE_SUPPRESS | ORPHRASE}}
+  Age Out Dual Band............................. {{BAND_SELECT_AGE_DUAL_BAND | ORPHRASE}}
+  Client RSSI................................... {{BAND_SELECT_CLIENT_RSSI | ORPHRASE}}
+</group>

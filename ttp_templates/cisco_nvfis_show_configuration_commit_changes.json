@@ -1,0 +1,28 @@
+{
+  "command": "cisco_nvfis_show_configuration_commit_changes",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"client_created_by_date_time\">\n! Created by: {{CREATED_BY | ORPHRASE}}\n! Date: {{DATE_TIME | ORPHRASE}}\n! Client: {{CLIENT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CREATED_BY": "admin",
+      "DATE_TIME": "2023-12-05 13:03:45",
+      "CLIENT": "rest"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "client_created_by_date_time": {
+        "CLIENT": "rest",
+        "DATE_TIME": "2023-12-05 13:03:45",
+        "CREATED_BY": "admin"
+      }
+    }
+  ],
+  "cli_content": "!\n! Created by: admin\n! Date: 2023-12-05 13:03:45\n! Client: rest\n!\naaa auth-order local tacacs\n",
+  "textfsm_template": "Value CREATED_BY (\\w+)\nValue DATE_TIME (\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2})\nValue CLIENT (\\w+)\n\n\nStart\n  ^!\\sCreated\\sby:\\s${CREATED_BY}\n  ^!\\sDate:\\s${DATE_TIME}\n  ^!\\sClient:\\s${CLIENT} -> Record\n\nEOF"
+}

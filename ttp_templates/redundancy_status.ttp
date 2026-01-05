@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: redundancy status
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="configured_mode_hw_mode_last_change_duration_local_role">
+Redundancy Mode  : {{REDUNDANCY_MODE | ORPHRASE}}
+Redundancy State  : {{LOCAL_ROLE | ORPHRASE}}
+Redundancy State  : {{REDUNDANCY_STATE | ORPHRASE}}
+Hardware Mode  : {{HW_MODE | ORPHRASE}}
+Last Redundancy Mode Change  : {{LAST_CHANGE_DURATION | ORPHRASE}}
+</group>

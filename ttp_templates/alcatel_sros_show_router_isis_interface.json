@@ -1,0 +1,68 @@
+{
+  "command": "alcatel_sros_show_router_isis_interface",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"interface_level_circid_oper_state_metric_l1_metric_l2\">\n{{INTERFACE}} {{LEVEL}} {{CIRCID | re(\"\\\\d+\")}} {{OPER_STATE | ORPHRASE}} {{METRIC_L1 | ORPHRASE}}/{{METRIC_L2}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "system",
+      "LEVEL": "L1L2",
+      "CIRCID": "1",
+      "OPER_STATE": "Up",
+      "METRIC_L1": "0",
+      "METRIC_L2": "0"
+    },
+    {
+      "INTERFACE": "R1_R2",
+      "LEVEL": "L2",
+      "CIRCID": "18",
+      "OPER_STATE": "Up",
+      "METRIC_L1": "10",
+      "METRIC_L2": "10"
+    },
+    {
+      "INTERFACE": "R1_R3",
+      "LEVEL": "L1",
+      "CIRCID": "21",
+      "OPER_STATE": "Down",
+      "METRIC_L1": "10",
+      "METRIC_L2": "1000"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_level_circid_oper_state_metric_l1_metric_l2": [
+        {
+          "INTERFACE": "system",
+          "LEVEL": "L1L2",
+          "CIRCID": "1",
+          "OPER_STATE": "Up",
+          "METRIC_L1": "0",
+          "METRIC_L2": "0"
+        },
+        {
+          "INTERFACE": "R1_R2",
+          "LEVEL": "L2",
+          "CIRCID": "18",
+          "OPER_STATE": "Up",
+          "METRIC_L1": "10",
+          "METRIC_L2": "10"
+        },
+        {
+          "INTERFACE": "R1_R3",
+          "LEVEL": "L1",
+          "CIRCID": "21",
+          "OPER_STATE": "Down",
+          "METRIC_L1": "10",
+          "METRIC_L2": "1000"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\n===============================================================================\nRtr Base ISIS Instance 0 Interfaces\n===============================================================================\nInterface                        Level CircID  Oper State   L1/L2 Metric\n-------------------------------------------------------------------------------\nsystem                           L1L2  1       Up           0/0\nR1_R2                            L2    18      Up           10/10\nR1_R3                            L1    21      Down         10/1000\n-------------------------------------------------------------------------------\nInterfaces : 3\n===============================================================================\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue LEVEL (\\S+)\nValue CIRCID (\\d+)\nValue OPER_STATE (Up|Down)\nValue METRIC_L1 (\\d+)\nValue METRIC_L2 (\\d+)\n\nStart\n  ^----------- -> Interface\n\nInterface\n  ^${INTERFACE}\\s+${LEVEL}\\s+${CIRCID}\\s+${OPER_STATE}\\s+${METRIC_L1}/${METRIC_L2} -> Record\n  ^\\s*$$\n  ^-----------\n  ^===========\n  ^Interfaces\n  ^. -> Error\n"
+}

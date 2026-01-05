@@ -1,0 +1,39 @@
+{
+  "command": "show logging settings",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"buffered_logging_buffer_size_logging_facility_logging_level\">\nLogging level: {{LOGGING_LEVEL | ORPHRASE}}\nLogging facility: {{LOGGING_FACILITY | ORPHRASE}}\nLogging source interface: {{LOGGING_SOURCE_INTERFACE | ORPHRASE}}\nLogging trap level: {{LOGGING_TRAP_LEVEL | ORPHRASE}}\nBuffered logging: {{BUFFERED_LOGGING}} (size {{BUFFER_SIZE | ORPHRASE}})\n  {{SERVER_IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} ({{SERVER_PORT_PROTOCOL | ORPHRASE}})\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOGGING_LEVEL": "informational",
+      "LOGGING_FACILITY": "local7",
+      "LOGGING_SOURCE_INTERFACE": "Vlan1",
+      "LOGGING_TRAP_LEVEL": "warnings",
+      "BUFFERED_LOGGING": "enabled",
+      "BUFFER_SIZE": "8192",
+      "REMOTE_LOGGING": "enabled",
+      "SERVER_IP": "192.168.1.10",
+      "SERVER_PORT_PROTOCOL": "udp port 514"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "buffered_logging_buffer_size_logging_facility_logging_level": {
+        "SERVER_IP": "192.168.1.10",
+        "SERVER_PORT_PROTOCOL": "udp port 514",
+        "BUFFERED_LOGGING": "enabled",
+        "BUFFER_SIZE": "8192",
+        "LOGGING_TRAP_LEVEL": "warnings",
+        "LOGGING_SOURCE_INTERFACE": "Vlan1",
+        "LOGGING_FACILITY": "local7",
+        "LOGGING_LEVEL": "informational"
+      }
+    }
+  ],
+  "cli_content": "Logging level: informational\nLogging facility: local7\nLogging source interface: Vlan1\nLogging trap level: warnings\nBuffered logging: enabled (size 8192)\nRemote logging: enabled\nLogging servers:\n  192.168.1.10 (udp port 514)\n  192.168.1.11 (tcp port 601)\n",
+  "textfsm_template": "Value LOGGING_LEVEL (\\S+)\nValue LOGGING_FACILITY (\\S+)\nValue LOGGING_SOURCE_INTERFACE (\\S+)\nValue LOGGING_TRAP_LEVEL (\\S+)\nValue BUFFERED_LOGGING (\\S+)\nValue BUFFER_SIZE (\\d+)\nValue REMOTE_LOGGING (\\S+)\nValue SERVER_IP (\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})\nValue SERVER_PORT_PROTOCOL (\\S+ port \\d+)\n\nStart\n  ^Logging level:\\s+${LOGGING_LEVEL}\\s*$$\n  ^Logging facility:\\s+${LOGGING_FACILITY}\\s*$$\n  ^Logging source interface:\\s+${LOGGING_SOURCE_INTERFACE}\\s*$$\n  ^Logging trap level:\\s+${LOGGING_TRAP_LEVEL}\\s*$$\n  ^Buffered logging:\\s+${BUFFERED_LOGGING}\\s+\\(size ${BUFFER_SIZE}\\)\\s*$$\n  ^Remote logging:\\s+${REMOTE_LOGGING}\\s*$$\n  ^Logging servers:$$\n  ^\\s+${SERVER_IP}\\s+\\(${SERVER_PORT_PROTOCOL}\\)\\s*$$ -> Record"
+}

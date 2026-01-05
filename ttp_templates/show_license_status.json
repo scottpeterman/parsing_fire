@@ -1,0 +1,68 @@
+{
+  "command": "show license status",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"license_name_status_expiry_date_count\">\n{{LICENSE_NAME | ORPHRASE}} {{STATUS | ORPHRASE}} {{EXPIRY_DATE}} {{COUNT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LICENSE_NAME": "Base License",
+      "STATUS": "Active",
+      "EXPIRY_DATE": "Never",
+      "COUNT": "Unlimited"
+    },
+    {
+      "LICENSE_NAME": "Security License",
+      "STATUS": "Active",
+      "EXPIRY_DATE": "2024-12-31",
+      "COUNT": "200"
+    },
+    {
+      "LICENSE_NAME": "Advanced Monitoring",
+      "STATUS": "Inactive",
+      "EXPIRY_DATE": "2023-06-30",
+      "COUNT": "-"
+    },
+    {
+      "LICENSE_NAME": "Data Center Optimization",
+      "STATUS": "Active",
+      "EXPIRY_DATE": "2025-01-31",
+      "COUNT": "500"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "license_name_status_expiry_date_count": [
+        {
+          "LICENSE_NAME": "Base License",
+          "STATUS": "Active",
+          "EXPIRY_DATE": "Never",
+          "COUNT": "Unlimited"
+        },
+        {
+          "LICENSE_NAME": "Security License",
+          "STATUS": "Active",
+          "EXPIRY_DATE": "2024-12-31",
+          "COUNT": "200"
+        },
+        {
+          "LICENSE_NAME": "Advanced Monitoring",
+          "STATUS": "Inactive",
+          "EXPIRY_DATE": "2023-06-30",
+          "COUNT": "-"
+        },
+        {
+          "LICENSE_NAME": "Data Center Optimization",
+          "STATUS": "Active",
+          "EXPIRY_DATE": "2025-01-31",
+          "COUNT": "500"
+        }
+      ]
+    }
+  ],
+  "cli_content": "License Name                   Status      Expiry Date        Count\n---------------------------------------------------------------\nBase License                   Active      Never              Unlimited\nSecurity License               Active      2024-12-31         200\nAdvanced Monitoring            Inactive    2023-06-30         - \nData Center Optimization       Active      2025-01-31         500\n\n",
+  "textfsm_template": "Value LICENSE_NAME (.+)\nValue STATUS (Active|Inactive)\nValue EXPIRY_DATE (\\S+|\\w+)\nValue COUNT (\\S+|\\w+)\n\nStart\n  ^License Name\\s+Status\\s+Expiry Date\\s+Count\\s*$$\n  ^-+\\s*$$\n  ^\\s*${LICENSE_NAME}\\s+${STATUS}\\s+${EXPIRY_DATE}\\s+${COUNT}\\s*$$ -> Record\n"
+}

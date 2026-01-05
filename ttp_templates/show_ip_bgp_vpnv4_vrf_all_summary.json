@@ -1,0 +1,164 @@
+{
+  "command": "show ip bgp vpnv4 vrf all summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 3.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 9,
+  "ttp_template": "<group name=\"neighbor_version_as_number_msg_rcv_msg_sent_table_version_inq_outq_up_down_state_pfxrcvd\">\n{{NEIGHBOR}} {{VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{AS_NUMBER}} {{MSG_RCV}} {{MSG_SENT}} {{TABLE_VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{INQ}} {{OUTQ}} {{UP_DOWN | ORPHRASE}} {{STATE_PFXRCVD | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR": "192.168.1.1",
+      "VERSION": "4",
+      "AS_NUMBER": "65001",
+      "MSG_RCV": "103",
+      "MSG_SENT": "101",
+      "TABLE_VERSION": "5",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UP_DOWN": "00:01:21",
+      "STATE_PFXRCVD": "2"
+    },
+    {
+      "NEIGHBOR": "10.10.10.2",
+      "VERSION": "4",
+      "AS_NUMBER": "65002",
+      "MSG_RCV": "203",
+      "MSG_SENT": "101",
+      "TABLE_VERSION": "5",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UP_DOWN": "00:00:34",
+      "STATE_PFXRCVD": "3"
+    },
+    {
+      "NEIGHBOR": "172.16.1.1",
+      "VERSION": "4",
+      "AS_NUMBER": "65003",
+      "MSG_RCV": "302",
+      "MSG_SENT": "201",
+      "TABLE_VERSION": "5",
+      "INQ": "0",
+      "OUTQ": "0",
+      "UP_DOWN": "00:10:11",
+      "STATE_PFXRCVD": "5"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neighbor_version_as_number_msg_rcv_msg_sent_table_version_inq_outq_up_down_state_pfxrcvd": [
+        {
+          "NEIGHBOR": "BGP",
+          "VERSION": "table",
+          "AS_NUMBER": "version",
+          "MSG_RCV": "is",
+          "MSG_SENT": "5,",
+          "TABLE_VERSION": "main",
+          "INQ": "routing",
+          "OUTQ": "table",
+          "UP_DOWN": "version",
+          "STATE_PFXRCVD": "5"
+        },
+        {
+          "NEIGHBOR": "1/1",
+          "VERSION": "BGP",
+          "AS_NUMBER": "path/bestpath",
+          "MSG_RCV": "attribute",
+          "MSG_SENT": "entries",
+          "TABLE_VERSION": "using",
+          "INQ": "128",
+          "OUTQ": "bytes",
+          "UP_DOWN": "of",
+          "STATE_PFXRCVD": "memory"
+        },
+        {
+          "NEIGHBOR": "0",
+          "VERSION": "BGP",
+          "AS_NUMBER": "extended",
+          "MSG_RCV": "community",
+          "MSG_SENT": "entries",
+          "TABLE_VERSION": "using",
+          "INQ": "0",
+          "OUTQ": "bytes",
+          "UP_DOWN": "of",
+          "STATE_PFXRCVD": "memory"
+        },
+        {
+          "NEIGHBOR": "0",
+          "VERSION": "BGP",
+          "AS_NUMBER": "route-map",
+          "MSG_RCV": "cache",
+          "MSG_SENT": "entries",
+          "TABLE_VERSION": "using",
+          "INQ": "0",
+          "OUTQ": "bytes",
+          "UP_DOWN": "of",
+          "STATE_PFXRCVD": "memory"
+        },
+        {
+          "NEIGHBOR": "0",
+          "VERSION": "BGP",
+          "AS_NUMBER": "filter-list",
+          "MSG_RCV": "cache",
+          "MSG_SENT": "entries",
+          "TABLE_VERSION": "using",
+          "INQ": "0",
+          "OUTQ": "bytes",
+          "UP_DOWN": "of",
+          "STATE_PFXRCVD": "memory"
+        },
+        {
+          "NEIGHBOR": "Neighbor",
+          "VERSION": "V",
+          "AS_NUMBER": "AS",
+          "MSG_RCV": "MsgRcvd",
+          "MSG_SENT": "MsgSent",
+          "TABLE_VERSION": "TblVer",
+          "INQ": "InQ",
+          "OUTQ": "OutQ",
+          "UP_DOWN": "Up/Down",
+          "STATE_PFXRCVD": "State/PfxRcd"
+        },
+        {
+          "NEIGHBOR": "192.168.1.1",
+          "VERSION": "4",
+          "AS_NUMBER": "65001",
+          "MSG_RCV": "103",
+          "MSG_SENT": "101",
+          "TABLE_VERSION": "5",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UP_DOWN": "00:01:21",
+          "STATE_PFXRCVD": "2"
+        },
+        {
+          "NEIGHBOR": "10.10.10.2",
+          "VERSION": "4",
+          "AS_NUMBER": "65002",
+          "MSG_RCV": "203",
+          "MSG_SENT": "101",
+          "TABLE_VERSION": "5",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UP_DOWN": "00:00:34",
+          "STATE_PFXRCVD": "3"
+        },
+        {
+          "NEIGHBOR": "172.16.1.1",
+          "VERSION": "4",
+          "AS_NUMBER": "65003",
+          "MSG_RCV": "302",
+          "MSG_SENT": "201",
+          "TABLE_VERSION": "5",
+          "INQ": "0",
+          "OUTQ": "0",
+          "UP_DOWN": "00:10:11",
+          "STATE_PFXRCVD": "5"
+        }
+      ]
+    }
+  ],
+  "cli_content": "BGP router identifier 192.168.0.1, local AS number 65000\nBGP table version is 5, main routing table version 5\n5 network entries using 640 bytes of memory\n5 path entries using 320 bytes of memory\n1/1 BGP path/bestpath attribute entries using 128 bytes of memory\n1 BGP AS-PATH entries using 24 bytes of memory\n1 BGP community entries using 24 bytes of memory\n0 BGP extended community entries using 0 bytes of memory\n0 BGP clusterlist entries using 0 bytes of memory\n0 BGP route-map cache entries using 0 bytes of memory\n0 BGP filter-list cache entries using 0 bytes of memory\nBGP using 1136 total bytes of memory\nBGP activity 0/0 prefixes, 0/0 paths, scan interval 60 secs\n\nNeighbor        V         AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down State/PfxRcd\n192.168.1.1     4      65001     103     101        5    0    0 00:01:21          2\n10.10.10.2      4      65002     203     101        5    0    0 00:00:34          3\n172.16.1.1      4      65003     302     201        5    0    0 00:10:11          5\n",
+  "textfsm_template": "Value NEIGHBOR (\\S+)\nValue VERSION (\\d+)\nValue AS_NUMBER (\\d+)\nValue MSG_RCV (\\d+)\nValue MSG_SENT (\\d+)\nValue TABLE_VERSION (\\d+)\nValue INQ (\\d+)\nValue OUTQ (\\d+)\nValue UP_DOWN (\\S+)\nValue STATE_PFXRCVD (\\d+)\n\nStart\n  ^BGP router identifier.+\n  ^Neighbor\\s+V\\s+AS\\s+MsgRcvd\\s+MsgSent\\s+TblVer\\s+InQ\\s+OutQ\\s+Up/Down\\s+State/PfxRcd\\s*$$\n  ^\\s*${NEIGHBOR}\\s+${VERSION}\\s+${AS_NUMBER}\\s+${MSG_RCV}\\s+${MSG_SENT}\\s+${TABLE_VERSION}\\s+${INQ}\\s+${OUTQ}\\s+${UP_DOWN}\\s+${STATE_PFXRCVD}\\s*$$ -> Record"
+}

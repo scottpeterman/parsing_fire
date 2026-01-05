@@ -1,0 +1,40 @@
+{
+  "command": "checkpoint_gaia_show_ntp_servers",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"ip_address_type_version\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{TYPE}} {{VERSION | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP_ADDRESS": "1.1.1.1",
+      "TYPE": "Primary",
+      "VERSION": "3"
+    },
+    {
+      "IP_ADDRESS": "2.2.2.2",
+      "TYPE": "Secondary",
+      "VERSION": "3"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_address_type_version": [
+        {
+          "IP_ADDRESS": "1.1.1.1",
+          "TYPE": "Primary",
+          "VERSION": "3"
+        },
+        {
+          "IP_ADDRESS": "2.2.2.2",
+          "TYPE": "Secondary",
+          "VERSION": "3"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IP Address               Type              Version  \n1.1.1.1                  Primary           3        \n2.2.2.2                  Secondary         3   \n",
+  "textfsm_template": "Value IP_ADDRESS ((?:[0-9]{1,3}\\.){3}[0-9]{1,3})\nValue TYPE (\\S+)\nValue VERSION (\\S+)\n\nStart\n  ^IP\\sAddress\\s+Type\\s+Version\\s*$$\n  ^${IP_ADDRESS}\\s+${TYPE}\\s+${VERSION}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

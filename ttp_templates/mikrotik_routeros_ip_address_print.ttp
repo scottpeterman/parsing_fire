@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_ip_address_print
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="num_ip_subnet_network_interface">
+ {{NUM}} {{IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{SUBNET}} {{NETWORK}} {{INTERFACE | ORPHRASE}}
+</group>
+<group name="num_flags_ip_subnet_network_interface">
+ {{NUM}} {{FLAGS}} {{IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{SUBNET}} {{NETWORK}} {{INTERFACE | ORPHRASE}}
+</group>

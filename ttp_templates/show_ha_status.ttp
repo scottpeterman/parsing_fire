@@ -1,0 +1,17 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ha status
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="active_uptime_cluster_ha_mode_failover_count_ha_state">
+HA State: {{HA_STATE | ORPHRASE}}
+Overall HA Status: {{HA_STATUS | ORPHRASE}}
+Local HA ID: {{LOCAL_HA_ID | ORPHRASE}}
+Peer HA ID: {{PEER_HA_ID | ORPHRASE}}
+Cluster HA Mode: {{CLUSTER_HA_MODE | ORPHRASE}}
+Last Heartbeat: {{LAST_HEARTBEAT | ORPHRASE}}
+Failover Count: {{FAILOVER_COUNT | ORPHRASE}}
+Active Uptime: {{ACTIVE_UPTIME | ORPHRASE}}
+</group>

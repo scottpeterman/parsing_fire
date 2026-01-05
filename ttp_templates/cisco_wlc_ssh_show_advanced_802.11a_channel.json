@@ -1,0 +1,43 @@
+{
+  "command": "cisco_wlc_ssh_show_advanced_802.11a_channel",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"anchor_time_assign_mode_cleanair_driven_dca_channels\">\n  Channel Assignment Mode........................ {{ASSIGN_MODE | ORPHRASE}}\n  Channel Update Interval........................ {{UPDATE_TIME | ORPHRASE}}\n  Noise........................................ {{NOISE | ORPHRASE}}\n  Load......................................... {{LOAD | ORPHRASE}}\n  CleanAir Event-driven RRM option............... {{CLEANAIR_DRIVEN | ORPHRASE}}\n  Channel Assignment Leader...................... {{LEADER | ORPHRASE}} (192.168.1.11) (::)\n  DCA Sensitivity Level.......................... {{DCA_SENSITIVITY | ORPHRASE}}\n  DCA 802.11n/ac Channel Width................... {{DCA_WIDTH | ORPHRASE}}\n  DCA Minimum Energy Limit....................... {{DCA_MIN | ORPHRASE}}\n  Unused Channel List.......................... {{UNUSED_DCA_CHANNELS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ASSIGN_MODE": "OFF",
+      "UPDATE_TIME": "600 seconds",
+      "ANCHOR_TIME": "0",
+      "NOISE": "Enable",
+      "INTERFER": "Enable",
+      "LOAD": "Disable",
+      "DEVICE_AWARE": "Disable",
+      "CLEANAIR_DRIVEN": "Disabled",
+      "LEADER": "Cisco_lab",
+      "DCA_SENSITIVITY": "MEDIUM (15 dB)",
+      "DCA_WIDTH": "20 MHz",
+      "DCA_MIN": "-95 dBm",
+      "DCA_CHANNELS": "36,40,44,48,52,56,60,64,100,, 104,108,112,116,120,124,128,, 132,136,140,144,149,153,157,, 161",
+      "UNUSED_DCA_CHANNELS": "165"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "anchor_time_assign_mode_cleanair_driven_dca_channels": {
+        "DCA_MIN": "-95 dBm",
+        "DCA_WIDTH": "20 MHz",
+        "DCA_SENSITIVITY": "MEDIUM (15 dB)",
+        "LEADER": "Cisco_lab",
+        "CLEANAIR_DRIVEN": "Disabled",
+        "UPDATE_TIME": "600 seconds",
+        "ASSIGN_MODE": "OFF"
+      }
+    }
+  ],
+  "cli_content": "\n Leader Automatic Channel Assignment\n  Channel Assignment Mode........................ OFF\n  Channel Update Interval........................ 600 seconds\n  Anchor time (Hour of the day).................. 0 \n  Update Contribution\n    Noise........................................ Enable\n    Interference................................. Enable\n    Load......................................... Disable\n    Device Aware................................. Disable\n  CleanAir Event-driven RRM option............... Disabled\n  Channel Assignment Leader...................... Cisco_lab (192.168.1.11) (::)\n  Last Run....................................... 448 seconds ago\n  Last Run Time.................................. 0 seconds\n  DCA Sensitivity Level.......................... MEDIUM (15 dB)\n  DCA 802.11n/ac Channel Width................... 20 MHz\n  DCA Minimum Energy Limit....................... -95 dBm\n  Channel Energy Levels \n    Minimum...................................... unknown\n    Average...................................... unknown\n    Maximum...................................... unknown\n  Channel Dwell Times \n    Minimum...................................... unknown\n    Average...................................... unknown\n    Maximum...................................... unknown\n  802.11a 5 GHz Auto-RF Channel List\n    Allowed Channel List......................... 36,40,44,48,52,56,60,64,100,\n                                                  104,108,112,116,120,124,128,\n                                                  132,136,140,144,149,153,157,\n                                                  161\n    Unused Channel List.......................... 165\n  802.11a 4.9 GHz Auto-RF Channel List\n    Allowed Channel List......................... \n    Unused Channel List.......................... 1,2,3,4,5,6,7,8,9,10,11,12,\n                                                  13,14,15,16,17,18,19,20,21,\n                                                  22,23,24,25,26\n  DCA Outdoor AP option.......................... Disabled\n",
+  "textfsm_template": "Value ASSIGN_MODE (\\w+)\nValue UPDATE_TIME (\\d+ \\w+)\nValue ANCHOR_TIME (\\d+)\nValue NOISE (\\w+)\nValue INTERFER (\\w+)\nValue LOAD (\\w+)\nValue DEVICE_AWARE (\\w+)\nValue CLEANAIR_DRIVEN (\\w+)\nValue LEADER (\\w+)\nValue DCA_SENSITIVITY (\\w+ \\(\\d+ dB\\))\nValue DCA_WIDTH (\\d+ \\w+)\nValue DCA_MIN (-\\d+ dBm)\nValue List DCA_CHANNELS ((\\d+,?)*?)\nValue List UNUSED_DCA_CHANNELS ((\\d+,?)*?)\n\nStart\n  ^\\s*Leader\\sAutomatic\\sChannel\\sAssignments*$$\n  ^\\s+Channel\\sAssignment\\sMode\\.*\\s${ASSIGN_MODE}s*$$\n  ^\\s+Channel\\sUpdate\\sInterval\\.*\\s${UPDATE_TIME}s*$$\n  ^\\s+Anchor\\stime\\s\\(Hour\\sof\\sthe day\\)\\.*\\s+${ANCHOR_TIME}\\s+s*$$\n  ^\\s+Update\\sContributions*$$\n  ^\\s+Noise\\.*\\s${NOISE}s*$$\n  ^\\s+Interference\\.*\\s${INTERFER}s*$$\n  ^\\s+Load\\.*\\s${LOAD}s*$$\n  ^\\s+Device\\sAware\\.*\\s${DEVICE_AWARE}s*$$\n  ^\\s+CleanAir\\sEvent-driven\\sRRM option\\.*\\s${CLEANAIR_DRIVEN}s*$$\n  ^\\s+Channel\\sAssignment\\sLeader\\.*\\s+${LEADER}\\s+\\(([\\d1-9]+\\.?){4}\\)\\s+\\(\\:\\:\\)s*$$\n  ^\\s+Last\\s+Run\\.*\\s+\\d+\\s+seconds\\s+agos*$$\n  ^\\s+Last\\s+Run\\s+Time\\.*\\s+\\d+\\s+secondss*$$\n  ^\\s+DCA\\sSensitivity\\sLevel\\:?\\s?\\.*\\s${DCA_SENSITIVITY}s*$$\n  ^\\s+DCA\\s\\S+\\sChannel\\sWidth\\.*\\s${DCA_WIDTH}s*$$\n  ^\\s+DCA\\sMinimum\\sEnergy\\sLimit\\.*\\s${DCA_MIN}s*$$\n  ^\\s+Channel\\sEnergy\\sLevels\n  ^\\s+Minimum\n  ^\\s+Average\n  ^\\s+Maximum\n  ^\\s+Channel\\sDwell\\sTimes\n  ^\\s+802\\.11a\\s5\\sGHz\\sAuto\\-RF Channel Lists*$$ -> Channels\n  ^.*Allowed\\sChannel\\sList\n  ^\\s+Unused\\sChannel\\sList\n  ^\\s+\\d+,?\n  ^\\s+DCA\\sOutdoor\\sAP\\soption\n  ^\\s*$$\n  ^. -> Error\n\nChannels\n  ^.*Allowed\\sChannel\\sList\\.*\\s${DCA_CHANNELS}s*$$\n  ^\\s+${DCA_CHANNELS}s*$$\n  ^\\s+Unused Channel List.*\\s${UNUSED_DCA_CHANNELS}s*$$\n  ^\\s+802.11a\\s4.9\\sGHz\\sAuto-RF Channel Lists*$$ -> Start\n\n\n"
+}

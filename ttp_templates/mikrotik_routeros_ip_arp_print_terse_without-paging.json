@@ -1,0 +1,48 @@
+{
+  "command": "mikrotik_routeros_ip_arp_print_terse_without-paging",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"index_flags_address_mac_address_interface_published\">\n {{INDEX}} {{FLAGS}} address={{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} mac-address={{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} interface={{INTERFACE}} published={{PUBLISHED | ORPHRASE}}\n</group>\n<group name=\"index_address_mac_address_interface_published\">\n {{INDEX}} address={{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} mac-address={{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} interface={{INTERFACE}} published={{PUBLISHED | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INDEX": "0",
+      "FLAGS": "DC",
+      "ADDRESS": "10.160.1.230",
+      "MAC_ADDRESS": "12:34:56:78:90:AA",
+      "INTERFACE": "ether2_BOX",
+      "PUBLISHED": "no"
+    },
+    {
+      "INDEX": "1",
+      "ADDRESS": "10.152.1.230",
+      "MAC_ADDRESS": "12:34:56:78:90:AB",
+      "INTERFACE": "ether5_KFCcisco",
+      "PUBLISHED": "no"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "index_flags_address_mac_address_interface_published": {
+        "INDEX": "0",
+        "FLAGS": "DC",
+        "ADDRESS": "10.160.1.230",
+        "MAC_ADDRESS": "12:34:56:78:90:AA",
+        "INTERFACE": "ether2_BOX",
+        "PUBLISHED": "no"
+      },
+      "index_address_mac_address_interface_published": {
+        "INDEX": "1",
+        "ADDRESS": "10.152.1.230",
+        "MAC_ADDRESS": "12:34:56:78:90:AB",
+        "INTERFACE": "ether5_KFCcisco",
+        "PUBLISHED": "no"
+      }
+    }
+  ],
+  "cli_content": " 0 DC address=10.160.1.230 mac-address=12:34:56:78:90:AA interface=ether2_BOX published=no\n 1    address=10.152.1.230 mac-address=12:34:56:78:90:AB interface=ether5_KFCcisco published=no\n",
+  "textfsm_template": "Value INDEX (\\d+)\nValue FLAGS ([XIHDPC]+)\nValue ADDRESS (\\S+)\nValue MAC_ADDRESS (\\S+)\nValue INTERFACE (\\S+)\nValue PUBLISHED (yes|no)\n\nStart\n  ^\\s*${INDEX}(?:\\s+${FLAGS})?\\s+address=${ADDRESS}\\s+mac-address=${MAC_ADDRESS}\\s+interface=${INTERFACE}\\s+published=${PUBLISHED}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

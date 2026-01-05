@@ -1,0 +1,32 @@
+{
+  "command": "cisco_ios_show_users",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"line_user_hosts_idle_location\">\n{{LINE | ORPHRASE}} {{USER}} {{HOSTS | re(\"\\\\S+\")}} {{IDLE}} {{LOCATION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LINE": "* 10 vty 0",
+      "USER": "arm",
+      "HOSTS": "idle",
+      "IDLE": "00:00:00",
+      "LOCATION": "1.2.3.4"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "line_user_hosts_idle_location": {
+        "LINE": "* 10 vty 0",
+        "USER": "arm",
+        "HOSTS": "idle",
+        "IDLE": "00:00:00",
+        "LOCATION": "1.2.3.4"
+      }
+    }
+  ],
+  "cli_content": "    Line       User       Host(s)              Idle       Location\n* 10 vty 0     arm        idle                 00:00:00   1.2.3.4\n\n  Interface    User               Mode         Idle     Peer Address\n",
+  "textfsm_template": "Value LINE ((\\*\\s+)?\\d+\\s+(con|aux|tty|vty)\\s+\\d+)\nValue USER (\\S+)\nValue HOSTS (\\S+)\nValue IDLE (\\S+)\nValue LOCATION (\\S+)\n\nStart\n  ^\\s*Line\\s+User\\s+Host\\(s\\)\\s+Idle\\s+Location\\s*$$ -> UsersTable\n  ^\\s*$$\n  ^. -> Error\n\nUsersTable\n  ^\\s*${LINE}(?:\\s+${USER})?(?:\\s+${HOSTS})?\\s+${IDLE}(?:\\s+${LOCATION})?\\s*$$ -> Record\n  ^\\s*Interface\\s+User\\s+Mode\\s+Idle\\s+Peer\\s+Address\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

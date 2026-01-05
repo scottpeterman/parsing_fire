@@ -1,0 +1,35 @@
+{
+  "command": "show hardware info",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"cpu_cores_hardware_version_memory_model\">\nModel:  {{MODEL | ORPHRASE}}\nSerial Number:  {{SERIAL_NUMBER | ORPHRASE}}\nHardware Version:  {{HARDWARE_VERSION | ORPHRASE}}\nSoftware Version:  {{SOFTWARE_VERSION | ORPHRASE}}\nSystem Uptime:  {{SYSTEM_UPTIME | ORPHRASE}}\nMemory:  {{MEMORY | ORPHRASE}} MB\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "MODEL": "XYZ-1234",
+      "SERIAL_NUMBER": "ABCDE12345",
+      "HARDWARE_VERSION": "1.0",
+      "SOFTWARE_VERSION": "3.4.5",
+      "SYSTEM_UPTIME": "25 days, 3:42",
+      "MEMORY": "8192",
+      "CPU_CORES": "4"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "cpu_cores_hardware_version_memory_model": {
+        "MEMORY": "8192",
+        "SYSTEM_UPTIME": "25 days, 3:42",
+        "SOFTWARE_VERSION": "3.4.5",
+        "HARDWARE_VERSION": "1.0",
+        "SERIAL_NUMBER": "ABCDE12345",
+        "MODEL": "XYZ-1234"
+      }
+    }
+  ],
+  "cli_content": "Hardware\n------------\nModel:                 XYZ-1234\nSerial Number:         ABCDE12345\nHardware Version:      1.0\nSoftware Version:      3.4.5\nSystem Uptime:         25 days, 3:42\nMemory:                8192 MB\nCPU Cores:             4\n",
+  "textfsm_template": "Value MODEL (\\S+)\nValue SERIAL_NUMBER (\\S+)\nValue HARDWARE_VERSION (\\S+)\nValue SOFTWARE_VERSION (\\S+)\nValue SYSTEM_UPTIME (.+)\nValue MEMORY (\\d+)\nValue CPU_CORES (\\d+)\n\nStart\n  ^\\s*Model:\\s+${MODEL}\\s*$$\n  ^\\s*Serial Number:\\s+${SERIAL_NUMBER}\\s*$$\n  ^\\s*Hardware Version:\\s+${HARDWARE_VERSION}\\s*$$\n  ^\\s*Software Version:\\s+${SOFTWARE_VERSION}\\s*$$\n  ^\\s*System Uptime:\\s+${SYSTEM_UPTIME}\\s*$$\n  ^\\s*Memory:\\s+${MEMORY}\\s+MB\\s*$$\n  ^\\s*CPU Cores:\\s+${CPU_CORES}\\s*$$\n"
+}

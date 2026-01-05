@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: avaya_ers_show_logging_config
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="event_logging_facility_log_types_nv_storage_types">
+Event Logging: {{EVENT_LOGGING | ORPHRASE}}
+Volatile Logging Option: {{VOLATILE | ORPHRASE}}
+Event Types To Log: {{LOG_TYPES | ORPHRASE}}
+Remote Logging Address: {{REMOTE_ADDRESS | ORPHRASE}}
+Facility: {{FACILITY | ORPHRASE}}
+</group>

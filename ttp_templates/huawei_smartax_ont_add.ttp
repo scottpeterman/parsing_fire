@@ -1,0 +1,11 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_smartax_ont_add
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="onts_ont_id_port_id_success">
+  Number of ONTs that can be added: {{ONTS | ORPHRASE}}, success: {{SUCCESS}}
+  PortID :{{PORT_ID | re("\\d+")}}, ONTID :{{ONT_ID | ORPHRASE}}
+</group>

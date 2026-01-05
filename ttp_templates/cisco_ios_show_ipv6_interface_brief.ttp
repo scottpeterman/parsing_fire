@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ipv6_interface_brief
+# Source: ntc
+# TextFSM rows: 78
+# TTP rows: 78
+# Match ratio: 1.00
+
+<group name="interface_admin_protocol">
+{{INTERFACE}} [{{ADMIN | ORPHRASE}}/{{PROTOCOL}}]
+</group>

@@ -1,0 +1,74 @@
+{
+  "command": "hp_comware_display_interface",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 13.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 13,
+  "ttp_template": "<group name=\"bandwidth_description_duplex_hw_address\">\n{{INTERFACE | ORPHRASE}}\nCurrent state: {{LINE_STATUS | ORPHRASE}}\nIP packet frame type: Ethernet II, hardware address: {{HW_ADDRESS | ORPHRASE}}\nDescription: {{DESCRIPTION | ORPHRASE}}\nBandwidth: {{BANDWIDTH | ORPHRASE}}\n{{SPEED}} mode, {{DUPLEX | ORPHRASE}} mode\nPort link-type: {{PORT_LINK_TYPE | ORPHRASE}}\n VLAN Passing:  {{VLAN_PASSING | ORPHRASE}}\n VLAN permitted: {{VLAN_PERMITTED | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Bridge-Aggregation1",
+      "LINE_STATUS": "UP",
+      "HW_ADDRESS": "bcea-fa19-5f6c",
+      "DESCRIPTION": "GROUND-FLOOR",
+      "BANDWIDTH": "20000000 kbps",
+      "DUPLEX": "full-duplex",
+      "SPEED": "20Gbps-speed",
+      "PORT_LINK_TYPE": "Trunk",
+      "VLAN_NATIVE": "1",
+      "VLAN_PASSING": "1(default vlan), 1000-1002, 1031",
+      "VLAN_PERMITTED": "1(default vlan), 2-4094"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "bandwidth_description_duplex_hw_address": [
+        {
+          "INTERFACE": "Bridge-Aggregation1"
+        },
+        {
+          "INTERFACE": "Current state: UP"
+        },
+        {
+          "INTERFACE": "IP packet frame type: Ethernet II, hardware address: bcea-fa19-5f6c"
+        },
+        {
+          "INTERFACE": "Description: GROUND-FLOOR"
+        },
+        {
+          "INTERFACE": "Bandwidth: 20000000 kbps"
+        },
+        {
+          "INTERFACE": "20Gbps-speed mode, full-duplex mode"
+        },
+        {
+          "INTERFACE": "Link speed type is autonegotiation, link duplex type is autonegotiation"
+        },
+        {
+          "INTERFACE": "PVID: 1"
+        },
+        {
+          "VLAN_PERMITTED": "1(default vlan), 2-4094",
+          "VLAN_PASSING": "1(default vlan), 1000-1002, 1031",
+          "INTERFACE": "Port link-type: Trunk"
+        },
+        {
+          "INTERFACE": "Last clearing of counters: Never"
+        },
+        {
+          "INTERFACE": "Output (total): 18114817 packets, 5095908012 bytes"
+        },
+        {
+          "INTERFACE": "Output (normal): 18114817 packets, - bytes"
+        },
+        {
+          "INTERFACE": "Output: 0 output errors, - underruns, - buffer failures"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Bridge-Aggregation1\nCurrent state: UP\nIP packet frame type: Ethernet II, hardware address: bcea-fa19-5f6c\nDescription: GROUND-FLOOR\nBandwidth: 20000000 kbps\n20Gbps-speed mode, full-duplex mode\nLink speed type is autonegotiation, link duplex type is autonegotiation\nPVID: 1\nPort link-type: Trunk\n VLAN Passing:   1(default vlan), 1000-1002, 1031\n VLAN permitted: 1(default vlan), 2-4094\n Trunk port encapsulation: IEEE 802.1q\nLast clearing of counters: Never\nLast 300 seconds input:  1 packets/sec 495 bytes/sec 0%\nLast 300 seconds output:  4 packets/sec 606 bytes/sec 0%\nInput (total):  5540021 packets, 1395572601 bytes\n\t3138997 unicasts, 1270 broadcasts, 2399754 multicasts, 0 pauses\nInput (normal):  5540021 packets, - bytes\n\t3138997 unicasts, 1270 broadcasts, 2399754 multicasts, 0 pauses\nInput:  0 input errors, 0 runts, 0 giants, 0 throttles\n\t0 CRC, 0 frame, - overruns, 0 aborts\n\t- ignored, - parity errors\nOutput (total): 18114817 packets, 5095908012 bytes\n\t4250899 unicasts, 2347877 broadcasts, 11516041 multicasts, 0 pauses\nOutput (normal): 18114817 packets, - bytes\n\t4250899 unicasts, 2347877 broadcasts, 11516041 multicasts, 0 pauses\nOutput: 0 output errors, - underruns, - buffer failures\n\t0 aborts, 0 deferred, 0 collisions, 0 late collisions\n\t0 lost carrier, - no carrier\n",
+  "textfsm_template": "Value Required INTERFACE (\\S+)\nValue LINE_STATUS (UP|DOWN|Administratively DOWN)\nValue PROTOCOL_STATUS (UP(\\(spoofing\\))?|DOWN)\nValue List IP_ADDRESS (\\S+)\nValue MTU (\\d+)\nValue L2MTU (\\d+)\nValue List HW_ADDRESS ([a-zA-Z0-9]+-[a-zA-Z0-9]+-[a-zA-Z0-9]+)\nValue DESCRIPTION (.*)\nValue BANDWIDTH (.*)\nValue DUPLEX (\\S+)\nValue SPEED (\\S+)\nValue PORT_LINK_TYPE (\\S+)\nValue UNTAGGED_VLAN_ID (\\d+)\nValue VLAN_NATIVE (\\d+)\nValue List VLAN_PASSING ([^,]+)\nValue List VLAN_PERMITTED ([^,]+)\n\nStart\n  #^\\S+$$.Record\n  ^\\s*${INTERFACE}$$\n  ^\\s*Current\\s+state:\\s+${LINE_STATUS}\n  ^\\s*${INTERFACE}\\s+current\\s+state\\s*:\\s*${LINE_STATUS}\n  ^\\s*Line\\s+protocol\\s+state:\\s+${PROTOCOL_STATUS}\n  ^\\s*Line\\s+protocol\\s+current\\s+state:\\s+${PROTOCOL_STATUS}\n  ^\\s*Description:\\s+${DESCRIPTION}\n  ^\\s*Bandwidth:\\s+${BANDWIDTH}\n  ^\\s*Maximum\\s+[Tt]ransmi\\S+\\s+[Uu]nit:\\s+${MTU}\n  ^\\s*The\\sMaximum\\s+Transmit\\s+Unit\\sis\\s+${MTU}\n  ^\\s*Maximum\\s+frame\\s+length:\\s+${L2MTU}\n  ^\\s*Forbid\\s+jumbo\\s+frames\\s+to\\s+pass\n  ^\\s*The\\sMaximum\\s+Frame\\s+Length\\sis\\s+${L2MTU}\n  ^\\s*Internet\\s+[Aa]ddress:\\s+${IP_ADDRESS}\\s+\\([Pp]rimary\\)\n  ^\\s*Internet\\s+[Aa]ddress\\sis\\s+${IP_ADDRESS}\\s+[Pp]rimary\n  ^\\s*Internet\\s+[Aa]ddress:\\s+${IP_ADDRESS}\\s+\\([Ss]ub\\)\n  ^\\s*IP\\s+[Pp]acket\\s+[Ff]rame\\s+[Tt]ype\\s*:\\s*[^,]+,\\s+[Hh]ardware\\s+[Aa]ddress:\\s+${HW_ADDRESS}\n  ^\\s*IPv6\\s+[Pp]acket\\s+[Ff]rame\\s+[Tt]ype\\s*:\\s*[^,]+,\\s+[Hh]ardware\\s+[Aa]ddress:\\s+${HW_ADDRESS}\n  ^\\s*${SPEED}\\s+mode,\\s+${DUPLEX}\\s+mode\n  ^\\s*${SPEED},\\s+${DUPLEX},\\s+link\\s+type\n  ^\\s*PVID:\\s+${VLAN_NATIVE}\n  ^\\s*Port\\s+link-type:\\s+${PORT_LINK_TYPE}\n  ^\\s*Un[Tt]agged\\s+VLAN\\s+ID\\s*:\\s*${UNTAGGED_VLAN_ID}\n  # Trunk - Passing VLANs (parsing multiple times with Continue)\n  ^\\s+VLAN\\s+[Pp]assing\\s*:\\s+${VLAN_PASSING},* -> Continue\n  # Skip initial VLANs and read the Nth + 1\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){1}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){2}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){3}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){4}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){5}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){6}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){7}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){8}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){9}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){10}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){11}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){12}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){13}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){14}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){15}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){16}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){17}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){18}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){19}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s+VLAN\\s+[Pp]assing\\s*:(?:\\s+[^,]+,){20}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){1}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){2}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){3}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){4}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){5}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){6}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){7}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){8}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){9}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){10}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){11}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){12}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){13}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){14}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){15}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){16}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){17}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){18}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){19}\\s+${VLAN_PASSING},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){20}\\s+${VLAN_PASSING},* -> Continue\n  # End od VLAN Passing\n  ^\\s+VLAN\\s+[Pp]assing\\s*:\n  ^\\s{14,}\n  # Trunk - Permitted VLANs (parsing multiple times with Continue)\n  ^\\s+VLAN\\s+permitted:\\s+${VLAN_PERMITTED},* -> Continue\n  # Skip initial VLANs and read the Nth + 1\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){1}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){2}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){3}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){4}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){5}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){6}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){7}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){8}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){9}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){10}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){11}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){12}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){13}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){14}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){15}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){16}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){17}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){18}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){19}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s+VLAN\\s+permitted:(?:\\s+[^,]+,){20}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){1}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){2}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){3}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){4}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){5}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){6}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){7}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){8}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){9}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){10}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){11}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){12}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){13}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){14}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){15}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){16}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){17}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){18}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){19}\\s+${VLAN_PERMITTED},* -> Continue\n  ^\\s{14,}(?:\\s+[^,]+,){20}\\s+${VLAN_PERMITTED},* -> Continue\n  # End od VLAN Passing\n  ^\\s+VLAN\\s+permitted:\n  ^\\s{14,}\n  # Next\n  ^$$ -> Next.Record\n  # Drop\n  ^\\s*Link\n  ^\\s*Encapsulation\\s+is\n  ^\\s*Phy-mru\n  ^\\s*Last\n  ^\\s*Trunk\\s+port\n  ^\\s*Loopback\n  ^\\s*Media\n  ^\\s*[Ff]low\n  ^\\s*Allow\\s+jumbo\n  ^\\s*Broadcast\n  ^\\s*Multicast\n  ^\\s*Unicast\n  ^\\s*No\\sconnector\n  ^\\s*M[Dd][Ii]\\s+type\n  ^\\s*Port\\s+priority\n  ^\\s*Current\\s*system\n  ^\\s*Peak\n  ^\\s*IPv4\\s+traffic\n  ^\\s*IPv6\\s+traffic\n  ^\\s+Tagged\\s+VLAN\n  ^\\s+Un[tT]agged\\s+VLAN\n  ^\\s*[Ii]nput\n  ^\\s*[Oo]utput\n  ^\\s*Physical\n  ^\\s*Internet\\s+protocol\n  ^\\s*Port\\s+hardware\n  ^\\s+\\d+\\s+unicasts\n  ^\\s+-\\s+unicasts\n  ^\\s+\\d+\\s+[Cc][Rr][Cc]\n  ^\\s+\\d+\\s+aborts\n  ^\\s+\\d+\\s+packets,*\\s*\n  ^\\s+\\d+\\s+errors,*\\s*\n  ^\\s+\\d+\\s+lost\n  ^\\s+\\d+\\s+input\\s+error\n  ^\\s+\\d+\\s+output\\s+error\n  ^\\s+\\d+\\s+drops,*\\s*\n  ^\\s+\\d+\\s+deferred,*\\s*\n  ^\\s+\\d+\\s+broadcasts\n  ^\\s+\\d+\\s+ignored\n  ^\\s+\\d+\\s+dribbles\n  ^\\s*Tunnel\\s\n  ^\\s*GRE\n  ^\\s*Checksumming\\sof\\sGRE\n  ^\\s+-\\s+ignored\n  ^\\s+-\\s+frame\n  ^\\s+-\\s+aborts\n  ^\\s+-\\s+lost\\s+carrier\n  ^\\s*DCD:\n  ^. -> Error\n  ^\\s*$$ ^. -> Error\n"
+}

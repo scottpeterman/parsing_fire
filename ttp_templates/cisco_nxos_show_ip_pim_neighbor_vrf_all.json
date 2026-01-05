@@ -1,0 +1,68 @@
+{
+  "command": "cisco_nxos_show_ip_pim_neighbor_vrf_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"vrf\">\nPIM Neighbor Status for VRF \"{{VRF | ORPHRASE}}\"\n<group name=\"bfd_state_bidir_capable_dr_priority\">\n{{NEIGHBOR}} {{INTERFACE}} {{UPTIME | ORPHRASE}} {{EXPIRES}} {{DR_PRIORITY}} {{BIDIR_CAPABLE}} {{BFD_STATE | ORPHRASE}} {{ECMP_REDIRECT_CAPABLE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VRF": "default",
+      "NEIGHBOR": "192.0.2.2",
+      "INTERFACE": "Ethernet1/1.10",
+      "UPTIME": "1w1d",
+      "EXPIRES": "00:01:17",
+      "DR_PRIORITY": "1",
+      "BIDIR_CAPABLE": "no",
+      "BFD_STATE": "n/a",
+      "ECMP_REDIRECT_CAPABLE": "no"
+    },
+    {
+      "VRF": "red",
+      "NEIGHBOR": "192.0.2.3",
+      "INTERFACE": "Ethernet1/1.20",
+      "UPTIME": "1w1d",
+      "EXPIRES": "00:01:33",
+      "DR_PRIORITY": "1",
+      "BIDIR_CAPABLE": "no",
+      "BFD_STATE": "n/a",
+      "ECMP_REDIRECT_CAPABLE": "no"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vrf": [
+        {
+          "VRF": "default",
+          "bfd_state_bidir_capable_dr_priority": {
+            "NEIGHBOR": "192.0.2.2",
+            "INTERFACE": "Ethernet1/1.10",
+            "UPTIME": "1w1d",
+            "EXPIRES": "00:01:17",
+            "DR_PRIORITY": "1",
+            "BIDIR_CAPABLE": "no",
+            "BFD_STATE": "n/a",
+            "ECMP_REDIRECT_CAPABLE": "no"
+          }
+        },
+        {
+          "VRF": "red",
+          "bfd_state_bidir_capable_dr_priority": {
+            "NEIGHBOR": "192.0.2.3",
+            "INTERFACE": "Ethernet1/1.20",
+            "UPTIME": "1w1d",
+            "EXPIRES": "00:01:33",
+            "DR_PRIORITY": "1",
+            "BIDIR_CAPABLE": "no",
+            "BFD_STATE": "n/a",
+            "ECMP_REDIRECT_CAPABLE": "no"
+          }
+        }
+      ]
+    }
+  ],
+  "cli_content": "PIM Neighbor Status for VRF \"default\"\nNeighbor        Interface            Uptime    Expires   DR       Bidir-  BFD    ECMP Redirect\n                                                         Priority Capable State     Capable\n192.0.2.2       Ethernet1/1.10       1w1d      00:01:17  1        no     n/a     no\n\nPIM Neighbor Status for VRF \"red\"\nNeighbor        Interface            Uptime    Expires   DR       Bidir-  BFD    ECMP Redirect\n                                                         Priority Capable State     Capable\n192.0.2.3       Ethernet1/1.20       1w1d      00:01:33  1        no     n/a     no\n\n",
+  "textfsm_template": "Value Filldown VRF (\\S+)\nValue Required NEIGHBOR (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue INTERFACE ([\\w\\./-]+)\nValue UPTIME (\\S+)\nValue EXPIRES (\\S+)\nValue DR_PRIORITY (\\S+)\nValue BIDIR_CAPABLE (\\S+)\nValue BFD_STATE (\\S+)\nValue ECMP_REDIRECT_CAPABLE (\\S+)\n\nStart\n  ^\\s*\\^\n  ^%\\s+Invalid -> Clear\n  ^\\s*PIM Neighbor Status for VRF \"${VRF}\"\\s*$$\n  ^\\s*Neighbor\\s+Interface\\s+Uptime\\s+Expires\\s+DR\\s+Bidir-\\s+BFD\\s+ECMP Redirect\\s*$$\n  ^\\s*Priority\\s+Capable\\s+State\\s+Capable\\s*$$\n  ^\\s*${NEIGHBOR}\\s+${INTERFACE}\\s+${UPTIME}\\s+${EXPIRES}\\s+${DR_PRIORITY}\\s+${BIDIR_CAPABLE}\\s+${BFD_STATE}\\s+${ECMP_REDIRECT_CAPABLE}\\s*$$ -> Record\n  ^. -> Error\n\nEOF\n"
+}

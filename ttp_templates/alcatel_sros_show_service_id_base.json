@@ -1,0 +1,36 @@
+{
+  "command": "alcatel_sros_show_service_id_base",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"admin_state_customer_id_description_mtu\">\nService Id  : {{SERVICE_ID | ORPHRASE}}  Vpn Id  : 0\nDescription  : {{DESCRIPTION | ORPHRASE}}\nCustomer Id  : {{CUSTOMER_ID | ORPHRASE}}  \nAdmin State  : {{ADMIN_STATE | ORPHRASE}}  Oper State  : {{OPER_STATE | ORPHRASE}}\nMTU  : {{MTU | ORPHRASE}}  Def. Mesh VC Id  : 1099\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SERVICE_ID": "1099",
+      "CUSTOMER_ID": "4",
+      "DESCRIPTION": "this_is_a_description",
+      "ADMIN_STATE": "Up",
+      "OPER_STATE": "Down",
+      "SAP_COUNT": "1",
+      "SDP_COUNT": "1",
+      "MTU": "5000"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "admin_state_customer_id_description_mtu": {
+        "MTU": "5000",
+        "ADMIN_STATE": "Up",
+        "OPER_STATE": "Down",
+        "CUSTOMER_ID": "4",
+        "DESCRIPTION": "this_is_a_description",
+        "SERVICE_ID": "1099"
+      }
+    }
+  ],
+  "cli_content": "===============================================================================\nService Basic Information\n===============================================================================\nService Id        : 1099                Vpn Id            : 0\nService Type      : VPLS                \nName              : (Not Specified)\nDescription       : this_is_a_description\nCustomer Id       : 4                   \nLast Status Change: 10/31/2016 14:44:10 \nLast Mgmt Change  : 11/01/2016 11:04:36 \nAdmin State       : Up                  Oper State        : Down\nMTU               : 5000                Def. Mesh VC Id   : 1099\nSAP Count         : 1                   SDP Bind Count    : 1\nSnd Flush on Fail : Disabled            Host Conn Verify  : Disabled\nPropagate MacFlush: Disabled            Per Svc Hashing   : Disabled\nAllow IP Intf Bind: Disabled            \nDef. Gateway IP   : None                \nDef. Gateway MAC  : None                \nTemp Flood Time   : Disabled            Temp Flood        : Inactive\nTemp Flood Chg Cnt: 0                   \n \n-------------------------------------------------------------------------------\nService Access & Destination Points\n-------------------------------------------------------------------------------\nIdentifier                               Type         AdmMTU  OprMTU  Adm  Opr\n-------------------------------------------------------------------------------\nsap:1/1/6:100                            q-tag        9212    9212    Up   Down\nsdp:4:1099 M(192.0.2.4)                  Mesh         0       9190    Up   Down\n===============================================================================\n",
+  "textfsm_template": "Value SERVICE_ID (\\d+)\nValue CUSTOMER_ID (\\d+)\nValue DESCRIPTION ([\\w|\\s]+|\\(Not\\sSpecified\\))\nValue ADMIN_STATE ([uU][pP]|[Dd][oO][wW][nN])\nValue OPER_STATE ([uU][pP]|[Dd][oO][wW][nN])\nValue SAP_COUNT ([0-9]{1,1500})\nValue SDP_COUNT ([0-9]{1,150})\nValue MTU (\\d+)\n\nStart\n  ^Customer\\sId\\s+.\\s${CUSTOMER_ID}\n  ^MTU\\s+:\\s${MTU}\n  ^Service\\sId\\s+:\\s${SERVICE_ID}\n  ^Description\\s+:\\s${DESCRIPTION}\n  ^Admin\\sState\\s+:\\s${ADMIN_STATE}\\s+Oper\\sState\\s+:\\s${OPER_STATE}\n  ^SAP\\sCount\\s+:\\s${SAP_COUNT}\\s+SDP\\sBind\\sCount\\s+:\\s${SDP_COUNT} -> Record\n"
+}

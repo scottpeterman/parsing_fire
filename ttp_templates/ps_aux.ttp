@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: ps aux
+# Source: chatgpt
+# TextFSM rows: 8
+# TTP rows: 1
+# Match ratio: 0.12
+
+<group name="user_pid_cpu_mem_vsz_rss_tty_stat_start_time_command">
+{{USER}} {{PID | re("\\d+")}} {{CPU}} {{MEM}} {{VSZ}} {{RSS}} {{TTY | re(".*\\w.*")}} {{STAT}} {{START}} {{TIME}} {{COMMAND | ORPHRASE}}
+</group>
+<group name="stat_pid_cpu_mem_vsz_rss_tty_start_time_command">
+{{U{{STAT}}ER}} {{PID | re("\\d+")}} {{CPU}} {{MEM}} {{VSZ}} {{RSS}} {{TTY | re(".*\\w.*")}} S {{START}} {{TIME}} {{COMMAND | ORPHRASE}}
+</group>

@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip dns query
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="time_source_ip_type_status_query">
+{{TIME}} {{SOURCE_IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{DESTIN{{TYPE}}TION_IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATUS | ORPHRASE}} A {{QUERY | ORPHRASE}}
+</group>
+<group name="time_source_ip_destination_ip_status_type_query">
+{{TIME}} {{SOURCE_IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{DESTINATION_IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATUS | ORPHRASE}} {{TYPE}} {{QUERY | ORPHRASE}}
+</group>

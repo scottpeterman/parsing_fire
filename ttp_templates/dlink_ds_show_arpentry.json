@@ -1,0 +1,68 @@
+{
+  "command": "dlink_ds_show_arpentry",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"interface_ip_address_mac_address_type\">\n{{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{TYPE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "System",
+      "IP_ADDRESS": "192.168.173.0",
+      "MAC_ADDRESS": "FF-FF-FF-FF-FF-FF",
+      "TYPE": "Local/Broadcast"
+    },
+    {
+      "INTERFACE": "System",
+      "IP_ADDRESS": "192.168.173.1",
+      "MAC_ADDRESS": "00-01-21-01-52-96",
+      "TYPE": "Dynamic"
+    },
+    {
+      "INTERFACE": "System",
+      "IP_ADDRESS": "192.168.173.2",
+      "MAC_ADDRESS": "00-AD-24-83-95-F8",
+      "TYPE": "Local"
+    },
+    {
+      "INTERFACE": "System",
+      "IP_ADDRESS": "192.168.173.255",
+      "MAC_ADDRESS": "FF-FF-FF-FF-FF-FF",
+      "TYPE": "Local/Broadcast"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_mac_address_type": [
+        {
+          "INTERFACE": "System",
+          "IP_ADDRESS": "192.168.173.0",
+          "MAC_ADDRESS": "FF-FF-FF-FF-FF-FF",
+          "TYPE": "Local/Broadcast"
+        },
+        {
+          "INTERFACE": "System",
+          "IP_ADDRESS": "192.168.173.1",
+          "MAC_ADDRESS": "00-01-21-01-52-96",
+          "TYPE": "Dynamic"
+        },
+        {
+          "INTERFACE": "System",
+          "IP_ADDRESS": "192.168.173.2",
+          "MAC_ADDRESS": "00-AD-24-83-95-F8",
+          "TYPE": "Local"
+        },
+        {
+          "INTERFACE": "System",
+          "IP_ADDRESS": "192.168.173.255",
+          "MAC_ADDRESS": "FF-FF-FF-FF-FF-FF",
+          "TYPE": "Local/Broadcast"
+        }
+      ]
+    }
+  ],
+  "cli_content": " ARP Aging Time : 20\n\nInterface      IP Address       MAC Address        Type\n-------------  ---------------  -----------------  ---------------\nSystem         192.168.173.0    FF-FF-FF-FF-FF-FF  Local/Broadcast\nSystem         192.168.173.1    00-01-21-01-52-96  Dynamic\nSystem         192.168.173.2    00-AD-24-83-95-F8  Local\nSystem         192.168.173.255  FF-FF-FF-FF-FF-FF  Local/Broadcast\n\nTotal Entries: 4",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue MAC_ADDRESS (\\S+)\nValue TYPE (\\S+)\n\nStart\n  ^\\s+ARP\\s+Aging\\s+Time\\s+:\\s+\\d+\n  ^Interface\\s+IP Address\\s+MAC Address\\s+Type\n  ^\\-+\\s+\\-+\\s+\\-+\\s+\\-+$$\n  ^Total Entries:\\s+\\d+\n  ^${INTERFACE}\\s+${IP_ADDRESS}\\s+${MAC_ADDRESS}\\s+${TYPE} -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

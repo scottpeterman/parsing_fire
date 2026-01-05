@@ -1,0 +1,88 @@
+{
+  "command": "huawei_vrp_display_isis_peer",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"interface_circuit_id_state_hold_time_type_pri\">\nRR-BD3515597G9- {{INTERFACE}} {{CIRCUIT_ID | re(\"\\\\d+\")}} {{STATE | ORPHRASE}} {{HOLD_TIME}} {{TYPE}} {{PRI | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SYSTEM_ID": "RR-BD3515597G9-, 01H",
+      "INTERFACE": "GE0/2/0",
+      "CIRCUIT_ID": "0000000006",
+      "STATE": "Up",
+      "HOLD_TIME": "28s",
+      "TYPE": "L2",
+      "PRI": "--"
+    },
+    {
+      "SYSTEM_ID": "RR-BD3514349G9-, 01H",
+      "INTERFACE": "GE0/2/1",
+      "CIRCUIT_ID": "0000000005",
+      "STATE": "Up",
+      "HOLD_TIME": "22s",
+      "TYPE": "L2",
+      "PRI": "--"
+    },
+    {
+      "SYSTEM_ID": "RR-BD3515597G9-, 01H*",
+      "INTERFACE": "GE0/2/0.1000",
+      "CIRCUIT_ID": "0000000057",
+      "STATE": "Up",
+      "HOLD_TIME": "30s",
+      "TYPE": "L2",
+      "PRI": "--"
+    },
+    {
+      "SYSTEM_ID": "RR-BD3514349G9-, 01H*",
+      "INTERFACE": "GE0/2/1.1000",
+      "CIRCUIT_ID": "0000000056",
+      "STATE": "Up",
+      "HOLD_TIME": "22s",
+      "TYPE": "L2",
+      "PRI": "--"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_circuit_id_state_hold_time_type_pri": [
+        {
+          "INTERFACE": "GE0/2/0",
+          "CIRCUIT_ID": "0000000006",
+          "STATE": "Up",
+          "HOLD_TIME": "28s",
+          "TYPE": "L2",
+          "PRI": "--"
+        },
+        {
+          "INTERFACE": "GE0/2/1",
+          "CIRCUIT_ID": "0000000005",
+          "STATE": "Up",
+          "HOLD_TIME": "22s",
+          "TYPE": "L2",
+          "PRI": "--"
+        },
+        {
+          "INTERFACE": "GE0/2/0.1000",
+          "CIRCUIT_ID": "0000000057",
+          "STATE": "Up",
+          "HOLD_TIME": "30s",
+          "TYPE": "L2",
+          "PRI": "--"
+        },
+        {
+          "INTERFACE": "GE0/2/1.1000",
+          "CIRCUIT_ID": "0000000056",
+          "STATE": "Up",
+          "HOLD_TIME": "22s",
+          "TYPE": "L2",
+          "PRI": "--"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\n                          Peer information for ISIS(1)\n                         \n  System Id     Interface          Circuit Id        State HoldTime Type     PRI\n--------------------------------------------------------------------------------\nRR-BD3515597G9- GE0/2/0            0000000006         Up   28s      L2       -- \n01H                                                                             \nRR-BD3514349G9- GE0/2/1            0000000005         Up   22s      L2       -- \n01H                                                                             \n\nTotal Peer(s): 2\n\n                          Peer information for ISIS(990)\n                         \n  System Id     Interface          Circuit Id        State HoldTime Type     PRI\n--------------------------------------------------------------------------------\nRR-BD3515597G9- GE0/2/0.1000       0000000057         Up   30s      L2       -- \n01H*                                                                            \nRR-BD3514349G9- GE0/2/1.1000       0000000056         Up   22s      L2       -- \n01H*                                                                            \n\nTotal Peer(s): 2",
+  "textfsm_template": "Value List SYSTEM_ID (\\S+)\nValue INTERFACE (\\S+)\nValue CIRCUIT_ID (\\d+)\nValue STATE (\\S+)\nValue HOLD_TIME (\\S+)\nValue TYPE ((L\\d)+)\nValue PRI (\\S+)\n\nStart\n  ^\\s+Peer\\s+information\\s+for\\s+\\S+\n  ^\\s+System\\s+Id\\s+Interface\\s+Circuit\\s+Id\\s+State\\s+HoldTime\\s+Type\\s+PRI\n  ^-+\n  ^\\S+\\s+\\S+\\s+\\d+ -> Continue.Record\n  ^${SYSTEM_ID}\\s+${INTERFACE}\\s+${CIRCUIT_ID}\\s+${STATE}\\s+${HOLD_TIME}\\s+${TYPE}\\s+${PRI}\\s*$$\n  ^${SYSTEM_ID}\\s*$$\n  ^Total\\s+Peer\\S+:\\s+\\d+\n  ^\\s*$$\n  ^. -> Error\n"
+}

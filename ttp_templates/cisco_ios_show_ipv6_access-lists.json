@@ -1,0 +1,311 @@
+{
+  "command": "cisco_ios_show_ipv6_access-lists",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.9444444444444444,
+  "textfsm_rows": 18,
+  "ttp_rows": 17,
+  "ttp_template": "<group name=\"action_protocol_ipv6_source_ipv6_destination_sequence\">\n    {{ACTION}} {{PROTOCOL}} {{IPV6_SOURCE}} {{IPV6_DESTINATION}} sequence {{SEQUENCE | ORPHRASE}}\n</group>\n<group name=\"action_protocol_ipv6_source_ipv6_destination_log_authentification_routing_sequence\">\n    {{ACTION}} {{PROTOCOL}} {{IPV6_SOURCE}} {{IPV6_DESTINATION}} {{LOG}} {{AUTHENTIFICATION}} {{ROUTING}} sequence {{SEQUENCE | ORPHRASE}}\n</group>\n<group name=\"action_protocol_ipv6_source_ipv6_destination_src_port_match_port_number_sequence\">\n    {{ACTION}} {{PROTOCOL}} {{IPV6_SOURCE}} {{IPV6_DESTINATION}} {{SRC_PORT_MATCH}} {{PORT_NUMBER | re(\"\\\\d+\")}} sequence {{SEQUENCE | ORPHRASE}}\n</group>\n<group name=\"action_protocol_ipv6_source_ipv6_destination_src_port_range_start_src_port_range_end_sequence\">\n    {{ACTION}} {{PROTOCOL}} host {{IPV6_SOURCE}} host {{IPV6_DESTINATION}} range {{SRC_PORT_RANGE_START | re(\"\\\\d+\")}} {{SRC_PORT_RANGE_END | re(\"\\\\d+\")}} sequence {{SEQUENCE | ORPHRASE}}\n</group>\n<group name=\"action_protocol_ipv6_source_ipv6_destination_src_port_match_sequence\">\n    {{ACTION}} {{PROTOCOL}} {{IPV6_SOURCE}} {{IPV6_DESTINATION}} {{SRC_PORT_MATCH}} sequence {{SEQUENCE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ACL_NAME": "ACL2_IPv6",
+      "ACTION": "deny",
+      "PROTOCOL": "ipv6",
+      "IPV6_SOURCE": "2A01:728::/29",
+      "IPV6_DESTINATION": "any",
+      "SEQUENCE": "10"
+    },
+    {
+      "ACL_NAME": "ACL3_IPv6",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "IPV6_SOURCE": "2A01:720::/29",
+      "IPV6_DESTINATION": "any",
+      "SEQUENCE": "10",
+      "LOG": "log",
+      "AUTHENTIFICATION": "auth",
+      "ROUTING": "routing"
+    },
+    {
+      "ACL_NAME": "ACL_IPv6",
+      "ACTION": "deny",
+      "PROTOCOL": "ipv6",
+      "IPV6_SOURCE": "2A01:728::/29",
+      "IPV6_DESTINATION": "any",
+      "SEQUENCE": "10"
+    },
+    {
+      "ACL_NAME": "WAN_LOCAL",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "IPV6_SOURCE": "AAAA:BBBB::/64",
+      "IPV6_DESTINATION": "2A05:C100:53::/64",
+      "SRC_PORT_MATCH": "eq",
+      "SEQUENCE": "11",
+      "PORT_NUMBER": "6543"
+    },
+    {
+      "ACL_NAME": "WAN_LOCAL",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "IPV6_SOURCE": "AAAA:BBBB::/64",
+      "IPV6_DESTINATION": "2A05:C100:53::/64",
+      "SRC_PORT_MATCH": "eq",
+      "SEQUENCE": "12",
+      "PORT_NUMBER": "6543"
+    },
+    {
+      "ACL_NAME": "WAN_LOCAL",
+      "ACTION": "deny",
+      "PROTOCOL": "udp",
+      "IPV6_SOURCE": "2A05:C100:53::17",
+      "IPV6_DESTINATION": "2A05:C100:53::145",
+      "SRC_PORT_MATCH": "eq",
+      "SEQUENCE": "14",
+      "PORT_NUMBER": "45"
+    },
+    {
+      "ACL_NAME": "WAN_LOCAL",
+      "ACTION": "deny",
+      "PROTOCOL": "tcp",
+      "IPV6_SOURCE": "2A05:C100:53::14",
+      "IPV6_DESTINATION": "2A05:C100:53::17",
+      "SEQUENCE": "15",
+      "SRC_PORT_RANGE_START": "46",
+      "SRC_PORT_RANGE_END": "48"
+    },
+    {
+      "ACL_NAME": "WAN_LOCAL",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "IPV6_SOURCE": "any",
+      "IPV6_DESTINATION": "any",
+      "SRC_PORT_MATCH": "established",
+      "SEQUENCE": "9996"
+    },
+    {
+      "ACL_NAME": "WAN_LOCAL",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "IPV6_SOURCE": "any",
+      "IPV6_DESTINATION": "any",
+      "SEQUENCE": "9997"
+    },
+    {
+      "ACL_NAME": "WAN_LOCAL",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "IPV6_SOURCE": "any",
+      "IPV6_DESTINATION": "any",
+      "SEQUENCE": "9998"
+    },
+    {
+      "ACL_NAME": "WAN_LOCAL",
+      "ACTION": "deny",
+      "PROTOCOL": "ipv6",
+      "IPV6_SOURCE": "any",
+      "IPV6_DESTINATION": "any",
+      "SEQUENCE": "9999"
+    },
+    {
+      "ACL_NAME": "WAN_ROUTEUR",
+      "ACTION": "permit",
+      "PROTOCOL": "ipv6",
+      "IPV6_SOURCE": "2A05:C100:53::/64",
+      "IPV6_DESTINATION": "any",
+      "SEQUENCE": "10"
+    },
+    {
+      "ACL_NAME": "WAN_ROUTEUR",
+      "ACTION": "permit",
+      "PROTOCOL": "ipv6",
+      "IPV6_SOURCE": "2A05:C100:53:1::/64",
+      "IPV6_DESTINATION": "any",
+      "SEQUENCE": "20"
+    },
+    {
+      "ACL_NAME": "WAN_ROUTEUR",
+      "ACTION": "permit",
+      "PROTOCOL": "ipv6",
+      "IPV6_SOURCE": "2A05:C100::/48",
+      "IPV6_DESTINATION": "any",
+      "SEQUENCE": "30"
+    },
+    {
+      "ACL_NAME": "WAN_ROUTEUR",
+      "ACTION": "permit",
+      "PROTOCOL": "ipv6",
+      "IPV6_SOURCE": "2A00:41E0::/48",
+      "IPV6_DESTINATION": "any",
+      "SEQUENCE": "40"
+    },
+    {
+      "ACL_NAME": "WAN_ROUTEUR",
+      "ACTION": "permit",
+      "PROTOCOL": "ipv6",
+      "IPV6_SOURCE": "2A05:C100:43::/64",
+      "IPV6_DESTINATION": "any",
+      "SEQUENCE": "45"
+    },
+    {
+      "ACL_NAME": "WAN_ROUTEUR",
+      "ACTION": "deny",
+      "PROTOCOL": "ipv6",
+      "IPV6_SOURCE": "any",
+      "IPV6_DESTINATION": "any",
+      "SEQUENCE": "50"
+    },
+    {
+      "ACL_NAME": "WAN_ROUTEUR",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "IPV6_SOURCE": "any",
+      "IPV6_DESTINATION": "any",
+      "SRC_PORT_MATCH": "established",
+      "SEQUENCE": "9996"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "action_protocol_ipv6_source_ipv6_destination_sequence": [
+        {
+          "ACTION": "deny",
+          "PROTOCOL": "ipv6",
+          "IPV6_SOURCE": "2A01:728::/29",
+          "IPV6_DESTINATION": "any",
+          "SEQUENCE": "10"
+        },
+        {
+          "ACTION": "deny",
+          "PROTOCOL": "ipv6",
+          "IPV6_SOURCE": "2A01:728::/29",
+          "IPV6_DESTINATION": "any",
+          "SEQUENCE": "10"
+        },
+        {
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "IPV6_SOURCE": "any",
+          "IPV6_DESTINATION": "any",
+          "SEQUENCE": "9997"
+        },
+        {
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "IPV6_SOURCE": "any",
+          "IPV6_DESTINATION": "any",
+          "SEQUENCE": "9998"
+        },
+        {
+          "ACTION": "deny",
+          "PROTOCOL": "ipv6",
+          "IPV6_SOURCE": "any",
+          "IPV6_DESTINATION": "any",
+          "SEQUENCE": "9999"
+        },
+        {
+          "ACTION": "permit",
+          "PROTOCOL": "ipv6",
+          "IPV6_SOURCE": "2A05:C100:53::/64",
+          "IPV6_DESTINATION": "any",
+          "SEQUENCE": "10"
+        },
+        {
+          "ACTION": "permit",
+          "PROTOCOL": "ipv6",
+          "IPV6_SOURCE": "2A05:C100:53:1::/64",
+          "IPV6_DESTINATION": "any",
+          "SEQUENCE": "20"
+        },
+        {
+          "ACTION": "permit",
+          "PROTOCOL": "ipv6",
+          "IPV6_SOURCE": "2A05:C100::/48",
+          "IPV6_DESTINATION": "any",
+          "SEQUENCE": "30"
+        },
+        {
+          "ACTION": "permit",
+          "PROTOCOL": "ipv6",
+          "IPV6_SOURCE": "2A00:41E0::/48",
+          "IPV6_DESTINATION": "any",
+          "SEQUENCE": "40"
+        },
+        {
+          "ACTION": "permit",
+          "PROTOCOL": "ipv6",
+          "IPV6_SOURCE": "2A05:C100:43::/64",
+          "IPV6_DESTINATION": "any",
+          "SEQUENCE": "45"
+        },
+        {
+          "ACTION": "deny",
+          "PROTOCOL": "ipv6",
+          "IPV6_SOURCE": "any",
+          "IPV6_DESTINATION": "any",
+          "SEQUENCE": "50"
+        }
+      ],
+      "action_protocol_ipv6_source_ipv6_destination_log_authentification_routing_sequence": {
+        "ACTION": "permit",
+        "PROTOCOL": "tcp",
+        "IPV6_SOURCE": "2A01:720::/29",
+        "IPV6_DESTINATION": "any",
+        "LOG": "log",
+        "AUTHENTIFICATION": "auth",
+        "ROUTING": "routing",
+        "SEQUENCE": "10"
+      },
+      "action_protocol_ipv6_source_ipv6_destination_src_port_match_port_number_sequence": [
+        {
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "IPV6_SOURCE": "AAAA:BBBB::/64",
+          "IPV6_DESTINATION": "2A05:C100:53::/64",
+          "SRC_PORT_MATCH": "eq",
+          "PORT_NUMBER": "6543",
+          "SEQUENCE": "11"
+        },
+        {
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "IPV6_SOURCE": "AAAA:BBBB::/64",
+          "IPV6_DESTINATION": "2A05:C100:53::/64",
+          "SRC_PORT_MATCH": "eq",
+          "PORT_NUMBER": "6543",
+          "SEQUENCE": "12"
+        }
+      ],
+      "action_protocol_ipv6_source_ipv6_destination_src_port_range_start_src_port_range_end_sequence": {
+        "ACTION": "deny",
+        "PROTOCOL": "tcp",
+        "IPV6_SOURCE": "2A05:C100:53::14",
+        "IPV6_DESTINATION": "2A05:C100:53::17",
+        "SRC_PORT_RANGE_START": "46",
+        "SRC_PORT_RANGE_END": "48",
+        "SEQUENCE": "15"
+      },
+      "action_protocol_ipv6_source_ipv6_destination_src_port_match_sequence": [
+        {
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "IPV6_SOURCE": "any",
+          "IPV6_DESTINATION": "any",
+          "SRC_PORT_MATCH": "established",
+          "SEQUENCE": "9996"
+        },
+        {
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "IPV6_SOURCE": "any",
+          "IPV6_DESTINATION": "any",
+          "SRC_PORT_MATCH": "established",
+          "SEQUENCE": "9996"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IPv6 access list ACL2_IPv6\n    deny ipv6 2A01:728::/29 any sequence 10\nIPv6 access list ACL3_IPv6\n    permit tcp 2A01:720::/29 any log auth routing sequence 10\nIPv6 access list ACL_IPv6\n    deny ipv6 2A01:728::/29 any sequence 10\nIPv6 access list WAN_LOCAL\n    permit tcp AAAA:BBBB::/64 2A05:C100:53::/64 eq 6543 sequence 11\n    permit udp AAAA:BBBB::/64 2A05:C100:53::/64 eq 6543 sequence 12\n    deny udp host 2A05:C100:53::17 host 2A05:C100:53::145 eq 45 sequence 14\n    deny tcp host 2A05:C100:53::14 host 2A05:C100:53::17 range 46 48 sequence 15\n    permit tcp any any established sequence 9996\n    permit icmp any any sequence 9997\n    permit udp any any sequence 9998\n    deny ipv6 any any sequence 9999\nIPv6 access list WAN_ROUTEUR\n    permit ipv6 2A05:C100:53::/64 any sequence 10\n    permit ipv6 2A05:C100:53:1::/64 any sequence 20\n    permit ipv6 2A05:C100::/48 any sequence 30\n    permit ipv6 2A00:41E0::/48 any sequence 40\n    permit ipv6 2A05:C100:43::/64 any sequence 45\n    deny ipv6 any any sequence 50\n    permit tcp any any established sequence 9996\n",
+  "textfsm_template": "Value Required,Filldown ACL_NAME (\\S+)\nValue ACTION (permit|deny)\nValue PROTOCOL (\\S+)\nValue IPV6_SOURCE ([A-Za-z0-9:]+(\\/(?:\\d{1,3})|))\nValue IPV6_DESTINATION ([A-Za-z0-9:]+(\\/(?:\\d{1,3})|))\nValue SRC_PORT_MATCH (eq|neq|precedence|range|tos|lt|gt|established)\nValue SEQUENCE (\\d+)\nValue PORT_NUMBER (\\d+)\nValue LOG (log)\nValue AUTHENTIFICATION (auth)\nValue ROUTING (routing)\nValue SRC_PORT_RANGE_START (\\S+)\nValue SRC_PORT_RANGE_END (\\S+)\n\n\nStart\n  ^IPv6\\s+access\\s+list\\s+${ACL_NAME}\\s* -> Continue\n  ^\\s+${ACTION}\\s+${PROTOCOL}\\s+${IPV6_SOURCE}\\s+${IPV6_DESTINATION}\\s+(${SRC_PORT_MATCH}\\s|)sequence\\s${SEQUENCE}\\s*$$ -> Record\n  ^\\s+${ACTION}\\s+${PROTOCOL}\\s+(host\\s+|)${IPV6_SOURCE}\\s+(host\\s+|)(${IPV6_DESTINATION}\\s+|)(${SRC_PORT_MATCH}\\s|range\\s${SRC_PORT_RANGE_START}\\s${SRC_PORT_RANGE_END}\\s|)(${LOG}\\s+|)(${AUTHENTIFICATION}\\s+|)(${ROUTING}\\s+|)(${PORT_NUMBER}\\s+|)sequence\\s${SEQUENCE}\\s*$$ -> Record\n\nEOF"
+}

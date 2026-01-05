@@ -1,0 +1,61 @@
+{
+  "command": "huawei_smartax_display_ont_port_state_0_1_eth-state",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"ont_id_ont_port_id_ont_port_type_speed_mbps_duplex_link_state_ring_status\">\n       {{ONT_ID | re(\"\\\\d+\")}} {{ONT_PORT_ID | re(\"\\\\d+\")}} {{ONT_PORT_TYPE}} {{SPEED_MBPS}} {{DUPLEX}} {{LINK_STATE | ORPHRASE}} {{RING_STATUS | ORPHRASE}} \n</group>\n<group name=\"ont_id_ont_port_id_ont_port_type_link_state_ring_status\">\n       {{ONT_ID | re(\"\\\\d+\")}} {{ONT_PORT_ID | re(\"\\\\d+\")}} {{ONT_PORT_TYPE}} - - {{LINK_STATE | ORPHRASE}} {{RING_STATUS | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ONT_ID": "1",
+      "ONT_PORT_ID": "1",
+      "ONT_PORT_TYPE": "GE",
+      "SPEED_MBPS": "1000",
+      "DUPLEX": "full",
+      "LINK_STATE": "up",
+      "RING_STATUS": "noloop"
+    },
+    {
+      "ONT_ID": "1",
+      "ONT_PORT_ID": "2",
+      "ONT_PORT_TYPE": "GE",
+      "LINK_STATE": "down",
+      "RING_STATUS": "noloop"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ont_id_ont_port_id_ont_port_type_speed_mbps_duplex_link_state_ring_status": [
+        {
+          "ONT_ID": "1",
+          "ONT_PORT_ID": "1",
+          "ONT_PORT_TYPE": "GE",
+          "SPEED_MBPS": "1000",
+          "DUPLEX": "full",
+          "LINK_STATE": "up",
+          "RING_STATUS": "noloop"
+        },
+        {
+          "ONT_ID": "1",
+          "ONT_PORT_ID": "2",
+          "ONT_PORT_TYPE": "GE",
+          "SPEED_MBPS": "-",
+          "DUPLEX": "-",
+          "LINK_STATE": "down",
+          "RING_STATUS": "noloop"
+        }
+      ],
+      "ont_id_ont_port_id_ont_port_type_link_state_ring_status": {
+        "ONT_ID": "1",
+        "ONT_PORT_ID": "2",
+        "ONT_PORT_TYPE": "GE",
+        "LINK_STATE": "down",
+        "RING_STATUS": "noloop"
+      }
+    }
+  ],
+  "cli_content": "  --------------------------------------------------------------------------\n  ONT-ID   ONT      ONT       Speed(Mbps)   Duplex   LinkState  RingStatus\n           port-ID  Port-type    \n  --------------------------------------------------------------------------\n       1         1         GE 1000          full     up         noloop    \n       1         2         GE -             -        down       noloop    \n  --------------------------------------------------------------------------\n",
+  "textfsm_template": "Value Key ONT_ID (\\d+)\nValue ONT_PORT_ID (\\d+)\nValue ONT_PORT_TYPE (\\S+)\nValue SPEED_MBPS (\\S+)\nValue DUPLEX (\\S+)\nValue LINK_STATE (up|down)\nValue RING_STATUS (\\S+)\n\nStart\n  ^\\s+ONT-ID\\s+ONT\\s*ONT\\s*Speed\\(Mbps\\)\\s*Duplex\\s*LinkState\\s*RingStatus\\s*$$\n  ^\\s+port-ID\\s*Port-type\\s*$$\n  ^\\s+${ONT_ID}\\s+${ONT_PORT_ID}\\s+${ONT_PORT_TYPE}\\s*(-|${SPEED_MBPS})\\s*(-|${DUPLEX})\\s*${LINK_STATE}\\s*${RING_STATUS} -> Record\n  ^\\s+-\n  ^. -> Error\n"
+}

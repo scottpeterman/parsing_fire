@@ -1,0 +1,61 @@
+{
+  "command": "show interface transceiver detail",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 4,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"port_rev_product_identifier_vendor_serial_number_part_number_temperature_voltage\">\n{{PORT}} {{TR{{REV}}NSCEIVER_TYPE | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{PRODUCT_IDENTIFIER}} {{VENDOR}} {{SERIAL_NUMBER | re(\"\\\\w+\")}} {{PART_NUMBER}} A {{TEMPERATURE}} {{VOLTAGE | ORPHRASE}}\n</group>\n<group name=\"port_transceiver_type_product_identifier_vendor_rev_part_number_temperature_voltage\">\n{{PORT}} {{TRANSCEIVER_TYPE | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{PRODUCT_IDENTIFIER}} {{VENDOR}} {{SERIAL_NUM{{REV}}ER | re(\"\\\\w+\")}} {{PART_NUMBER}} B {{TEMPERATURE}} {{VOLTAGE | ORPHRASE}}\n</group>\n<group name=\"port_transceiver_type_product_identifier_vendor_serial_number_part_number_rev_temperature_voltage\">\n{{PORT}} {{TRANSCEIVER_TYPE | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{PRODUCT_IDENTIFIER}} {{VENDOR}} {{SERIAL_NUMBER | re(\"\\\\w+\")}} {{PART_NUMBER}} {{REV}} {{TEMPERATURE}} {{VOLTAGE | ORPHRASE}}\n</group>\n<group name=\"port_transceiver_type_rev_vendor_serial_number_part_number_temperature_voltage\">\n{{PORT}} {{TRANSCEIVER_TYPE | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{PRO{{REV}}UCT_IDENTIFIER}} {{VENDOR}} {{SERIAL_NUMBER | re(\"\\\\w+\")}} {{PART_NUMBER}} D {{TEMPERATURE}} {{VOLTAGE | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "PORT": "Eth1/1",
+      "TRANSCEIVER_TYPE": "10GBASE-SR",
+      "PRODUCT_IDENTIFIER": "QSFP-10G-SR",
+      "VENDOR": "FINISAR",
+      "SERIAL_NUMBER": "ABC12345DEF",
+      "PART_NUMBER": "QSFP-SR4-40G",
+      "REV": "A",
+      "TEMPERATURE": "35.0C",
+      "VOLTAGE": "3.3V"
+    },
+    {
+      "PORT": "Eth1/2",
+      "TRANSCEIVER_TYPE": "10GBASE-LR",
+      "PRODUCT_IDENTIFIER": "QSFP-10G-LR",
+      "VENDOR": "AVAGO",
+      "SERIAL_NUMBER": "XY12345LMNOP",
+      "PART_NUMBER": "QSFP-LR4-40G",
+      "REV": "B",
+      "TEMPERATURE": "30.0C",
+      "VOLTAGE": "3.3V"
+    },
+    {
+      "PORT": "Eth1/3",
+      "TRANSCEIVER_TYPE": "1000BASE-T",
+      "PRODUCT_IDENTIFIER": "SFP-GE-T",
+      "VENDOR": "CISCO",
+      "SERIAL_NUMBER": "ZY98765QWERT",
+      "PART_NUMBER": "SFP-T",
+      "REV": "1.0",
+      "TEMPERATURE": "45.0C",
+      "VOLTAGE": "3.3V"
+    },
+    {
+      "PORT": "Eth1/4",
+      "TRANSCEIVER_TYPE": "40GBASE-SR4",
+      "PRODUCT_IDENTIFIER": "QSFP-40G-SR",
+      "VENDOR": "JUNIPER",
+      "SERIAL_NUMBER": "JN12345ASDFG",
+      "PART_NUMBER": "QSFP-40G-SR4",
+      "REV": "D",
+      "TEMPERATURE": "40.0C",
+      "VOLTAGE": "3.3V"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Port      Transceiver Type            Product Identifier    Vendor   Serial Number   Part Number   Rev  Temperature  Voltage\n--------- --------------------------- --------------------- -------- --------------- ------------- ----- ----------- ----------\nEth1/1    10GBASE-SR                  QSFP-10G-SR           FINISAR  ABC12345DEF     QSFP-SR4-40G  A     35.0C       3.3V\nEth1/2    10GBASE-LR                  QSFP-10G-LR           AVAGO    XY12345LMNOP    QSFP-LR4-40G  B     30.0C       3.3V\nEth1/3    1000BASE-T                  SFP-GE-T              CISCO    ZY98765QWERT    SFP-T         1.0   45.0C       3.3V\nEth1/4    40GBASE-SR4                 QSFP-40G-SR          JUNIPER  JN12345ASDFG    QSFP-40G-SR4   D     40.0C       3.3V\n",
+  "textfsm_template": "Value PORT (\\S+)\nValue TRANSCEIVER_TYPE (\\S.*\\S)\nValue PRODUCT_IDENTIFIER (\\S+)\nValue VENDOR (\\S+)\nValue SERIAL_NUMBER (\\S+)\nValue PART_NUMBER (\\S+)\nValue REV (\\S+)\nValue TEMPERATURE (\\d+\\.\\d+C)\nValue VOLTAGE (\\d+\\.\\d+V)\n\nStart\n  ^Port\\s+Transceiver Type\\s+Product Identifier\\s+Vendor\\s+Serial Number\\s+Part Number\\s+Rev\\s+Temperature\\s+Voltage\\s*$$\n  ^\\s*${PORT}\\s+${TRANSCEIVER_TYPE}\\s+${PRODUCT_IDENTIFIER}\\s+${VENDOR}\\s+${SERIAL_NUMBER}\\s+${PART_NUMBER}\\s+${REV}\\s+${TEMPERATURE}\\s+${VOLTAGE}\\s*$$ -> Record"
+}

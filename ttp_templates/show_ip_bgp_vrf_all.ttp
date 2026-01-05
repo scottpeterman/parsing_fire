@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip bgp vrf all
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 2
+# Match ratio: 2.00
+
+<group name="router_id_local_as">
+Router identifier {{ROUTER_ID}}, local AS number {{LOCAL_AS | ORPHRASE}}
+</group>

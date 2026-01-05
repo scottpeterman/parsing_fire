@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nvfis_show_running-config_snmp_group
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="read_groupname_version_priviledge">
+{{READ}} group {{GROUPNAME}} "" {{VERSION | re("[\\d\\.\\(\\)A-Za-z]+")}} {{PRIVILEDGE | ORPHRASE}}
+</group>

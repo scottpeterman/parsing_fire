@@ -1,0 +1,62 @@
+{
+  "command": "show ip interface",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.75,
+  "textfsm_rows": 4,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"interface_ip_address_status_protocol\">\n{{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATUS | ORPHRASE}} {{PROTOCOL | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Vlan1",
+      "IP_ADDRESS": "10.0.0.254",
+      "STATUS": "up",
+      "PROTOCOL": "down"
+    },
+    {
+      "INTERFACE": "Ethernet1/1",
+      "IP_ADDRESS": "192.168.10.1",
+      "STATUS": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "INTERFACE": "Ethernet1/2",
+      "IP_ADDRESS": "192.168.20.1",
+      "STATUS": "down",
+      "PROTOCOL": "down"
+    },
+    {
+      "INTERFACE": "Ethernet1/4",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "up",
+      "PROTOCOL": "down"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_status_protocol": [
+        {
+          "INTERFACE": "Vlan1",
+          "IP_ADDRESS": "10.0.0.254",
+          "STATUS": "up",
+          "PROTOCOL": "down"
+        },
+        {
+          "INTERFACE": "Ethernet1/1",
+          "IP_ADDRESS": "192.168.10.1",
+          "STATUS": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "INTERFACE": "Ethernet1/2",
+          "IP_ADDRESS": "192.168.20.1",
+          "STATUS": "down",
+          "PROTOCOL": "down"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              IP-Address      Status          Protocol\nVlan1                  10.0.0.254      up              down\nEthernet1/1            192.168.10.1    up              up\nEthernet1/2            192.168.20.1    down            down\nEthernet1/3            unassigned      administratively down down\nEthernet1/4            unassigned      up              down\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue IP_ADDRESS (\\S+)\nValue STATUS (\\S+)\nValue PROTOCOL (\\S+)\n\nStart\n  ^Interface\\s+IP-Address\\s+Status\\s+Protocol$$\n  ^\\s*${INTERFACE}\\s+${IP_ADDRESS}\\s+${STATUS}\\s+${PROTOCOL}\\s*$$ -> Record\n"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: ifconfig
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="interface_scope_hwaddr">
+{{INTERFACE}} {{SCOPE}} encap:Ethernet HWaddr {{HWADDR | ORPHRASE}} 
+</group>

@@ -1,0 +1,128 @@
+{
+  "command": "show interface transceiver",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"interface_sfp_module_type_serial_number_wavelength_temp_voltage_current_tx_power_rx_power_status\">\n{{INTERFACE}} {{SFP_MODULE_TYPE}} {{SERIAL_NUMBER | re(\"\\\\w+\")}} {{WAVELENGTH}} {{TEMP}} {{VOLTAGE}} {{CURRENT}} {{TX_POWER}} {{RX_POWER}} {{STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "TenGigE0/1",
+      "SFP_MODULE_TYPE": "10GBASE-SR",
+      "SERIAL_NUMBER": "ABC1234XYZ",
+      "WAVELENGTH": "850",
+      "TEMP": "40",
+      "VOLTAGE": "3.3",
+      "CURRENT": "40",
+      "TX_POWER": "-2.1",
+      "RX_POWER": "-1.5",
+      "STATUS": "up"
+    },
+    {
+      "INTERFACE": "TenGigE0/2",
+      "SFP_MODULE_TYPE": "10GBASE-SR",
+      "SERIAL_NUMBER": "DEF5678PQR",
+      "WAVELENGTH": "850",
+      "TEMP": "38",
+      "VOLTAGE": "3.3",
+      "CURRENT": "42",
+      "TX_POWER": "-1.8",
+      "RX_POWER": "-1.1",
+      "STATUS": "up"
+    },
+    {
+      "INTERFACE": "TenGigE0/3",
+      "SFP_MODULE_TYPE": "10GBASE-SR",
+      "SERIAL_NUMBER": "GHI9012LMN",
+      "WAVELENGTH": "850",
+      "TEMP": "39",
+      "VOLTAGE": "3.2",
+      "CURRENT": "41",
+      "TX_POWER": "-2.0",
+      "RX_POWER": "-1.3",
+      "STATUS": "up"
+    },
+    {
+      "INTERFACE": "TenGigE0/4",
+      "SFP_MODULE_TYPE": "10GBASE-SR",
+      "SERIAL_NUMBER": "JKL3456UVW",
+      "WAVELENGTH": "850",
+      "TEMP": "37",
+      "VOLTAGE": "3.3",
+      "CURRENT": "43",
+      "TX_POWER": "-1.9",
+      "RX_POWER": "-0.9",
+      "STATUS": "error"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_sfp_module_type_serial_number_wavelength_temp_voltage_current_tx_power_rx_power_status": [
+        {
+          "INTERFACE": "Interface",
+          "SFP_MODULE_TYPE": "SFP",
+          "SERIAL_NUMBER": "Module",
+          "WAVELENGTH": "Type",
+          "TEMP": "Serial",
+          "VOLTAGE": "Number",
+          "CURRENT": "Wavelength",
+          "TX_POWER": "Temp",
+          "RX_POWER": "(C)",
+          "STATUS": "Voltage (V) Current (mA) Tx Power (dBm) Rx Power (dBm) Status"
+        },
+        {
+          "INTERFACE": "TenGigE0/1",
+          "SFP_MODULE_TYPE": "10GBASE-SR",
+          "SERIAL_NUMBER": "ABC1234XYZ",
+          "WAVELENGTH": "850",
+          "TEMP": "40",
+          "VOLTAGE": "3.3",
+          "CURRENT": "40",
+          "TX_POWER": "-2.1",
+          "RX_POWER": "-1.5",
+          "STATUS": "up"
+        },
+        {
+          "INTERFACE": "TenGigE0/2",
+          "SFP_MODULE_TYPE": "10GBASE-SR",
+          "SERIAL_NUMBER": "DEF5678PQR",
+          "WAVELENGTH": "850",
+          "TEMP": "38",
+          "VOLTAGE": "3.3",
+          "CURRENT": "42",
+          "TX_POWER": "-1.8",
+          "RX_POWER": "-1.1",
+          "STATUS": "up"
+        },
+        {
+          "INTERFACE": "TenGigE0/3",
+          "SFP_MODULE_TYPE": "10GBASE-SR",
+          "SERIAL_NUMBER": "GHI9012LMN",
+          "WAVELENGTH": "850",
+          "TEMP": "39",
+          "VOLTAGE": "3.2",
+          "CURRENT": "41",
+          "TX_POWER": "-2.0",
+          "RX_POWER": "-1.3",
+          "STATUS": "up"
+        },
+        {
+          "INTERFACE": "TenGigE0/4",
+          "SFP_MODULE_TYPE": "10GBASE-SR",
+          "SERIAL_NUMBER": "JKL3456UVW",
+          "WAVELENGTH": "850",
+          "TEMP": "37",
+          "VOLTAGE": "3.3",
+          "CURRENT": "43",
+          "TX_POWER": "-1.9",
+          "RX_POWER": "-0.9",
+          "STATUS": "error"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface      SFP Module Type  Serial Number      Wavelength Temp (C) Voltage (V) Current (mA) Tx Power (dBm) Rx Power (dBm) Status\n---------------------------------------------------------------------------------------------\nTenGigE0/1     10GBASE-SR       ABC1234XYZ         850       40        3.3        40           -2.1           -1.5           up\nTenGigE0/2     10GBASE-SR       DEF5678PQR         850       38        3.3        42           -1.8           -1.1           up\nTenGigE0/3     10GBASE-SR       GHI9012LMN         850       39        3.2        41           -2.0           -1.3           up\nTenGigE0/4     10GBASE-SR       JKL3456UVW         850       37        3.3        43           -1.9           -0.9           error\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue SFP_MODULE_TYPE (\\S+)\nValue SERIAL_NUMBER (\\S+)\nValue WAVELENGTH (\\S+)\nValue TEMP (\\d+)\nValue VOLTAGE (\\d+\\.\\d+)\nValue CURRENT (\\d+)\nValue TX_POWER (\\-\\d+\\.\\d+)\nValue RX_POWER (\\-\\d+\\.\\d+)\nValue STATUS (up|down|error)\n\nStart\n  ^\\s*Interface\\s+SFP Module Type\\s+Serial Number\\s+Wavelength\\s+Temp \\(C\\)\\s+Voltage \\(V\\)\\s+Current \\(mA\\)\\s+Tx Power \\(dBm\\)\\s+Rx Power \\(dBm\\)\\s+Status\\s*$$\n  ^\\s*${INTERFACE}\\s+${SFP_MODULE_TYPE}\\s+${SERIAL_NUMBER}\\s+${WAVELENGTH}\\s+${TEMP}\\s+${VOLTAGE}\\s+${CURRENT}\\s+${TX_POWER}\\s+${RX_POWER}\\s+${STATUS}\\s*$$ -> Record"
+}

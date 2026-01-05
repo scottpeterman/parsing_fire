@@ -1,0 +1,68 @@
+{
+  "command": "arista_eos_show_ip_arp",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"ip_address_age_mac_address_interface\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{AGE}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP_ADDRESS": "172.25.0.2",
+      "AGE": "0",
+      "MAC_ADDRESS": "004c.6211.021e",
+      "INTERFACE": "Vlan101, Port-Channel2"
+    },
+    {
+      "IP_ADDRESS": "172.22.0.1",
+      "AGE": "0",
+      "MAC_ADDRESS": "004c.6214.3699",
+      "INTERFACE": "Vlan1000, Port-Channel1"
+    },
+    {
+      "IP_ADDRESS": "172.22.0.2",
+      "AGE": "0",
+      "MAC_ADDRESS": "004c.6219.a0f3",
+      "INTERFACE": "Ethernet1"
+    },
+    {
+      "IP_ADDRESS": "10.10.1.1",
+      "AGE": "N/A",
+      "MAC_ADDRESS": "0002.00ff.0001",
+      "INTERFACE": "Vlan1, not learned"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_address_age_mac_address_interface": [
+        {
+          "IP_ADDRESS": "172.25.0.2",
+          "AGE": "0",
+          "MAC_ADDRESS": "004c.6211.021e",
+          "INTERFACE": "Vlan101, Port-Channel2"
+        },
+        {
+          "IP_ADDRESS": "172.22.0.1",
+          "AGE": "0",
+          "MAC_ADDRESS": "004c.6214.3699",
+          "INTERFACE": "Vlan1000, Port-Channel1"
+        },
+        {
+          "IP_ADDRESS": "172.22.0.2",
+          "AGE": "0",
+          "MAC_ADDRESS": "004c.6219.a0f3",
+          "INTERFACE": "Ethernet1"
+        },
+        {
+          "IP_ADDRESS": "10.10.1.1",
+          "AGE": "N/A",
+          "MAC_ADDRESS": "0002.00ff.0001",
+          "INTERFACE": "Vlan1, not learned"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Address      Age (min) Hardware Addr  Interface\n172.25.0.2           0 004c.6211.021e Vlan101, Port-Channel2\n172.22.0.1           0 004c.6214.3699 Vlan1000, Port-Channel1\n172.22.0.2           0 004c.6219.a0f3 Ethernet1\n10.10.1.1          N/A 0002.00ff.0001 Vlan1, not learned\n",
+  "textfsm_template": "Value IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue AGE (\\S+)\nValue MAC_ADDRESS (\\S+)\nValue INTERFACE (.*)\nValue Filldown VRF (\\S+)\n\nStart\n  ^VRF:\\s+${VRF}\n  ^Address\n  ^${IP_ADDRESS}\\s+${AGE}\\s+${MAC_ADDRESS}\\s+${INTERFACE} -> Record\n  ^. -> Error\n\nEOF\n"
+}

@@ -1,0 +1,73 @@
+{
+  "command": "fortinet_get_system_status",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"app_db_bios_version_botnet_db_branch_point\">\nVersion: {{VERSION | ORPHRASE}}\nVirus-DB: {{VIRUS_DB | ORPHRASE}}\nExtended DB: {{EXTENDED_DB | ORPHRASE}}\nIPS-DB: {{IPS_DB | ORPHRASE}}\nIPS-ETDB: {{IPS_ETDB | ORPHRASE}}\nAPP-DB: {{APP_DB | ORPHRASE}}\nSerial-Number: {{SERIAL_NUMBER | ORPHRASE}}\nIPS Malicious URL Database: {{IPS_MALICIOUS_URL_DATABASE | ORPHRASE}}\nBotnet DB: {{BOTNET_DB | ORPHRASE}}\nBIOS version: {{BIOS_VERSION | ORPHRASE}}\nSystem Part-Number: {{SYSTEM_PART_NUMBER | ORPHRASE}}\nLog hard disk: {{LOG_HARD_DISK | ORPHRASE}}\nHostname: {{HOSTNAME | ORPHRASE}} \nOperation Mode: {{OPERATION_MODE | ORPHRASE}}\nCurrent virtual domain: {{CURRENT_VIRTUAL_DOMAIN | ORPHRASE}}\nVirtual domains status: {{VIRTUAL_DOMAINS_STATUS | ORPHRASE}}\nVirtual domain configuration: {{VIRTUAL_DOMAIN_CONFIGURATION | ORPHRASE}}\nFIPS-CC mode: {{FIPS_CC_MODE | ORPHRASE}}\nCurrent HA mode: {{CURRENT_HA_MODE | ORPHRASE}}\nCluster uptime: {{CLUSTER_UPTIME | ORPHRASE}}\nCluster state change time: {{CLUSTER_STATE_CHANGE_TIME | ORPHRASE}}\nFortiOS x86-64: {{FORTIOS_X86_64 | ORPHRASE}}\nSystem time: {{SYSTEM_TIME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "HOSTNAME": "MYCOOLEFIREWALLNAME",
+      "VERSION": "FortiGate-1500D v6.0.7,build0302,191112 (GA)",
+      "VIRUS_DB": "16.00560(2012-10-19 08:31)",
+      "EXTENDED_DB": "1.00000(2018-04-09 18:07)",
+      "EXTREME_DB": "1.00000(2018-04-09 18:07)",
+      "IPS_DB": "6.00741(2015-12-01 02:30)",
+      "IPS_ETDB": "15.00748(2019-12-19 04:16)",
+      "APP_DB": "15.00756(2020-01-10 02:10)",
+      "INDUSTRIAL_DB": "15.00756(2020-01-10 02:10)",
+      "SERIAL_NUMBER": "FG1K501234567890",
+      "IPS_MALICIOUS_URL_DATABASE": "2.00521(2020-01-10 04:24)",
+      "BOTNET_DB": "1.00000(2012-05-28 22:51)",
+      "BIOS_VERSION": "05000006",
+      "SYSTEM_PART_NUMBER": "P12917-08",
+      "LOG_HARD_DISK": "Available",
+      "OPERATION_MODE": "NAT",
+      "CURRENT_VIRTUAL_DOMAIN": "root",
+      "MAX_NUMBER_OF_VIRTUAL_DOMAINS": "10",
+      "VIRTUAL_DOMAINS_STATUS": "7 in NAT mode, 1 in TP mode",
+      "VIRTUAL_DOMAIN_CONFIGURATION": "enable",
+      "FIPS_CC_MODE": "disable",
+      "CURRENT_HA_MODE": "a-p, master",
+      "CLUSTER_UPTIME": "102 days, 22 hours, 39 minutes, 22 seconds",
+      "CLUSTER_STATE_CHANGE_TIME": "2019-12-22 05:24:41",
+      "BRANCH_POINT": "0302",
+      "RELEASE_VERSION_INFORMATION": "GA",
+      "FORTIOS_X86_64": "Yes",
+      "SYSTEM_TIME": "Fri Jan 10 23:10:02 2020"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "app_db_bios_version_botnet_db_branch_point": {
+        "SYSTEM_TIME": "Fri Jan 10 23:10:02 2020",
+        "FORTIOS_X86_64": "Yes",
+        "CLUSTER_STATE_CHANGE_TIME": "2019-12-22 05:24:41",
+        "CLUSTER_UPTIME": "102 days, 22 hours, 39 minutes, 22 seconds",
+        "CURRENT_HA_MODE": "a-p, master",
+        "FIPS_CC_MODE": "disable",
+        "VIRTUAL_DOMAIN_CONFIGURATION": "enable",
+        "VIRTUAL_DOMAINS_STATUS": "7 in NAT mode, 1 in TP mode",
+        "CURRENT_VIRTUAL_DOMAIN": "root",
+        "OPERATION_MODE": "NAT",
+        "HOSTNAME": "MYCOOLEFIREWALLNAME",
+        "LOG_HARD_DISK": "Available",
+        "SYSTEM_PART_NUMBER": "P12917-08",
+        "BIOS_VERSION": "05000006",
+        "BOTNET_DB": "1.00000(2012-05-28 22:51)",
+        "IPS_MALICIOUS_URL_DATABASE": "2.00521(2020-01-10 04:24)",
+        "SERIAL_NUMBER": "FG1K501234567890",
+        "APP_DB": "15.00756(2020-01-10 02:10)",
+        "IPS_ETDB": "15.00748(2019-12-19 04:16)",
+        "IPS_DB": "6.00741(2015-12-01 02:30)",
+        "EXTENDED_DB": "1.00000(2018-04-09 18:07)",
+        "VIRUS_DB": "16.00560(2012-10-19 08:31)",
+        "VERSION": "FortiGate-1500D v6.0.7,build0302,191112 (GA)"
+      }
+    }
+  ],
+  "cli_content": "Version: FortiGate-1500D v6.0.7,build0302,191112 (GA)\nVirus-DB: 16.00560(2012-10-19 08:31)\nExtended DB: 1.00000(2018-04-09 18:07)\nExtreme DB: 1.00000(2018-04-09 18:07)\nIPS-DB: 6.00741(2015-12-01 02:30)\nIPS-ETDB: 15.00748(2019-12-19 04:16)\nAPP-DB: 15.00756(2020-01-10 02:10)\nINDUSTRIAL-DB: 15.00756(2020-01-10 02:10)\nSerial-Number: FG1K501234567890\nIPS Malicious URL Database: 2.00521(2020-01-10 04:24)\nBotnet DB: 1.00000(2012-05-28 22:51)\nBIOS version: 05000006\nSystem Part-Number: P12917-08\nLog hard disk: Available\nHostname: MYCOOLEFIREWALLNAME \nOperation Mode: NAT\nCurrent virtual domain: root\nMax number of virtual domains: 10\nVirtual domains status: 7 in NAT mode, 1 in TP mode\nVirtual domain configuration: enable\nFIPS-CC mode: disable\nCurrent HA mode: a-p, master\nCluster uptime: 102 days, 22 hours, 39 minutes, 22 seconds\nCluster state change time: 2019-12-22 05:24:41\nBranch point: 0302\nRelease Version Information: GA\nFortiOS x86-64: Yes\nSystem time: Fri Jan 10 23:10:02 2020\n",
+  "textfsm_template": "#\n# Patrick Marc Preuss, Refried Jello\n#\n# 2020-01-13: Inital Version\n# 2021-01-08: Update for 6.2\n#\n# FG Version: 5.6, 6.0.7, 6.2\n# HW        : FG1500D\n# CLUSTER MODE: AP\n# VDOMS       : ENABLED\n#\n# 2023-10-25: Update for 7.4 by Sebastian\n# 2022-11-27: Update for 7.0 by Klaus\n#\nValue Required HOSTNAME (\\S+)\nValue VERSION (.*)\nValue SECURITYLEVEL (.*)\nValue SIGNATURE (.*)\nValue VIRUS_DB (.*)\nValue EXTENDED_DB (.*)\nValue EXTREME_DB (.*)\nValue IPS_DB (.*)\nValue IPS_ETDB (.*)\nValue APP_DB (.*)\nValue FMWP_DB (.*) \nValue INDUSTRIAL_DB (.*)\nValue SERIAL_NUMBER (\\S+)\nValue IPS_MALICIOUS_URL_DATABASE (.*)\nValue IOT_DETECT (.*)\nValue OT_DETECT_DB (.*)\nValue OT_PATCH_DB (.*)\nValue OT_THREAT_DB (.*)\nValue IPS_ENGINE (.*)\nValue BOTNET_DB (.*)\nValue BIOS_VERSION (\\S+)\nValue SYSTEM_PART_NUMBER (\\S+)\nValue LOG_HARD_DISK (.*)\nValue PRIVATE_ENCRYPTION (\\S+)\nValue OPERATION_MODE (\\S+)\nValue CURRENT_VIRTUAL_DOMAIN (\\S+)\nValue MAX_NUMBER_OF_VIRTUAL_DOMAINS (\\d+)\nValue VIRTUAL_DOMAINS_STATUS (.*)\nValue VIRTUAL_DOMAIN_CONFIGURATION (\\S+)\nValue FIPS_CC_MODE (\\S+)\nValue CURRENT_HA_MODE (.*)\nValue CLUSTER_UPTIME (.*)\nValue CLUSTER_STATE_CHANGE_TIME (.*)\nValue BRANCH_POINT (\\S+)\nValue RELEASE_VERSION_INFORMATION (\\S+)\nValue FORTIOS_X86_64 (\\S+)\nValue SYSTEM_TIME (.*)\nValue AV_AI_ML_MODEL (.+)\nValue LAST_REBOOT_REASON (.+)\n\nStart\n  ^Version:\\s+${VERSION}\n  ^Security Level:\\s+${SECURITYLEVEL}\n  ^Firmware Signature:\\s+${SIGNATURE}\n  ^Virus-DB:\\s+${VIRUS_DB}\n  ^Extended\\s+DB:\\s+${EXTENDED_DB}\n  ^AV\\s+AI/ML\\s+Model:\\s+${AV_AI_ML_MODEL}\n  ^Extreme\\s+DB:\\s+${EXTREME_DB}\n  ^IPS-DB:\\s+${IPS_DB}\n  ^IPS-ETDB:\\s+${IPS_ETDB}\n  ^APP-DB:\\s+${APP_DB}\n  ^FMWP-DB:\\s+${APP_DB}\n  ^INDUSTRIAL-DB:\\s+${INDUSTRIAL_DB}\n  ^Serial-Number:\\s+${SERIAL_NUMBER}\n  ^IPS\\s+Malicious\\s+URL\\s+Database:\\s+${IPS_MALICIOUS_URL_DATABASE}\n  ^IoT-Detect:\\s+${APP_DB}\n  ^OT-Detect-DB:\\s+${APP_DB}\n  ^OT-Patch-DB:\\s+${APP_DB}\n  ^OT-Threat-DB:\\s+${APP_DB}\n  ^IPS-Engine:\\s+${APP_DB}\n  ^Botnet\\s+DB:\\s+${BOTNET_DB}\n  ^BIOS\\s+version:\\s+${BIOS_VERSION}\n  ^System\\s+Part-Number:\\s+${SYSTEM_PART_NUMBER}\n  ^Log\\s+hard\\s+disk:\\s+${LOG_HARD_DISK}\n  ^Hostname:\\s+${HOSTNAME}\n  ^Private\\s+Encryption:\\s+${PRIVATE_ENCRYPTION}\n  ^Operation\\s+Mode:\\s+${OPERATION_MODE}\n  ^Current\\s+virtual\\s+domain:\\s+${CURRENT_VIRTUAL_DOMAIN}\n  ^Max\\s+number\\s+of\\s+virtual\\s+domains:\\s+${MAX_NUMBER_OF_VIRTUAL_DOMAINS}\n  ^Virtual\\s+domains\\s+status:\\s+${VIRTUAL_DOMAINS_STATUS}\n  ^Virtual\\s+domain\\s+configuration:\\s+${VIRTUAL_DOMAIN_CONFIGURATION}\n  ^FIPS-CC\\s+mode:\\s+${FIPS_CC_MODE}\n  ^Current\\s+HA\\s+mode:\\s+${CURRENT_HA_MODE}\n  ^Cluster\\s+uptime:\\s+${CLUSTER_UPTIME}\n  ^Cluster\\s+state\\s+change\\s+time:\\s+${CLUSTER_STATE_CHANGE_TIME}\n  ^Branch\\s+point:\\s+${BRANCH_POINT}\n  ^Release\\s+Version\\s+Information:\\s+${RELEASE_VERSION_INFORMATION}\n  ^FortiOS\\s+x86-64:\\s+${FORTIOS_X86_64}\n  ^System\\s+time:\\s+${SYSTEM_TIME}\n  ^Last\\s+reboot\\s+reason:\\s+${LAST_REBOOT_REASON}\n  ^\\s*$$\n  ^. -> Error\n"
+}

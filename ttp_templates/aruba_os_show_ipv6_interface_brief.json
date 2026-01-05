@@ -1,0 +1,75 @@
+{
+  "command": "aruba_os_show_ipv6_interface_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"interface_admin_protocol\">\n{{INTERFACE | ORPHRASE}} [ {{ADMIN | ORPHRASE}}/{{PROTOCOL}} ]\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "vlan 1",
+      "IPV6_ADDRESS": "fe80::1a:3e00:6ed1:1585/64, 2001::1/64",
+      "ADMIN": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "INTERFACE": "vlan 390",
+      "IPV6_ADDRESS": "unassigned",
+      "ADMIN": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "INTERFACE": "vlan 991",
+      "IPV6_ADDRESS": "fe80::1a:3e00:6ed1:1585/64, 2a01:9e73:433f:109::6/64",
+      "ADMIN": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "INTERFACE": "vlan 992",
+      "IPV6_ADDRESS": "unassigned",
+      "ADMIN": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "INTERFACE": "loopback",
+      "IPV6_ADDRESS": "fe80::1a:3e00:6ed1:1585/64",
+      "ADMIN": "up",
+      "PROTOCOL": "up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_admin_protocol": [
+        {
+          "INTERFACE": "vlan 1",
+          "ADMIN": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "INTERFACE": "vlan 390",
+          "ADMIN": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "INTERFACE": "vlan 991",
+          "ADMIN": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "INTERFACE": "vlan 992",
+          "ADMIN": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "INTERFACE": "loopback",
+          "ADMIN": "up",
+          "PROTOCOL": "up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface                   [Status/Protocol]\nvlan 1                      [  up/up  ]\n    fe80::1a:3e00:6ed1:1585/64\n    2001::1/64\nvlan 390                     [  up/up  ]\n    unassigned\nvlan 991                     [  up/up  ]\n    fe80::1a:3e00:6ed1:1585/64\n    2a01:9e73:433f:109::6/64\nvlan 992                    [  up/up  ]\n    unassigned\nloopback                    [  up/up  ]\n    fe80::1a:3e00:6ed1:1585/64\n",
+  "textfsm_template": "Value INTERFACE (\\S+\\s\\S+|\\S+)\nValue List IPV6_ADDRESS (\\S+)\nValue ADMIN (\\S+)\nValue PROTOCOL (\\S+)\n\nStart\n  ^${INTERFACE}\\s+\\[\\s+${ADMIN}/${PROTOCOL}\\s+\\] -> Interfaces\n\nInterfaces\n  ^(\\S+\\s\\S+|\\S+)\\s+\\[\\s+(\\S+)/(\\S+)\\s+\\] -> Continue.Record\n  ^${INTERFACE}\\s+\\[\\s+${ADMIN}/${PROTOCOL}\\s+\\]\n  ^\\s+${IPV6_ADDRESS}\n"
+}

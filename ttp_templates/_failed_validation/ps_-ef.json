@@ -1,0 +1,117 @@
+{
+  "command": "ps -ef",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 10,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"uid_pid_ppid_c_stime_tty_time_cmd\">\n{{UID}} {{PID | re(\"\\\\d+\")}} {{PPID | re(\"\\\\d+\")}} {{C}} {{STIME}} {{TTY | re(\".*\\\\w.*\")}} {{TIME}} {{CMD | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "UID": "root",
+      "PID": "1",
+      "PPID": "0",
+      "C": "0",
+      "STIME": "Sep29",
+      "TTY": "?",
+      "TIME": "00:00:01",
+      "CMD": "/sbin/init"
+    },
+    {
+      "UID": "root",
+      "PID": "2",
+      "PPID": "0",
+      "C": "0",
+      "STIME": "Sep29",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "[kthreadd]"
+    },
+    {
+      "UID": "root",
+      "PID": "3",
+      "PPID": "2",
+      "C": "0",
+      "STIME": "Sep29",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "[rcu_gp]"
+    },
+    {
+      "UID": "root",
+      "PID": "4",
+      "PPID": "2",
+      "C": "0",
+      "STIME": "Sep29",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "[rcu_par_gp]"
+    },
+    {
+      "UID": "root",
+      "PID": "6",
+      "PPID": "2",
+      "C": "0",
+      "STIME": "Sep29",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "[kworker/0:1H-kblockd]"
+    },
+    {
+      "UID": "root",
+      "PID": "7",
+      "PPID": "2",
+      "C": "0",
+      "STIME": "Sep29",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "[mm_percpu_wq]"
+    },
+    {
+      "UID": "root",
+      "PID": "8",
+      "PPID": "2",
+      "C": "0",
+      "STIME": "Sep29",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "[ksoftirqd/0]"
+    },
+    {
+      "UID": "root",
+      "PID": "9",
+      "PPID": "2",
+      "C": "0",
+      "STIME": "Sep29",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "[rcu_sched]"
+    },
+    {
+      "UID": "root",
+      "PID": "10",
+      "PPID": "2",
+      "C": "0",
+      "STIME": "Sep29",
+      "TTY": "?",
+      "TIME": "00:00:00",
+      "CMD": "[rcu_bh]"
+    },
+    {
+      "UID": "root",
+      "PID": "11",
+      "PPID": "2",
+      "C": "0",
+      "STIME": "Sep29",
+      "TTY": "?",
+      "TIME": "00:00:01",
+      "CMD": "[migration/0]"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "UID        PID  PPID  C STIME TTY          TIME CMD\nroot         1     0  0 Sep29 ?        00:00:01 /sbin/init\nroot         2     0  0 Sep29 ?        00:00:00 [kthreadd]\nroot         3     2  0 Sep29 ?        00:00:00 [rcu_gp]\nroot         4     2  0 Sep29 ?        00:00:00 [rcu_par_gp]\nroot         6     2  0 Sep29 ?        00:00:00 [kworker/0:1H-kblockd]\nroot         7     2  0 Sep29 ?        00:00:00 [mm_percpu_wq]\nroot         8     2  0 Sep29 ?        00:00:00 [ksoftirqd/0]\nroot         9     2  0 Sep29 ?        00:00:00 [rcu_sched]\nroot        10     2  0 Sep29 ?        00:00:00 [rcu_bh]\nroot        11     2  0 Sep29 ?        00:00:01 [migration/0]\n",
+  "textfsm_template": "Value UID (\\S+)\nValue PID (\\d+)\nValue PPID (\\d+)\nValue C (\\d+)\nValue STIME (\\S+)\nValue TTY (\\S+)\nValue TIME (\\S+)\nValue CMD (.+)\n\nStart\n  ^\\s*${UID}\\s+${PID}\\s+${PPID}\\s+${C}\\s+${STIME}\\s+${TTY}\\s+${TIME}\\s+${CMD}\\s*$$ -> Record"
+}

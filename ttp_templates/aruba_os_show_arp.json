@@ -1,0 +1,188 @@
+{
+  "command": "aruba_os_show_arp",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 12,
+  "ttp_rows": 12,
+  "ttp_template": "<group name=\"protocol_ip_address_mac_address_interface_age\">\n   {{PROTOCOL}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{INTERFACE}} {{AGE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "10.13.68.113",
+      "MAC_ADDRESS": "24:be:05:28:10:71",
+      "INTERFACE": "vlan10",
+      "AGE": "78"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "10.13.68.114",
+      "MAC_ADDRESS": "b0:5a:da:38:7e:0d",
+      "INTERFACE": "vlan10",
+      "AGE": "19"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "10.13.68.117",
+      "MAC_ADDRESS": "10:e7:c6:05:d3:22",
+      "INTERFACE": "vlan10",
+      "AGE": "62"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "10.13.68.118",
+      "MAC_ADDRESS": "9c:eb:e8:75:0d:89",
+      "INTERFACE": "vlan10",
+      "AGE": "1376"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "10.13.68.119",
+      "MAC_ADDRESS": "70:5a:0f:d8:fc:cc",
+      "INTERFACE": "vlan10",
+      "AGE": "65"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "10.13.68.120",
+      "MAC_ADDRESS": "10:e7:c6:6e:6a:d2",
+      "INTERFACE": "vlan10",
+      "AGE": "25"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "10.13.68.121",
+      "MAC_ADDRESS": "80:ce:62:5e:c4:d1",
+      "INTERFACE": "vlan10",
+      "AGE": "63"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "10.13.68.123",
+      "MAC_ADDRESS": "10:e7:c6:6e:3a:fe",
+      "INTERFACE": "vlan10",
+      "AGE": "12"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "10.13.68.124",
+      "MAC_ADDRESS": "50:65:f3:1b:53:67",
+      "INTERFACE": "vlan10",
+      "AGE": "46"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "10.13.68.126",
+      "MAC_ADDRESS": "78:ac:c0:82:83:9c",
+      "INTERFACE": "vlan10",
+      "AGE": "1376"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "10.13.68.128",
+      "MAC_ADDRESS": "d4:95:24:ee:bd:d6",
+      "INTERFACE": "vlan10",
+      "AGE": "1353"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "IP_ADDRESS": "10.13.68.150",
+      "MAC_ADDRESS": "78:f2:9e:90:f1:72",
+      "INTERFACE": "vlan10",
+      "AGE": "1376"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "protocol_ip_address_mac_address_interface_age": [
+        {
+          "PROTOCOL": "Internet",
+          "IP_ADDRESS": "10.13.68.113",
+          "MAC_ADDRESS": "24:be:05:28:10:71",
+          "INTERFACE": "vlan10",
+          "AGE": "78"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "IP_ADDRESS": "10.13.68.114",
+          "MAC_ADDRESS": "b0:5a:da:38:7e:0d",
+          "INTERFACE": "vlan10",
+          "AGE": "19"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "IP_ADDRESS": "10.13.68.117",
+          "MAC_ADDRESS": "10:e7:c6:05:d3:22",
+          "INTERFACE": "vlan10",
+          "AGE": "62"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "IP_ADDRESS": "10.13.68.118",
+          "MAC_ADDRESS": "9c:eb:e8:75:0d:89",
+          "INTERFACE": "vlan10",
+          "AGE": "1376"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "IP_ADDRESS": "10.13.68.119",
+          "MAC_ADDRESS": "70:5a:0f:d8:fc:cc",
+          "INTERFACE": "vlan10",
+          "AGE": "65"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "IP_ADDRESS": "10.13.68.120",
+          "MAC_ADDRESS": "10:e7:c6:6e:6a:d2",
+          "INTERFACE": "vlan10",
+          "AGE": "25"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "IP_ADDRESS": "10.13.68.121",
+          "MAC_ADDRESS": "80:ce:62:5e:c4:d1",
+          "INTERFACE": "vlan10",
+          "AGE": "63"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "IP_ADDRESS": "10.13.68.123",
+          "MAC_ADDRESS": "10:e7:c6:6e:3a:fe",
+          "INTERFACE": "vlan10",
+          "AGE": "12"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "IP_ADDRESS": "10.13.68.124",
+          "MAC_ADDRESS": "50:65:f3:1b:53:67",
+          "INTERFACE": "vlan10",
+          "AGE": "46"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "IP_ADDRESS": "10.13.68.126",
+          "MAC_ADDRESS": "78:ac:c0:82:83:9c",
+          "INTERFACE": "vlan10",
+          "AGE": "1376"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "IP_ADDRESS": "10.13.68.128",
+          "MAC_ADDRESS": "d4:95:24:ee:bd:d6",
+          "INTERFACE": "vlan10",
+          "AGE": "1353"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "IP_ADDRESS": "10.13.68.150",
+          "MAC_ADDRESS": "78:f2:9e:90:f1:72",
+          "INTERFACE": "vlan10",
+          "AGE": "1376"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nCodes: * - Local Addresses, S - Static, A - Auth\n\nTotal ARP entries: 2\n\nIPV4 ARP Table\n--------------\n Protocol    IP Address    Hardware Address   Interface  Age (min)\n----------   ----------    ----------------   ---------  ---------\n   Internet  10.13.68.113  24:be:05:28:10:71  vlan10     78\n   Internet  10.13.68.114  b0:5a:da:38:7e:0d  vlan10     19\n   Internet  10.13.68.117  10:e7:c6:05:d3:22  vlan10     62\n   Internet  10.13.68.118  9c:eb:e8:75:0d:89  vlan10     1376\n   Internet  10.13.68.119  70:5a:0f:d8:fc:cc  vlan10     65\n   Internet  10.13.68.120  10:e7:c6:6e:6a:d2  vlan10     25\n   Internet  10.13.68.121  80:ce:62:5e:c4:d1  vlan10     63\n   Internet  10.13.68.123  10:e7:c6:6e:3a:fe  vlan10     12\n   Internet  10.13.68.124  50:65:f3:1b:53:67  vlan10     46\n   Internet  10.13.68.126  78:ac:c0:82:83:9c  vlan10     1376\n   Internet  10.13.68.128  d4:95:24:ee:bd:d6  vlan10     1353\n   Internet  10.13.68.150  78:f2:9e:90:f1:72  vlan10     1376\n",
+  "textfsm_template": "Value PROTOCOL (\\w+)\nValue IP_ADDRESS (\\d+.\\d+.\\d+.\\d+)\nValue MAC_ADDRESS (\\S+)\nValue INTERFACE (\\S+)\nValue AGE (\\d+)\n\nStart\n ^Codes:\\s+\\*\\s+-\\s+Local\\s+Addresses,\\s+S\\s+-\\s+Static,\\s+A\\s+-\\s+Auth\n ^Total\\s+ARP\\s+entries:\\s+\\d+\n ^IPV4\\s+ARP\\s+Table                                                                                \n ^-+                                                                                                \n ^\\s+Protocol\\s+IP\\s+Address\\s+Hardware\\s+Address\\s+Interface\\s+Age                                 \n ^\\s+${PROTOCOL}\\s+${IP_ADDRESS}\\s+${MAC_ADDRESS}\\s+${INTERFACE}\\s+${AGE} -> Record                            \n ^\\s*$$                                                                                             \n ^. -> Error\n"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show firewall rules
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 3
+# Match ratio: 0.60
+
+<group name="rule_id_source_address_destination_address_service_action_status">
+{{RULE_ID | re("\\d+")}} {{SOURCE_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{DESTINATION_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{SERVICE}} {{ACTION}} {{STATUS | ORPHRASE}}
+</group>

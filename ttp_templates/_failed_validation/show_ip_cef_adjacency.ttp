@@ -1,0 +1,13 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show ip cef adjacency
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="adjacency_id_adjacency_state_adjacency_type_destination_interface">
+  Adjacency Type: {{ADJACENCY_TYPE | ORPHRASE}}
+  Adjacency State: {{ADJACENCY_STATE | ORPHRASE}}
+Forwarding adjacency (adjacency-id {{ADJACENCY_ID | ORPHRASE}})
+  Source Interface: {{SOURCE_INTERFACE | ORPHRASE}}
+  Destination Interface: {{DESTINATION_INTERFACE | ORPHRASE}}
+  Next Hop Address: {{NEXT_HOP | ORPHRASE}}
+</group>

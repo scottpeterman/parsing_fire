@@ -1,0 +1,80 @@
+{
+  "command": "hp_procurve_show_vlans",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"vlan_id_vlan_name_status_voice\">\n  {{VLAN_ID | re(\"\\\\d+\")}} {{VLAN_NAME}} {{STATUS | ORPHRASE}} {{VOICE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN_ID": "1",
+      "VLAN_NAME": "DEFAULT_VLAN",
+      "STATUS": "Port-based",
+      "VOICE": "No"
+    },
+    {
+      "VLAN_ID": "10",
+      "VLAN_NAME": "server",
+      "STATUS": "Port-based",
+      "VOICE": "No"
+    },
+    {
+      "VLAN_ID": "21",
+      "VLAN_NAME": "client",
+      "STATUS": "Port-based",
+      "VOICE": "No"
+    },
+    {
+      "VLAN_ID": "24",
+      "VLAN_NAME": "guest",
+      "STATUS": "Port-based",
+      "VOICE": "No"
+    },
+    {
+      "VLAN_ID": "2000",
+      "VLAN_NAME": "dmz",
+      "STATUS": "Port-based",
+      "VOICE": "No"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_id_vlan_name_status_voice": [
+        {
+          "VLAN_ID": "1",
+          "VLAN_NAME": "DEFAULT_VLAN",
+          "STATUS": "Port-based",
+          "VOICE": "No"
+        },
+        {
+          "VLAN_ID": "10",
+          "VLAN_NAME": "server",
+          "STATUS": "Port-based",
+          "VOICE": "No"
+        },
+        {
+          "VLAN_ID": "21",
+          "VLAN_NAME": "client",
+          "STATUS": "Port-based",
+          "VOICE": "No"
+        },
+        {
+          "VLAN_ID": "24",
+          "VLAN_NAME": "guest",
+          "STATUS": "Port-based",
+          "VOICE": "No"
+        },
+        {
+          "VLAN_ID": "2000",
+          "VLAN_NAME": "dmz",
+          "STATUS": "Port-based",
+          "VOICE": "No"
+        }
+      ]
+    }
+  ],
+  "cli_content": " Status and Counters - VLAN Information\n\n  Maximum VLANs to support : 256\n  Primary VLAN : DEFAULT_VLAN\n  Management VLAN :\n\n  VLAN ID Name                             Status       Voice\n  ------- -------------------------------- ------------ -----\n  1       DEFAULT_VLAN                     Port-based   No\n  10      server                           Port-based   No\n  21      client                           Port-based   No\n  24      guest                            Port-based   No\n  2000    dmz                              Port-based   No\n  ",
+  "textfsm_template": "Value VLAN_ID (\\d+)\nValue VLAN_NAME (.*?)\nValue STATUS (\\S+)\nValue VOICE (Yes|No)\nValue JUMBO (Yes|No)\n\nStart\n  ^.*VLAN ID -> VLAN\n\nVLAN\n  ^\\s+${VLAN_ID}\\s+${VLAN_NAME}\\s+(\\|\\s+|)${STATUS}\\s+${VOICE}(\\s+${JUMBO}|)\\s*$$ -> Record\n  ^\\s+-+\\s+-+\\s+(\\+\\s+|)-+\\s+-+(\\s+-+|)\\s*$$\n  ^\\s*$$\n  ^.*$$ -> Error\n"
+}

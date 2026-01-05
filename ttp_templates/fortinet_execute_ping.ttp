@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: fortinet_execute_ping
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 5
+# Match ratio: 5.00
+
+<group name="address_packet_loss_min_rtt">
+64 bytes from {{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}: icmp_seq=1 ttl=11{{PACKET_LOSS}} time={{MIN_RTT | ORPHRASE}} ms
+</group>

@@ -1,0 +1,82 @@
+{
+  "command": "cisco_ios_show_arp",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.6,
+  "textfsm_rows": 5,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"protocol_address_age_min_hardware_address_type_interface\">\n{{PROTOCOL}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{AGE_MIN | re(\".*\\\\w.*\")}} {{HARDWARE_ADDRESS}} {{TYPE}} {{INTERFACE | ORPHRASE}}\n</group>\n<group name=\"protocol_address_age_min_hardware_address_type\">\n{{PROTOCOL}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{AGE_MIN}} {{HARDWARE_ADDRESS}} {{TYPE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "Internet",
+      "ADDRESS": "10.100.88.1",
+      "AGE_MIN": "-",
+      "HARDWARE_ADDRESS": "c4f7.d564.b716",
+      "TYPE": "ARPA",
+      "INTERFACE": "Vlan10"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "ADDRESS": "10.100.88.199",
+      "AGE_MIN": "0",
+      "HARDWARE_ADDRESS": "Incomplete",
+      "TYPE": "ARPA"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "ADDRESS": "10.152.1.229",
+      "AGE_MIN": "0",
+      "HARDWARE_ADDRESS": "488f.5a5a.87ea",
+      "TYPE": "ARPA",
+      "INTERFACE": "Vlan1"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "ADDRESS": "1.2.3.4",
+      "AGE_MIN": "0",
+      "HARDWARE_ADDRESS": "c4ad.3425.b7be",
+      "TYPE": "ARPA",
+      "INTERFACE": "FastEthernet4"
+    },
+    {
+      "PROTOCOL": "Internet",
+      "ADDRESS": "1.2.3.5",
+      "AGE_MIN": "-",
+      "HARDWARE_ADDRESS": "c4f7.d564.b71a",
+      "TYPE": "ARPA",
+      "INTERFACE": "FastEthernet4"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "protocol_address_age_min_hardware_address_type_interface": [
+        {
+          "PROTOCOL": "Internet",
+          "ADDRESS": "10.152.1.229",
+          "AGE_MIN": "0  ",
+          "HARDWARE_ADDRESS": "488f.5a5a.87ea",
+          "TYPE": "ARPA",
+          "INTERFACE": "Vlan1"
+        },
+        {
+          "PROTOCOL": "Internet",
+          "ADDRESS": "1.2.3.4",
+          "AGE_MIN": "0  ",
+          "HARDWARE_ADDRESS": "c4ad.3425.b7be",
+          "TYPE": "ARPA",
+          "INTERFACE": "FastEthernet4"
+        }
+      ],
+      "protocol_address_age_min_hardware_address_type": {
+        "PROTOCOL": "Internet",
+        "ADDRESS": "10.100.88.199",
+        "AGE_MIN": "0",
+        "HARDWARE_ADDRESS": "Incomplete",
+        "TYPE": "ARPA"
+      }
+    }
+  ],
+  "cli_content": "Protocol  Address          Age (min)  Hardware Addr   Type   Interface\nInternet  10.100.88.1             -   c4f7.d564.b716  ARPA   Vlan10\nInternet  10.100.88.199           0   Incomplete      ARPA\nInternet  10.152.1.229            0   488f.5a5a.87ea  ARPA   Vlan1\nInternet  1.2.3.4                 0   c4ad.3425.b7be  ARPA   FastEthernet4\nInternet  1.2.3.5                 -   c4f7.d564.b71a  ARPA   FastEthernet4\n",
+  "textfsm_template": "Value PROTOCOL (\\S+)\nValue ADDRESS (\\S+)\nValue AGE_MIN (\\S+)\nValue HARDWARE_ADDRESS ((?:([a-f0-9]{4}\\.){2}[a-f0-9]{4})|Incomplete)\nValue TYPE (\\S+)\nValue INTERFACE (\\S+)\n\nStart\n  ^\\s*Protocol\\s+Address\\s+Age\\s+\\(min\\)\\s+Hardware\\s+Addr\\s+Type\\s+Interface\\s*$$ -> ArpTable\n  ^\\s*$$\n  ^. -> Error\n\nArpTable\n  ^\\s*${PROTOCOL}\\s+${ADDRESS}\\s+${AGE_MIN}\\s+${HARDWARE_ADDRESS}\\s+${TYPE}(?:\\s+${INTERFACE})?\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

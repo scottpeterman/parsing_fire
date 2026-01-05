@@ -1,0 +1,22 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show inventory transceiver detail
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="connector_datecode_encoding_identifier">
+Slot {{SLOT | ORPHRASE}}:
+  Transceiver {{TRANSCEIVER | ORPHRASE}}
+  Model:  {{MODEL | ORPHRASE}}
+  Type:  {{TYPE | ORPHRASE}}
+  Connector:  {{CONNECTOR | ORPHRASE}}
+  Encoding:  {{ENCODING | ORPHRASE}}
+  Wavelength:  {{WAVELENGTH | ORPHRASE}}
+  TransferRate:  {{TRANSFERRATE | ORPHRASE}}
+  Length:  {{LENGTH | ORPHRASE}}
+  Vendor:  {{VENDOR | ORPHRASE}}
+  SerialNumber:  {{SERIALNUMBER | ORPHRASE}}
+  Identifier:  {{IDENTIFIER | ORPHRASE}}
+  DateCode:  {{DATECODE | ORPHRASE}}
+</group>

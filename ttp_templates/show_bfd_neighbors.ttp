@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show bfd neighbors
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="neigh_addr_ld_rd_holdown_state_interface">
+{{NEIGH_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{LD_RD}} {{HOLDOWN}} {{STATE | ORPHRASE}} {{INTERFACE | ORPHRASE}}
+</group>

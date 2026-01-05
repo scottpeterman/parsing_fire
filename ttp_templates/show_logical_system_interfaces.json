@@ -1,0 +1,33 @@
+{
+  "command": "show logical system interfaces",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"enabled_link_status_log_index_log_interface\">\nPhysical interface: ge-0/0/0, {{ENABLED | ORPHRASE}}, Physical link is Up\nPhysical interface: {{PHYS_INTERFACE}}, Enabled, Physical link is {{LINK_STATUS | ORPHRASE}}\n  Logical interface {{LOG_INTERFACE}} (Index {{LOG_INDEX}}) (SNMP ifIndex {{SNMP_IF_INDEX | ORPHRASE}})\n  Output bytes  : {{OUTPUT_BYTES | ORPHRASE}}\n  Output packets: {{OUTPUT_PACKETS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PHYS_INTERFACE": "ge-0/0/1",
+      "ENABLED": "Enabled",
+      "LINK_STATUS": "Down",
+      "LOG_INTERFACE": "ge-0/0/1.0",
+      "LOG_INDEX": "334",
+      "SNMP_IF_INDEX": "711",
+      "OUTPUT_BYTES": "100",
+      "OUTPUT_PACKETS": "25"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "enabled_link_status_log_index_log_interface": {
+        "PHYS_INTERFACE": "ge-0/0/1",
+        "LINK_STATUS": "Down",
+        "ENABLED": "Enabled"
+      }
+    }
+  ],
+  "cli_content": "Physical interface: ge-0/0/0, Enabled, Physical link is Up\n    Logical interface ge-0/0/0.0 (Index 333) (SNMP ifIndex 710)\n    Flags: Up SNMP-Traps 0x4004000 Encapsulation: ENET2\n    Traffic statistics:\n        Input  bytes  : 0\n        Output bytes  : 0\n        Input  packets: 0\n        Output packets: 0\n        \nPhysical interface: ge-0/0/1, Enabled, Physical link is Down\n    Logical interface ge-0/0/1.0 (Index 334) (SNMP ifIndex 711)\n    Flags: Down SNMP-Traps 0x4004000 Encapsulation: ENET2\n    Traffic statistics:\n        Input  bytes  : 200\n        Output bytes  : 100\n        Input  packets: 50\n        Output packets: 25\n",
+  "textfsm_template": "Value PHYS_INTERFACE (\\S+)\nValue ENABLED (\\S+)\nValue LINK_STATUS (\\S+)\nValue LOG_INTERFACE (\\S+)\nValue LOG_INDEX (\\d+)\nValue SNMP_IF_INDEX (\\d+)\nValue FLAGS (\\S+)\nValue ENCAPSULATION (\\S+)\nValue INPUT_BYTES (\\d+)\nValue OUTPUT_BYTES (\\d+)\nValue INPUT_PACKETS (\\d+)\nValue OUTPUT_PACKETS (\\d+)\n\nStart\n  ^Physical\\sinterface:\\s${PHYS_INTERFACE},\\s${ENABLED},\\sPhysical\\slink\\sis\\s${LINK_STATUS}\n  ^\\s*Logical\\sinterface\\s${LOG_INTERFACE}\\s\\(Index\\s${LOG_INDEX}\\)\\s\\(SNMP\\sifIndex\\s${SNMP_IF_INDEX}\\)\n  ^\\s*Flags:\\s${FLAGS}\\sEncapsulation:\\s${ENCAPSULATION}\n  ^\\s*Traffic\\sstatistics:\n  ^\\s*Input\\sbytes\\s*:\\s${INPUT_BYTES}\n  ^\\s*Output\\sbytes\\s*:\\s${OUTPUT_BYTES}\n  ^\\s*Input\\spackets\\s*:\\s${INPUT_PACKETS}\n  ^\\s*Output\\spackets\\s*:\\s${OUTPUT_PACKETS}"
+}

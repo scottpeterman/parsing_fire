@@ -1,0 +1,11 @@
+# TTP Template - FAILED VALIDATION
+# Original command: cisco_nxos_show_hardware_internal_bigsur_all-ports_detail
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="instance_slot_type_tx_pkt_size_lt_64_duplexity_dec_instance_index_port_dec_link_state_dec_instance_asic_speed">
+Link up : 94{{INSTANCE_SLOT | re("\\d+")}}3{{TYPE}} usecs a{{FI_BLOCK_LOCK_{{TX_PKT_SIZE_LT_64}}H}}ter Sun Oct {{DUPLEXITY_DEC}}7 {{INSTANCE_INDEX | ORPHRASE}}6:{{PORT_DEC | re("\\d+")}}4:48 {{LINK_STATE_DEC | ORPHRASE}}{{INSTANCE_ASIC}}{{SPEED}}9
+</group>
+<group name="tx_pkt_size_lt_64_interface_index">
+        i{{FI_BLOCK_LOCK_{{TX_PKT_SIZE_LT_64}}H}}_index : {{INTERFACE_INDEX | ORPHRASE}}
+</group>

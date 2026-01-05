@@ -1,0 +1,26 @@
+{
+  "command": "show ip mroute",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 1,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"grp_uptime_expires_rp_rpf_nbr\">\n(*, {{GRP}}), uptime: {{UPTIME | ORPHRA{{FLAGS}}E}}, expires: {{EXPIRES}}, RP: {{RP}}, flags: S, RPF nbr: {{RPF_NBR | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "GRP": "224.0.1.40",
+      "UPTIME": "00:01:23",
+      "EXPIRES": "00:02:37",
+      "RP": "192.168.1.1",
+      "FLAGS": "S",
+      "RPF_NBR": "192.168.10.1",
+      "INCOMING_INTERFACE": "GigabitEthernet0/1"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "IP Multicast Routing Table\n(*, 224.0.1.40), uptime: 00:01:23, expires: 00:02:37, RP: 192.168.1.1, flags: S, RPF nbr: 192.168.10.1\n  Incoming interface: GigabitEthernet0/1, RPF nbr: 192.168.10.1\n(*, 224.0.1.39), uptime: 00:03:45, expires: 00:01:15, RP: 192.168.1.1, flags: S, RPF nbr: 192.168.10.2\n  Incoming interface: GigabitEthernet0/2, RPF nbr: 192.168.10.2\n(192.168.20.1, 239.255.255.250), uptime: 00:02:54, expires: 00:02:06, RP: 192.168.1.1, flags: P, S, RPF nbr: 192.168.10.3\n  Incoming interface: GigabitEthernet0/3, RPF nbr: 192.168.10.3\n",
+  "textfsm_template": "Value MROUTE_SOURCE (\\S+)\nValue GRP (\\S+)\nValue UPTIME (\\S+)\nValue EXPIRES (\\S+)\nValue RP (\\S+)\nValue FLAGS (\\S+)\nValue RPF_NBR (\\S+)\nValue INCOMING_INTERFACE (\\S+)\n\nStart\n  # Matches lines with (*, G)\n  ^\\(\\*\\s*,\\s*${GRP}\\),\\s*uptime:\\s*${UPTIME},\\s*expires:\\s*${EXPIRES},\\s*RP:\\s*${RP},\\s*flags:\\s*${FLAGS},\\s*RPF\\s*nbr:\\s*${RPF_NBR}\\s*$$ -> More\n  # Matches lines with (S, G)\n  ^\\(${MROUTE_SOURCE},\\s*${GRP}\\),\\s*uptime:\\s*${UPTIME},\\s*expires:\\s*${EXPIRES},\\s*RP:\\s*${RP},\\s*flags:\\s*${FLAGS},\\s*RPF\\s*nbr:\\s*${RPF_NBR}\\s*$$ -> More\n\nMore\n  ^\\s*Incoming\\s*interface:\\s*${INCOMING_INTERFACE},\\s*RPF\\s*nbr:\\s*${RPF_NBR}$$ -> Record\n"
+}

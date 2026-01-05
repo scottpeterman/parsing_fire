@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show hardware status
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 8
+# Match ratio: 2.00
+
+<group name="model_number">
+  Model Number {{MODEL_NUMBER | ORPHRASE}}
+</group>
+<group name="serial_number">
+  Serial Number {{SERIAL_NUMBER | re("\\w+")}}
+</group>

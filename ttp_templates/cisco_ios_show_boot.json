@@ -1,0 +1,38 @@
+{
+  "command": "cisco_ios_show_boot",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"allow_dev_key_auto_upgrade_boot_path_buffer_size\">\nBOOT path-list  : {{BOOT_PATH | ORPHRASE}}\nConfig file  : {{CONFIG_FILE | ORPHRASE}}\nPrivate Config file : {{PRIV_CONFIG_FILE | ORPHRASE}}\nEnable Break  : {{ENABLE_BREAK | ORPHRASE}}\nManual Boot  : {{MANUAL_BOOT | ORPHRASE}}\n  buffer size:  {{BUFFER_SIZE | ORPHRASE}}\n  via DHCP:  {{CONFIG_DOWNLOAD_DHCP | ORPHRASE}} (next boot: {{CONFIG_DOWNLOAD_DHCP_NEXT_BOOT}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "BOOT_PATH": "flash:c3750e-ipbasek9-mz.150-2.SE11.bin",
+      "CONFIG_FILE": "flash:/config.text",
+      "PRIV_CONFIG_FILE": "flash:/private-config.text",
+      "ENABLE_BREAK": "yes",
+      "MANUAL_BOOT": "no",
+      "ALLOW_DEV_KEY": "yes",
+      "AUTO_UPGRADE": "yes",
+      "BUFFER_SIZE": "524288",
+      "TIMEOUT_CONFIG_DOWNLOAD": "0",
+      "CONFIG_DOWNLOAD_DHCP": "disabled",
+      "CONFIG_DOWNLOAD_DHCP_NEXT_BOOT": "disabled"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "allow_dev_key_auto_upgrade_boot_path_buffer_size": {
+        "MANUAL_BOOT": "no",
+        "ENABLE_BREAK": "yes",
+        "PRIV_CONFIG_FILE": "flash:/private-config.text",
+        "CONFIG_FILE": "flash:/config.text",
+        "BOOT_PATH": "flash:c3750e-ipbasek9-mz.150-2.SE11.bin"
+      }
+    }
+  ],
+  "cli_content": "BOOT path-list      : flash:c3750e-ipbasek9-mz.150-2.SE11.bin\nConfig file         : flash:/config.text\nPrivate Config file : flash:/private-config.text\nEnable Break        : yes\nManual Boot         : no\nAllow Dev Key         : yes\nHELPER path-list    : \nAuto upgrade        : yes\nAuto upgrade path   :\nNVRAM/Config file\n      buffer size:   524288\nTimeout for Config\n          Download:    0 seconds\nConfig Download\n       via DHCP:       disabled (next boot: disabled\n",
+  "textfsm_template": "Value SWITCH_NUMBER (\\d+)\nValue BOOT_PATH (\\S+)\nValue CONFIG_FILE (\\S+)\nValue PRIV_CONFIG_FILE (\\S+)\nValue ENABLE_BREAK (yes|no)\nValue MANUAL_BOOT (yes|no)\nValue ALLOW_DEV_KEY (yes|no)\nValue HELPER_PATH_LIST (\\S+)\nValue AUTO_UPGRADE (yes|no)\nValue AUTO_UPGRADE_PATH (\\S+)\nValue BUFFER_SIZE (\\d+)\nValue TIMEOUT_CONFIG_DOWNLOAD (\\d+)\nValue CONFIG_DOWNLOAD_DHCP (enabled|disabled)\nValue CONFIG_DOWNLOAD_DHCP_NEXT_BOOT (enabled|disabled)\nValue BOOT_MODE (\\S+)\nValue BOOT_OPTIMIZATION (\\S+)\nValue CURRENT_BOOT_VARIABLES (BOOT\\s*variable\\s*does\\s*not\\s*exist|BOOT\\s*variable\\s*=\\s*\\S+)\n\nStart\n  ^.+show\\s+boot\n  ^Current\\s*Boot\\s*Variables: -> CurrentBootVariables\n  ^Switch\\s+${SWITCH_NUMBER}\n  ^BOOT\\s+(path-list|variable)\\s+(:|=)\\s+${BOOT_PATH}\n  ^Config\\s+file\\s+:\\s+${CONFIG_FILE}\n  ^Private\\s+Config\\s+file\\s+:\\s+${PRIV_CONFIG_FILE}\n  ^Enable\\s+Break\\s+(:|=)\\s+${ENABLE_BREAK}\n  ^Manual\\s+Boot\\s+(:|=)\\s+${MANUAL_BOOT}\n  ^Allow\\s+Dev\\s+Key\\s+:\\s+${ALLOW_DEV_KEY}\n  ^HELPER\\s+path-list\\s+:.*\n  ^Auto\\s+upgrade\\s+:\\s+${AUTO_UPGRADE}\n  ^Auto\\s+upgrade\\s+path\\s+:.*\n  ^NVRAM/Config\\s+file\n  ^\\s*buffer\\s+size:\\s+${BUFFER_SIZE}\n  ^iPXE\\s*Timeout\\s*=\\s*${TIMEOUT_CONFIG_DOWNLOAD}\n  ^Timeout\\s+for\\s+Config\n  ^\\s*Download:\\s+${TIMEOUT_CONFIG_DOWNLOAD}\n  ^\\s*Config\\s+Download\n  ^\\s*via\\s+DHCP:\\s+${CONFIG_DOWNLOAD_DHCP}\\s\\(next\\sboot:\\s${CONFIG_DOWNLOAD_DHCP_NEXT_BOOT}\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^Boot\\s*Mode\\s*=\\s*${BOOT_MODE}\n  ^Boot\\s+optimization\\s+:\\s+${BOOT_OPTIMIZATION}\n  ^\\s*$$\n  ^-+\n  ^. -> Error\n  \nCurrentBootVariables\n  ^${CURRENT_BOOT_VARIABLES}\n  ^Boot\\s*Variables\\s*on\\s*next\\s*reload: -> Start\n  ^. -> Error\n"
+}

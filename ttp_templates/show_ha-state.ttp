@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ha-state
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="ha_config_sync_ha_heartbeat_status_ha_mode_ha_peer_ip">
+HA State: {{HA_STATE | ORPHRASE}}
+HA Mode: {{HA_MODE | ORPHRASE}}
+HA Peer IP: {{HA_PEER_IP | ORPHRASE}}
+HA Peer State: {{HA_PEER_STATE | ORPHRASE}}
+HA Config Sync: {{HA_CONFIG_SYNC | ORPHRASE}}
+</group>

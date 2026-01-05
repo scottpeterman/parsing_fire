@@ -1,0 +1,54 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_asp_drop
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="acl_drop_bad_ipsec_natt_bad_tcp_cksum_bad_tcp_flags">
+  NAT-T keepalive message (natt-keepalive)  {{NATT_KEEPALIVE | ORPHRASE}}
+  Bad IPSEC NATT packet (bad-ipsec-natt)  {{BAD_IPSEC_NATT | ORPHRASE}}
+  IPSEC tunnel is down (ipsec-tun-down)  {{IPSEC_TUN_DOWN | ORPHRASE}}
+  SVC Module received bad data length (mp-svc-bad-length)  {{MP_SVC_BAD_LENGTH | ORPHRASE}}
+  SVC Module does not have a channel for reinjection (mp-svc-no-channel)  {{MP_SVC_NO_CHANNEL | ORPHRASE}}
+  SVC Module does not have a session (mp-svc-no-session)  {{MP_SVC_NO_SESSION | ORPHRASE}}
+  SVC Module is in flow control (mp-svc-flow-control)  {{MP_SVC_FLOW_CONTROL | ORPHRASE}}
+  SVC Module unable to fragment packet (mp-svc-no-fragment)  {{MP_SVC_NO_FRAGMENT | ORPHRASE}}
+  Invalid IP header (invalid-ip-header)  {{FLOW_DROP_CTM_CRYPTO_REQUEST_ERROR | ORPHRASE}}
+  Invalid IP length (invalid-ip-length)  {{INVALID_IP_LENGTH | ORPHRASE}}
+  No valid adjacency (no-adjacency)  {{NO_ADJACENCY | ORPHRASE}}
+  No route to host (no-route)  {{NO_ROUTE | ORPHRASE}}
+  Flow is denied by configured rule (acl-drop)  {{ACL_DROP | ORPHRASE}}
+  Flow denied due to resource limitation (unable-to-create-flow)  {{UNABLE_TO_CREATE_FLOW | ORPHRASE}}
+  Invalid SPI (np-sp-invalid-spi)  {{NP_SP_INVALID_SPI | ORPHRASE}}
+  First TCP packet not SYN (tcp-not-syn)  {{TCP_NOT_SYN | ORPHRASE}}
+  Bad TCP checksum (bad-tcp-cksum)  {{BAD_TCP_CKSUM | ORPHRASE}}
+  Bad TCP flags (bad-tcp-flags)  {{BAD_TCP_FLAGS | ORPHRASE}}
+  TCP failed 3 way handshake (tcp-3whs-failed)  {{TCP_3WHS_FAILED | ORPHRASE}}
+  TCP RST/FIN out of order (tcp-rstfin-ooo)  {{TCP_RSTFIN_OOO}}
+  TCP packet SEQ past window (tcp-seq-past-win)  {{TCP_SEQ_PAST_WIN | ORPHRASE}}
+  TCP invalid ACK (tcp-invalid-ack)  {{TCP_INVALID_ACK | ORPHRASE}}
+  TCP global Out-of-Order packet buffer full (tcp-global-buffer-full)  {{TCP_GLOBAL_BUFFER_FULL | ORPHRASE}}
+  TCP Out-of-Order packet buffer timeout (tcp-buffer-timeout)  {{TCP_BUFFER_TIMEOUT | ORPHRASE}}
+  TCP RST/SYN in window (tcp-rst-syn-in-win)  {{TCP_RST_SYN_IN_WIN | ORPHRASE}}
+  TCP dup of packet in Out-of-Order queue (tcp-dup-in-queue)  {{TCP_DUP_IN_QUEUE | ORPHRASE}}
+  TCP packet failed PAWS test (tcp-paws-fail)  {{TCP_PAWS_FAIL | ORPHRASE}}
+  SSL first record invalid (ssl-first-record-invalid)  {{SSL_FIRST_RECORD_INVALID | ORPHRASE}}
+  CTM returned error (ctm-error)  {{CTM_ERROR | ORPHRASE}}
+  Early security checks failed (security-failed)  {{FLOW_DROP_SSL_RECORD_DECRYPT_ERROR | ORPHRASE}}057
+  Slowpath security checks failed (sp-security-failed)  {{SECURITY_FAILED | ORPHRASE}}
+  IP option drop (invalid-ip-option)  {{INVALID_IP_OPTION | ORPHRASE}}
+  FP L2 rule drop (l2_acl)  {{L2_ACL | ORPHRASE}}
+  Interface is down (interface-down)  {{INTERFACE_DOWN | ORPHRASE}}
+  Dropped pending packets in a closed socket (np-socket-closed)  {{NP_SOCKET_CLOSED | ORPHRASE}}
+Last clearing: {{FLOW_LAST_CLEARED | ORPHRASE}}
+  SVC replacement connection established (svc-replacement-conn)  {{FLOW_DROP_SVC_REPLACEMENT_CONN | ORPHRASE}}
+  VPN overlap conflict (vpn-overlap-conflict)  {{FLOW_DROP_VPN_OVERLAP_CONFLICT | ORPHRASE}}
+  VPN decryption missing (vpn-missing-decrypt)  {{FLOW_DROP_VPN_MISSING_DECRYPT | ORPHRASE}}
+  Flow is denied by access rule (acl-drop)  {{FLOW_DROP_ACL_DROP | ORPHRASE}}
+  Inspection failure (inspect-fail)  {{FLOW_DROP_INSPECT_FAIL | ORPHRASE}}
+  SSL bad record detected (ssl-bad-record-detect)  {{FLOW_DROP_SSL_BAD_RECORD_DETECT | ORPHRASE}}
+  SSL handshake failed (ssl-handshake-failed)  {{FLOW_DROP_SSL_HANDSHAKE_FAILED | ORPHRASE}}
+  DTLS hello processed and closed (dtls-hello-close)  {{FLOW_DROP_DTLS_HELLO_CLOSE | ORPHRASE}}
+  SVC inner policy mismatch failure (svc-selector-failure)  {{FLOW_DROP_SVC_SELECTOR_FAILURE | ORPHRASE}}
+</group>

@@ -1,0 +1,92 @@
+{
+  "command": "alcatel_sros_show_router_mpls_interface",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"interface_port_admin_status_oper_status_v4_oper_status_v6_te_metric\">\n{{INTERFACE}} {{PORT}} {{ADMIN_STATUS | ORPHRASE}} {{OPER_STATUS_V4 | ORPHRASE}}/{{OPER_STATUS_V6 | ORPHRASE}} {{TE_METRIC | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "system",
+      "PORT": "system",
+      "ADMIN_STATUS": "Up",
+      "OPER_STATUS_V4": "Up",
+      "OPER_STATUS_V6": "Down",
+      "TE_METRIC": "None"
+    },
+    {
+      "INTERFACE": "TO_IOSXR",
+      "PORT": "1/1/c4/1",
+      "ADMIN_STATUS": "Up",
+      "OPER_STATUS_V4": "Up",
+      "OPER_STATUS_V6": "Down",
+      "TE_METRIC": "98999"
+    },
+    {
+      "INTERFACE": "TO_R1",
+      "PORT": "1/1/c1/1",
+      "ADMIN_STATUS": "Up",
+      "OPER_STATUS_V4": "Up",
+      "OPER_STATUS_V6": "Down",
+      "TE_METRIC": "65660"
+    },
+    {
+      "INTERFACE": "TO_R4",
+      "PORT": "1/1/c2/1",
+      "ADMIN_STATUS": "Up",
+      "OPER_STATUS_V4": "Up",
+      "OPER_STATUS_V6": "Down",
+      "TE_METRIC": "None"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_port_admin_status_oper_status_v4_oper_status_v6_te_metric": [
+        {
+          "INTERFACE": "Interface",
+          "PORT": "Port-id",
+          "ADMIN_STATUS": "Adm",
+          "OPER_STATUS_V4": "Opr(V4",
+          "OPER_STATUS_V6": "V6)",
+          "TE_METRIC": "TE-"
+        },
+        {
+          "INTERFACE": "system",
+          "PORT": "system",
+          "ADMIN_STATUS": "Up",
+          "OPER_STATUS_V4": "Up",
+          "OPER_STATUS_V6": "Down",
+          "TE_METRIC": "None"
+        },
+        {
+          "INTERFACE": "TO_IOSXR",
+          "PORT": "1/1/c4/1",
+          "ADMIN_STATUS": "Up",
+          "OPER_STATUS_V4": "Up",
+          "OPER_STATUS_V6": "Down",
+          "TE_METRIC": "98999"
+        },
+        {
+          "INTERFACE": "TO_R1",
+          "PORT": "1/1/c1/1",
+          "ADMIN_STATUS": "Up",
+          "OPER_STATUS_V4": "Up",
+          "OPER_STATUS_V6": "Down",
+          "TE_METRIC": "65660"
+        },
+        {
+          "INTERFACE": "TO_R4",
+          "PORT": "1/1/c2/1",
+          "ADMIN_STATUS": "Up",
+          "OPER_STATUS_V4": "Up",
+          "OPER_STATUS_V6": "Down",
+          "TE_METRIC": "None"
+        }
+      ]
+    }
+  ],
+  "cli_content": "===============================================================================\nMPLS Interfaces\n===============================================================================\nInterface                           Port-id           Adm  Opr(V4/V6) TE-\n                                                                      metric\n-------------------------------------------------------------------------------\nsystem                              system            Up   Up/Down    None\n  Admin Groups                      None\n  SRLG Groups                       None\nTO_IOSXR                            1/1/c4/1          Up   Up/Down    98999\n  Admin Groups                      RED\n                                    GREEN\n  SRLG Groups                       None\nTO_R1                               1/1/c1/1          Up   Up/Down    65660\n  Admin Groups                      None\n  SRLG Groups                       None\nTO_R4                               1/1/c2/1          Up   Up/Down    None\n  Admin Groups                      None\n  SRLG Groups                       PURPLE\n                                    WHITE\n-------------------------------------------------------------------------------\nInterfaces : 4\n===============================================================================",
+  "textfsm_template": "Value Required INTERFACE (\\S+)\nValue Required PORT (\\S+)\nValue Required ADMIN_STATUS (Up|Down)\nValue Required OPER_STATUS_V4 (Up|Down)\nValue Required OPER_STATUS_V6 (Up|Down)\nValue Required TE_METRIC (\\d+|None)\n\n\nStart\n  ^=+\n  ^MPLS Interfaces\n  ^Interface\\s+Port-id\\s+Adm\\s+Opr\\(V4\\/V6\\)\\s+TE- -> Interface\n  ^\\s+metric\n  ^-+\n  ^\\s*$$\n  ^. -> Error\n\nInterface\n  ^${INTERFACE}\\s+${PORT}\\s+${ADMIN_STATUS}\\s+${OPER_STATUS_V4}\\S${OPER_STATUS_V6}\\s+${TE_METRIC} -> Record\n  ^\\s+Admin\\s+Groups\n  ^\\s+\\S+\n  ^\\s+SRLG\\s+Groups\n  ^Interfaces\n  ^=+\n  ^\\s+metric\n  ^-+\n  ^\\s*$$\n  ^. -> Error"
+}

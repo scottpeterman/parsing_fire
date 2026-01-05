@@ -1,0 +1,240 @@
+{
+  "command": "fortinet_get_router_info_routing-table_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.9,
+  "textfsm_rows": 10,
+  "ttp_rows": 19,
+  "ttp_template": "<group name=\"type_destination_distance_metric_gateway_interface_last_time_update\">\n{{TYPE | ORPHRASE}} {{DESTINATION}} [{{DISTANCE}}/{{METRIC}}] via {{GATEWAY | ORPHRASE}}, {{INTERFACE}}, {{LAST_TIME_UPDATE | ORPHRASE}}\n</group>\n<group name=\"type_destination_distance_metric_gateway_interface\">\n{{TYPE | ORPHRASE}} {{DESTINATION}} [{{DISTANCE}}/{{METRIC}}] via {{GATEWAY | ORPHRASE}}, {{INTERFACE | ORPHRASE}}\n</group>\n<group name=\"type_destination_gateway_interface\">\n{{TYPE | ORPHRASE}} {{DESTINATION}} {{GATEWAY | ORPHRASE}}, {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TYPE": "O*E2",
+      "DESTINATION": "0.0.0.0/0",
+      "DISTANCE": "110",
+      "METRIC": "10",
+      "GATEWAY": "10.149.127.253",
+      "INTERFACE": "Tu-Hub01-Main",
+      "LAST_TIME_UPDATE": "03w2d20h"
+    },
+    {
+      "TYPE": "S",
+      "DESTINATION": "8.8.8.8/32",
+      "DISTANCE": "200",
+      "METRIC": "0",
+      "GATEWAY": "4.3.2.1",
+      "INTERFACE": "wan"
+    },
+    {
+      "TYPE": "O",
+      "DESTINATION": "10.80.58.224/27",
+      "DISTANCE": "110",
+      "METRIC": "201",
+      "GATEWAY": "10.149.127.253",
+      "INTERFACE": "Tu-Hub01-Main",
+      "LAST_TIME_UPDATE": "3d13h31m"
+    },
+    {
+      "TYPE": "O E2",
+      "DESTINATION": "10.80.130.0/24",
+      "DISTANCE": "110",
+      "METRIC": "20",
+      "GATEWAY": "10.149.127.253",
+      "INTERFACE": "Tu-Hub01-Main",
+      "LAST_TIME_UPDATE": "22:00:53"
+    },
+    {
+      "TYPE": "C",
+      "DESTINATION": "10.100.105.224/27",
+      "GATEWAY": "is directly connected",
+      "INTERFACE": "Vlan40"
+    },
+    {
+      "TYPE": "C",
+      "DESTINATION": "10.149.0.0/16",
+      "GATEWAY": "is directly connected",
+      "INTERFACE": "Tu-Hub01-Main"
+    },
+    {
+      "TYPE": "C",
+      "DESTINATION": "10.149.0.0/16",
+      "GATEWAY": "is directly connected",
+      "INTERFACE": "Tu-Hub02-Main"
+    },
+    {
+      "TYPE": "B",
+      "DESTINATION": "10.160.0.0/23",
+      "DISTANCE": "20",
+      "METRIC": "0",
+      "GATEWAY": "10.142.0.74",
+      "INTERFACE": "port3",
+      "LAST_TIME_UPDATE": "2d18h02m"
+    },
+    {
+      "TYPE": "S",
+      "DESTINATION": "1.2.3.4/32",
+      "DISTANCE": "10",
+      "METRIC": "0",
+      "GATEWAY": "10.152.1.229",
+      "INTERFACE": "lan"
+    },
+    {
+      "TYPE": "S",
+      "DESTINATION": "1.2.3.4/32",
+      "DISTANCE": "10",
+      "METRIC": "0",
+      "GATEWAY": "4.3.2.1",
+      "INTERFACE": "wan"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "type_destination_distance_metric_gateway_interface_last_time_update": [
+        {
+          "TYPE": "O*E2",
+          "DESTINATION": "0.0.0.0/0",
+          "DISTANCE": "110",
+          "METRIC": "10",
+          "GATEWAY": "10.149.127.253",
+          "INTERFACE": "Tu-Hub01-Main",
+          "LAST_TIME_UPDATE": "03w2d20h"
+        },
+        {
+          "TYPE": "O",
+          "DESTINATION": "10.80.58.224/27",
+          "DISTANCE": "110",
+          "METRIC": "201",
+          "GATEWAY": "10.149.127.253",
+          "INTERFACE": "Tu-Hub01-Main",
+          "LAST_TIME_UPDATE": "3d13h31m"
+        },
+        {
+          "TYPE": "O E2",
+          "DESTINATION": "10.80.130.0/24",
+          "DISTANCE": "110",
+          "METRIC": "20",
+          "GATEWAY": "10.149.127.253",
+          "INTERFACE": "Tu-Hub01-Main",
+          "LAST_TIME_UPDATE": "22:00:53"
+        },
+        {
+          "TYPE": "B",
+          "DESTINATION": "10.160.0.0/23",
+          "DISTANCE": "20",
+          "METRIC": "0",
+          "GATEWAY": "10.142.0.74",
+          "INTERFACE": "port3",
+          "LAST_TIME_UPDATE": "2d18h02m"
+        }
+      ],
+      "type_destination_distance_metric_gateway_interface": [
+        {
+          "TYPE": "O*E2",
+          "DESTINATION": "0.0.0.0/0",
+          "DISTANCE": "110",
+          "METRIC": "10",
+          "GATEWAY": "10.149.127.253",
+          "INTERFACE": "Tu-Hub01-Main, 03w2d20h"
+        },
+        {
+          "TYPE": "S",
+          "DESTINATION": "8.8.8.8/32",
+          "DISTANCE": "200",
+          "METRIC": "0",
+          "GATEWAY": "4.3.2.1",
+          "INTERFACE": "wan"
+        },
+        {
+          "TYPE": "O",
+          "DESTINATION": "10.80.58.224/27",
+          "DISTANCE": "110",
+          "METRIC": "201",
+          "GATEWAY": "10.149.127.253",
+          "INTERFACE": "Tu-Hub01-Main, 3d13h31m"
+        },
+        {
+          "TYPE": "O E2",
+          "DESTINATION": "10.80.130.0/24",
+          "DISTANCE": "110",
+          "METRIC": "20",
+          "GATEWAY": "10.149.127.253",
+          "INTERFACE": "Tu-Hub01-Main, 22:00:53"
+        },
+        {
+          "TYPE": "B",
+          "DESTINATION": "10.160.0.0/23",
+          "DISTANCE": "20",
+          "METRIC": "0",
+          "GATEWAY": "10.142.0.74",
+          "INTERFACE": "port3, 2d18h02m"
+        },
+        {
+          "TYPE": "S",
+          "DESTINATION": "1.2.3.4/32",
+          "DISTANCE": "10",
+          "METRIC": "0",
+          "GATEWAY": "10.152.1.229",
+          "INTERFACE": "lan"
+        }
+      ],
+      "type_destination_gateway_interface": [
+        {
+          "TYPE": "Codes:",
+          "DESTINATION": "K",
+          "GATEWAY": "- kernel",
+          "INTERFACE": "C - connected, S - static, R - RIP, B - BGP"
+        },
+        {
+          "TYPE": "O*E2",
+          "DESTINATION": "0.0.0.0/0",
+          "GATEWAY": "[110/10] via 10.149.127.253",
+          "INTERFACE": "Tu-Hub01-Main, 03w2d20h"
+        },
+        {
+          "TYPE": "S",
+          "DESTINATION": "8.8.8.8/32",
+          "GATEWAY": "[200/0] via 4.3.2.1",
+          "INTERFACE": "wan"
+        },
+        {
+          "TYPE": "O",
+          "DESTINATION": "10.80.58.224/27",
+          "GATEWAY": "[110/201] via 10.149.127.253",
+          "INTERFACE": "Tu-Hub01-Main, 3d13h31m"
+        },
+        {
+          "TYPE": "O",
+          "DESTINATION": "E2",
+          "GATEWAY": "10.80.130.0/24 [110/20] via 10.149.127.253",
+          "INTERFACE": "Tu-Hub01-Main, 22:00:53"
+        },
+        {
+          "TYPE": "C",
+          "DESTINATION": "10.100.105.224/27",
+          "GATEWAY": "is directly connected",
+          "INTERFACE": "Vlan40"
+        },
+        {
+          "TYPE": "C",
+          "DESTINATION": "10.149.0.0/16",
+          "GATEWAY": "is directly connected",
+          "INTERFACE": "Tu-Hub01-Main"
+        },
+        {
+          "TYPE": "B",
+          "DESTINATION": "10.160.0.0/23",
+          "GATEWAY": "[20/0] via 10.142.0.74",
+          "INTERFACE": "port3, 2d18h02m"
+        },
+        {
+          "TYPE": "S",
+          "DESTINATION": "1.2.3.4/32",
+          "GATEWAY": "[10/0] via 10.152.1.229",
+          "INTERFACE": "lan"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Codes: K - kernel, C - connected, S - static, R - RIP, B - BGP\n       O - OSPF, IA - OSPF inter area\n       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2\n       E1 - OSPF external type 1, E2 - OSPF external type 2\n       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area\n       * - candidate default\n\nRouting table for VRF=0\nO*E2    0.0.0.0/0 [110/10] via 10.149.127.253, Tu-Hub01-Main, 03w2d20h\nS       8.8.8.8/32 [200/0] via 4.3.2.1, wan\nO       10.80.58.224/27 [110/201] via 10.149.127.253, Tu-Hub01-Main, 3d13h31m\nO E2    10.80.130.0/24 [110/20] via 10.149.127.253, Tu-Hub01-Main, 22:00:53\nC       10.100.105.224/27 is directly connected, Vlan40\nC       10.149.0.0/16 is directly connected, Tu-Hub01-Main\n                      is directly connected, Tu-Hub02-Main\nB       10.160.0.0/23 [20/0] via 10.142.0.74, port3, 2d18h02m\nS       1.2.3.4/32 [10/0] via 10.152.1.229, lan\n                   [10/0] via 4.3.2.1, wan\n",
+  "textfsm_template": "Value Filldown TYPE ((?:K|C|S|R|B|O|IA|N1|N2|E1|E2|i|L1|L2|ia|\\*|\\s)+?)\nValue Filldown DESTINATION (\\S+)\nValue DISTANCE (\\d+)\nValue METRIC (\\d+)\nValue Required GATEWAY (\\S+|is\\s+directly\\s+connected)\nValue Required INTERFACE (\\S+)\nValue LAST_TIME_UPDATE (\\S+)\n\nStart\n  ^\\s*Codes:\\s+K\\s+-\\s+kernel,\\s+C\\s+-\\s+connected,\\s+S\\s+-\\s+static,\\s+R\\s+-\\s+RIP,\\s+B\\s+-\\s+BGP\\s*$$\n  ^\\s*O\\s+-\\s+OSPF,\\s+IA\\s+-\\s+OSPF\\s+inter\\s+area\\s*$$\n  ^\\s*N1\\s+-\\s+OSPF\\s+NSSA\\s+external\\s+type\\s+1,\\s+N2\\s+-\\s+OSPF\\s+NSSA\\s+external\\s+type\\s+2\\s*$$\n  ^\\s*E1\\s+-\\s+OSPF\\s+external\\s+type\\s+1,\\s+E2\\s+-\\s+OSPF\\s+external\\s+type\\s+2\\s*$$\n  ^\\s*i\\s+-\\s+IS-IS,\\s+L1\\s+-\\s+IS-IS\\s+level-1,\\s+L2\\s+-\\s+IS-IS\\s+level-2,\\s+ia\\s+-\\s+IS-IS\\s+inter\\s+area\\s*$$\n  ^\\s*\\*\\s+-\\s+candidate\\s+default\\s*$$\n  ^\\s*Routing\\s+table\\s+for\\s+VRF=\\d+\\s*$$\n  ^\\s*${TYPE}\\s+${DESTINATION}(?:\\s+\\[${DISTANCE}/${METRIC}\\]\\s+via)?\\s+${GATEWAY},\\s*${INTERFACE}(?:\\s*,\\s*${LAST_TIME_UPDATE})?\\s*$$ -> Record\n  ^\\s*(?:\\[${DISTANCE}/${METRIC}\\]\\s+via\\s+)?${GATEWAY},\\s*${INTERFACE}(?:\\s*,\\s*${LAST_TIME_UPDATE})?\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

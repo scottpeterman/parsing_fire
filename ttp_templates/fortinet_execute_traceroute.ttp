@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: fortinet_execute_traceroute
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 1
+# Match ratio: 0.33
+
+<group name="destination_address_hops_max_packets_per_hop_packet_size">
+traceroute to {{DESTINATION_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} (8.8.8.8), {{HOPS_MAX}} hops max, {{PACKETS_PER_HOP}} probe packets per hop, {{PACKET_SIZE | ORPHRASE}} byte packets
+</group>
+<group name="hop_num_address_details">
+ {{HOP_NUM}} {{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{DETAILS | ORPHRASE}}
+</group>

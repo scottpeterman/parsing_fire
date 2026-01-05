@@ -1,0 +1,132 @@
+{
+  "command": "show df CLI output",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 7,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"filesystem_blocks_used_available_use_percent_mounted\">\n{{FILESYSTEM}} {{BLOCKS}} {{USED}} {{AVAILABLE}} {{USE_PERCENT | ORPHRASE}} {{MOUNTED | re(\".*\\\\w.*\")}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FILESYSTEM": "/dev/root",
+      "BLOCKS": "10240000",
+      "USED": "3600000",
+      "AVAILABLE": "6640000",
+      "USE_PERCENT": "36%",
+      "MOUNTED": "/"
+    },
+    {
+      "FILESYSTEM": "devtmpfs",
+      "BLOCKS": "2048000",
+      "USED": "0",
+      "AVAILABLE": "2048000",
+      "USE_PERCENT": "0%",
+      "MOUNTED": "/dev"
+    },
+    {
+      "FILESYSTEM": "tmpfs",
+      "BLOCKS": "2049000",
+      "USED": "0",
+      "AVAILABLE": "2049000",
+      "USE_PERCENT": "0%",
+      "MOUNTED": "/dev/shm"
+    },
+    {
+      "FILESYSTEM": "tmpfs",
+      "BLOCKS": "2049000",
+      "USED": "40000",
+      "AVAILABLE": "2009000",
+      "USE_PERCENT": "2%",
+      "MOUNTED": "/run"
+    },
+    {
+      "FILESYSTEM": "tmpfs",
+      "BLOCKS": "2049000",
+      "USED": "0",
+      "AVAILABLE": "2049000",
+      "USE_PERCENT": "0%",
+      "MOUNTED": "/sys/fs/cgroup"
+    },
+    {
+      "FILESYSTEM": "/dev/sda1",
+      "BLOCKS": "1048576",
+      "USED": "102224",
+      "AVAILABLE": "947352",
+      "USE_PERCENT": "10%",
+      "MOUNTED": "/boot"
+    },
+    {
+      "FILESYSTEM": "/dev/sdb1",
+      "BLOCKS": "512000000",
+      "USED": "104857600",
+      "AVAILABLE": "407142400",
+      "USE_PERCENT": "21%",
+      "MOUNTED": "/data"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "filesystem_blocks_used_available_use_percent_mounted": [
+        {
+          "FILESYSTEM": "Filesystem",
+          "BLOCKS": "1K-blocks",
+          "USED": "Used",
+          "AVAILABLE": "Available",
+          "USE_PERCENT": "Use%",
+          "MOUNTED": "Mounted on"
+        },
+        {
+          "FILESYSTEM": "devtmpfs",
+          "BLOCKS": "2048000",
+          "USED": "0",
+          "AVAILABLE": "2048000",
+          "USE_PERCENT": "0%",
+          "MOUNTED": "/dev"
+        },
+        {
+          "FILESYSTEM": "tmpfs",
+          "BLOCKS": "2049000",
+          "USED": "0",
+          "AVAILABLE": "2049000",
+          "USE_PERCENT": "0%",
+          "MOUNTED": "/dev/shm"
+        },
+        {
+          "FILESYSTEM": "tmpfs",
+          "BLOCKS": "2049000",
+          "USED": "40000",
+          "AVAILABLE": "2009000",
+          "USE_PERCENT": "2%",
+          "MOUNTED": "/run"
+        },
+        {
+          "FILESYSTEM": "tmpfs",
+          "BLOCKS": "2049000",
+          "USED": "0",
+          "AVAILABLE": "2049000",
+          "USE_PERCENT": "0%",
+          "MOUNTED": "/sys/fs/cgroup"
+        },
+        {
+          "FILESYSTEM": "/dev/sda1",
+          "BLOCKS": "1048576",
+          "USED": "102224",
+          "AVAILABLE": "947352",
+          "USE_PERCENT": "10%",
+          "MOUNTED": "/boot"
+        },
+        {
+          "FILESYSTEM": "/dev/sdb1",
+          "BLOCKS": "512000000",
+          "USED": "104857600",
+          "AVAILABLE": "407142400",
+          "USE_PERCENT": "21%",
+          "MOUNTED": "/data"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Filesystem           1K-blocks      Used Available Use% Mounted on\n/dev/root             10240000   3600000   6640000  36% /\ndevtmpfs               2048000         0   2048000   0% /dev\ntmpfs                  2049000         0   2049000   0% /dev/shm\ntmpfs                  2049000     40000   2009000   2% /run\ntmpfs                  2049000         0   2049000   0% /sys/fs/cgroup\n/dev/sda1              1048576    102224    947352  10% /boot\n/dev/sdb1            512000000 104857600 407142400  21% /data\n",
+  "textfsm_template": "Value FILESYSTEM (\\S+)\nValue BLOCKS (\\d+)\nValue USED (\\d+)\nValue AVAILABLE (\\d+)\nValue USE_PERCENT (\\d+%)\nValue MOUNTED (\\S+)\n\nStart\n  ^${FILESYSTEM}\\s+${BLOCKS}\\s+${USED}\\s+${AVAILABLE}\\s+${USE_PERCENT}\\s+${MOUNTED}\\s*$$ -> Record"
+}

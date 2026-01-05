@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: cisco_ios_show_ip_mroute
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="multicast_source_ip_multicast_group_ip_up_time_expiration_time_rendezvous_point_flags">
+({{MULTICAST_SOURCE_IP | re(".*\\w.*")}}, {{MULTICAST_GROUP_IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}), {{UP_TIME}}/{{EXPIRATION_TIME}}, RP {{RENDEZVOUS_POINT}}, flags: {{FLAGS | ORPHRASE}}
+</group>

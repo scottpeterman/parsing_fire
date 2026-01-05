@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: alcatel_sros_show_service_sap-using
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="port_id_service_id_ingress_qos_ingress_filter_egress_qos_egress_filter_admin_state_oper_state">
+{{PORT_ID}} {{SERVICE_ID | re("\\d+")}} {{INGRESS_QOS}} {{INGRESS_FILTER}} {{EGRESS_QOS}} {{EGRESS_FILTER}} {{ADMIN_STATE | ORPHRASE}} {{OPER_STATE | ORPHRASE}}
+</group>

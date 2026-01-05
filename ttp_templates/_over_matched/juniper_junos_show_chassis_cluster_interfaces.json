@@ -1,0 +1,151 @@
+{
+  "command": "juniper_junos_show_chassis_cluster_interfaces",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.1,
+  "textfsm_rows": 10,
+  "ttp_rows": 11,
+  "ttp_template": "<group name=\"control_link_status_fabric_link_status_link_type\">\n{{LINK_TYPE}} link status: {{CONTROL_LINK_STATUS | ORPHRASE}}\n<group name=\"index_interface_security\">\n{{INDEX}} {{INTERFACE}} {{STATUS | ORPHRASE}} {{SECURITY | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CONTROL_LINK_STATUS": "Down",
+      "LINK_TYPE": "Control",
+      "INDEX": "0",
+      "INTERFACE": "fxp1",
+      "STATUS": "Down",
+      "SECURITY": "Disabled"
+    },
+    {
+      "FABRIC_LINK_STATUS": "Down",
+      "LINK_TYPE": "Fabric",
+      "INTERFACE": "fab0",
+      "STATUS": "Down / Down",
+      "CHILD_INTERFACE": "ge-0/0/2"
+    },
+    {
+      "LINK_TYPE": "Redundant-ethernet",
+      "INTERFACE": "reth0",
+      "STATUS": "Up",
+      "REDUNDANCY_GROUP": "1"
+    },
+    {
+      "LINK_TYPE": "Redundant-ethernet",
+      "INTERFACE": "reth1",
+      "STATUS": "Up",
+      "REDUNDANCY_GROUP": "3"
+    },
+    {
+      "LINK_TYPE": "Redundant-ethernet",
+      "INTERFACE": "reth2",
+      "STATUS": "Down",
+      "REDUNDANCY_GROUP": "Not configured"
+    },
+    {
+      "LINK_TYPE": "Redundant-ethernet",
+      "INTERFACE": "reth3",
+      "STATUS": "Down",
+      "REDUNDANCY_GROUP": "Not configured"
+    },
+    {
+      "LINK_TYPE": "Redundant-ethernet",
+      "INTERFACE": "reth4",
+      "STATUS": "Down",
+      "REDUNDANCY_GROUP": "Not configured"
+    },
+    {
+      "LINK_TYPE": "Redundant-pseudo-interface",
+      "INTERFACE": "lo0",
+      "STATUS": "Up",
+      "REDUNDANCY_GROUP": "0"
+    },
+    {
+      "INTERFACE": "ge-11/0/0",
+      "STATUS": "Down",
+      "REDUNDANCY_GROUP": "1",
+      "WEIGHT": "255"
+    },
+    {
+      "INTERFACE": "ge-2/0/0",
+      "STATUS": "Up",
+      "REDUNDANCY_GROUP": "1",
+      "WEIGHT": "255"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "control_link_status_fabric_link_status_link_type": {
+        "index_interface_security": [
+          {
+            "INDEX": "Control",
+            "INTERFACE": "link",
+            "STATUS": "status:",
+            "SECURITY": "Down"
+          },
+          {
+            "INDEX": "Index",
+            "INTERFACE": "Interface",
+            "STATUS": "Status",
+            "SECURITY": "Internal-SA"
+          },
+          {
+            "INDEX": "0",
+            "INTERFACE": "fxp1",
+            "STATUS": "Down",
+            "SECURITY": "Disabled"
+          },
+          {
+            "INDEX": "Fabric",
+            "INTERFACE": "link",
+            "STATUS": "status:",
+            "SECURITY": "Down"
+          },
+          {
+            "INDEX": "fab0",
+            "INTERFACE": "ge-0/0/2",
+            "STATUS": "Down",
+            "SECURITY": "/ Down"
+          },
+          {
+            "INDEX": "reth2",
+            "INTERFACE": "Down",
+            "STATUS": "Not",
+            "SECURITY": "configured"
+          },
+          {
+            "INDEX": "reth3",
+            "INTERFACE": "Down",
+            "STATUS": "Not",
+            "SECURITY": "configured"
+          },
+          {
+            "INDEX": "reth4",
+            "INTERFACE": "Down",
+            "STATUS": "Not",
+            "SECURITY": "configured"
+          },
+          {
+            "INDEX": "Interface",
+            "INTERFACE": "Weight",
+            "STATUS": "Status",
+            "SECURITY": "Redundancy-group"
+          },
+          {
+            "INDEX": "ge-11/0/0",
+            "INTERFACE": "255",
+            "STATUS": "Down",
+            "SECURITY": "1"
+          },
+          {
+            "INDEX": "ge-2/0/0",
+            "INTERFACE": "255",
+            "STATUS": "Up",
+            "SECURITY": "1"
+          }
+        ]
+      }
+    }
+  ],
+  "cli_content": "Control link status: Down\n\nControl interfaces:\nIndex   Interface        Status   Internal-SA\n0       fxp1             Down     Disabled\n\nFabric link status: Down\n\nFabric interfaces:\nName    Child-interface    Status\n(Physical/Monitored)\nfab0    ge-0/0/2           Down / Down\nfab0\n\nRedundant-ethernet Information:\nName         Status      Redundancy-group\nreth0        Up          1\nreth1        Up          3\nreth2        Down        Not configured\nreth3        Down        Not configured\nreth4        Down        Not configured\n\nRedundant-pseudo-interface Information:\nName         Status      Redundancy-group\nlo0          Up          0\n\nInterface Monitoring:\nInterface         Weight    Status    Redundancy-group\nge-11/0/0         255       Down      1\nge-2/0/0          255       Up        1\n",
+  "textfsm_template": "Value Filldown CONTROL_LINK_STATUS (\\S+)\nValue Filldown FABRIC_LINK_STATUS (\\S+)\nValue Filldown LINK_TYPE (\\S+)\nValue INDEX (\\d+)\nValue INTERFACE (\\S+)\nValue STATUS ((\\S+\\s*\\/\\s*\\S+|\\S+))\nValue SECURITY (\\S+)\nValue CHILD_INTERFACE (\\S+)\nValue REDUNDANCY_GROUP (\\d+|[Nn]ot\\s+[Cc]onfigured)\nValue WEIGHT (\\d+)\n\n\nStart\n  ^[Cc]ontrol\\s+[Ll]ink\\s+[Ss]tatus:\\s+${CONTROL_LINK_STATUS}\\s*$$ -> Control\n  ^[Ff]abric\\s+[Ll]ink\\s+[Ss]tatus:\\s+${FABRIC_LINK_STATUS}\\s*$$ -> Fabric\n  ^${LINK_TYPE}\\s+Information:\\s*$$ -> Continue\n  ^[Rr]edundant-ethernet -> RedEth\n  ^[Rr]edundant-pseudo -> RedPse\n  ^[Ii]nterface\\s+[Mm]onitoring -> IntMon\n  ^\\s*$$\n  ^. -> Error\n\nControl\n  ^${LINK_TYPE}\\s+interfaces:\\s*$$\n  ^\\s*Index\\s+Interface\\s+Monitored-Status\\s+Security\\s*$$\n  ^\\s*Index\\s+Interface\\s+Monitored-Status\\s+Internal-SA\\s*$$\n  ^\\s*Index\\s+Interface\\s+Status\\s+Internal-SA\\s*$$\n  ^\\s*${INDEX}\\s+${INTERFACE}\\s+${STATUS}\\s+${SECURITY}\\s*$$ -> Record\n  ^\\S+ -> Continue.Clearall\n  ^[Ff]abric\\s+[Ll]ink\\s+[Ss]tatus:\\s+${FABRIC_LINK_STATUS}\\s*$$ -> Fabric\n  ^${LINK_TYPE}\\s+Information:\\s*$$ -> Continue\n  ^[Rr]edundant-ethernet -> RedEth\n  ^[Rr]edundant-pseudo -> RedPse\n  ^Interface\\s+[Mm]onitoring -> IntMon\n  ^\\s*$$\n  ^. -> Error\n\nFabric\n  ^${LINK_TYPE}\\s+interfaces:\\s*$$\n  ^\\s*Name\\s+Child-interface\\s+Status\\s+Security\\s*$$\n  ^\\s*Name\\s+Child-interface\\s+Status\\s*$$\n  ^\\s*\\(Physical\\/Monitored\\)\\s*$$\n  ^\\s*${INTERFACE}\\s+${CHILD_INTERFACE}\\s+${STATUS}\\s+${SECURITY}\\s*$$ -> Record\n  ^\\s*${INTERFACE}\\s+${CHILD_INTERFACE}\\s+${STATUS}\\s*$$ -> Record\n  ^\\s*\\S+\\s*$$\n  ^\\s+\\w+\\d+\\s*$$\n  ^\\S+ -> Continue.Clearall\n  ^${LINK_TYPE}\\s+Information:\\s*$$ -> Continue\n  ^[Rr]edundant-ethernet -> RedEth\n  ^[Rr]edundant-pseudo -> RedPse\n  ^Interface\\s+[Mm]onitoring -> IntMon\n  ^\\s*$$\n  ^Control\\s+[Ll]ink\\s+[Ss]tatus:\\s+${CONTROL_LINK_STATUS}\\s*$$ - Control\n  ^. -> Error\n\nRedEth\n  ^\\s*Name\\s+Status\\s+Redundancy-group\\s*$$\n  ^\\s*${INTERFACE}\\s+${STATUS}\\s+${REDUNDANCY_GROUP}\\s*$$ -> Record\n  ^\\S+ -> Continue.Clearall\n  ^${LINK_TYPE}\\s+Information -> Continue\n  ^[Rr]edundant-pseudo -> RedPse\n  ^Interface\\s+[Mm]onitoring -> IntMon\n  ^\\s*$$\n  ^Control\\s+[Ll]ink\\s+[Ss]tatus:\\s+${CONTROL_LINK_STATUS}\\s*$$ - Control\n  ^[Ff]abric\\s+[Ll]ink\\s+[Ss]tatus:\\s+${FABRIC_LINK_STATUS}\\s*$$ -> Fabric\n  ^. -> Error\n\nRedPse\n  ^\\s*Name\\s+Status\\s+Redundancy-group\\s*$$\n  ^\\s*${INTERFACE}\\s+${STATUS}\\s+${REDUNDANCY_GROUP}\\s*$$ -> Record\n  ^\\S+ -> Continue.Clearall\n  ^${LINK_TYPE}\\s+Information -> Continue\n  ^[Ii]nterface\\s+[Mm]onitoring -> IntMon\n  ^\\s*$$\n  ^Control\\s+[Ll]ink\\s+[Ss]tatus:\\s+${CONTROL_LINK_STATUS}\\s*$$ - Control\n  ^[Ff]abric\\s+[Ll]ink\\s+[Ss]tatus:\\s+${FABRIC_LINK_STATUS}\\s*$$ -> Fabric\n  ^[Rr]edundant-ethernet -> RedEth\n  ^. -> Error\n\nIntMon\n  ^\\s*Interface\\s+Weight\\s+Status\\s+Redundancy-group\\s*$$\n  ^\\s*${INTERFACE}\\s+${WEIGHT}\\s+${STATUS}(?:\\s+${REDUNDANCY_GROUP}|)\\s*$$ -> Record\n  ^\\s*$$\n  ^\\S+ -> Continue.Clearall\n  ^${LINK_TYPE}\\s+Information:\\s*$$ -> Continue\n  ^Control\\s+[Ll]ink\\s+[Ss]tatus:\\s+${CONTROL_LINK_STATUS}\\s*$$ - Control\n  ^[Ff]abric\\s+[Ll]ink\\s+[Ss]tatus:\\s+${FABRIC_LINK_STATUS}\\s*$$ -> Fabric\n  ^[Rr]edundant-ethernet -> RedEth\n  ^[Rr]edundant-pseudo -> RedPse\n  ^. -> Error\n"
+}

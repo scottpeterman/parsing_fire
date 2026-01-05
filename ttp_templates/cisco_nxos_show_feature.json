@@ -1,0 +1,645 @@
+{
+  "command": "cisco_nxos_show_feature",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0161290322580645,
+  "textfsm_rows": 62,
+  "ttp_rows": 63,
+  "ttp_template": "<group name=\"name_instance_state\">\n{{NAME}} {{INSTANCE}} {{STATE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "bash-shell",
+      "INSTANCE": "1",
+      "STATE": "enabled"
+    },
+    {
+      "NAME": "bfd",
+      "INSTANCE": "1",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "bgp",
+      "INSTANCE": "1",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "dhcp",
+      "INSTANCE": "1",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "eigrp",
+      "INSTANCE": "1",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "eigrp",
+      "INSTANCE": "2",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "eigrp",
+      "INSTANCE": "3",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "eigrp",
+      "INSTANCE": "4",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "eigrp",
+      "INSTANCE": "5",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "eigrp",
+      "INSTANCE": "6",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "eigrp",
+      "INSTANCE": "7",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "eigrp",
+      "INSTANCE": "8",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "eigrp",
+      "INSTANCE": "9",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "eigrp",
+      "INSTANCE": "10",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "eigrp",
+      "INSTANCE": "11",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "eigrp",
+      "INSTANCE": "12",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "eigrp",
+      "INSTANCE": "13",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "eigrp",
+      "INSTANCE": "14",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "eigrp",
+      "INSTANCE": "15",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "eigrp",
+      "INSTANCE": "16",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "evmed",
+      "INSTANCE": "1",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "fabric_mcast",
+      "INSTANCE": "1",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "hmm",
+      "INSTANCE": "1",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "hsrp_engine",
+      "INSTANCE": "1",
+      "STATE": "enabled"
+    },
+    {
+      "NAME": "interface-vlan",
+      "INSTANCE": "1",
+      "STATE": "enabled"
+    },
+    {
+      "NAME": "isis",
+      "INSTANCE": "1",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "isis",
+      "INSTANCE": "2",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "isis",
+      "INSTANCE": "3",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "isis",
+      "INSTANCE": "4",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "isis",
+      "INSTANCE": "5",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "isis",
+      "INSTANCE": "6",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "isis",
+      "INSTANCE": "7",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "isis",
+      "INSTANCE": "8",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "isis",
+      "INSTANCE": "9",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "isis",
+      "INSTANCE": "10",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "isis",
+      "INSTANCE": "11",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "isis",
+      "INSTANCE": "12",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "isis",
+      "INSTANCE": "13",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "isis",
+      "INSTANCE": "14",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "isis",
+      "INSTANCE": "15",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "isis",
+      "INSTANCE": "16",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "itd",
+      "INSTANCE": "1",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "lacp",
+      "INSTANCE": "1",
+      "STATE": "enabled"
+    },
+    {
+      "NAME": "ldap",
+      "INSTANCE": "1",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "ldp",
+      "INSTANCE": "1",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "lldp",
+      "INSTANCE": "1",
+      "STATE": "enabled"
+    },
+    {
+      "NAME": "mpls_static",
+      "INSTANCE": "1",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "msdp",
+      "INSTANCE": "1",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "nat",
+      "INSTANCE": "1",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "ospf",
+      "INSTANCE": "1",
+      "STATE": "enabled (not-running)"
+    },
+    {
+      "NAME": "ospf",
+      "INSTANCE": "2",
+      "STATE": "enabled"
+    },
+    {
+      "NAME": "ospf",
+      "INSTANCE": "3",
+      "STATE": "enabled"
+    },
+    {
+      "NAME": "ospf",
+      "INSTANCE": "4",
+      "STATE": "enabled (not-running)"
+    },
+    {
+      "NAME": "ospf",
+      "INSTANCE": "5",
+      "STATE": "enabled (not-running)"
+    },
+    {
+      "NAME": "ospf",
+      "INSTANCE": "6",
+      "STATE": "enabled (not-running)"
+    },
+    {
+      "NAME": "ospf",
+      "INSTANCE": "7",
+      "STATE": "enabled (not-running)"
+    },
+    {
+      "NAME": "ospf",
+      "INSTANCE": "8",
+      "STATE": "enabled (not-running)"
+    },
+    {
+      "NAME": "ospf",
+      "INSTANCE": "9",
+      "STATE": "enabled (not-running)"
+    },
+    {
+      "NAME": "ospf",
+      "INSTANCE": "10",
+      "STATE": "enabled (not-running)"
+    },
+    {
+      "NAME": "ospf",
+      "INSTANCE": "11",
+      "STATE": "enabled (not-running)"
+    },
+    {
+      "NAME": "ospf",
+      "INSTANCE": "12",
+      "STATE": "enabled (not-running)"
+    },
+    {
+      "NAME": "ospf",
+      "INSTANCE": "13",
+      "STATE": "enabled (not-running)"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name_instance_state": [
+        {
+          "NAME": "--------------------",
+          "INSTANCE": "--------",
+          "STATE": "--------"
+        },
+        {
+          "NAME": "bash-shell",
+          "INSTANCE": "1",
+          "STATE": "enabled"
+        },
+        {
+          "NAME": "bfd",
+          "INSTANCE": "1",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "bgp",
+          "INSTANCE": "1",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "dhcp",
+          "INSTANCE": "1",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "eigrp",
+          "INSTANCE": "1",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "eigrp",
+          "INSTANCE": "2",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "eigrp",
+          "INSTANCE": "3",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "eigrp",
+          "INSTANCE": "4",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "eigrp",
+          "INSTANCE": "5",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "eigrp",
+          "INSTANCE": "6",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "eigrp",
+          "INSTANCE": "7",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "eigrp",
+          "INSTANCE": "8",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "eigrp",
+          "INSTANCE": "9",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "eigrp",
+          "INSTANCE": "10",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "eigrp",
+          "INSTANCE": "11",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "eigrp",
+          "INSTANCE": "12",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "eigrp",
+          "INSTANCE": "13",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "eigrp",
+          "INSTANCE": "14",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "eigrp",
+          "INSTANCE": "15",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "eigrp",
+          "INSTANCE": "16",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "evmed",
+          "INSTANCE": "1",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "fabric_mcast",
+          "INSTANCE": "1",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "hmm",
+          "INSTANCE": "1",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "hsrp_engine",
+          "INSTANCE": "1",
+          "STATE": "enabled"
+        },
+        {
+          "NAME": "interface-vlan",
+          "INSTANCE": "1",
+          "STATE": "enabled"
+        },
+        {
+          "NAME": "isis",
+          "INSTANCE": "1",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "isis",
+          "INSTANCE": "2",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "isis",
+          "INSTANCE": "3",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "isis",
+          "INSTANCE": "4",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "isis",
+          "INSTANCE": "5",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "isis",
+          "INSTANCE": "6",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "isis",
+          "INSTANCE": "7",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "isis",
+          "INSTANCE": "8",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "isis",
+          "INSTANCE": "9",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "isis",
+          "INSTANCE": "10",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "isis",
+          "INSTANCE": "11",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "isis",
+          "INSTANCE": "12",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "isis",
+          "INSTANCE": "13",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "isis",
+          "INSTANCE": "14",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "isis",
+          "INSTANCE": "15",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "isis",
+          "INSTANCE": "16",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "itd",
+          "INSTANCE": "1",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "lacp",
+          "INSTANCE": "1",
+          "STATE": "enabled"
+        },
+        {
+          "NAME": "ldap",
+          "INSTANCE": "1",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "ldp",
+          "INSTANCE": "1",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "lldp",
+          "INSTANCE": "1",
+          "STATE": "enabled"
+        },
+        {
+          "NAME": "mpls_static",
+          "INSTANCE": "1",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "msdp",
+          "INSTANCE": "1",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "nat",
+          "INSTANCE": "1",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "ospf",
+          "INSTANCE": "1",
+          "STATE": "enabled (not-running)"
+        },
+        {
+          "NAME": "ospf",
+          "INSTANCE": "2",
+          "STATE": "enabled"
+        },
+        {
+          "NAME": "ospf",
+          "INSTANCE": "3",
+          "STATE": "enabled"
+        },
+        {
+          "NAME": "ospf",
+          "INSTANCE": "4",
+          "STATE": "enabled (not-running)"
+        },
+        {
+          "NAME": "ospf",
+          "INSTANCE": "5",
+          "STATE": "enabled (not-running)"
+        },
+        {
+          "NAME": "ospf",
+          "INSTANCE": "6",
+          "STATE": "enabled (not-running)"
+        },
+        {
+          "NAME": "ospf",
+          "INSTANCE": "7",
+          "STATE": "enabled (not-running)"
+        },
+        {
+          "NAME": "ospf",
+          "INSTANCE": "8",
+          "STATE": "enabled (not-running)"
+        },
+        {
+          "NAME": "ospf",
+          "INSTANCE": "9",
+          "STATE": "enabled (not-running)"
+        },
+        {
+          "NAME": "ospf",
+          "INSTANCE": "10",
+          "STATE": "enabled (not-running)"
+        },
+        {
+          "NAME": "ospf",
+          "INSTANCE": "11",
+          "STATE": "enabled (not-running)"
+        },
+        {
+          "NAME": "ospf",
+          "INSTANCE": "12",
+          "STATE": "enabled (not-running)"
+        },
+        {
+          "NAME": "ospf",
+          "INSTANCE": "13",
+          "STATE": "enabled (not-running)"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Feature Name          Instance  State\n--------------------  --------  --------\nbash-shell             1          enabled\nbfd                    1          disabled\nbgp                    1          disabled\ndhcp                   1          disabled\neigrp                  1          disabled\neigrp                  2          disabled\neigrp                  3          disabled\neigrp                  4          disabled\neigrp                  5          disabled\neigrp                  6          disabled\neigrp                  7          disabled\neigrp                  8          disabled\neigrp                  9          disabled\neigrp                  10         disabled\neigrp                  11         disabled\neigrp                  12         disabled\neigrp                  13         disabled\neigrp                  14         disabled\neigrp                  15         disabled\neigrp                  16         disabled\nevmed                  1          disabled\nfabric_mcast           1          disabled\nhmm                    1          disabled\nhsrp_engine            1          enabled\ninterface-vlan         1          enabled\nisis                   1          disabled\nisis                   2          disabled\nisis                   3          disabled\nisis                   4          disabled\nisis                   5          disabled\nisis                   6          disabled\nisis                   7          disabled\nisis                   8          disabled\nisis                   9          disabled\nisis                   10         disabled\nisis                   11         disabled\nisis                   12         disabled\nisis                   13         disabled\nisis                   14         disabled\nisis                   15         disabled\nisis                   16         disabled\nitd                    1          disabled\nlacp                   1          enabled\nldap                   1          disabled\nldp                    1          disabled\nlldp                   1          enabled\nmpls_static            1          disabled\nmsdp                   1          disabled\nnat                    1          disabled\nospf                   1          enabled (not-running)\nospf                   2          enabled\nospf                   3          enabled\nospf                   4          enabled (not-running)\nospf                   5          enabled (not-running)\nospf                   6          enabled (not-running)\nospf                   7          enabled (not-running)\nospf                   8          enabled (not-running)\nospf                   9          enabled (not-running)\nospf                   10         enabled (not-running)\nospf                   11         enabled (not-running)\nospf                   12         enabled (not-running)\nospf                   13         enabled (not-running)\n",
+  "textfsm_template": "Value NAME (\\S+)\nValue INSTANCE (\\d+)\nValue STATE (disabled|enabled\\s\\(not-running\\)|enabled)\n\nStart\n  ^${NAME}\\s+${INSTANCE}\\s+${STATE} -> Record\n"
+}

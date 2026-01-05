@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_snmp_user
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="engine_id">
+Engine ID: {{ENGINE_ID | ORPHRASE}}
+</group>
+<group name="privacy_protocol_storage_type">
+storage{{PRIVACY_PROTOCOL | re(".*\\w.*")}}type: {{STORAGE_TYPE | ORPHRASE}} active
+</group>

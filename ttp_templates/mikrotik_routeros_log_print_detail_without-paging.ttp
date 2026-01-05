@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_log_print_detail_without-paging
+# Source: ntc
+# TextFSM rows: 7
+# TTP rows: 8
+# Match ratio: 1.14
+
+<group name="datetime_whole_message">
+ time={{DATETIME | ORPHRASE}} {{WHOLE_MESSAGE | ORPHRASE}}
+</group>

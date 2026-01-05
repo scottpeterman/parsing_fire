@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_ip_community-list
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 2
+# Match ratio: 0.33
+
+<group name="seq_action_as_tag">
+    {{SEQ}} {{ACTION}} "{{AS | ORPHRASE}}:{{TAG | ORPHRASE}}"
+</group>
+<group name="seq_action_community">
+    {{SEQ}} {{ACTION}} 44444:10000 55555:10005 {{COMMUNITY | ORPHRASE}}
+</group>

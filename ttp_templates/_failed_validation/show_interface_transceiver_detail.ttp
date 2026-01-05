@@ -1,0 +1,17 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show interface transceiver detail
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="port_rev_product_identifier_vendor_serial_number_part_number_temperature_voltage">
+{{PORT}} {{TR{{REV}}NSCEIVER_TYPE | re("[\\d\\.\\(\\)A-Za-z]+")}} {{PRODUCT_IDENTIFIER}} {{VENDOR}} {{SERIAL_NUMBER | re("\\w+")}} {{PART_NUMBER}} A {{TEMPERATURE}} {{VOLTAGE | ORPHRASE}}
+</group>
+<group name="port_transceiver_type_product_identifier_vendor_rev_part_number_temperature_voltage">
+{{PORT}} {{TRANSCEIVER_TYPE | re("[\\d\\.\\(\\)A-Za-z]+")}} {{PRODUCT_IDENTIFIER}} {{VENDOR}} {{SERIAL_NUM{{REV}}ER | re("\\w+")}} {{PART_NUMBER}} B {{TEMPERATURE}} {{VOLTAGE | ORPHRASE}}
+</group>
+<group name="port_transceiver_type_product_identifier_vendor_serial_number_part_number_rev_temperature_voltage">
+{{PORT}} {{TRANSCEIVER_TYPE | re("[\\d\\.\\(\\)A-Za-z]+")}} {{PRODUCT_IDENTIFIER}} {{VENDOR}} {{SERIAL_NUMBER | re("\\w+")}} {{PART_NUMBER}} {{REV}} {{TEMPERATURE}} {{VOLTAGE | ORPHRASE}}
+</group>
+<group name="port_transceiver_type_rev_vendor_serial_number_part_number_temperature_voltage">
+{{PORT}} {{TRANSCEIVER_TYPE | re("[\\d\\.\\(\\)A-Za-z]+")}} {{PRO{{REV}}UCT_IDENTIFIER}} {{VENDOR}} {{SERIAL_NUMBER | re("\\w+")}} {{PART_NUMBER}} D {{TEMPERATURE}} {{VOLTAGE | ORPHRASE}}
+</group>

@@ -1,0 +1,68 @@
+{
+  "command": "alcatel_sros_show_router_isis_adjacency",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"system_id_usage_state_hold_interface_mt_id\">\n{{SYSTEM_ID}} {{USAGE}} {{STATE | ORPHRASE}} {{HOLD}} {{INTERFACE}} {{MT_ID | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SYSTEM_ID": "R2",
+      "USAGE": "L2",
+      "STATE": "Up",
+      "HOLD": "27",
+      "INTERFACE": "R1_R2",
+      "MT_ID": "0,2"
+    },
+    {
+      "SYSTEM_ID": "R3",
+      "USAGE": "L2",
+      "STATE": "Up",
+      "HOLD": "19",
+      "INTERFACE": "R1_R3",
+      "MT_ID": "0,2"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "system_id_usage_state_hold_interface_mt_id": [
+        {
+          "SYSTEM_ID": "Rtr",
+          "USAGE": "Base",
+          "STATE": "ISIS",
+          "HOLD": "Instance",
+          "INTERFACE": "0",
+          "MT_ID": "Adjacency"
+        },
+        {
+          "SYSTEM_ID": "System",
+          "USAGE": "ID",
+          "STATE": "Usage State",
+          "HOLD": "Hold",
+          "INTERFACE": "Interface",
+          "MT_ID": "MT-ID"
+        },
+        {
+          "SYSTEM_ID": "R2",
+          "USAGE": "L2",
+          "STATE": "Up",
+          "HOLD": "27",
+          "INTERFACE": "R1_R2",
+          "MT_ID": "0,2"
+        },
+        {
+          "SYSTEM_ID": "R3",
+          "USAGE": "L2",
+          "STATE": "Up",
+          "HOLD": "19",
+          "INTERFACE": "R1_R3",
+          "MT_ID": "0,2"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\n===============================================================================\nRtr Base ISIS Instance 0 Adjacency\n===============================================================================\nSystem ID                Usage State Hold Interface                     MT-ID\n-------------------------------------------------------------------------------\nR2                       L2    Up    27   R1_R2                         0,2\nR3                       L2    Up    19   R1_R3                         0,2\n-------------------------------------------------------------------------------\nAdjacencies : 2\n===============================================================================\n",
+  "textfsm_template": "Value SYSTEM_ID (\\S+)\nValue USAGE (\\S+)\nValue STATE (Up|Down)\nValue HOLD (\\d+)\nValue INTERFACE (\\S+)\nValue MT_ID (\\S+)\n\nStart\n  ^----------- -> Adjacency\n\nAdjacency\n  ^${SYSTEM_ID}\\s+${USAGE}\\s+${STATE}\\s+${HOLD}\\s+${INTERFACE}\\s+${MT_ID} -> Record\n  ^\\s*$$\n  ^-----------\n  ^===========\n  ^Adjacencies\n  ^. -> Error\n\n"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show cts interface details
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="shared_secret">
+  Cisco_Shared_Secret: {{SHARED_SECRET | ORPHRASE}}
+</group>

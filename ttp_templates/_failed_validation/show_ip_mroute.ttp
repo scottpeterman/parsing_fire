@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show ip mroute
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="grp_uptime_expires_rp_rpf_nbr">
+(*, {{GRP}}), uptime: {{UPTIME | ORPHRA{{FLAGS}}E}}, expires: {{EXPIRES}}, RP: {{RP}}, flags: S, RPF nbr: {{RPF_NBR | ORPHRASE}}
+</group>

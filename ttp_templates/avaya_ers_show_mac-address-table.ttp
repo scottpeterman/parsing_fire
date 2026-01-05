@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: avaya_ers_show_mac-address-table
+# Source: ntc
+# TextFSM rows: 25
+# TTP rows: 18
+# Match ratio: 0.72
+
+<group name="mac_address_vid_type_port">
+{{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{VID | re("\\d+")}} {{TYPE}} Port:{{PORT | ORPHRASE}}
+</group>
+<group name="mac_address_vid_type">
+{{MAC_ADDRESS | re("[0-{{PORT | re("\\d+")}}a-fA-F:.-]+")}} {{VID | re("\\d+")}} {{TYPE | ORPHRASE}} Port: 9
+</group>

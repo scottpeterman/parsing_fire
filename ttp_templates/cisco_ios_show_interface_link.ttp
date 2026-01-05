@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_interface_link
+# Source: ntc
+# TextFSM rows: 42
+# TTP rows: 59
+# Match ratio: 1.40
+
+<group name="port_name_uptime">
+{{PORT}} {{NAME | ORPHRASE}} 00:00:00 {{UPTIME | ORPHRASE}}
+</group>
+<group name="port_name_downtime">
+{{PORT}} {{NAME | ORPHRASE}} {{DOWNTIME | ORPHRASE}}
+</group>

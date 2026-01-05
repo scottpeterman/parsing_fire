@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_flexconnect_group_summary
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 7
+# Match ratio: 1.75
+
+<group name="flexconnect_group_name_ap_count">
+{{FLEXCONNECT_GROUP_NAME | ORPHRASE}} {{AP_COUNT | ORPHRASE}}
+</group>

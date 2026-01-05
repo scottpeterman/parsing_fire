@@ -1,0 +1,74 @@
+{
+  "command": "fortinet_get_router_info_bgp_summary",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"bgp_neigh_neigh_as_up_down_state_pfxrcd\">\n{{BGP_NEIGH}} 4 {{NEIGH_AS}} 43173 43182 0 0 0 {{UP_DOWN}} {{STATE_PFXRCD | ORPHRASE}} \n</group>\n<group name=\"bgp_neigh_neigh_as_state_pfxrcd_up_down\">\n{{BGP_NEIGH}} 4 {{NEIGH_AS}} {{STATE_PFXRCD | ORPHRASE}}07081 107168 12 0 0 {{UP_DOWN | ORPHRASE}} 1\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "BGP_NEIGH": "10.204.35.84",
+      "NEIGH_AS": "65302",
+      "UP_DOWN": "09w3d01h",
+      "STATE_PFXRCD": "Active"
+    },
+    {
+      "BGP_NEIGH": "10.205.35.95",
+      "NEIGH_AS": "65302",
+      "UP_DOWN": "05:48:47",
+      "STATE_PFXRCD": "1"
+    },
+    {
+      "BGP_NEIGH": "169.132.250.17",
+      "NEIGH_AS": "4224",
+      "UP_DOWN": "never",
+      "STATE_PFXRCD": "Idle"
+    },
+    {
+      "BGP_NEIGH": "169.132.250.21",
+      "NEIGH_AS": "4224",
+      "UP_DOWN": "never",
+      "STATE_PFXRCD": "Idle"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "bgp_neigh_neigh_as_up_down_state_pfxrcd": [
+        {
+          "BGP_NEIGH": "10.204.35.84",
+          "NEIGH_AS": "65302",
+          "UP_DOWN": "09w3d01h",
+          "STATE_PFXRCD": "Active"
+        },
+        {
+          "BGP_NEIGH": "10.205.35.95",
+          "NEIGH_AS": "65302",
+          "UP_DOWN": "05:48:47",
+          "STATE_PFXRCD": "1"
+        },
+        {
+          "BGP_NEIGH": "169.132.250.17",
+          "NEIGH_AS": "4224",
+          "UP_DOWN": "never",
+          "STATE_PFXRCD": "Idle"
+        },
+        {
+          "BGP_NEIGH": "169.132.250.21",
+          "NEIGH_AS": "4224",
+          "UP_DOWN": "never",
+          "STATE_PFXRCD": "Idle"
+        }
+      ],
+      "bgp_neigh_neigh_as_state_pfxrcd_up_down": {
+        "BGP_NEIGH": "10.205.35.95",
+        "NEIGH_AS": "65302",
+        "STATE_PFXRCD": "10708",
+        "UP_DOWN": "05:48:47"
+      }
+    }
+  ],
+  "cli_content": "BGP router identifier 85.31.8.8, local AS number 65302\nBGP table version is 13\n1 BGP AS-PATH entries\n0 BGP community entries\n\nNeighbor        V         AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd\n10.204.35.84   4      65302   43173   43182        0    0    0 09w3d01h Active     \n10.205.35.95   4      65302  107081  107168       12    0    0 05:48:47        1\n169.132.250.17  4       4224       0       0        0    0    0    never Idle       \n169.132.250.21  4       4224       0       0        0    0    0    never Idle       \n\nTotal number of neighbors 4\n\n",
+  "textfsm_template": "Value BGP_NEIGH (\\d+?\\.\\d+?\\.\\d+?\\.\\d+?)\nValue NEIGH_AS (\\d+)\nValue UP_DOWN (\\S+)\nValue STATE_PFXRCD (\\w+)\n\nStart\n  ^BGP\\s+router\\s+identifier\\s+\\d+?\\.\\d+?\\.\\d+?\\.\\d+?,\\s+local\\s+AS\\s+number\\s+\\d+\\s*$$\n  ^BGP\\s+table\\s+version\\s+is\\s+\\d+?$$\n  ^\\d+\\s+BGP\\s+AS-PATH\\s+entries\\s*$$\n  ^\\d+\\s+BGP\\s+community\\s+entries\\s*$$\n  ^Neighbor\\s+V\\s+AS\\s+MsgRcvd\\s+MsgSent\\s+TblVer\\s+InQ\\s+OutQ\\s+Up\\/Down\\s+State\\/PfxRcd.*$$\n  ^${BGP_NEIGH}\\s+\\S+\\s+${NEIGH_AS}(?:\\s+\\S+\\s+){5}${UP_DOWN}\\s+${STATE_PFXRCD}\\s*$$ -> Record\n  ^Total number\\s+of\\s+neighbors\\s+\\d*\\s*$$\n  ^\\s*$$\n  ^. -> Error"
+}

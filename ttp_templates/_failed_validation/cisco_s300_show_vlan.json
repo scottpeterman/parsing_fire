@@ -1,0 +1,57 @@
+{
+  "command": "cisco_s300_show_vlan",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 7,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"created_by_vlan_name_interfaces\">\n {{VLAN_I{{CREATED_BY | ORPHRASE}} | re(\"\\\\d+\")}} {{VLAN_NAME | re(\"\\\\d+\")}} {{INTERFACES}} D\n</group>\n<group name=\"vlan_id_vlan_name_created_by\">\n {{VLAN_ID | re(\"\\\\d+\")}} {{VLAN_NAME | re(\"\\\\d+\")}} {{INTERFACE{{CREATED_BY | ORPHRASE}}}} S\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "VLAN_ID": "1",
+      "VLAN_NAME": "1",
+      "INTERFACES": "fa1-2,fa4-8,fa10-14,",
+      "CREATED_BY": "D"
+    },
+    {
+      "VLAN_ID": "29",
+      "VLAN_NAME": "29",
+      "INTERFACES": "gi1",
+      "CREATED_BY": "S"
+    },
+    {
+      "VLAN_ID": "402",
+      "VLAN_NAME": "Test-Long-Vlan-Na",
+      "INTERFACES": "fa5,gi1",
+      "CREATED_BY": "S"
+    },
+    {
+      "VLAN_ID": "3130",
+      "VLAN_NAME": "3130",
+      "INTERFACES": "fa20,gi1",
+      "CREATED_BY": "S"
+    },
+    {
+      "VLAN_ID": "3131",
+      "VLAN_NAME": "Test-Long-Vlan-Na",
+      "INTERFACES": "fa1-2,fa11,fa15-18,fa21-22,",
+      "CREATED_BY": "S"
+    },
+    {
+      "VLAN_ID": "3132",
+      "VLAN_NAME": "3132",
+      "CREATED_BY": "S"
+    },
+    {
+      "VLAN_ID": "3133",
+      "VLAN_NAME": "Test-Long-Vlan-Na",
+      "CREATED_BY": "S"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Created by: D-Default, S-Static, G-GVRP, R-Radius Assigned VLAN\n\nVlan       Name                   Ports               Created by\n---- ----------------- --------------------------- ----------------\n 1           1         fa1-2,fa4-8,fa10-14,               D\n                       fa17-18,fa20\n 29         29                     gi1                    S\n402  Test-Long-Vlan-Na           fa5,gi1                  S\n     me1\n3130       3130                 fa20,gi1                  S\n3131 Test-Long-Vlan-Na fa1-2,fa11,fa15-18,fa21-22,        S\n     me2               gi1-4\n3132       3132                                           S\n3133 Test-Long-Vlan-Na                                    S\n     me3\n",
+  "textfsm_template": "Value Required VLAN_ID (\\d+)\nValue VLAN_NAME (.*?)\nValue INTERFACES ((?:fa|gi|te|Po)\\d+(?:-\\d+)?(?:,(?:fa|gi|te|Po)\\d+(?:-\\d+)?)*,?)\nValue TYPE (\\S+)\nValue AUTHORIZATION (\\S+)\nValue CREATED_BY (\\S+)\n\n# Broken. Does not support wrapped lines. There is no good way to differ ports\n# and names on the wrapped lines\n\nStart\n  ^\\s*Vlan\\s+Name\\s+Ports\\s+Type\\s+Authorization\\s*$$ -> Column5\n  ^\\s*Created\\s+by:\\s+D-Default,\\s+S-Static,\\s+G-GVRP,\\s+R-Radius\\s+Assigned\\s+VLAN\\s*$$\n  ^\\s*Vlan\\s+Name\\s+Ports\\s+Created\\s+by\\s*$$ -> Column4\n  ^\\s*$$\n  ^. -> Error\n\nColumn5\n  ^(\\s*-*)*\\s*$$\n  ^\\s*\\d+.* -> Continue.Record\n  ^\\s*${VLAN_ID}\\s+${VLAN_NAME}(?:\\s+${INTERFACES})?\\s+${TYPE}\\s+${AUTHORIZATION}\\s*$$\n\nColumn4\n  ^(\\s*-*)*\\s*$$\n  ^\\s*\\d+.* -> Continue.Record\n  ^\\s*${VLAN_ID}\\s+${VLAN_NAME}(?:\\s+${INTERFACES})?\\s+${CREATED_BY}\\s*$$\n"
+}

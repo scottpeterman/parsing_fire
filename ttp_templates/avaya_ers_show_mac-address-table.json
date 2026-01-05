@@ -1,0 +1,277 @@
+{
+  "command": "avaya_ers_show_mac-address-table",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.72,
+  "textfsm_rows": 25,
+  "ttp_rows": 18,
+  "ttp_template": "<group name=\"mac_address_vid_type_port\">\n{{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{VID | re(\"\\\\d+\")}} {{TYPE}} Port:{{PORT | ORPHRASE}}\n</group>\n<group name=\"mac_address_vid_type\">\n{{MAC_ADDRESS | re(\"[0-{{PORT | re(\"\\\\d+\")}}a-fA-F:.-]+\")}} {{VID | re(\"\\\\d+\")}} {{TYPE | ORPHRASE}} Port: 9\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "MAC_ADDRESS": "00-0E-C4-CE-AD-39",
+      "VID": "15",
+      "TYPE": "Dynamic",
+      "PORT": "47"
+    },
+    {
+      "MAC_ADDRESS": "00-C0-B7-4C-91-CF",
+      "VID": "15",
+      "TYPE": "Dynamic",
+      "PORT": "7"
+    },
+    {
+      "MAC_ADDRESS": "00-D0-2D-B3-4B-D2",
+      "VID": "15",
+      "TYPE": "Dynamic",
+      "PORT": "10"
+    },
+    {
+      "MAC_ADDRESS": "EC-8E-B5-BF-59-5B",
+      "VID": "15",
+      "TYPE": "Dynamic",
+      "PORT": "9"
+    },
+    {
+      "MAC_ADDRESS": "00-0E-C4-CE-AD-3B",
+      "VID": "25",
+      "TYPE": "Dynamic",
+      "PORT": "48"
+    },
+    {
+      "MAC_ADDRESS": "00-15-17-2E-58-F3",
+      "VID": "25",
+      "TYPE": "Dynamic",
+      "PORT": "1"
+    },
+    {
+      "MAC_ADDRESS": "50-61-84-DD-58-00",
+      "VID": "25",
+      "TYPE": "Self"
+    },
+    {
+      "MAC_ADDRESS": "F0-9F-C2-33-4A-00",
+      "VID": "25",
+      "TYPE": "Dynamic",
+      "PORT": "13"
+    },
+    {
+      "MAC_ADDRESS": "F0-9F-C2-70-B4-8E",
+      "VID": "25",
+      "TYPE": "Dynamic",
+      "PORT": "11"
+    },
+    {
+      "MAC_ADDRESS": "00-0E-C4-CE-AD-3B",
+      "VID": "45",
+      "TYPE": "Dynamic",
+      "PORT": "48"
+    },
+    {
+      "MAC_ADDRESS": "AC-CC-8E-47-85-63",
+      "VID": "45",
+      "TYPE": "Dynamic",
+      "PORT": "14"
+    },
+    {
+      "MAC_ADDRESS": "00-0E-C4-CE-AD-39",
+      "VID": "100",
+      "TYPE": "Dynamic",
+      "PORT": "47"
+    },
+    {
+      "MAC_ADDRESS": "00-11-32-4E-75-07",
+      "VID": "100",
+      "TYPE": "Dynamic",
+      "PORT": "3"
+    },
+    {
+      "MAC_ADDRESS": "00-11-32-4E-75-08",
+      "VID": "100",
+      "TYPE": "Dynamic",
+      "PORT": "4"
+    },
+    {
+      "MAC_ADDRESS": "50-F5-DA-2D-00-A0",
+      "VID": "100",
+      "TYPE": "Dynamic",
+      "PORT": "13"
+    },
+    {
+      "MAC_ADDRESS": "6C-40-08-93-CF-94",
+      "VID": "100",
+      "TYPE": "Dynamic",
+      "PORT": "11"
+    },
+    {
+      "MAC_ADDRESS": "A4-5E-60-D4-F7-4B",
+      "VID": "100",
+      "TYPE": "Dynamic",
+      "PORT": "13"
+    },
+    {
+      "MAC_ADDRESS": "B8-44-D9-1A-BC-42",
+      "VID": "100",
+      "TYPE": "Dynamic",
+      "PORT": "11"
+    },
+    {
+      "MAC_ADDRESS": "00-0E-C4-CE-AD-3B",
+      "VID": "101",
+      "TYPE": "Dynamic",
+      "PORT": "48"
+    },
+    {
+      "MAC_ADDRESS": "2C-1F-23-2E-89-CB",
+      "VID": "101",
+      "TYPE": "Dynamic",
+      "PORT": "13"
+    },
+    {
+      "MAC_ADDRESS": "84-41-67-5E-D7-54",
+      "VID": "101",
+      "TYPE": "Dynamic",
+      "PORT": "13"
+    },
+    {
+      "MAC_ADDRESS": "90-FD-61-BE-14-37",
+      "VID": "101",
+      "TYPE": "Dynamic",
+      "PORT": "13"
+    },
+    {
+      "MAC_ADDRESS": "AC-CF-5C-73-A1-6D",
+      "VID": "101",
+      "TYPE": "Dynamic",
+      "PORT": "11"
+    },
+    {
+      "MAC_ADDRESS": "00-0C-29-AD-8B-03",
+      "VID": "275",
+      "TYPE": "Dynamic",
+      "PORT": "2"
+    },
+    {
+      "MAC_ADDRESS": "00-0E-C4-CE-AD-3B",
+      "VID": "275",
+      "TYPE": "Dynamic",
+      "PORT": "48"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "mac_address_vid_type_port": [
+        {
+          "MAC_ADDRESS": "00-0E-C4-CE-AD-39",
+          "VID": "15",
+          "TYPE": "Dynamic",
+          "PORT": "47"
+        },
+        {
+          "MAC_ADDRESS": "00-D0-2D-B3-4B-D2",
+          "VID": "15",
+          "TYPE": "Dynamic",
+          "PORT": "10"
+        },
+        {
+          "MAC_ADDRESS": "00-0E-C4-CE-AD-3B",
+          "VID": "25",
+          "TYPE": "Dynamic",
+          "PORT": "48"
+        },
+        {
+          "MAC_ADDRESS": "F0-9F-C2-33-4A-00",
+          "VID": "25",
+          "TYPE": "Dynamic",
+          "PORT": "13"
+        },
+        {
+          "MAC_ADDRESS": "F0-9F-C2-70-B4-8E",
+          "VID": "25",
+          "TYPE": "Dynamic",
+          "PORT": "11"
+        },
+        {
+          "MAC_ADDRESS": "00-0E-C4-CE-AD-3B",
+          "VID": "45",
+          "TYPE": "Dynamic",
+          "PORT": "48"
+        },
+        {
+          "MAC_ADDRESS": "AC-CC-8E-47-85-63",
+          "VID": "45",
+          "TYPE": "Dynamic",
+          "PORT": "14"
+        },
+        {
+          "MAC_ADDRESS": "00-0E-C4-CE-AD-39",
+          "VID": "100",
+          "TYPE": "Dynamic",
+          "PORT": "47"
+        },
+        {
+          "MAC_ADDRESS": "50-F5-DA-2D-00-A0",
+          "VID": "100",
+          "TYPE": "Dynamic",
+          "PORT": "13"
+        },
+        {
+          "MAC_ADDRESS": "6C-40-08-93-CF-94",
+          "VID": "100",
+          "TYPE": "Dynamic",
+          "PORT": "11"
+        },
+        {
+          "MAC_ADDRESS": "A4-5E-60-D4-F7-4B",
+          "VID": "100",
+          "TYPE": "Dynamic",
+          "PORT": "13"
+        },
+        {
+          "MAC_ADDRESS": "B8-44-D9-1A-BC-42",
+          "VID": "100",
+          "TYPE": "Dynamic",
+          "PORT": "11"
+        },
+        {
+          "MAC_ADDRESS": "00-0E-C4-CE-AD-3B",
+          "VID": "101",
+          "TYPE": "Dynamic",
+          "PORT": "48"
+        },
+        {
+          "MAC_ADDRESS": "2C-1F-23-2E-89-CB",
+          "VID": "101",
+          "TYPE": "Dynamic",
+          "PORT": "13"
+        },
+        {
+          "MAC_ADDRESS": "84-41-67-5E-D7-54",
+          "VID": "101",
+          "TYPE": "Dynamic",
+          "PORT": "13"
+        },
+        {
+          "MAC_ADDRESS": "90-FD-61-BE-14-37",
+          "VID": "101",
+          "TYPE": "Dynamic",
+          "PORT": "13"
+        },
+        {
+          "MAC_ADDRESS": "AC-CF-5C-73-A1-6D",
+          "VID": "101",
+          "TYPE": "Dynamic",
+          "PORT": "11"
+        },
+        {
+          "MAC_ADDRESS": "00-0E-C4-CE-AD-3B",
+          "VID": "275",
+          "TYPE": "Dynamic",
+          "PORT": "48"
+        }
+      ]
+    }
+  ],
+  "cli_content": "   MAC Address    Vid   Type       Source    \n----------------- ---- ------- -------------- \n00-0E-C4-CE-AD-39   15 Dynamic Port:47\n00-C0-B7-4C-91-CF   15 Dynamic Port: 7\n00-D0-2D-B3-4B-D2   15 Dynamic Port:10\nEC-8E-B5-BF-59-5B   15 Dynamic Port: 9\n00-0E-C4-CE-AD-3B   25 Dynamic Port:48\n00-15-17-2E-58-F3   25 Dynamic Port: 1\n50-61-84-DD-58-00   25 Self           \nF0-9F-C2-33-4A-00   25 Dynamic Port:13\nF0-9F-C2-70-B4-8E   25 Dynamic Port:11\n00-0E-C4-CE-AD-3B   45 Dynamic Port:48\nAC-CC-8E-47-85-63   45 Dynamic Port:14\n00-0E-C4-CE-AD-39  100 Dynamic Port:47\n00-11-32-4E-75-07  100 Dynamic Port: 3\n00-11-32-4E-75-08  100 Dynamic Port: 4\n50-F5-DA-2D-00-A0  100 Dynamic Port:13\n6C-40-08-93-CF-94  100 Dynamic Port:11\nA4-5E-60-D4-F7-4B  100 Dynamic Port:13\nB8-44-D9-1A-BC-42  100 Dynamic Port:11\n00-0E-C4-CE-AD-3B  101 Dynamic Port:48\n2C-1F-23-2E-89-CB  101 Dynamic Port:13\n84-41-67-5E-D7-54  101 Dynamic Port:13\n90-FD-61-BE-14-37  101 Dynamic Port:13\nAC-CF-5C-73-A1-6D  101 Dynamic Port:11\n00-0C-29-AD-8B-03  275 Dynamic Port: 2\n00-0E-C4-CE-AD-3B  275 Dynamic Port:48",
+  "textfsm_template": "Value MAC_ADDRESS (\\S+)\nValue VID (\\d+)\nValue TYPE (\\S+)\nValue PORT (\\d+)\n\nStart\n  ^\\s+MAC Address.*\n  ^-+ -+ -+ -+\n  ^${MAC_ADDRESS}\\s+${VID}\\s+${TYPE}\\s+\\w*:*\\s*${PORT}* -> Record\n\nDone"
+}

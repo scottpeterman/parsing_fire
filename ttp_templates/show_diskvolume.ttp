@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show diskvolume
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 4
+# Match ratio: 1.33
+
+<group name="volume_name_mb_free_total_pc_free_type">
+{{VOLUME_NAME}} {{MB_FREE}} {{TOTAL}} {{PC_FREE}} {{TYPE | ORPHRASE}} 
+</group>

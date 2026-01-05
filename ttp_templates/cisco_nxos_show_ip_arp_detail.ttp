@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_ip_arp_detail
+# Source: ntc
+# TextFSM rows: 841
+# TTP rows: 595
+# Match ratio: 0.71
+
+<group name="ip_address_age_mac_address_interface_physical_interface">
+{{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{AGE}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{INTERFACE | ORPHRASE}} {{PHYSICAL_INTERFACE}}
+</group>

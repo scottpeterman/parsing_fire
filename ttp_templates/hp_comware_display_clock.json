@@ -1,0 +1,34 @@
+{
+  "command": "hp_comware_display_clock",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"time_timezone_dayweek_month_day_year\">\n{{TIME}} {{TIMEZONE}} {{DAYWEEK}} {{MONTH}}/{{DAY}}/{{YEAR | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TIME": "15:10:00",
+      "TIMEZONE": "Z5",
+      "DAYWEEK": "Fri",
+      "MONTH": "03",
+      "DAY": "16",
+      "YEAR": "2015"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "time_timezone_dayweek_month_day_year": {
+        "TIME": "15:10:00",
+        "TIMEZONE": "Z5",
+        "DAYWEEK": "Fri",
+        "MONTH": "03",
+        "DAY": "16",
+        "YEAR": "2015"
+      }
+    }
+  ],
+  "cli_content": "15:10:00 Z5 Fri 03/16/2015\nTime Zone : Z5 add 05:00:00",
+  "textfsm_template": "Value TIME (\\d+:\\d+:\\d+)\nValue TIMEZONE (\\S+)\nValue DAYWEEK (\\w+)\nValue MONTH (\\d+)\nValue DAY (\\d+)\nValue YEAR (\\d+)\n\nStart\n  ^${TIME}\\s+${TIMEZONE}\\s+${DAYWEEK}\\s+${MONTH}/${DAY}/${YEAR} -> Record\n\n\n"
+}

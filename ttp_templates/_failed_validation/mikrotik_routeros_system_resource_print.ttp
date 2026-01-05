@@ -1,0 +1,23 @@
+# TTP Template - FAILED VALIDATION
+# Original command: mikrotik_routeros_system_resource_print
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="architecture_name_bad_blocks_board_name_build_time">
+  uptime: {{UPTIME | ORPHRASE}}
+  version: {{VERSION | ORPHRASE}}
+  build-time: {{BUILD_TIME | ORPHRASE}}
+  free-memory: {{FREE_MEMORY | ORPHRASE}}
+  total-memory: {{TOTAL_MEMORY | ORPHRASE}}
+  cpu: {{CPU | ORPHRASE}}
+  cpu-frequency: {{CPU_FREQUENCY | ORPHRASE}}
+  cpu-load: {{CPU_LOAD | ORPHRASE}}
+  free-hdd-space: {{FREE_HDD_SPACE | ORPHRASE}}
+  total-hdd-space: {{TOTAL_HDD_SPACE | ORPHRASE}}
+  write-sect-since-reboot: {{WRITE_SECT_SINCE_REBOOT | ORPHRASE}}
+  write-sect-total: {{WRITE_SECT_TOTAL | ORPHRASE}}
+  bad-blocks: {{BAD_BLOCKS | ORPHRASE}}
+  architecture-name: {{ARCHITECTURE_NAME | ORPHRASE}}
+  board-name: {{BOARD_NAME | ORPHRASE}}
+  platform: {{PLATFORM | ORPHRASE}}
+</group>

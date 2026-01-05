@@ -1,0 +1,80 @@
+{
+  "command": "ps ax",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 9,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"pid_tty_stat_time_command\">\n    {{PID | re(\"\\\\d+\")}} {{TTY | re(\".*\\\\w.*\")}} {{STAT}} {{TIME}} {{COMMAND | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "PID": "1",
+      "TTY": "?",
+      "STAT": "Ss",
+      "TIME": "0:00",
+      "COMMAND": "/sbin/init"
+    },
+    {
+      "PID": "2",
+      "TTY": "?",
+      "STAT": "S",
+      "TIME": "0:00",
+      "COMMAND": "[kthreadd]"
+    },
+    {
+      "PID": "3",
+      "TTY": "?",
+      "STAT": "S",
+      "TIME": "0:00",
+      "COMMAND": "[ksoftirqd/0]"
+    },
+    {
+      "PID": "143",
+      "TTY": "?",
+      "STAT": "Ss",
+      "TIME": "0:00",
+      "COMMAND": "/usr/sbin/cron"
+    },
+    {
+      "PID": "162",
+      "TTY": "tty1",
+      "STAT": "Ss+",
+      "TIME": "0:00",
+      "COMMAND": "/sbin/agetty --noclear tty1 linux"
+    },
+    {
+      "PID": "213",
+      "TTY": "?",
+      "STAT": "Sl",
+      "TIME": "0:02",
+      "COMMAND": "/usr/lib/policykit-1/polkitd --no-debug"
+    },
+    {
+      "PID": "295",
+      "TTY": "?",
+      "STAT": "Ssl",
+      "TIME": "0:01",
+      "COMMAND": "/usr/lib/systemd/systemd-journald"
+    },
+    {
+      "PID": "452",
+      "TTY": "?",
+      "STAT": "Ss",
+      "TIME": "0:00",
+      "COMMAND": "/lib/systemd/systemd-logind"
+    },
+    {
+      "PID": "789",
+      "TTY": "?",
+      "STAT": "S",
+      "TIME": "0:00",
+      "COMMAND": "/bin/bash"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "  PID TTY      STAT   TIME COMMAND\n    1 ?        Ss     0:00 /sbin/init\n    2 ?        S      0:00 [kthreadd]\n    3 ?        S      0:00 [ksoftirqd/0]\n  143 ?        Ss     0:00 /usr/sbin/cron\n  162 tty1     Ss+    0:00 /sbin/agetty --noclear tty1 linux\n  213 ?        Sl     0:02 /usr/lib/policykit-1/polkitd --no-debug\n  295 ?        Ssl    0:01 /usr/lib/systemd/systemd-journald\n  452 ?        Ss     0:00 /lib/systemd/systemd-logind\n  789 ?        S      0:00 /bin/bash\n",
+  "textfsm_template": "Value PID (\\d+)\nValue TTY (\\S+)\nValue STAT (\\S+)\nValue TIME (\\d+:\\d+)\nValue COMMAND (.+)\n\nStart\n  ^\\s*PID\\s+TTY\\s+STAT\\s+TIME\\s+COMMAND\\s*$$\n  ^\\s*${PID}\\s+${TTY}\\s+${STAT}\\s+${TIME}\\s+${COMMAND}\\s*$$ -> Record"
+}

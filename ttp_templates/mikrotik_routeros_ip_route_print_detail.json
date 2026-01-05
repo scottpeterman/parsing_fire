@@ -1,0 +1,113 @@
+{
+  "command": "mikrotik_routeros_ip_route_print_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.2857142857142857,
+  "textfsm_rows": 7,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"number_active_dynamic_protocol_network_mask_gateway_gateway_status_distance\">\n {{NUMBER}} {{ACTIVE}}{{DYNAMIC}}{{PROTOCOL}} dst-address={{NETWORK}}/{{MASK}} gateway={{GATEWAY}} gateway-status={{GATEWAY_STATUS | ORPHRASE}} distance={{DISTANCE}} scope=30 target-scope=10 vrf-interface=lte1\n</group>\n<group name=\"number_protocol_dynamic_network_mask_pref_src_gateway_gateway_status_distance\">\n {{NUMBER}} {{A{{PROTOCOL}}TIVE}}{{DYNAMIC}}C dst-address={{NETWORK}}/{{MASK}} pref-src={{PREF_SRC}} gateway={{GATEWAY}} gateway-status={{GATEWAY_STATUS | ORPHRASE}} distance={{DISTANCE}} scope=10\n</group>\n<group name=\"number_active_protocol_network_mask_gateway_gateway_status_distance\">\n {{NUMBER}} {{ACTIVE}} {{PROTOCOL}} dst-address={{NETWORK}}/{{MASK}} gateway={{GATEWAY}} gateway-status={{GATEWAY_STATUS | ORPHRASE}} distance={{DISTANCE}} scope=30 target-scope=10\n</group>\n<group name=\"discard_packet_active_protocol_network_mask_distance\">\n {{NUM{{DISCARD_PACKET}}ER}} {{ACTIVE}} {{PROTOCOL}}B dst-address={{NETWORK}}/{{MASK}} type=blackhole distance={{DISTANCE | ORPHRASE}} routing-mark=Free_Wi-Fi\n</group>\n<group name=\"number_active_protocol_network_mask_gateway_gateway_status_check_gateway_distance\">\n {{NUMBER}} {{ACTIVE}} {{PROTOCOL}} dst-address={{NETWORK}}/{{MASK}} gateway={{GATEWAY}} gateway-status={{GATEWAY_STATUS | ORPHRASE}} check-gateway={{CHECK_GATEWAY | ORPHRASE}} distance={{DISTANCE}} scope=30 target-scope=10\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NUMBER": "0",
+      "ACTIVE": "A",
+      "DYNAMIC": "D",
+      "PROTOCOL": "S",
+      "NETWORK": "0.0.0.0",
+      "MASK": "0",
+      "GATEWAY": "192.168.8.1",
+      "GATEWAY_STATUS": "192.168.8.1 reachable via  lte1",
+      "DISTANCE": "2"
+    },
+    {
+      "NUMBER": "1",
+      "ACTIVE": "A",
+      "DYNAMIC": "D",
+      "PROTOCOL": "C",
+      "NETWORK": "10.160.1.228",
+      "MASK": "30",
+      "PREF_SRC": "10.160.1.230",
+      "GATEWAY": "ether1",
+      "GATEWAY_STATUS": "ether1 reachable",
+      "DISTANCE": "0"
+    },
+    {
+      "NUMBER": "2",
+      "ACTIVE": "A",
+      "PROTOCOL": "S",
+      "NETWORK": "10.213.20.64",
+      "MASK": "32",
+      "GATEWAY": "10.160.1.229",
+      "GATEWAY_STATUS": "10.160.1.229 reachable via  ether1",
+      "DISTANCE": "1"
+    },
+    {
+      "NUMBER": "3",
+      "COMMENT": "to Internet",
+      "ACTIVE": "A",
+      "PROTOCOL": "S",
+      "NETWORK": "0.0.0.0",
+      "MASK": "0",
+      "GATEWAY": "10.160.1.230",
+      "GATEWAY_STATUS": "10.160.1.230 reachable via ether2",
+      "DISTANCE": "1"
+    },
+    {
+      "NUMBER": "4",
+      "ACTIVE": "A",
+      "PROTOCOL": "S",
+      "NETWORK": "0.0.0.0",
+      "MASK": "0",
+      "GATEWAY": "1.2.3.4",
+      "GATEWAY_STATUS": "1.2.3.4 recursive via 10.152.1.230 ether5",
+      "DISTANCE": "1"
+    },
+    {
+      "NUMBER": "5",
+      "ACTIVE": "A",
+      "PROTOCOL": "S",
+      "DISCARD_PACKET": "B",
+      "NETWORK": "10.0.0.0",
+      "MASK": "8",
+      "DISTANCE": "100"
+    },
+    {
+      "NUMBER": "6",
+      "ACTIVE": "A",
+      "PROTOCOL": "S",
+      "NETWORK": "0.0.0.0",
+      "MASK": "0",
+      "GATEWAY": "1.2.3.4",
+      "GATEWAY_STATUS": "1.2.3.4 recursive via 10.152.1.230 ether5",
+      "CHECK_GATEWAY": "ping",
+      "DISTANCE": "1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "number_active_protocol_network_mask_gateway_gateway_status_distance": {
+        "NUMBER": "6",
+        "ACTIVE": "A",
+        "PROTOCOL": "S",
+        "NETWORK": "0.0.0.0",
+        "MASK": "0",
+        "GATEWAY": "1.2.3.4",
+        "GATEWAY_STATUS": "1.2.3.4 recursive via 10.152.1.230 ether5 check-gateway=ping",
+        "DISTANCE": "1"
+      },
+      "number_active_protocol_network_mask_gateway_gateway_status_check_gateway_distance": {
+        "NUMBER": "6",
+        "ACTIVE": "A",
+        "PROTOCOL": "S",
+        "NETWORK": "0.0.0.0",
+        "MASK": "0",
+        "GATEWAY": "1.2.3.4",
+        "GATEWAY_STATUS": "1.2.3.4 recursive via 10.152.1.230 ether5",
+        "CHECK_GATEWAY": "ping",
+        "DISTANCE": "1"
+      }
+    }
+  ],
+  "cli_content": "Flags: X - disabled, A - active, D - dynamic, C - connect, S - static, r - rip, b - bgp, o - ospf, m - mme, B - blackhole, U - unreachable, P - prohibit\n 0 ADS  dst-address=0.0.0.0/0 gateway=192.168.8.1 gateway-status=192.168.8.1 reachable via  lte1 distance=2 scope=30 target-scope=10 vrf-interface=lte1\n\n 1 ADC  dst-address=10.160.1.228/30 pref-src=10.160.1.230 gateway=ether1 gateway-status=ether1 reachable distance=0 scope=10\n\n 2 A S  dst-address=10.213.20.64/32 gateway=10.160.1.229 gateway-status=10.160.1.229 reachable via  ether1 distance=1 scope=30 target-scope=10\n\n 3 A S  ;;; to Internet\n        dst-address=0.0.0.0/0 gateway=10.160.1.230 gateway-status=10.160.1.230 reachable via ether2 distance=1 scope=30 target-scope=10 routing-mark=to-reserve\n\n 4 A S  dst-address=0.0.0.0/0 gateway=1.2.3.4 gateway-status=1.2.3.4 recursive via 10.152.1.230 ether5 distance=1 scope=30 target-scope=10 routing-mark=Free_Wi-Fi\n\n 5 A SB dst-address=10.0.0.0/8 type=blackhole distance=100 routing-mark=Free_Wi-Fi\n\n 6 A S  dst-address=0.0.0.0/0 gateway=1.2.3.4 gateway-status=1.2.3.4 recursive via 10.152.1.230 ether5 check-gateway=ping distance=1 scope=30 target-scope=10\n",
+  "textfsm_template": "Value NUMBER (\\d+)\nValue COMMENT (.*?)\nValue ACTIVE (.)\nValue DYNAMIC (.)\nValue PROTOCOL (.)\nValue DISCARD_PACKET (.)\nValue Required NETWORK (\\S+)\nValue MASK (\\d{1,2})\nValue PREF_SRC (\\S+)\nValue GATEWAY (\\S+)\nValue GATEWAY_STATUS (.+?(?=[^\\=]\\S+\\=))\nValue CHECK_GATEWAY (\\S+)\nValue DISTANCE (\\d+)\nValue TYPE (\\S+)\n\nStart\n  ^\\s*Flags:\\s+X\\s+-\\s+disabled,\\s+A\\s+-\\s+active,\\s+D\\s+-\\s+dynamic,\\s+C\\s+-\\s+connect,\\s+S\\s+-\\s+static,\\s+r\\s+-\\s+rip,\\s+b\\s+-\\s+bgp,\\s+o\\s+-\\s+ospf,\\s+m\\s+-\\s+mme,\\s+B\\s+-\\s+blackhole,\\s+U\\s+-\\s+unreachable,\\s+P\\s+-\\s+prohibit\\s*$$\n  ^\\s*${NUMBER}\\s+${ACTIVE}${DYNAMIC}${PROTOCOL}${DISCARD_PACKET}\\s+dst-address=${NETWORK}/${MASK}(?:\\s+pref-src=${PREF_SRC})?(?:\\s+gateway\\=${GATEWAY})?(?:\\s+gateway-status=${GATEWAY_STATUS})?.*?(?:\\s+check-gateway=${CHECK_GATEWAY})?\\s+distance=${DISTANCE}.*?(\\s+ospf-type=${TYPE})?.*$$ -> Record\n  ^\\s*${NUMBER}\\s+${ACTIVE}${DYNAMIC}${PROTOCOL}${DISCARD_PACKET}\\s+;{3}\\s*${COMMENT}\\s*$$\n  ^\\s*dst-address=${NETWORK}/${MASK}(?:\\s+pref-src=${PREF_SRC})?(?:\\s+gateway\\=${GATEWAY})?(?:\\s+gateway-status=${GATEWAY_STATUS})?.*?(?:\\s+check-gateway=${CHECK_GATEWAY})?\\s+distance=${DISTANCE}.*?(\\s+ospf-type=${TYPE})?.*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

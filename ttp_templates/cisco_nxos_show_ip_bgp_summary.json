@@ -1,0 +1,193 @@
+{
+  "command": "cisco_nxos_show_ip_bgp_summary",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.15384615384615385,
+  "textfsm_rows": 13,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"local_as_router_id_vrf\">\nBGP summary information for VRF {{VRF | ORPHRASE}}, address family IPv4 Multicast\n<group name=\"in_queue_msg_rcvd_msg_sent\">\nBGP table version is 5, IPv4 Multicast config peers 2, capable peers {{MSG_RCVD | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ROUTER_ID": "2.2.2.3",
+      "LOCAL_AS": "102",
+      "VRF": "default",
+      "BGP_NEIGH": "10.0.0.100",
+      "NEIGH_AS": "64497",
+      "MSG_RCVD": "0",
+      "MSG_SENT": "0",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "03:20:10",
+      "STATE_PFXRCD": "Idle"
+    },
+    {
+      "ROUTER_ID": "2.2.2.3",
+      "LOCAL_AS": "102",
+      "VRF": "default",
+      "BGP_NEIGH": "192.168.1.3",
+      "NEIGH_AS": "0",
+      "MSG_RCVD": "0",
+      "MSG_SENT": "0",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "01:51:38",
+      "STATE_PFXRCD": "Idle"
+    },
+    {
+      "ROUTER_ID": "2.2.2.3",
+      "LOCAL_AS": "102",
+      "VRF": "default",
+      "BGP_NEIGH": "10.0.0.1",
+      "NEIGH_AS": "65000",
+      "MSG_RCVD": "2746767",
+      "MSG_SENT": "2396274",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "3w0d",
+      "STATE_PFXRCD": "558720"
+    },
+    {
+      "ROUTER_ID": "2.2.2.3",
+      "LOCAL_AS": "102",
+      "VRF": "default",
+      "BGP_NEIGH": "10.0.0.2",
+      "NEIGH_AS": "65001",
+      "MSG_RCVD": "2855873",
+      "MSG_SENT": "2409742",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "3w0d",
+      "STATE_PFXRCD": "558720"
+    },
+    {
+      "ROUTER_ID": "2.2.2.3",
+      "LOCAL_AS": "102",
+      "VRF": "default",
+      "BGP_NEIGH": "10.0.0.3",
+      "NEIGH_AS": "65002",
+      "MSG_RCVD": "695143",
+      "MSG_SENT": "689871",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "1y10w",
+      "STATE_PFXRCD": "0"
+    },
+    {
+      "ROUTER_ID": "2.2.2.3",
+      "LOCAL_AS": "102",
+      "VRF": "default",
+      "BGP_NEIGH": "10.0.0.4",
+      "NEIGH_AS": "65003",
+      "MSG_RCVD": "1030294",
+      "MSG_SENT": "1220041",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "1y50w",
+      "STATE_PFXRCD": "1351"
+    },
+    {
+      "ROUTER_ID": "2.2.2.3",
+      "LOCAL_AS": "102",
+      "VRF": "default",
+      "BGP_NEIGH": "10.0.0.5",
+      "NEIGH_AS": "65004",
+      "MSG_RCVD": "26552304",
+      "MSG_SENT": "14931352",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "19w5d",
+      "STATE_PFXRCD": "558720"
+    },
+    {
+      "ROUTER_ID": "2.2.2.3",
+      "LOCAL_AS": "102",
+      "VRF": "default",
+      "BGP_NEIGH": "10.0.0.6",
+      "NEIGH_AS": "65005",
+      "MSG_RCVD": "26532908",
+      "MSG_SENT": "14931123",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "19w5d",
+      "STATE_PFXRCD": "558720"
+    },
+    {
+      "ROUTER_ID": "2.2.2.3",
+      "LOCAL_AS": "102",
+      "VRF": "default",
+      "BGP_NEIGH": "10.0.0.7",
+      "NEIGH_AS": "65006",
+      "MSG_RCVD": "12245684",
+      "MSG_SENT": "9181569",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "1y10w",
+      "STATE_PFXRCD": "82"
+    },
+    {
+      "ROUTER_ID": "2.2.2.3",
+      "LOCAL_AS": "102",
+      "VRF": "default",
+      "BGP_NEIGH": "10.0.0.8",
+      "NEIGH_AS": "65007",
+      "MSG_RCVD": "12250936",
+      "MSG_SENT": "9181571",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "1y10w",
+      "STATE_PFXRCD": "82"
+    },
+    {
+      "ROUTER_ID": "2.2.2.3",
+      "LOCAL_AS": "102",
+      "VRF": "default",
+      "BGP_NEIGH": "10.0.0.9",
+      "NEIGH_AS": "65008",
+      "MSG_RCVD": "222146",
+      "MSG_SENT": "14368489",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "22w0d",
+      "STATE_PFXRCD": "0"
+    },
+    {
+      "ROUTER_ID": "2.2.2.3",
+      "LOCAL_AS": "102",
+      "VRF": "default",
+      "BGP_NEIGH": "10.0.0.10",
+      "NEIGH_AS": "65009",
+      "MSG_RCVD": "26930508",
+      "MSG_SENT": "942614",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "1y10w",
+      "STATE_PFXRCD": "Idle (Admin)"
+    },
+    {
+      "ROUTER_ID": "2.2.2.3",
+      "LOCAL_AS": "102",
+      "VRF": "default",
+      "BGP_NEIGH": "10.0.0.11",
+      "NEIGH_AS": "65010",
+      "MSG_RCVD": "2655204",
+      "MSG_SENT": "14931352",
+      "IN_QUEUE": "0",
+      "OUT_QUEUE": "0",
+      "UP_DOWN": "1w5d",
+      "STATE_PFXRCD": "4452"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "local_as_router_id_vrf": {
+        "VRF": "default",
+        "in_queue_msg_rcvd_msg_sent": {
+          "MSG_RCVD": "0"
+        }
+      }
+    }
+  ],
+  "cli_content": "BGP summary information for VRF default, address family IPv4 Multicast\nBGP router identifier 2.2.2.3, local AS number 102\nBGP table version is 5, IPv4 Multicast config peers 2, capable peers 0\n1 network entries and 1 paths using 104 bytes of memory\nBGP attribute entries [1/124], BGP AS path entries [0/0]\nBGP community entries [0/0], BGP clusterlist entries [0/0]\nNeighbor V AS MsgRcvd MsgSent TblVer InQ OutQ Up/Down State/PfxRcd\n10.0.0.100 4 64497 0 0 0 0 0 03:20:10 Idle\n192.168.1.3 4 0 0 0 0 0 0 01:51:38 Idle\n10.0.0.1        4        65000 2746767 2396274 512185206    0    0 3w0d       558720\n10.0.0.2        4        65001 2855873 2409742 512185206    0    0 3w0d       558720\n10.0.0.3        4        65002  695143  689871 512185203    0    0 1y10w           0\n10.0.0.4        4        65003 1030294 1220041 512185206    0    0 1y50w        1351\n10.0.0.5        4        65004 26552304 14931352 512185206    0    0 19w5d      558720\n10.0.0.6        4        65005 26532908 14931123 512185206    0    0 19w5d      558720\n10.0.0.7        4        65006 12245684 9181569 512185203    0    0 1y10w          82\n10.0.0.8        4        65007 12250936 9181571 512185203    0    0 1y10w          82\n10.0.0.9        4        65008  222146 14368489 512185203    0    0 22w0d           0\n10.0.0.10       4        65009 26930508  942614 512185203    0    0 1y10w     Idle (Admin)\n10.0.0.11       4        65010\n                               2655204 14931352 512185206   0    0 1w5d      4452\n",
+  "textfsm_template": "Value Filldown ROUTER_ID (\\S+)\nValue Filldown LOCAL_AS (\\d+)\nValue Filldown VRF ([A-Za-z0-9\\-_]+)\nValue Required BGP_NEIGH (\\d+?\\.\\d+?\\.\\d+?\\.\\d+?)\nValue NEIGH_AS (\\d+)\nValue MSG_RCVD (\\d+)\nValue MSG_SENT (\\d+)\nValue IN_QUEUE (\\d+)\nValue OUT_QUEUE (\\d+)\nValue UP_DOWN (\\S+)\nValue STATE_PFXRCD (\\S+?\\s+\\S+?|\\S+?)\n\nStart\n  ^BGP.+VRF\\s+${VRF},?\n  ^BGP\\s+router\\s+identifier\\s+${ROUTER_ID},\\s+[Ll]ocal\\s+[Aa][Ss]\\s+number\\s+${LOCAL_AS}\n  ^Neighbor\\s+V\\s+AS\\s+MsgRcvd\\s+MsgSent\\s+TblVer\\s+InQ\\s+OutQ\\s+Up/Down\\s+State/PfxRcd\\s*$$\n  ^${BGP_NEIGH}\\s+\\d+\\s+${NEIGH_AS}\\s+${MSG_RCVD}\\s+${MSG_SENT}\\s+\\d+\\s+${IN_QUEUE}\\s+${OUT_QUEUE}\\s+${UP_DOWN}\\s+${STATE_PFXRCD}\\s*$$ -> Record\n  ^${BGP_NEIGH}\\s+\\d+\\s+${NEIGH_AS}\n  ^\\s+${MSG_RCVD}\\s+${MSG_SENT}\\s+\\d+\\s+${IN_QUEUE}\\s+${OUT_QUEUE}\\s+${UP_DOWN}\\s+${STATE_PFXRCD}\\s*$$ -> Record\n  ^BGP\\s+table\\s+version\n  ^\\d+\\s+network\\s+entries\n  ^BGP attribute entries\n  ^BGP community entries\n  ^\\d+\\s+(received|identical)\n  ^\\s*$$\n  ^. -> Error\n"
+}

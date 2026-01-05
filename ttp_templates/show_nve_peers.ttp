@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show nve peers
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 1
+# Match ratio: 0.33
+
+<group name="interface_vni_udp_port_peer_ip_learn_type_tunnel_type_peer_state_flags_uptime">
+{{INTERFACE}} {{VNI}} {{UDP_PORT | re("\\d+")}} {{PEER_IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{LEARN_TYPE}} {{TUNNEL_TYPE}} {{PEER_STATE | ORPHRASE}} {{FLAGS | re(".*\\w.*")}} {{UPTIME | ORPHRASE}}
+</group>

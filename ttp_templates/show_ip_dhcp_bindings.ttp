@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip dhcp bindings
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="ip_address_client_id_hardware_address_lease_expiration_type_interface">
+{{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{CLIENT_ID}} {{HARDWARE_ADDRESS}} {{LEASE_EXPIRATION}} {{TYPE}} {{INTERFACE | ORPHRASE}}
+</group>

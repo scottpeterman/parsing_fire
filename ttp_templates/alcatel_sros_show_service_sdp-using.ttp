@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: alcatel_sros_show_service_sdp-using
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="service_id_sdp_id_sdp_svc_id_type_far_end_oper_state_ingress_label_egress_label">
+{{SERVICE_ID | re("\\d+")}} {{SDP_ID | re("\\d+")}}:{{SDP_SVC_ID | re("\\d+")}} {{TYPE}} {{FAR_END}} {{OPER_STATE | ORPHRASE}} {{INGRESS_LABEL}} {{EGRESS_LABEL | ORPHRASE}}
+</group>

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_wlan_sum
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="wlanid_profile_ssid_status_interface">
+{{WLANID | re("\\d+")}} {{PROFILE}} / {{SSID}} {{STATUS | ORPHRASE}} {{INTERFACE | ORPHRASE}}
+</group>

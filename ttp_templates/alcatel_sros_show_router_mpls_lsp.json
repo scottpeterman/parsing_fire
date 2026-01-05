@@ -1,0 +1,110 @@
+{
+  "command": "alcatel_sros_show_router_mpls_lsp",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"lsp_name_tunnel_id_fastfail_config_admin_state_oper_state\">\n{{LSP_NAME}} {{TUNNEL_ID | re(\"\\\\d+\")}} {{FASTFAIL_CONFIG}} {{ADMIN_STATE | ORPHRASE}} {{OPER_STATE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LSP_NAME": "TO_IOSXR",
+      "TO": "10.10.10.8",
+      "TUNNEL_ID": "1",
+      "FASTFAIL_CONFIG": "Yes",
+      "ADMIN_STATE": "Up",
+      "OPER_STATE": "Up"
+    },
+    {
+      "LSP_NAME": "TO_R1",
+      "TO": "10.10.10.1",
+      "TUNNEL_ID": "2",
+      "FASTFAIL_CONFIG": "Yes",
+      "ADMIN_STATE": "Up",
+      "OPER_STATE": "Up"
+    },
+    {
+      "LSP_NAME": "TO_R2",
+      "TO": "10.10.10.2",
+      "TUNNEL_ID": "3",
+      "FASTFAIL_CONFIG": "Yes",
+      "ADMIN_STATE": "Up",
+      "OPER_STATE": "Dwn"
+    },
+    {
+      "LSP_NAME": "TO_R4",
+      "TO": "10.10.10.4",
+      "TUNNEL_ID": "4",
+      "FASTFAIL_CONFIG": "Yes",
+      "ADMIN_STATE": "Up",
+      "OPER_STATE": "Dwn"
+    },
+    {
+      "LSP_NAME": "Full-Mesh-10.10.10.8-61441",
+      "TO": "10.10.10.8",
+      "TUNNEL_ID": "61441",
+      "FASTFAIL_CONFIG": "Yes",
+      "ADMIN_STATE": "Up",
+      "OPER_STATE": "Up"
+    },
+    {
+      "LSP_NAME": "Full-Mesh-10.10.10.1-65240",
+      "TO": "10.10.10.1",
+      "TUNNEL_ID": "65240",
+      "FASTFAIL_CONFIG": "Yes",
+      "ADMIN_STATE": "Up",
+      "OPER_STATE": "Up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "lsp_name_tunnel_id_fastfail_config_admin_state_oper_state": [
+        {
+          "LSP_NAME": "TO_IOSXR",
+          "TUNNEL_ID": "1",
+          "FASTFAIL_CONFIG": "Yes",
+          "ADMIN_STATE": "Up",
+          "OPER_STATE": "Up"
+        },
+        {
+          "LSP_NAME": "TO_R1",
+          "TUNNEL_ID": "2",
+          "FASTFAIL_CONFIG": "Yes",
+          "ADMIN_STATE": "Up",
+          "OPER_STATE": "Up"
+        },
+        {
+          "LSP_NAME": "TO_R2",
+          "TUNNEL_ID": "3",
+          "FASTFAIL_CONFIG": "Yes",
+          "ADMIN_STATE": "Up",
+          "OPER_STATE": "Dwn"
+        },
+        {
+          "LSP_NAME": "TO_R4",
+          "TUNNEL_ID": "4",
+          "FASTFAIL_CONFIG": "Yes",
+          "ADMIN_STATE": "Up",
+          "OPER_STATE": "Dwn"
+        },
+        {
+          "LSP_NAME": "Full-Mesh-10.10.10.8-61441",
+          "TUNNEL_ID": "61441",
+          "FASTFAIL_CONFIG": "Yes",
+          "ADMIN_STATE": "Up",
+          "OPER_STATE": "Up"
+        },
+        {
+          "LSP_NAME": "Full-Mesh-10.10.10.1-65240",
+          "TUNNEL_ID": "65240",
+          "FASTFAIL_CONFIG": "Yes",
+          "ADMIN_STATE": "Up",
+          "OPER_STATE": "Up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "===============================================================================\nMPLS LSPs (Originating)\n===============================================================================\nLSP Name                                            Tun     Fastfail  Adm  Opr\n  To                                                Id      Config         \n-------------------------------------------------------------------------------\nTO_IOSXR                                            1       Yes       Up   Up\n  10.10.10.8                                                               \nTO_R1                                               2       Yes       Up   Up\n  10.10.10.1                                                               \nTO_R2                                               3       Yes       Up   Dwn\n  10.10.10.2                                                               \nTO_R4                                               4       Yes       Up   Dwn\n  10.10.10.4                                                               \nFull-Mesh-10.10.10.8-61441                          61441   Yes       Up   Up\n  10.10.10.8                                                               \nFull-Mesh-10.10.10.1-65240                          65240   Yes       Up   Up\n  10.10.10.1                                                               \n-------------------------------------------------------------------------------\nLSPs : 6\n===============================================================================\n",
+  "textfsm_template": "Value Required LSP_NAME (\\S+)\nValue Required TO (\\d+.\\d+.\\d+.\\d+)\nValue Required TUNNEL_ID (\\d+)\nValue Required FASTFAIL_CONFIG (\\S+)\nValue Required ADMIN_STATE (Up|Dwn)\nValue Required OPER_STATE (Up|Dwn)\n\nStart\n  ^=+\n  ^MPLS\\s+LSPs\n  ^LSP\\s+Name\\s+Tun\\s+Fastfail\\s+Adm\\s+Opr\\s*$$ -> LSP\n  ^\\s*$$\n  ^. -> Error\n\nLSP\n  ^\\s+To\\s+Id\\s+Config\n  ^-+\n  ^${LSP_NAME}\\s+${TUNNEL_ID}\\s+${FASTFAIL_CONFIG}\\s+${ADMIN_STATE}\\s+${OPER_STATE}\n  ^\\s+${TO} -> Record\n  ^-+ -> Done\n  ^LSPs\\s+:\n  ^=+\n  ^\\s*$$\n  ^. -> Error\n\nDone\n"
+}

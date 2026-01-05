@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: edgecore_show_interfaces_switchport
+# Source: ntc
+# TextFSM rows: 10
+# TTP rows: 10
+# Match ratio: 1.00
+
+<group name="ingress_rate_limit">
+ Ingress Rate Limit: {{INGRESS_RATE_LIMIT | ORPHRASE}}
+</group>

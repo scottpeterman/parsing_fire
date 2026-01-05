@@ -1,0 +1,12 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_user_print
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="comment_group_id_last_logged_in">
+ 0  ;;; {{COMMENT | ORPHRASE}}
+  admin  {{GROUP}}  jun/30/2023 0{{ID | ORPHRASE}}:08:59
+ 1  {{NAME}}  full  {{LAST_LOGGED_IN | ORPHRASE}}
+</group>

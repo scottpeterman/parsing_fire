@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_interfaces_transceiver
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 4
+# Match ratio: 0.80
+
+<group name="port_temp_voltage_bias_current_tx_power_rx_power">
+{{PORT}} {{TEMP}} {{VOLTAGE}} {{BIAS_CURRENT}} {{TX_POWER}} {{RX_POWER | ORPHRASE}} 0:00:06 ago
+</group>

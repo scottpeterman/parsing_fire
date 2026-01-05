@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_interface_transceiver
+# Source: ntc
+# TextFSM rows: 52
+# TTP rows: 52
+# Match ratio: 1.00
+
+<group name="type">
+    type is {{TYPE | ORPHRASE}}
+</group>

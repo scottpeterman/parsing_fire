@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_cpu_usage_detailed
+# Source: ntc
+# TextFSM rows: 22
+# TTP rows: 22
+# Match ratio: 1.00
+
+<group name="core_cpu_5_sec_cpu_5_sec_dp_cpu_5_sec_cp_cpu_1_min_cpu_1_min_dp_cpu_1_min_cp_cpu_5_min_cpu_5_min_dp_cpu_5_min_cp">
+{{CORE | ORPHRASE}} {{CPU_5_SEC}} ({{CPU_5_SEC_DP}} + {{CPU_5_SEC_CP}}) {{CPU_1_MIN}} ({{CPU_1_MIN_DP}} + {{CPU_1_MIN_CP}}) {{CPU_5_MIN}} ({{CPU_5_MIN_DP}} + {{CPU_5_MIN_CP | ORPHRASE}})
+</group>

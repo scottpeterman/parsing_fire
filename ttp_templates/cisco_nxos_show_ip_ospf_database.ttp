@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_ip_ospf_database
+# Source: ntc
+# TextFSM rows: 11
+# TTP rows: 2
+# Match ratio: 0.18
+
+<group name="area_process_id_router_id">
+OSPF Router with ID ({{ROUTER_ID}}) (Process ID {{PROCESS_ID | ORPHRASE}})
+<group name="adv_router_age_link_count">
+{{LINK_ID}} {{ADV_ROUTER}} {{AGE | ORPHRASE}} 0x80000004 0x2ea1 {{LINK_COUNT | re("\\d+")}}
+</group>
+</group>

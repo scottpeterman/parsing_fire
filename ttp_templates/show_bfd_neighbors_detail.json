@@ -1,0 +1,54 @@
+{
+  "command": "show bfd neighbors detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"bfd_interval_bfd_state_detect_multiplier_local_discr\">\nNeighbor: {{NEIGHBOR | ORPHRASE}}\n BFD state: {{BFD_STATE | ORPHRASE}}\n Neighbor interface: {{NEIGHBOR_INTERFACE | ORPHRASE}}\n Remote discr: {{REMOTE_DISCR | ORPHRASE}}\n BFD interval: {{BFD_INTERVAL | ORPHRASE}} ms\n Detect Multiplier: {{DETECT_MULTIPLIER | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR": "10.1.1.1",
+      "BFD_STATE": "UP",
+      "NEIGHBOR_INTERFACE": "Ethernet1/1",
+      "LOCAL_DISCR": "1",
+      "REMOTE_DISCR": "100",
+      "BFD_INTERVAL": "300",
+      "DETECT_MULTIPLIER": "3"
+    },
+    {
+      "NEIGHBOR": "10.2.2.2",
+      "BFD_STATE": "DOWN",
+      "NEIGHBOR_INTERFACE": "Ethernet1/2",
+      "LOCAL_DISCR": "2",
+      "REMOTE_DISCR": "200",
+      "BFD_INTERVAL": "500",
+      "DETECT_MULTIPLIER": "4"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "bfd_interval_bfd_state_detect_multiplier_local_discr": [
+        {
+          "DETECT_MULTIPLIER": "3",
+          "BFD_INTERVAL": "300",
+          "REMOTE_DISCR": "100",
+          "NEIGHBOR_INTERFACE": "Ethernet1/1",
+          "BFD_STATE": "UP",
+          "NEIGHBOR": "10.1.1.1"
+        },
+        {
+          "DETECT_MULTIPLIER": "4",
+          "BFD_INTERVAL": "500",
+          "REMOTE_DISCR": "200",
+          "NEIGHBOR_INTERFACE": "Ethernet1/2",
+          "BFD_STATE": "DOWN",
+          "NEIGHBOR": "10.2.2.2"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Neighbor: 10.1.1.1\n BFD state: UP\n Neighbor interface: Ethernet1/1\n Local discr: 1\n Remote discr: 100\n BFD interval: 300 ms\n Detect Multiplier: 3\n\nNeighbor: 10.2.2.2\n BFD state: DOWN\n Neighbor interface: Ethernet1/2\n Local discr: 2\n Remote discr: 200\n BFD interval: 500 ms\n Detect Multiplier: 4\n",
+  "textfsm_template": "Value NEIGHBOR (\\S+)\nValue BFD_STATE (\\S+)\nValue NEIGHBOR_INTERFACE (.+)\nValue LOCAL_DISCR (\\d+)\nValue REMOTE_DISCR (\\d+)\nValue BFD_INTERVAL (\\d+)\nValue DETECT_MULTIPLIER (\\d+)\n\nStart\n  ^\\s*Neighbor:\\s+${NEIGHBOR}\\s*$$\n  ^\\s*BFD state:\\s+${BFD_STATE}\\s*$$\n  ^\\s*Neighbor interface:\\s+${NEIGHBOR_INTERFACE}\\s*$$\n  ^\\s*Local discr:\\s+${LOCAL_DISCR}\\s*$$\n  ^\\s*Remote discr:\\s+${REMOTE_DISCR}\\s*$$\n  ^\\s*BFD interval:\\s+${BFD_INTERVAL}\\s+ms\\s*$$\n  ^\\s*Detect Multiplier:\\s+${DETECT_MULTIPLIER}\\s*$$ -> Record"
+}

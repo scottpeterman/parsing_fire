@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: checkpoint_gaia_show_interfaces_all
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 7
+# Match ratio: 2.33
+
+<group name="state">
+    state {{STATE | ORPHRASE}}
+</group>
+<group name="state_autoneg_interface">
+    auto-negotiati{{STATE | ORPHRASE}} {{AUTONEG | ORPHRASE}} ({{INTERFACE | ORPHRASE}})
+</group>
+<group name="ipv6_ll_address_ipv6_ll_mask">
+    ipv6-local-link-address {{IPV6_LL_ADDRESS}}/{{IPV6_LL_MASK | ORPHRASE}}
+</group>

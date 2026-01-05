@@ -1,0 +1,84 @@
+{
+  "command": "show ip igmp groups",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"group_address_interface_uptime_expires_last_reporter_group_accounted\">\n{{GROUP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE}} {{UPTIME | ORPHRASE}} {{EXPIRES}} {{LAST_REPORTER}} {{GROUP_ACCOUNTED | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "GROUP_ADDRESS": "239.1.1.1",
+      "INTERFACE": "Vlan10",
+      "UPTIME": "00:20:03",
+      "EXPIRES": "00:09:56",
+      "LAST_REPORTER": "10.10.10.1",
+      "GROUP_ACCOUNTED": "Yes"
+    },
+    {
+      "GROUP_ADDRESS": "239.2.2.2",
+      "INTERFACE": "Vlan20",
+      "UPTIME": "00:15:45",
+      "EXPIRES": "00:14:15",
+      "LAST_REPORTER": "10.10.20.1",
+      "GROUP_ACCOUNTED": "Yes"
+    },
+    {
+      "GROUP_ADDRESS": "239.3.3.3",
+      "INTERFACE": "GigabitEthernet0/1",
+      "UPTIME": "01:05:30",
+      "EXPIRES": "00:04:30",
+      "LAST_REPORTER": "10.10.30.1",
+      "GROUP_ACCOUNTED": "Yes"
+    },
+    {
+      "GROUP_ADDRESS": "239.4.4.4",
+      "INTERFACE": "GigabitEthernet0/2",
+      "UPTIME": "02:45:22",
+      "EXPIRES": "00:10:20",
+      "LAST_REPORTER": "10.10.40.1",
+      "GROUP_ACCOUNTED": "Yes"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "group_address_interface_uptime_expires_last_reporter_group_accounted": [
+        {
+          "GROUP_ADDRESS": "239.1.1.1",
+          "INTERFACE": "Vlan10",
+          "UPTIME": "00:20:03",
+          "EXPIRES": "00:09:56",
+          "LAST_REPORTER": "10.10.10.1",
+          "GROUP_ACCOUNTED": "Yes"
+        },
+        {
+          "GROUP_ADDRESS": "239.2.2.2",
+          "INTERFACE": "Vlan20",
+          "UPTIME": "00:15:45",
+          "EXPIRES": "00:14:15",
+          "LAST_REPORTER": "10.10.20.1",
+          "GROUP_ACCOUNTED": "Yes"
+        },
+        {
+          "GROUP_ADDRESS": "239.3.3.3",
+          "INTERFACE": "GigabitEthernet0/1",
+          "UPTIME": "01:05:30",
+          "EXPIRES": "00:04:30",
+          "LAST_REPORTER": "10.10.30.1",
+          "GROUP_ACCOUNTED": "Yes"
+        },
+        {
+          "GROUP_ADDRESS": "239.4.4.4",
+          "INTERFACE": "GigabitEthernet0/2",
+          "UPTIME": "02:45:22",
+          "EXPIRES": "00:10:20",
+          "LAST_REPORTER": "10.10.40.1",
+          "GROUP_ACCOUNTED": "Yes"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IGMP Connected Group Membership\nGroup Address  Interface                Uptime    Expires   Last Reporter  Group Accounted\n239.1.1.1      Vlan10                   00:20:03  00:09:56  10.10.10.1     Yes\n239.2.2.2      Vlan20                   00:15:45  00:14:15  10.10.20.1     Yes\n239.3.3.3      GigabitEthernet0/1       01:05:30  00:04:30  10.10.30.1     Yes\n239.4.4.4      GigabitEthernet0/2       02:45:22  00:10:20  10.10.40.1     Yes\n",
+  "textfsm_template": "Value GROUP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue INTERFACE (\\S+)\nValue UPTIME (\\d+:\\d+:\\d+)\nValue EXPIRES (\\d+:\\d+:\\d+)\nValue LAST_REPORTER (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue GROUP_ACCOUNTED (Yes|No)\n\nStart\n  ^\\s*Group\\s+Address\\s+Interface\\s+Uptime\\s+Expires\\s+Last\\s+Reporter\\s+Group\\s+Accounted\\s*$$\n  ^\\s*${GROUP_ADDRESS}\\s+${INTERFACE}\\s+${UPTIME}\\s+${EXPIRES}\\s+${LAST_REPORTER}\\s+${GROUP_ACCOUNTED}\\s*$$ -> Record"
+}

@@ -1,0 +1,35 @@
+{
+  "command": "cisco_ios_show_dmvpn",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"attribute_peer_nbma_peer_tunnel_state\">\nLegend: Attrb --> {{ATTRIBUTE | ORPHRASE}} - Static, D - Dynamic, I - Incomplete\n  # Ent --> Number of {{STATE | ORPHRASE}} entries with same NBMA peer\n  1 {{PEER_NBMA}}  {{PEER_TUNNEL}}  NHRP  {{UPTIME | ORPHRASE}}  S\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PEER_NBMA": "10.200.0.3",
+      "PEER_TUNNEL": "10.253.0.1",
+      "STATE": "UP",
+      "UPTIME": "03:19:46",
+      "ATTRIBUTE": "S"
+    },
+    {
+      "PEER_NBMA": "10.202.0.170",
+      "PEER_TUNNEL": "10.253.0.2",
+      "STATE": "NHRP",
+      "UPTIME": "48w0d",
+      "ATTRIBUTE": "S"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "attribute_peer_nbma_peer_tunnel_state": {
+        "ATTRIBUTE": "S"
+      }
+    }
+  ],
+  "cli_content": "Legend: Attrb --> S - Static, D - Dynamic, I - Incomplete\n        N - NATed, L - Local, X - No Socket\n        T1 - Route Installed, T2 - Nexthop-override\n        C - CTS Capable\n        # Ent --> Number of NHRP entries with same NBMA peer\n        NHS Status: E --> Expecting Replies, R --> Responding, W --> Waiting\n        UpDn Time --> Up or Down Time for a Tunnel\n==========================================================================\n\nInterface: Tunnel100, IPv4 NHRP Details \nType:Spoke, NHRP Peers:2, \n\n # Ent  Peer NBMA Addr Peer Tunnel Add State  UpDn Tm Attrb\n ----- --------------- --------------- ----- -------- -----\n     1 10.200.0.3           10.253.0.1    UP 03:19:46     S\n     1 10.202.0.170         10.253.0.2  NHRP    48w0d     S\n\n",
+  "textfsm_template": "Value PEER_NBMA (\\S*?)\nValue PEER_TUNNEL (\\S*?)\nValue STATE (\\S*?)\nValue UPTIME (\\S*?)\nValue ATTRIBUTE (\\S*?)\n\nStart\n  ^\\s+\\d+\\s+${PEER_NBMA}\\s+${PEER_TUNNEL}\\s+${STATE}\\s+${UPTIME}\\s+${ATTRIBUTE}$$ -> Record\n  ^Legend.*\n  ^\\s+\\D.*.*$$\n  ^=*$$\n  ^Interface.*$$\n  ^Type.*$$\n  ^\\s*$$\n  ^\\s+#\\s+Ent\\s+Peer\\s+NBMA\\s+Addr\\s+Peer\\s+Tunnel\\s+Add\\s+State\\s+UpDn\\s+Tm\\s+Attrb\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^. -> Error\n"
+}

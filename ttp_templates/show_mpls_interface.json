@@ -1,0 +1,69 @@
+{
+  "command": "show mpls interface",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.75,
+  "textfsm_rows": 4,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"interface_ip_address_tunnel_ldp_rsvp\">\n{{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{TUNNEL}} {{LDP}} {{RSVP | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Ethernet1/1",
+      "IP_ADDRESS": "192.168.10.1",
+      "TUNNEL": "Tunnel0",
+      "LDP": "Enabled",
+      "RSVP": "Disabled"
+    },
+    {
+      "INTERFACE": "Ethernet1/2",
+      "IP_ADDRESS": "192.168.20.1",
+      "TUNNEL": "-",
+      "LDP": "Disabled",
+      "RSVP": "Enabled"
+    },
+    {
+      "INTERFACE": "Loopback0",
+      "IP_ADDRESS": "10.1.1.1",
+      "TUNNEL": "-",
+      "LDP": "Enabled",
+      "RSVP": "Enabled"
+    },
+    {
+      "INTERFACE": "Tunnel0",
+      "IP_ADDRESS": "-",
+      "TUNNEL": "-",
+      "LDP": "Enabled",
+      "RSVP": "Enabled"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_tunnel_ldp_rsvp": [
+        {
+          "INTERFACE": "Ethernet1/1",
+          "IP_ADDRESS": "192.168.10.1",
+          "TUNNEL": "Tunnel0",
+          "LDP": "Enabled",
+          "RSVP": "Disabled"
+        },
+        {
+          "INTERFACE": "Ethernet1/2",
+          "IP_ADDRESS": "192.168.20.1",
+          "TUNNEL": "-",
+          "LDP": "Disabled",
+          "RSVP": "Enabled"
+        },
+        {
+          "INTERFACE": "Loopback0",
+          "IP_ADDRESS": "10.1.1.1",
+          "TUNNEL": "-",
+          "LDP": "Enabled",
+          "RSVP": "Enabled"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              IP-Address      Tunnel    LDP      RSVP\nEthernet1/1            192.168.10.1    Tunnel0   Enabled  Disabled\nEthernet1/2            192.168.20.1    -         Disabled Enabled\nLoopback0              10.1.1.1        -         Enabled  Enabled\nTunnel0                -               -         Enabled  Enabled\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue IP_ADDRESS (\\S+|-)\nValue TUNNEL (\\S+|-)\nValue LDP (\\S+)\nValue RSVP (\\S+)\n\nStart\n  ^Interface\\s+IP-Address\\s+Tunnel\\s+LDP\\s+RSVP\\s*$$\n  ^\\s*${INTERFACE}\\s+${IP_ADDRESS}\\s+${TUNNEL}\\s+${LDP}\\s+${RSVP}\\s*$$ -> Record"
+}

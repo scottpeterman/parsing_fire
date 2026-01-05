@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_access-session
+# Source: ntc
+# TextFSM rows: 41
+# TTP rows: 41
+# Match ratio: 1.00
+
+<group name="interface_mac_address_method_domain_status_session">
+{{INTERFACE}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{METHOD}} {{DOMAIN}} {{STATUS | ORPHRASE}} {{SESSION | ORPHRASE}}
+</group>

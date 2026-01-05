@@ -1,0 +1,132 @@
+{
+  "command": "cisco_wlc_ssh_show_rf-profile_summary",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 4.333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 13,
+  "ttp_template": "<group name=\"profile_band_description_n_only_applied\">\n{{PROFILE}} {{BAND | ORPHRASE}} {{DESCRIPTION}} {{N_ONLY}} {{APPLIED | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROFILE": "VSW_OFFICE",
+      "BAND": "5 GHz",
+      "DESCRIPTION": "<none>",
+      "N_ONLY": "disable",
+      "APPLIED": "Yes"
+    },
+    {
+      "PROFILE": "VSW_OUTDOOR",
+      "BAND": "5 GHz",
+      "DESCRIPTION": "<none>",
+      "N_ONLY": "disable",
+      "APPLIED": "Yes"
+    },
+    {
+      "PROFILE": "VSW_WAREHOUSE",
+      "BAND": "5 GHz",
+      "DESCRIPTION": "<none>",
+      "N_ONLY": "disable",
+      "APPLIED": "Yes"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "profile_band_description_n_only_applied": [
+        {
+          "PROFILE": "Number",
+          "BAND": "of",
+          "DESCRIPTION": "RF",
+          "N_ONLY": "Profiles............................",
+          "APPLIED": "9"
+        },
+        {
+          "PROFILE": "Out",
+          "BAND": "Of",
+          "DESCRIPTION": "Box",
+          "N_ONLY": "State.................................",
+          "APPLIED": "Disabled"
+        },
+        {
+          "PROFILE": "Out",
+          "BAND": "Of",
+          "DESCRIPTION": "Box",
+          "N_ONLY": "Persistence...........................",
+          "APPLIED": "Disabled"
+        },
+        {
+          "PROFILE": "---------------------------------",
+          "BAND": "-------",
+          "DESCRIPTION": "-----------------------------------",
+          "N_ONLY": "------------------",
+          "APPLIED": "----------"
+        },
+        {
+          "PROFILE": "High-Client-Density-802.11a",
+          "BAND": "5 GHz",
+          "DESCRIPTION": "<none>",
+          "N_ONLY": "disable",
+          "APPLIED": "No"
+        },
+        {
+          "PROFILE": "High-Client-Density-802.11bg",
+          "BAND": "2.4 GHz",
+          "DESCRIPTION": "<none>",
+          "N_ONLY": "disable",
+          "APPLIED": "No"
+        },
+        {
+          "PROFILE": "Low-Client-Density-802.11a",
+          "BAND": "5 GHz",
+          "DESCRIPTION": "<none>",
+          "N_ONLY": "disable",
+          "APPLIED": "No"
+        },
+        {
+          "PROFILE": "Low-Client-Density-802.11bg",
+          "BAND": "2.4 GHz",
+          "DESCRIPTION": "<none>",
+          "N_ONLY": "disable",
+          "APPLIED": "No"
+        },
+        {
+          "PROFILE": "Typical-Client-Density-802.11a",
+          "BAND": "5 GHz",
+          "DESCRIPTION": "<none>",
+          "N_ONLY": "disable",
+          "APPLIED": "No"
+        },
+        {
+          "PROFILE": "Typical-Client-Density-802.11bg",
+          "BAND": "2.4 GHz",
+          "DESCRIPTION": "<none>",
+          "N_ONLY": "disable",
+          "APPLIED": "No"
+        },
+        {
+          "PROFILE": "VSW_OFFICE",
+          "BAND": "5 GHz",
+          "DESCRIPTION": "<none>",
+          "N_ONLY": "disable",
+          "APPLIED": "Yes"
+        },
+        {
+          "PROFILE": "VSW_OUTDOOR",
+          "BAND": "5 GHz",
+          "DESCRIPTION": "<none>",
+          "N_ONLY": "disable",
+          "APPLIED": "Yes"
+        },
+        {
+          "PROFILE": "VSW_WAREHOUSE",
+          "BAND": "5 GHz",
+          "DESCRIPTION": "<none>",
+          "N_ONLY": "disable",
+          "APPLIED": "Yes"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nNumber of RF Profiles............................ 9\n\nOut Of Box State................................. Disabled\n\nOut Of Box Persistence........................... Disabled\n\nRF Profile Name                    Band     Description                          11n-client-only     Applied  \n---------------------------------  -------  -----------------------------------  ------------------  ----------\nHigh-Client-Density-802.11a        5 GHz    <none>                               disable             No        \nHigh-Client-Density-802.11bg       2.4 GHz  <none>                               disable             No        \nLow-Client-Density-802.11a         5 GHz    <none>                               disable             No        \nLow-Client-Density-802.11bg        2.4 GHz  <none>                               disable             No        \nTypical-Client-Density-802.11a     5 GHz    <none>                               disable             No        \nTypical-Client-Density-802.11bg    2.4 GHz  <none>                               disable             No        \nVSW_OFFICE                         5 GHz    <none>                               disable             Yes       \nVSW_OUTDOOR                        5 GHz    <none>                               disable             Yes       \nVSW_WAREHOUSE                      5 GHz    <none>                               disable             Yes       \n",
+  "textfsm_template": "Value PROFILE (\\S+)\n#Value PROFILE (\\S+)\nValue BAND (\\d\\.?4? GHz)\nValue DESCRIPTION ((\\S+(.?\\S+)+))\nValue N_ONLY (\\w+)\nValue APPLIED (\\w+)\n\n\nStart\n  ^.+\\.+\n  ^RF\\s+Profile\\s+Name\\s+Band\\s+Description\\s+11n-client-only\\s+Applied -> Profile\n  ^\\s*$$\n  ^. -> Error\n\nProfile\n  ^(?:High|Low|Typical)-Client-Density-802.11\n  ^${PROFILE}\\s+${BAND}\\s+${DESCRIPTION}\\s+${N_ONLY}\\s+${APPLIED} -> Record\n  ^-+[\\s|-]+$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

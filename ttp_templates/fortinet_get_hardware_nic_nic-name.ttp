@@ -1,0 +1,28 @@
+# TTP Template auto-generated from TextFSM
+# Original command: fortinet_get_hardware_nic_nic-name
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="admin_autonego_setting_board_current_hwaddr">
+Description  :{{DESCRIPTION | ORPHRASE}}
+Driver Name  :{{DRIVER_NAME | ORPHRASE}}
+Board  :{{BOARD | ORPHRASE}}
+lif id  :{{LIF_ID | ORPHRASE}}
+lif oid  :{{LIF_OID | ORPHRASE}}
+Current_HWaddr  {{CURRENT_HWADDR | ORPHRASE}}
+Admin  :{{ADMIN | ORPHRASE}}
+netdev status  :{{NETDEV_STATUS | ORPHRASE}}
+speed_setting  :{{SPEED_SETTING | ORPHRASE}}
+Duplex  :{{DUPLEX | ORPHRASE}}
+link_status  :{{LINK_STATUS | ORPHRASE}}
+Rx Pkts  :{{RX_PACKETS | ORPHRASE}}
+Rx Bytes  :{{RX_BYTES | ORPHRASE}}
+Tx Pkts  :{{TX_PACKETS | ORPHRASE}}
+Tx Bytes  :{{TX_BYTES | ORPHRASE}}
+Host Rx Pkts  :{{HOST_RX_PACKETS | ORPHRASE}}
+Host Rx Bytes  :{{HOST_RX_BYTES | ORPHRASE}}
+Host Tx Pkts  :{{HOST_TX_PACKETS | ORPHRASE}}
+Host Tx Bytes  :{{HOST_TX_BYTES | ORPHRASE}}
+</group>

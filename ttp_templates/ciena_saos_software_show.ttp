@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: ciena_saos_software_show
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="version_installed">
+| Installed Package : {{VERSION_INSTALLED | ORPHRASE}} |
+</group>

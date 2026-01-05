@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_comware_display_ip_interface
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="interface_ip_address_line_status_mtu">
+{{INTERFACE}} current state :{{LINE_STATUS | ORPHRASE}}
+Internet Address is {{IP_ADDRESS | ORPHRASE}} Primary
+The Maximum Transmit Unit : {{MTU | ORPHRASE}} bytes
+Policy routing is enabled, using route map {{ROUTE_MAP | ORPHRASE}}
+</group>

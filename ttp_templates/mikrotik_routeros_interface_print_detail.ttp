@@ -1,0 +1,31 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_interface_print_detail
+# Source: ntc
+# TextFSM rows: 9
+# TTP rows: 11
+# Match ratio: 1.22
+
+<group name="id_name_default_name_type_mtu_actual_mtu_l2mtu_max_l2mtu_mac_address_last_link_down_time_last_link_up_time_link_downs">
+ {{ID | re("\\d+")}} name="{{NAME}}" default-name="{{DEFAULT_NAME}}" type="{{TYPE}}" mtu={{MTU}} actual-mtu={{ACTUAL_MTU}} l2mtu={{L2MTU}} max-l2mtu={{MAX_L2MTU}} mac-address={{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} last-link-down-time={{LAST_LINK_DOWN_TIME | ORPHRASE}} last-link-up-time={{LAST_LINK_UP_TIME | ORPHRASE}} link-downs={{LINK_DOWNS}}
+</group>
+<group name="dynamic_name_default_name_type_mtu_actual_mtu_l2mtu_max_l2mtu_mac_address_last_link_down_time_last_link_up_time_link_downs">
+ {{I{{DYNAMIC}} | re("\\d+")}} D name="{{NAME}}" default-name="{{DEFAULT_NAME}}" type="{{TYPE}}" mtu={{MTU}} actual-mtu={{ACTUAL_MTU}} l2mtu={{L2MTU}} max-l2mtu={{MAX_L2MTU}} mac-address={{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} last-link-down-time={{LAST_LINK_DOWN_TIME | ORPHRASE}} last-link-up-time={{LAST_LINK_UP_TIME | ORPHRASE}} link-downs={{LINK_DOWNS}}
+</group>
+<group name="id_status_name_default_name_type_mtu_actual_mtu_l2mtu_max_l2mtu_mac_address_link_downs">
+ {{ID | re("\\d+")}} {{STATUS | ORPHRASE}} name="{{NAME}}" default-name="{{DEFAULT_NAME}}" type="{{TYPE}}" mtu={{MTU}} actual-mtu={{ACTUAL_MTU}} l2mtu={{L2MTU}} max-l2mtu={{MAX_L2MTU}} mac-address={{MAC_ADDRESS | ORPHRASE}} link-downs={{LINK_DOWNS}}
+</group>
+<group name="id_slave_name_default_name_type_mtu_actual_mtu_l2mtu_max_l2mtu_mac_address_link_downs">
+ {{ID | re("\\d+")}} {{SLAVE}} name="{{NAME}}" default-name="{{DEFAULT_NAME}}" type="{{TYPE}}" mtu={{MTU}} actual-mtu={{ACTUAL_MTU}} l2mtu={{L2MTU}} max-l2mtu={{MAX_L2MTU}} mac-address={{MAC_ADDRESS | ORPHRASE}} link-downs={{LINK_DOWNS}}
+</group>
+<group name="dynamic_status_name_default_name_type_mtu_actual_mtu_l2mtu_max_l2mtu_mac_address_link_downs">
+ {{I{{DYNAMIC}} | re("\\d+")}} D{{STATUS | ORPHRASE}} name="{{NAME}}" default-name="{{DEFAULT_NAME}}" type="{{TYPE}}" mtu={{MTU}} actual-mtu={{ACTUAL_MTU}} l2mtu={{L2MTU}} max-l2mtu={{MAX_L2MTU}} mac-address={{MAC_ADDRESS | ORPHRASE}} link-downs={{LINK_DOWNS}}
+</group>
+<group name="dynamic_slave_name_type_mtu_actual_mtu_mac_address_last_link_down_time_last_link_up_time_link_downs">
+ {{I{{DYNAMIC}} | re("\\d+")}} D {{SLAVE}} name="{{NAME}}" type="{{TYPE}}" mtu={{MTU}} actual-mtu={{ACTUAL_MTU}} mac-address={{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} last-link-down-time={{LAST_LINK_DOWN_TIME | ORPHRASE}} last-link-up-time={{LAST_LINK_UP_TIME | ORPHRASE}} link-downs={{LINK_DOWNS | ORPHRASE}}
+</group>
+<group name="name_type_mtu_actual_mtu_slave_dynamic_status_last_link_up_time_link_downs">
+       name="{{NAME}}" type="{{TYPE}}" mtu={{MTU}} actual-mtu={{ACTUAL_MTU}} last-link-down-time={{LA{{SLAVE}}T_LINK_{{DYNAMIC}}OWN_TIME | O{{STATUS | ORPHRASE}}PHRASE}} last-link-up-time={{LAST_LINK_UP_TIME | ORPHRASE}} link-downs={{LINK_DOWNS | ORPHRASE}}
+</group>
+<group name="name_type_mtu_actual_mtu_slave_status_last_link_up_time_link_downs">
+       name="{{NAME}}" type="{{TYPE}}" mtu={{MTU}} actual-mtu={{ACTUAL_MTU}} last-link-down-time={{LA{{SLAVE}}T_LINK_DOWN_TIME | O{{STATUS | ORPHRASE}}PHRASE}} last-link-up-time={{LAST_LINK_UP_TIME | ORPHRASE}} link-downs={{LINK_DOWNS}} 
+</group>

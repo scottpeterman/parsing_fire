@@ -1,0 +1,139 @@
+{
+  "command": "ipinfusion_ocnos_show_lldp_table",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.4285714285714286,
+  "textfsm_rows": 7,
+  "ttp_rows": 10,
+  "ttp_template": "<group name=\"local_interface_neighbor_name_neighbor_interface_capabilities_neighbor_interface_description\">\n{{LOCAL_INTERFACE}} {{NEIGHBOR_NAME}} {{NEIGHBOR_INTERFACE}} {{CAPABILITIES}} {{NEIGHBOR_INTERFACE_DESCRIPTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOCAL_INTERFACE": "Ethernet0",
+      "NEIGHBOR_NAME": "spine01",
+      "NEIGHBOR_INTERFACE": "fortyGigE0/20",
+      "CAPABILITIES": "BR",
+      "NEIGHBOR_INTERFACE_DESCRIPTION": "Ethernet20"
+    },
+    {
+      "LOCAL_INTERFACE": "Ethernet4",
+      "NEIGHBOR_NAME": "spine02",
+      "NEIGHBOR_INTERFACE": "fortyGigE0/20",
+      "CAPABILITIES": "BR",
+      "NEIGHBOR_INTERFACE_DESCRIPTION": "Ethernet20"
+    },
+    {
+      "LOCAL_INTERFACE": "Ethernet8",
+      "NEIGHBOR_NAME": "leaf01",
+      "NEIGHBOR_INTERFACE": "fortyGigE0/20",
+      "CAPABILITIES": "BR",
+      "NEIGHBOR_INTERFACE_DESCRIPTION": "Ethernet20"
+    },
+    {
+      "LOCAL_INTERFACE": "Ethernet12",
+      "NEIGHBOR_NAME": "leaf02",
+      "NEIGHBOR_INTERFACE": "fortyGigE0/20",
+      "CAPABILITIES": "BR",
+      "NEIGHBOR_INTERFACE_DESCRIPTION": "Ethernet20"
+    },
+    {
+      "LOCAL_INTERFACE": "Ethernet16",
+      "NEIGHBOR_NAME": "leaf03",
+      "NEIGHBOR_INTERFACE": "fortyGigE0/24",
+      "CAPABILITIES": "BR",
+      "NEIGHBOR_INTERFACE_DESCRIPTION": "Ethernet24"
+    },
+    {
+      "LOCAL_INTERFACE": "Ethernet20",
+      "NEIGHBOR_NAME": "leaf04",
+      "NEIGHBOR_INTERFACE": "fortyGigE0/24",
+      "CAPABILITIES": "BR",
+      "NEIGHBOR_INTERFACE_DESCRIPTION": "Ethernet24"
+    },
+    {
+      "LOCAL_INTERFACE": "eth0",
+      "NEIGHBOR_NAME": "mgmt-switch",
+      "NEIGHBOR_INTERFACE": "swp14",
+      "CAPABILITIES": "BR",
+      "NEIGHBOR_INTERFACE_DESCRIPTION": "swp14"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "local_interface_neighbor_name_neighbor_interface_capabilities_neighbor_interface_description": [
+        {
+          "LOCAL_INTERFACE": "Capability",
+          "NEIGHBOR_NAME": "codes:",
+          "NEIGHBOR_INTERFACE": "(R)",
+          "CAPABILITIES": "Router,",
+          "NEIGHBOR_INTERFACE_DESCRIPTION": "(B) Bridge, (O) Other"
+        },
+        {
+          "LOCAL_INTERFACE": "LocalPort",
+          "NEIGHBOR_NAME": "RemoteDevice",
+          "NEIGHBOR_INTERFACE": "RemotePortID",
+          "CAPABILITIES": "Capability",
+          "NEIGHBOR_INTERFACE_DESCRIPTION": "RemotePortDescr"
+        },
+        {
+          "LOCAL_INTERFACE": "-----------",
+          "NEIGHBOR_NAME": "---------------",
+          "NEIGHBOR_INTERFACE": "--------------",
+          "CAPABILITIES": "------------",
+          "NEIGHBOR_INTERFACE_DESCRIPTION": "-----------------"
+        },
+        {
+          "LOCAL_INTERFACE": "Ethernet0",
+          "NEIGHBOR_NAME": "spine01",
+          "NEIGHBOR_INTERFACE": "fortyGigE0/20",
+          "CAPABILITIES": "BR",
+          "NEIGHBOR_INTERFACE_DESCRIPTION": "Ethernet20"
+        },
+        {
+          "LOCAL_INTERFACE": "Ethernet4",
+          "NEIGHBOR_NAME": "spine02",
+          "NEIGHBOR_INTERFACE": "fortyGigE0/20",
+          "CAPABILITIES": "BR",
+          "NEIGHBOR_INTERFACE_DESCRIPTION": "Ethernet20"
+        },
+        {
+          "LOCAL_INTERFACE": "Ethernet8",
+          "NEIGHBOR_NAME": "leaf01",
+          "NEIGHBOR_INTERFACE": "fortyGigE0/20",
+          "CAPABILITIES": "BR",
+          "NEIGHBOR_INTERFACE_DESCRIPTION": "Ethernet20"
+        },
+        {
+          "LOCAL_INTERFACE": "Ethernet12",
+          "NEIGHBOR_NAME": "leaf02",
+          "NEIGHBOR_INTERFACE": "fortyGigE0/20",
+          "CAPABILITIES": "BR",
+          "NEIGHBOR_INTERFACE_DESCRIPTION": "Ethernet20"
+        },
+        {
+          "LOCAL_INTERFACE": "Ethernet16",
+          "NEIGHBOR_NAME": "leaf03",
+          "NEIGHBOR_INTERFACE": "fortyGigE0/24",
+          "CAPABILITIES": "BR",
+          "NEIGHBOR_INTERFACE_DESCRIPTION": "Ethernet24"
+        },
+        {
+          "LOCAL_INTERFACE": "Ethernet20",
+          "NEIGHBOR_NAME": "leaf04",
+          "NEIGHBOR_INTERFACE": "fortyGigE0/24",
+          "CAPABILITIES": "BR",
+          "NEIGHBOR_INTERFACE_DESCRIPTION": "Ethernet24"
+        },
+        {
+          "LOCAL_INTERFACE": "eth0",
+          "NEIGHBOR_NAME": "mgmt-switch",
+          "NEIGHBOR_INTERFACE": "swp14",
+          "CAPABILITIES": "BR",
+          "NEIGHBOR_INTERFACE_DESCRIPTION": "swp14"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Capability codes: (R) Router, (B) Bridge, (O) Other\nLocalPort    RemoteDevice     RemotePortID    Capability    RemotePortDescr\n-----------  ---------------  --------------  ------------  -----------------\nEthernet0    spine01          fortyGigE0/20   BR            Ethernet20\nEthernet4    spine02          fortyGigE0/20   BR            Ethernet20\nEthernet8    leaf01           fortyGigE0/20   BR            Ethernet20\nEthernet12   leaf02           fortyGigE0/20   BR            Ethernet20\nEthernet16   leaf03           fortyGigE0/24   BR            Ethernet24\nEthernet20   leaf04           fortyGigE0/24   BR            Ethernet24\neth0         mgmt-switch      swp14           BR            swp14\n--------------------------------------------------\nTotal entries displayed:  7\n",
+  "textfsm_template": "Value LOCAL_INTERFACE (\\S+)\nValue NEIGHBOR_NAME (\\S+)\nValue NEIGHBOR_INTERFACE (\\S+)\nValue CAPABILITIES (R|B|O|RO|RB|BR|BO|OR|OB|RBO|ROB|BRO|BOR|ORB|OBR)\nValue NEIGHBOR_INTERFACE_DESCRIPTION (\\S+)\n\nStart\n  ^Capability\\s+codes:\\s+\\(R\\)\\s+Router,\\s+\\(B\\)\\s+Bridge,\\s+\\(O\\)\\s+Other\n  ^LocalPort\\s+RemoteDevice\\s+RemotePortID\\s+Capability\\s+RemotePortDescr\n  ^[-+\\s+]+ -> Row\n  ^. -> Error\n\nRow  \n  ^${LOCAL_INTERFACE}\\s+${NEIGHBOR_NAME}\\s+${NEIGHBOR_INTERFACE}\\s+${CAPABILITIES}\\s+${NEIGHBOR_INTERFACE_DESCRIPTION} -> Record\n  ^-+\n  ^[\\w+\\s+]*:\\s+\\d+\n  ^. -> Error\n"
+}

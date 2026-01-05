@@ -1,0 +1,30 @@
+{
+  "command": "cisco_nxos_show_processes_cpu",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"cpu_5_sec_interrupts_cpu_1_min_cpu_5_min\">\nCPU utilization for five seconds: {{CPU_5_SEC}}%/{{INTERRUPTS}}%; one minute: {{CPU_1_MIN}}%; five minutes: {{CPU_5_MIN | ORPHRASE}}%\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CPU_5_SEC": "15",
+      "CPU_1_MIN": "12",
+      "CPU_5_MIN": "10",
+      "INTERRUPTS": "1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "cpu_5_sec_interrupts_cpu_1_min_cpu_5_min": {
+        "CPU_5_SEC": "15",
+        "INTERRUPTS": "1",
+        "CPU_1_MIN": "12",
+        "CPU_5_MIN": "10"
+      }
+    }
+  ],
+  "cli_content": "CPU utilization for five seconds: 15%/1%; one minute: 12%; five minutes: 10%\nPID    Runtime(ms)  Invoked   uSecs  5Sec    1Min    5Min    TTY  Process\n-----  -----------  --------  -----  ------  ------  ------  ---  -----------\n    1         6170      1011      6   0.00%   0.00%  0.00%   -    init\n 2828           20         6      3   0.00%   0.00%  0.00%   -    portmap\n 2866           20         8      2   0.00%   0.00%  0.00%   -    rpc.statd\n 2876         3490     12448      0   0.92%   0.34%  0.10%   -    sysmgr\n 3383           80         6     13   0.00%   0.00%  0.00%   -    xinetd\n 3384           40         5      8   0.00%   0.00%  0.00%   -    tftpd\n 3385         1650      6566      0   0.00%   0.01%  0.01%   -    syslogd\n 3386          450        51      8   0.00%   0.00%  0.00%   -    sdwrapd\n 3387          650        92      7   0.00%   0.00%  0.00%   -    pfm_dummy\n 3388         2920      4747      0   0.00%   0.03%  0.03%   -    platform\n 3400          150       731      0   0.00%   0.00%  0.00%   -    klogd\n 3403          560       863      0   0.00%   0.00%  0.00%   -    vshd\n 3404          670      1698      0   0.00%   0.00%  0.00%   -    vpc_config_sync\n 3405          270      2214      0   0.00%   0.00%  0.00%   -    smm\n 3406          620      1399      0   0.00%   0.00%  0.00%   -    session-mgr\n 3407          730      4464      0   0.00%   0.00%  0.00%   -    psshelper\n 3408          820      1531      0   0.00%   0.00%  0.00%   -    pixm\n 3410          580     19429      0   0.00%   0.03%  0.03%   -    pdsd",
+  "textfsm_template": "Value CPU_5_SEC (\\d+)\nValue CPU_1_MIN (\\d+)\nValue CPU_5_MIN (\\d+)\nValue INTERRUPTS (\\d+)\n\nStart\n  ^CPU utilization for five seconds:\\W+${CPU_5_SEC}%/${INTERRUPTS}%; one minute:\\W+${CPU_1_MIN}%; five minutes:\\W+${CPU_5_MIN}% -> Record\n"
+}

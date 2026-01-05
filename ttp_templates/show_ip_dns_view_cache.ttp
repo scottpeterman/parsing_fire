@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip dns view cache
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="type_ttl_data">
+{{DOM{{TYPE}}IN_NAME}} A {{TTL}} {{DATA | ORPHRASE}}
+</group>
+<group name="domain_name_type_ttl_data">
+{{DOMAIN_NAME}} {{TYPE}} {{TTL | ORPHRASE}} {{DATA}}
+</group>

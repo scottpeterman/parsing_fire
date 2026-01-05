@@ -1,0 +1,23 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show domain-name example.com
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="creation_date_dnssec_domain_name_domain_status">
+Domain Name: {{DOMAIN_NAME | ORPHRASE}}
+Registry Domain ID: {{REGISTRY_DOMAIN_ID | ORPHRASE}}
+Registrar WHOIS Server: {{REGISTRAR_WHOIS_SERVER | ORPHRASE}}
+Registrar URL: {{REGISTRAR_URL | ORPHRASE}}
+Updated Date: {{UPDATED_DATE | ORPHRASE}}
+Creation Date: {{CREATION_DATE | ORPHRASE}}
+Registry Expiry Date: {{REGISTRY_EXPIRY_DATE | ORPHRASE}}
+Registrar: {{REGISTRAR | ORPHRASE}}
+Registrar IANA ID: {{REGISTRAR_IANA_ID | ORPHRASE}}
+Registrar Abuse Contact Email: {{REGISTRAR_ABUSE_CONTACT_EMAIL | ORPHRASE}}
+Registrar Abuse Contact Phone: {{REGISTRAR_ABUSE_CONTACT_PHONE | ORPHRASE}}
+Domain Status: {{DOMAIN_STATUS | ORPHRASE}}
+Name Server: {{NAME_SERVER | ORPHRASE}}
+DNSSEC: {{DNSSEC | ORPHRASE}}
+</group>

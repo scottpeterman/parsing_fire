@@ -1,0 +1,86 @@
+{
+  "command": "show alarm-counters",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.2,
+  "textfsm_rows": 5,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"severity_raised_cleared_outstanding\">\n{{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{RAISED}} {{CLEARED}} {{OUTSTANDING | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SEVERITY": "Critical",
+      "RAISED": "5",
+      "CLEARED": "3",
+      "OUTSTANDING": "2"
+    },
+    {
+      "SEVERITY": "Major",
+      "RAISED": "12",
+      "CLEARED": "8",
+      "OUTSTANDING": "4"
+    },
+    {
+      "SEVERITY": "Minor",
+      "RAISED": "25",
+      "CLEARED": "20",
+      "OUTSTANDING": "5"
+    },
+    {
+      "SEVERITY": "Warning",
+      "RAISED": "30",
+      "CLEARED": "28",
+      "OUTSTANDING": "2"
+    },
+    {
+      "SEVERITY": "Info",
+      "RAISED": "50",
+      "CLEARED": "45",
+      "OUTSTANDING": "5"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "severity_raised_cleared_outstanding": [
+        {
+          "SEVERITY": "Severity",
+          "RAISED": "Raised",
+          "CLEARED": "Cleared",
+          "OUTSTANDING": "Outstanding"
+        },
+        {
+          "SEVERITY": "Critical",
+          "RAISED": "5",
+          "CLEARED": "3",
+          "OUTSTANDING": "2"
+        },
+        {
+          "SEVERITY": "Major",
+          "RAISED": "12",
+          "CLEARED": "8",
+          "OUTSTANDING": "4"
+        },
+        {
+          "SEVERITY": "Minor",
+          "RAISED": "25",
+          "CLEARED": "20",
+          "OUTSTANDING": "5"
+        },
+        {
+          "SEVERITY": "Warning",
+          "RAISED": "30",
+          "CLEARED": "28",
+          "OUTSTANDING": "2"
+        },
+        {
+          "SEVERITY": "Info",
+          "RAISED": "50",
+          "CLEARED": "45",
+          "OUTSTANDING": "5"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Severity         Raised     Cleared    Outstanding \nCritical         5          3          2           \nMajor            12         8          4           \nMinor            25         20         5           \nWarning          30         28         2           \nInfo             50         45         5           \n",
+  "textfsm_template": "Value SEVERITY (\\S+)\nValue RAISED (\\d+)\nValue CLEARED (\\d+)\nValue OUTSTANDING (\\d+)\n\nStart\n  ^\\s*Severity\\s+Raised\\s+Cleared\\s+Outstanding\\s*$$\n  ^\\s*${SEVERITY}\\s+${RAISED}\\s+${CLEARED}\\s+${OUTSTANDING}\\s*$$ -> Record"
+}

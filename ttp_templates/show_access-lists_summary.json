@@ -1,0 +1,80 @@
+{
+  "command": "show access-lists summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"list_name_rules_count_permit_count_deny_count\">\n{{LIST_NAME}} {{RULES_COUNT | re(\"\\\\d+\")}} {{PERMIT_COUNT | re(\"\\\\d+\")}} {{DENY_COUNT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LIST_NAME": "ACL_TRAFFIC_1",
+      "RULES_COUNT": "10",
+      "PERMIT_COUNT": "8",
+      "DENY_COUNT": "2"
+    },
+    {
+      "LIST_NAME": "MULTICAST_FILTER",
+      "RULES_COUNT": "15",
+      "PERMIT_COUNT": "15",
+      "DENY_COUNT": "0"
+    },
+    {
+      "LIST_NAME": "BLOCK_SPOOFING",
+      "RULES_COUNT": "5",
+      "PERMIT_COUNT": "0",
+      "DENY_COUNT": "5"
+    },
+    {
+      "LIST_NAME": "ACL_DMZ",
+      "RULES_COUNT": "20",
+      "PERMIT_COUNT": "18",
+      "DENY_COUNT": "2"
+    },
+    {
+      "LIST_NAME": "USER_ACL",
+      "RULES_COUNT": "7",
+      "PERMIT_COUNT": "6",
+      "DENY_COUNT": "1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "list_name_rules_count_permit_count_deny_count": [
+        {
+          "LIST_NAME": "ACL_TRAFFIC_1",
+          "RULES_COUNT": "10",
+          "PERMIT_COUNT": "8",
+          "DENY_COUNT": "2"
+        },
+        {
+          "LIST_NAME": "MULTICAST_FILTER",
+          "RULES_COUNT": "15",
+          "PERMIT_COUNT": "15",
+          "DENY_COUNT": "0"
+        },
+        {
+          "LIST_NAME": "BLOCK_SPOOFING",
+          "RULES_COUNT": "5",
+          "PERMIT_COUNT": "0",
+          "DENY_COUNT": "5"
+        },
+        {
+          "LIST_NAME": "ACL_DMZ",
+          "RULES_COUNT": "20",
+          "PERMIT_COUNT": "18",
+          "DENY_COUNT": "2"
+        },
+        {
+          "LIST_NAME": "USER_ACL",
+          "RULES_COUNT": "7",
+          "PERMIT_COUNT": "6",
+          "DENY_COUNT": "1"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Access List Name    Rules Count    Permit Count   Deny Count\n-------------------------------------------------------------\nACL_TRAFFIC_1       10             8              2\nMULTICAST_FILTER    15             15             0\nBLOCK_SPOOFING      5              0              5\nACL_DMZ             20             18             2\nUSER_ACL            7              6              1\n",
+  "textfsm_template": "Value LIST_NAME (\\S+)\nValue RULES_COUNT (\\d+)\nValue PERMIT_COUNT (\\d+)\nValue DENY_COUNT (\\d+)\n\nStart\n  ^Access\\s+List\\s+Name\\s+Rules\\s+Count\\s+Permit\\s+Count\\s+Deny\\s+Count\\s*$$\n  ^-+\\s*$$\n  ^${LIST_NAME}\\s+${RULES_COUNT}\\s+${PERMIT_COUNT}\\s+${DENY_COUNT}\\s*$$ -> Record"
+}

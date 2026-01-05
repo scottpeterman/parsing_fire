@@ -1,0 +1,68 @@
+{
+  "command": "show adjacency forwarding",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"protocol_nbr_address_interface_status\">\n{{PROTOCOL}} {{NBR_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE}} {{STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "Ethernet",
+      "NBR_ADDRESS": "10.10.10.2",
+      "INTERFACE": "GigabitEthernet0/1",
+      "STATUS": "Up"
+    },
+    {
+      "PROTOCOL": "Ethernet",
+      "NBR_ADDRESS": "10.10.10.3",
+      "INTERFACE": "GigabitEthernet0/2",
+      "STATUS": "Up"
+    },
+    {
+      "PROTOCOL": "MPLS",
+      "NBR_ADDRESS": "192.168.0.1",
+      "INTERFACE": "Serial0/0/0",
+      "STATUS": "Down"
+    },
+    {
+      "PROTOCOL": "Ethernet",
+      "NBR_ADDRESS": "192.168.1.1",
+      "INTERFACE": "GigabitEthernet0/3",
+      "STATUS": "Up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "protocol_nbr_address_interface_status": [
+        {
+          "PROTOCOL": "Ethernet",
+          "NBR_ADDRESS": "10.10.10.2",
+          "INTERFACE": "GigabitEthernet0/1",
+          "STATUS": "Up"
+        },
+        {
+          "PROTOCOL": "Ethernet",
+          "NBR_ADDRESS": "10.10.10.3",
+          "INTERFACE": "GigabitEthernet0/2",
+          "STATUS": "Up"
+        },
+        {
+          "PROTOCOL": "MPLS",
+          "NBR_ADDRESS": "192.168.0.1",
+          "INTERFACE": "Serial0/0/0",
+          "STATUS": "Down"
+        },
+        {
+          "PROTOCOL": "Ethernet",
+          "NBR_ADDRESS": "192.168.1.1",
+          "INTERFACE": "GigabitEthernet0/3",
+          "STATUS": "Up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Protocol    Nbr Address   Interface                  Status\nEthernet    10.10.10.2    GigabitEthernet0/1         Up\nEthernet    10.10.10.3    GigabitEthernet0/2         Up\nMPLS        192.168.0.1   Serial0/0/0                Down\nEthernet    192.168.1.1   GigabitEthernet0/3         Up\n",
+  "textfsm_template": "Value PROTOCOL (\\S+)\nValue NBR_ADDRESS (\\S+)\nValue INTERFACE (\\S+)\nValue STATUS (Up|Down)\n\nStart\n  ^\\s*Protocol\\s+Nbr Address\\s+Interface\\s+Status\\s*$$\n  ^\\s*${PROTOCOL}\\s+${NBR_ADDRESS}\\s+${INTERFACE}\\s+${STATUS}\\s*$$ -> Record"
+}

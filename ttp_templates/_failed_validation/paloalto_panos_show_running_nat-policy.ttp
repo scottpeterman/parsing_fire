@@ -1,0 +1,15 @@
+# TTP Template - FAILED VALIDATION
+# Original command: paloalto_panos_show_running_nat-policy
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="destination_from_name_nat_type">
+  nat-type {{NAT_TYPE | ORPHRASE}};
+  to {{FROM | ORPHRASE}};
+  destination {{SOURCE | ORPHRASE}};
+  service  {{SERVICE | ORPHRASE}};
+  terminal {{TERMINAL | ORPHRASE}};
+{{NAME | ORPHRASE}} {
+  destination {{DESTINATION | ORPHRASE}};
+  translate-to "{{TRANSLATE_TO | ORPHRASE}}";
+</group>

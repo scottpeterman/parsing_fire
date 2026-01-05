@@ -1,0 +1,68 @@
+{
+  "command": "show mpls interfaces",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"interface_enabled_status_bandwidth\">\n{{INTERFACE}} {{ENABLED}} {{STATUS | ORPHRASE}} {{BANDWIDTH | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "GigabitEthernet0/0",
+      "ENABLED": "Yes",
+      "STATUS": "Up",
+      "BANDWIDTH": "1000 Mbps"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/1",
+      "ENABLED": "Yes",
+      "STATUS": "Up",
+      "BANDWIDTH": "1000 Mbps"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/2",
+      "ENABLED": "No",
+      "STATUS": "Down",
+      "BANDWIDTH": "1000 Mbps"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/3",
+      "ENABLED": "Yes",
+      "STATUS": "Up",
+      "BANDWIDTH": "1000 Mbps"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_enabled_status_bandwidth": [
+        {
+          "INTERFACE": "GigabitEthernet0/0",
+          "ENABLED": "Yes",
+          "STATUS": "Up",
+          "BANDWIDTH": "1000 Mbps"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/1",
+          "ENABLED": "Yes",
+          "STATUS": "Up",
+          "BANDWIDTH": "1000 Mbps"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/2",
+          "ENABLED": "No",
+          "STATUS": "Down",
+          "BANDWIDTH": "1000 Mbps"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/3",
+          "ENABLED": "Yes",
+          "STATUS": "Up",
+          "BANDWIDTH": "1000 Mbps"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              MPLS Enabled      Status         Bandwidth   \nGigabitEthernet0/0     Yes               Up             1000 Mbps   \nGigabitEthernet0/1     Yes               Up             1000 Mbps   \nGigabitEthernet0/2     No                Down           1000 Mbps   \nGigabitEthernet0/3     Yes               Up             1000 Mbps   \n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue ENABLED (\\S+)\nValue STATUS (\\S+)\nValue BANDWIDTH (\\d+ Mbps)\n\nStart\n  ^Interface\\s+MPLS Enabled\\s+Status\\s+Bandwidth\\s*$$\n  ^${INTERFACE}\\s+${ENABLED}\\s+${STATUS}\\s+${BANDWIDTH}\\s*$$ -> Record"
+}

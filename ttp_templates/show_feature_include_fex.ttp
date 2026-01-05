@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show feature | include fex
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="feature_fex_id_status">
+{{FEATURE}} {{FEX_ID | re("\\d+")}} {{STATUS | ORPHRASE}}
+</group>

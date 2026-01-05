@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_isis_neighbors
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="system_id_type_interface_ip_address_state_hold_time_circuit_id">
+{{SYSTEM_ID}} {{TYPE}} {{INTERFACE}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATE | ORPHRASE}} {{HOLD_TIME}} {{CIRCUIT_ID | ORPHRASE}}
+</group>

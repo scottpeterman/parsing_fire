@@ -1,0 +1,45 @@
+{
+  "command": "netstat -s",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"udppacketsin\">\n    {{UdpPacketsIn | ORPHRASE}} packets received\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CounterType": "17856088",
+      "InputICMP": "314",
+      "InputICMP_Fail": "0",
+      "InputICMP_Dhist": "314",
+      "OutputICMP_Fail": "0",
+      "ActiveConnOpen": "350728",
+      "PassiveConnOpen": "48",
+      "FailedConn": "42",
+      "ResetRecvConn": "0",
+      "EstablishedConn": "1",
+      "SegmentsIn": "1098412",
+      "SegmentsOut": "1099810",
+      "RetransSeg": "60",
+      "BadSeg": "0",
+      "ResetSent": "30",
+      "UdpPacketsIn": "163025",
+      "UdpPacketsOut": "163025"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "udppacketsin": [
+        {
+          "UdpPacketsIn": "17856088 total"
+        },
+        {
+          "UdpPacketsIn": "163025"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Ip:\n    17856088 total packets received\n    0 forwarding\n    35142481 incoming packets discarded\n    0 incoming packets discarded since out of protocol buffer space\n    0 incoming packets discarded since out of resource\n    0 incoming packets discarded since out of interface scope\n    0 incoming packets discarded since out of option parsing buffer\n    0 incoming packets discarded since out of filter scope\n    35142470 delivered\n    19809618 packets sent from this host\n    0 output packets dropped\nIcmp:\n    314 ICMP messages received\n    0 input ICMP message failed\n    ICMP input histogram:\n        destination unreachable: 314\nICMP messages sent\n    0 ICMP messages failed\nIcmpMsg:\n        OutType3: 314\n        InType3: 314\nTcp:\n    350728 active connection openings\n    48 passive connection openings\n    42 failed connection attempts\n    0 connection resets received\n    1 connections established\n    1098412 segments received\n    1099810 segments sent out\n    60 segments retransmitted\n    0 bad segments received\n    30 resets sent\nUdp:\n    163025 packets received\n    0 packets to unknown port received\n    0 packet receive errors\n    163025 packets sent\nUdpLite:\nTcpExt:\n    0 spurious RTOs detected\n    0 ICMP packets dropped due to PMTU discovery\n    0 ICMP packets dropped when generating multi-transport header\n",
+  "textfsm_template": "Value CounterType (\\S+)\nValue TotalPackets (\\d+)\nValue InputICMP (\\d+)\nValue InputICMP_Fail (\\d+)\nValue InputICMP_Dhist (\\S+)\nValue OutputICMP (\\d+)\nValue OutputICMP_Fail (\\d+)\nValue ActiveConnOpen (\\d+)\nValue PassiveConnOpen (\\d+)\nValue FailedConn (\\d+)\nValue ResetRecvConn (\\d+)\nValue EstablishedConn (\\d+)\nValue SegmentsIn (\\d+)\nValue SegmentsOut (\\d+)\nValue RetransSeg (\\d+)\nValue BadSeg (\\d+)\nValue ResetSent (\\d+)\nValue UdpPacketsIn (\\d+)\nValue UdpPacketsOut (\\d+)\n\nStart\n  ^Ip:\n  ^\\s+${CounterType} total packets received -> StartIpCount\n  ^Icmp:\n  ^\\s+${CounterType} ICMP messages received -> StartIcmpCount\n  ^IcmpMsg:\n  ^\\s+OutType3: ${OutputICMP}\n  ^Tcp:\n  ^\\s+${CounterType} active connection openings -> StartTcpCount\n  ^Udp:\n  ^\\s+${CounterType} packets received -> StartUdpCount\n\nStartIpCount\n  ^\\s+${TotalPackets} total packets received\n  ^Icmp: -> StartIcmpCount\n  ^Tcp: -> StartTcpCount\n  ^Udp: -> StartUdpCount\n\nStartIcmpCount\n  ^\\s+${InputICMP} ICMP messages received\n  ^\\s+${InputICMP_Fail} input ICMP message failed\n  ^ICMP input histogram:\\s*$$\n  ^\\s+destination unreachable: ${InputICMP_Dhist}\n  ^ICMP messages sent\n  ^\\s+${OutputICMP} ICMP messages sent\n  ^\\s+${OutputICMP_Fail} ICMP messages failed\n  ^IcmpMsg: -> Next\n  ^Tcp: -> StartTcpCount\n  ^Udp: -> StartUdpCount\n\nStartTcpCount\n  ^\\s+${ActiveConnOpen} active connection openings\n  ^\\s+${PassiveConnOpen} passive connection openings\n  ^\\s+${FailedConn} failed connection attempts\n  ^\\s+${ResetRecvConn} connection resets received\n  ^\\s+${EstablishedConn} connections established\n  ^\\s+${SegmentsIn} segments received\n  ^\\s+${SegmentsOut} segments sent out\n  ^\\s+${RetransSeg} segments retransmitted\n  ^\\s+${BadSeg} bad segments received\n  ^\\s+${ResetSent} resets sent\n  ^Udp: -> StartUdpCount\n\nStartUdpCount\n  ^\\s+${UdpPacketsIn} packets received\n  ^\\s+${UdpPacketsOut} packets sent\n  ^UdpLite:\n  ^TcpExt: -> Record"
+}

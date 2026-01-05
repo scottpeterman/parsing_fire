@@ -1,0 +1,236 @@
+{
+  "command": "arista_eos_bash_df_-h",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0769230769230769,
+  "textfsm_rows": 13,
+  "ttp_rows": 14,
+  "ttp_template": "<group name=\"file_system_size_used_avail_use_percent_mounted_on\">\n{{FILE_SYSTEM}} {{SIZE}} {{USED}} {{AVAIL}} {{USE_PERCENT}} {{MOUNTED_ON | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FILE_SYSTEM": "none",
+      "SIZE": "4.6G",
+      "USED": "44M",
+      "AVAIL": "4.5G",
+      "USE_PERCENT": "1%",
+      "MOUNTED_ON": "/"
+    },
+    {
+      "FILE_SYSTEM": "none",
+      "SIZE": "4.6G",
+      "USED": "44M",
+      "AVAIL": "4.5G",
+      "USE_PERCENT": "1%",
+      "MOUNTED_ON": "/.overlay"
+    },
+    {
+      "FILE_SYSTEM": "devtmpfs",
+      "SIZE": "8.0M",
+      "USED": "0",
+      "AVAIL": "8.0M",
+      "USE_PERCENT": "0%",
+      "MOUNTED_ON": "/dev"
+    },
+    {
+      "FILE_SYSTEM": "tmpfs",
+      "SIZE": "16G",
+      "USED": "0",
+      "AVAIL": "16G",
+      "USE_PERCENT": "0%",
+      "MOUNTED_ON": "/dev/shm"
+    },
+    {
+      "FILE_SYSTEM": "tmpfs",
+      "SIZE": "16G",
+      "USED": "4.4M",
+      "AVAIL": "16G",
+      "USE_PERCENT": "1%",
+      "MOUNTED_ON": "/run"
+    },
+    {
+      "FILE_SYSTEM": "tmpfs",
+      "SIZE": "16G",
+      "USED": "0",
+      "AVAIL": "16G",
+      "USE_PERCENT": "0%",
+      "MOUNTED_ON": "/sys/fs/cgroup"
+    },
+    {
+      "FILE_SYSTEM": "tmpfs",
+      "SIZE": "4.6G",
+      "USED": "308K",
+      "AVAIL": "4.6G",
+      "USE_PERCENT": "1%",
+      "MOUNTED_ON": "/tmp"
+    },
+    {
+      "FILE_SYSTEM": "tmpfs",
+      "SIZE": "64M",
+      "USED": "1.2M",
+      "AVAIL": "63M",
+      "USE_PERCENT": "2%",
+      "MOUNTED_ON": "/.deltas"
+    },
+    {
+      "FILE_SYSTEM": "tmpfs",
+      "SIZE": "16G",
+      "USED": "0",
+      "AVAIL": "16G",
+      "USE_PERCENT": "0%",
+      "MOUNTED_ON": "/var/run/netns"
+    },
+    {
+      "FILE_SYSTEM": "tmpfs",
+      "SIZE": "3.1G",
+      "USED": "0",
+      "AVAIL": "3.1G",
+      "USE_PERCENT": "0%",
+      "MOUNTED_ON": "/var/core"
+    },
+    {
+      "FILE_SYSTEM": "tmpfs",
+      "SIZE": "3.1G",
+      "USED": "93M",
+      "AVAIL": "3.0G",
+      "USE_PERCENT": "3%",
+      "MOUNTED_ON": "/var/log"
+    },
+    {
+      "FILE_SYSTEM": "tmpfs",
+      "SIZE": "1.0G",
+      "USED": "218M",
+      "AVAIL": "807M",
+      "USE_PERCENT": "22%",
+      "MOUNTED_ON": "/var/shmem"
+    },
+    {
+      "FILE_SYSTEM": "/dev/sda1",
+      "SIZE": "3.3G",
+      "USED": "1.2G",
+      "AVAIL": "2.2G",
+      "USE_PERCENT": "35%",
+      "MOUNTED_ON": "/mnt/flash"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "file_system_size_used_avail_use_percent_mounted_on": [
+        {
+          "FILE_SYSTEM": "Filesystem",
+          "SIZE": "Size",
+          "USED": "Used",
+          "AVAIL": "Avail",
+          "USE_PERCENT": "Use%",
+          "MOUNTED_ON": "Mounted on"
+        },
+        {
+          "FILE_SYSTEM": "none",
+          "SIZE": "4.6G",
+          "USED": "44M",
+          "AVAIL": "4.5G",
+          "USE_PERCENT": "1%",
+          "MOUNTED_ON": "/"
+        },
+        {
+          "FILE_SYSTEM": "none",
+          "SIZE": "4.6G",
+          "USED": "44M",
+          "AVAIL": "4.5G",
+          "USE_PERCENT": "1%",
+          "MOUNTED_ON": "/.overlay"
+        },
+        {
+          "FILE_SYSTEM": "devtmpfs",
+          "SIZE": "8.0M",
+          "USED": "0",
+          "AVAIL": "8.0M",
+          "USE_PERCENT": "0%",
+          "MOUNTED_ON": "/dev"
+        },
+        {
+          "FILE_SYSTEM": "tmpfs",
+          "SIZE": "16G",
+          "USED": "0",
+          "AVAIL": "16G",
+          "USE_PERCENT": "0%",
+          "MOUNTED_ON": "/dev/shm"
+        },
+        {
+          "FILE_SYSTEM": "tmpfs",
+          "SIZE": "16G",
+          "USED": "4.4M",
+          "AVAIL": "16G",
+          "USE_PERCENT": "1%",
+          "MOUNTED_ON": "/run"
+        },
+        {
+          "FILE_SYSTEM": "tmpfs",
+          "SIZE": "16G",
+          "USED": "0",
+          "AVAIL": "16G",
+          "USE_PERCENT": "0%",
+          "MOUNTED_ON": "/sys/fs/cgroup"
+        },
+        {
+          "FILE_SYSTEM": "tmpfs",
+          "SIZE": "4.6G",
+          "USED": "308K",
+          "AVAIL": "4.6G",
+          "USE_PERCENT": "1%",
+          "MOUNTED_ON": "/tmp"
+        },
+        {
+          "FILE_SYSTEM": "tmpfs",
+          "SIZE": "64M",
+          "USED": "1.2M",
+          "AVAIL": "63M",
+          "USE_PERCENT": "2%",
+          "MOUNTED_ON": "/.deltas"
+        },
+        {
+          "FILE_SYSTEM": "tmpfs",
+          "SIZE": "16G",
+          "USED": "0",
+          "AVAIL": "16G",
+          "USE_PERCENT": "0%",
+          "MOUNTED_ON": "/var/run/netns"
+        },
+        {
+          "FILE_SYSTEM": "tmpfs",
+          "SIZE": "3.1G",
+          "USED": "0",
+          "AVAIL": "3.1G",
+          "USE_PERCENT": "0%",
+          "MOUNTED_ON": "/var/core"
+        },
+        {
+          "FILE_SYSTEM": "tmpfs",
+          "SIZE": "3.1G",
+          "USED": "93M",
+          "AVAIL": "3.0G",
+          "USE_PERCENT": "3%",
+          "MOUNTED_ON": "/var/log"
+        },
+        {
+          "FILE_SYSTEM": "tmpfs",
+          "SIZE": "1.0G",
+          "USED": "218M",
+          "AVAIL": "807M",
+          "USE_PERCENT": "22%",
+          "MOUNTED_ON": "/var/shmem"
+        },
+        {
+          "FILE_SYSTEM": "/dev/sda1",
+          "SIZE": "3.3G",
+          "USED": "1.2G",
+          "AVAIL": "2.2G",
+          "USE_PERCENT": "35%",
+          "MOUNTED_ON": "/mnt/flash"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Filesystem      Size  Used Avail Use% Mounted on\nnone            4.6G   44M  4.5G   1% /\nnone            4.6G   44M  4.5G   1% /.overlay\ndevtmpfs        8.0M     0  8.0M   0% /dev\ntmpfs            16G     0   16G   0% /dev/shm\ntmpfs            16G  4.4M   16G   1% /run\ntmpfs            16G     0   16G   0% /sys/fs/cgroup\ntmpfs           4.6G  308K  4.6G   1% /tmp\ntmpfs            64M  1.2M   63M   2% /.deltas\ntmpfs            16G     0   16G   0% /var/run/netns\ntmpfs           3.1G     0  3.1G   0% /var/core\ntmpfs           3.1G   93M  3.0G   3% /var/log\ntmpfs           1.0G  218M  807M  22% /var/shmem\n/dev/sda1       3.3G  1.2G  2.2G  35% /mnt/flash",
+  "textfsm_template": "Value FILE_SYSTEM (\\S+)\nValue SIZE (\\S+)\nValue USED (\\S+)\nValue AVAIL (\\S+)\nValue USE_PERCENT (\\S+)\nValue MOUNTED_ON (\\S+)\n\nStart\n  ^Filesystem.*Mounted on$$ -> Data\n  ^\\s+$$\n  ^$$\n  ^.* -> Error \"LINE NOT FOUND\"  \n  \nData\n  ^${FILE_SYSTEM}\\s+${SIZE}\\s+${USED}\\s+${AVAIL}\\s+${USE_PERCENT}\\s+${MOUNTED_ON} -> Record\n  ^\\s+$$\n  ^$$\n  ^.* -> Error \"LINE NOT FOUND\"\n  \nEOF  \n"
+}

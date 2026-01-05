@@ -1,0 +1,335 @@
+{
+  "command": "huawei_vrp_display_interface_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0588235294117647,
+  "textfsm_rows": 17,
+  "ttp_rows": 18,
+  "ttp_template": "<group name=\"interface_phy_protocol_inuti_oututi_inerrors_outerrors\">\n{{INTERFACE}} {{PHY}} {{PROTOCOL}} {{INUTI | ORPHRASE}} {{OUTUTI}} {{INERRORS}} {{OUTERRORS}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Cellular0/0/0",
+      "PHY": "down",
+      "PROTOCOL": "down",
+      "INUTI": "0%",
+      "OUTUTI": "0%",
+      "INERRORS": "0",
+      "OUTERRORS": "0"
+    },
+    {
+      "INTERFACE": "Dialer1",
+      "PHY": "up",
+      "PROTOCOL": "up(s)",
+      "INUTI": "--",
+      "OUTUTI": "--",
+      "INERRORS": "0",
+      "OUTERRORS": "0"
+    },
+    {
+      "INTERFACE": "Ethernet0/0/0",
+      "PHY": "down",
+      "PROTOCOL": "down",
+      "INUTI": "0%",
+      "OUTUTI": "0%",
+      "INERRORS": "0",
+      "OUTERRORS": "0"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/0/0",
+      "PHY": "down",
+      "PROTOCOL": "down",
+      "INUTI": "0%",
+      "OUTUTI": "0%",
+      "INERRORS": "0",
+      "OUTERRORS": "0"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/0/1",
+      "PHY": "^down",
+      "PROTOCOL": "down",
+      "INUTI": "0%",
+      "OUTUTI": "0%",
+      "INERRORS": "0",
+      "OUTERRORS": "0"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/0/2",
+      "PHY": "up(l)",
+      "PROTOCOL": "up",
+      "INUTI": "0.01%",
+      "OUTUTI": "0.01%",
+      "INERRORS": "0",
+      "OUTERRORS": "0"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/0/3",
+      "PHY": "down",
+      "PROTOCOL": "down",
+      "INUTI": "0%",
+      "OUTUTI": "0%",
+      "INERRORS": "0",
+      "OUTERRORS": "0"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/0/4",
+      "PHY": "up",
+      "PROTOCOL": "down",
+      "INUTI": "0.01%",
+      "OUTUTI": "0.01%",
+      "INERRORS": "0",
+      "OUTERRORS": "0"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/0/5(v)",
+      "PHY": "up",
+      "PROTOCOL": "down",
+      "INUTI": "0.01%",
+      "OUTUTI": "0%",
+      "INERRORS": "0",
+      "OUTERRORS": "0"
+    },
+    {
+      "INTERFACE": "NULL0",
+      "PHY": "up",
+      "PROTOCOL": "up(s)",
+      "INUTI": "--",
+      "OUTUTI": "--",
+      "INERRORS": "0",
+      "OUTERRORS": "0"
+    },
+    {
+      "INTERFACE": "Vlanif1",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "INUTI": "--",
+      "OUTUTI": "--",
+      "INERRORS": "0",
+      "OUTERRORS": "0"
+    },
+    {
+      "INTERFACE": "Vlanif2",
+      "PHY": "down",
+      "PROTOCOL": "down",
+      "INUTI": "--",
+      "OUTUTI": "--",
+      "INERRORS": "0",
+      "OUTERRORS": "0"
+    },
+    {
+      "INTERFACE": "Vlanif100",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "INUTI": "--",
+      "OUTUTI": "--",
+      "INERRORS": "0",
+      "OUTERRORS": "0"
+    },
+    {
+      "INTERFACE": "Wlan-Bss1",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "INUTI": "--",
+      "OUTUTI": "--",
+      "INERRORS": "0",
+      "OUTERRORS": "0"
+    },
+    {
+      "INTERFACE": "Wlan-Bss7",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "INUTI": "--",
+      "OUTUTI": "--",
+      "INERRORS": "0",
+      "OUTERRORS": "0"
+    },
+    {
+      "INTERFACE": "Wlan-Radio0/0/0",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "INUTI": "--",
+      "OUTUTI": "--",
+      "INERRORS": "0",
+      "OUTERRORS": "0"
+    },
+    {
+      "INTERFACE": "Wlan-Radio0/0/1",
+      "PHY": "up",
+      "PROTOCOL": "up",
+      "INUTI": "--",
+      "OUTUTI": "--",
+      "INERRORS": "0",
+      "OUTERRORS": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_phy_protocol_inuti_oututi_inerrors_outerrors": [
+        {
+          "INTERFACE": "Interface",
+          "PHY": "PHY",
+          "PROTOCOL": "Protocol",
+          "INUTI": "InUti",
+          "OUTUTI": "OutUti",
+          "INERRORS": "inErrors",
+          "OUTERRORS": "outErrors"
+        },
+        {
+          "INTERFACE": "Cellular0/0/0",
+          "PHY": "down",
+          "PROTOCOL": "down",
+          "INUTI": "0%",
+          "OUTUTI": "0%",
+          "INERRORS": "0",
+          "OUTERRORS": "0"
+        },
+        {
+          "INTERFACE": "Dialer1",
+          "PHY": "up",
+          "PROTOCOL": "up(s)",
+          "INUTI": "--",
+          "OUTUTI": "--",
+          "INERRORS": "0",
+          "OUTERRORS": "0"
+        },
+        {
+          "INTERFACE": "Ethernet0/0/0",
+          "PHY": "down",
+          "PROTOCOL": "down",
+          "INUTI": "0%",
+          "OUTUTI": "0%",
+          "INERRORS": "0",
+          "OUTERRORS": "0"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/0/0",
+          "PHY": "down",
+          "PROTOCOL": "down",
+          "INUTI": "0%",
+          "OUTUTI": "0%",
+          "INERRORS": "0",
+          "OUTERRORS": "0"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/0/1",
+          "PHY": "^down",
+          "PROTOCOL": "down",
+          "INUTI": "0%",
+          "OUTUTI": "0%",
+          "INERRORS": "0",
+          "OUTERRORS": "0"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/0/2",
+          "PHY": "up(l)",
+          "PROTOCOL": "up",
+          "INUTI": "0.01%",
+          "OUTUTI": "0.01%",
+          "INERRORS": "0",
+          "OUTERRORS": "0"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/0/3",
+          "PHY": "down",
+          "PROTOCOL": "down",
+          "INUTI": "0%",
+          "OUTUTI": "0%",
+          "INERRORS": "0",
+          "OUTERRORS": "0"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/0/4",
+          "PHY": "up",
+          "PROTOCOL": "down",
+          "INUTI": "0.01%",
+          "OUTUTI": "0.01%",
+          "INERRORS": "0",
+          "OUTERRORS": "0"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/0/5(v)",
+          "PHY": "up",
+          "PROTOCOL": "down",
+          "INUTI": "0.01%",
+          "OUTUTI": "0%",
+          "INERRORS": "0",
+          "OUTERRORS": "0"
+        },
+        {
+          "INTERFACE": "NULL0",
+          "PHY": "up",
+          "PROTOCOL": "up(s)",
+          "INUTI": "--",
+          "OUTUTI": "--",
+          "INERRORS": "0",
+          "OUTERRORS": "0"
+        },
+        {
+          "INTERFACE": "Vlanif1",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "INUTI": "--",
+          "OUTUTI": "--",
+          "INERRORS": "0",
+          "OUTERRORS": "0"
+        },
+        {
+          "INTERFACE": "Vlanif2",
+          "PHY": "down",
+          "PROTOCOL": "down",
+          "INUTI": "--",
+          "OUTUTI": "--",
+          "INERRORS": "0",
+          "OUTERRORS": "0"
+        },
+        {
+          "INTERFACE": "Vlanif100",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "INUTI": "--",
+          "OUTUTI": "--",
+          "INERRORS": "0",
+          "OUTERRORS": "0"
+        },
+        {
+          "INTERFACE": "Wlan-Bss1",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "INUTI": "--",
+          "OUTUTI": "--",
+          "INERRORS": "0",
+          "OUTERRORS": "0"
+        },
+        {
+          "INTERFACE": "Wlan-Bss7",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "INUTI": "--",
+          "OUTUTI": "--",
+          "INERRORS": "0",
+          "OUTERRORS": "0"
+        },
+        {
+          "INTERFACE": "Wlan-Radio0/0/0",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "INUTI": "--",
+          "OUTUTI": "--",
+          "INERRORS": "0",
+          "OUTERRORS": "0"
+        },
+        {
+          "INTERFACE": "Wlan-Radio0/0/1",
+          "PHY": "up",
+          "PROTOCOL": "up",
+          "INUTI": "--",
+          "OUTUTI": "--",
+          "INERRORS": "0",
+          "OUTERRORS": "0"
+        }
+      ]
+    }
+  ],
+  "cli_content": "PHY: Physical\n*down: administratively down\n(l): loopback\n(s): spoofing\n(b): BFD down\n^down: standby\n(e): ETHOAM down\n(v): VirtualPort\nInUti/OutUti: input utility/output utility\nInterface                   PHY   Protocol  InUti OutUti   inErrors  outErrors\nCellular0/0/0               down  down         0%     0%          0          0\nDialer1                     up    up(s)        --     --          0          0\nEthernet0/0/0               down  down         0%     0%          0          0\nGigabitEthernet0/0/0        down  down         0%     0%          0          0\nGigabitEthernet0/0/1        ^down  down         0%     0%          0          0\nGigabitEthernet0/0/2        up(l) up        0.01%  0.01%          0          0\nGigabitEthernet0/0/3        down  down         0%     0%          0          0\nGigabitEthernet0/0/4        up    down      0.01%  0.01%          0          0\nGigabitEthernet0/0/5(v)     up    down      0.01%     0%          0          0\nNULL0                       up    up(s)        --     --          0          0\nVlanif1                     up    up           --     --          0          0\nVlanif2                     down  down         --     --          0          0\nVlanif100                   up    up           --     --          0          0\nWlan-Bss1                   up    up           --     --          0          0\nWlan-Bss7                   up    up           --     --          0          0\nWlan-Radio0/0/0             up    up           --     --          0          0\nWlan-Radio0/0/1             up    up           --     --          0          0\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue PHY (down|[\\*\\^]down|up|up\\(\\w+\\))\nValue PROTOCOL (down|[\\*\\^]down|up|up\\(\\w+\\))\nValue INUTI (\\d*\\.?\\d*%|\\-\\-)\nValue OUTUTI (\\d*\\.?\\d*%|\\-\\-)\nValue INERRORS (\\d+)\nValue OUTERRORS (\\d+)\n\n\nStart\n  ^\\s*${INTERFACE}\\s+${PHY}\\s+${PROTOCOL}\\s+${INUTI}\\s+${OUTUTI}\\s+${INERRORS}\\s+${OUTERRORS} -> Record\n  ^PHY:\\s+Physical\n  ^(?:\\*|\\^|\\#)down:\n  ^\\(\\w+\\):\\s+\\S+\n  ^InUti/OutUti:\n  ^Interface\\s+PHY\\s+Protocol\\s+InUti\\s+OutUti\\s+inErrors\\s+outErrors\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

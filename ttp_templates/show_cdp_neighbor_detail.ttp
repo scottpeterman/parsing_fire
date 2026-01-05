@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show cdp neighbor detail
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="capabilities_device_id_holdtime_ip_address">
+Platform: {{PLATFORM | ORPHRASE}},  Capabilities: {{CAPABILITIES | ORPHRASE}}
+Device ID: {{DEVICE_ID | ORPHRASE}}
+  IP address: {{IP_ADDRESS | ORPHRASE}}
+Interface: {{LOCAL_INTERFACE}},  Port ID (outgoing port): {{PORT_ID | ORPHRASE}}
+Holdtime : {{HOLDTIME | ORPHRASE}} sec
+</group>

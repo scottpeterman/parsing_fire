@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip bgp vrf all summary
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="as_inq_msent_msgrcvd">
+Router identifier 1{{INQ | ORPHRASE}}.{{OUTQ}}.0.1, local AS number 65001
+BGP table version is {{TBLVER | ORPHRASE}}, main routing table version 7
+{{STATE_PFXRCVD | ORPHRASE}} BGP AS-PATH entries using 72 bytes of memory
+192.168.0.2  {{VER | ORPHRASE}} 65002  10  20  7  0  0 00:05:12  2
+{{NEIGHBOR}}  4 {{AS}}  {{MSGRCVD}}  {{MSENT}}  7  0  0 {{UPTIME | ORPHRASE}}  3
+</group>

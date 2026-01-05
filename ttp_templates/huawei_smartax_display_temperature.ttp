@@ -1,0 +1,11 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_smartax_display_temperature
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="boardname_slotid_temperature_c_temperature_d">
+  SlotID:  0  BoardName: H902PISB  Temperature:  {{SLOTID | ORPHRASE}}4C(  93F)
+  SlotID:  3  BoardName: {{BOARDNAME}}  Temperature:  {{TEMPERATURE_C}}C( {{TEMPERATURE_D | ORPHRASE}}F)
+</group>

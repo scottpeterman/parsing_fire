@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_vlan
+# Source: ntc
+# TextFSM rows: 8
+# TTP rows: 8
+# Match ratio: 1.00
+
+<group name="vlan_id_vlan_name_status_interfaces">
+{{VLAN_ID | re("\\d+")}} {{VLAN_NAME}} {{STATUS | ORPHRASE}} {{INTERFACES | ORPHRASE}}
+</group>
+<group name="vlan_id_vlan_name_status">
+{{VLAN_ID | re("\\d+")}} {{VLAN_NAME}} {{STATUS | ORPHRASE}} 
+</group>

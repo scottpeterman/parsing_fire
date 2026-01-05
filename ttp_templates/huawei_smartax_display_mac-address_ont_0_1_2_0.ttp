@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_smartax_display_mac-address_ont_0_1_2_0
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="fsp_ont_id_ont_port_type_ont_port_id_mac">
+ {{FSP | ORPHRASE}} {{ONT_ID | re("\\d+")}} {{ONT_PORT_TYPE}} {{ONT_PORT_ID | re("\\d+")}} {{MAC | ORPHRASE}} -
+</group>

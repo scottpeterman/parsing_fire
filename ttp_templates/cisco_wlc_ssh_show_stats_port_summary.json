@@ -1,0 +1,158 @@
+{
+  "command": "cisco_wlc_ssh_show_stats_port_summary",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.2,
+  "textfsm_rows": 5,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"port_link_status_packets_in_packets_out_broadcast_in_errors_in_errors_out_collisions\">\n{{PORT | re(\"\\\\d+\")}} {{LINK_STATUS | ORPHRASE}} {{PACKETS_IN}} {{PACKETS_OUT}} {{BROADCAST_IN | ORPHRASE}} {{ERRORS_IN}} {{ERRORS_OUT}} {{COLLISIONS}}\n</group>\n<group name=\"total_packets_in_total_packets_out_total_broadcast_in_packets_in_packets_out_broadcast_in\">\n   Total {{TOTAL_PACKETS_IN}} {{TOTAL_PACKETS_OUT}} {{TOTAL_BROADCAST_IN | ORPHRASE}} {{PACKETS_IN}} {{PACKETS_OUT}} {{BROADCAST_IN}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "1",
+      "LINK_STATUS": "Up",
+      "PACKETS_IN": "2364509905",
+      "PACKETS_OUT": "2472568024",
+      "BROADCAST_IN": "66473417",
+      "ERRORS_IN": "0",
+      "ERRORS_OUT": "0",
+      "COLLISIONS": "0",
+      "TOTAL_PACKETS_IN": "2700091950",
+      "TOTAL_PACKETS_OUT": "2597254439",
+      "TOTAL_BROADCAST_IN": "69988443",
+      "TOTAL_ERRORS_IN": "0",
+      "TOTAL_ERRORS_OUT": "0",
+      "TOTAL_COLLISIONS": "0"
+    },
+    {
+      "PORT": "2",
+      "LINK_STATUS": "Down",
+      "PACKETS_IN": "0",
+      "PACKETS_OUT": "0",
+      "BROADCAST_IN": "0",
+      "ERRORS_IN": "0",
+      "ERRORS_OUT": "0",
+      "COLLISIONS": "0",
+      "TOTAL_PACKETS_IN": "2700091950",
+      "TOTAL_PACKETS_OUT": "2597254439",
+      "TOTAL_BROADCAST_IN": "69988443",
+      "TOTAL_ERRORS_IN": "0",
+      "TOTAL_ERRORS_OUT": "0",
+      "TOTAL_COLLISIONS": "0"
+    },
+    {
+      "PORT": "3",
+      "LINK_STATUS": "Down",
+      "PACKETS_IN": "0",
+      "PACKETS_OUT": "0",
+      "BROADCAST_IN": "0",
+      "ERRORS_IN": "0",
+      "ERRORS_OUT": "0",
+      "COLLISIONS": "0",
+      "TOTAL_PACKETS_IN": "2700091950",
+      "TOTAL_PACKETS_OUT": "2597254439",
+      "TOTAL_BROADCAST_IN": "69988443",
+      "TOTAL_ERRORS_IN": "0",
+      "TOTAL_ERRORS_OUT": "0",
+      "TOTAL_COLLISIONS": "0"
+    },
+    {
+      "PORT": "4",
+      "LINK_STATUS": "Up",
+      "PACKETS_IN": "335582045",
+      "PACKETS_OUT": "124686415",
+      "BROADCAST_IN": "3515026",
+      "ERRORS_IN": "0",
+      "ERRORS_OUT": "0",
+      "COLLISIONS": "0",
+      "TOTAL_PACKETS_IN": "2700091950",
+      "TOTAL_PACKETS_OUT": "2597254439",
+      "TOTAL_BROADCAST_IN": "69988443",
+      "TOTAL_ERRORS_IN": "0",
+      "TOTAL_ERRORS_OUT": "0",
+      "TOTAL_COLLISIONS": "0"
+    },
+    {
+      "PORT": "5",
+      "LINK_STATUS": "Down",
+      "PACKETS_IN": "0",
+      "PACKETS_OUT": "0",
+      "BROADCAST_IN": "0",
+      "ERRORS_IN": "0",
+      "ERRORS_OUT": "0",
+      "COLLISIONS": "0",
+      "TOTAL_PACKETS_IN": "2700091950",
+      "TOTAL_PACKETS_OUT": "2597254439",
+      "TOTAL_BROADCAST_IN": "69988443",
+      "TOTAL_ERRORS_IN": "0",
+      "TOTAL_ERRORS_OUT": "0",
+      "TOTAL_COLLISIONS": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_link_status_packets_in_packets_out_broadcast_in_errors_in_errors_out_collisions": [
+        {
+          "PORT": "1",
+          "LINK_STATUS": "Up",
+          "PACKETS_IN": "2364509905",
+          "PACKETS_OUT": "2472568024",
+          "BROADCAST_IN": "66473417",
+          "ERRORS_IN": "0",
+          "ERRORS_OUT": "0",
+          "COLLISIONS": "0"
+        },
+        {
+          "PORT": "2",
+          "LINK_STATUS": "Down",
+          "PACKETS_IN": "0",
+          "PACKETS_OUT": "0",
+          "BROADCAST_IN": "0",
+          "ERRORS_IN": "0",
+          "ERRORS_OUT": "0",
+          "COLLISIONS": "0"
+        },
+        {
+          "PORT": "3",
+          "LINK_STATUS": "Down",
+          "PACKETS_IN": "0",
+          "PACKETS_OUT": "0",
+          "BROADCAST_IN": "0",
+          "ERRORS_IN": "0",
+          "ERRORS_OUT": "0",
+          "COLLISIONS": "0"
+        },
+        {
+          "PORT": "4",
+          "LINK_STATUS": "Up",
+          "PACKETS_IN": "335582045",
+          "PACKETS_OUT": "124686415",
+          "BROADCAST_IN": "3515026",
+          "ERRORS_IN": "0",
+          "ERRORS_OUT": "0",
+          "COLLISIONS": "0"
+        },
+        {
+          "PORT": "5",
+          "LINK_STATUS": "Down",
+          "PACKETS_IN": "0",
+          "PACKETS_OUT": "0",
+          "BROADCAST_IN": "0",
+          "ERRORS_IN": "0",
+          "ERRORS_OUT": "0",
+          "COLLISIONS": "0"
+        }
+      ],
+      "total_packets_in_total_packets_out_total_broadcast_in_packets_in_packets_out_broadcast_in": {
+        "TOTAL_PACKETS_IN": "2700091950",
+        "TOTAL_PACKETS_OUT": "2597254439",
+        "TOTAL_BROADCAST_IN": "69988443",
+        "PACKETS_IN": "0",
+        "PACKETS_OUT": "0",
+        "BROADCAST_IN": "0"
+      }
+    }
+  ],
+  "cli_content": "   Link                     Pkts In  Pkts In  Pkts Out           \nPr Status Pkts In  Pkts Out Bcast    Errors   Errors   Collisions\n-- ------ -------  -------  -------  -------  -------  ----------\n1  Up     2364509905 2472568024 66473417        0        0        0\n2  Down          0        0        0        0        0        0\n3  Down          0        0        0        0        0        0\n4  Up     335582045 124686415  3515026        0        0        0\n5  Down          0        0        0        0        0        0\n   Total  2700091950 2597254439 69988443        0        0        0\n",
+  "textfsm_template": "Value Required PORT (\\d)\nValue LINK_STATUS (\\S+)\nValue PACKETS_IN (\\d+)\nValue PACKETS_OUT (\\d+)\nValue BROADCAST_IN (\\d+)\nValue ERRORS_IN (\\d+)\nValue ERRORS_OUT (\\d+)\nValue COLLISIONS (\\d+)\nValue Fillup TOTAL_PACKETS_IN (\\d+)\nValue Fillup TOTAL_PACKETS_OUT (\\d+)\nValue Fillup TOTAL_BROADCAST_IN (\\d+)\nValue Fillup TOTAL_ERRORS_IN (\\d+)\nValue Fillup TOTAL_ERRORS_OUT (\\d+)\nValue Fillup TOTAL_COLLISIONS (\\d+)\n\nStart\n  ^\\s+Link\\s+(Pkts In\\s+){2}\\s*Pkts Out\\s*$$\n  ^\\s*Pr\\s+Status\\s+(Pkts (In|Out)\\s+){2}\\s*Bcast\\s+(?:Errors\\s+){2}\\s*Collisions\\s*$$ -> Port_Stats\n  #\n  # Port Statistics (after the dashed line)\n  #^\\s*[-\\s]+$$ -> Port_Stats\n  ^\\s*$$\n  ^. -> Error\n\nPort_Stats\n  ^-+\n  ^\\s*${PORT}\\s+${LINK_STATUS}\\s+${PACKETS_IN}\\s+${PACKETS_OUT}\\s+${BROADCAST_IN}\\s+${ERRORS_IN}\\s+${ERRORS_OUT}\\s+${COLLISIONS}\\s*$$ -> Record\n  ^\\s*Total\\s+${TOTAL_PACKETS_IN}\\s+${TOTAL_PACKETS_OUT}\\s+${TOTAL_BROADCAST_IN}\\s+${TOTAL_ERRORS_IN}\\s+${TOTAL_ERRORS_OUT}\\s+${TOTAL_COLLISIONS}\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

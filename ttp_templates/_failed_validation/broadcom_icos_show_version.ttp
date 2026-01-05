@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: broadcom_icos_show_version
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="description">
+System Description............................. {{DESCRIPTION | ORPHR{{MAINTENANCE_LEVEL}}SE}}
+</group>

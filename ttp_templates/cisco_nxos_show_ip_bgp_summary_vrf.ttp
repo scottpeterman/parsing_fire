@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_ip_bgp_summary_vrf
+# Source: ntc
+# TextFSM rows: 14
+# TTP rows: 6
+# Match ratio: 0.43
+
+<group name="address_family_local_as_router_id">
+BGP summary information for VRF AMB, address family {{ADDRESS_FAMILY | ORPHRASE}}
+<group name="in_queue_out_queue_state_pfxrcd">
+BGP community entries [{{IN_QUEUE | ORPHRASE}}/{{OUT_QUEUE}}], BGP clusterlist entries [6/24]
+</group>
+</group>

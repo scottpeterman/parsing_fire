@@ -1,0 +1,33 @@
+{
+  "command": "hp_comware_display_ip_interface",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"interface_ip_address_line_status_mtu\">\n{{INTERFACE}} current state :{{LINE_STATUS | ORPHRASE}}\nInternet Address is {{IP_ADDRESS | ORPHRASE}} Primary\nThe Maximum Transmit Unit : {{MTU | ORPHRASE}} bytes\nPolicy routing is enabled, using route map {{ROUTE_MAP | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Route-Aggregation1.4",
+      "LINE_STATUS": "UP",
+      "PROTOCOL_STATUS": "UP",
+      "ROUTE_MAP": "TO_INTERNET",
+      "IP_ADDRESS": "10.1.1.1/24",
+      "MTU": "1500"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_line_status_mtu": {
+        "ROUTE_MAP": "TO_INTERNET",
+        "MTU": "1500",
+        "IP_ADDRESS": "10.1.1.1/24",
+        "INTERFACE": "Route-Aggregation1.4",
+        "LINE_STATUS": "UP"
+      }
+    }
+  ],
+  "cli_content": "Route-Aggregation1.4 current state :UP\nLine protocol current state :UP\nInternet Address is 10.1.1.1/24 Primary\nBroadcast address : 10.1.1.255\nThe Maximum Transmit Unit : 1500 bytes\ninput packets : 519880114, bytes : 2114446514, multicasts : 1523365\noutput packets : 892477481, bytes : 2635360909, multicasts : 1513360\nARP packet input number:        4648\n  Request packet:                  9\n  Reply packet:                 4639\n  Unknown packet:                  0\nTTL invalid packet number:   1067079\nICMP packet input number:         27\n  Echo reply:                     15\n  Unreachable:                     0\n  Source quench:                   0\n  Routing redirect:                0\n  Echo request:                    0\n  Router advert:                   0\n  Router solicit:                  0\n  Time exceed:                    12\n  IP header bad:                   0\n  Timestamp request:               0\n  Timestamp reply:                 0\n  Information request:             0\n  Information reply:               0\n  Netmask request:                 0\n  Netmask reply:                   0\n  Unknown type:                    0\nPolicy routing is enabled, using route map TO_INTERNET\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue LINE_STATUS (UP|DOWN|Administratively DOWN)\nValue PROTOCOL_STATUS (UP(\\(spoofing\\))?|DOWN)\nValue ROUTE_MAP (\\S+)\nValue List IP_ADDRESS (\\S+)\nValue MTU (\\d+)\n\n\nStart\n  ^${INTERFACE}\\s+current\\s+state\\s*:\\s*${LINE_STATUS} -> Interface\n  ^. -> Error\n\n\nInterface\n  ^\\S+\\s+current\\s+state -> Continue.Record\n  ^${INTERFACE}\\s+current\\s+state\\s*:\\s*${LINE_STATUS}\n  ^Line\\s+protocol\\s+current\\s+state\\s*:\\s*${PROTOCOL_STATUS}\n  ^Internet\\s+Address\\s+is\\s+${IP_ADDRESS}\\s+Primary\n  ^Internet\\s+Address\\s+is\\s+${IP_ADDRESS}\\s+Sub\n  ^Broadcast\\s+address\\s*:\\s*\\S+\n  ^The\\s+Maximum\\s+Transmit\\s+Unit\\s*:\\s*${MTU}\\s+bytes\n  ^Policy\\s+routing\\s+is\\s+enabled,\\s+using\\s+route\\s+map\\s+${ROUTE_MAP}\n  ^input\\spackets\\s*:\\s*\\d+,\\sbytes\\s*:\\s*\\d+,\\smulticasts\\s*:\\s*\\d+\n  ^output\\spackets\\s*:\\s*\\d+,\\sbytes\\s*:\\s*\\d+,\\smulticasts\\s*:\\s*\\d+\n  ^TTL\\sinvalid\\spacket\\snumber\\s*:\\s*\\d+\n  ^ICMP\\spacket\\sinput\\snumber\\s*:\\s*\\d+\n  ^ARP\\spacket\\sinput\\snumber\\s*:\\s*\\d+\n  ^\\s+Echo\\sreply\\s*:\\s*\\d+\n  ^\\s+Unreachable\\s*:\\s*\\d+\n  ^\\s+Source\\squench\\s*:\\s*\\d+\n  ^\\s+Routing\\sredirect\\s*:\\s*\\d+\n  ^\\s+Echo\\srequest\\s*:\\s*\\d+\n  ^\\s+Router\\sadvert\\s*:\\s*\\d+\n  ^\\s+Router\\ssolicit\\s*:\\s*\\d+\n  ^\\s+Time\\sexceed\\s*:\\s*\\d+\n  ^\\s+IP\\sheader\\sbad\\s*:\\s*\\d+\n  ^\\s+Timestamp\\srequest\\s*:\\s*\\d+\n  ^\\s+Timestamp\\sreply\\s*:\\s*\\d+\n  ^\\s+Information\\srequest\\s*:\\s*\\d+\n  ^\\s+Information\\sreply\\s*:\\s*\\d+\n  ^\\s+Netmask\\srequest\\s*:\\s*\\d+\n  ^\\s+Netmask\\sreply\\s*:\\s*\\d+\n  ^\\s+Unknown\\stype\\s*:\\s*\\d+\n  ^\\s+Request\\spacket\\s*:\\s*\\d+\n  ^\\s+Reply\\spacket\\s*:\\s*\\d+\n  ^\\s+Unknown\\spacket\\s*:\\s*\\d+\n  ^\\s*$$\n  ^. -> Error\n"
+}

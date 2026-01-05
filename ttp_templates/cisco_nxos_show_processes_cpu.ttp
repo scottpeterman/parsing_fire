@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_processes_cpu
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="cpu_5_sec_interrupts_cpu_1_min_cpu_5_min">
+CPU utilization for five seconds: {{CPU_5_SEC}}%/{{INTERRUPTS}}%; one minute: {{CPU_1_MIN}}%; five minutes: {{CPU_5_MIN | ORPHRASE}}%
+</group>

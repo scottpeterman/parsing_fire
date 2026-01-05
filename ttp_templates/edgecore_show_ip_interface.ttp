@@ -1,0 +1,11 @@
+# TTP Template auto-generated from TextFSM
+# Original command: edgecore_show_ip_interface
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="addr_mode_interface_ip_netmask">
+ IP Address and Netmask:  {{IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{NETMASK}} on {{INTERFACE | ORPHRASE}},
+ Address Mode:  {{ADDR_MODE | ORPHRASE}}
+</group>

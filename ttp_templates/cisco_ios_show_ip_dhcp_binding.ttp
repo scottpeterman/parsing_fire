@@ -1,0 +1,11 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_dhcp_binding
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="expiration_hardware_address_ip_address_type">
+10.100.88.26  01aa.aaaa.aaaa.aa  {{EXPIRATION}}  {{TYPE | ORPHRASE}}
+{{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}  {{HARDWARE_ADDRESS | ORPHRASE}}  Infinite  Manual
+</group>

@@ -1,0 +1,12 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nvfis_show_version
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="build_date_last_reboot_version">
+Version {{VERSION | ORPHRASE}}
+Build date {{BUILD_DATE | ORPHRASE}}
+Last Reboot {{LAST_REBOOT | ORPHRASE}}
+</group>

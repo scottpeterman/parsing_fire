@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: ciena_saos_chassis_show_temperature
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="current_low_high">
+| {{CURRENT | ORPHRASE}} | {{LOW | ORPHRASE}} | {{HIGH | ORPHRASE}} |
+</group>

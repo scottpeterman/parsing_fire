@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_crypto_ikev1_sa_detail
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 8
+# Match ratio: 2.00
+
+<group name="sequence_peer_type_dir_rekey_state_encryption_hash_authentication_lifetime">
+{{SEQUENCE}} {{PEER}} {{TYPE}} {{DIR}} {{REKEY}} {{STATE | ORPHRASE}} {{ENCRYPTION}} {{HASH}} {{AUTHENTICATION}} {{LIFETIME | ORPHRASE}}
+</group>

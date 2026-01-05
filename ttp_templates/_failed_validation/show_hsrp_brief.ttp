@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show hsrp brief
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="p_group_priority_state_active_standby_virtual_ip">
+{{INTERF{{P}}CE}} {{GROUP}} {{PRIORITY}} A {{STATE | ORPHRASE}} {{ACTIVE}} {{STANDBY}} {{VIRTUAL_IP | ORPHRASE}}
+</group>

@@ -1,0 +1,24 @@
+{
+  "command": "show environment cooling detail",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 1,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"airflow_power_rpm_speed\">\n  State: {{STATE | ORPHRASE}}\n  Airflow: {{AIRFLOW | ORPHRASE}}\n  Speed: {{SPEED | ORPHRASE}}\n  Power: {{POWER | ORPHRASE}}\n  RPM: {{RPM | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "STATE": "Active",
+      "SPEED": "80%",
+      "AIRFLOW": "Front-to-Back",
+      "POWER": "30W",
+      "RPM": "5000"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "  Cooling Device Information\n\n    Fan Tray 1:\n      State: Active\n      Speed: 70%\n      Airflow: Front-to-Back\n      Power: 25W\n      RPM: 4100\n\n\n    Fan Tray 2:\n      State: Standby\n      Speed: 50%\n      Airflow: Back-to-Front\n      Power: 18W\n      RPM: 3200\n\n    Fan Tray 3:\n      State: Active\n      Speed: 80%\n      Airflow: Front-to-Back\n      Power: 30W\n      RPM: 5000\n",
+  "textfsm_template": "Value FAN_TRAY (\\S+\\s+\\d+)\nValue STATE (\\S+)\nValue SPEED (\\d+%)\nValue AIRFLOW (\\S+-to-\\S+)\nValue POWER (\\d+W)\nValue RPM (\\d+)\n\nStart\n  ^\\s*Fan Tray\\s*${FAN_TRAY} -> Continue.Record\n  ^\\s*State:\\s*(${STATE})\n  ^\\s*Speed:\\s*(${SPEED})\n  ^\\s*Airflow:\\s*(${AIRFLOW})\n  ^\\s*Power:\\s*(${POWER})\n  ^\\s*RPM:\\s*(${RPM})"
+}

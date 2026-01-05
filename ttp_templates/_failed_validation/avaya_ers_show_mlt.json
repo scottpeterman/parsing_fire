@@ -1,0 +1,305 @@
+{
+  "command": "avaya_ers_show_mlt",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 32,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"id_name_mode_bpdu_status_lacp_key\">\n{{ID | re(\"\\\\d+\")}} {{NAME | ORPHRASE}} {{ACTIVE_MEM{{MODE}}ERS}} {{BPDU}} B {{STATUS | ORPHRASE}} {{LACP_KEY | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "ID": "1",
+      "NAME": "UPLINK",
+      "ACTIVE_MEMBERS": "1/50,2/50",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "2",
+      "NAME": "Trunk #2",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "3",
+      "NAME": "Trunk #3",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "4",
+      "NAME": "Trunk #4",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "5",
+      "NAME": "Trunk #5",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "6",
+      "NAME": "Trunk #6",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "7",
+      "NAME": "Trunk #7",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "8",
+      "NAME": "Trunk #8",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "9",
+      "NAME": "Trunk #9",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "10",
+      "NAME": "Trunk #10",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "11",
+      "NAME": "Trunk #11",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "12",
+      "NAME": "Trunk #12",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "13",
+      "NAME": "Trunk #13",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "14",
+      "NAME": "Trunk #14",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "15",
+      "NAME": "Trunk #15",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "16",
+      "NAME": "Trunk #16",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "17",
+      "NAME": "Trunk #17",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "18",
+      "NAME": "Trunk #18",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "19",
+      "NAME": "Trunk #19",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "20",
+      "NAME": "Trunk #20",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "21",
+      "NAME": "Trunk #21",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "22",
+      "NAME": "Trunk #22",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "23",
+      "NAME": "Trunk #23",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "24",
+      "NAME": "Trunk #24",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "25",
+      "NAME": "Trunk #25",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "26",
+      "NAME": "Trunk #26",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "27",
+      "NAME": "Trunk #27",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "28",
+      "NAME": "Trunk #28",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "29",
+      "NAME": "Trunk #29",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "30",
+      "NAME": "Trunk #30",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "31",
+      "NAME": "Trunk #31",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    },
+    {
+      "ID": "32",
+      "NAME": "Trunk #32",
+      "ACTIVE_MEMBERS": "NONE",
+      "BPDU": "All",
+      "MODE": "B",
+      "STATUS": "Disabled",
+      "LACP_KEY": "NONE"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "                                                                        LACP\nId Name             Members                Bpdu   Mode  Status   Type   Key\n-- ---------------- ---------------------- ------ ----- -------- ------ ----\n1  UPLINK           1/50,2/50              All    B     Disabled        NONE\n2  Trunk #2         NONE                   All    B     Disabled        NONE\n3  Trunk #3         NONE                   All    B     Disabled        NONE\n4  Trunk #4         NONE                   All    B     Disabled        NONE\n5  Trunk #5         NONE                   All    B     Disabled        NONE\n6  Trunk #6         NONE                   All    B     Disabled        NONE\n7  Trunk #7         NONE                   All    B     Disabled        NONE\n8  Trunk #8         NONE                   All    B     Disabled        NONE\n9  Trunk #9         NONE                   All    B     Disabled        NONE\n10 Trunk #10        NONE                   All    B     Disabled        NONE\n11 Trunk #11        NONE                   All    B     Disabled        NONE\n12 Trunk #12        NONE                   All    B     Disabled        NONE\n13 Trunk #13        NONE                   All    B     Disabled        NONE\n14 Trunk #14        NONE                   All    B     Disabled        NONE\n15 Trunk #15        NONE                   All    B     Disabled        NONE\n16 Trunk #16        NONE                   All    B     Disabled        NONE\n17 Trunk #17        NONE                   All    B     Disabled        NONE\n18 Trunk #18        NONE                   All    B     Disabled        NONE\n19 Trunk #19        NONE                   All    B     Disabled        NONE\n20 Trunk #20        NONE                   All    B     Disabled        NONE\n21 Trunk #21        NONE                   All    B     Disabled        NONE\n22 Trunk #22        NONE                   All    B     Disabled        NONE\n23 Trunk #23        NONE                   All    B     Disabled        NONE\n24 Trunk #24        NONE                   All    B     Disabled        NONE\n25 Trunk #25        NONE                   All    B     Disabled        NONE\n26 Trunk #26        NONE                   All    B     Disabled        NONE\n27 Trunk #27        NONE                   All    B     Disabled        NONE\n28 Trunk #28        NONE                   All    B     Disabled        NONE\n29 Trunk #29        NONE                   All    B     Disabled        NONE\n30 Trunk #30        NONE                   All    B     Disabled        NONE\n31 Trunk #31        NONE                   All    B     Disabled        NONE\n32 Trunk #32        NONE                   All    B     Disabled        NONE\nMODE Legend:\nB=Basic, A=Advance, Man=ManLag, Dyn=DynLag\n",
+  "textfsm_template": "Value Required ID (\\d+)\nValue NAME (.*?)\nValue ACTIVE_MEMBERS (\\S+?)\nValue INACTIVE_MEMBERS (\\S+?)\nValue BPDU (\\S+?)\nValue MODE (\\S+?)\nValue STATUS (Enabled|Disabled)\nValue TYPE (Access|Trunk|)\nValue LACP_KEY (\\S+|)\n\nStart\n  ^${ID}\\s+${NAME}\\s+${ACTIVE_MEMBERS}\\s+${BPDU}\\s+${MODE}\\s+${STATUS}\\s*${TYPE}\\s*${LACP_KEY}\\s*$$ -> Record\n  ^Id:\\s+\\d+\\s*$$ -> Continue.Record\n  ^Id:\\s*${ID}\\s*$$\n  ^\\s+Name:${NAME}\\s*$$\n  ^\\s+Active Members:\\s${ACTIVE_MEMBERS}\\s*$$\n  ^\\s+Inactive Members:\\s${INACTIVE_MEMBERS}\\s*$$\n  ^\\s+Bpdu:\\s${BPDU}\\s*$$\n  ^\\s+Mode:\\s${MODE}\\s*$$\n  ^\\s+Status:\\s${STATUS}\\s*$$\n  ^\\s+Type:\\s${TYPE}\\s*$$\n  ^\\s+LACP key:\\s${LACP_KEY}\\s*$$\n  ^\\s+LACP$$\n  ^Id\\s+Name\\s+Members\\s+Bpdu\\s+Mode\\s+Status\\s+Type(\\s+Key|)\\s*$$\n  ^-+\\s+-+\\s+-+\\s+-+\\s+-+\\s+-+\\s+-+(\\s+-+|)\\s*$$\n  ^MODE\\s+Legend:\\s*$$\n  ^B=Basic,\\s+A=Advance,\\s+Man=ManLag,\\s+Dyn=DynLag\\s*$$\n  ^.*$$ -> Error\n"
+}

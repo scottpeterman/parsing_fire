@@ -1,0 +1,48 @@
+{
+  "command": "mikrotik_routeros_ip_address_export_verbose",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"ip_mask_disabled_interface_network\">\nadd address={{IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{MASK}} disabled={{DISABLED}} interface={{INTERFACE}} network={{NETWORK | ORPHRASE}}\n</group>\n<group name=\"ip_mask_comment_disabled_interface_network\">\nadd address={{IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{MASK}} comment=\"{{COMMENT | ORPHRASE}}\" disabled={{DISABLED}} interface={{INTERFACE}} network={{NETWORK | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP": "10.159.1.159",
+      "MASK": "30",
+      "DISABLED": "no",
+      "INTERFACE": "ether2",
+      "NETWORK": "10.159.1.158"
+    },
+    {
+      "IP": "10.80.90.5",
+      "MASK": "27",
+      "COMMENT": "test comment",
+      "DISABLED": "yes",
+      "INTERFACE": "eth3_vlan1",
+      "NETWORK": "10.80.90.0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_mask_disabled_interface_network": {
+        "IP": "10.159.1.159",
+        "MASK": "30",
+        "DISABLED": "no",
+        "INTERFACE": "ether2",
+        "NETWORK": "10.159.1.158"
+      },
+      "ip_mask_comment_disabled_interface_network": {
+        "IP": "10.80.90.5",
+        "MASK": "27",
+        "COMMENT": "test comment",
+        "DISABLED": "yes",
+        "INTERFACE": "eth3_vlan1",
+        "NETWORK": "10.80.90.0"
+      }
+    }
+  ],
+  "cli_content": "# jul/21/2023 09:42:42 by RouterOS 6.48.6\n# software id = 1234-ABCD\n#\n# model = RB750UPr2\n# serial number = AB12345CD789\n/ip address\nadd address=10.159.1.159/30 disabled=no interface=ether2 network=10.159.1.158\nadd address=10.80.90.5/27 comment=\"test comment\" disabled=yes interface=eth3_vlan1 network=10.80.90.0\n",
+  "textfsm_template": "Value IP (\\S+)\nValue MASK (\\d+)\nValue COMMENT (.*?)\nValue DISABLED (yes|no)\nValue INTERFACE (\\S+)\nValue NETWORK (\\S+)\n\nStart\n  ^\\s*#.*$$\n  ^/ip\\s+address\\s*$$\n  ^\\s*add\\s+address=${IP}/${MASK}(?:\\s+comment=\"${COMMENT}\")?\\s+disabled=${DISABLED}\\s+interface=${INTERFACE}\\s+network=${NETWORK}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

@@ -1,0 +1,1520 @@
+[
+  {
+    "command": "hp_comware_display_interface",
+    "ratio": 13.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 13
+  },
+  {
+    "command": "cisco_nxos_show_ip_bgp_neighbors",
+    "ratio": 11.677966101694915,
+    "textfsm_rows": 59,
+    "ttp_rows": 689
+  },
+  {
+    "command": "hp_comware_display_device_manuinfo",
+    "ratio": 8.857142857142858,
+    "textfsm_rows": 14,
+    "ttp_rows": 124
+  },
+  {
+    "command": "cisco_asa_show_nat",
+    "ratio": 7.0344827586206895,
+    "textfsm_rows": 58,
+    "ttp_rows": 408
+  },
+  {
+    "command": "cisco_ios_show_ip_access-lists",
+    "ratio": 6.777777777777778,
+    "textfsm_rows": 81,
+    "ttp_rows": 549
+  },
+  {
+    "command": "fortinet_execute_ping",
+    "ratio": 5.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show ip ospf border-routers",
+    "ratio": 4.666666666666667,
+    "textfsm_rows": 3,
+    "ttp_rows": 14
+  },
+  {
+    "command": "brocade_fastiron_show_interfaces",
+    "ratio": 4.376470588235295,
+    "textfsm_rows": 85,
+    "ttp_rows": 372
+  },
+  {
+    "command": "cisco_wlc_ssh_show_rf-profile_summary",
+    "ratio": 4.333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 13
+  },
+  {
+    "command": "cisco_ios_show_interfaces",
+    "ratio": 4.214285714285714,
+    "textfsm_rows": 56,
+    "ttp_rows": 236
+  },
+  {
+    "command": "cisco_nxos_show_cdp_neighbors_detail",
+    "ratio": 4.0,
+    "textfsm_rows": 5,
+    "ttp_rows": 20
+  },
+  {
+    "command": "cisco_nxos_show_cts_interface_brief",
+    "ratio": 4.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 4
+  },
+  {
+    "command": "show dns lookups",
+    "ratio": 4.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 4
+  },
+  {
+    "command": "show ip dhcp snooping",
+    "ratio": 4.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 4
+  },
+  {
+    "command": "huawei_vrp_display_interface",
+    "ratio": 3.4473684210526314,
+    "textfsm_rows": 38,
+    "ttp_rows": 131
+  },
+  {
+    "command": "cisco_asa_show_interface_detail",
+    "ratio": 3.4166666666666665,
+    "textfsm_rows": 24,
+    "ttp_rows": 82
+  },
+  {
+    "command": "brocade_fastiron_show_metro",
+    "ratio": 3.3333333333333335,
+    "textfsm_rows": 3,
+    "ttp_rows": 10
+  },
+  {
+    "command": "show high-avail status",
+    "ratio": 3.3333333333333335,
+    "textfsm_rows": 3,
+    "ttp_rows": 10
+  },
+  {
+    "command": "arista_eos_show_inventory",
+    "ratio": 3.272727272727273,
+    "textfsm_rows": 11,
+    "ttp_rows": 36
+  },
+  {
+    "command": "cisco_asa_show_running-config_object_network",
+    "ratio": 3.1538461538461537,
+    "textfsm_rows": 13,
+    "ttp_rows": 41
+  },
+  {
+    "command": "brocade_netiron_show_topo",
+    "ratio": 3.0,
+    "textfsm_rows": 6,
+    "ttp_rows": 18
+  },
+  {
+    "command": "cisco_ios_show_snmp_group",
+    "ratio": 3.0,
+    "textfsm_rows": 7,
+    "ttp_rows": 21
+  },
+  {
+    "command": "cisco_ios_show_vlans",
+    "ratio": 3.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 3
+  },
+  {
+    "command": "cisco_wlc_ssh_show_tacacs_summary",
+    "ratio": 3.0,
+    "textfsm_rows": 9,
+    "ttp_rows": 27
+  },
+  {
+    "command": "hp_procurve_show_tech_buffers",
+    "ratio": 3.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 3
+  },
+  {
+    "command": "show access-lists extended",
+    "ratio": 3.0,
+    "textfsm_rows": 6,
+    "ttp_rows": 18
+  },
+  {
+    "command": "show bgp summary",
+    "ratio": 3.0,
+    "textfsm_rows": 3,
+    "ttp_rows": 9
+  },
+  {
+    "command": "show cts interface all",
+    "ratio": 3.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 3
+  },
+  {
+    "command": "show interface logical",
+    "ratio": 3.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 3
+  },
+  {
+    "command": "show interfaces switchport",
+    "ratio": 3.0,
+    "textfsm_rows": 3,
+    "ttp_rows": 9
+  },
+  {
+    "command": "show ip bgp vpnv4 vrf all summary",
+    "ratio": 3.0,
+    "textfsm_rows": 3,
+    "ttp_rows": 9
+  },
+  {
+    "command": "show mpls forwarding-table",
+    "ratio": 3.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 3
+  },
+  {
+    "command": "cisco_nxos_show_interface_brief",
+    "ratio": 2.774774774774775,
+    "textfsm_rows": 111,
+    "ttp_rows": 308
+  },
+  {
+    "command": "edgecore_show_interfaces_brief",
+    "ratio": 2.7,
+    "textfsm_rows": 10,
+    "ttp_rows": 27
+  },
+  {
+    "command": "cisco_ios_show_crypto_pki_certificates",
+    "ratio": 2.6666666666666665,
+    "textfsm_rows": 3,
+    "ttp_rows": 8
+  },
+  {
+    "command": "cisco_nxos_show_vrf_detail",
+    "ratio": 2.6666666666666665,
+    "textfsm_rows": 3,
+    "ttp_rows": 8
+  },
+  {
+    "command": "ipv6 access-list",
+    "ratio": 2.6666666666666665,
+    "textfsm_rows": 3,
+    "ttp_rows": 8
+  },
+  {
+    "command": "hp_procurve_show_lldp_info_remote-device",
+    "ratio": 2.5,
+    "textfsm_rows": 8,
+    "ttp_rows": 20
+  },
+  {
+    "command": "show ipv6 neighbors",
+    "ratio": 2.5,
+    "textfsm_rows": 2,
+    "ttp_rows": 5
+  },
+  {
+    "command": "mikrotik_routeros_ip_arp_print",
+    "ratio": 2.4,
+    "textfsm_rows": 5,
+    "ttp_rows": 12
+  },
+  {
+    "command": "show policy-map interface",
+    "ratio": 2.4,
+    "textfsm_rows": 5,
+    "ttp_rows": 12
+  },
+  {
+    "command": "hp_procurve_show_lldp_info_remote-device_detail",
+    "ratio": 2.375,
+    "textfsm_rows": 8,
+    "ttp_rows": 19
+  },
+  {
+    "command": "fortinet_fnsysctl_ifconfig",
+    "ratio": 2.3636363636363638,
+    "textfsm_rows": 11,
+    "ttp_rows": 26
+  },
+  {
+    "command": "checkpoint_gaia_show_interfaces_all",
+    "ratio": 2.3333333333333335,
+    "textfsm_rows": 3,
+    "ttp_rows": 7
+  },
+  {
+    "command": "cisco_nxos_show_hsrp_all",
+    "ratio": 2.3076923076923075,
+    "textfsm_rows": 13,
+    "ttp_rows": 30
+  },
+  {
+    "command": "arista_eos_show_interfaces",
+    "ratio": 2.2857142857142856,
+    "textfsm_rows": 7,
+    "ttp_rows": 16
+  },
+  {
+    "command": "cisco_ios_show_interface_transceiver",
+    "ratio": 2.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 9
+  },
+  {
+    "command": "show bgp vpnv4 unicast vrf all summary",
+    "ratio": 2.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 9
+  },
+  {
+    "command": "cisco_nxos_show_ip_bgp",
+    "ratio": 2.2439024390243905,
+    "textfsm_rows": 41,
+    "ttp_rows": 92
+  },
+  {
+    "command": "cisco_asa_show_asp_table_vpn-context_detail",
+    "ratio": 2.2,
+    "textfsm_rows": 5,
+    "ttp_rows": 11
+  },
+  {
+    "command": "alcatel_sros_show_router_isis_adjacency",
+    "ratio": 2.0,
+    "textfsm_rows": 2,
+    "ttp_rows": 4
+  },
+  {
+    "command": "brocade_fastiron_show_trunk",
+    "ratio": 2.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 2
+  },
+  {
+    "command": "brocade_netiron_show_lldp_neighbors_detail",
+    "ratio": 2.0,
+    "textfsm_rows": 5,
+    "ttp_rows": 10
+  },
+  {
+    "command": "brocade_netiron_show_running-config_vlan",
+    "ratio": 2.0,
+    "textfsm_rows": 16,
+    "ttp_rows": 32
+  },
+  {
+    "command": "cisco_asa_show_crypto_ikev1_sa_detail",
+    "ratio": 2.0,
+    "textfsm_rows": 4,
+    "ttp_rows": 8
+  },
+  {
+    "command": "cisco_asa_show_failover",
+    "ratio": 2.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 2
+  },
+  {
+    "command": "cisco_ios_show_ip_eigrp_interfaces_detail",
+    "ratio": 2.0,
+    "textfsm_rows": 2,
+    "ttp_rows": 4
+  },
+  {
+    "command": "cisco_ios_show_ip_eigrp_neighbors",
+    "ratio": 2.0,
+    "textfsm_rows": 2,
+    "ttp_rows": 4
+  },
+  {
+    "command": "cisco_ios_show_ip_ospf_neighbor_detail",
+    "ratio": 2.0,
+    "textfsm_rows": 2,
+    "ttp_rows": 4
+  },
+  {
+    "command": "cisco_ios_show_license_status",
+    "ratio": 2.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 2
+  },
+  {
+    "command": "cisco_ios_show_rep_topology",
+    "ratio": 2.0,
+    "textfsm_rows": 2,
+    "ttp_rows": 4
+  },
+  {
+    "command": "cisco_nxos_show_configuration_session_summary",
+    "ratio": 2.0,
+    "textfsm_rows": 2,
+    "ttp_rows": 4
+  },
+  {
+    "command": "cisco_nxos_show_interfaces_switchport",
+    "ratio": 2.0,
+    "textfsm_rows": 3,
+    "ttp_rows": 6
+  },
+  {
+    "command": "cisco_nxos_show_ip_interface",
+    "ratio": 2.0,
+    "textfsm_rows": 2,
+    "ttp_rows": 4
+  },
+  {
+    "command": "cisco_nxos_show_ip_interface_vrf_all",
+    "ratio": 2.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 2
+  },
+  {
+    "command": "cisco_nxos_show_ip_pim_group-range_vrf_all",
+    "ratio": 2.0,
+    "textfsm_rows": 2,
+    "ttp_rows": 4
+  },
+  {
+    "command": "cisco_nxos_show_ip_pim_neighbor_vrf_all",
+    "ratio": 2.0,
+    "textfsm_rows": 2,
+    "ttp_rows": 4
+  },
+  {
+    "command": "cisco_nxos_show_lldp_neighbors_detail",
+    "ratio": 2.0,
+    "textfsm_rows": 4,
+    "ttp_rows": 8
+  },
+  {
+    "command": "dns query",
+    "ratio": 2.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 2
+  },
+  {
+    "command": "fortinet_execute_log_display",
+    "ratio": 2.0,
+    "textfsm_rows": 3,
+    "ttp_rows": 6
+  },
+  {
+    "command": "hp_procurve_show_ip_route",
+    "ratio": 2.0,
+    "textfsm_rows": 4,
+    "ttp_rows": 8
+  },
+  {
+    "command": "huawei_smartax_display_ont_info_summary_ont",
+    "ratio": 2.0,
+    "textfsm_rows": 23,
+    "ttp_rows": 46
+  },
+  {
+    "command": "huawei_smartax_display_ont_port_state_0_1_eth-port",
+    "ratio": 2.0,
+    "textfsm_rows": 3,
+    "ttp_rows": 6
+  },
+  {
+    "command": "huawei_vrp_display_telnet_server_status",
+    "ratio": 2.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 2
+  },
+  {
+    "command": "ifconfig -a",
+    "ratio": 2.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 2
+  },
+  {
+    "command": "netstat -s",
+    "ratio": 2.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 2
+  },
+  {
+    "command": "paloalto_panos_show_running_security-policy",
+    "ratio": 2.0,
+    "textfsm_rows": 7,
+    "ttp_rows": 14
+  },
+  {
+    "command": "show adjacency detail",
+    "ratio": 2.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 2
+  },
+  {
+    "command": "show bgp vpnv4 unicast all summary",
+    "ratio": 2.0,
+    "textfsm_rows": 5,
+    "ttp_rows": 10
+  },
+  {
+    "command": "show crypto pki certificates",
+    "ratio": 2.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 2
+  },
+  {
+    "command": "show dns server query",
+    "ratio": 2.0,
+    "textfsm_rows": 3,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show environment fan detail",
+    "ratio": 2.0,
+    "textfsm_rows": 3,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show fex detail",
+    "ratio": 2.0,
+    "textfsm_rows": 3,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show hardware status",
+    "ratio": 2.0,
+    "textfsm_rows": 4,
+    "ttp_rows": 8
+  },
+  {
+    "command": "show ip bgp vrf all",
+    "ratio": 2.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 2
+  },
+  {
+    "command": "show ip cef adjacency detail",
+    "ratio": 2.0,
+    "textfsm_rows": 3,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show ip pim neighbor detail",
+    "ratio": 2.0,
+    "textfsm_rows": 3,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show ip rip database",
+    "ratio": 2.0,
+    "textfsm_rows": 4,
+    "ttp_rows": 8
+  },
+  {
+    "command": "show ipv6 interface",
+    "ratio": 2.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 2
+  },
+  {
+    "command": "show memory",
+    "ratio": 2.0,
+    "textfsm_rows": 3,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show mpls ldp neighbor",
+    "ratio": 2.0,
+    "textfsm_rows": 1,
+    "ttp_rows": 2
+  },
+  {
+    "command": "show policy qos",
+    "ratio": 2.0,
+    "textfsm_rows": 5,
+    "ttp_rows": 10
+  },
+  {
+    "command": "fortinet_get_router_info_routing-table_all",
+    "ratio": 1.9,
+    "textfsm_rows": 10,
+    "ttp_rows": 19
+  },
+  {
+    "command": "cisco_nxos_show_interface_transceiver_details",
+    "ratio": 1.8333333333333333,
+    "textfsm_rows": 6,
+    "ttp_rows": 11
+  },
+  {
+    "command": "cisco_ios_show_inventory",
+    "ratio": 1.75,
+    "textfsm_rows": 4,
+    "ttp_rows": 7
+  },
+  {
+    "command": "cisco_wlc_ssh_show_flexconnect_group_summary",
+    "ratio": 1.75,
+    "textfsm_rows": 4,
+    "ttp_rows": 7
+  },
+  {
+    "command": "hp_comware_display_lldp_neighbor-information_verbose",
+    "ratio": 1.75,
+    "textfsm_rows": 4,
+    "ttp_rows": 7
+  },
+  {
+    "command": "juniper_junos_show_lacp_interfaces",
+    "ratio": 1.75,
+    "textfsm_rows": 4,
+    "ttp_rows": 7
+  },
+  {
+    "command": "show alarms count",
+    "ratio": 1.75,
+    "textfsm_rows": 4,
+    "ttp_rows": 7
+  },
+  {
+    "command": "arista_eos_show_interfaces_transceiver_detail",
+    "ratio": 1.7142857142857142,
+    "textfsm_rows": 21,
+    "ttp_rows": 36
+  },
+  {
+    "command": "cisco_ios_show_ip_bgp_summary",
+    "ratio": 1.7,
+    "textfsm_rows": 10,
+    "ttp_rows": 17
+  },
+  {
+    "command": "alcatel_sros_show_router_bgp_summary_family",
+    "ratio": 1.6666666666666667,
+    "textfsm_rows": 6,
+    "ttp_rows": 10
+  },
+  {
+    "command": "arista_eos_show_snmp_community",
+    "ratio": 1.6666666666666667,
+    "textfsm_rows": 3,
+    "ttp_rows": 5
+  },
+  {
+    "command": "cisco_ios_show_alert_counters",
+    "ratio": 1.6666666666666667,
+    "textfsm_rows": 6,
+    "ttp_rows": 10
+  },
+  {
+    "command": "cisco_ios_show_ip_prefix-list",
+    "ratio": 1.6666666666666667,
+    "textfsm_rows": 3,
+    "ttp_rows": 5
+  },
+  {
+    "command": "cisco_nxos_show_ip_pim_interface_brief_vrf_all",
+    "ratio": 1.6666666666666667,
+    "textfsm_rows": 3,
+    "ttp_rows": 5
+  },
+  {
+    "command": "mikrotik_routeros_interface_print_brief",
+    "ratio": 1.625,
+    "textfsm_rows": 8,
+    "ttp_rows": 13
+  },
+  {
+    "command": "huawei_vrp_display_arp_all",
+    "ratio": 1.6,
+    "textfsm_rows": 5,
+    "ttp_rows": 8
+  },
+  {
+    "command": "cisco_ios_show_interfaces_status",
+    "ratio": 1.5294117647058822,
+    "textfsm_rows": 17,
+    "ttp_rows": 26
+  },
+  {
+    "command": "arista_eos_show_ip_route",
+    "ratio": 1.5,
+    "textfsm_rows": 2,
+    "ttp_rows": 3
+  },
+  {
+    "command": "arista_eos_show_mac_security_participants_detail",
+    "ratio": 1.5,
+    "textfsm_rows": 4,
+    "ttp_rows": 6
+  },
+  {
+    "command": "cisco_apic_fabric_show_vlan_extended",
+    "ratio": 1.5,
+    "textfsm_rows": 4,
+    "ttp_rows": 6
+  },
+  {
+    "command": "cisco_asa_show_interface",
+    "ratio": 1.5,
+    "textfsm_rows": 6,
+    "ttp_rows": 9
+  },
+  {
+    "command": "cisco_asa_show_object-group_network",
+    "ratio": 1.5,
+    "textfsm_rows": 14,
+    "ttp_rows": 21
+  },
+  {
+    "command": "cisco_ios_show_crypto_ipsec_sa_detail",
+    "ratio": 1.5,
+    "textfsm_rows": 4,
+    "ttp_rows": 6
+  },
+  {
+    "command": "cisco_ios_show_dot1x_all",
+    "ratio": 1.5,
+    "textfsm_rows": 2,
+    "ttp_rows": 3
+  },
+  {
+    "command": "cisco_ios_show_ip_eigrp_neighbors_detail",
+    "ratio": 1.5,
+    "textfsm_rows": 2,
+    "ttp_rows": 3
+  },
+  {
+    "command": "cisco_wlc_ssh_show_time",
+    "ratio": 1.5,
+    "textfsm_rows": 2,
+    "ttp_rows": 3
+  },
+  {
+    "command": "display ipv6 access-list",
+    "ratio": 1.5,
+    "textfsm_rows": 4,
+    "ttp_rows": 6
+  },
+  {
+    "command": "huawei_smartax_display_ont_port_state_0_1_eth-state",
+    "ratio": 1.5,
+    "textfsm_rows": 2,
+    "ttp_rows": 3
+  },
+  {
+    "command": "show bgp ipv4 unicast",
+    "ratio": 1.5,
+    "textfsm_rows": 6,
+    "ttp_rows": 9
+  },
+  {
+    "command": "show environment all",
+    "ratio": 1.5,
+    "textfsm_rows": 4,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show ip mpls forwarding-table",
+    "ratio": 1.5,
+    "textfsm_rows": 4,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show ip multicast route",
+    "ratio": 1.5,
+    "textfsm_rows": 4,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show ip prefix-list",
+    "ratio": 1.5,
+    "textfsm_rows": 4,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show license all",
+    "ratio": 1.5,
+    "textfsm_rows": 2,
+    "ttp_rows": 3
+  },
+  {
+    "command": "show mpls interfaces detail",
+    "ratio": 1.5,
+    "textfsm_rows": 2,
+    "ttp_rows": 3
+  },
+  {
+    "command": "show platform fex all",
+    "ratio": 1.5,
+    "textfsm_rows": 4,
+    "ttp_rows": 6
+  },
+  {
+    "command": "huawei_vrp_display_temperature",
+    "ratio": 1.4444444444444444,
+    "textfsm_rows": 9,
+    "ttp_rows": 13
+  },
+  {
+    "command": "cisco_ios_show_power_inline",
+    "ratio": 1.4285714285714286,
+    "textfsm_rows": 7,
+    "ttp_rows": 10
+  },
+  {
+    "command": "ipinfusion_ocnos_show_lldp_table",
+    "ratio": 1.4285714285714286,
+    "textfsm_rows": 7,
+    "ttp_rows": 10
+  },
+  {
+    "command": "cisco_ios_show_interface_link",
+    "ratio": 1.4047619047619047,
+    "textfsm_rows": 42,
+    "ttp_rows": 59
+  },
+  {
+    "command": "cisco_ios_show_vrrp_all",
+    "ratio": 1.4,
+    "textfsm_rows": 5,
+    "ttp_rows": 7
+  },
+  {
+    "command": "juniper_junos_show_isis_adjacency",
+    "ratio": 1.4,
+    "textfsm_rows": 5,
+    "ttp_rows": 7
+  },
+  {
+    "command": "show interface counters errors",
+    "ratio": 1.4,
+    "textfsm_rows": 5,
+    "ttp_rows": 7
+  },
+  {
+    "command": "arista_eos_show_environment_temperature",
+    "ratio": 1.375,
+    "textfsm_rows": 16,
+    "ttp_rows": 22
+  },
+  {
+    "command": "cisco_nxos_show_license_usage",
+    "ratio": 1.3636363636363635,
+    "textfsm_rows": 11,
+    "ttp_rows": 15
+  },
+  {
+    "command": "arista_eos_show_ip_access-lists",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 12,
+    "ttp_rows": 16
+  },
+  {
+    "command": "arista_eos_show_ip_ospf_summary",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "brocade_fastiron_show_topo",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "cisco_asa_show_running-config_tunnel-group",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "cisco_nxos_show_interface",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "cisco_nxos_show_ip_ospf_neighbor",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "huawei_vrp_display_interface_description",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 30,
+    "ttp_rows": 40
+  },
+  {
+    "command": "juniper_junos_show_chassis_cluster_status",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "linux_ip_route_show",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "mikrotik_routeros_ip_dhcp-server_lease_print_terse_without-paging",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "netstat -i",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "paloalto_panos_debug_swm_status",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "show disk info",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "show diskvolume",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "show fex all",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 6,
+    "ttp_rows": 8
+  },
+  {
+    "command": "show high-availability",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "show interface",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "show interfaces transceiver",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "show ip msdp summary",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "show ip pim neighbors",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "show ip vrf interface",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "show mpls l2transport vc detail",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "show msdp summary",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "show nat translations",
+    "ratio": 1.3333333333333333,
+    "textfsm_rows": 3,
+    "ttp_rows": 4
+  },
+  {
+    "command": "cisco_asa_dir",
+    "ratio": 1.3,
+    "textfsm_rows": 10,
+    "ttp_rows": 13
+  },
+  {
+    "command": "paloalto_panos_show_counter_global",
+    "ratio": 1.2857142857142858,
+    "textfsm_rows": 7,
+    "ttp_rows": 9
+  },
+  {
+    "command": "broadcom_icos_show_isdp_neighbors",
+    "ratio": 1.2727272727272727,
+    "textfsm_rows": 11,
+    "ttp_rows": 14
+  },
+  {
+    "command": "alcatel_sros_show_router_mpls_interface",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "alcatel_sros_show_router_ospf_interface",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "arista_eos_show_lldp_neighbors",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "arista_eos_show_pim_ipv4_neighbor",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "cisco_ios_show_ip_route_summary",
+    "ratio": 1.25,
+    "textfsm_rows": 8,
+    "ttp_rows": 10
+  },
+  {
+    "command": "cisco_nxos_show_ip_interface_brief",
+    "ratio": 1.25,
+    "textfsm_rows": 8,
+    "ttp_rows": 10
+  },
+  {
+    "command": "cisco_nxos_show_spanning-tree_root",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "cisco_wlc_ssh_show_radius_summary",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "fortinet_get_router_info_bgp_summary",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "mikrotik_routeros_interface_ethernet_poe_print_without-paging",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show alarms detail",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show alarms summary",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show disk-usage",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show du",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show feature fex",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show firewall",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show interface transceiver",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show interfaces description",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show interfaces extensive",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show interfaces transceiver detail",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show interfaces transceiver detailed",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show ip bgp summary",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show ip bgp vpnv4 all summary",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show ip pim neighbor",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show ipv4 forwarding-adjacency",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show mlag interface",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show mpls interfaces verbose",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show mpls ip bindings",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show nve vni",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show pim neighbor",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "show port",
+    "ratio": 1.25,
+    "textfsm_rows": 4,
+    "ttp_rows": 5
+  },
+  {
+    "command": "cisco_asa_show_access-list",
+    "ratio": 1.2463768115942029,
+    "textfsm_rows": 69,
+    "ttp_rows": 86
+  },
+  {
+    "command": "cisco_ios_show_object-group",
+    "ratio": 1.24,
+    "textfsm_rows": 25,
+    "ttp_rows": 31
+  },
+  {
+    "command": "brocade_netiron_show_interfaces",
+    "ratio": 1.2222222222222223,
+    "textfsm_rows": 9,
+    "ttp_rows": 11
+  },
+  {
+    "command": "cisco_nxos_show_forwarding_adjacency",
+    "ratio": 1.2222222222222223,
+    "textfsm_rows": 9,
+    "ttp_rows": 11
+  },
+  {
+    "command": "mikrotik_routeros_interface_print_detail",
+    "ratio": 1.2222222222222223,
+    "textfsm_rows": 9,
+    "ttp_rows": 11
+  },
+  {
+    "command": "cisco_ios_show_access-list",
+    "ratio": 1.2105263157894737,
+    "textfsm_rows": 19,
+    "ttp_rows": 23
+  },
+  {
+    "command": "cisco_nxos_show_access-lists",
+    "ratio": 1.206896551724138,
+    "textfsm_rows": 29,
+    "ttp_rows": 35
+  },
+  {
+    "command": "brocade_fastiron_show_interfaces_brief",
+    "ratio": 1.2055837563451777,
+    "textfsm_rows": 394,
+    "ttp_rows": 475
+  },
+  {
+    "command": "arista_eos_show_lldp_neighbors_detail",
+    "ratio": 1.2,
+    "textfsm_rows": 20,
+    "ttp_rows": 24
+  },
+  {
+    "command": "cisco_ios_show_aliases",
+    "ratio": 1.2,
+    "textfsm_rows": 10,
+    "ttp_rows": 12
+  },
+  {
+    "command": "cisco_ios_show_interfaces_description",
+    "ratio": 1.2,
+    "textfsm_rows": 15,
+    "ttp_rows": 18
+  },
+  {
+    "command": "cisco_wlc_ssh_show_stats_port_summary",
+    "ratio": 1.2,
+    "textfsm_rows": 5,
+    "ttp_rows": 6
+  },
+  {
+    "command": "display ip interface brief",
+    "ratio": 1.2,
+    "textfsm_rows": 5,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show adjacencies",
+    "ratio": 1.2,
+    "textfsm_rows": 5,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show alarm all",
+    "ratio": 1.2,
+    "textfsm_rows": 5,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show alarm-counters",
+    "ratio": 1.2,
+    "textfsm_rows": 5,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show cts interface all brief",
+    "ratio": 1.2,
+    "textfsm_rows": 5,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show df -h",
+    "ratio": 1.2,
+    "textfsm_rows": 5,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show firewall rules detail",
+    "ratio": 1.2,
+    "textfsm_rows": 5,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show interface description",
+    "ratio": 1.2,
+    "textfsm_rows": 5,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show interface transceivers",
+    "ratio": 1.2,
+    "textfsm_rows": 5,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show interfaces descriptions",
+    "ratio": 1.2,
+    "textfsm_rows": 5,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show interfaces transceiver diag",
+    "ratio": 1.2,
+    "textfsm_rows": 5,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show ip interface brief",
+    "ratio": 1.2,
+    "textfsm_rows": 5,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show ipv4 interface brief",
+    "ratio": 1.2,
+    "textfsm_rows": 5,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show ipv6 interface brief",
+    "ratio": 1.2,
+    "textfsm_rows": 5,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show logical-interface",
+    "ratio": 1.2,
+    "textfsm_rows": 5,
+    "ttp_rows": 6
+  },
+  {
+    "command": "show mpls forwarding adjacency",
+    "ratio": 1.2,
+    "textfsm_rows": 5,
+    "ttp_rows": 6
+  },
+  {
+    "command": "arista_eos_show_ip_bgp_detail",
+    "ratio": 1.1818181818181819,
+    "textfsm_rows": 11,
+    "ttp_rows": 13
+  },
+  {
+    "command": "hp_comware_display_interface_brief",
+    "ratio": 1.1818181818181819,
+    "textfsm_rows": 11,
+    "ttp_rows": 13
+  },
+  {
+    "command": "alcatel_sros_show_router_interface",
+    "ratio": 1.1666666666666667,
+    "textfsm_rows": 6,
+    "ttp_rows": 7
+  },
+  {
+    "command": "arista_eos_show_interfaces_status",
+    "ratio": 1.1666666666666667,
+    "textfsm_rows": 6,
+    "ttp_rows": 7
+  },
+  {
+    "command": "cisco_nxos_show_ip_ospf_interface_brief",
+    "ratio": 1.1666666666666667,
+    "textfsm_rows": 6,
+    "ttp_rows": 7
+  },
+  {
+    "command": "display interface brief",
+    "ratio": 1.1666666666666667,
+    "textfsm_rows": 6,
+    "ttp_rows": 7
+  },
+  {
+    "command": "show alarms counters",
+    "ratio": 1.1666666666666667,
+    "textfsm_rows": 6,
+    "ttp_rows": 7
+  },
+  {
+    "command": "show ip interfaces brief",
+    "ratio": 1.1666666666666667,
+    "textfsm_rows": 6,
+    "ttp_rows": 7
+  },
+  {
+    "command": "cisco_ios_show_ip_eigrp_topology",
+    "ratio": 1.1428571428571428,
+    "textfsm_rows": 7,
+    "ttp_rows": 8
+  },
+  {
+    "command": "mikrotik_routeros_log_print_detail_without-paging",
+    "ratio": 1.1428571428571428,
+    "textfsm_rows": 7,
+    "ttp_rows": 8
+  },
+  {
+    "command": "cisco_nxos_show_interface_description",
+    "ratio": 1.1354166666666667,
+    "textfsm_rows": 96,
+    "ttp_rows": 109
+  },
+  {
+    "command": "cisco_nxos_show_ip_eigrp_neighbors",
+    "ratio": 1.125,
+    "textfsm_rows": 8,
+    "ttp_rows": 9
+  },
+  {
+    "command": "show logging info",
+    "ratio": 1.125,
+    "textfsm_rows": 8,
+    "ttp_rows": 9
+  },
+  {
+    "command": "show license usage",
+    "ratio": 1.1111111111111112,
+    "textfsm_rows": 9,
+    "ttp_rows": 10
+  },
+  {
+    "command": "cisco_asa_show_resource_usage",
+    "ratio": 1.1,
+    "textfsm_rows": 20,
+    "ttp_rows": 22
+  },
+  {
+    "command": "juniper_junos_show_chassis_cluster_interfaces",
+    "ratio": 1.1,
+    "textfsm_rows": 10,
+    "ttp_rows": 11
+  },
+  {
+    "command": "cisco_asa_show_running-config_all_crypto_map",
+    "ratio": 1.0909090909090908,
+    "textfsm_rows": 11,
+    "ttp_rows": 12
+  },
+  {
+    "command": "cisco_ios_traceroute",
+    "ratio": 1.088235294117647,
+    "textfsm_rows": 34,
+    "ttp_rows": 37
+  },
+  {
+    "command": "brocade_netiron_show_lag_brief",
+    "ratio": 1.0833333333333333,
+    "textfsm_rows": 12,
+    "ttp_rows": 13
+  },
+  {
+    "command": "arista_eos_bash_df_-h",
+    "ratio": 1.0769230769230769,
+    "textfsm_rows": 13,
+    "ttp_rows": 14
+  },
+  {
+    "command": "cisco_s300_show_interfaces_status",
+    "ratio": 1.0714285714285714,
+    "textfsm_rows": 28,
+    "ttp_rows": 30
+  },
+  {
+    "command": "huawei_vrp_display_interface_brief",
+    "ratio": 1.0588235294117647,
+    "textfsm_rows": 17,
+    "ttp_rows": 18
+  },
+  {
+    "command": "arista_eos_show_environment_cooling",
+    "ratio": 1.0526315789473684,
+    "textfsm_rows": 38,
+    "ttp_rows": 40
+  },
+  {
+    "command": "arista_eos_show_interfaces_description",
+    "ratio": 1.05,
+    "textfsm_rows": 20,
+    "ttp_rows": 21
+  },
+  {
+    "command": "cisco_nxos_show_flogi_database",
+    "ratio": 1.0476190476190477,
+    "textfsm_rows": 21,
+    "ttp_rows": 22
+  },
+  {
+    "command": "dell_powerconnect_show_interfaces_status",
+    "ratio": 1.0416666666666667,
+    "textfsm_rows": 48,
+    "ttp_rows": 50
+  },
+  {
+    "command": "cisco_nxos_show_l2rib_internal_permanently-frozen-list",
+    "ratio": 1.04,
+    "textfsm_rows": 25,
+    "ttp_rows": 26
+  },
+  {
+    "command": "alcatel_sros_show_system_cpu",
+    "ratio": 1.02,
+    "textfsm_rows": 50,
+    "ttp_rows": 51
+  },
+  {
+    "command": "dell_force10_show_ip_interface_brief",
+    "ratio": 1.0185185185185186,
+    "textfsm_rows": 54,
+    "ttp_rows": 55
+  },
+  {
+    "command": "cisco_nxos_show_feature",
+    "ratio": 1.0161290322580645,
+    "textfsm_rows": 62,
+    "ttp_rows": 63
+  }
+]

@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_version
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="boot_image_hostname_last_reboot_reason_os">
+  kickstart: version {{OS | ORPHRASE}}
+  kickstart image file is: {{BOOT_IMAGE | ORPHRASE}}
+  cisco {{PLATFORM | ORPHRASE}} Chassis ("O2 32X10GE/Modular Universal Platform Supervisor")
+  Processor Board ID {{SERIAL | ORPHRASE}}
+  Device name: {{HOSTNAME | ORPHRASE}}
+Kernel uptime is {{UPTIME | ORPHRASE}}
+  Reason: {{LAST_REBOOT_REASON | ORPHRASE}}
+</group>

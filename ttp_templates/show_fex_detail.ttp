@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show fex detail
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 6
+# Match ratio: 2.00
+
+<group name="description">
+  Description: {{DESCRIPTION}}
+</group>
+<group name="fex_version_switch_version">
+  FEX version: {{FEX_VERSION | ORPHRASE}} [Switch version: {{SWITCH_VERSION | re("[\\d\\.\\(\\)A-Za-z]+")}}]
+</group>

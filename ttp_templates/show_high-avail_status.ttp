@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show high-avail status
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 10
+# Match ratio: 3.33
+
+<group name="mode">
+  Mode: {{MODE | ORPHRASE}}
+</group>
+<group name="interface_status_role">
+  {{INTERFACE}} {{STATUS | ORPHRASE}} {{ROLE | ORPHRASE}}
+</group>

@@ -1,0 +1,40 @@
+{
+  "command": "hp_comware_display_lldp_neighbor-information_list",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"chassis_id_local_interface_neighbor_interface_neighbor_name\">\nXGE1/0/0/1  {{CHASSIS_ID}}  Ten-GigabitEthernet1/0/47  {{NEIGHBOR_NAME | ORPHRASE}}\n{{LOCAL_INTERFACE}}  bcea-fa00-0033  {{NEIGHBOR_INTERFACE | ORPHRASE}}  SWITCH01\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOCAL_INTERFACE": "XGE1/0/0/1",
+      "CHASSIS_ID": "bcea-fa00-0033",
+      "NEIGHBOR_INTERFACE": "Ten-GigabitEthernet1/0/47",
+      "NEIGHBOR_NAME": "SWITCH01"
+    },
+    {
+      "LOCAL_INTERFACE": "XGE1/0/0/2",
+      "CHASSIS_ID": "bcea-fa00-0033",
+      "NEIGHBOR_INTERFACE": "Ten-GigabitEthernet2/0/47",
+      "NEIGHBOR_NAME": "SWITCH01"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "chassis_id_local_interface_neighbor_interface_neighbor_name": [
+        {
+          "CHASSIS_ID": "bcea-fa00-0033",
+          "NEIGHBOR_NAME": "SWITCH01"
+        },
+        {
+          "CHASSIS_ID": "bcea-fa00-0033",
+          "NEIGHBOR_NAME": "SWITCH01"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Chassis ID : * -- -- Nearest nontpmr bridge neighbor\n             # -- -- Nearest customer bridge neighbor\n             Default -- -- Nearest bridge neighbor\nLocal Interface Chassis ID      Port ID                    System Name          \nXGE1/0/0/1      bcea-fa00-0033  Ten-GigabitEthernet1/0/47  SWITCH01\nXGE1/0/0/2      bcea-fa00-0033  Ten-GigabitEthernet2/0/47  SWITCH01\n",
+  "textfsm_template": "Value Required LOCAL_INTERFACE (\\S+)\nValue Required CHASSIS_ID (\\S+)\nValue Required NEIGHBOR_INTERFACE ((\\S+)|(Port\\s\\d+))\nValue Required NEIGHBOR_NAME (\\S+)\n\nStart\n  ^.*Nearest\\s+nontpmr\\s+bridge\\s+neighbor\n  ^.*Nearest\\s+customer\\s+bridge\\s+neighbor\n  ^.*Nearest\\s+bridge\\s+neighbor\n  ^System\\s+Name -> Format1\n  ^Local\\s+Interface -> Format2\n  ^. -> Error\n\nFormat1\n  ^\\s*${NEIGHBOR_NAME}\\s+${LOCAL_INTERFACE}\\s+${CHASSIS_ID}\\s+${NEIGHBOR_INTERFACE}\\s*$$ -> Record Format1\n  # Dropping long hostnames\n  ^\\s*\\S+\\s*$$\n  ^. -> Error\n\nFormat2\n  ^\\s*${LOCAL_INTERFACE}\\s+${CHASSIS_ID}\\s+${NEIGHBOR_INTERFACE}\\s+${NEIGHBOR_NAME}\\s*$$ -> Record Format2\n  ^. -> Error\n"
+}

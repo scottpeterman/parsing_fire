@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: brocade_fastiron_show_interfaces_brief
+# Source: ntc
+# TextFSM rows: 394
+# TTP rows: 475
+# Match ratio: 1.21
+
+<group name="interface_linkstate_portstate_duplex_speed_trunkid_tagonly_pvid_priority_mac_name">
+{{interface}} {{linkstate | ORPHRASE}} {{portstate | ORPHRASE}} {{duplex}} {{speed}} {{trunkid}} {{tagonly}} {{pvid | re("\\d+")}} {{priority}} {{mac | re("[0-9a-fA-F:.-]+")}} {{name | ORPHRASE}}
+</group>
+<group name="interface_linkstate_portstate_duplex_speed_trunkid_tagonly_pvid_priority_mac">
+{{interface}} {{linkstate | ORPHRASE}} {{portstate | ORPHRASE}} {{duplex}} {{speed}} {{trunkid}} {{tagonly}} {{pvid}} {{priority}} {{mac | ORPHRASE}}
+</group>

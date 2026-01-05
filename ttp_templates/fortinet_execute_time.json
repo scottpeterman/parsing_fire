@@ -1,0 +1,30 @@
+{
+  "command": "fortinet_execute_time",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"hour_last_ntp_sync_minute_second\">\ncurrent time is: {{HOUR}}:{{MINUTE}}:{{SECOND | ORPHRASE}}\nlast ntp sync: {{LAST_NTP_SYNC | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "HOUR": "21",
+      "MINUTE": "05",
+      "SECOND": "34",
+      "LAST_NTP_SYNC": "never"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "hour_last_ntp_sync_minute_second": {
+        "LAST_NTP_SYNC": "never",
+        "HOUR": "21",
+        "MINUTE": "05",
+        "SECOND": "34"
+      }
+    }
+  ],
+  "cli_content": "current time is: 21:05:34\nlast ntp sync: never\n",
+  "textfsm_template": "Value HOUR (\\d{2})\nValue MINUTE (\\d{2})\nValue SECOND (\\d{2})\nValue LAST_NTP_SYNC (.*?)\n\nStart\n  ^\\s*current\\s+time\\s+is:\\s+${HOUR}:${MINUTE}:${SECOND}\\s*$$\n  ^\\s*last\\s+ntp\\s+sync:\\s+${LAST_NTP_SYNC}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

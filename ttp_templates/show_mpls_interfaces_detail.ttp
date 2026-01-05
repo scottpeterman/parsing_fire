@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show mpls interfaces detail
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 3
+# Match ratio: 1.50
+
+<group name="interface_interface_role_label_advertisement_mode_ldp">
+  MTU: {{MTU | ORPHRASE}}
+  Label Distribution Protocol: {{LDP | ORPHRASE}}
+  Label Advertisement Mode: {{LABEL_ADVERTISEMENT_MODE | ORPHRASE}}
+Interface: {{INTERFACE | ORPHRASE}}
+  MPLS Status: {{MPLS_STATUS | ORPHRASE}}
+  Interface Role: {{INTERFACE_ROLE | ORPHRASE}}
+</group>

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ap database summary
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="ap_name_ip_address_ethernet_mac_radio_mac_status_group_name">
+{{AP_NAME}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{ETHERNET_MAC | re("[0-9a-fA-F:.-]+")}} {{RADIO_MAC | re("[0-9a-fA-F:.-]+")}} {{STATUS | ORPHRASE}} {{GROUP_NAME | ORPHRASE}}
+</group>

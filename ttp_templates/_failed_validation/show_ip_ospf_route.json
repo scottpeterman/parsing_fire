@@ -1,0 +1,52 @@
+{
+  "command": "show ip ospf route",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 5,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"type_next_hop_metric_area\">\n{{NETW{{TYPE | ORPHRASE}}RK}} {{NEXT_HOP}} {{METRIC}} O {{AREA}} \n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "NETWORK": "10.2.0.0/16",
+      "NEXT_HOP": "10.1.1.2",
+      "METRIC": "10",
+      "TYPE": "O",
+      "AREA": "0"
+    },
+    {
+      "NETWORK": "10.3.0.0/16",
+      "NEXT_HOP": "10.1.1.2",
+      "METRIC": "20",
+      "TYPE": "O",
+      "AREA": "0"
+    },
+    {
+      "NETWORK": "10.4.0.0/16",
+      "NEXT_HOP": "10.1.1.3",
+      "METRIC": "20",
+      "TYPE": "O",
+      "AREA": "0"
+    },
+    {
+      "NETWORK": "10.5.0.0/16",
+      "NEXT_HOP": "10.1.1.4",
+      "METRIC": "20",
+      "TYPE": "O",
+      "AREA": "0"
+    },
+    {
+      "NETWORK": "10.10.0.0/16",
+      "NEXT_HOP": "10.1.1.5",
+      "METRIC": "30",
+      "TYPE": "O",
+      "AREA": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Network          Next Hop        Metric     Type      Area      \n10.2.0.0/16      10.1.1.2        10         O         0        \n10.3.0.0/16      10.1.1.2        20         O         0        \n10.4.0.0/16      10.1.1.3        20         O         0        \n10.5.0.0/16      10.1.1.4        20         O         0        \n10.10.0.0/16     10.1.1.5        30         O         0        \n",
+  "textfsm_template": "Value NETWORK (\\S+)\nValue NEXT_HOP (\\S+)\nValue METRIC (\\d+)\nValue TYPE (\\S+)\nValue AREA (\\d+)\n\nStart\n  ^Network\\s+Next\\sHop\\s+Metric\\s+Type\\s+Area\\s*\n  ^\\s*${NETWORK}\\s+${NEXT_HOP}\\s+${METRIC}\\s+${TYPE}\\s+${AREA}\\s*$$ -> Record"
+}

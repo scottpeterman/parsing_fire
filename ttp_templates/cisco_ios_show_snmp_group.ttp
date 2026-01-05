@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_snmp_group
+# Source: ntc
+# TextFSM rows: 7
+# TTP rows: 21
+# Match ratio: 3.00
+
+<group name="groupname_security_model">
+groupname: {{GROUPNAME}} security model:{{SECURITY_MODEL | ORPHRASE}} 
+</group>
+<group name="contextname_storage_type">
+contextname: {{CONTEXTNAME | ORPHRASE}} storage-type: {{STORAGE_TYPE | ORPHRASE}}
+</group>
+<group name="readview_writeview">
+readview : {{READVIEW}} writeview: {{WRITEVIEW | ORPHRASE}} 
+</group>

@@ -1,0 +1,34 @@
+{
+  "command": "cisco_ios_show_vlans",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 3.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"interfaces\">\n{{INTERFACES}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN_ID": "103",
+      "INTERFACES": "GigabitEthernet0/0/1.103",
+      "IP_ADDRESSES": "10.16.16.129"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interfaces": [
+        {
+          "INTERFACES": "GigabitEthernet0/0/1"
+        },
+        {
+          "INTERFACES": "GigabitEthernet0/0/1"
+        },
+        {
+          "INTERFACES": "GigabitEthernet0/0/1.103"
+        }
+      ]
+    }
+  ],
+  "cli_content": "VLAN ID: 1 (IEEE 802.1Q Encapsulation)\n\n This is configured as native Vlan for the following interface(s) :\nGigabitEthernet0/0/1\n\n   Protocols Configured:          Received:        Transmitted:\n\nVLAN trunk interfaces for VLAN ID 1:\nGigabitEthernet0/0/1\n\nGigabitEthernet0/0/1 (1)\n\n\n      Total 27846142 packets, 2315703609 bytes input\n      Total 470395 packets, 179527551 bytes output\n\nVLAN ID: 103 (IEEE 802.1Q Encapsulation)\n\n   Protocols Configured:          Received:        Transmitted:\n                     IP                  0             1403041\n\nVLAN trunk interfaces for VLAN ID 103:\nGigabitEthernet0/0/1.103\n\nGigabitEthernet0/0/1.103 (103)\n\n                     IP: 10.16.16.129\n\n      Total 0 packets, 0 bytes input\n      Total 1403469 packets, 88564198 bytes output\n",
+  "textfsm_template": "Value Required VLAN_ID (\\d+)\nValue List INTERFACES ([\\w\\./-]+)\nValue List IP_ADDRESSES (\\S+)\nValue List IPV6_ADDRESSES (\\S+)\n\nStart\n  ^VLAN\\s+ID:\\s+${VLAN_ID} -> Data\n  ^Virtual\\s+LAN\\s+ID\\:\\s+${VLAN_ID} -> Data\n  ^No\\s+Virtual\\s+LANs\\s+configured\n  ^\\s*$$\n  ^. -> Error\n\nData\n  ^Virtual\\s+LAN\\s+ID\\:\\s+\\d.* -> Continue.Record\n  ^Virtual\\s+LAN\\s+ID\\:\\s+${VLAN_ID}.*\n  ^VLAN\\s+ID:\\s+\\d+ -> Continue.Record\n  ^VLAN\\s+ID:\\s+${VLAN_ID}\n  ^\\s+This\\s+is\\s+configured\\s+as\\s+native\\s+Vlan\\s+for\\s+the\\s+following\\s+interface\\(s\\)\\s+:\\s*$$\n  ^\\S+(\\s+Native-vlan\\s+Tx-type:\\s+\\S+)?\\s*$$\n  ^\\s+Protocols\\s+Configured\n  ^\\s+IP\\s+\\d+\\s+\\d+\n  ^\\s+MPLS\\s+\\d+\\s+\\d+\n  ^\\s+MPLS\\:\\s+\\S+\n  ^\\s+[vV]LAN\\s+Trunk\\s+Interfaces?\\:\\s+${INTERFACES} -> Interface\n  ^VLAN\\s+trunk\\s+interfaces -> Interface\n  ^[\\w\\./]+\\s*$$\n  ^${INTERFACES}\\s+\\(\\d+\\)\\s*$$\n  ^\\s+IP:\\s+${IP_ADDRESSES}\\s*$$\n  ^\\s+IP\\s+${IP_ADDRESSES}\\s+\\d+\\s+\\d+\n  ^\\s+IPv6:\\s+${IPV6_ADDRESSES}\\s*$$\n  ^\\s+IPv6\\s+${IPV6_ADDRESSES}\\s+\\d+\\s+\\d+\n  ^\\s+Other\\s+\\d+\\s+\\d+\n  ^\\s+IPv6\\s+\\d+\\s+\\d+\n  ^\\s+Total\\s\\d+\n  ^\\s+\\d+\\s+packets,\n  ^\\s*$$\n  ^. -> Error Data\n\nInterface\n  ^\\s*${INTERFACES}\\s*$$\n  ^\\s*\\S+\\s+\\(\\S+\\)$$\n  ^\\s+Total\\s+\\d+\\s+\n  ^\\s+IP\\:\\s+${IP_ADDRESSES}\n  ^\\s+IPv6\\:\\s+${IPV6_ADDRESSES}\n  ^\\s+MPLS\\:\\s+\n  ^\\s+Protocols\\s+Configured\\: -> Data\n  ^\\s+This\\s+is\\s+configured\\s+as\\s+native\\s+Vlan -> Data\n  ^Virtual\\s+LAN\\s+ID\\:\\s+\\d.* -> Continue.Record\n  ^Virtual\\s+LAN\\s+ID\\:\\s+${VLAN_ID}.* -> Data\n  ^VLAN\\s+ID:\\s+\\d+ -> Continue.Record\n  ^VLAN\\s+ID:\\s+${VLAN_ID} -> Data\n  ^. -> Error Interface\n"
+}

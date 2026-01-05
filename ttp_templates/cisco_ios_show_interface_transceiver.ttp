@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_interface_transceiver
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 9
+# Match ratio: 2.25
+
+<group name="interface_temperature_voltage_tx_pwr_rx_pwr">
+{{INTERFACE}} {{TEMPERATURE}} {{VOLTAGE}} {{TX_PWR}} {{RX_PWR | ORPHRASE}} 
+</group>

@@ -1,0 +1,54 @@
+{
+  "command": "show dns server query",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"server_address\">\nAddress: {{SERVER_ADDRESS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SERVER_IP": "192.168.1.1",
+      "SERVER_ADDRESS": "192.168.1.1#53",
+      "NAME": "example.com",
+      "ANSWER_ADDRESS": "93.184.216.34"
+    },
+    {
+      "SERVER_ADDRESS": "8.8.8.8#53",
+      "NAME": "example.org",
+      "ANSWER_ADDRESS": "93.184.216.35"
+    },
+    {
+      "SERVER_ADDRESS": "4.4.4.4#53",
+      "NAME": "example.net",
+      "ANSWER_ADDRESS": "93.184.216.36"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "server_address": [
+        {
+          "SERVER_ADDRESS": "192.168.1.1#53"
+        },
+        {
+          "SERVER_ADDRESS": "93.184.216.34"
+        },
+        {
+          "SERVER_ADDRESS": "8.8.8.8#53"
+        },
+        {
+          "SERVER_ADDRESS": "93.184.216.35"
+        },
+        {
+          "SERVER_ADDRESS": "4.4.4.4#53"
+        },
+        {
+          "SERVER_ADDRESS": "93.184.216.36"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Server: 192.168.1.1\nAddress: 192.168.1.1#53\n\nNon-authoritative answer:\nName:    example.com\nAddress: 93.184.216.34\n\nServer: 8.8.8.8\nAddress: 8.8.8.8#53\n\nNon-authoritative answer:\nName:    example.org\nAddress: 93.184.216.35\n\nServer: 4.4.4.4\nAddress: 4.4.4.4#53\n\nNon-authoritative answer:\nName:    example.net\nAddress: 93.184.216.36\n",
+  "textfsm_template": "Value SERVER_IP (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue SERVER_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+\\#\\d+)\nValue NAME (\\S+)\nValue ANSWER_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\n\nStart\n  ^Server:\\s+${SERVER_IP} -> ServerSection\n\nServerSection\n  ^Address:\\s+${SERVER_ADDRESS}\n  ^Non-authoritative\\s+answer:$$\n  ^Name:\\s+${NAME}\n  ^Address:\\s+${ANSWER_ADDRESS} -> Record"
+}

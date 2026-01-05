@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show fex id
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="fex_fex_id_fex_type_fex_description_state">
+{{FEX}} {{FEX_ID | re("\\d+")}} {{FEX_TYPE}} {{FEX_DESCRIPTION | ORPHRASE}} {{STATE | ORPHRASE}} 
+</group>

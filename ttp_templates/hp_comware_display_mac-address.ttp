@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_comware_display_mac-address
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="mac_address_vlan_id_state_interface_aging">
+{{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{VLAN_ID | re("\\d+")}} {{STATE | ORPHRASE}} {{INTERFACE}} {{AGING | ORPHRASE}}
+</group>

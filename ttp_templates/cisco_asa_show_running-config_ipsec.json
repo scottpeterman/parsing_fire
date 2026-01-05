@@ -1,0 +1,180 @@
+{
+  "command": "cisco_asa_show_running-config_ipsec",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 14,
+  "ttp_rows": 14,
+  "ttp_template": "<group name=\"ike_version_name_encryption_auth\">\ncrypto ipsec ikev{{IKE_VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} transform-set {{NAME}} {{ENCRYPTION | ORPHRASE}} {{AUTH | ORPHRASE}} \n</group>\n<group name=\"ike_version_name\">\ncrypto ipsec ikev{{IKE_VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} ipsec-proposal {{NAME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IKE_VERSION": "1",
+      "NAME": "AES-256_MD5",
+      "ENCRYPTION": "esp-aes-256",
+      "AUTH": "esp-md5-hmac"
+    },
+    {
+      "IKE_VERSION": "1",
+      "NAME": "AES-256_SHA",
+      "ENCRYPTION": "esp-aes-256",
+      "AUTH": "esp-sha-hmac"
+    },
+    {
+      "IKE_VERSION": "1",
+      "NAME": "3DES_MD5",
+      "ENCRYPTION": "esp-3des",
+      "AUTH": "esp-md5-hmac"
+    },
+    {
+      "IKE_VERSION": "1",
+      "NAME": "3DES_SHa",
+      "ENCRYPTION": "esp-3des",
+      "AUTH": "esp-sha-hmac"
+    },
+    {
+      "IKE_VERSION": "1",
+      "NAME": "AES_MD5",
+      "ENCRYPTION": "esp-aes",
+      "AUTH": "esp-md5-hmac"
+    },
+    {
+      "IKE_VERSION": "1",
+      "NAME": "AES_SHA",
+      "ENCRYPTION": "esp-aes",
+      "AUTH": "esp-sha-hmac"
+    },
+    {
+      "IKE_VERSION": "1",
+      "NAME": "AES-192_MD5",
+      "ENCRYPTION": "esp-aes-192",
+      "AUTH": "esp-md5-hmac"
+    },
+    {
+      "IKE_VERSION": "1",
+      "NAME": "AES-192_SHA",
+      "ENCRYPTION": "esp-aes-192",
+      "AUTH": "esp-sha-hmac"
+    },
+    {
+      "IKE_VERSION": "2",
+      "NAME": "IKE2",
+      "ENCRYPTION": "aes-gmac, aes-gmac-192, aes-gmac-256, des, 3des, aes, aes-192, aes-256, aes-gcm, aes-gcm-192, aes-gcm-256",
+      "AUTH": "md5, sha-1, sha-256, sha-384, sha-512"
+    },
+    {
+      "IKE_VERSION": "2",
+      "NAME": "NEW_IKE2",
+      "ENCRYPTION": "aes-gmac, aes-gmac-192, aes-gmac-256, des, 3des, aes, aes-192, aes-256, aes-gcm, aes-gcm-192, aes-gcm-256"
+    },
+    {
+      "IKE_VERSION": "2",
+      "NAME": "newer_ike2",
+      "AUTH": "md5, sha-1, sha-256, sha-384, sha-512"
+    },
+    {
+      "IKE_VERSION": "1",
+      "NAME": "DES_MD5",
+      "ENCRYPTION": "esp-des",
+      "AUTH": "esp-md5-hmac"
+    },
+    {
+      "IKE_VERSION": "1",
+      "NAME": "DES_SHA",
+      "ENCRYPTION": "esp-des",
+      "AUTH": "esp-sha-hmac"
+    },
+    {
+      "IKE_VERSION": "2",
+      "NAME": "final_IKE2",
+      "ENCRYPTION": "aes-gmac, aes-gmac-192, aes-gmac-256, des, 3des, aes-gcm-192, aes-gcm-256",
+      "AUTH": "md5, sha-1, sha-512"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ike_version_name_encryption_auth": [
+        {
+          "IKE_VERSION": "1",
+          "NAME": "AES-256_MD5",
+          "ENCRYPTION": "esp-aes-256",
+          "AUTH": "esp-md5-hmac"
+        },
+        {
+          "IKE_VERSION": "1",
+          "NAME": "AES-256_SHA",
+          "ENCRYPTION": "esp-aes-256",
+          "AUTH": "esp-sha-hmac"
+        },
+        {
+          "IKE_VERSION": "1",
+          "NAME": "3DES_MD5",
+          "ENCRYPTION": "esp-3des",
+          "AUTH": "esp-md5-hmac"
+        },
+        {
+          "IKE_VERSION": "1",
+          "NAME": "3DES_SHa",
+          "ENCRYPTION": "esp-3des",
+          "AUTH": "esp-sha-hmac"
+        },
+        {
+          "IKE_VERSION": "1",
+          "NAME": "AES_MD5",
+          "ENCRYPTION": "esp-aes",
+          "AUTH": "esp-md5-hmac"
+        },
+        {
+          "IKE_VERSION": "1",
+          "NAME": "AES_SHA",
+          "ENCRYPTION": "esp-aes",
+          "AUTH": "esp-sha-hmac"
+        },
+        {
+          "IKE_VERSION": "1",
+          "NAME": "AES-192_MD5",
+          "ENCRYPTION": "esp-aes-192",
+          "AUTH": "esp-md5-hmac"
+        },
+        {
+          "IKE_VERSION": "1",
+          "NAME": "AES-192_SHA",
+          "ENCRYPTION": "esp-aes-192",
+          "AUTH": "esp-sha-hmac"
+        },
+        {
+          "IKE_VERSION": "1",
+          "NAME": "DES_MD5",
+          "ENCRYPTION": "esp-des",
+          "AUTH": "esp-md5-hmac"
+        },
+        {
+          "IKE_VERSION": "1",
+          "NAME": "DES_SHA",
+          "ENCRYPTION": "esp-des",
+          "AUTH": "esp-sha-hmac"
+        }
+      ],
+      "ike_version_name": [
+        {
+          "IKE_VERSION": "2",
+          "NAME": "IKE2"
+        },
+        {
+          "IKE_VERSION": "2",
+          "NAME": "NEW_IKE2"
+        },
+        {
+          "IKE_VERSION": "2",
+          "NAME": "newer_ike2"
+        },
+        {
+          "IKE_VERSION": "2",
+          "NAME": "final_IKE2"
+        }
+      ]
+    }
+  ],
+  "cli_content": "crypto ipsec ikev1 transform-set AES-256_MD5 esp-aes-256 esp-md5-hmac \ncrypto ipsec ikev1 transform-set AES-256_SHA esp-aes-256 esp-sha-hmac \ncrypto ipsec ikev1 transform-set 3DES_MD5 esp-3des esp-md5-hmac \ncrypto ipsec ikev1 transform-set 3DES_SHa esp-3des esp-sha-hmac \ncrypto ipsec ikev1 transform-set AES_MD5 esp-aes esp-md5-hmac \ncrypto ipsec ikev1 transform-set AES_SHA esp-aes esp-sha-hmac \ncrypto ipsec ikev1 transform-set AES-192_MD5 esp-aes-192 esp-md5-hmac \ncrypto ipsec ikev1 transform-set AES-192_SHA esp-aes-192 esp-sha-hmac \ncrypto ipsec ikev2 ipsec-proposal IKE2\n protocol esp encryption aes-gcm-256 aes-gcm-192 aes-gcm aes-256 aes-192 aes 3des des aes-gmac-256 aes-gmac-192 aes-gmac\n protocol esp integrity sha-512 sha-384 sha-256 sha-1 md5\ncrypto ipsec ikev2 ipsec-proposal NEW_IKE2\n protocol esp encryption aes-gcm-256 aes-gcm-192 aes-gcm aes-256 aes-192 aes 3des des aes-gmac-256 aes-gmac-192 aes-gmac\ncrypto ipsec ikev2 ipsec-proposal newer_ike2\n protocol esp integrity sha-512 sha-384 sha-256 sha-1 md5\ncrypto ipsec ikev1 transform-set DES_MD5 esp-des esp-md5-hmac \ncrypto ipsec ikev1 transform-set DES_SHA esp-des esp-sha-hmac \ncrypto ipsec ikev2 ipsec-proposal final_IKE2\n protocol esp encryption aes-gcm-256 aes-gcm-192 3des des aes-gmac-256 aes-gmac-192 aes-gmac\n protocol esp integrity sha-512 sha-1 md5",
+  "textfsm_template": "Value Required IKE_VERSION ([1-2])\nValue NAME (\\S+)\nValue List ENCRYPTION (\\S+)\nValue List AUTH (\\S+)\n\n\nStart\n  ^crypto\\s+ipsec\\s+ikev -> Continue.Record\n  ^crypto\\s+ipsec\\s+ikev${IKE_VERSION}\\s+transform-set\\s+${NAME}\\s+${ENCRYPTION}\\s+${AUTH}\\s+ -> Record\n  ^crypto\\s+ipsec\\s+ikev${IKE_VERSION}\\s+ipsec-proposal\\s+${NAME}\\s*\n  ^\\s+protocol\\s+esp\\s+encryption\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+${ENCRYPTION}\\s* -> Continue\n  ^\\s+protocol\\s+esp\\s+encryption\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+${ENCRYPTION}\\s* -> Continue\n  ^\\s+protocol\\s+esp\\s+encryption\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+${ENCRYPTION}\\s* -> Continue\n  ^\\s+protocol\\s+esp\\s+encryption\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+${ENCRYPTION}\\s* -> Continue\n  ^\\s+protocol\\s+esp\\s+encryption\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+${ENCRYPTION}\\s* -> Continue\n  ^\\s+protocol\\s+esp\\s+encryption\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s${ENCRYPTION}\\s* -> Continue\n  ^\\s+protocol\\s+esp\\s+encryption\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+${ENCRYPTION}\\s* -> Continue\n  ^\\s+protocol\\s+esp\\s+encryption\\s+\\S+\\s+\\S+\\s+\\S+\\s+${ENCRYPTION}\\s* -> Continue\n  ^\\s+protocol\\s+esp\\s+encryption\\s+\\S+\\s+\\S+\\s+${ENCRYPTION}\\s* -> Continue\n  ^\\s+protocol\\s+esp\\s+encryption\\s+\\S+\\s+${ENCRYPTION}\\s* -> Continue\n  ^\\s+protocol\\s+esp\\s+encryption\\s+${ENCRYPTION}\\s* -> Continue\n  ^\\s+protocol\\s+esp\\s+integrity\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+${AUTH}\\s* -> Continue\n  ^\\s+protocol\\s+esp\\s+integrity\\s+\\S+\\s+\\S+\\s+\\S+\\s+${AUTH}\\s* -> Continue\n  ^\\s+protocol\\s+esp\\s+integrity\\s+\\S+\\s+\\S+\\s+${AUTH}\\s* -> Continue\n  ^\\s+protocol\\s+esp\\s+integrity\\s+\\S+\\s+${AUTH}\\s* -> Continue\n  ^\\s+protocol\\s+esp\\s+integrity\\s+${AUTH}\\s* -> Record\n\nEOF\n\n\n"
+}

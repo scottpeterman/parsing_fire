@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show nve vni
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="interface_vni_multicast_group_state_mode_type_vrf_flags">
+{{INTERFACE}} {{VNI}} {{MULTICAST_GROUP}} {{STATE | ORPHRASE}} {{MODE}} {{TYPE}} [{{VRF}}] {{FLAGS | ORPHRASE}}
+</group>

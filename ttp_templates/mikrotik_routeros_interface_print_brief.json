@@ -1,0 +1,207 @@
+{
+  "command": "mikrotik_routeros_interface_print_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.625,
+  "textfsm_rows": 8,
+  "ttp_rows": 13,
+  "ttp_template": "<group name=\"id_name_type_actual_mtu_l2mtu_max_l2mtu_mac_address\">\n {{ID | re(\"\\\\d+\")}} {{NAME}} {{TYPE}} {{ACTUAL_MTU}} {{L2MTU}} {{MAX_L2MTU}} {{MAC_ADDRESS | ORPHRASE}}\n</group>\n<group name=\"dynamic_name_type_actual_mtu_l2mtu_mac_address\">\n {{I{{DYNAMIC}} | re(\"\\\\d+\")}} D {{NAME}} {{TYPE}} {{ACTUAL_MTU}} {{L2MTU}} {{MAC_ADDRESS | ORPHRASE}}\n</group>\n<group name=\"id_status_name_type_actual_mtu_mac_address\">\n {{ID | re(\"\\\\d+\")}} {{STATUS | ORPHRASE}} {{NAME}} {{TYPE}} {{ACTUAL_MTU}} {{MAC_ADDRESS | ORPHRASE}}\n</group>\n<group name=\"id_slave_name_type_actual_mtu_l2mtu\">\n {{ID | re(\"\\\\d+\")}} {{SLAVE}} {{NAME}} {{TYPE}} {{ACTUAL_MTU}} {{L2MTU | ORPHRASE}}\n</group>\n<group name=\"dynamic_status_name_type_actual_mtu\">\n {{I{{DYNAMIC}} | re(\"\\\\d+\")}} D{{STATUS | ORPHRASE}} {{NAME}} {{TYPE}} {{ACTUAL_MTU | ORPHRASE}}\n</group>\n<group name=\"id_slave_name_type_actual_mtu_l2mtu_max_l2mtu_mac_address\">\n {{ID | re(\"\\\\d+\")}} {{{{SLAVE}}TATUS | ORPHRASE}}S {{NAME}} {{TYPE}} {{ACTUAL_MTU}} {{L2MTU}} {{MAX_L2MTU}} {{MAC_ADDRESS | ORPHRASE}}\n</group>\n<group name=\"dynamic_slave_name_type_actual_mtu_l2mtu_max_l2mtu_mac_address\">\n {{I{{DYNAMIC}} | re(\"\\\\d+\")}} D {{SLAVE}} {{NAME}} {{TYPE}} {{ACTUAL_MTU}} {{L2MTU}} {{MAX_L2MTU}} {{MAC_ADDRESS | ORPHRASE}}\n</group>\n<group name=\"dynamic_slave_name_type_actual_mtu_l2mtu_max_l2mtu\">\n {{I{{DYNAMIC}} | re(\"\\\\d+\")}} D{{{{SLAVE}}TATUS | ORPHRASE}}S {{NAME}} {{TYPE}} {{ACTUAL_MTU}} {{L2MTU}} {{MAX_L2MTU | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ID": "0",
+      "NAME": "ether1",
+      "TYPE": "ether",
+      "ACTUAL_MTU": "1500",
+      "L2MTU": "1598",
+      "MAX_L2MTU": "2028",
+      "MAC_ADDRESS": "12:34:56:78:90:AA"
+    },
+    {
+      "ID": "1",
+      "DYNAMIC": "D",
+      "NAME": "ether2",
+      "TYPE": "ether",
+      "ACTUAL_MTU": "1500",
+      "L2MTU": "1598",
+      "MAC_ADDRESS": "12:34:56:78:90:AB"
+    },
+    {
+      "ID": "2",
+      "STATUS": "R",
+      "NAME": "ether3",
+      "TYPE": "ether",
+      "ACTUAL_MTU": "1500",
+      "MAC_ADDRESS": "12:34:56:78:90:AC"
+    },
+    {
+      "ID": "3",
+      "SLAVE": "S",
+      "NAME": "ether4",
+      "TYPE": "ether",
+      "ACTUAL_MTU": "1500",
+      "L2MTU": "1598"
+    },
+    {
+      "ID": "4",
+      "DYNAMIC": "D",
+      "STATUS": "R",
+      "NAME": "ether5",
+      "TYPE": "ether",
+      "ACTUAL_MTU": "1500"
+    },
+    {
+      "ID": "5",
+      "STATUS": "R",
+      "SLAVE": "S",
+      "NAME": "ether6",
+      "TYPE": "ether",
+      "ACTUAL_MTU": "1500",
+      "L2MTU": "1598",
+      "MAX_L2MTU": "2028",
+      "MAC_ADDRESS": "12:34:56:78:90:AD"
+    },
+    {
+      "ID": "6",
+      "DYNAMIC": "D",
+      "SLAVE": "S",
+      "NAME": "lte1",
+      "TYPE": "lte",
+      "ACTUAL_MTU": "1500",
+      "L2MTU": "1598",
+      "MAX_L2MTU": "2028",
+      "MAC_ADDRESS": "12:34:56:78:90:AE"
+    },
+    {
+      "ID": "7",
+      "DYNAMIC": "D",
+      "STATUS": "R",
+      "SLAVE": "S",
+      "NAME": "pptp-out1",
+      "TYPE": "pptp-out",
+      "ACTUAL_MTU": "1450",
+      "L2MTU": "1598",
+      "MAX_L2MTU": "2028"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "id_name_type_actual_mtu_l2mtu_max_l2mtu_mac_address": [
+        {
+          "ID": "0",
+          "NAME": "ether1",
+          "TYPE": "ether",
+          "ACTUAL_MTU": "1500",
+          "L2MTU": "1598",
+          "MAX_L2MTU": "2028",
+          "MAC_ADDRESS": "12:34:56:78:90:AA"
+        },
+        {
+          "ID": "1",
+          "NAME": "D",
+          "TYPE": "ether2",
+          "ACTUAL_MTU": "ether",
+          "L2MTU": "1500",
+          "MAX_L2MTU": "1598",
+          "MAC_ADDRESS": "12:34:56:78:90:AB"
+        },
+        {
+          "ID": "5",
+          "NAME": "RS",
+          "TYPE": "ether6",
+          "ACTUAL_MTU": "ether",
+          "L2MTU": "1500",
+          "MAX_L2MTU": "1598",
+          "MAC_ADDRESS": "2028 12:34:56:78:90:AD"
+        },
+        {
+          "ID": "7",
+          "NAME": "DRS",
+          "TYPE": "pptp-out1",
+          "ACTUAL_MTU": "pptp-out",
+          "L2MTU": "1450",
+          "MAX_L2MTU": "1598",
+          "MAC_ADDRESS": "2028"
+        }
+      ],
+      "id_status_name_type_actual_mtu_mac_address": [
+        {
+          "ID": "0",
+          "STATUS": "ether1",
+          "NAME": "ether",
+          "TYPE": "1500",
+          "ACTUAL_MTU": "1598",
+          "MAC_ADDRESS": "2028 12:34:56:78:90:AA"
+        },
+        {
+          "ID": "2",
+          "STATUS": "R",
+          "NAME": "ether3",
+          "TYPE": "ether",
+          "ACTUAL_MTU": "1500",
+          "MAC_ADDRESS": "12:34:56:78:90:AC"
+        },
+        {
+          "ID": "3",
+          "STATUS": "S",
+          "NAME": "ether4",
+          "TYPE": "ether",
+          "ACTUAL_MTU": "1500",
+          "MAC_ADDRESS": "1598"
+        },
+        {
+          "ID": "5",
+          "STATUS": "RS ether6",
+          "NAME": "ether",
+          "TYPE": "1500",
+          "ACTUAL_MTU": "1598",
+          "MAC_ADDRESS": "2028 12:34:56:78:90:AD"
+        },
+        {
+          "ID": "6",
+          "STATUS": "D S lte1",
+          "NAME": "lte",
+          "TYPE": "1500",
+          "ACTUAL_MTU": "1598",
+          "MAC_ADDRESS": "2028 12:34:56:78:90:AE"
+        },
+        {
+          "ID": "7",
+          "STATUS": "DRS pptp-out1",
+          "NAME": "pptp-out",
+          "TYPE": "1450",
+          "ACTUAL_MTU": "1598",
+          "MAC_ADDRESS": "2028"
+        }
+      ],
+      "id_slave_name_type_actual_mtu_l2mtu": [
+        {
+          "ID": "0",
+          "SLAVE": "ether1",
+          "NAME": "ether",
+          "TYPE": "1500",
+          "ACTUAL_MTU": "1598",
+          "L2MTU": "2028 12:34:56:78:90:AA"
+        },
+        {
+          "ID": "2",
+          "SLAVE": "R",
+          "NAME": "ether3",
+          "TYPE": "ether",
+          "ACTUAL_MTU": "1500",
+          "L2MTU": "12:34:56:78:90:AC"
+        },
+        {
+          "ID": "3",
+          "SLAVE": "S",
+          "NAME": "ether4",
+          "TYPE": "ether",
+          "ACTUAL_MTU": "1500",
+          "L2MTU": "1598"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Flags: D - dynamic, X - disabled, R - running, S - slave\n #     NAME                                TYPE       ACTUAL-MTU L2MTU  MAX-L2MTU MAC-ADDRESS\n 0     ether1                              ether            1500  1598       2028 12:34:56:78:90:AA\n 1 D   ether2                              ether            1500  1598            12:34:56:78:90:AB\n 2  R  ether3                              ether            1500                  12:34:56:78:90:AC\n 3   S ether4                              ether            1500  1598\n 4 DR  ether5                              ether            1500\n 5  RS ether6                              ether            1500  1598       2028 12:34:56:78:90:AD\n 6 D S lte1                                lte              1500  1598       2028 12:34:56:78:90:AE\n 7 DRS pptp-out1                           pptp-out         1450  1598       2028\n",
+  "textfsm_template": "Value ID (\\d+)\nValue DYNAMIC (D)\nValue STATUS (X|R)\nValue SLAVE (S)\nValue NAME (\\S+)\nValue TYPE (\\S+)\nValue ACTUAL_MTU (\\d+)\nValue L2MTU (\\d+)\nValue MAX_L2MTU (\\d+)\nValue MAC_ADDRESS ([0-9a-fA-F]{2}(?::[0-9a-fA-F]{2}){5})\n\nStart\n  ^\\s*Flags:\\s+D\\s+-\\s+dynamic,\\s+X\\s+-\\s+disabled,\\s+R\\s+-\\s+running,\\s+S\\s+-\\s+slave\\s*$$\n  ^\\s*#\\s+NAME\\s+TYPE\\s+ACTUAL-MTU\\s+L2MTU\\s+MAX-L2MTU\\s+MAC-ADDRESS\\s*$$ -> IfaceTable\n  ^\\s*$$\n  ^. -> Error\n\nIfaceTable\n  ^\\s*${ID}(?:\\s+${DYNAMIC})?(?:\\s*${STATUS})?(?:\\s*${SLAVE})?\\s+${NAME}\\s+${TYPE}\\s+${ACTUAL_MTU}(?:\\s+${L2MTU})?(?:\\s+${MAX_L2MTU})?(?:\\s+${MAC_ADDRESS})?\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

@@ -1,0 +1,22 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_vrp_display_interface
+# Source: ntc
+# TextFSM rows: 38
+# TTP rows: 131
+# Match ratio: 3.45
+
+<group name="interface_link_status">
+{{INTERFACE}} current state : {{LINK_STATUS | ORPHRASE}}
+</group>
+<group name="protocol_status">
+Line protocol current state : {{PROTOCOL_STATUS | ORPHRASE}}
+</group>
+<group name="port_type_mtu">
+{{PORT_TYPE}} Port,The Maximum Transmit Unit is {{MTU | ORPHRASE}}
+</group>
+<group name="interface_pvid_link_status">
+{{INTERFACE}}{{PVID | re("\\d+")}} current state : {{LINK_STATUS | ORPHRASE}}
+</group>
+<group name="interface_link_status_pvid">
+{{INTERFACE}} {{LINK_STATUS | ORPHRASE}} {{PVID | re("\\d+")}}
+</group>

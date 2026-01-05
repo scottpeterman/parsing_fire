@@ -1,0 +1,303 @@
+{
+  "command": "mikrotik_routeros_ip_firewall_filter_print_all_without-paging",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.9130434782608695,
+  "textfsm_rows": 23,
+  "ttp_rows": 21,
+  "ttp_template": "<group name=\"index_comment\">\n {{INDEX}} ;;; {{COMMENT | ORPHRASE}}\n</group>\n<group name=\"chain_action_connection_state_in_interface_out_interface\">\n      chain={{CHAIN}} action={{ACTION}} connection-state={{CONNECTION_STATE | ORPHRASE}} in-interface={{IN_INTERFACE}} out-interface={{OUT_INTERFACE | ORPHRASE}} \n</group>\n<group name=\"index_chain_action_dst_address\">\n {{INDEX}} chain={{CHAIN}} action={{ACTION}} dst-address={{DST_ADDRESS | ORPHRASE}} \n</group>\n<group name=\"chain_action_protocol_dst_port_comment\">\n      chain={{CHAIN}} action={{ACTION}} protocol={{PROTOCOL}} dst-port={{DST_PORT}} log-prefix=\"{{COMMENT | ORPHRASE}}\" \n</group>\n<group name=\"index_chain_action_protocol\">\n {{INDEX}} chain={{CHAIN}} action={{ACTION}} protocol={{PROTOCOL | ORPHRASE}} \n</group>\n<group name=\"chain_action_protocol_src_address_list_dst_port\">\n      chain={{CHAIN}} action={{ACTION}} protocol={{PROTOCOL}} src-address-list={{SRC_ADDRESS_LIST}} dst-port={{DST_PORT | ORPHRASE}} \n</group>\n<group name=\"chain_action_hw_offload_connection_state\">\n      chain={{CHAIN}} action={{ACTION}} hw-offload={{HW_OFFLOAD}} connection-state={{CONNECTION_STATE | ORPHRASE}}\n</group>\n<group name=\"chain_action_connection_state_connection_nat_state_in_interface_list\">\n      chain={{CHAIN}} action={{ACTION}} connection-state={{CONNECTION_STATE | ORPHRASE}} connection-nat-state={{CONNECTION_NAT_STATE | ORPHRASE}} in-interface-list={{IN_INTERFACE_LIST | ORPHRASE}} \n</group>\n<group name=\"chain_connection_state\">\n      chain={{CHAIN}} action=accept connection-state={{CONNECTION_STATE | ORPHRASE}},untracked \n</group>\n<group name=\"index_chain_connection_state_src_mac_address\">\n{{INDEX}} chain={{CHAIN}} connection-state={{CONNECTION_STATE | ORPHRASE}} src-mac-address={{SRC_MAC_ADDRESS | ORPHRASE}}\n</group>\n<group name=\"chain_action_in_interface\">\n      chain={{CHAIN}} action={{ACTION}} in-interface={{IN_INTERFACE | ORPHRASE}} \n</group>\n<group name=\"index_chain_action_in_interface\">\n{{INDEX}} chain={{CHAIN}} action={{ACTION}} in-interface={{IN_INTERFACE | ORPHRASE}} log-prefix=\"\"\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INDEX": "0",
+      "COMMENT": "defconf: accept established,related,untracked",
+      "CHAIN": "input",
+      "ACTION": "accept",
+      "CONNECTION_STATE": "established,related,untracked"
+    },
+    {
+      "INDEX": "1",
+      "COMMENT": "defconf: drop invalid",
+      "CHAIN": "input",
+      "ACTION": "drop",
+      "CONNECTION_STATE": "invalid"
+    },
+    {
+      "INDEX": "2",
+      "COMMENT": "FIREWALL-DMZ-1",
+      "CHAIN": "forward",
+      "ACTION": "accept",
+      "CONNECTION_STATE": "established,related,new",
+      "IN_INTERFACE": "dmz-1-vlan",
+      "OUT_INTERFACE": "pppoe-out1"
+    },
+    {
+      "INDEX": "3",
+      "CHAIN": "forward",
+      "ACTION": "accept",
+      "DST_ADDRESS": "185.163.212.156/30"
+    },
+    {
+      "INDEX": "4",
+      "COMMENT": "defconf: accept ICMP",
+      "CHAIN": "input",
+      "ACTION": "accept",
+      "PROTOCOL": "icmp"
+    },
+    {
+      "INDEX": "5",
+      "COMMENT": "Acces VPN",
+      "CHAIN": "input",
+      "ACTION": "accept",
+      "PROTOCOL": "udp",
+      "DST_PORT": "500,1701,4500",
+      "LOG_PREFIX": "Acces VPN"
+    },
+    {
+      "INDEX": "6",
+      "CHAIN": "input",
+      "ACTION": "accept",
+      "PROTOCOL": "ipsec-esp"
+    },
+    {
+      "INDEX": "7",
+      "COMMENT": "Acces WAN",
+      "CHAIN": "input",
+      "ACTION": "accept",
+      "PROTOCOL": "tcp",
+      "SRC_ADDRESS_LIST": "Supervision",
+      "DST_PORT": "4430,22,8291"
+    },
+    {
+      "INDEX": "8",
+      "COMMENT": "Acces WAN SNMP",
+      "CHAIN": "input",
+      "ACTION": "accept",
+      "PROTOCOL": "udp",
+      "SRC_ADDRESS_LIST": "Supervision",
+      "DST_PORT": "161"
+    },
+    {
+      "INDEX": "9",
+      "COMMENT": "defconf: accept to local loopback (for CAPsMAN)",
+      "CHAIN": "input",
+      "ACTION": "accept",
+      "DST_ADDRESS": "127.0.0.1"
+    },
+    {
+      "INDEX": "10",
+      "COMMENT": "defconf: drop all not coming from LAN",
+      "CHAIN": "input",
+      "ACTION": "drop",
+      "IN_INTERFACE_LIST": "!LAN"
+    },
+    {
+      "INDEX": "11",
+      "COMMENT": "defconf: accept in ipsec policy",
+      "CHAIN": "forward",
+      "ACTION": "accept",
+      "IPSEC_POLICY": "in,ipsec"
+    },
+    {
+      "INDEX": "12",
+      "COMMENT": "defconf: accept out ipsec policy",
+      "CHAIN": "forward",
+      "ACTION": "accept",
+      "IPSEC_POLICY": "out,ipsec"
+    },
+    {
+      "INDEX": "13",
+      "FLAGS": "X",
+      "COMMENT": "defconf: fasttrack",
+      "CHAIN": "forward",
+      "ACTION": "fasttrack-connection",
+      "HW_OFFLOAD": "yes",
+      "CONNECTION_STATE": "established,related"
+    },
+    {
+      "INDEX": "14",
+      "COMMENT": "defconf: accept established,related, untracked",
+      "CHAIN": "forward",
+      "ACTION": "accept",
+      "CONNECTION_STATE": "established,related,untracked"
+    },
+    {
+      "INDEX": "15",
+      "COMMENT": "defconf: drop invalid",
+      "CHAIN": "forward",
+      "ACTION": "drop",
+      "CONNECTION_STATE": "invalid"
+    },
+    {
+      "INDEX": "16",
+      "COMMENT": "defconf: drop all from WAN not DSTNATed",
+      "CHAIN": "forward",
+      "ACTION": "drop",
+      "CONNECTION_STATE": "new",
+      "CONNECTION_NAT_STATE": "!dstnat",
+      "IN_INTERFACE_LIST": "WAN"
+    },
+    {
+      "INDEX": "17",
+      "COMMENT": "Input",
+      "CHAIN": "input",
+      "ACTION": "accept",
+      "SRC_ADDRESS_LIST": "Eqinoxe"
+    },
+    {
+      "INDEX": "18",
+      "COMMENT": "related established",
+      "CHAIN": "input",
+      "CONNECTION_STATE": "established,related"
+    },
+    {
+      "INDEX": "19",
+      "CHAIN": "forward",
+      "CONNECTION_STATE": "established,related",
+      "SRC_MAC_ADDRESS": "67:33:EB:0E:EB:A8"
+    },
+    {
+      "INDEX": "20",
+      "COMMENT": "drop invalid connections",
+      "CHAIN": "forward",
+      "ACTION": "drop",
+      "CONNECTION_STATE": "invalid",
+      "PROTOCOL": "tcp"
+    },
+    {
+      "INDEX": "21",
+      "COMMENT": "Block all entrant",
+      "CHAIN": "input",
+      "ACTION": "drop",
+      "IN_INTERFACE": "all-ppp"
+    },
+    {
+      "INDEX": "22",
+      "CHAIN": "input",
+      "ACTION": "drop",
+      "IN_INTERFACE": "all-ethernet"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "index_comment": [
+        {
+          "INDEX": "0",
+          "COMMENT": "defconf: accept established,related,untracked"
+        },
+        {
+          "INDEX": "1",
+          "COMMENT": "defconf: drop invalid"
+        },
+        {
+          "INDEX": "2",
+          "COMMENT": "FIREWALL-DMZ-1"
+        },
+        {
+          "INDEX": "4",
+          "COMMENT": "defconf: accept ICMP"
+        },
+        {
+          "INDEX": "5",
+          "COMMENT": "Acces VPN"
+        },
+        {
+          "INDEX": "7",
+          "COMMENT": "Acces WAN"
+        },
+        {
+          "INDEX": "8",
+          "COMMENT": "Acces WAN SNMP"
+        },
+        {
+          "INDEX": "9",
+          "COMMENT": "defconf: accept to local loopback (for CAPsMAN)"
+        }
+      ],
+      "chain_action_connection_state_in_interface_out_interface": {
+        "CHAIN": "forward",
+        "ACTION": "accept",
+        "CONNECTION_STATE": "established,related,new",
+        "IN_INTERFACE": "dmz-1-vlan",
+        "OUT_INTERFACE": "pppoe-out1"
+      },
+      "index_chain_action_dst_address": {
+        "INDEX": "3",
+        "CHAIN": "forward",
+        "ACTION": "accept",
+        "DST_ADDRESS": "185.163.212.156/30"
+      },
+      "chain_action_protocol_dst_port_comment": {
+        "CHAIN": "input",
+        "ACTION": "accept",
+        "PROTOCOL": "udp",
+        "DST_PORT": "500,1701,4500",
+        "COMMENT": "Acces VPN"
+      },
+      "index_chain_action_protocol": {
+        "INDEX": "6",
+        "CHAIN": "input",
+        "ACTION": "accept",
+        "PROTOCOL": "ipsec-esp"
+      },
+      "chain_action_protocol_src_address_list_dst_port": [
+        {
+          "CHAIN": "input",
+          "ACTION": "accept",
+          "PROTOCOL": "tcp",
+          "SRC_ADDRESS_LIST": "Supervision",
+          "DST_PORT": "4430,22,8291"
+        },
+        {
+          "CHAIN": "input",
+          "ACTION": "accept",
+          "PROTOCOL": "udp",
+          "SRC_ADDRESS_LIST": "Supervision",
+          "DST_PORT": "161"
+        }
+      ],
+      "chain_action_hw_offload_connection_state": {
+        "CHAIN": "forward",
+        "ACTION": "fasttrack-connection",
+        "HW_OFFLOAD": "yes",
+        "CONNECTION_STATE": "established,related"
+      },
+      "chain_action_connection_state_connection_nat_state_in_interface_list": {
+        "CHAIN": "forward",
+        "ACTION": "drop",
+        "CONNECTION_STATE": "new",
+        "CONNECTION_NAT_STATE": "!dstnat",
+        "IN_INTERFACE_LIST": "WAN"
+      },
+      "chain_connection_state": [
+        {
+          "CHAIN": "input",
+          "CONNECTION_STATE": "established,related"
+        },
+        {
+          "CHAIN": "forward",
+          "CONNECTION_STATE": "established,related"
+        }
+      ],
+      "index_chain_connection_state_src_mac_address": {
+        "INDEX": "19",
+        "CHAIN": "forward",
+        "CONNECTION_STATE": "established,related",
+        "SRC_MAC_ADDRESS": "67:33:EB:0E:EB:A8"
+      },
+      "chain_action_in_interface": {
+        "CHAIN": "input",
+        "ACTION": "drop",
+        "IN_INTERFACE": "all-ppp"
+      },
+      "index_chain_action_in_interface": {
+        "INDEX": "22",
+        "CHAIN": "input",
+        "ACTION": "drop",
+        "IN_INTERFACE": "all-ethernet"
+      }
+    }
+  ],
+  "cli_content": "Flags: X - disabled, I - invalid, D - dynamic \n 0    ;;; defconf: accept established,related,untracked\n      chain=input action=accept connection-state=established,related,untracked \n\n 1    ;;; defconf: drop invalid\n      chain=input action=drop connection-state=invalid \n\n 2    ;;; FIREWALL-DMZ-1\n      chain=forward action=accept connection-state=established,related,new in-interface=dmz-1-vlan out-interface=pppoe-out1 \n\n 3    chain=forward action=accept dst-address=185.163.212.156/30 \n\n 4    ;;; defconf: accept ICMP\n      chain=input action=accept protocol=icmp \n\n 5    ;;; Acces VPN\n      chain=input action=accept protocol=udp dst-port=500,1701,4500 log-prefix=\"Acces VPN\" \n\n 6    chain=input action=accept protocol=ipsec-esp \n\n 7    ;;; Acces WAN\n      chain=input action=accept protocol=tcp src-address-list=Supervision dst-port=4430,22,8291 \n\n 8    ;;; Acces WAN SNMP\n      chain=input action=accept protocol=udp src-address-list=Supervision dst-port=161 \n17:20:06 echo: system,error,critical login failure for user admin from 65.160.140.13 via ssh\n\n 9    ;;; defconf: accept to local loopback (for CAPsMAN)\n      chain=input action=accept dst-address=127.0.0.1 \n\n10    ;;; defconf: drop all not coming from LAN\n      chain=input action=drop in-interface-list=!LAN \n\n11    ;;; defconf: accept in ipsec policy\n      chain=forward action=accept ipsec-policy=in,ipsec \n\n12    ;;; defconf: accept out ipsec policy\n      chain=forward action=accept ipsec-policy=out,ipsec \n\n13 X  ;;; defconf: fasttrack\n      chain=forward action=fasttrack-connection hw-offload=yes connection-state=established,related\n\n14    ;;; defconf: accept established,related, untracked\n      chain=forward action=accept connection-state=established,related,untracked \n\n15    ;;; defconf: drop invalid\n      chain=forward action=drop connection-state=invalid \n\n16    ;;; defconf: drop all from WAN not DSTNATed\n      chain=forward action=drop connection-state=new connection-nat-state=!dstnat in-interface-list=WAN \n\n17    ;;; Input\n      chain=input action=accept src-address-list=Eqinoxe \n\n18    ;;; related established\n      chain=input connection-state=established,related \n\n19    chain=forward connection-state=established,related src-mac-address=67:33:EB:0E:EB:A8\n\n20    ;;; drop invalid connections\n17:20:06 echo: system,error,critical login failure for user admin from 65.160.140.13 via ssh\n      chain=forward action=drop connection-state=invalid protocol=tcp \n\n21    ;;; Block all entrant\n      chain=input action=drop in-interface=all-ppp \n\n22    chain=input action=drop in-interface=all-ethernet log-prefix=\"\"\n",
+  "textfsm_template": "Value Key INDEX (\\d+)\nValue FLAGS ([XID]+)\nValue COMMENT (\\S+[\\S ]*\\S)\nValue CHAIN (input|forward|output)\nValue ACTION (accept|add-dst-to-address-list|add-src-to-address-list|drop|fasttrack-connection|jump|log|passthrough|reject|return|tarpit)\nValue HW_OFFLOAD (yes|no)\nValue CONNECTION_STATE (\\S+)\nValue CONNECTION_NAT_STATE (\\S+)\nValue PROTOCOL (!?(dccp|egp|etherip|gre|icmp|idpr-cmtp|ipencap|ipsec-ah|ipv6-encap|ipv6-nonxt|ipv6-route|l2tp|pim|rdp|rsvp|st|udp|vmtp|xns-idp|ddp|encap|ggp|hmp|icmpv6|igmp|ipip|ipsec-esp|ipv6-frag|ipv6-opts|iso-tp4|ospf|pup|rspf|sctp|tcp|udp-lite|vrrp|xtp))\nValue SRC_ADDRESS ([\\w!.:/\\d]+)\nValue SRC_ADDRESS_LIST (\\S+)\nValue SRC_PORT (\\S+)\nValue IN_INTERFACE_LIST (\\S+)\nValue OUT_INTERFACE_LIST (\\S+)\nValue IN_INTERFACE (\\S+)\nValue OUT_INTERFACE (\\S+)\nValue IPSEC_POLICY (\\S+)\nValue DST_ADDRESS ([\\w!.:/\\d]+)\nValue DST_ADDRESS_LIST (\\S+)\nValue DST_PORT (\\S+)\nValue SRC_MAC_ADDRESS (\\S+)\nValue LOG (yes|no)\nValue LOG_PREFIX ((\\S+[\\S ]+)?)\n\nStart\n  ^Flags:.*$$ -> FirewallTable\n\nFirewallTable\n  ^\\s?${INDEX}\\s+(${FLAGS})?\\s+;;;\\s${COMMENT}\n  ^\\s+chain=${CHAIN}(\\saction=${ACTION})?(\\shw-offload=${HW_OFFLOAD})?(\\sconnection-state=${CONNECTION_STATE})?(\\sconnection-nat-state=${CONNECTION_NAT_STATE})?\\s*(\\sprotocol=${PROTOCOL})?(\\ssrc-address=${SRC_ADDRESS})?(\\sdst-address=${DST_ADDRESS})?(\\ssrc-address-list=${SRC_ADDRESS_LIST})?(\\sdst-address-list=${DST_ADDRESS_LIST})?(\\sin-interface-list=${IN_INTERFACE_LIST})?(\\sout-interface-list=${OUT_INTERFACE_LIST})?(\\ssrc-port=${SRC_PORT})?(\\sdst-port=${DST_PORT})?(\\ssrc-mac-address=${SRC_MAC_ADDRESS})?(\\sin-interface=${IN_INTERFACE})?(\\sout-interface=${OUT_INTERFACE})?(\\sipsec-policy=${IPSEC_POLICY})?(\\slog=${LOG})?(\\slog-prefix=\"${LOG_PREFIX}\")?\\s*$$ -> Record\n  ^\\s?${INDEX}\\s+(${FLAGS})?\\s+chain=${CHAIN}(\\saction=${ACTION})?(\\shw-offload=${HW_OFFLOAD})?(\\sconnection-state=${CONNECTION_STATE})?(\\sconnection-nat-state=${CONNECTION_NAT_STATE})?(\\sprotocol=${PROTOCOL})?(\\ssrc-address=${SRC_ADDRESS})?(\\sdst-address=${DST_ADDRESS})?(\\ssrc-address-list=${SRC_ADDRESS_LIST})?(\\sdst-address-list=${DST_ADDRESS_LIST})?(\\sin-interface-list=${IN_INTERFACE_LIST})?(\\sout-interface-list=${OUT_INTERFACE_LIST})?(\\ssrc-port=${SRC_PORT})?(\\sdst-port=${DST_PORT})?(\\ssrc-mac-address=${SRC_MAC_ADDRESS})?(\\sin-interface=${IN_INTERFACE})?(\\sout-interface=${OUT_INTERFACE})?(\\sipsec-policy=${IPSEC_POLICY})?(\\slog=${LOG})?(\\slog-prefix=\"${LOG_PREFIX}\")?\\s*$$ -> Record\n  ^\\s*(?:\\d{2}:){2}\\d{2}\\s+echo:\\s*.*$$ -> Next\n  ^. -> Error\n"
+}

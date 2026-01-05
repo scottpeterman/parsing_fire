@@ -1,0 +1,90 @@
+{
+  "command": "show interfaces Ethernet brief",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"port_name_status_vlan_duplex_speed_type\">\n{{PORT}} {{NAME}} {{STATUS | ORPHRASE}} {{VLAN | re(\"\\\\d+\")}} {{DUPLEX}} {{SPEED}} {{TYPE | ORPHRASE}}\n</group>\n<group name=\"port_status_vlan_duplex_speed_type\">\n{{PORT}} {{STATUS | ORPHRASE}} {{VLAN | re(\"\\\\d+\")}} {{DUPLEX}} {{SPEED}} {{TYPE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "Et1",
+      "NAME": "server1",
+      "STATUS": "connected",
+      "VLAN": "1",
+      "DUPLEX": "full",
+      "SPEED": "1000",
+      "TYPE": "10/100/1000-T"
+    },
+    {
+      "PORT": "Et2",
+      "NAME": "backup",
+      "STATUS": "notconnect",
+      "VLAN": "2",
+      "DUPLEX": "auto",
+      "SPEED": "auto",
+      "TYPE": "10/100/1000-T"
+    },
+    {
+      "PORT": "Et3",
+      "STATUS": "err-disabled",
+      "VLAN": "3",
+      "DUPLEX": "full",
+      "SPEED": "1000",
+      "TYPE": "10/100/1000-T"
+    },
+    {
+      "PORT": "Et4",
+      "NAME": "link",
+      "STATUS": "connected",
+      "VLAN": "2",
+      "DUPLEX": "full",
+      "SPEED": "1000",
+      "TYPE": "10/100/1000-T"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_name_status_vlan_duplex_speed_type": [
+        {
+          "PORT": "Et1",
+          "NAME": "server1",
+          "STATUS": "connected",
+          "VLAN": "1",
+          "DUPLEX": "full",
+          "SPEED": "1000",
+          "TYPE": "10/100/1000-T"
+        },
+        {
+          "PORT": "Et2",
+          "NAME": "backup",
+          "STATUS": "notconnect",
+          "VLAN": "2",
+          "DUPLEX": "auto",
+          "SPEED": "auto",
+          "TYPE": "10/100/1000-T"
+        },
+        {
+          "PORT": "Et4",
+          "NAME": "link",
+          "STATUS": "connected",
+          "VLAN": "2",
+          "DUPLEX": "full",
+          "SPEED": "1000",
+          "TYPE": "10/100/1000-T"
+        }
+      ],
+      "port_status_vlan_duplex_speed_type": {
+        "PORT": "Et3",
+        "STATUS": "err-disabled",
+        "VLAN": "3",
+        "DUPLEX": "full",
+        "SPEED": "1000",
+        "TYPE": "10/100/1000-T"
+      }
+    }
+  ],
+  "cli_content": "Port      Name       Status       Vlan       Duplex  Speed Type\nEt1       server1    connected    1          full    1000  10/100/1000-T\nEt2       backup     notconnect   2          auto    auto  10/100/1000-T\nEt3                  err-disabled 3          full    1000  10/100/1000-T\nEt4       link       connected    2          full    1000  10/100/1000-T\n",
+  "textfsm_template": "Value PORT (\\S+)\nValue NAME (\\S*)\nValue STATUS (\\S+)\nValue VLAN (\\d+)\nValue DUPLEX (\\S+)\nValue SPEED (\\S+)\nValue TYPE (\\S+)\n\nStart\n  ^Port\\s+Name\\s+Status\\s+Vlan\\s+Duplex\\s+Speed\\s+Type\\s*$$\n  ^${PORT}\\s+${NAME}\\s+${STATUS}\\s+${VLAN}\\s+${DUPLEX}\\s+${SPEED}\\s+${TYPE}\\s*$$ -> Record"
+}

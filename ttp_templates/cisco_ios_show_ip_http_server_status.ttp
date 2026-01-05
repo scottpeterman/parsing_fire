@@ -1,0 +1,25 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_http_server_status
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="access_class_active_session_modules_auth_method_auth_retry">
+HTTP server status: {{SERVER_STATUS | ORPHRASE}}
+HTTP server port: {{SERVER_PORT | ORPHRASE}}
+HTTP server authentication method: {{AUTH_METHOD | ORPHRASE}}
+HTTP server digest algorithm: {{SERVER_DIGEST | ORPHRASE}}
+HTTP server IPv4 access class: {{IPV4_ACCESS_CLASS | ORPHRASE}}
+HTTP File Upload status: {{FILE_UPLOAD_STATUS | ORPHRASE}}
+Maximum number of concurrent server connections allowed: {{CONCURRENT_CONNECTIONS_ALLOWED | ORPHRASE}}
+Maximum number of secondary server connections allowed: {{SECONDARY_CONNECTIONS_ALLOWED | ORPHRASE}}
+Server idle time-out: {{SERVER_IDLE_TIMEOUT | ORPHRASE}}
+Server session idle time-out: {{SERVER_SESSION_TIMEOUT | ORPHRASE}}
+Maximum number of requests allowed on a connection: {{MAX_REQUESTS_PER_CONNECTION | ORPHRASE}}
+Server linger time : {{SERVER_LINGER_TIME | ORPHRASE}}
+HTTP server active session modules: {{ACTIVE_SESSION_MODULES | ORPHRASE}}
+HTTP secure server capability: {{SECURE_SERVER_CAPABILITY | ORPHRASE}}
+HTTP secure server port: {{SECURE_SERVER_PORT | ORPHRASE}}
+HTTP secure server ECDHE curve: {{SECURE_ECDHE_CURVE | ORPHRASE}}
+</group>

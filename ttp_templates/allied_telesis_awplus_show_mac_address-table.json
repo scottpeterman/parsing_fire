@@ -1,0 +1,68 @@
+{
+  "command": "allied_telesis_awplus_show_mac_address-table",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"vlan_id_destination_port_destination_address_fwd\">\n{{VLAN_ID | re(\"\\\\d+\")}} {{DESTINATION_PORT}} {{DESTINATION_ADDRESS}} {{FWD | ORPHRASE}} dynamic\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN_ID": "900",
+      "DESTINATION_PORT": "sa1",
+      "DESTINATION_ADDRESS": "0009.0f09.0000",
+      "FWD": "forward"
+    },
+    {
+      "VLAN_ID": "900",
+      "DESTINATION_PORT": "sa1",
+      "DESTINATION_ADDRESS": "0015.5d00.ab14",
+      "FWD": "forward"
+    },
+    {
+      "VLAN_ID": "900",
+      "DESTINATION_PORT": "sa1",
+      "DESTINATION_ADDRESS": "0015.5d00.ab15",
+      "FWD": "forward"
+    },
+    {
+      "VLAN_ID": "989",
+      "DESTINATION_PORT": "port1.0.19",
+      "DESTINATION_ADDRESS": "0050.566a.1aca",
+      "FWD": "forward"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_id_destination_port_destination_address_fwd": [
+        {
+          "VLAN_ID": "900",
+          "DESTINATION_PORT": "sa1",
+          "DESTINATION_ADDRESS": "0009.0f09.0000",
+          "FWD": "forward"
+        },
+        {
+          "VLAN_ID": "900",
+          "DESTINATION_PORT": "sa1",
+          "DESTINATION_ADDRESS": "0015.5d00.ab14",
+          "FWD": "forward"
+        },
+        {
+          "VLAN_ID": "900",
+          "DESTINATION_PORT": "sa1",
+          "DESTINATION_ADDRESS": "0015.5d00.ab15",
+          "FWD": "forward"
+        },
+        {
+          "VLAN_ID": "989",
+          "DESTINATION_PORT": "port1.0.19",
+          "DESTINATION_ADDRESS": "0050.566a.1aca",
+          "FWD": "forward"
+        }
+      ]
+    }
+  ],
+  "cli_content": "VLAN port             mac            fwd\n900  sa1          0009.0f09.0000   forward   dynamic\n900  sa1          0015.5d00.ab14   forward   dynamic\n900  sa1          0015.5d00.ab15   forward   dynamic\n989  port1.0.19   0050.566a.1aca   forward   dynamic",
+  "textfsm_template": "Value Required VLAN_ID (\\d+)\nValue DESTINATION_PORT (\\S+)\nValue DESTINATION_ADDRESS (\\S+)\nValue FWD (\\S+)\n\nStart\n  ^VLAN\\s+port\n  ^${VLAN_ID}\\s+${DESTINATION_PORT}\\s+${DESTINATION_ADDRESS}\\s+${FWD} -> Record\n  ^. -> Error\n"
+}

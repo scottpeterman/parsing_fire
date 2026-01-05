@@ -1,0 +1,84 @@
+{
+  "command": "df -h",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"filesystem_size_used_avail_use_percent_mounted_on\">\n{{FILESYSTEM}} {{SIZE}} {{USED}} {{AVAIL}} {{USE_PERCENT | ORPHRASE}} {{MOUNTED_ON | re(\".*\\\\w.*\")}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FILESYSTEM": "/dev/sda1",
+      "SIZE": "50G",
+      "USED": "30G",
+      "AVAIL": "20G",
+      "USE_PERCENT": "60%",
+      "MOUNTED_ON": "/"
+    },
+    {
+      "FILESYSTEM": "tmpfs",
+      "SIZE": "7.8G",
+      "USED": "4.0K",
+      "AVAIL": "7.8G",
+      "USE_PERCENT": "1%",
+      "MOUNTED_ON": "/dev/shm"
+    },
+    {
+      "FILESYSTEM": "/dev/sdb1",
+      "SIZE": "200G",
+      "USED": "40G",
+      "AVAIL": "160G",
+      "USE_PERCENT": "20%",
+      "MOUNTED_ON": "/mnt/data"
+    },
+    {
+      "FILESYSTEM": "/dev/sdc1",
+      "SIZE": "100G",
+      "USED": "75G",
+      "AVAIL": "25G",
+      "USE_PERCENT": "75%",
+      "MOUNTED_ON": "/backup"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "filesystem_size_used_avail_use_percent_mounted_on": [
+        {
+          "FILESYSTEM": "Filesystem",
+          "SIZE": "Size",
+          "USED": "Used",
+          "AVAIL": "Avail",
+          "USE_PERCENT": "Use%",
+          "MOUNTED_ON": "Mounted on"
+        },
+        {
+          "FILESYSTEM": "tmpfs",
+          "SIZE": "7.8G",
+          "USED": "4.0K",
+          "AVAIL": "7.8G",
+          "USE_PERCENT": "1%",
+          "MOUNTED_ON": "/dev/shm"
+        },
+        {
+          "FILESYSTEM": "/dev/sdb1",
+          "SIZE": "200G",
+          "USED": "40G",
+          "AVAIL": "160G",
+          "USE_PERCENT": "20%",
+          "MOUNTED_ON": "/mnt/data"
+        },
+        {
+          "FILESYSTEM": "/dev/sdc1",
+          "SIZE": "100G",
+          "USED": "75G",
+          "AVAIL": "25G",
+          "USE_PERCENT": "75%",
+          "MOUNTED_ON": "/backup"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/sda1        50G   30G   20G  60% /\ntmpfs           7.8G  4.0K  7.8G   1% /dev/shm\n/dev/sdb1       200G   40G  160G  20% /mnt/data\n/dev/sdc1       100G   75G   25G  75% /backup\n",
+  "textfsm_template": "Value FILESYSTEM (\\S+)\nValue SIZE (\\S+)\nValue USED (\\S+)\nValue AVAIL (\\S+)\nValue USE_PERCENT (\\d+%)\nValue MOUNTED_ON (\\S+)\n\nStart\n  ^\\s*Filesystem\\s+Size\\s+Used\\s+Avail\\s+Use%\\s+Mounted\\s+on\\s*$$\n  ^\\s*${FILESYSTEM}\\s+${SIZE}\\s+${USED}\\s+${AVAIL}\\s+${USE_PERCENT}\\s+${MOUNTED_ON}\\s*$$ -> Record"
+}

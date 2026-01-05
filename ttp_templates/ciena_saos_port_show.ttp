@@ -1,0 +1,19 @@
+# TTP Template auto-generated from TextFSM
+# Original command: ciena_saos_port_show
+# Source: ntc
+# TextFSM rows: 27
+# TTP rows: 26
+# Match ratio: 0.96
+
+<group name="name_type_link_duration_xcvr_stp_mode_autoneg_admin_link_admin_mode_admin_autoneg">
+| {{NAME}} |{{TYPE}} | {{LINK}} | {{DURATION | ORPHRASE}}|{{XCVR}} |{{STP}}|{{MODE}}| {{AUTONEG}} |{{ADMIN_LINK}} |{{ADMIN_MODE | ORPHRASE}}| {{ADMIN_AUTONEG}} |
+</group>
+<group name="name_type_link_duration_xcvr_stp_admin_link_admin_mode_admin_autoneg">
+| {{NAME}} |{{TYPE}} |{{LINK}}| {{DURATION | ORPHRASE}}|{{XCVR}}|{{STP}}| | |{{ADMIN_LINK}} |{{ADMIN_MODE}}| {{ADMIN_AUTONEG | ORPHRASE}} |
+</group>
+<group name="name_type_link_duration_stp_admin_link_admin_mode_admin_autoneg">
+| {{NAME}} | {{TYPE}} |{{LINK}}| {{DURATION | ORPHRASE}}| |{{STP}}| | |{{ADMIN_LINK}} |{{ADMIN_MODE}}| {{ADMIN_AUTONEG | ORPHRASE}} |
+</group>
+<group name="name_type_link_duration_stp_admin_link">
+| {{NAME}} | {{TYPE}} | {{LINK}} | {{DURATION | ORPHRASE}}| |{{STP}}| | |{{ADMIN_LINK | ORPHRASE}} | | |
+</group>

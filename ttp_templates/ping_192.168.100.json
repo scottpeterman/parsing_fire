@@ -1,0 +1,85 @@
+{
+  "command": "ping 192.168.100.",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"ttl_icmp_seq_time\">\n{{TTL}} bytes from {{ICMP_SEQ}}92.168.100.1: icmp_seq=1 ttl=64 time={{TIME | ORPHRASE}} ms\n</group>\n<group name=\"rtt_min_rtt_avg_rtt_max_packet_loss_packets_transmitted\">\nrtt min/avg/max/mdev = {{RTT_MIN}}/{{RTT_AVG}}/{{RTT_MAX}}/{{PACKET_LOSS}}.00{{PACKETS_TRANSMITTED | ORPHRASE}} ms\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ICMP_SEQ": "1",
+      "TTL": "64",
+      "TIME": "0.045"
+    },
+    {
+      "ICMP_SEQ": "2",
+      "TTL": "64",
+      "TIME": "0.042"
+    },
+    {
+      "ICMP_SEQ": "3",
+      "TTL": "64",
+      "TIME": "0.048"
+    },
+    {
+      "ICMP_SEQ": "4",
+      "TTL": "64",
+      "TIME": "0.044"
+    },
+    {
+      "ICMP_SEQ": "5",
+      "TTL": "64",
+      "TIME": "0.039"
+    },
+    {
+      "PACKETS_TRANSMITTED": "5",
+      "PACKETS_RECEIVED": "5",
+      "PACKET_LOSS": "0",
+      "RTT_MIN": "0.039",
+      "RTT_AVG": "0.043",
+      "RTT_MAX": "0.048"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ttl_icmp_seq_time": [
+        {
+          "TTL": "64",
+          "ICMP_SEQ": "19",
+          "TIME": "0.045"
+        },
+        {
+          "TTL": "64",
+          "ICMP_SEQ": "19",
+          "TIME": "0.042"
+        },
+        {
+          "TTL": "64",
+          "ICMP_SEQ": "19",
+          "TIME": "0.048"
+        },
+        {
+          "TTL": "64",
+          "ICMP_SEQ": "19",
+          "TIME": "0.044"
+        },
+        {
+          "TTL": "64",
+          "ICMP_SEQ": "19",
+          "TIME": "0.039"
+        }
+      ],
+      "rtt_min_rtt_avg_rtt_max_packet_loss_packets_transmitted": {
+        "RTT_MIN": "0.039",
+        "RTT_AVG": "0.043",
+        "RTT_MAX": "0.048",
+        "PACKET_LOSS": "0",
+        "PACKETS_TRANSMITTED": "5"
+      }
+    }
+  ],
+  "cli_content": "PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.\n64 bytes from 192.168.100.1: icmp_seq=1 ttl=64 time=0.045 ms\n64 bytes from 192.168.100.1: icmp_seq=2 ttl=64 time=0.042 ms\n64 bytes from 192.168.100.1: icmp_seq=3 ttl=64 time=0.048 ms\n64 bytes from 192.168.100.1: icmp_seq=4 ttl=64 time=0.044 ms\n64 bytes from 192.168.100.1: icmp_seq=5 ttl=64 time=0.039 ms\n\n--- 192.168.100.1 ping statistics ---\n5 packets transmitted, 5 received, 0% packet loss, time 3999ms\nrtt min/avg/max/mdev = 0.039/0.043/0.048/0.005 ms\n",
+  "textfsm_template": "Value ICMP_SEQ (\\d+)\nValue TTL (\\d+)\nValue TIME (\\d+\\.\\d+)\nValue PACKETS_TRANSMITTED (\\d+)\nValue PACKETS_RECEIVED (\\d+)\nValue PACKET_LOSS (\\d+)\nValue RTT_MIN (\\d+\\.\\d+)\nValue RTT_AVG (\\d+\\.\\d+)\nValue RTT_MAX (\\d+\\.\\d+)\n\nStart\n  ^64 bytes from \\d+\\.\\d+\\.\\d+\\.\\d+: icmp_seq=${ICMP_SEQ} ttl=${TTL} time=${TIME} ms -> Record\n  ^--- \\d+\\.\\d+\\.\\d+\\.\\d+ ping statistics ---\n  ^${PACKETS_TRANSMITTED} packets transmitted, ${PACKETS_RECEIVED} received, ${PACKET_LOSS}% packet loss\n  ^rtt min/avg/max/mdev = ${RTT_MIN}/${RTT_AVG}/${RTT_MAX}/\\d+\\.\\d+ ms"
+}

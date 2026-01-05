@@ -1,0 +1,22 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_version
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="cluster_compile_date_device_mgr_version_failover">
+Cisco Adaptive Security Appliance Software Version {{VERSION | ORPHRASE}} 
+Device Manager Version {{DEVICE_MGR_VERSION | ORPHRASE}}
+Compiled on Mon {{COMPILE_DATE | ORPHRASE}} 13:32 PST by builders
+System image file is "{{IMAGE | ORPHRASE}}"
+{{HOSTNAME | re("\\S+")}} up {{UPTIME | ORPHRASE}}
+Hardware:  {{HARDWARE | ORPHRASE}}
+Internal ATA Compact Flash, {{FLASH | ORPHRASE}}
+Maximum Physical Interfaces  : {{MAX_INTF | ORPHRASE}}  perpetual
+Maximum VLANs  : {{MAX_VLANS | ORPHRASE}}  perpetual
+Failover  : {{FAILOVER | ORPHRASE}}  perpetual
+Encryption-DES  : {{CLUSTER | ORPHRASE}}  perpetual
+Serial Number: {{SERIAL | ORPHRASE}}
+Configuration last modified by {{LAST_MOD | ORPHRASE}}
+</group>

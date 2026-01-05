@@ -1,0 +1,74 @@
+{
+  "command": "show alarms detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"index_time_severity_description\">\n{{INDEX}} {{TIME | ORPHRASE}} {{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{DESCRIPTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INDEX": "1",
+      "TIME": "2023-10-06 15:23:09.123",
+      "SEVERITY": "Critical",
+      "DESCRIPTION": "Link down on Ethernet1"
+    },
+    {
+      "INDEX": "2",
+      "TIME": "2023-10-06 15:24:17.456",
+      "SEVERITY": "Major",
+      "DESCRIPTION": "High CPU utilization"
+    },
+    {
+      "INDEX": "3",
+      "TIME": "2023-10-06 15:25:33.789",
+      "SEVERITY": "Minor",
+      "DESCRIPTION": "Temperature threshold exceeded"
+    },
+    {
+      "INDEX": "4",
+      "TIME": "2023-10-06 15:26:45.012",
+      "SEVERITY": "Warning",
+      "DESCRIPTION": "Power supply fan failure"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "index_time_severity_description": [
+        {
+          "INDEX": "Index",
+          "TIME": "Time",
+          "SEVERITY": "Severity",
+          "DESCRIPTION": "Description"
+        },
+        {
+          "INDEX": "1",
+          "TIME": "2023-10-06 15:23:09.123",
+          "SEVERITY": "Critical",
+          "DESCRIPTION": "Link down on Ethernet1"
+        },
+        {
+          "INDEX": "2",
+          "TIME": "2023-10-06 15:24:17.456",
+          "SEVERITY": "Major",
+          "DESCRIPTION": "High CPU utilization"
+        },
+        {
+          "INDEX": "3",
+          "TIME": "2023-10-06 15:25:33.789",
+          "SEVERITY": "Minor",
+          "DESCRIPTION": "Temperature threshold exceeded"
+        },
+        {
+          "INDEX": "4",
+          "TIME": "2023-10-06 15:26:45.012",
+          "SEVERITY": "Warning",
+          "DESCRIPTION": "Power supply fan failure"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Index  Time                      Severity  Description\n-----  ------------------------  --------  ---------------------------------------------------------\n1      2023-10-06 15:23:09.123   Critical  Link down on Ethernet1\n2      2023-10-06 15:24:17.456   Major     High CPU utilization\n3      2023-10-06 15:25:33.789   Minor     Temperature threshold exceeded\n4      2023-10-06 15:26:45.012   Warning   Power supply fan failure\n",
+  "textfsm_template": "Value INDEX (\\d+)\nValue TIME (\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3})\nValue SEVERITY (\\w+)\nValue DESCRIPTION (.+)\n\nStart\n  ^\\s*Index\\s+Time\\s+Severity\\s+Description\\s*$$\n  ^\\s*${INDEX}\\s+${TIME}\\s+${SEVERITY}\\s+${DESCRIPTION}\\s*$$ -> Record"
+}

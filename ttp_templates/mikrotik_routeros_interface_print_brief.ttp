@@ -1,0 +1,31 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_interface_print_brief
+# Source: ntc
+# TextFSM rows: 8
+# TTP rows: 13
+# Match ratio: 1.62
+
+<group name="id_name_type_actual_mtu_l2mtu_max_l2mtu_mac_address">
+ {{ID | re("\\d+")}} {{NAME}} {{TYPE}} {{ACTUAL_MTU}} {{L2MTU}} {{MAX_L2MTU}} {{MAC_ADDRESS | ORPHRASE}}
+</group>
+<group name="dynamic_name_type_actual_mtu_l2mtu_mac_address">
+ {{I{{DYNAMIC}} | re("\\d+")}} D {{NAME}} {{TYPE}} {{ACTUAL_MTU}} {{L2MTU}} {{MAC_ADDRESS | ORPHRASE}}
+</group>
+<group name="id_status_name_type_actual_mtu_mac_address">
+ {{ID | re("\\d+")}} {{STATUS | ORPHRASE}} {{NAME}} {{TYPE}} {{ACTUAL_MTU}} {{MAC_ADDRESS | ORPHRASE}}
+</group>
+<group name="id_slave_name_type_actual_mtu_l2mtu">
+ {{ID | re("\\d+")}} {{SLAVE}} {{NAME}} {{TYPE}} {{ACTUAL_MTU}} {{L2MTU | ORPHRASE}}
+</group>
+<group name="dynamic_status_name_type_actual_mtu">
+ {{I{{DYNAMIC}} | re("\\d+")}} D{{STATUS | ORPHRASE}} {{NAME}} {{TYPE}} {{ACTUAL_MTU | ORPHRASE}}
+</group>
+<group name="id_slave_name_type_actual_mtu_l2mtu_max_l2mtu_mac_address">
+ {{ID | re("\\d+")}} {{{{SLAVE}}TATUS | ORPHRASE}}S {{NAME}} {{TYPE}} {{ACTUAL_MTU}} {{L2MTU}} {{MAX_L2MTU}} {{MAC_ADDRESS | ORPHRASE}}
+</group>
+<group name="dynamic_slave_name_type_actual_mtu_l2mtu_max_l2mtu_mac_address">
+ {{I{{DYNAMIC}} | re("\\d+")}} D {{SLAVE}} {{NAME}} {{TYPE}} {{ACTUAL_MTU}} {{L2MTU}} {{MAX_L2MTU}} {{MAC_ADDRESS | ORPHRASE}}
+</group>
+<group name="dynamic_slave_name_type_actual_mtu_l2mtu_max_l2mtu">
+ {{I{{DYNAMIC}} | re("\\d+")}} D{{{{SLAVE}}TATUS | ORPHRASE}}S {{NAME}} {{TYPE}} {{ACTUAL_MTU}} {{L2MTU}} {{MAX_L2MTU | ORPHRASE}}
+</group>

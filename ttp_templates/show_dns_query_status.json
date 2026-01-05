@@ -1,0 +1,38 @@
+{
+  "command": "show dns query status",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"dynamic_domain_dynamic_server_count\">\n  - domain: {{DYNAMIC_DOMAIN}}, default DNS server count: {{DYNAMIC_SERVER_COUNT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SOURCE_INTERFACE": "Not set",
+      "DYNAMIC_DOMAIN": "example.com",
+      "DYNAMIC_SERVER_COUNT": "2"
+    },
+    {
+      "TOTAL_QUERIES": "15",
+      "SUCCESSFUL_QUERIES": "13",
+      "FAILED_QUERIES": "2"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "dynamic_domain_dynamic_server_count": [
+        {
+          "DYNAMIC_DOMAIN": "example.com",
+          "DYNAMIC_SERVER_COUNT": "2"
+        },
+        {
+          "DYNAMIC_DOMAIN": "test.com",
+          "DYNAMIC_SERVER_COUNT": "1"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Query source-interface: Not set\n\nDynamic Query Domain List:\n  - domain: example.com, default DNS server count: 2\n  - domain: test.com, default DNS server count: 1\n\nStatic Query Domain List:\n  - domain: staticdomain.com, DNS server: 192.168.1.1\n\nProcessed DNS Query Statistics:\n  Total Queries: 15\n  Successful Queries: 13\n  Failed Queries: 2\n",
+  "textfsm_template": "Value SOURCE_INTERFACE (.*)\nValue DYNAMIC_DOMAIN (.*)\nValue DYNAMIC_SERVER_COUNT (\\d+)\nValue STATIC_DOMAIN (.*)\nValue STATIC_SERVER (.*)\nValue TOTAL_QUERIES (\\d+)\nValue SUCCESSFUL_QUERIES (\\d+)\nValue FAILED_QUERIES (\\d+)\n\nStart\n  ^Query\\s+source-interface:\\s+${SOURCE_INTERFACE}\\s*$$\n  ^Dynamic\\s+Query\\s+Domain\\s+List:\\s*$$\n  ^\\s+-\\s+domain:\\s+${DYNAMIC_DOMAIN},\\s+default\\s+DNS\\s+server\\s+count:\\s+${DYNAMIC_SERVER_COUNT}\\s*$$ -> Record\n  ^Static\\s+Query\\s+Domain\\s+List:\\s*$$\n  ^\\s+-\\s+domain:\\s+${STATIC_DOMAIN},\\s+DNS\\s+server:\\s+${STATIC_SERVER}\\s*$$ -> Record\n  ^Processed\\s+DNS\\s+Query\\s+Statistics:\\s*$$\n  ^\\s*Total\\s+Queries:\\s+${TOTAL_QUERIES}\\s*$$\n  ^\\s*Successful\\s+Queries:\\s+${SUCCESSFUL_QUERIES}\\s*$$\n  ^\\s*Failed\\s+Queries:\\s+${FAILED_QUERIES}\\s*$$"
+}

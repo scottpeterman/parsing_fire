@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_interface_ethernet_print
+# Source: ntc
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="id_name_mtu_mac_address_arp_switch">
+ {{ID | re("\\d+")}} {{NAME}} {{MTU}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{ARP}} {{SWITCH | ORPHRASE}}
+</group>
+<group name="id_status_name_mtu_mac_address_arp_switch">
+ {{ID | re("\\d+")}} {{STATUS | ORPHRASE}} {{NAME}} {{MTU}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{ARP}} {{SWITCH | ORPHRASE}}
+</group>
+<group name="id_slave_name_mtu_mac_address_arp_switch">
+ {{ID | re("\\d+")}} {{{{SLAVE}}TATUS | ORPHRASE}}S {{NAME}} {{MTU}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{ARP}} {{SWITCH | ORPHRASE}}
+</group>

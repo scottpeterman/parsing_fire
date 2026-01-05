@@ -1,0 +1,41 @@
+{
+  "command": "show mlag",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"connection_status_domain_id_local_int_local_int_status\">\nDomain-id  : {{DOMAIN_ID | ORPHRASE}}\nLocal-interface  : {{LOCAL_INT | ORPHRASE}}\nPeer-address  : {{PEER_ADDRESS | ORPHRASE}}\nPeer-link  : {{PEER_LINK | ORPHRASE}}\nPeer-link status  : {{PEER_LINK_STATUS | ORPHRASE}}\nRole  : {{ROLE | ORPHRASE}}\nState  : {{STATE | ORPHRASE}}\nSystem-id  : {{SYSTEM_ID | ORPHRASE}}\nConnection status  : {{CONNECTION_STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DOMAIN_ID": "1",
+      "LOCAL_INT": "Port-Channel10",
+      "PEER_ADDRESS": "10.1.1.2",
+      "PEER_LINK": "Ethernet1/1",
+      "PEER_LINK_STATUS": "up",
+      "LOCAL_INT_STATUS": "up",
+      "ROLE": "primary",
+      "STATE": "active",
+      "SYSTEM_ID": "00:1c:73:00:00:01",
+      "CONNECTION_STATUS": "connected"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "connection_status_domain_id_local_int_local_int_status": {
+        "CONNECTION_STATUS": "connected",
+        "SYSTEM_ID": "00:1c:73:00:00:01",
+        "STATE": "active",
+        "ROLE": "primary",
+        "PEER_LINK_STATUS": "up",
+        "PEER_LINK": "Ethernet1/1",
+        "PEER_ADDRESS": "10.1.1.2",
+        "LOCAL_INT": "Port-Channel10",
+        "DOMAIN_ID": "1"
+      }
+    }
+  ],
+  "cli_content": "MLAG Status\n===========\nDomain-id              : 1\nLocal-interface        : Port-Channel10\nPeer-address           : 10.1.1.2\nPeer-link              : Ethernet1/1\nPeer-link status       : up\nLocal-Int status       : up\nPeer-link status       : up\nRole                   : primary\nState                  : active\nSystem-id              : 00:1c:73:00:00:01\nConnection status      : connected\n\nMLAG Ports\n==========\nPort           Local-int      Peer-int            Status\n-----          ---------      ------------        ------\nPo20           up             up                  active\nPo30           down           up                  inactive\nPo40           up             down                active\nPo50           up             up                  active\n",
+  "textfsm_template": "Value DOMAIN_ID (\\d+)\nValue LOCAL_INT (\\S+)\nValue PEER_ADDRESS (\\S+)\nValue PEER_LINK (\\S+)\nValue PEER_LINK_STATUS (up|down)\nValue LOCAL_INT_STATUS (up|down)\nValue ROLE (\\S+)\nValue STATE (\\S+)\nValue SYSTEM_ID (\\S+)\nValue CONNECTION_STATUS (\\S+)\n\nStart\n  ^Domain-id\\s*:\\s*${DOMAIN_ID}\n  ^Local-interface\\s*:\\s*${LOCAL_INT}\n  ^Peer-address\\s*:\\s*${PEER_ADDRESS}\n  ^Peer-link\\s*:\\s*${PEER_LINK}\n  ^Peer-link status\\s*:\\s*${PEER_LINK_STATUS}\n  ^Local-Int status\\s*:\\s*${LOCAL_INT_STATUS}\n  ^Role\\s*:\\s*${ROLE}\n  ^State\\s*:\\s*${STATE}\n  ^System-id\\s*:\\s*${SYSTEM_ID}\n  ^Connection status\\s*:\\s*${CONNECTION_STATUS} -> Record"
+}

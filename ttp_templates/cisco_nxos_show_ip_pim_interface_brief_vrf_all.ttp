@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_ip_pim_interface_brief_vrf_all
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 5
+# Match ratio: 1.67
+
+<group name="vrf">
+PIM Interface Status for VRF "{{VRF | ORPHRASE}}"
+<group name="border_interface_interface_ip_address">
+{{INTERFACE}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{PIM_DR_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{NEIGHBOR_COUNT | re("\\d+")}} {{BORDER_INTERFACE | ORPHRASE}}
+</group>
+</group>

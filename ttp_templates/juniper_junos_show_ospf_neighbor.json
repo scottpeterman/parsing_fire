@@ -1,0 +1,52 @@
+{
+  "command": "juniper_junos_show_ospf_neighbor",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"ip_address_interface_state_neighbor_id_priority_dead_time\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE}} {{STATE | ORPHRASE}} {{NEIGHBOR_ID}} {{PRIORITY}} {{DEAD_TIME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP_ADDRESS": "10.1.2.2",
+      "INTERFACE": "ge-0/0/2.0",
+      "STATE": "Full",
+      "NEIGHBOR_ID": "2.2.2.2",
+      "PRIORITY": "1",
+      "DEAD_TIME": "37"
+    },
+    {
+      "IP_ADDRESS": "10.1.3.3",
+      "INTERFACE": "ge-0/0/3.0",
+      "STATE": "Full",
+      "NEIGHBOR_ID": "3.3.3.3",
+      "PRIORITY": "1",
+      "DEAD_TIME": "31"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_address_interface_state_neighbor_id_priority_dead_time": [
+        {
+          "IP_ADDRESS": "10.1.2.2",
+          "INTERFACE": "ge-0/0/2.0",
+          "STATE": "Full",
+          "NEIGHBOR_ID": "2.2.2.2",
+          "PRIORITY": "1",
+          "DEAD_TIME": "37"
+        },
+        {
+          "IP_ADDRESS": "10.1.3.3",
+          "INTERFACE": "ge-0/0/3.0",
+          "STATE": "Full",
+          "NEIGHBOR_ID": "3.3.3.3",
+          "PRIORITY": "1",
+          "DEAD_TIME": "31"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Address          Interface              State     ID               Pri  Dead\n10.1.2.2         ge-0/0/2.0             Full      2.2.2.2            1    37\n10.1.3.3         ge-0/0/3.0             Full      3.3.3.3            1    31\n\n{master:0}\n",
+  "textfsm_template": "Value IP_ADDRESS (\\d+.\\d+.\\d+.\\d+)\nValue INTERFACE (\\S+)\nValue STATE (\\S+)\nValue NEIGHBOR_ID (\\d+.\\d+.\\d+.\\d+)\nValue PRIORITY (\\d+)\nValue DEAD_TIME (\\d+)\n\n\nStart\n  ^${IP_ADDRESS}\\s+${INTERFACE}\\s+${STATE}\\s+${NEIGHBOR_ID}\\s+${PRIORITY}\\s+${DEAD_TIME} -> Record\n  ^\\s*$$\n  ^{master:\\d+}\n"
+}

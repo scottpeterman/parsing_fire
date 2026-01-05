@@ -1,0 +1,62 @@
+{
+  "command": "cisco_ios_show_mpls_l2transport_vc",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"interface_local_circuit_dest_address_vc_id_status\">\n{{INTERFACE}} {{LOCAL_CIRCUIT | ORPHRASE}} {{DEST_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{VC_ID | re(\"\\\\d+\")}} {{STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Se5/0",
+      "LOCAL_CIRCUIT": "FR DLCI 55",
+      "DEST_ADDRESS": "10.0.0.1",
+      "VC_ID": "55",
+      "STATUS": "UP"
+    },
+    {
+      "INTERFACE": "AT4/0",
+      "LOCAL_CIRCUIT": "ATM AAL5 0/100",
+      "DEST_ADDRESS": "10.0.0.1",
+      "VC_ID": "100",
+      "STATUS": "UP"
+    },
+    {
+      "INTERFACE": "AT4/0.300",
+      "LOCAL_CIRCUIT": "ATM AAL5 0/300",
+      "DEST_ADDRESS": "10.0.0.1",
+      "VC_ID": "300",
+      "STATUS": "UP"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_local_circuit_dest_address_vc_id_status": [
+        {
+          "INTERFACE": "Se5/0",
+          "LOCAL_CIRCUIT": "FR DLCI 55",
+          "DEST_ADDRESS": "10.0.0.1",
+          "VC_ID": "55",
+          "STATUS": "UP"
+        },
+        {
+          "INTERFACE": "AT4/0",
+          "LOCAL_CIRCUIT": "ATM AAL5 0/100",
+          "DEST_ADDRESS": "10.0.0.1",
+          "VC_ID": "100",
+          "STATUS": "UP"
+        },
+        {
+          "INTERFACE": "AT4/0.300",
+          "LOCAL_CIRCUIT": "ATM AAL5 0/300",
+          "DEST_ADDRESS": "10.0.0.1",
+          "VC_ID": "300",
+          "STATUS": "UP"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Local intf     Local circuit      Dest address    VC ID      Status\n-------------  ------------------ --------------- ---------- ----------\nSe5/0          FR DLCI 55         10.0.0.1        55         UP\nAT4/0          ATM AAL5 0/100     10.0.0.1        100        UP\nAT4/0.300      ATM AAL5 0/300     10.0.0.1        300        UP\n",
+  "textfsm_template": "Value INTERFACE ([a-zA-Z0-9\\-/.]+)\nValue LOCAL_CIRCUIT (.*)\nValue DEST_ADDRESS (\\S+)\nValue VC_ID (\\d+)\nValue STATUS (.*)\n\nStart\n  ^\\s*Local\\s+intf\\s+Local\\s+circuit\\s+Dest\\s+address\\s+VC\\s+ID\\s+Status\\s*$$ -> L2transportTable\n  ^\\s*$$\n  ^. -> Error\n\nL2transportTable\n  ^\\s*-+(\\s+-+)*\\s*$$\n  ^\\s*${INTERFACE}\\s+${LOCAL_CIRCUIT}\\s+${DEST_ADDRESS}\\s+${VC_ID}\\s+${STATUS}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

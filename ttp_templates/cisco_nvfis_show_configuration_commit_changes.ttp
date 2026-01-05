@@ -1,0 +1,12 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nvfis_show_configuration_commit_changes
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="client_created_by_date_time">
+! Created by: {{CREATED_BY | ORPHRASE}}
+! Date: {{DATE_TIME | ORPHRASE}}
+! Client: {{CLIENT | ORPHRASE}}
+</group>

@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show high-availability all
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="failover_trigger_ha_state_heartbeat_interval_heartbeat_miss">
+HA State  : {{HA_STATE | ORPHRASE}}
+Peer IP Address  : {{PEER_IP_ADDRESS | ORPHRASE}}
+Uptime  : {{UPTIME | ORPHRASE}}
+Heartbeat Interval  : {{HEARTBEAT_INTERVAL | ORPHRASE}}
+Heartbeat Miss Count  : {{HEARTBEAT_MISS | ORPHRASE}}
+Failover Trigger  : {{FAILOVER_TRIGGER | ORPHRASE}}
+</group>

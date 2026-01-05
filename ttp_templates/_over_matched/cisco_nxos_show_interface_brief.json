@@ -1,0 +1,3660 @@
+{
+  "command": "cisco_nxos_show_interface_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.774774774774775,
+  "textfsm_rows": 111,
+  "ttp_rows": 308,
+  "ttp_template": "<group name=\"interface_vrf_status_ip_address_speed_mtu\">\n{{INTERFACE}} {{VRF | re(\".*\\\\w.*\")}} {{STATUS | ORPHRASE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{SPEED}} {{MTU | ORPHRASE}}\n</group>\n<group name=\"interface_vlan_id_type_mode_status_reason_speed_portch\">\n{{INTERFACE}} {{VLAN_ID | re(\".*\\\\w.*\")}} {{TYPE}} {{MODE}} {{STATUS | ORPHRASE}} {{REASON | ORPHRASE}} {{SPEED}} {{PORTCH | ORPHRASE}}\n</group>\n<group name=\"interface_vlan_id_type_mode_status_reason_speed_protocol\">\n{{INTERFACE}} {{VLAN_ID | re(\".*\\\\w.*\")}} {{TYPE}} {{MODE}} {{STATUS | ORPHRASE}} {{REASON | ORPHRASE}} {{SPEED}} {{PROTOCOL | ORPHRASE}}\n</group>\n<group name=\"interface_status_description\">\n{{INTERFACE}} {{STATUS | ORPHRASE}} {{DESCRIPTION | ORPHRASE}}\n</group>\n<group name=\"interface_type_status_reason\">\n{{INTERFACE}} {{TYPE | re(\".*\\\\w.*\")}} {{STATUS | ORPHRASE}} {{REASON | ORPHRASE}} \n</group>\n<group name=\"interface_status_reason_mtu_vrf\">\n{{INTERFACE}} {{STATUS | ORPHRASE}} {{REASON | ORPHRASE}} {{MTU}} {{VRF | ORPHRASE}}\n</group>\n<group name=\"interface_status_peer_ip_address_vcid\">\n{{INTERFACE}} {{STATUS | ORPHRASE}} {{PEER_IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{VCID | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "mgmt0",
+      "VRF": "--",
+      "STATUS": "up",
+      "IP_ADDRESS": "172.16.111.254",
+      "SPEED": "1000",
+      "MTU": "1500"
+    },
+    {
+      "INTERFACE": "Eth1/1",
+      "STATUS": "up",
+      "SPEED": "40G(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "none",
+      "PORTCH": "10"
+    },
+    {
+      "INTERFACE": "Eth1/2",
+      "STATUS": "up",
+      "SPEED": "40G(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth1/3",
+      "STATUS": "up",
+      "SPEED": "40G(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth1/4",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "XCVR not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth1/5",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "XCVR not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth1/6",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "XCVR not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth1/7",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "XCVR not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth1/8",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "XCVR not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth1/9",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "XCVR not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth1/10",
+      "STATUS": "up",
+      "SPEED": "100G(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "none",
+      "PORTCH": "100"
+    },
+    {
+      "INTERFACE": "Eth1/11",
+      "STATUS": "up",
+      "SPEED": "100G(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "none",
+      "PORTCH": "100"
+    },
+    {
+      "INTERFACE": "Eth1/12",
+      "STATUS": "up",
+      "SPEED": "100G(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/1",
+      "STATUS": "up",
+      "SPEED": "10G(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/2",
+      "STATUS": "up",
+      "SPEED": "10G(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/3",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "Link not connected",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/4",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/5",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/6",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/7",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/8",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/9",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/10",
+      "STATUS": "up",
+      "SPEED": "1000(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/10.2137",
+      "STATUS": "up",
+      "SPEED": "1000(D)",
+      "VLAN_ID": "2137",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/10.2139",
+      "STATUS": "up",
+      "SPEED": "1000(D)",
+      "VLAN_ID": "2139",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/11",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/12",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/13",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/14",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/15",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/16",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/17",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/18",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/19",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/20",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/21",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/22",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/23",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/24",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/25",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/26",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/27",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/28",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/29",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/30",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/31",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/32",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/33",
+      "STATUS": "up",
+      "SPEED": "10G(D)",
+      "VLAN_ID": "1",
+      "TYPE": "eth",
+      "MODE": "fabric",
+      "REASON": "none",
+      "PORTCH": "4000"
+    },
+    {
+      "INTERFACE": "Eth2/34",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/35",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/36",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/37",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/38",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/39",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/40",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/41",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/42",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/43",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/44",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/45",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/46",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/47",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth2/48",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Po10",
+      "STATUS": "up",
+      "SPEED": "a-40G(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "none",
+      "PROTOCOL": "lacp"
+    },
+    {
+      "INTERFACE": "Po10.300",
+      "STATUS": "up",
+      "SPEED": "a-40G(D)",
+      "VLAN_ID": "300",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "none",
+      "PROTOCOL": "--"
+    },
+    {
+      "INTERFACE": "Po100",
+      "STATUS": "up",
+      "SPEED": "a-100G(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "none",
+      "PROTOCOL": "lacp"
+    },
+    {
+      "INTERFACE": "Po4000",
+      "STATUS": "up",
+      "SPEED": "a-10G(D)",
+      "VLAN_ID": "1",
+      "TYPE": "eth",
+      "MODE": "fabric",
+      "REASON": "none",
+      "PROTOCOL": "none"
+    },
+    {
+      "INTERFACE": "Lo0",
+      "STATUS": "up",
+      "DESCRIPTION": "device loopback interface"
+    },
+    {
+      "INTERFACE": "Lo2",
+      "STATUS": "down",
+      "DESCRIPTION": "--"
+    },
+    {
+      "INTERFACE": "Vlan1",
+      "STATUS": "down",
+      "TYPE": "--",
+      "REASON": "Administratively down"
+    },
+    {
+      "INTERFACE": "Vlan144",
+      "STATUS": "up",
+      "TYPE": "--",
+      "REASON": "--"
+    },
+    {
+      "INTERFACE": "Vlan145",
+      "STATUS": "up",
+      "TYPE": "--",
+      "REASON": "--"
+    },
+    {
+      "INTERFACE": "Vlan146",
+      "STATUS": "up",
+      "TYPE": "--",
+      "REASON": "--"
+    },
+    {
+      "INTERFACE": "Vlan2090",
+      "STATUS": "up",
+      "TYPE": "--",
+      "REASON": "--"
+    },
+    {
+      "INTERFACE": "Vlan2091",
+      "STATUS": "up",
+      "TYPE": "--",
+      "REASON": "--"
+    },
+    {
+      "INTERFACE": "mti3",
+      "VRF": "VRF1",
+      "STATUS": "up",
+      "MTU": "1500",
+      "REASON": "none"
+    },
+    {
+      "INTERFACE": "mti4",
+      "VRF": "VRF2",
+      "STATUS": "up",
+      "MTU": "1500",
+      "REASON": "none"
+    },
+    {
+      "INTERFACE": "mti5",
+      "VRF": "VRF3",
+      "STATUS": "up",
+      "MTU": "1500",
+      "REASON": "none"
+    },
+    {
+      "INTERFACE": "Eth101/1/1",
+      "STATUS": "up",
+      "SPEED": "10G(D)",
+      "VLAN_ID": "1",
+      "TYPE": "eth",
+      "MODE": "trunk",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/2",
+      "STATUS": "up",
+      "SPEED": "10G(D)",
+      "VLAN_ID": "1",
+      "TYPE": "eth",
+      "MODE": "trunk",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/3",
+      "STATUS": "up",
+      "SPEED": "1000(D)",
+      "VLAN_ID": "1",
+      "TYPE": "eth",
+      "MODE": "trunk",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/4",
+      "STATUS": "up",
+      "SPEED": "1000(D)",
+      "VLAN_ID": "1",
+      "TYPE": "eth",
+      "MODE": "trunk",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/5",
+      "STATUS": "up",
+      "SPEED": "10G(D)",
+      "VLAN_ID": "1",
+      "TYPE": "eth",
+      "MODE": "trunk",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/6",
+      "STATUS": "up",
+      "SPEED": "10G(D)",
+      "VLAN_ID": "1",
+      "TYPE": "eth",
+      "MODE": "trunk",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/7",
+      "STATUS": "up",
+      "SPEED": "1000(D)",
+      "VLAN_ID": "1",
+      "TYPE": "eth",
+      "MODE": "trunk",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/8",
+      "STATUS": "up",
+      "SPEED": "1000(D)",
+      "VLAN_ID": "1",
+      "TYPE": "eth",
+      "MODE": "trunk",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/9",
+      "STATUS": "up",
+      "SPEED": "10G(D)",
+      "VLAN_ID": "1",
+      "TYPE": "eth",
+      "MODE": "trunk",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/10",
+      "STATUS": "up",
+      "SPEED": "10G(D)",
+      "VLAN_ID": "1",
+      "TYPE": "eth",
+      "MODE": "trunk",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/11",
+      "STATUS": "up",
+      "SPEED": "1000(D)",
+      "VLAN_ID": "1",
+      "TYPE": "eth",
+      "MODE": "trunk",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/12",
+      "STATUS": "up",
+      "SPEED": "1000(D)",
+      "VLAN_ID": "1",
+      "TYPE": "eth",
+      "MODE": "trunk",
+      "REASON": "none",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/13",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/14",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/15",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/16",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/17",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/18",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/19",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/20",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/21",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/22",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/23",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/24",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/25",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/26",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/27",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/28",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/29",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/30",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/31",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "Eth101/1/32",
+      "STATUS": "down",
+      "SPEED": "auto(D)",
+      "VLAN_ID": "--",
+      "TYPE": "eth",
+      "MODE": "routed",
+      "REASON": "SFP not inserted",
+      "PORTCH": "--"
+    },
+    {
+      "INTERFACE": "pw100002",
+      "STATUS": "up",
+      "PEER_IP_ADDRESS": "172.21.128.111",
+      "VCID": "6668"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_vlan_id_type_mode_status_reason_speed_portch": [
+        {
+          "INTERFACE": "Ethernet",
+          "VLAN_ID": "VLAN   ",
+          "TYPE": "Type",
+          "MODE": "Mode",
+          "STATUS": "Status",
+          "REASON": "Reason",
+          "SPEED": "Speed",
+          "PORTCH": "Port"
+        },
+        {
+          "INTERFACE": "Eth1/4",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "XCVR",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth1/5",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "XCVR",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth1/6",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "XCVR",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth1/7",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "XCVR",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth1/8",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "XCVR",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth1/9",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "XCVR",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/3",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "Link",
+          "STATUS": "not",
+          "REASON": "connected",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/4",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/5",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/6",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/7",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/8",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/9",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/10.2137",
+          "VLAN_ID": "2137   ",
+          "TYPE": "eth",
+          "MODE": "routed",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "1000(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/10.2139",
+          "VLAN_ID": "2139   ",
+          "TYPE": "eth",
+          "MODE": "routed",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "1000(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/11",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/12",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/13",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/14",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/15",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/16",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/17",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/18",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/19",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/20",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/21",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/22",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/23",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/24",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/25",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/26",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/27",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/28",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/29",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/30",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/31",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/32",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/33",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "fabric",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "10G(D)",
+          "PORTCH": "4000"
+        },
+        {
+          "INTERFACE": "Eth2/34",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/35",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/36",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/37",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/38",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/39",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/40",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/41",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/42",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/43",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/44",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/45",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/46",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/47",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth2/48",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Port-channel",
+          "VLAN_ID": "VLAN   ",
+          "TYPE": "Type",
+          "MODE": "Mode",
+          "STATUS": "Status",
+          "REASON": "Reason",
+          "SPEED": "Speed",
+          "PORTCH": "Protocol"
+        },
+        {
+          "INTERFACE": "Po10.300",
+          "VLAN_ID": "300    ",
+          "TYPE": "eth",
+          "MODE": "routed",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "a-40G(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Po4000",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "fabric",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "a-10G(D)",
+          "PORTCH": "none"
+        },
+        {
+          "INTERFACE": "Ethernet",
+          "VLAN_ID": "VLAN   ",
+          "TYPE": "Type",
+          "MODE": "Mode",
+          "STATUS": "Status",
+          "REASON": "Reason",
+          "SPEED": "Speed",
+          "PORTCH": "Port"
+        },
+        {
+          "INTERFACE": "Eth101/1/1",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "10G(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/2",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "10G(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/3",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "1000(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/4",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "1000(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/5",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "10G(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/6",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "10G(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/7",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "1000(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/8",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "1000(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/9",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "10G(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/10",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "10G(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/11",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "1000(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/12",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "1000(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/13",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/14",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/15",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/16",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/17",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/18",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/19",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/20",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/21",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/22",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/23",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/24",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/25",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/26",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/27",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/28",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/29",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/30",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/31",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/32",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PORTCH": "--"
+        }
+      ],
+      "interface_vlan_id_type_mode_status_reason_speed_protocol": [
+        {
+          "INTERFACE": "Ethernet",
+          "VLAN_ID": "VLAN   ",
+          "TYPE": "Type",
+          "MODE": "Mode",
+          "STATUS": "Status",
+          "REASON": "Reason",
+          "SPEED": "Speed",
+          "PROTOCOL": "Port"
+        },
+        {
+          "INTERFACE": "Eth1/4",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "XCVR",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth1/5",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "XCVR",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth1/6",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "XCVR",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth1/7",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "XCVR",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth1/8",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "XCVR",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth1/9",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "XCVR",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/3",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "Link",
+          "STATUS": "not",
+          "REASON": "connected",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/4",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/5",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/6",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/7",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/8",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/9",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/10.2137",
+          "VLAN_ID": "2137   ",
+          "TYPE": "eth",
+          "MODE": "routed",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "1000(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/10.2139",
+          "VLAN_ID": "2139   ",
+          "TYPE": "eth",
+          "MODE": "routed",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "1000(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/11",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/12",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/13",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/14",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/15",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/16",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/17",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/18",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/19",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/20",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/21",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/22",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/23",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/24",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/25",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/26",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/27",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/28",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/29",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/30",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/31",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/32",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/33",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "fabric",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "10G(D)",
+          "PROTOCOL": "4000"
+        },
+        {
+          "INTERFACE": "Eth2/34",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/35",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/36",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/37",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/38",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/39",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/40",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/41",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/42",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/43",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/44",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/45",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/46",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/47",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth2/48",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Port-channel",
+          "VLAN_ID": "VLAN   ",
+          "TYPE": "Type",
+          "MODE": "Mode",
+          "STATUS": "Status",
+          "REASON": "Reason",
+          "SPEED": "Speed",
+          "PROTOCOL": "Protocol"
+        },
+        {
+          "INTERFACE": "Po10.300",
+          "VLAN_ID": "300    ",
+          "TYPE": "eth",
+          "MODE": "routed",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "a-40G(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Po4000",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "fabric",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "a-10G(D)",
+          "PROTOCOL": "none"
+        },
+        {
+          "INTERFACE": "Ethernet",
+          "VLAN_ID": "VLAN   ",
+          "TYPE": "Type",
+          "MODE": "Mode",
+          "STATUS": "Status",
+          "REASON": "Reason",
+          "SPEED": "Speed",
+          "PROTOCOL": "Port"
+        },
+        {
+          "INTERFACE": "Eth101/1/1",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "10G(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/2",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "10G(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/3",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "1000(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/4",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "1000(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/5",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "10G(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/6",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "10G(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/7",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "1000(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/8",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "1000(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/9",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "10G(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/10",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "10G(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/11",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "1000(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/12",
+          "VLAN_ID": "1      ",
+          "TYPE": "eth",
+          "MODE": "trunk",
+          "STATUS": "up",
+          "REASON": "none",
+          "SPEED": "1000(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/13",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/14",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/15",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/16",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/17",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/18",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/19",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/20",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/21",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/22",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/23",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/24",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/25",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/26",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/27",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/28",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/29",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/30",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/31",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/32",
+          "VLAN_ID": "--      eth  routed",
+          "TYPE": "down",
+          "MODE": "SFP",
+          "STATUS": "not",
+          "REASON": "inserted",
+          "SPEED": "auto(D)",
+          "PROTOCOL": "--"
+        }
+      ],
+      "interface_status_description": [
+        {
+          "INTERFACE": "Interface",
+          "STATUS": "Ch",
+          "DESCRIPTION": "#"
+        },
+        {
+          "INTERFACE": "Interface",
+          "STATUS": "Status",
+          "DESCRIPTION": "Description"
+        },
+        {
+          "INTERFACE": "Lo0",
+          "STATUS": "up",
+          "DESCRIPTION": "device loopback interface"
+        },
+        {
+          "INTERFACE": "Lo2",
+          "STATUS": "down",
+          "DESCRIPTION": "--"
+        },
+        {
+          "INTERFACE": "Interface",
+          "STATUS": "Secondary VLAN(Type)",
+          "DESCRIPTION": "Status Reason"
+        },
+        {
+          "INTERFACE": "Interface",
+          "STATUS": "Ch",
+          "DESCRIPTION": "#"
+        }
+      ],
+      "interface_type_status_reason": [
+        {
+          "INTERFACE": "Port",
+          "TYPE": "VRF          Status IP Address                             ",
+          "STATUS": "Speed",
+          "REASON": "MTU"
+        },
+        {
+          "INTERFACE": "mgmt0",
+          "TYPE": "--           up     172.16.111.254                         ",
+          "STATUS": "1000",
+          "REASON": "1500"
+        },
+        {
+          "INTERFACE": "Ethernet",
+          "TYPE": "VLAN    Type Mode   Status  Reason                  ",
+          "STATUS": "Speed",
+          "REASON": "Port"
+        },
+        {
+          "INTERFACE": "Eth1/1",
+          "TYPE": "--      eth  routed up      none                       ",
+          "STATUS": "40G(D)",
+          "REASON": "10"
+        },
+        {
+          "INTERFACE": "Eth1/2",
+          "TYPE": "--      eth  routed up      none                       ",
+          "STATUS": "40G(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth1/3",
+          "TYPE": "--      eth  routed up      none                       ",
+          "STATUS": "40G(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth1/4",
+          "TYPE": "--      eth  routed down    XCVR not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth1/5",
+          "TYPE": "--      eth  routed down    XCVR not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth1/6",
+          "TYPE": "--      eth  routed down    XCVR not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth1/7",
+          "TYPE": "--      eth  routed down    XCVR not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth1/8",
+          "TYPE": "--      eth  routed down    XCVR not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth1/9",
+          "TYPE": "--      eth  routed down    XCVR not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth1/10",
+          "TYPE": "--      eth  routed up      none                      ",
+          "STATUS": "100G(D)",
+          "REASON": "100"
+        },
+        {
+          "INTERFACE": "Eth1/11",
+          "TYPE": "--      eth  routed up      none                      ",
+          "STATUS": "100G(D)",
+          "REASON": "100"
+        },
+        {
+          "INTERFACE": "Eth1/12",
+          "TYPE": "--      eth  routed up      none                      ",
+          "STATUS": "100G(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/1",
+          "TYPE": "--      eth  routed up      none                       ",
+          "STATUS": "10G(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/2",
+          "TYPE": "--      eth  routed up      none                       ",
+          "STATUS": "10G(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/3",
+          "TYPE": "--      eth  routed down    Link not connected        ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/4",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/5",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/6",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/7",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/8",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/9",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/10",
+          "TYPE": "--      eth  routed up      none                      ",
+          "STATUS": "1000(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/10.2137",
+          "TYPE": "2137    eth  routed up      none                      ",
+          "STATUS": "1000(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/10.2139",
+          "TYPE": "2139    eth  routed up      none                      ",
+          "STATUS": "1000(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/11",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/12",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/13",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/14",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/15",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/16",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/17",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/18",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/19",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/20",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/21",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/22",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/23",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/24",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/25",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/26",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/27",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/28",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/29",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/30",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/31",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/32",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/33",
+          "TYPE": "1       eth  fabric up      none                       ",
+          "STATUS": "10G(D)",
+          "REASON": "4000"
+        },
+        {
+          "INTERFACE": "Eth2/34",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/35",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/36",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/37",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/38",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/39",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/40",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/41",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/42",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/43",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/44",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/45",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/46",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/47",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth2/48",
+          "TYPE": "--      eth  routed down    SFP not inserted          ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Port-channel",
+          "TYPE": "VLAN    Type Mode   Status  Reason                   ",
+          "STATUS": "Speed",
+          "REASON": "Protocol"
+        },
+        {
+          "INTERFACE": "Po10",
+          "TYPE": "--      eth  routed up      none                      ",
+          "STATUS": "a-40G(D)",
+          "REASON": "lacp"
+        },
+        {
+          "INTERFACE": "Po10.300",
+          "TYPE": "300     eth  routed up      none                      ",
+          "STATUS": "a-40G(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Po100",
+          "TYPE": "--      eth  routed up      none                     ",
+          "STATUS": "a-100G(D)",
+          "REASON": "lacp"
+        },
+        {
+          "INTERFACE": "Po4000",
+          "TYPE": "1       eth  fabric up      none                      ",
+          "STATUS": "a-10G(D)",
+          "REASON": "none"
+        },
+        {
+          "INTERFACE": "Lo0",
+          "TYPE": "up         device",
+          "STATUS": "loopback",
+          "REASON": "interface"
+        },
+        {
+          "INTERFACE": "Interface",
+          "TYPE": "Secondary VLAN(Type)                   ",
+          "STATUS": "Status",
+          "REASON": "Reason"
+        },
+        {
+          "INTERFACE": "Vlan1",
+          "TYPE": "--                                      down  ",
+          "STATUS": "Administratively",
+          "REASON": "down"
+        },
+        {
+          "INTERFACE": "Port",
+          "TYPE": "Status Reason         ",
+          "STATUS": "MTU",
+          "REASON": "VRF"
+        },
+        {
+          "INTERFACE": "mti3",
+          "TYPE": "up     none           ",
+          "STATUS": "1500",
+          "REASON": "VRF1"
+        },
+        {
+          "INTERFACE": "mti4",
+          "TYPE": "up     none           ",
+          "STATUS": "1500",
+          "REASON": "VRF2"
+        },
+        {
+          "INTERFACE": "mti5",
+          "TYPE": "up     none           ",
+          "STATUS": "1500",
+          "REASON": "VRF3"
+        },
+        {
+          "INTERFACE": "Ethernet",
+          "TYPE": "VLAN    Type Mode   Status  Reason                 ",
+          "STATUS": "Speed",
+          "REASON": "Port"
+        },
+        {
+          "INTERFACE": "Eth101/1/1",
+          "TYPE": "1       eth  trunk  up      none                      ",
+          "STATUS": "10G(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/2",
+          "TYPE": "1       eth  trunk  up      none                      ",
+          "STATUS": "10G(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/3",
+          "TYPE": "1       eth  trunk  up      none                     ",
+          "STATUS": "1000(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/4",
+          "TYPE": "1       eth  trunk  up      none                     ",
+          "STATUS": "1000(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/5",
+          "TYPE": "1       eth  trunk  up      none                      ",
+          "STATUS": "10G(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/6",
+          "TYPE": "1       eth  trunk  up      none                      ",
+          "STATUS": "10G(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/7",
+          "TYPE": "1       eth  trunk  up      none                     ",
+          "STATUS": "1000(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/8",
+          "TYPE": "1       eth  trunk  up      none                     ",
+          "STATUS": "1000(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/9",
+          "TYPE": "1       eth  trunk  up      none                      ",
+          "STATUS": "10G(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/10",
+          "TYPE": "1       eth  trunk  up      none                      ",
+          "STATUS": "10G(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/11",
+          "TYPE": "1       eth  trunk  up      none                     ",
+          "STATUS": "1000(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/12",
+          "TYPE": "1       eth  trunk  up      none                     ",
+          "STATUS": "1000(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/13",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/14",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/15",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/16",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/17",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/18",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/19",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/20",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/21",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/22",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/23",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/24",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/25",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/26",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/27",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/28",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/29",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/30",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/31",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Eth101/1/32",
+          "TYPE": "--      eth  routed down    SFP not inserted         ",
+          "STATUS": "auto(D)",
+          "REASON": "--"
+        },
+        {
+          "INTERFACE": "Interface",
+          "TYPE": "Status     Peer IP Address   ",
+          "STATUS": "VC",
+          "REASON": "ID"
+        },
+        {
+          "INTERFACE": "pw100002",
+          "TYPE": "up        ",
+          "STATUS": "172.21.128.111",
+          "REASON": "6668"
+        }
+      ],
+      "interface_status_reason_mtu_vrf": [
+        {
+          "INTERFACE": "Port",
+          "STATUS": "VRF",
+          "REASON": "Status IP Address",
+          "MTU": "Speed",
+          "VRF": "MTU"
+        },
+        {
+          "INTERFACE": "Lo0",
+          "STATUS": "up",
+          "REASON": "device",
+          "MTU": "loopback",
+          "VRF": "interface"
+        },
+        {
+          "INTERFACE": "Interface",
+          "STATUS": "Secondary",
+          "REASON": "VLAN(Type)",
+          "MTU": "Status",
+          "VRF": "Reason"
+        },
+        {
+          "INTERFACE": "Vlan1",
+          "STATUS": "--",
+          "REASON": "down",
+          "MTU": "Administratively",
+          "VRF": "down"
+        },
+        {
+          "INTERFACE": "Port",
+          "STATUS": "Status",
+          "REASON": "Reason",
+          "MTU": "MTU",
+          "VRF": "VRF"
+        },
+        {
+          "INTERFACE": "mti3",
+          "STATUS": "up",
+          "REASON": "none",
+          "MTU": "1500",
+          "VRF": "VRF1"
+        },
+        {
+          "INTERFACE": "mti4",
+          "STATUS": "up",
+          "REASON": "none",
+          "MTU": "1500",
+          "VRF": "VRF2"
+        },
+        {
+          "INTERFACE": "mti5",
+          "STATUS": "up",
+          "REASON": "none",
+          "MTU": "1500",
+          "VRF": "VRF3"
+        },
+        {
+          "INTERFACE": "Interface",
+          "STATUS": "Status",
+          "REASON": "Peer IP",
+          "MTU": "Address",
+          "VRF": "VC ID"
+        }
+      ],
+      "interface_status_peer_ip_address_vcid": {
+        "INTERFACE": "pw100002",
+        "STATUS": "up",
+        "PEER_IP_ADDRESS": "172.21.128.111",
+        "VCID": "6668"
+      }
+    }
+  ],
+  "cli_content": "\n--------------------------------------------------------------------------------\nPort   VRF          Status IP Address                              Speed    MTU\n--------------------------------------------------------------------------------\nmgmt0  --           up     172.16.111.254                          1000     1500\n\n--------------------------------------------------------------------------------\nEthernet      VLAN    Type Mode   Status  Reason                   Speed     Port\nInterface                                                                    Ch #\n--------------------------------------------------------------------------------\nEth1/1        --      eth  routed up      none                        40G(D) 10\nEth1/2        --      eth  routed up      none                        40G(D) --\nEth1/3        --      eth  routed up      none                        40G(D) --\nEth1/4        --      eth  routed down    XCVR not inserted          auto(D) --\nEth1/5        --      eth  routed down    XCVR not inserted          auto(D) --\nEth1/6        --      eth  routed down    XCVR not inserted          auto(D) --\nEth1/7        --      eth  routed down    XCVR not inserted          auto(D) --\nEth1/8        --      eth  routed down    XCVR not inserted          auto(D) --\nEth1/9        --      eth  routed down    XCVR not inserted          auto(D) --\nEth1/10       --      eth  routed up      none                       100G(D) 100\nEth1/11       --      eth  routed up      none                       100G(D) 100\nEth1/12       --      eth  routed up      none                       100G(D) --\nEth2/1        --      eth  routed up      none                        10G(D) --\nEth2/2        --      eth  routed up      none                        10G(D) --\nEth2/3        --      eth  routed down    Link not connected         auto(D) --\nEth2/4        --      eth  routed down    SFP not inserted           auto(D) --\nEth2/5        --      eth  routed down    SFP not inserted           auto(D) --\nEth2/6        --      eth  routed down    SFP not inserted           auto(D) --\nEth2/7        --      eth  routed down    SFP not inserted           auto(D) --\nEth2/8        --      eth  routed down    SFP not inserted           auto(D) --\nEth2/9        --      eth  routed down    SFP not inserted           auto(D) --\nEth2/10       --      eth  routed up      none                       1000(D) --\nEth2/10.2137  2137    eth  routed up      none                       1000(D) --\nEth2/10.2139  2139    eth  routed up      none                       1000(D) --\nEth2/11       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/12       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/13       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/14       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/15       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/16       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/17       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/18       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/19       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/20       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/21       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/22       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/23       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/24       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/25       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/26       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/27       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/28       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/29       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/30       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/31       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/32       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/33       1       eth  fabric up      none                        10G(D) 4000\nEth2/34       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/35       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/36       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/37       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/38       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/39       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/40       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/41       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/42       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/43       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/44       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/45       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/46       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/47       --      eth  routed down    SFP not inserted           auto(D) --\nEth2/48       --      eth  routed down    SFP not inserted           auto(D) --\n\n--------------------------------------------------------------------------------\nPort-channel VLAN    Type Mode   Status  Reason                    Speed   Protocol\nInterface                                                                  \n--------------------------------------------------------------------------------\nPo10         --      eth  routed up      none                       a-40G(D)  lacp\nPo10.300     300     eth  routed up      none                       a-40G(D)    --\nPo100        --      eth  routed up      none                      a-100G(D)  lacp\nPo4000       1       eth  fabric up      none                       a-10G(D)  none\n\n--------------------------------------------------------------------------------\nInterface     Status     Description\n--------------------------------------------------------------------------------\nLo0           up         device loopback interface\nLo2           down       --\n\n-------------------------------------------------------------------------------\nInterface Secondary VLAN(Type)                    Status Reason                 \n-------------------------------------------------------------------------------\nVlan1     --                                      down   Administratively down  \nVlan144   --                                      up     --        \nVlan145   --                                      up     --        \nVlan146   --                                      up     --        \nVlan2090  --                                      up     --        \nVlan2091  --                                      up     --        \n\n--------------------------------------------------------------------------------\nPort           Status Reason          MTU   VRF             \n--------------------------------------------------------------------------------\nmti3           up     none            1500  VRF1\nmti4           up     none            1500  VRF2\nmti5           up     none            1500  VRF3\n\n--------------------------------------------------------------------------------\nEthernet       VLAN    Type Mode   Status  Reason                  Speed     Port\nInterface                                                                    Ch #\n--------------------------------------------------------------------------------\nEth101/1/1     1       eth  trunk  up      none                       10G(D) --\nEth101/1/2     1       eth  trunk  up      none                       10G(D) --\nEth101/1/3     1       eth  trunk  up      none                      1000(D) --\nEth101/1/4     1       eth  trunk  up      none                      1000(D) --\nEth101/1/5     1       eth  trunk  up      none                       10G(D) --\nEth101/1/6     1       eth  trunk  up      none                       10G(D) --\nEth101/1/7     1       eth  trunk  up      none                      1000(D) --\nEth101/1/8     1       eth  trunk  up      none                      1000(D) --\nEth101/1/9     1       eth  trunk  up      none                       10G(D) --\nEth101/1/10    1       eth  trunk  up      none                       10G(D) --\nEth101/1/11    1       eth  trunk  up      none                      1000(D) --\nEth101/1/12    1       eth  trunk  up      none                      1000(D) --\nEth101/1/13    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/14    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/15    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/16    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/17    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/18    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/19    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/20    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/21    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/22    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/23    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/24    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/25    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/26    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/27    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/28    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/29    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/30    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/31    --      eth  routed down    SFP not inserted          auto(D) --\nEth101/1/32    --      eth  routed down    SFP not inserted          auto(D) --\n\n--------------------------------------------------------------------------------\nInterface     Status     Peer IP Address    VC ID\n--------------------------------------------------------------------------------\npw100002      up         172.21.128.111     6668\n",
+  "textfsm_template": "Value INTERFACE ([\\w+/\\.]+)\nValue VRF (\\S+)\nValue STATUS (up|down)\nValue IP_ADDRESS (\\S+)\nValue PEER_IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue SPEED (\\S+)\nValue MTU (\\d+)\nValue VLAN_ID (\\S+)\nValue TYPE (\\S+)\nValue MODE (\\S+)\nValue REASON (\\S+((\\s\\w+)+)?)\nValue PORTCH (\\S+)\nValue DESCRIPTION (\\S+((\\s\\w+)+)?)\nValue PROTOCOL (\\S+)\nValue VCID (\\S+)\n\nStart\n  ^Port\\s+VRF\\s+Status\\s+IP\\s+Address\\s+Speed\\s+MTU -> Management\n  ^Ethernet\\s+VLAN\\s+Type\\sMode\\s+Status\\s+Reason\\s+Speed\\s+Port\\s*$$ -> Ethernet\n  ^Interface\\s+Ch\\s+ -> Ethernet\n  ^Interface\\s+Status\\s+Description\\s*$$ -> Loopback\n  ^Interface\\s+Secondary\\s+VLAN\\(Type\\)\\s+Status\\s+Reason -> VLAN\n  ^Port-channel\\s+VLAN\\s+Type\\sMode\\s+Status\\s+Reason\\s+Speed\\s+Protocol -> PORTCHANNEL\n  ^Port\\s+Status\\s+Reason\\s+MTU\\s+VRF -> NVE\n  ^Port\\s+Status\\s+Reason\\s+MTU\\s*$$ -> NVE\n  ^Interface\\s+Status\\s+IP\\s+Address\\s+Encap\\s+type\\s+MTU -> TUNNEL\n  ^Interface\\s+Status\\s+Peer\\s+IP\\s+Address\\s+VC\\s+ID -> PSEUDOWIRE\n  ^---+$$\n  ^. -> Error Start\n\nManagement\n  ^${INTERFACE}\\s+${VRF}\\s+${STATUS}\\s+${IP_ADDRESS}\\s+${SPEED}\\s+${MTU} -> Record\n  ^Ethernet\\s+VLAN\\s+Type\\s+Mode\\s+Status\\s+Reason\\s+Speed\\s+Port -> Start\n  ^---+$$\n  ^\\s*$$ -> Start\n  ^. -> Error Management\n\nEthernet\n  ^Interface\\s+Ch\\s+#\\s*$$\n  ^${INTERFACE}\\s+${VLAN_ID}\\s+${TYPE}\\s+${MODE}\\s+${STATUS}\\s+${REASON}\\s+${SPEED}\\s+${PORTCH} -> Record\n  ^---+$$\n  ^\\s*$$ -> Start\n  ^. -> Error Etherenet\n\nLoopback\n  ^${INTERFACE}\\s+${STATUS}\\s+${DESCRIPTION} -> Record\n  ^---+$$\n  ^\\s*$$ -> Start\n  ^. -> Error Loopback\n\nVLAN\n  ^${INTERFACE}\\s+${TYPE}\\s+${STATUS}\\s+${REASON} -> Record\n  ^---+$$\n  ^\\s*$$ -> Start\n  ^. -> Error VLAN\n\nPORTCHANNEL\n  ^Interface\\s*$$\n  ^${INTERFACE}\\s+${VLAN_ID}\\s+${TYPE}\\s+${MODE}\\s+${STATUS}\\s+${REASON}\\s+${SPEED}\\s+${PROTOCOL} -> Record\n  ^---+$$\n  ^\\s*$$ -> Start\n  ^. -> Error PORTCHANNEL\n\nTUNNEL\n  ^${INTERFACE}\\s+${STATUS}\\s+${IP_ADDRESS}\\s+${TYPE}\\s+${MTU} -> Record\n  ^---+$$\n  ^\\s*$$ -> Start\n  ^. -> Error TUNNEL\n\nNVE\n  ^${INTERFACE}\\s+${STATUS}\\s+${REASON}\\s+${MTU}\\s+${VRF} -> Record\n  ^${INTERFACE}\\s+${STATUS}\\s+${REASON}\\s+${MTU} -> Record\n  ^---+$$\n  ^\\s*$$ -> Start\n  ^. -> Error NVE\n\nPSEUDOWIRE\n  ^${INTERFACE}\\s+${STATUS}\\s+${PEER_IP_ADDRESS}\\s+${VCID}\n"
+}

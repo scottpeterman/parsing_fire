@@ -1,0 +1,68 @@
+{
+  "command": "show environment cooling",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"location_num_fans_status_speed\">\n{{LOCATION | ORPHRASE}} {{NUM_FANS}} {{STATUS | ORPHRASE}} {{SPEED | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOCATION": "Rear - Top",
+      "NUM_FANS": "3",
+      "STATUS": "Ok",
+      "SPEED": "High"
+    },
+    {
+      "LOCATION": "Rear - Bottom",
+      "NUM_FANS": "3",
+      "STATUS": "Ok",
+      "SPEED": "Low"
+    },
+    {
+      "LOCATION": "Front - Left",
+      "NUM_FANS": "4",
+      "STATUS": "Ok",
+      "SPEED": "Medium"
+    },
+    {
+      "LOCATION": "Front - Right",
+      "NUM_FANS": "4",
+      "STATUS": "Ok",
+      "SPEED": "High"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "location_num_fans_status_speed": [
+        {
+          "LOCATION": "Rear - Top",
+          "NUM_FANS": "3",
+          "STATUS": "Ok",
+          "SPEED": "High"
+        },
+        {
+          "LOCATION": "Rear - Bottom",
+          "NUM_FANS": "3",
+          "STATUS": "Ok",
+          "SPEED": "Low"
+        },
+        {
+          "LOCATION": "Front - Left",
+          "NUM_FANS": "4",
+          "STATUS": "Ok",
+          "SPEED": "Medium"
+        },
+        {
+          "LOCATION": "Front - Right",
+          "NUM_FANS": "4",
+          "STATUS": "Ok",
+          "SPEED": "High"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Fan Tray:\n----------------------------------------------------------------------\nLocation        Number of Fans  Status        Speed\n----------------------------------------------------------------------\nRear - Top             3         Ok             High\nRear - Bottom          3         Ok             Low\nFront - Left           4         Ok             Medium\nFront - Right          4         Ok             High\n",
+  "textfsm_template": "Value LOCATION (\\S+\\s*-\\s*\\S+)\nValue NUM_FANS (\\d+)\nValue STATUS (\\S+)\nValue SPEED (\\S+)\n\nStart\n  ^\\s*Location\\s+Number of Fans\\s+Status\\s+Speed\\s*$$\n  ^\\s*${LOCATION}\\s+${NUM_FANS}\\s+${STATUS}\\s+${SPEED}\\s*$$ -> Record"
+}

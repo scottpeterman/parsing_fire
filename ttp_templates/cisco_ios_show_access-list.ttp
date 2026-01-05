@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_access-list
+# Source: ntc
+# TextFSM rows: 19
+# TTP rows: 23
+# Match ratio: 1.21
+
+<group name="name_type">
+{{TYPE}} IP access list {{NAME | ORPHRASE}}
+<group name="action_destination_protocol">
+    {{SN | re("\\w+")}} {{ACTION}} {{PROTOCOL}} {{SOURCE | ORPHRASE}} {{DESTINATION | ORPHRASE}}
+</group>
+</group>

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show int status
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="port_name_status_vlan_duplex_speed_type">
+{{PORT}} {{NAME}} {{STATUS | ORPHRASE}} {{VLAN | re("\\d+")}} {{DUPLEX}} {{SPEED}} {{TYPE | ORPHRASE}}
+</group>

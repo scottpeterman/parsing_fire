@@ -1,0 +1,76 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_access-lists
+# Source: ntc
+# TextFSM rows: 81
+# TTP rows: 549
+# Match ratio: 6.78
+
+<group name="line_num_action_src_host">
+    {{LINE_NUM}} {{ACTION}} {{SRC_HOST | re("\\S+")}}
+</group>
+<group name="line_num_action_src_any_log">
+    {{LINE_NUM}} {{ACTION}} {{SRC_ANY}} {{LOG | ORPHRASE}}
+</group>
+<group name="line_num_action_src_network_src_wildcard_matches">
+    {{LINE_NUM}} {{ACTION}} {{SRC_NETWORK}}, wildcard bits {{SRC_WILDCARD}} ({{MATCHES | ORPHRASE}} matches)
+</group>
+<group name="line_num_action_protocol_src_any_dst_host_dst_port_match_dst_port">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} host {{DST_HOST | re("\\S+")}} {{DST_PORT_MATCH}} {{DST_PORT | ORPHRASE}}
+</group>
+<group name="line_num_action_protocol_src_any_dst_host_dst_port_match_dst_port_log">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} host {{DST_HOST | re("\\S+")}} {{DST_PORT_MATCH}} {{DST_PORT | ORPHRASE}} {{LOG | ORPHRASE}}
+</group>
+<group name="line_num_action_protocol_src_any_dst_any_log">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} {{DST_ANY}} {{LOG | ORPHRASE}}
+</group>
+<group name="line_num_action_protocol_src_any_dst_any_log_time_state">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} {{DST_ANY}} {{LOG}} time-range {{TIME}} ({{STATE | ORPHRASE}})
+</group>
+<group name="line_num_action_protocol_src_any_dst_host_log_time_state">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} host {{DST_HOST | re("\\S+")}} {{LOG}} time-range {{TIME}} ({{STATE | ORPHRASE}})
+</group>
+<group name="line_num_action_protocol_src_any_src_port_match_src_port_range_start_src_port_range_end_dst_network_dst_wildcard_dst_port_match_dst_port_range_start_dst_port_range_end">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} {{SRC_PORT_MATCH}} {{SRC_PORT_RANGE_START | re("\\d+")}} {{SRC_PORT_RANGE_END | re("\\d+")}} {{DST_NETWORK}} {{DST_WILDCARD | ORPHRASE}} {{DST_PORT_MATCH}} {{DST_PORT_RANGE_START | re("\\d+")}} {{DST_PORT_RANGE_END | re("\\d+")}}
+</group>
+<group name="line_num_action_protocol_src_any_src_port_match_src_port_dst_network_dst_wildcard">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} {{SRC_PORT_MATCH}} {{SRC_PORT | ORPHRASE}} {{DST_NETWORK}} {{DST_WILDCARD | ORPHRASE}}
+</group>
+<group name="line_num_action_protocol_src_network_src_wildcard_src_port_match_src_port_dst_host_dst_port_match_dst_port">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_NETWORK}} {{SRC_WILDCARD}} {{SRC_PORT_MATCH}} {{SRC_PORT | ORPHRASE}} host {{DST_HOST | re("\\S+")}} {{DST_PORT_MATCH | ORPHRASE}} {{DST_PORT | ORPHRASE}}
+</group>
+<group name="line_num_action_protocol_src_any_dst_any_flags_match_tcp_flag_log">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} {{DST_ANY}} {{FLAGS_MATCH}} {{TCP_FLAG | ORPHRASE}} {{LOG | ORPHRASE}}
+</group>
+<group name="line_num_action_protocol_src_host_dst_any_tcp_flag">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} host {{SRC_HOST | re("\\S+")}} {{DST_ANY}} {{TCP_FLAG | ORPHRASE}}
+</group>
+<group name="line_num_action_protocol_src_any_dst_network_dst_wildcard_tcp_flag">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} {{DST_NETWORK}} {{DST_WILDCARD}} {{TCP_FLAG | ORPHRASE}}
+</group>
+<group name="line_num_action_protocol_src_host_dst_host_dst_port_match_dst_port">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} host {{SRC_HOST | re("\\S+")}} host {{DST_HOST | re("\\S+")}} {{DST_PORT_MATCH}} {{DST_PORT | ORPHRASE}}
+</group>
+<group name="line_num_action_protocol_src_host_src_port_match_src_port_dst_host">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} host {{SRC_HOST | re("\\S+")}} {{SRC_PORT_MATCH}} {{SRC_PORT | ORPHRASE}} host {{DST_HOST | ORPHRASE}}
+</group>
+<group name="line_num_action_protocol_src_network_src_wildcard_dst_host">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_NETWORK}} {{SRC_WILDCARD}} host {{DST_HOST | ORPHRASE}}
+</group>
+<group name="line_num_action_protocol_src_network_src_wildcard_dst_network_dst_wildcard">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_NETWORK}} {{SRC_WILDCARD}} {{DST_NETWORK}} {{DST_WILDCARD | ORPHRASE}}
+</group>
+<group name="line_num_action_protocol_src_network_src_wildcard_dst_host_dst_port_match_dst_port">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_NETWORK}} {{SRC_WILDCARD}} host {{DST_HOST | re("\\S+")}} {{DST_PORT_MATCH}} {{DST_PORT | ORPHRASE}}
+</group>
+<group name="line_num_action_protocol_src_network_src_wildcard_dst_network_dst_wildcard_dst_port_match_dst_port_log_time_state">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_NETWORK}} {{SRC_WILDCARD}} {{DST_NETWORK}} {{DST_WILDCARD}} {{DST_PORT_MATCH}} {{DST_PORT | ORPHRASE}} {{LOG}} time-range {{TIME}} ({{STATE | ORPHRASE}})
+</group>
+<group name="line_num_action_protocol_src_network_src_wildcard_dst_network_dst_wildcard_dst_port_match_dst_port_range_start_dst_port_range_end">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_NETWORK}} {{SRC_WILDCARD}} {{DST_NETWORK}} {{DST_WILDCARD}} {{DST_PORT_MATCH}} {{DST_PORT_RANGE_START | re("\\d+")}} {{DST_PORT_RANGE_END | ORPHRASE}}
+</group>
+<group name="line_num_action_protocol_src_network_src_wildcard_dst_host_dst_port_match_dst_port_range_start_dst_port_range_end">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_NETWORK}} {{SRC_WILDCARD}} host {{DST_HOST | re("\\S+")}} {{DST_PORT_MATCH}} {{DST_PORT_RANGE_START | re("\\d+")}} {{DST_PORT_RANGE_END | ORPHRASE}}
+</group>
+<group name="line_num_action_protocol_src_host_dst_host_time_state">
+    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} host {{SRC_HOST | re("\\S+")}} host {{DST_HOST | re("\\S+")}} time-range {{TIME}} ({{STATE | ORPHRASE}})
+</group>

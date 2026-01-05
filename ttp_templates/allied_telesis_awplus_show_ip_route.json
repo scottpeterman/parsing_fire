@@ -1,0 +1,106 @@
+{
+  "command": "allied_telesis_awplus_show_ip_route",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.4444444444444444,
+  "textfsm_rows": 9,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"vrf\">\n[VRF: {{VRF | ORPHRASE}}]\n<group name=\"mask_metric_network\">\nGateway of last resort is 192.168.254.251 to network {{NETWORK | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "0.0.0.0",
+      "MASK": "0",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOP_IP": "192.168.254.251",
+      "NEXTHOP_IF": "vlan954"
+    },
+    {
+      "PROTOCOL": "C",
+      "NETWORK": "10.255.255.0",
+      "MASK": "24",
+      "NEXTHOP_IF": "vlan795"
+    },
+    {
+      "PROTOCOL": "C",
+      "NETWORK": "192.168.254.0",
+      "MASK": "24",
+      "NEXTHOP_IF": "vlan954"
+    },
+    {
+      "PROTOCOL": "O",
+      "NETWORK": "10.0.0.0",
+      "MASK": "8",
+      "DISTANCE": "110",
+      "METRIC": "20",
+      "NEXTHOP_IP": "192.168.254.251",
+      "NEXTHOP_IF": "vlan954"
+    },
+    {
+      "PROTOCOL": "O",
+      "TYPE": "E1",
+      "NETWORK": "172.16.23.0",
+      "MASK": "24",
+      "DISTANCE": "110",
+      "METRIC": "30",
+      "NEXTHOP_IP": "192.168.254.251",
+      "NEXTHOP_IF": "vlan954"
+    },
+    {
+      "VRF": "DMZ",
+      "PROTOCOL": "S",
+      "NETWORK": "0.0.0.0",
+      "MASK": "0",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOP_IP": "20.0.0.254",
+      "NEXTHOP_IF": "vlan511"
+    },
+    {
+      "VRF": "DMZ",
+      "PROTOCOL": "C",
+      "NETWORK": "20.0.0.0",
+      "MASK": "24",
+      "NEXTHOP_IF": "vlan511"
+    },
+    {
+      "VRF": "AAA",
+      "PROTOCOL": "S",
+      "NETWORK": "0.0.0.0",
+      "MASK": "0",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOP_IP": "2.0.0.254",
+      "NEXTHOP_IF": "vlan51"
+    },
+    {
+      "VRF": "AAA",
+      "PROTOCOL": "C",
+      "NETWORK": "2.0.0.0",
+      "MASK": "24",
+      "NEXTHOP_IF": "vlan51"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vrf": [
+        {
+          "VRF": "DMZ",
+          "mask_metric_network": {
+            "NETWORK": "0.0.0.0"
+          }
+        },
+        {
+          "VRF": "AAA",
+          "mask_metric_network": {
+            "NETWORK": "0.0.0.0"
+          }
+        }
+      ]
+    }
+  ],
+  "cli_content": "Codes: C - connected, S - static, R - RIP, B - BGP\n       O - OSPF, D - DHCP, IA - OSPF inter area\n       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2\n       E1 - OSPF external type 1, E2 - OSPF external type 2\n       * - candidate default\n\nGateway of last resort is 192.168.254.251 to network 0.0.0.0\n\nS*      0.0.0.0/0 [1/0] via 192.168.254.251, vlan954\nC       10.255.255.0/24 is directly connected, vlan795\nC       192.168.254.0/24 is directly connected, vlan954\nO       10.0.0.0/8 [110/20] via 192.168.254.251, vlan954\nO E1    172.16.23.0/24 [110/30] via 192.168.254.251, vlan954\n\n[VRF: DMZ]\nGateway of last resort is 20.0.0.254 to network 0.0.0.0\n\nS*      0.0.0.0/0 [1/0] via 20.0.0.254, vlan511\nC       20.0.0.0/24 is directly connected, vlan511\n\n[VRF: AAA]\nGateway of last resort is 2.0.0.254 to network 0.0.0.0\n\nS*      0.0.0.0/0 [1/0] via 2.0.0.254, vlan51\nC       2.0.0.0/24 is directly connected, vlan51",
+  "textfsm_template": "Value Filldown VRF (\\S+)\nValue PROTOCOL (\\w)\nValue TYPE (\\w{0,2})\nValue Required NETWORK (\\d{1,3}.\\d{1,3}.\\d{1,3}.\\d{1,3})\nValue Required MASK (\\d{1,2})\nValue DISTANCE (\\d+)\nValue METRIC (\\d+)\nValue NEXTHOP_IP (\\d{1,3}.\\d{1,3}.\\d{1,3}.\\d{1,3})\nValue NEXTHOP_VRF (\\S+)\nValue NEXTHOP_IF ([A-Za-z][\\w\\-\\.:/]+)\nValue UPTIME (\\d[\\w:\\.]+)\n\nStart\n  ^Codes:\n  ^\\s{4,}O\\s-\\sOSPF\n  ^\\s{4,}N1\\s-\\sOSPF\n  ^\\s{4,}E1\\s-\\sOSPF\n  ^\\s{4,}i\\s-\\sIS-IS\n  ^\\s{4,}\\*\\s-\\scandidate -> Routes\n  ^. -> Error\n\nRoutes\n  ^\\[VRF:\\s${VRF}\\]$$\n  ^\\s*Gateway\n  # S*      0.0.0.0/0 [1/0] via 192.168.254.251, vlan954\n  ^${PROTOCOL}(\\s|\\*)${TYPE}\\s+${NETWORK}\\/${MASK}\\s\\[${DISTANCE}/${METRIC}\\]\\svia\\s${NEXTHOP_IP},\\s${NEXTHOP_IF} -> Record\n  # C       10.255.255.0/24 is directly connected, vlan795\n  ^${PROTOCOL}(\\s|\\*)${TYPE}\\s+${NETWORK}\\/${MASK}\\sis\\sdirectly\\sconnected,\\s${NEXTHOP_IF} -> Record\n  ^. -> Error\n"
+}

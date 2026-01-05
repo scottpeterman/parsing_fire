@@ -1,0 +1,19 @@
+# TTP Template auto-generated from TextFSM
+# Original command: edgecore_show_interfaces_brief
+# Source: ntc
+# TextFSM rows: 10
+# TTP rows: 27
+# Match ratio: 2.70
+
+<group name="interface_name_status_pvid_priority_negotiation_type_trunk">
+{{INTERFACE | ORPHRASE}} {{NAME}} {{STATUS | ORPHRASE}} {{PVID | re("\\d+")}} {{PRIORITY}} {{NEGOTIATION}} {{TYPE}} {{TRUNK | ORPHRASE}}
+</group>
+<group name="interface_name_status_pvid_priority_negotiation_speed_duplex_type_trunk">
+{{INTERFACE | ORPHRASE}} {{NAME}} {{STATUS | ORPHRASE}} {{PVID | re("\\d+")}} {{PRIORITY}} {{NEGOTIATION}}-{{SPEED}}{{DUPLEX}} {{TYPE}} {{TRUNK | ORPHRASE}}
+</group>
+<group name="interface_status_pvid_priority_negotiation_type_trunk">
+{{INTERFACE | ORPHRASE}} {{STATUS | ORPHRASE}} {{PVID | re("\\d+")}} {{PRIORITY}} {{NEGOTIATION}} {{TYPE}} {{TRUNK | ORPHRASE}}
+</group>
+<group name="interface_status_pvid_priority_negotiation_speed_duplex_type_trunk">
+{{INTERFACE | ORPHRASE}} {{STATUS | ORPHRASE}} {{PVID | re("\\d+")}} {{PRIORITY}} {{NEGOTIATION}}-{{SPEED}}{{DUPLEX}} {{TYPE}} {{TRUNK | ORPHRASE}}
+</group>

@@ -1,0 +1,28 @@
+{
+  "command": "dell_force10_show_version",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"device_type_os_version_uptime\">\nDell Application Software Version:  {{OS_VERSION | ORPHRASE}}\nDell Networking OS uptime is {{UPTIME | ORPHRASE}}\nSystem Type: {{DEVICE_TYPE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "OS_VERSION": "9.9(0.0)",
+      "UPTIME": "1 week(s), 2 day(s), 9 hour(s), 5 minute(s)",
+      "DEVICE_TYPE": "S4820T"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "device_type_os_version_uptime": {
+        "DEVICE_TYPE": "S4820T",
+        "UPTIME": "1 week(s), 2 day(s), 9 hour(s), 5 minute(s)",
+        "OS_VERSION": "9.9(0.0)"
+      }
+    }
+  ],
+  "cli_content": "Dell Real Time Operating System Software\nDell Operating System Version:  2.0\nDell Application Software Version:  9.9(0.0)\nCopyright (c) 1999-2015 by Dell Inc. All Rights Reserved.\nBuild Time: Tue Sep  8 03:51:15 2015\nBuild Path: /sites/eqx/work/swbuild01_1/patch02/E9-9-0/SW/SRC\nDell Networking OS uptime is 1 week(s), 2 day(s), 9 hour(s), 5 minute(s)\n\nSystem image file is \"system://A\"\n\nSystem Type: S4820T\nControl Processor: Freescale QorIQ P2020 with 2 Gbytes (2147483648 bytes) of memory, core(s) 1.\n\n128M bytes of boot flash memory.\n\n  1 52-port GE/TE/FG (SE)\n 48 Ten GigabitEthernet/IEEE 802.3 interface(s)\n  4 Forty GigabitEthernet/IEEE 802.3 interface(s)",
+  "textfsm_template": "Value OS_VERSION (\\S+)\nValue UPTIME (.+)\nValue DEVICE_TYPE (\\S+)\n\nStart\n  ^Dell Application Software Version:\\s+${OS_VERSION}\n  ^Dell Networking OS uptime is\\s${UPTIME}\n  ^System Type:\\s${DEVICE_TYPE} -> Record\n"
+}

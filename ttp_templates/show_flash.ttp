@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show flash:
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="file_index_file_size_date_file_name">
+    {{FILE_INDEX}} -rw- {{FILE_SIZE}} {{DATE | ORPHRASE}} {{FILE_NAME | ORPHRASE}}
+</group>

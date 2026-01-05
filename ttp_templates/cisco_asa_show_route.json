@@ -1,0 +1,333 @@
+{
+  "command": "cisco_asa_show_route",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.12903225806451613,
+  "textfsm_rows": 31,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"netmask_protocol_type\">\n{{PROTOCOL}}        10.64.65.82 {{NETMASK | ORPHRASE}} [1/0] via 10.100.67.246, outside\n<group name=\"distance_metric_nexthopif\">\nS Server{{DISTANCE}} 255.255.255.255 [1/{{METRIC}}] via {{NEXTHOPIP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}, {{NEXTHOPIF | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "Server1",
+      "NETMASK": "255.255.255.255",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOPIP": "10.0.5.12",
+      "NEXTHOPIF": "outside"
+    },
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "10.64.65.82",
+      "NETMASK": "255.255.255.255",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOPIP": "10.100.67.246",
+      "NEXTHOPIF": "outside"
+    },
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "10.64.65.82",
+      "NETMASK": "255.255.255.255",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOPIP": "10.0.5.12",
+      "NEXTHOPIF": "outside"
+    },
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "Sever-2",
+      "NETMASK": "255.255.255.255",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOPIP": "10.0.5.12",
+      "NEXTHOPIF": "outside"
+    },
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "192.168.14.95",
+      "NETMASK": "255.255.255.255",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOPIP": "10.0.5.12",
+      "NEXTHOPIF": "outside"
+    },
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "Server_3",
+      "NETMASK": "255.255.255.255",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOPIP": "10.0.5.12",
+      "NEXTHOPIF": "outside"
+    },
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "10.54.6.0",
+      "NETMASK": "255.255.255.0",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOPIP": "10.0.5.12",
+      "NEXTHOPIF": "outside"
+    },
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "SERVER",
+      "NETMASK": "255.255.255.255",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOPIP": "10.0.5.12",
+      "NEXTHOPIF": "outside"
+    },
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "192.168.10.0",
+      "NETMASK": "255.255.255.64",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOPIP": "172.52.64.1",
+      "NEXTHOPIF": "inside"
+    },
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "server",
+      "NETMASK": "255.255.255.255",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOPIP": "172.52.64.1",
+      "NEXTHOPIF": "inside"
+    },
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "10.14.128.0",
+      "NETMASK": "255.255.255.0",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOPIP": "172.52.64.1",
+      "NEXTHOPIF": "inside"
+    },
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "10.13.0.0",
+      "NETMASK": "255.255.0.0",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOPIP": "172.52.64.1",
+      "NEXTHOPIF": "inside"
+    },
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "10.3.18.16",
+      "NETMASK": "255.255.255.255",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOPIP": "172.52.64.1",
+      "NEXTHOPIF": "inside"
+    },
+    {
+      "PROTOCOL": "C",
+      "NETWORK": "192.168.1.0",
+      "NETMASK": "255.255.255.0",
+      "NEXTHOPIF": "outside"
+    },
+    {
+      "PROTOCOL": "L",
+      "NETWORK": "192.168.1.108",
+      "NETMASK": "255.255.255.255",
+      "NEXTHOPIF": "outside"
+    },
+    {
+      "PROTOCOL": "O",
+      "TYPE": "IA",
+      "NETWORK": "172.16.2.254",
+      "NETMASK": "255.255.255.255",
+      "DISTANCE": "110",
+      "METRIC": "11",
+      "NEXTHOPIP": "192.168.2.2",
+      "NEXTHOPIF": "inside",
+      "UPTIME": "3:21:21"
+    },
+    {
+      "PROTOCOL": "O",
+      "TYPE": "IA",
+      "NETWORK": "172.16.3.254",
+      "NETMASK": "255.255.255.255",
+      "DISTANCE": "110",
+      "METRIC": "11",
+      "NEXTHOPIP": "192.168.2.2",
+      "NEXTHOPIF": "inside",
+      "UPTIME": "3:21:21"
+    },
+    {
+      "PROTOCOL": "O",
+      "TYPE": "IA",
+      "NETWORK": "172.16.1.254",
+      "NETMASK": "255.255.255.255",
+      "DISTANCE": "110",
+      "METRIC": "11",
+      "NEXTHOPIP": "192.168.2.2",
+      "NEXTHOPIF": "inside",
+      "UPTIME": "3:21:21"
+    },
+    {
+      "PROTOCOL": "O",
+      "TYPE": "IA",
+      "NETWORK": "172.16.4.254",
+      "NETMASK": "255.255.255.255",
+      "DISTANCE": "110",
+      "METRIC": "11",
+      "NEXTHOPIP": "192.168.2.2",
+      "NEXTHOPIF": "inside",
+      "UPTIME": "3:21:21"
+    },
+    {
+      "PROTOCOL": "O",
+      "TYPE": "IA",
+      "NETWORK": "10.0.4.254",
+      "NETMASK": "255.255.255.255",
+      "DISTANCE": "110",
+      "METRIC": "11",
+      "NEXTHOPIP": "192.168.1.2",
+      "NEXTHOPIF": "outside",
+      "UPTIME": "3:21:21"
+    },
+    {
+      "PROTOCOL": "O",
+      "TYPE": "IA",
+      "NETWORK": "10.0.1.254",
+      "NETMASK": "255.255.255.255",
+      "DISTANCE": "110",
+      "METRIC": "11",
+      "NEXTHOPIP": "192.168.1.2",
+      "NEXTHOPIF": "outside",
+      "UPTIME": "3:21:21"
+    },
+    {
+      "PROTOCOL": "O",
+      "TYPE": "IA",
+      "NETWORK": "10.0.2.254",
+      "NETMASK": "255.255.255.255",
+      "DISTANCE": "110",
+      "METRIC": "11",
+      "NEXTHOPIP": "192.168.1.2",
+      "NEXTHOPIF": "outside",
+      "UPTIME": "3:21:21"
+    },
+    {
+      "PROTOCOL": "O",
+      "TYPE": "IA",
+      "NETWORK": "10.0.3.254",
+      "NETMASK": "255.255.255.255",
+      "DISTANCE": "110",
+      "METRIC": "11",
+      "NEXTHOPIP": "192.168.1.2",
+      "NEXTHOPIF": "outside",
+      "UPTIME": "3:21:21"
+    },
+    {
+      "PROTOCOL": "O",
+      "TYPE": "E2",
+      "NETWORK": "10.1.1.0",
+      "NETMASK": "255.255.255.0",
+      "DISTANCE": "170",
+      "METRIC": "3840",
+      "NEXTHOPIP": "192.168.1.2",
+      "NEXTHOPIF": "outside",
+      "UPTIME": "2w6d"
+    },
+    {
+      "PROTOCOL": "O",
+      "TYPE": "E2",
+      "NETWORK": "10.1.1.0",
+      "NETMASK": "255.255.255.0",
+      "DISTANCE": "170",
+      "METRIC": "3840",
+      "NEXTHOPIP": "192.168.2.2",
+      "NEXTHOPIF": "outside",
+      "UPTIME": "2w6d"
+    },
+    {
+      "PROTOCOL": "O",
+      "TYPE": "E2",
+      "NETWORK": "10.1.2.0",
+      "NETMASK": "255.255.255.0",
+      "DISTANCE": "170",
+      "METRIC": "3840",
+      "NEXTHOPIP": "192.168.1.2",
+      "NEXTHOPIF": "outside",
+      "UPTIME": "2w6d"
+    },
+    {
+      "PROTOCOL": "O",
+      "TYPE": "E2",
+      "NETWORK": "10.1.2.0",
+      "NETMASK": "255.255.255.0",
+      "DISTANCE": "170",
+      "METRIC": "3840",
+      "NEXTHOPIP": "192.168.2.2",
+      "NEXTHOPIF": "outside",
+      "UPTIME": "2w6d"
+    },
+    {
+      "PROTOCOL": "O",
+      "TYPE": "E2",
+      "NETWORK": "10.1.3.0",
+      "NETMASK": "255.255.255.0",
+      "DISTANCE": "170",
+      "METRIC": "3840",
+      "NEXTHOPIP": "192.168.1.2",
+      "NEXTHOPIF": "outside",
+      "UPTIME": "2w6d"
+    },
+    {
+      "PROTOCOL": "O",
+      "TYPE": "E2",
+      "NETWORK": "10.1.3.0",
+      "NETMASK": "255.255.255.0",
+      "DISTANCE": "170",
+      "METRIC": "3840",
+      "NEXTHOPIP": "192.168.2.2",
+      "NEXTHOPIF": "outside",
+      "UPTIME": "2w6d"
+    },
+    {
+      "PROTOCOL": "C",
+      "NETWORK": "192.168.1.0",
+      "NETMASK": "255.255.255.0",
+      "NEXTHOPIF": "outside"
+    },
+    {
+      "PROTOCOL": "C",
+      "NETWORK": "192.168.2.0",
+      "NETMASK": "255.255.255.0",
+      "NEXTHOPIF": "inside"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "netmask_protocol_type": [
+        {
+          "PROTOCOL": "S",
+          "NETMASK": "255.255.255.255"
+        },
+        {
+          "PROTOCOL": "S",
+          "NETMASK": "255.255.255.255",
+          "distance_metric_nexthopif": {
+            "DISTANCE": "_3",
+            "METRIC": "0",
+            "NEXTHOPIP": "10.0.5.12",
+            "NEXTHOPIF": "outside"
+          }
+        },
+        {
+          "PROTOCOL": "S",
+          "NETMASK": "255.255.255.0"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP\n       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area \n       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2\n       E1 - OSPF external type 1, E2 - OSPF external type 2\n       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2\n       ia - IS-IS inter area, * - candidate default, U - per-user static route\n       o - ODR, P - periodic downloaded static route, + - replicated route\nGateway of last resort is not set\n\nS        Server1 255.255.255.255 [1/0] via 10.0.5.12, outside\nS        10.64.65.82 255.255.255.255 [1/0] via 10.100.67.246, outside\n                                   [1/0] via 10.0.5.12, outside\nS        Sever-2 255.255.255.255 [1/0] via 10.0.5.12, outside\nS        192.168.14.95 255.255.255.255 [1/0] via 10.0.5.12, outside\nS        Server_3 255.255.255.255 [1/0] via 10.0.5.12, outside\nS        10.54.6.0 255.255.255.0 [1/0] via 10.0.5.12, outside\nS        SERVER 255.255.255.255 [1/0] via 10.0.5.12, outside\nS        192.168.10.0 255.255.255.64 [1/0] via 172.52.64.1, inside\nS        server 255.255.255.255 [1/0] via 172.52.64.1, inside\nS        10.14.128.0 255.255.255.0 [1/0] via 172.52.64.1, inside\nS        10.13.0.0 255.255.0.0 [1/0] via 172.52.64.1, inside\nS        10.3.18.16 255.255.255.255 [1/0] via 172.52.64.1, inside\nC        192.168.1.0 255.255.255.0 is directly connected, outside\nL        192.168.1.108 255.255.255.255 is directly connected, outside\nO IA 172.16.2.254 255.255.255.255 [110/11] via 192.168.2.2, 3:21:21, inside\nO IA 172.16.3.254 255.255.255.255 [110/11] via 192.168.2.2, 3:21:21, inside\nO IA 172.16.1.254 255.255.255.255 [110/11] via 192.168.2.2, 3:21:21, inside\nO IA 172.16.4.254 255.255.255.255 [110/11] via 192.168.2.2, 3:21:21, inside\nO IA 10.0.4.254 255.255.255.255 [110/11] via 192.168.1.2, 3:21:21, outside\nO IA 10.0.1.254 255.255.255.255 [110/11] via 192.168.1.2, 3:21:21, outside\nO IA 10.0.2.254 255.255.255.255 [110/11] via 192.168.1.2, 3:21:21, outside\nO IA 10.0.3.254 255.255.255.255 [110/11] via 192.168.1.2, 3:21:21, outside\nO E2 10.1.1.0 255.255.255.0 [170/3840] via 192.168.1.2, 2w6d, outside\n                              [170/3840] via 192.168.2.2, 2w6d, outside\nO E2 10.1.2.0 255.255.255.0 [170/3840] via 192.168.1.2, 2w6d, outside\n                              [170/3840] via 192.168.2.2, 2w6d, outside\nO E2 10.1.3.0 255.255.255.0 [170/3840] via 192.168.1.2, 2w6d, outside\n                              [170/3840] via 192.168.2.2, 2w6d, outside                                 \nC    192.168.1.0 255.255.255.0 is directly connected, outside\nC    192.168.2.0 255.255.255.0 is directly connected, inside",
+  "textfsm_template": "Value Filldown PROTOCOL (C|S|R|B|D|O|i|L)\nValue Filldown TYPE (\\w{0,2})\nValue Required,Filldown NETWORK (\\d+\\.\\d+\\.\\d+\\.\\d+|\\S+)\nValue Filldown NETMASK (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue DISTANCE (\\d+)\nValue METRIC (\\d+)\nValue NEXTHOPIP (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue NEXTHOPIF (\\S+)\nValue UPTIME (\\d\\S+?)\n\nStart\n  # Skips over the code line that explains what each code means\n  ^Codes:\n  # Skips over the definitions for the codes\n  ^\\s{6,}\\S*\\s-\\s\\S.*\n  ^Gateway -> ROUTES\n  ^. -> Error\n\nROUTES\n  # Match regular routes with all data in same line\n  ^${PROTOCOL}(\\s|\\*)${TYPE}\\s+${NETWORK}\\s+${NETMASK}\\s\\[${DISTANCE}\\/${METRIC}\\]\\svia\\s${NEXTHOPIP}(,\\s${UPTIME}){0,1}(,\\s${NEXTHOPIF}){0,1}\\s*$$ -> Record\n  #\n  # Clear all non Filldown variables when line started with network that is variably subnetted\n  ^\\s+[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}${NETMASK}\\s*$$ -> Clear\n  ^${PROTOCOL}(\\s|\\*)${TYPE}\\s+${NETWORK}\\s\\[${DISTANCE}\\/${METRIC}\\]\\svia\\s${NEXTHOPIP}(,\\s${UPTIME}){0,1}(,\\s${NEXTHOPIF}){0,1}\\s*$$ -> Record\n  #\n  # Match multiline route statements\n  ^${PROTOCOL}(\\s|\\*)${TYPE}\\s+${NETWORK}\\s+${NETMASK}\\s*$$\n  #\n  # Match load-balanced routes\n  ^\\s+\\[${DISTANCE}\\/${METRIC}\\]\\s+via\\s+${NEXTHOPIP},(?:\\s+${UPTIME},)?\\s+${NEXTHOPIF}\\s*$$ -> Record\n  #\n  # Match directly connected routes\n  ^${PROTOCOL}\\s${TYPE}\\s+${NETWORK}\\sis\\sdirectly\\sconnected,\\s${NEXTHOPIF} -> Record\n  ^${PROTOCOL}(\\*){0,1}\\s${TYPE}\\s+${NETWORK}\\s+${NETMASK}\\sis\\sdirectly\\sconnected,\\s${NEXTHOPIF} -> Record\n  #\n  # Clear all variables on empty lines\n  ^\\s* -> Clearall\n  #^${TYPE} -> Continue.Record\n  #^${TYPE}\\s+${NETWORK}\\s+${NETMASK}\\s+\\[\\d+\\/\\d+\\]\\s+via\\s+${GATEWAY}\\,\\s+${UPTIME},\\s+${INTFC}\\s*$$ -> Record\n  #^\\s+\\[\\d+\\/\\d+\\]\\s+via\\s+${GATEWAY}\\,\\s+${UPTIME},\\s+${INTFC}\\s*$$ -> Record\n  ^. -> Error\n\nEOF\n"
+}

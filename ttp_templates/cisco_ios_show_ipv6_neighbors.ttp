@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ipv6_neighbors
+# Source: ntc
+# TextFSM rows: 10
+# TTP rows: 10
+# Match ratio: 1.00
+
+<group name="address_age_mac_address_type_interface">
+{{ADDRESS}} {{AGE}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{TYPE}} {{INTERFACE | ORPHRASE}}
+</group>

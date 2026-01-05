@@ -1,0 +1,133 @@
+{
+  "command": "mikrotik_routeros_ip_dhcp-server_lease_print_terse_without-paging",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"index_comment_address_mac_address_client_id_server_dhcp_option_status_expires_after_last_seen_active_address_active_mac_address_active_client_id_active_server_host_name\">\n {{INDEX}} comment={{COMMENT}} address={{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} mac-address={{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} client-id={{CLIENT_ID}} address-lists=\"\" server={{SERVER | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} dhcp-option={{DHCP_OPTION}} status={{STATUS | ORPHRASE}} expires-after={{EXPIRES_AFTER}} last-seen={{LAST_SEEN}} active-address={{ACTIVE_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} active-mac-address={{ACTIVE_MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} active-client-id={{ACTIVE_CLIENT_ID}} active-server={{ACTIVE_SERVER | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} host-name={{HOST_NAME | ORPHRASE}} \n</group>\n<group name=\"index_comment_address_mac_address_client_id_server_status_expires_after_last_seen_active_address_active_mac_address_active_client_id_active_server_host_name\">\n {{INDEX}} comment={{COMMENT}} address={{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} mac-address={{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} client-id={{CLIENT_ID}} address-lists=\"\" server={{SERVER | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} dhcp-option=\"\" status={{STATUS | ORPHRASE}} expires-after={{EXPIRES_AFTER}} last-seen={{LAST_SEEN}} active-address={{ACTIVE_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} active-mac-address={{ACTIVE_MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} active-client-id={{ACTIVE_CLIENT_ID}} active-server={{ACTIVE_SERVER | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} host-name={{HOST_NAME | ORPHRASE}} \n</group>\n<group name=\"index_comment_address_mac_address_server_status_expires_after_last_seen_active_address_active_mac_address_active_client_id_active_server_host_name\">\n {{INDEX}} comment={{COMMENT}} address={{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} mac-address={{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} address-lists=\"\" server={{SERVER | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} dhcp-option=\"\" status={{STATUS | ORPHRASE}} expires-after={{EXPIRES_AFTER}} last-seen={{LAST_SEEN}} active-address={{ACTIVE_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} active-mac-address={{ACTIVE_MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} active-client-id={{ACTIVE_CLIENT_ID}} active-server={{ACTIVE_SERVER | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} host-name={{HOST_NAME | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INDEX": "0",
+      "COMMENT": "UniFi1",
+      "ADDRESS": "10.124.3.199",
+      "MAC_ADDRESS": "74:83:C2:36:5A:6E",
+      "CLIENT_ID": "1:74:83:c2:36:5a:6e",
+      "SERVER": "dhcp1",
+      "DHCP_OPTION": "unifi",
+      "STATUS": "bound",
+      "EXPIRES_AFTER": "6m51s",
+      "LAST_SEEN": "3m9s",
+      "ACTIVE_ADDRESS": "10.164.1.199",
+      "ACTIVE_MAC_ADDRESS": "74:83:C2:36:5A:6E",
+      "ACTIVE_CLIENT_ID": "1:74:83:c2:36:5a:6e",
+      "ACTIVE_SERVER": "dhcp1",
+      "HOST_NAME": "Unifi3B"
+    },
+    {
+      "INDEX": "1",
+      "COMMENT": "PC",
+      "ADDRESS": "10.124.3.252",
+      "MAC_ADDRESS": "00:50:56:88:80:EE",
+      "CLIENT_ID": "1:0:50:56:88:80:ee",
+      "SERVER": "dhcp1",
+      "STATUS": "bound",
+      "EXPIRES_AFTER": "6m18s",
+      "LAST_SEEN": "3m42s",
+      "ACTIVE_ADDRESS": "10.164.1.252",
+      "ACTIVE_MAC_ADDRESS": "00:50:56:88:80:EE",
+      "ACTIVE_CLIENT_ID": "1:0:50:56:88:80:ee",
+      "ACTIVE_SERVER": "dhcp1",
+      "HOST_NAME": "RSNC-CLIENT1-VM"
+    },
+    {
+      "INDEX": "2",
+      "COMMENT": "SPA",
+      "ADDRESS": "10.124.3.222",
+      "MAC_ADDRESS": "C4:0A:CB:BC:65:C8",
+      "SERVER": "dhcp1",
+      "STATUS": "bound",
+      "EXPIRES_AFTER": "5m56s",
+      "LAST_SEEN": "4m4s",
+      "ACTIVE_ADDRESS": "10.164.1.222",
+      "ACTIVE_MAC_ADDRESS": "C4:0A:CB:BC:65:C8",
+      "ACTIVE_CLIENT_ID": "1:c4:a:cb:bc:65:c8",
+      "ACTIVE_SERVER": "dhcp1",
+      "HOST_NAME": "SPA122"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "index_comment_address_mac_address_client_id_server_dhcp_option_status_expires_after_last_seen_active_address_active_mac_address_active_client_id_active_server_host_name": [
+        {
+          "INDEX": "0",
+          "COMMENT": "UniFi1",
+          "ADDRESS": "10.124.3.199",
+          "MAC_ADDRESS": "74:83:C2:36:5A:6E",
+          "CLIENT_ID": "1:74:83:c2:36:5a:6e",
+          "SERVER": "dhcp1",
+          "DHCP_OPTION": "unifi",
+          "STATUS": "bound",
+          "EXPIRES_AFTER": "6m51s",
+          "LAST_SEEN": "3m9s",
+          "ACTIVE_ADDRESS": "10.164.1.199",
+          "ACTIVE_MAC_ADDRESS": "74:83:C2:36:5A:6E",
+          "ACTIVE_CLIENT_ID": "1:74:83:c2:36:5a:6e",
+          "ACTIVE_SERVER": "dhcp1",
+          "HOST_NAME": "Unifi3B"
+        },
+        {
+          "INDEX": "1",
+          "COMMENT": "PC",
+          "ADDRESS": "10.124.3.252",
+          "MAC_ADDRESS": "00:50:56:88:80:EE",
+          "CLIENT_ID": "1:0:50:56:88:80:ee",
+          "SERVER": "dhcp1",
+          "DHCP_OPTION": "\"\"",
+          "STATUS": "bound",
+          "EXPIRES_AFTER": "6m18s",
+          "LAST_SEEN": "3m42s",
+          "ACTIVE_ADDRESS": "10.164.1.252",
+          "ACTIVE_MAC_ADDRESS": "00:50:56:88:80:EE",
+          "ACTIVE_CLIENT_ID": "1:0:50:56:88:80:ee",
+          "ACTIVE_SERVER": "dhcp1",
+          "HOST_NAME": "RSNC-CLIENT1-VM"
+        }
+      ],
+      "index_comment_address_mac_address_client_id_server_status_expires_after_last_seen_active_address_active_mac_address_active_client_id_active_server_host_name": {
+        "INDEX": "1",
+        "COMMENT": "PC",
+        "ADDRESS": "10.124.3.252",
+        "MAC_ADDRESS": "00:50:56:88:80:EE",
+        "CLIENT_ID": "1:0:50:56:88:80:ee",
+        "SERVER": "dhcp1",
+        "STATUS": "bound",
+        "EXPIRES_AFTER": "6m18s",
+        "LAST_SEEN": "3m42s",
+        "ACTIVE_ADDRESS": "10.164.1.252",
+        "ACTIVE_MAC_ADDRESS": "00:50:56:88:80:EE",
+        "ACTIVE_CLIENT_ID": "1:0:50:56:88:80:ee",
+        "ACTIVE_SERVER": "dhcp1",
+        "HOST_NAME": "RSNC-CLIENT1-VM"
+      },
+      "index_comment_address_mac_address_server_status_expires_after_last_seen_active_address_active_mac_address_active_client_id_active_server_host_name": {
+        "INDEX": "2",
+        "COMMENT": "SPA",
+        "ADDRESS": "10.124.3.222",
+        "MAC_ADDRESS": "C4:0A:CB:BC:65:C8",
+        "SERVER": "dhcp1",
+        "STATUS": "bound",
+        "EXPIRES_AFTER": "5m56s",
+        "LAST_SEEN": "4m4s",
+        "ACTIVE_ADDRESS": "10.164.1.222",
+        "ACTIVE_MAC_ADDRESS": "C4:0A:CB:BC:65:C8",
+        "ACTIVE_CLIENT_ID": "1:c4:a:cb:bc:65:c8",
+        "ACTIVE_SERVER": "dhcp1",
+        "HOST_NAME": "SPA122"
+      }
+    }
+  ],
+  "cli_content": " 0   comment=UniFi1 address=10.124.3.199 mac-address=74:83:C2:36:5A:6E client-id=1:74:83:c2:36:5a:6e address-lists=\"\" server=dhcp1 dhcp-option=unifi status=bound expires-after=6m51s last-seen=3m9s active-address=10.164.1.199 active-mac-address=74:83:C2:36:5A:6E active-client-id=1:74:83:c2:36:5a:6e active-server=dhcp1 host-name=Unifi3B \n 1   comment=PC address=10.124.3.252 mac-address=00:50:56:88:80:EE client-id=1:0:50:56:88:80:ee address-lists=\"\" server=dhcp1 dhcp-option=\"\" status=bound expires-after=6m18s last-seen=3m42s active-address=10.164.1.252 active-mac-address=00:50:56:88:80:EE active-client-id=1:0:50:56:88:80:ee active-server=dhcp1 host-name=RSNC-CLIENT1-VM \n 2   comment=SPA address=10.124.3.222 mac-address=C4:0A:CB:BC:65:C8 address-lists=\"\" server=dhcp1 dhcp-option=\"\" status=bound expires-after=5m56s last-seen=4m4s active-address=10.164.1.222 active-mac-address=C4:0A:CB:BC:65:C8 active-client-id=1:c4:a:cb:bc:65:c8 active-server=dhcp1 host-name=SPA122 \n",
+  "textfsm_template": "Value INDEX (\\d+)\nValue FLAG ([XRDB]+)\nValue COMMENT (.*)\nValue ADDRESS (\\S+)\nValue MAC_ADDRESS ((?:[0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2})\nValue CLIENT_ID (\\S+)\nValue ADDRESS_LISTS (\\S+)\nValue SERVER (\\S+)\nValue ALWAYS_BROADCAST (yes|no)\nValue DHCP_OPTION (\\S+)\nValue STATUS (\\S+)\nValue EXPIRES_AFTER (\\S+)\nValue LAST_SEEN (\\S+)\nValue ACTIVE_ADDRESS (\\S+)\nValue ACTIVE_MAC_ADDRESS ((?:[0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2})\nValue ACTIVE_CLIENT_ID (\\S+)\nValue ACTIVE_SERVER (\\S+)\nValue HOST_NAME (\\S+)\nValue SRC_MAC_ADDRESS ((?:[0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2})\n\nStart\n  ^\\s*${INDEX}(?:\\s+${FLAG})?(?:\\s+comment=${COMMENT})?\\s+address=${ADDRESS}(?:\\s+mac-address=${MAC_ADDRESS})?(?:\\s+client-id=(?:\\\"?(\\b${CLIENT_ID}\\b)?\\\"?))?(?:\\s+address-lists=(?:\\\"?(\\b${ADDRESS_LISTS}\\b)?\\\"?))?(?:\\s+server=${SERVER})?(?:\\s+dhcp-option=(?:\\\"?(\\b${DHCP_OPTION}\\b)?\\\"?))?(?:\\s+status=${STATUS})?(?:\\s+expires-after=${EXPIRES_AFTER})?(?:\\s+last-seen=${LAST_SEEN})?(?:\\s+active-address=${ACTIVE_ADDRESS})?(?:\\s+active-mac-address=${ACTIVE_MAC_ADDRESS})?(?:\\s+active-client-id=(?:\\\"?(\\b${ACTIVE_CLIENT_ID}\\b)?\\\"?))?(?:\\s+active-server=${ACTIVE_SERVER})?(?:\\s+host-name=(?:\\\"?(\\b${HOST_NAME}\\b)?\\\"?))?(?:\\s+src-mac-address=${SRC_MAC_ADDRESS})?\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

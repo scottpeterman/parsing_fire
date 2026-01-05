@@ -1,0 +1,36 @@
+{
+  "command": "cisco_ios_ping",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"sent_qty_sent_type_destination_timeout\">\nSending {{SENT_QTY}}, {{SENT_TYPE | ORPHRASE}} to {{DESTINATION | ORPHRASE}}, timeout is {{TIMEOUT}} seconds:\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SENT_QTY": "5",
+      "SENT_TYPE": "100-byte ICMP Echos",
+      "DESTINATION": "192.168.0.1",
+      "TIMEOUT": "2",
+      "RESPONSE_STREAM": "!!!!!",
+      "SUCCESS_PCT": "100",
+      "SUCCESS_QTY": "5",
+      "RTT_MIN": "1",
+      "RTT_AVG": "2",
+      "RTT_MAX": "10"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "sent_qty_sent_type_destination_timeout": {
+        "SENT_QTY": "5",
+        "SENT_TYPE": "100-byte ICMP Echos",
+        "DESTINATION": "192.168.0.1",
+        "TIMEOUT": "2"
+      }
+    }
+  ],
+  "cli_content": "Type escape sequence to abort.\nSending 5, 100-byte ICMP Echos to 192.168.0.1, timeout is 2 seconds:\n!!!!!\nSuccess rate is 100 percent (5/5), round-trip min/avg/max = 1/2/10 ms",
+  "textfsm_template": "Value Required SENT_QTY (\\d+)\nValue Required SENT_TYPE (.*)\nValue Required DESTINATION (\\S+)\nValue Required TIMEOUT (\\d+)\nValue SOURCE (\\S+)\nValue List RESPONSE_STREAM ([\\.\\!/U/Q]+)\nValue SUCCESS_PCT (\\d+)\nValue SUCCESS_QTY (\\d+)\nValue RTT_MIN (\\d+)\nValue RTT_AVG (\\d+)\nValue RTT_MAX (\\d+)\nValue List RESPONDERS (.*)\n\nStart\n  ^Type\\s+escape\\s+sequence\\s+to\\s+abort.\n  ^Sending\\s+${SENT_QTY},\\s+${SENT_TYPE}\\s+to\\s+${DESTINATION},\\s+timeout\\s+is\\s+${TIMEOUT}\\s+seconds:\n  ^Reply\\s+to\\s+request\\s+\\d+\\s+from\\s+${RESPONDERS},\\s+\\d+\\s+ms\n  ^Packet\\s+sent\\s+with\\s+a\\s+source\\s+address\\s+of\\s+${SOURCE}\n  ^Packet\\s+sent\\s+with\\s+the\\s+DF\\s+bit\\s+set\n  ^${RESPONSE_STREAM}\n  ^Success\\s+rate\\s+is\\s+${SUCCESS_PCT}\\s+percent\\s+\\(${SUCCESS_QTY}\\/\\d+\\)(?:,\\s+round-trip\\s+min/avg/max\\s+\\=\\s+)?(?:${RTT_MIN}/${RTT_AVG}/${RTT_MAX})?(?:\\sms)?\n  ^\\s*$$\n  # Error out if raw data does not match any above rules.\n  ^.* -> Error \"Could not parse line:\""
+}

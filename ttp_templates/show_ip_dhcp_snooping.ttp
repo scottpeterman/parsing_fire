@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip dhcp snooping
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 4
+# Match ratio: 4.00
+
+<group name="abort_timer_agent_url_circuit_id_enabled">
+DHCP snooping is {{ENABLED | ORPHRASE}}
+{{VLAN_CONFIGURED | ORPHRASE}}
+{{INTERFACE | ORPHRASE}}
+  circuit-id default format: {{CIRCUIT_ID | ORPHRASE}}
+  remote-id default format: {{REMOTE_ID | ORPHRASE}}
+  Agent URL : {{AGENT_URL | ORPHRASE}}
+  Write delay Timer: {{WRITE_DELAY_TIMER | ORPHRASE}} seconds
+</group>

@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_route
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="network_nexthop_if_prefix_length_protocol">
+Tue May 22 22:{{PREFIX_LENGTH | ORPHRASE}}:30.765 UTC
+Codes: {{PROTOCOL | ORPHRASE}} - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+C  192.168.1.0/24 is directly connected, {{NEXTHOP_IF | ORPHRASE}}
+L  {{NETWORK | ORPHRASE}}/32 is directly connected, vasileft1
+</group>

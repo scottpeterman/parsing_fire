@@ -1,0 +1,36 @@
+{
+  "command": "avaya_ers_show_logging_config",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"event_logging_facility_log_types_nv_storage_types\">\nEvent Logging: {{EVENT_LOGGING | ORPHRASE}}\nVolatile Logging Option: {{VOLATILE | ORPHRASE}}\nEvent Types To Log: {{LOG_TYPES | ORPHRASE}}\nRemote Logging Address: {{REMOTE_ADDRESS | ORPHRASE}}\nFacility: {{FACILITY | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "EVENT_LOGGING": "Enabled",
+      "VOLATILE": "Latch",
+      "LOG_TYPES": "Critical, Serious, Informational",
+      "NV_STORAGE_TYPES": "Critical, Serious",
+      "REMOTE_LOGGING": "Enabled",
+      "REMOTE_ADDRESS": "0.0.0.0",
+      "SECONDARY_ADDRESS": "0.0.0.0",
+      "REMOTE_TYPES": "Critical, Serious, Informational",
+      "FACILITY": "Daemon"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "event_logging_facility_log_types_nv_storage_types": {
+        "FACILITY": "Daemon",
+        "REMOTE_ADDRESS": "0.0.0.0",
+        "LOG_TYPES": "Critical, Serious, Informational",
+        "VOLATILE": "Latch",
+        "EVENT_LOGGING": "Enabled"
+      }
+    }
+  ],
+  "cli_content": "Event Logging: Enabled\nVolatile Logging Option: Latch\nEvent Types To Log: Critical, Serious, Informational\nEvent Types To Log To NV Storage: Critical, Serious\nRemote Logging: Enabled\nRemote Logging Address: 0.0.0.0\nSecondary Remote Logging Address: 0.0.0.0\nEvent Types To Log Remotely: Critical, Serious, Informational\nFacility: Daemon\n",
+  "textfsm_template": "Value EVENT_LOGGING (.+?)\nValue VOLATILE (.+?)\nValue LOG_TYPES (.+?)\nValue NV_STORAGE_TYPES (.+?)\nValue REMOTE_LOGGING (.+?)\nValue REMOTE_ADDRESS (.+?)\nValue SECONDARY_ADDRESS (.+?)\nValue REMOTE_TYPES (.+?)\nValue FACILITY (.+?)\n\nStart\n  ^Event Logging:\\s+${EVENT_LOGGING}\\s*$$\n  ^Volatile Logging Option:\\s+${VOLATILE}\\s*$$\n  ^Event Types To Log:\\s+${LOG_TYPES}\\s*$$\n  ^Event Types To Log To NV Storage:\\s+${NV_STORAGE_TYPES}\\s*$$\n  ^Remote Logging:\\s+${REMOTE_LOGGING}\\s*$$\n  ^Remote Logging Address:\\s+${REMOTE_ADDRESS}\\s*$$\n  ^Secondary Remote Logging Address:\\s+${SECONDARY_ADDRESS}\\s*$$\n  ^Event Types To Log Remotely:\\s+${REMOTE_TYPES}\\s*$$\n  ^Facility:\\s+${FACILITY}\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

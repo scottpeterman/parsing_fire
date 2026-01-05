@@ -1,0 +1,83 @@
+{
+  "command": "show du",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"size_used_available_use_percentage_mounted_on\">\n{{SIZE}} {{USED}} {{AVAILABLE}} {{USE_PERCENTAGE}} {{MOUNTED_ON | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SIZE": "100G",
+      "USED": "25G",
+      "AVAILABLE": "75G",
+      "USE_PERCENTAGE": "25%",
+      "MOUNTED_ON": "/"
+    },
+    {
+      "SIZE": "50G",
+      "USED": "10G",
+      "AVAILABLE": "40G",
+      "USE_PERCENTAGE": "20%",
+      "MOUNTED_ON": "/home"
+    },
+    {
+      "SIZE": "200G",
+      "USED": "100G",
+      "AVAILABLE": "100G",
+      "USE_PERCENTAGE": "50%",
+      "MOUNTED_ON": "/var"
+    },
+    {
+      "SIZE": "150G",
+      "USED": "30G",
+      "AVAILABLE": "120G",
+      "USE_PERCENTAGE": "20%",
+      "MOUNTED_ON": "/opt"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "size_used_available_use_percentage_mounted_on": [
+        {
+          "SIZE": "Size",
+          "USED": "Used",
+          "AVAILABLE": "Available",
+          "USE_PERCENTAGE": "Use%",
+          "MOUNTED_ON": "Mounted on"
+        },
+        {
+          "SIZE": "100G",
+          "USED": "25G",
+          "AVAILABLE": "75G",
+          "USE_PERCENTAGE": "25%",
+          "MOUNTED_ON": "/"
+        },
+        {
+          "SIZE": "50G",
+          "USED": "10G",
+          "AVAILABLE": "40G",
+          "USE_PERCENTAGE": "20%",
+          "MOUNTED_ON": "/home"
+        },
+        {
+          "SIZE": "200G",
+          "USED": "100G",
+          "AVAILABLE": "100G",
+          "USE_PERCENTAGE": "50%",
+          "MOUNTED_ON": "/var"
+        },
+        {
+          "SIZE": "150G",
+          "USED": "30G",
+          "AVAILABLE": "120G",
+          "USE_PERCENTAGE": "20%",
+          "MOUNTED_ON": "/opt"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Size     Used  Available  Use%  Mounted on\n100G    25G     75G        25%   /\n50G     10G     40G        20%   /home\n200G    100G    100G       50%   /var\n150G    30G     120G       20%   /opt\n",
+  "textfsm_template": "Value SIZE (\\d+\\w)\nValue USED (\\d+\\w)\nValue AVAILABLE (\\d+\\w)\nValue USE_PERCENTAGE (\\d+%)\nValue MOUNTED_ON (\\S+)\n\nStart\n  ^\\s*Size\\s+Used\\s+Available\\s+Use%\\s+Mounted\\son\\s*$$\n  ^\\s*${SIZE}\\s+${USED}\\s+${AVAILABLE}\\s+${USE_PERCENTAGE}\\s+${MOUNTED_ON}\\s*$$ -> Record"
+}

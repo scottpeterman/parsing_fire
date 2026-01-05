@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: cisco_wlc_ssh_show_ap_summary
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="ap_name_slot_ap_model_mac_address_location_country_ip_address_dse_location">
+{{AP_NAME}} {{SLOT | re("\\d+")}} {{AP_MODEL}} {{MAC_ADDRESS | re("[{{CLIENTS}}-9a-fA-F:.-]+")}} {{LOCATION | ORPHRASE}} {{COUNTRY}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} 0 {{DSE_LOCATION | ORPHRASE}}
+</group>

@@ -1,0 +1,236 @@
+{
+  "command": "cisco_nxos_show_vrf_interface",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 18,
+  "ttp_rows": 18,
+  "ttp_template": "<group name=\"interface_name_id_origin\">\n{{INTERFACE}} {{NAME}} {{ID | re(\"\\\\d+\")}} {{ORIGIN | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Vlan6001",
+      "NAME": "ADMIN",
+      "ID": "6",
+      "ORIGIN": "--"
+    },
+    {
+      "INTERFACE": "Vlan6700",
+      "NAME": "ADMIN",
+      "ID": "6",
+      "ORIGIN": "--"
+    },
+    {
+      "INTERFACE": "Vlan5302",
+      "NAME": "AXNET",
+      "ID": "7",
+      "ORIGIN": "--"
+    },
+    {
+      "INTERFACE": "Vlan7202",
+      "NAME": "AXNET",
+      "ID": "7",
+      "ORIGIN": "--"
+    },
+    {
+      "INTERFACE": "Vlan6302",
+      "NAME": "AXNET",
+      "ID": "7",
+      "ORIGIN": "--"
+    },
+    {
+      "INTERFACE": "Vlan5301",
+      "NAME": "MARKING",
+      "ID": "4",
+      "ORIGIN": "--"
+    },
+    {
+      "INTERFACE": "Vlan7201",
+      "NAME": "MARKING",
+      "ID": "4",
+      "ORIGIN": "--"
+    },
+    {
+      "INTERFACE": "Vlan6301",
+      "NAME": "MARKING",
+      "ID": "4",
+      "ORIGIN": "--"
+    },
+    {
+      "INTERFACE": "Ethernet1/10",
+      "NAME": "Keepalive",
+      "ID": "3",
+      "ORIGIN": "--"
+    },
+    {
+      "INTERFACE": "Vlan1",
+      "NAME": "default",
+      "ID": "1",
+      "ORIGIN": "--"
+    },
+    {
+      "INTERFACE": "Vlan100",
+      "NAME": "default",
+      "ID": "1",
+      "ORIGIN": "--"
+    },
+    {
+      "INTERFACE": "loopback0",
+      "NAME": "default",
+      "ID": "1",
+      "ORIGIN": "--"
+    },
+    {
+      "INTERFACE": "loopback1",
+      "NAME": "default",
+      "ID": "1",
+      "ORIGIN": "--"
+    },
+    {
+      "INTERFACE": "Ethernet1/25",
+      "NAME": "default",
+      "ID": "1",
+      "ORIGIN": "--"
+    },
+    {
+      "INTERFACE": "Ethernet1/30",
+      "NAME": "default",
+      "ID": "1",
+      "ORIGIN": "--"
+    },
+    {
+      "INTERFACE": "Ethernet1/17",
+      "NAME": "default",
+      "ID": "1",
+      "ORIGIN": "--"
+    },
+    {
+      "INTERFACE": "Ethernet1/42",
+      "NAME": "default",
+      "ID": "1",
+      "ORIGIN": "--"
+    },
+    {
+      "INTERFACE": "mgmt0",
+      "NAME": "management",
+      "ID": "2",
+      "ORIGIN": "--"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_name_id_origin": [
+        {
+          "INTERFACE": "Vlan6001",
+          "NAME": "ADMIN",
+          "ID": "6",
+          "ORIGIN": "--"
+        },
+        {
+          "INTERFACE": "Vlan6700",
+          "NAME": "ADMIN",
+          "ID": "6",
+          "ORIGIN": "--"
+        },
+        {
+          "INTERFACE": "Vlan5302",
+          "NAME": "AXNET",
+          "ID": "7",
+          "ORIGIN": "--"
+        },
+        {
+          "INTERFACE": "Vlan7202",
+          "NAME": "AXNET",
+          "ID": "7",
+          "ORIGIN": "--"
+        },
+        {
+          "INTERFACE": "Vlan6302",
+          "NAME": "AXNET",
+          "ID": "7",
+          "ORIGIN": "--"
+        },
+        {
+          "INTERFACE": "Vlan5301",
+          "NAME": "MARKING",
+          "ID": "4",
+          "ORIGIN": "--"
+        },
+        {
+          "INTERFACE": "Vlan7201",
+          "NAME": "MARKING",
+          "ID": "4",
+          "ORIGIN": "--"
+        },
+        {
+          "INTERFACE": "Vlan6301",
+          "NAME": "MARKING",
+          "ID": "4",
+          "ORIGIN": "--"
+        },
+        {
+          "INTERFACE": "Ethernet1/10",
+          "NAME": "Keepalive",
+          "ID": "3",
+          "ORIGIN": "--"
+        },
+        {
+          "INTERFACE": "Vlan1",
+          "NAME": "default",
+          "ID": "1",
+          "ORIGIN": "--"
+        },
+        {
+          "INTERFACE": "Vlan100",
+          "NAME": "default",
+          "ID": "1",
+          "ORIGIN": "--"
+        },
+        {
+          "INTERFACE": "loopback0",
+          "NAME": "default",
+          "ID": "1",
+          "ORIGIN": "--"
+        },
+        {
+          "INTERFACE": "loopback1",
+          "NAME": "default",
+          "ID": "1",
+          "ORIGIN": "--"
+        },
+        {
+          "INTERFACE": "Ethernet1/25",
+          "NAME": "default",
+          "ID": "1",
+          "ORIGIN": "--"
+        },
+        {
+          "INTERFACE": "Ethernet1/30",
+          "NAME": "default",
+          "ID": "1",
+          "ORIGIN": "--"
+        },
+        {
+          "INTERFACE": "Ethernet1/17",
+          "NAME": "default",
+          "ID": "1",
+          "ORIGIN": "--"
+        },
+        {
+          "INTERFACE": "Ethernet1/42",
+          "NAME": "default",
+          "ID": "1",
+          "ORIGIN": "--"
+        },
+        {
+          "INTERFACE": "mgmt0",
+          "NAME": "management",
+          "ID": "2",
+          "ORIGIN": "--"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface                 VRF-Name                        VRF-ID  Site-of-Origin\nVlan6001                  ADMIN                                6  --\nVlan6700                  ADMIN                                6  --\nVlan5302                  AXNET                                7  --\nVlan7202                  AXNET                                7  --\nVlan6302                  AXNET                                7  --\nVlan5301                  MARKING                              4  --\nVlan7201                  MARKING                              4  --\nVlan6301                  MARKING                              4  --\nEthernet1/10              Keepalive                            3  --\nVlan1                     default                              1  --\nVlan100                   default                              1  --\nloopback0                 default                              1  --\nloopback1                 default                              1  --\nEthernet1/25              default                              1  --\nEthernet1/30              default                              1  --\nEthernet1/17              default                              1  --\nEthernet1/42              default                              1  --\nmgmt0                     management                           2  --\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue NAME (\\S+)\nValue ID (\\S+)\nValue ORIGIN (\\S+)\n\nStart\n  ^Interface\\s+VRF-Name\\s+VRF-ID\\s+Site-of-Origin -> Start_record\n\nStart_record\n  ^${INTERFACE}\\s+${NAME}\\s+${ID}\\s+${ORIGIN} -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

@@ -1,0 +1,109 @@
+{
+  "command": "mikrotik_routeros_interface_ethernet_print",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"id_name_mtu_mac_address_arp_switch\">\n {{ID | re(\"\\\\d+\")}} {{NAME}} {{MTU}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{ARP}} {{SWITCH | ORPHRASE}}\n</group>\n<group name=\"id_status_name_mtu_mac_address_arp_switch\">\n {{ID | re(\"\\\\d+\")}} {{STATUS | ORPHRASE}} {{NAME}} {{MTU}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{ARP}} {{SWITCH | ORPHRASE}}\n</group>\n<group name=\"id_slave_name_mtu_mac_address_arp_switch\">\n {{ID | re(\"\\\\d+\")}} {{{{SLAVE}}TATUS | ORPHRASE}}S {{NAME}} {{MTU}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{ARP}} {{SWITCH | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ID": "0",
+      "NAME": "ether1",
+      "MTU": "1500",
+      "MAC_ADDRESS": "12:34:56:78:90:AA",
+      "ARP": "enabled",
+      "SWITCH": "switch1"
+    },
+    {
+      "ID": "1",
+      "STATUS": "R",
+      "NAME": "ether2",
+      "MTU": "1500",
+      "MAC_ADDRESS": "12:34:56:78:90:AB",
+      "ARP": "enabled",
+      "SWITCH": "switch1"
+    },
+    {
+      "ID": "2",
+      "STATUS": "X",
+      "SLAVE": "S",
+      "NAME": "ether3",
+      "MTU": "1500",
+      "MAC_ADDRESS": "12:34:56:78:90:AC",
+      "ARP": "enabled",
+      "SWITCH": "switch1"
+    },
+    {
+      "ID": "3",
+      "SLAVE": "S",
+      "NAME": "ether4",
+      "MTU": "1500",
+      "MAC_ADDRESS": "12:34:56:78:90:AD",
+      "ARP": "enabled",
+      "SWITCH": "switch1"
+    },
+    {
+      "ID": "4",
+      "STATUS": "R",
+      "NAME": "ether5",
+      "MTU": "1500",
+      "MAC_ADDRESS": "12:34:56:78:90:AE",
+      "ARP": "enabled",
+      "SWITCH": "switch1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "id_name_mtu_mac_address_arp_switch": {
+        "ID": "0",
+        "NAME": "ether1",
+        "MTU": "1500",
+        "MAC_ADDRESS": "12:34:56:78:90:AA",
+        "ARP": "enabled",
+        "SWITCH": "switch1"
+      },
+      "id_status_name_mtu_mac_address_arp_switch": [
+        {
+          "ID": "1",
+          "STATUS": "R",
+          "NAME": "ether2",
+          "MTU": "1500",
+          "MAC_ADDRESS": "12:34:56:78:90:AB",
+          "ARP": "enabled",
+          "SWITCH": "switch1"
+        },
+        {
+          "ID": "2",
+          "STATUS": "XS",
+          "NAME": "ether3",
+          "MTU": "1500",
+          "MAC_ADDRESS": "12:34:56:78:90:AC",
+          "ARP": "enabled",
+          "SWITCH": "switch1"
+        },
+        {
+          "ID": "3",
+          "STATUS": "S",
+          "NAME": "ether4",
+          "MTU": "1500",
+          "MAC_ADDRESS": "12:34:56:78:90:AD",
+          "ARP": "enabled",
+          "SWITCH": "switch1"
+        },
+        {
+          "ID": "4",
+          "STATUS": "R",
+          "NAME": "ether5",
+          "MTU": "1500",
+          "MAC_ADDRESS": "12:34:56:78:90:AE",
+          "ARP": "enabled",
+          "SWITCH": "switch1"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Flags: X - disabled, R - running, S - slave\n #    NAME     MTU MAC-ADDRESS       ARP             SWITCH\n 0    ether1  1500 12:34:56:78:90:AA enabled         switch1\n 1 R  ether2  1500 12:34:56:78:90:AB enabled         switch1\n 2 XS ether3  1500 12:34:56:78:90:AC enabled         switch1\n 3  S ether4  1500 12:34:56:78:90:AD enabled         switch1\n 4 R  ether5  1500 12:34:56:78:90:AE enabled         switch1\n",
+  "textfsm_template": "Value ID (\\d+)\nValue STATUS (X|R)\nValue SLAVE (S)\nValue NAME (\\S+)\nValue MTU (\\d+)\nValue MAC_ADDRESS ([a-zA-Z0-9]{2}(:[a-zA-Z0-9]{2}){5})\nValue ARP (\\S+)\nValue SWITCH (\\S+)\n\nStart\n  ^\\s*Flags:\\s+X\\s+-\\s+disabled,\\s+R\\s+-\\s+running,\\s+S\\s+-\\s+slave\\s*$$\n  ^\\s*#\\s+NAME\\s+MTU\\s+MAC-ADDRESS\\s+ARP\\s+SWITCH\\s*$$ -> IfacesTable\n\nIfacesTable\n  ^\\s*${ID}\\s+(?:${STATUS})?(?:${SLAVE})?\\s+${NAME}\\s+${MTU}\\s+${MAC_ADDRESS}\\s+${ARP}\\s+${SWITCH}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

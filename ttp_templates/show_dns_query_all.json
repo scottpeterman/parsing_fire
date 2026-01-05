@@ -1,0 +1,62 @@
+{
+  "command": "show dns query all",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.75,
+  "textfsm_rows": 4,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"hostname_address_status_latency\">\n{{HOSTNAME | re(\"\\\\S+\")}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATUS | ORPHRASE}} {{LATENCY | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "HOSTNAME": "example.com",
+      "ADDRESS": "93.184.216.34",
+      "STATUS": "Resolved",
+      "LATENCY": "20ms"
+    },
+    {
+      "HOSTNAME": "test.com",
+      "ADDRESS": "151.101.1.69",
+      "STATUS": "Resolved",
+      "LATENCY": "35ms"
+    },
+    {
+      "HOSTNAME": "unknown.com",
+      "ADDRESS": "-",
+      "STATUS": "Unresolved",
+      "LATENCY": "-"
+    },
+    {
+      "HOSTNAME": "google.com",
+      "ADDRESS": "216.58.214.78",
+      "STATUS": "Resolved",
+      "LATENCY": "15ms"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "hostname_address_status_latency": [
+        {
+          "HOSTNAME": "example.com",
+          "ADDRESS": "93.184.216.34",
+          "STATUS": "Resolved",
+          "LATENCY": "20ms"
+        },
+        {
+          "HOSTNAME": "test.com",
+          "ADDRESS": "151.101.1.69",
+          "STATUS": "Resolved",
+          "LATENCY": "35ms"
+        },
+        {
+          "HOSTNAME": "google.com",
+          "ADDRESS": "216.58.214.78",
+          "STATUS": "Resolved",
+          "LATENCY": "15ms"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Hostname       Address           Status          Latency \nexample.com    93.184.216.34     Resolved        20ms\ntest.com       151.101.1.69      Resolved        35ms\nunknown.com    -                 Unresolved      -\ngoogle.com     216.58.214.78     Resolved        15ms\n",
+  "textfsm_template": "Value HOSTNAME (\\S+)\nValue ADDRESS (\\S+)\nValue STATUS (\\S+)\nValue LATENCY (\\S+)\n\nStart\n  ^\\s*Hostname\\s+Address\\s+Status\\s+Latency\\s*$$\n  ^\\s*${HOSTNAME}\\s+${ADDRESS}\\s+${STATUS}\\s+${LATENCY}\\s*$$ -> Record"
+}

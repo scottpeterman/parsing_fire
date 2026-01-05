@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: dell_powerconnect_show_bridge_address_table
+# Source: ntc
+# TextFSM rows: 26
+# TTP rows: 7
+# Match ratio: 0.27
+
+<group name="vlan_id_destination_address_destination_port_type">
+   {{VLAN_ID | re("\\d+")}} {{DESTINATION_ADDRESS}} {{DESTINATION_PORT}} {{TYPE | ORPHRASE}}
+</group>

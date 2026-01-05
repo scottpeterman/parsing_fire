@@ -1,0 +1,119 @@
+{
+  "command": "show interfaces transceiver diag",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.2,
+  "textfsm_rows": 5,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"port_status_temperature_voltage_current_tx_power_rx_power\">\n{{PORT}} {{STATUS | ORPHRASE}} {{TEMPERATURE}} {{VOLTAGE}} {{CURRENT}} {{TX_POWER | ORPHRASE}} {{RX_POWER | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "Gi0/1",
+      "STATUS": "OK",
+      "TEMPERATURE": "40C",
+      "VOLTAGE": "3.30V",
+      "CURRENT": "20mA",
+      "TX_POWER": "-1.0 dBm",
+      "RX_POWER": "-2.0 dBm"
+    },
+    {
+      "PORT": "Gi0/2",
+      "STATUS": "OK",
+      "TEMPERATURE": "42C",
+      "VOLTAGE": "3.29V",
+      "CURRENT": "22mA",
+      "TX_POWER": "-1.2 dBm",
+      "RX_POWER": "-2.1 dBm"
+    },
+    {
+      "PORT": "Gi0/3",
+      "STATUS": "Alert",
+      "TEMPERATURE": "80C",
+      "VOLTAGE": "3.31V",
+      "CURRENT": "25mA",
+      "TX_POWER": "-0.5 dBm",
+      "RX_POWER": "-1.5 dBm"
+    },
+    {
+      "PORT": "Gi0/4",
+      "STATUS": "OK",
+      "TEMPERATURE": "39C",
+      "VOLTAGE": "3.30V",
+      "CURRENT": "19mA",
+      "TX_POWER": "-1.1 dBm",
+      "RX_POWER": "-2.2 dBm"
+    },
+    {
+      "PORT": "Gi0/5",
+      "STATUS": "Error",
+      "TEMPERATURE": "85C",
+      "VOLTAGE": "3.28V",
+      "CURRENT": "28mA",
+      "TX_POWER": "-0.3 dBm",
+      "RX_POWER": "-1.2 dBm"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_status_temperature_voltage_current_tx_power_rx_power": [
+        {
+          "PORT": "Port",
+          "STATUS": "Status",
+          "TEMPERATURE": "Temperature",
+          "VOLTAGE": "Voltage",
+          "CURRENT": "Current",
+          "TX_POWER": "Tx Power",
+          "RX_POWER": "Rx Power"
+        },
+        {
+          "PORT": "Gi0/1",
+          "STATUS": "OK",
+          "TEMPERATURE": "40C",
+          "VOLTAGE": "3.30V",
+          "CURRENT": "20mA",
+          "TX_POWER": "-1.0 dBm",
+          "RX_POWER": "-2.0 dBm"
+        },
+        {
+          "PORT": "Gi0/2",
+          "STATUS": "OK",
+          "TEMPERATURE": "42C",
+          "VOLTAGE": "3.29V",
+          "CURRENT": "22mA",
+          "TX_POWER": "-1.2 dBm",
+          "RX_POWER": "-2.1 dBm"
+        },
+        {
+          "PORT": "Gi0/3",
+          "STATUS": "Alert",
+          "TEMPERATURE": "80C",
+          "VOLTAGE": "3.31V",
+          "CURRENT": "25mA",
+          "TX_POWER": "-0.5 dBm",
+          "RX_POWER": "-1.5 dBm"
+        },
+        {
+          "PORT": "Gi0/4",
+          "STATUS": "OK",
+          "TEMPERATURE": "39C",
+          "VOLTAGE": "3.30V",
+          "CURRENT": "19mA",
+          "TX_POWER": "-1.1 dBm",
+          "RX_POWER": "-2.2 dBm"
+        },
+        {
+          "PORT": "Gi0/5",
+          "STATUS": "Error",
+          "TEMPERATURE": "85C",
+          "VOLTAGE": "3.28V",
+          "CURRENT": "28mA",
+          "TX_POWER": "-0.3 dBm",
+          "RX_POWER": "-1.2 dBm"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Port       Status       Temperature  Voltage     Current     Tx Power    Rx Power    \nGi0/1      OK           40C          3.30V       20mA        -1.0 dBm    -2.0 dBm   \nGi0/2      OK           42C          3.29V       22mA        -1.2 dBm    -2.1 dBm   \nGi0/3      Alert        80C          3.31V       25mA        -0.5 dBm    -1.5 dBm   \nGi0/4      OK           39C          3.30V       19mA        -1.1 dBm    -2.2 dBm   \nGi0/5      Error        85C          3.28V       28mA        -0.3 dBm    -1.2 dBm   \n",
+  "textfsm_template": "Value PORT (\\S+)\nValue STATUS (\\S+)\nValue TEMPERATURE (\\d+C)\nValue VOLTAGE (\\d+\\.\\d+V)\nValue CURRENT (\\d+mA)\nValue TX_POWER (-?\\d+\\.\\d+ dBm)\nValue RX_POWER (-?\\d+\\.\\d+ dBm)\n\nStart\n  ^\\s*Port\\s+Status\\s+Temperature\\s+Voltage\\s+Current\\s+Tx Power\\s+Rx Power\\s*$$\n  ^\\s*${PORT}\\s+${STATUS}\\s+${TEMPERATURE}\\s+${VOLTAGE}\\s+${CURRENT}\\s+${TX_POWER}\\s+${RX_POWER}\\s*$$ -> Record"
+}

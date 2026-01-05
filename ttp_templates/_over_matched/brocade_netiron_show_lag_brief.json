@@ -1,0 +1,221 @@
+{
+  "command": "brocade_netiron_show_lag_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0833333333333333,
+  "textfsm_rows": 12,
+  "ttp_rows": 13,
+  "ttp_template": "<group name=\"lagnameshort_lagtype_deployed_trunkid_primaryinterface_portlist\">\n{{lagnameshort | ORPHRASE}} {{lagtype}} {{deployed}} {{trunkid | re(\"\\\\d+\")}} {{primaryinterface}} {{portlist | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "lagnameshort": "Akamai Uplink",
+      "lagtype": "dynamic",
+      "deployed": "Y",
+      "trunkid": "11",
+      "primaryinterface": "1/13",
+      "portlist": "e 1/13 e 2/13"
+    },
+    {
+      "lagnameshort": "CLMAMOFW-FLTNHT",
+      "lagtype": "dynamic",
+      "deployed": "Y",
+      "trunkid": "7",
+      "primaryinterface": "4/2",
+      "portlist": "e 3/2 e 4/2"
+    },
+    {
+      "lagnameshort": "LAG5",
+      "lagtype": "dynamic",
+      "deployed": "Y",
+      "trunkid": "5",
+      "primaryinterface": "3/3",
+      "portlist": "e 3/3 to 3/4"
+    },
+    {
+      "lagnameshort": "LAG6",
+      "lagtype": "dynamic",
+      "deployed": "Y",
+      "trunkid": "6",
+      "primaryinterface": "4/3",
+      "portlist": "e 4/3 to 4/4"
+    },
+    {
+      "lagnameshort": "MLX-1a",
+      "lagtype": "dynamic",
+      "deployed": "Y",
+      "trunkid": "4",
+      "primaryinterface": "2/2",
+      "portlist": "e 2/2"
+    },
+    {
+      "lagnameshort": "MLX-CLMAMOXE",
+      "lagtype": "dynamic",
+      "deployed": "Y",
+      "trunkid": "3",
+      "primaryinterface": "2/1",
+      "portlist": "e 2/1"
+    },
+    {
+      "lagnameshort": "Switch1e.clmamofw",
+      "lagtype": "dynamic",
+      "deployed": "Y",
+      "trunkid": "10",
+      "primaryinterface": "1/5",
+      "portlist": "e 1/5 e 2/21"
+    },
+    {
+      "lagnameshort": "fw1-inside",
+      "lagtype": "dynamic",
+      "deployed": "Y",
+      "trunkid": "12",
+      "primaryinterface": "1/24",
+      "portlist": "e 1/24 e 2/24"
+    },
+    {
+      "lagnameshort": "fw1-outside",
+      "lagtype": "dynamic",
+      "deployed": "Y",
+      "trunkid": "13",
+      "primaryinterface": "1/10",
+      "portlist": "e 1/10 e 2/10"
+    },
+    {
+      "lagnameshort": "speedtest",
+      "lagtype": "dynamic",
+      "deployed": "Y",
+      "trunkid": "9",
+      "primaryinterface": "2/23",
+      "portlist": "e 1/11 e 2/23"
+    },
+    {
+      "lagnameshort": "switch1c-MLX-FW",
+      "lagtype": "dynamic",
+      "deployed": "Y",
+      "trunkid": "2",
+      "primaryinterface": "1/1",
+      "portlist": "e 1/1"
+    },
+    {
+      "lagnameshort": "videouplink",
+      "lagtype": "static",
+      "deployed": "Y",
+      "trunkid": "8",
+      "primaryinterface": "2/15",
+      "portlist": "e 1/15 to 1/18 e 2/15 t",
+      "portlistcont": "o 2/18"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "lagnameshort_lagtype_deployed_trunkid_primaryinterface_portlist": [
+        {
+          "lagnameshort": "Total number of trunks",
+          "lagtype": "created",
+          "deployed": ":",
+          "trunkid": "12",
+          "primaryinterface": "(116",
+          "portlist": "available), 100/40g : 0 (8 available)"
+        },
+        {
+          "lagnameshort": "Akamai Uplink",
+          "lagtype": "dynamic",
+          "deployed": "Y",
+          "trunkid": "11",
+          "primaryinterface": "1/13",
+          "portlist": "e 1/13 e 2/13"
+        },
+        {
+          "lagnameshort": "CLMAMOFW-FLTNHT",
+          "lagtype": "dynamic",
+          "deployed": "Y",
+          "trunkid": "7",
+          "primaryinterface": "4/2",
+          "portlist": "e 3/2 e 4/2"
+        },
+        {
+          "lagnameshort": "LAG5",
+          "lagtype": "dynamic",
+          "deployed": "Y",
+          "trunkid": "5",
+          "primaryinterface": "3/3",
+          "portlist": "e 3/3 to 3/4"
+        },
+        {
+          "lagnameshort": "LAG6",
+          "lagtype": "dynamic",
+          "deployed": "Y",
+          "trunkid": "6",
+          "primaryinterface": "4/3",
+          "portlist": "e 4/3 to 4/4"
+        },
+        {
+          "lagnameshort": "MLX-1a",
+          "lagtype": "dynamic",
+          "deployed": "Y",
+          "trunkid": "4",
+          "primaryinterface": "2/2",
+          "portlist": "e 2/2"
+        },
+        {
+          "lagnameshort": "MLX-CLMAMOXE",
+          "lagtype": "dynamic",
+          "deployed": "Y",
+          "trunkid": "3",
+          "primaryinterface": "2/1",
+          "portlist": "e 2/1"
+        },
+        {
+          "lagnameshort": "Switch1e.clmamofw",
+          "lagtype": "dynamic",
+          "deployed": "Y",
+          "trunkid": "10",
+          "primaryinterface": "1/5",
+          "portlist": "e 1/5 e 2/21"
+        },
+        {
+          "lagnameshort": "fw1-inside",
+          "lagtype": "dynamic",
+          "deployed": "Y",
+          "trunkid": "12",
+          "primaryinterface": "1/24",
+          "portlist": "e 1/24 e 2/24"
+        },
+        {
+          "lagnameshort": "fw1-outside",
+          "lagtype": "dynamic",
+          "deployed": "Y",
+          "trunkid": "13",
+          "primaryinterface": "1/10",
+          "portlist": "e 1/10 e 2/10"
+        },
+        {
+          "lagnameshort": "speedtest",
+          "lagtype": "dynamic",
+          "deployed": "Y",
+          "trunkid": "9",
+          "primaryinterface": "2/23",
+          "portlist": "e 1/11 e 2/23"
+        },
+        {
+          "lagnameshort": "switch1c-MLX-FW",
+          "lagtype": "dynamic",
+          "deployed": "Y",
+          "trunkid": "2",
+          "primaryinterface": "1/1",
+          "portlist": "e 1/1"
+        },
+        {
+          "lagnameshort": "videouplink",
+          "lagtype": "static",
+          "deployed": "Y",
+          "trunkid": "8",
+          "primaryinterface": "2/15",
+          "portlist": "e 1/15 to 1/18 e 2/15 t"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Total number of LAGs\t: 12, 100/40g : 0\nTotal number of deployed LAGs\t: 12, 100/40g : 0\nTotal number of trunks created\t: 12 (116 available), 100/40g : 0 (8 available)\nLACP System Priority / ID\t:1 / 0024.38a5.5f00\nLACP Long timeout\t:90, default: 90\nLACP Short timeout\t:3, default: 3\n\nLAG                Type      Deploy Trunk Primary        Port List\nAkamai Uplink     dynamic      Y     11     1/13        e 1/13 e 2/13\nCLMAMOFW-FLTNHT   dynamic      Y     7      4/2         e 3/2 e 4/2\nLAG5              dynamic      Y     5      3/3         e 3/3 to 3/4\nLAG6              dynamic      Y     6      4/3         e 4/3 to 4/4\nMLX-1a            dynamic      Y     4      2/2         e 2/2\nMLX-CLMAMOXE      dynamic      Y     3      2/1         e 2/1\nSwitch1e.clmamofw dynamic      Y     10     1/5         e 1/5 e 2/21\nfw1-inside        dynamic      Y     12     1/24        e 1/24 e 2/24\nfw1-outside       dynamic      Y     13     1/10        e 1/10 e 2/10\nspeedtest         dynamic      Y     9      2/23        e 1/11 e 2/23\nswitch1c-MLX-FW   dynamic      Y     2      1/1         e 1/1\nvideouplink       static       Y     8      2/15        e 1/15 to 1/18 e 2/15 t\n                                                        o 2/18\n",
+  "textfsm_template": "Value lagnameshort ([0-9\\/\\sA-Za-z\\-\\.]+)\nValue lagtype (dynamic|static)\nValue deployed (Y|N)\nValue trunkid (\\d+)\nValue primaryinterface ([0-9\\/]+)\nValue portlist ([eto0-9\\/\\s\\r\\n]+)\nValue portlistcont ([eto0-9\\/\\s\\r\\n]+)\n\nStart\n  ^\\S -> Continue.Record\n  ^${lagnameshort}${lagtype}\\s+${deployed}\\s+${trunkid}\\s+${primaryinterface}\\s+${portlist}\n  ^\\s+${portlistcont}"
+}

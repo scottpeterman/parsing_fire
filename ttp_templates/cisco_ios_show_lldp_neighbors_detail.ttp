@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_lldp_neighbors_detail
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="local_interface_mgmt_address_neighbor_description_neighbor_interface">
+Local Intf: {{LOCAL_INTERFACE | ORPHRASE}}
+Chassis id: {{NEIGHBOR_INTERFACE | ORPHRASE}}
+System Name: {{NEIGHBOR_NAME | ORPHRASE}}
+{{NEIGHBOR_DESCRIPTION | ORPHRASE}}
+  IP: {{MGMT_ADDRESS | ORPHRASE}}
+</group>

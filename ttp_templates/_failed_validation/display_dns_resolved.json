@@ -1,0 +1,35 @@
+{
+  "command": "display dns resolved",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 3,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"type_address_ttl\">\n{{HOSTN{{TYPE}}ME | re(\"\\\\S+\")}} A {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{TTL | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "HOSTNAME": "google.com",
+      "TYPE": "A",
+      "ADDRESS": "172.217.9.78",
+      "TTL": "160"
+    },
+    {
+      "HOSTNAME": "yahoo.com",
+      "TYPE": "A",
+      "ADDRESS": "98.138.219.231",
+      "TTL": "180"
+    },
+    {
+      "HOSTNAME": "facebook.com",
+      "TYPE": "A",
+      "ADDRESS": "157.240.20.35",
+      "TTL": "76"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Hostname                      Type   Address             TTL\ngoogle.com                    A      172.217.9.78        160\nyahoo.com                     A      98.138.219.231      180\nfacebook.com                  A      157.240.20.35       76\n",
+  "textfsm_template": "Value HOSTNAME (\\S+)\nValue TYPE (\\S+)\nValue ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue TTL (\\d+)\n\nStart\n  ^\\s*Hostname\\s+Type\\s+Address\\s+TTL\\s*$$\n  ^\\s*${HOSTNAME}\\s+${TYPE}\\s+${ADDRESS}\\s+${TTL}\\s*$$ -> Record"
+}

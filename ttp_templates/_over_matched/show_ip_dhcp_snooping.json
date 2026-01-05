@@ -1,0 +1,47 @@
+{
+  "command": "show ip dhcp snooping",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 4.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"abort_timer_agent_url_circuit_id_enabled\">\nDHCP snooping is {{ENABLED | ORPHRASE}}\n{{VLAN_CONFIGURED | ORPHRASE}}\n{{INTERFACE | ORPHRASE}}\n  circuit-id default format: {{CIRCUIT_ID | ORPHRASE}}\n  remote-id default format: {{REMOTE_ID | ORPHRASE}}\n  Agent URL : {{AGENT_URL | ORPHRASE}}\n  Write delay Timer: {{WRITE_DELAY_TIMER | ORPHRASE}} seconds\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ENABLED": "enabled",
+      "VLAN_CONFIGURED": "1,10-20",
+      "INTERFACE": "FastEthernet0/3",
+      "OPTION82_ENABLED": "enabled",
+      "CIRCUIT_ID": "vlan-mod-port",
+      "REMOTE_ID": "MAC",
+      "VERIFICATION_RELAY_AGENT_IP": "enabled",
+      "AGENT_URL": "tftp://192.168.0.1/snooping-database",
+      "WRITE_DELAY_TIMER": "300",
+      "ABORT_TIMER": "300"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "abort_timer_agent_url_circuit_id_enabled": [
+        {
+          "ENABLED": "enabled"
+        },
+        {
+          "VLAN_CONFIGURED": "1,10-20",
+          "ENABLED": "configured on following VLANs:"
+        },
+        {
+          "VLAN_CONFIGURED": "1,12",
+          "ENABLED": "operational on following VLANs:"
+        },
+        {
+          "VLAN_CONFIGURED": "Associated interfaces:",
+          "ENABLED": "configured on the following Interfaces:"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Switch DHCP snooping configuration:\nDHCP snooping is enabled\nDHCP snooping is configured on following VLANs:\n1,10-20\nDHCP snooping is operational on following VLANs:\n1,12\nDHCP snooping is configured on the following Interfaces:\nAssociated interfaces: \nFastEthernet0/1\nFastEthernet0/2\nFastEthernet0/3\nInsertion of option 82 is enabled\n   circuit-id default format: vlan-mod-port\n   remote-id default format: MAC\nOption 82 on untrusted port is not allowed\nVerification of relay agent IP address is enabled\n\nDHCP snooping database configuration:\n   Agent URL : tftp://192.168.0.1/snooping-database\n   Write delay Timer: 300 seconds\n   Abort Timer: 300 seconds\n",
+  "textfsm_template": "Value ENABLED (\\S+)\nValue VLAN_CONFIGURED ((\\d+(,\\d+-\\d+)*))\nValue VLAN_OPERATIONAL ((\\d+(,\\d+-\\d+)*))\nValue INTERFACE (\\S+)\nValue OPTION82_ENABLED (\\S+)\nValue CIRCUIT_ID (\\S+)\nValue REMOTE_ID (\\S+)\nValue OPTION82_UNTRUSTED_PORT (\\S+)\nValue VERIFICATION_RELAY_AGENT_IP (\\S+)\nValue AGENT_URL (\\S+)\nValue WRITE_DELAY_TIMER (\\d+)\nValue ABORT_TIMER (\\d+)\n\nStart\n  ^DHCP\\s+snooping\\s+is\\s+${ENABLED}\\s*$$\n  ^DHCP\\s+snooping\\s+is\\s+configured\\s+on\\s+following\\s+VLANs:\\s*$$\n  ^\\s*${VLAN_CONFIGURED}\\s*$$\n  ^DHCP\\s+snooping\\s+is\\s+operational\\s+on\\s+following\\s+VLANs:\\s*$$\n  ^\\s*${VLAN_OPERATIONAL}\\s*$$\n  ^DHCP\\s+snooping\\s+is\\s+configured\\s+on\\s+the\\s+following\\s+Interfaces:\\s*$$\n  ^Associated\\s+interfaces:\\s*$$\n  ^\\s*${INTERFACE}\\s*$$\n  ^Insertion\\s+of\\s+option\\s+82\\s+is\\s+${OPTION82_ENABLED}\\s*$$\n  ^\\s+circuit-id\\s+default\\s+format:\\s+${CIRCUIT_ID}\\s*$$\n  ^\\s+remote-id\\s+default\\s+format:\\s+${REMOTE_ID}\\s*$$\n  ^Option\\s+82\\s+on\\s+untrusted\\s+port\\s+is\\s+${OPTION82_UNTRUSTED_PORT}\\s*$$\n  ^Verification\\s+of\\s+relay\\s+agent\\s+IP\\s+address\\s+is\\s+${VERIFICATION_RELAY_AGENT_IP}\\s*$$\n  ^DHCP\\s+snooping\\s+database\\s+configuration:\\s*$$\n  ^\\s+Agent\\s+URL\\s+:\\s+${AGENT_URL}\\s*$$\n  ^\\s+Write\\s+delay\\s+Timer:\\s+${WRITE_DELAY_TIMER}\\s+seconds\\s*$$\n  ^\\s+Abort\\s+Timer:\\s+${ABORT_TIMER}\\s+seconds\\s*$$"
+}

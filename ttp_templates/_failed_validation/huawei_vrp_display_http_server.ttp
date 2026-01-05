@@ -1,0 +1,14 @@
+# TTP Template - FAILED VALIDATION
+# Original command: huawei_vrp_display_http_server
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="current_online_users_https_ipv6_status_https_server_port_https_server_status">
+  HTTP Server Status  : {{HTTP_SERVER_STATUS | ORPHRASE}}
+  HTTP Server Port  : {{HTTP_SERVER_PORT | ORPHRASE}}
+  HTTP Timeout Interval  : {{HTTP_TIMEOUT_INTERVAL | ORPHRASE}}
+  Maximum Users Allowed  : {{MAXIMUM_USERS_ALLOWED | ORPHRASE}}
+  HTTP Secure-server Port  : {{HTTPS_SERVER_PORT | ORPHRASE}}
+  HTTP SSL Policy  : {{HTTP_SSL_POLICY | ORPHRASE}}
+  HTTP server source address  : {{HTTP_SERVER_SOURCE_ADDRESS | ORPHRASE}}
+</group>

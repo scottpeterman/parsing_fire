@@ -1,0 +1,35 @@
+{
+  "command": "show cts interface",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"cts_last_change_cts_status_enforcement_ep_policy\">\nSGT/SGPN Enforcement: {{ENFORCEMENT | ORPHRASE}}\nEndpoint Policy Attribute: {{EP_POLICY | ORPHRASE}} \nLast Policy Download Status: {{LAST_POLICY_STATUS | ORPHRASE}}\nInterface: {{INTERFACE | ORPHRASE}}\nStatus: {{CTS_STATUS | ORPHRASE}}\nLast Status Change: {{CTS_LAST_CHANGE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CTS_STATUS": "DOWN",
+      "CTS_LAST_CHANGE": "1w2d",
+      "ENFORCEMENT": "Enabled",
+      "EP_POLICY": "None",
+      "SGACL_POLICY": "None",
+      "LAST_POLICY_STATUS": "N/A",
+      "INTERFACE": "GigabitEthernet0/1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "cts_last_change_cts_status_enforcement_ep_policy": {
+        "CTS_LAST_CHANGE": "2d5h",
+        "CTS_STATUS": "UP",
+        "INTERFACE": "GigabitEthernet0/0",
+        "LAST_POLICY_STATUS": "N/A",
+        "EP_POLICY": "None",
+        "ENFORCEMENT": "Enabled"
+      }
+    }
+  ],
+  "cli_content": "CTS: \nStatus: UP\nLast Status Change: 3d13h\nSGT/SGPN Enforcement: Enabled\nEndpoint Policy Attribute: None \nSGACL Policy: None \nLast Policy Download Status: N/A\n\nInterface: GigabitEthernet0/0\nStatus: UP\nLast Status Change: 2d5h\n\nInterface: GigabitEthernet0/1\nStatus: DOWN\nLast Status Change: 1w2d\n",
+  "textfsm_template": "Value CTS_STATUS (UP|DOWN)\nValue CTS_LAST_CHANGE (\\S+)\nValue ENFORCEMENT (\\S+)\nValue EP_POLICY (\\S+)\nValue SGACL_POLICY (\\S+)\nValue LAST_POLICY_STATUS (\\S+)\nValue INTERFACE (\\S+)\nValue IF_STATUS (UP|DOWN)\nValue IF_LAST_CHANGE (\\S+)\n\nStart\n  ^CTS:\\s*$$\n  ^Status:\\s+${CTS_STATUS}\\s*$$\n  ^Last\\sStatus\\sChange:\\s+${CTS_LAST_CHANGE}\\s*$$\n  ^SGT\\/SGPN\\sEnforcement:\\s+${ENFORCEMENT}\\s*$$\n  ^Endpoint\\sPolicy\\sAttribute:\\s+${EP_POLICY}\\s*$$\n  ^SGACL\\sPolicy:\\s+${SGACL_POLICY}\\s*$$\n  ^Last\\sPolicy\\sDownload\\sStatus:\\s+${LAST_POLICY_STATUS}\\s*$$\n  ^$$\n  ^Interface:\\s+${INTERFACE}\\s*$$\n  ^Status:\\s+${IF_STATUS}\\s*$$\n  ^Last\\sStatus\\sChange:\\s+${IF_LAST_CHANGE}\\s*$$ -> Record"
+}

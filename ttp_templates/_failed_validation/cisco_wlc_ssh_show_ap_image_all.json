@@ -1,0 +1,35 @@
+{
+  "command": "cisco_wlc_ssh_show_ap_image_all",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 2,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"next_retry_time_primary_image_backup_image_predownload_status_predownload_version_retry_count\">\n{{AP_{{NEXT_RETRY_TIME}}ME}} {{PRIMARY_IMAGE}} {{BACKUP_IMAGE}} {{PREDOWNLOAD_STATUS | ORPHRASE}} {{PREDOWNLOAD_VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{RETRY_COUNT}} NA \n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "AP_NAME": "ESP1-05-NAP01",
+      "PRIMARY_IMAGE": "8.5.161.0",
+      "BACKUP_IMAGE": "0.0.0.0",
+      "PREDOWNLOAD_STATUS": "None",
+      "PREDOWNLOAD_VERSION": "None",
+      "NEXT_RETRY_TIME": "NA",
+      "RETRY_COUNT": "NA"
+    },
+    {
+      "AP_NAME": "ESP1-05-NAP02",
+      "PRIMARY_IMAGE": "8.5.161.0",
+      "BACKUP_IMAGE": "0.0.0.0",
+      "PREDOWNLOAD_STATUS": "None",
+      "PREDOWNLOAD_VERSION": "None",
+      "NEXT_RETRY_TIME": "NA",
+      "RETRY_COUNT": "NA"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "\nTotal number of APs.............................. 2\nNumber of APs\n\tInitiated....................................... 0\n\tDownloading..................................... 0\n\tPredownloading.................................. 0\n\tCompleted predownloading........................ 0\n\tNot Supported................................... 0\n\tFailed to Predownload........................... 0\n\n                                                 Predownload     Predownload                                  Flexconnect\nAP Name            Primary Image  Backup Image   Status          Version        Next Retry Time  Retry Count  Predownload\n------------------ -------------- -------------- --------------- -------------- ---------------- ------------ --------------\nESP1-05-NAP01      8.5.161.0      0.0.0.0        None            None           NA               NA                       \nESP1-05-NAP02      8.5.161.0      0.0.0.0        None            None           NA               NA                       \n\n",
+  "textfsm_template": "Value AP_NAME (\\S+)\nValue PRIMARY_IMAGE ([0-9\\.]+)\nValue BACKUP_IMAGE ([0-9\\.]+)\nValue PREDOWNLOAD_STATUS (\\S+)\nValue PREDOWNLOAD_VERSION (\\S+)\nValue NEXT_RETRY_TIME (\\S+)\nValue RETRY_COUNT (\\S+)\nValue FLEXCON_PREDOWN (\\s+)\n\n\nStart\n  ^${AP_NAME}\\s+${PRIMARY_IMAGE}\\s+${BACKUP_IMAGE}\\s+${PREDOWNLOAD_STATUS}\\s+${PREDOWNLOAD_VERSION}\\s+${NEXT_RETRY_TIME}\\s+${RETRY_COUNT}\\s*$$ -> Record\n  ^Total\\s+number\\s+of\\s+APs\n  ^Number\\s+of\\s+APs\n  ^.+\\.+\n  ^\\s*$$\n  ^\\s*Predownload\\s+Predownload\\s+Flexconnect\n  ^AP\\s+Name\\s+Primary\\s+Image\\s+Backup\\s+Image\\s+Status\\s+Version\\s+Next\\s+Retry\\s+Time\\s+Retry\\s+Count\\s+Predownload\\s*$$\n  ^-+\n  ^. -> Error\n"
+}

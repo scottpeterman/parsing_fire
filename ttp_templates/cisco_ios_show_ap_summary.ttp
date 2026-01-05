@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ap_summary
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 6
+# Match ratio: 1.00
+
+<group name="ap_name_slot_ap_model_mac_address_radio_mac_country_regulatory_domain_ip_address_state_location">
+{{AP_NAME}} {{SLOT | re("\\d+")}} {{AP_MODEL}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{RADIO_MAC | re("[0-9a-fA-F:.-]+")}} {{COUNTRY}} {{REGULATORY_DOMAIN}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATE | ORPHRASE}} {{LOCATION | ORPHRASE}} 
+</group>

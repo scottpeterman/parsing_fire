@@ -1,0 +1,111 @@
+{
+  "command": "brocade_netiron_show_lldp_neighbors_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 10,
+  "ttp_template": "<group name=\"neighbor_port_id_holdtime\">\n  Neighbor: {{NEIGHBOR_PORT_ID}}, TTL {{HOLDTIME | ORPHRASE}} seconds\n</group>\n<group name=\"local_interface\">\nLocal port: {{LOCAL_INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOCAL_INTERFACE": "1/1",
+      "NEIGHBOR_PORT_ID": "0012.f2f0.2377",
+      "HOLDTIME": "101",
+      "NEIGHBOR_NAME": "switch1d.clmamofw",
+      "NEIGHBOR_INTERFACE": "GigabitEthernet24",
+      "VLAN_ID": "1",
+      "MGMT_ADDRESS": "10.255.1.49",
+      "NEIGHBOR_LACP_INDEX": "0",
+      "NEIGHBOR_MAX_FRAME_SIZE": "10240",
+      "NEIGHBOR_MAU": "1000BaseT-FD",
+      "CAPABILITIES": "bridge"
+    },
+    {
+      "LOCAL_INTERFACE": "1/5",
+      "NEIGHBOR_PORT_ID": "001b.ed6b.6304",
+      "HOLDTIME": "97",
+      "NEIGHBOR_NAME": "switch1e.clmamofw",
+      "NEIGHBOR_INTERFACE": "GigabitEthernet5",
+      "VLAN_ID": "none",
+      "MGMT_ADDRESS": "10.255.5.32",
+      "NEIGHBOR_LACP_INDEX": "5",
+      "NEIGHBOR_MAX_FRAME_SIZE": "10240",
+      "NEIGHBOR_MAU": "1000BaseT-FD",
+      "CAPABILITIES": "bridge"
+    },
+    {
+      "LOCAL_INTERFACE": "1/6",
+      "NEIGHBOR_PORT_ID": "e8e7.32cd.b14e",
+      "HOLDTIME": "114"
+    },
+    {
+      "LOCAL_INTERFACE": "1/10",
+      "NEIGHBOR_PORT_ID": "001b.edae.fe09",
+      "HOLDTIME": "106",
+      "NEIGHBOR_NAME": "fw1.clmamofw",
+      "NEIGHBOR_INTERFACE": "GigabitEthernet1/10",
+      "VLAN_ID": "none",
+      "MGMT_ADDRESS": "216.106.21.252",
+      "NEIGHBOR_LACP_INDEX": "10",
+      "NEIGHBOR_MAX_FRAME_SIZE": "9216",
+      "NEIGHBOR_MAU": "1000BaseT-FD",
+      "CAPABILITIES": "bridge, router"
+    },
+    {
+      "LOCAL_INTERFACE": "1/13",
+      "NEIGHBOR_PORT_ID": "0026.f13c.85a9",
+      "HOLDTIME": "102",
+      "NEIGHBOR_NAME": "FEBE1.SOCKET-COU",
+      "NEIGHBOR_INTERFACE": "23",
+      "MGMT_ADDRESS": "192.168.11.1",
+      "NEIGHBOR_MAU": "1000BaseT-FD",
+      "CAPABILITIES": "bridge"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neighbor_port_id_holdtime": [
+        {
+          "NEIGHBOR_PORT_ID": "0012.f2f0.2377",
+          "HOLDTIME": "101"
+        },
+        {
+          "NEIGHBOR_PORT_ID": "001b.ed6b.6304",
+          "HOLDTIME": "97"
+        },
+        {
+          "NEIGHBOR_PORT_ID": "e8e7.32cd.b14e",
+          "HOLDTIME": "114"
+        },
+        {
+          "NEIGHBOR_PORT_ID": "001b.edae.fe09",
+          "HOLDTIME": "106"
+        },
+        {
+          "NEIGHBOR_PORT_ID": "0026.f13c.85a9",
+          "HOLDTIME": "102"
+        }
+      ],
+      "local_interface": [
+        {
+          "LOCAL_INTERFACE": "1/1"
+        },
+        {
+          "LOCAL_INTERFACE": "1/5"
+        },
+        {
+          "LOCAL_INTERFACE": "1/6"
+        },
+        {
+          "LOCAL_INTERFACE": "1/10"
+        },
+        {
+          "LOCAL_INTERFACE": "1/13"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Total number of LLDP neighbors on all ports: 38\nLocal port: 1/1\n  Neighbor: 0012.f2f0.2377, TTL 101 seconds\n    + Chassis ID (MAC address): 0012.f2f0.2360\n    + Port ID (MAC address): 0012.f2f0.2377\n    + Time to live: 120 seconds\n    + System name         : \"switch1d.clmamofw\"\n    + Port description    : \"GigabitEthernet24\"\n    + System capabilities : bridge\n      Enabled capabilities: bridge\n    + 802.3 MAC/PHY          : auto-negotiation enabled\n      Advertised capabilities: 10BaseT-HD, 10BaseT-FD, 100BaseTX-HD,\n                               100BaseTX-FD, fdxSPause, fdxBPause,\n                               1000BaseT-HD, 1000BaseT-FD\n      Operational MAU type   : 1000BaseT-FD\n    + Link aggregation: aggregated (aggregated port ifIndex: 0)\n    + Maximum frame size: 10240 octets\n    + Port VLAN ID: 1\n    + Management address (IPv4): 10.255.1.49\n\nLocal port: 1/5\n  Neighbor: 001b.ed6b.6304, TTL 97 seconds\n    + Chassis ID (MAC address): 001b.ed6b.6300\n    + Port ID (MAC address): 001b.ed6b.6304                       \n    + Time to live: 120 seconds\n    + System name         : \"switch1e.clmamofw\"\n    + Port description    : \"GigabitEthernet5\"\n    + System capabilities : bridge\n      Enabled capabilities: bridge\n    + 802.3 MAC/PHY          : auto-negotiation enabled\n      Advertised capabilities: 10BaseT-HD, 10BaseT-FD, 100BaseTX-HD,\n                               100BaseTX-FD, fdxSPause, fdxBPause,\n                               1000BaseT-HD, 1000BaseT-FD\n      Operational MAU type   : 1000BaseT-FD\n    + Link aggregation: aggregated (aggregated port ifIndex: 5)\n    + Maximum frame size: 10240 octets\n    + Port VLAN ID: none\n    + Management address (IPv4): 10.255.5.32\n\nLocal port: 1/6\n  Neighbor: e8e7.32cd.b14e, TTL 114 seconds\n    + Chassis ID (MAC address): e8e7.32cd.b9e8\n    + Port ID (locally assigned): \"3045\"\n    + Time to live: 120 seconds\n\nLocal port: 1/10\n  Neighbor: 001b.edae.fe09, TTL 106 seconds                       \n    + Chassis ID (MAC address): 001b.edae.fe00\n    + Port ID (MAC address): 001b.edae.fe09\n    + Time to live: 120 seconds\n    + System name         : \"fw1.clmamofw\"\n    + Port description    : \"GigabitEthernet1/10\"\n    + System capabilities : bridge, router\n      Enabled capabilities: bridge, router\n    + 802.3 MAC/PHY          : auto-negotiation enabled\n      Advertised capabilities: 10BaseT-HD, 10BaseT-FD, 100BaseTX-HD,\n                               100BaseTX-FD, 1000BaseT-HD, 1000BaseT-FD\n      Operational MAU type   : 1000BaseT-FD\n    + Link aggregation: aggregated (aggregated port ifIndex: 10)\n    + Maximum frame size: 9216 octets\n    + Port VLAN ID: none\n    + Management address (IPv4): 216.106.21.252\n\nLocal port: 1/13\n  Neighbor: 0026.f13c.85a9, TTL 102 seconds\n    + Chassis ID (MAC address): 0026.f13c.8580\n    + Port ID (locally assigned): \"23\"\n    + Time to live: 120 seconds\n    + Port description    : \"23\"\n    + System name         : \"FEBE1.SOCKET-COU\"                    \n    + System description  : \"ProCurve J9145A 2910al-24G Switch, revision W.14.\\\n                             72, ROM W.14.06 (/ws/swbuildm/W_titan4_v14_a_qaof\\\n                             f/code/build/sbm(W_titan4_v14_a_qaoff))\"\n    + System capabilities : bridge, router\n      Enabled capabilities: bridge\n    + Management address (IPv4): 192.168.11.1\n    + 802.3 MAC/PHY          : auto-negotiation enabled\n      Advertised capabilities: 10BaseT-HD, 10BaseT-FD, 100BaseTX-HD,\n                               100BaseTX-FD, 1000BaseT-FD\n      Operational MAU type   : 1000BaseT-FD\n    + 802.3 Power via MDI: PSE port, power not supported\n",
+  "textfsm_template": "Value Filldown LOCAL_INTERFACE ([0-9\\/]+)\nValue Required NEIGHBOR_PORT_ID (\\w+\\.\\w+\\.\\w+)\nValue HOLDTIME (\\d+)\nValue NEIGHBOR_NAME (.+)\nValue NEIGHBOR_INTERFACE ([a-zA-Z0-9\\/\\s]+)\nValue VLAN_ID (\\d+|none)\nValue MGMT_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue NEIGHBOR_LACP_INDEX (\\d+)\nValue NEIGHBOR_MAX_FRAME_SIZE (\\d+)\nValue NEIGHBOR_MAU ([a-zA-Z0-9\\-]+)\nValue CAPABILITIES (.+)\n\nStart\n  ^\\w -> Continue.Record\n  ^Local\\s+port:\\s+${LOCAL_INTERFACE}\n  ^\\s+\\+\\s+System\\s+name\\s+:\\s+\"${NEIGHBOR_NAME}\"\n  ^\\s+\\+\\s+Port\\s+description\\s+:\\s+\"${NEIGHBOR_INTERFACE}\"\n  ^\\s+Enabled\\s+capabilities\\s*:\\s+${CAPABILITIES}\n  ^\\s+\\+\\s+Port\\s+VLAN\\s+ID:\\s+${VLAN_ID}\n  ^\\s+\\+\\s+Management\\s+address\\s+\\(IPv4\\):\\s+${MGMT_ADDRESS}\n  ^\\s+\\+\\s+Link\\s+aggregation:\\s+aggregated\\s+\\(aggregated\\s+port\\s+ifIndex:\\s+${NEIGHBOR_LACP_INDEX}\\)\n  ^\\s+\\+\\s+Maximum\\s+frame\\s+size:\\s+${NEIGHBOR_MAX_FRAME_SIZE}\n  ^\\s+Operational\\s+MAU\\s+type\\s+:\\s+${NEIGHBOR_MAU}\n  ^\\s+Neighbor:\\s+${NEIGHBOR_PORT_ID},\\s+TTL\\s+${HOLDTIME}\n"
+}

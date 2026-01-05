@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_flow_toptalkers
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="src_intf_src_ipaddr_dst_intf_dst_ipaddr_proto_src_port_dst_port_pkt">
+{{SRC_INTF}} {{SRC_IPADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{DST_INTF}} {{DST_IPADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{PROTO}} {{SRC_PORT}} {{DST_PORT}} {{PKT | ORPHRASE}}
+</group>

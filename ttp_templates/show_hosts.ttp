@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show hosts
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="host_ipv4_ipv6">
+{{HOST | re("\\S+")}} {{IPV4 | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{IPV6 | ORPHRASE}}
+</group>

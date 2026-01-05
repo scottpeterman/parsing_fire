@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_environment
+# Source: ntc
+# TextFSM rows: 7
+# TTP rows: 7
+# Match ratio: 1.00
+
+<group name="power_supply_power_supply_model_power_supply_output_power_supply_input_power_supply_capacity_power_supply_status">
+{{POWER_SUPPLY}} {{POWER_SUPPLY_MODEL}} {{POWER_SUPPLY_OUTPUT}} W {{POWER_SUPPLY_INPUT}} W {{POWER_SUPPLY_CAPACITY}} W {{POWER_SUPPLY_STATUS | ORPHRASE}}
+</group>
+<group name="temperature_module_temperature_sensor_temperature_major_thresh_temperature_minor_thresh_temperature_current_temperature_status">
+{{TEMPERATURE_MODULE | re("\\d+")}} {{TEMPERATURE_SENSOR}} {{TEMPERATURE_MAJOR_THRESH}} {{TEMPERATURE_MINOR_THRESH}} {{TEMPERATURE_CURRENT}} {{TEMPERATURE_STATUS | ORPHRASE}}
+</group>

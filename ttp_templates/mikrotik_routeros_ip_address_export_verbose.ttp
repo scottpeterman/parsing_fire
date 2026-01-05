@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_ip_address_export_verbose
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="ip_mask_disabled_interface_network">
+add address={{IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{MASK}} disabled={{DISABLED}} interface={{INTERFACE}} network={{NETWORK | ORPHRASE}}
+</group>
+<group name="ip_mask_comment_disabled_interface_network">
+add address={{IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{MASK}} comment="{{COMMENT | ORPHRASE}}" disabled={{DISABLED}} interface={{INTERFACE}} network={{NETWORK | ORPHRASE}}
+</group>

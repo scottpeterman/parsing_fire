@@ -1,0 +1,36 @@
+{
+  "command": "huawei_vrp_display_telnet_server_status",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"acl4_number_acl6_number_telnet_ipv4_server_telnet_ipv6_server\">\n TELNET IPv4 server  :{{TELNET_IPV4_SERVER | ORPHRASE}}\n TELNET server port  :{{TELNET_SERVICE_PORT | ORPHRASE}}\n TELNET server source address  :{{TELNET_SERVER_SOURCE_ADDRESS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TELNET_IPV4_SERVER": "Disable",
+      "TELNET_IPV6_SERVER": "Disable",
+      "TELNET_SERVICE_PORT": "23",
+      "TELNET_SERVER_SOURCE_ADDRESS": "0.0.0.0",
+      "ACL4_NUMBER": "0",
+      "ACL6_NUMBER": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "acl4_number_acl6_number_telnet_ipv4_server_telnet_ipv6_server": [
+        {
+          "TELNET_IPV4_SERVER": "Disable"
+        },
+        {
+          "TELNET_SERVER_SOURCE_ADDRESS": "0.0.0.0",
+          "TELNET_SERVICE_PORT": "23",
+          "TELNET_IPV4_SERVER": "Disable"
+        }
+      ]
+    }
+  ],
+  "cli_content": " TELNET IPv4 server                       :Disable\n TELNET IPv6 server                       :Disable\n TELNET server port                       :23\n TELNET server source address             :0.0.0.0\n ACL4 number                              :0\n ACL6 number                              :0\n",
+  "textfsm_template": "Value TELNET_IPV4_SERVER (\\S+)\nValue TELNET_IPV6_SERVER (\\S+)\nValue TELNET_SERVICE_PORT (\\d+)\nValue TELNET_SERVER_SOURCE_ADDRESS (\\S+)\nValue ACL4_NUMBER (\\d+)\nValue ACL6_NUMBER (\\d+)\n\nStart\n  ^\\s*TELNET\\s*IPv4\\s*server\\s*:\\s*${TELNET_IPV4_SERVER}\n  ^\\s*TELNET\\s*IPv6\\s*server\\s*:\\s*${TELNET_IPV6_SERVER}\n  ^\\s*TELNET\\s*server\\s*port\\s*:\\s*${TELNET_SERVICE_PORT}\n  ^\\s*TELNET\\s*server\\s*source\\s*address\\s*:\\s*${TELNET_SERVER_SOURCE_ADDRESS}\n  ^\\s*ACL4\\s*number\\s*:\\s*${ACL4_NUMBER}\n  ^\\s*ACL6\\s*number\\s*:\\s*${ACL6_NUMBER}\n  ^\\s*$$\n  ^. -> Error\n"
+}

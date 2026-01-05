@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show interface counters errors
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 7
+# Match ratio: 1.40
+
+<group name="port_align_err_fcs_err_xmit_err_rcv_err_under_size_out_discards">
+{{PORT}} {{ALIGN_ERR}} {{FCS_ERR}} {{XMIT_ERR}} {{RCV_ERR | ORPHRASE}} {{UNDER_SIZE}} {{OUT_DISCARDS}}
+</group>

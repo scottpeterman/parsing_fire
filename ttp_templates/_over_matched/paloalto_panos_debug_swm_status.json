@@ -1,0 +1,55 @@
+{
+  "command": "paloalto_panos_debug_swm_status",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"part_state_version\">\n{{PART}} {{STATE | ORPHRASE}} {{VERSION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PART": "sysroot0",
+      "STATE": "RUNNING-ACTIVE",
+      "VERSION": "9.0.5.xfr"
+    },
+    {
+      "PART": "sysroot1",
+      "STATE": "PENDING-CHANGE",
+      "VERSION": "9.1.2"
+    },
+    {
+      "PART": "maint",
+      "STATE": "READY",
+      "VERSION": "9.1.2"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "part_state_version": [
+        {
+          "PART": "Partition",
+          "STATE": "State",
+          "VERSION": "Version"
+        },
+        {
+          "PART": "sysroot0",
+          "STATE": "RUNNING-ACTIVE",
+          "VERSION": "9.0.5.xfr"
+        },
+        {
+          "PART": "sysroot1",
+          "STATE": "PENDING-CHANGE",
+          "VERSION": "9.1.2"
+        },
+        {
+          "PART": "maint",
+          "STATE": "READY",
+          "VERSION": "9.1.2"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nPartition         State             Version\n--------------------------------------------------------------------------------\nsysroot0          RUNNING-ACTIVE    9.0.5.xfr\nsysroot1          PENDING-CHANGE    9.1.2\nmaint             READY             9.1.2\n",
+  "textfsm_template": "Value PART (\\S+)\nValue STATE (\\S+)\nValue VERSION (\\S+)\n\nStart\n  ^Partition\\s+State\\s+Version\n  ^-+$$\n  ^${PART}\\s+${STATE}\\s+${VERSION} -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

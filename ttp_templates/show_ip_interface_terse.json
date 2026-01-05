@@ -1,0 +1,48 @@
+{
+  "command": "show ip interface terse",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"interface_admin_link_proto_local\">\n{{INTERFACE}} {{ADMIN}} {{LINK}} {{PROTO}} {{LOCAL | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "ge-0/0/0.0",
+      "ADMIN": "up",
+      "LINK": "up",
+      "PROTO": "inet4",
+      "LOCAL": "192.0.2.1"
+    },
+    {
+      "INTERFACE": "ge-0/0/1.0",
+      "ADMIN": "up",
+      "LINK": "up",
+      "PROTO": "inet4",
+      "LOCAL": "10.1.1.1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_admin_link_proto_local": [
+        {
+          "INTERFACE": "ge-0/0/0.0",
+          "ADMIN": "up",
+          "LINK": "up",
+          "PROTO": "inet4",
+          "LOCAL": "192.0.2.1"
+        },
+        {
+          "INTERFACE": "ge-0/0/1.0",
+          "ADMIN": "up",
+          "LINK": "up",
+          "PROTO": "inet4",
+          "LOCAL": "10.1.1.1"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface               Admin Link Proto    Local                 Remote\nge-0/0/0.0              up    up   inet4       192.0.2.1          \n                                      inet6       fe80::1  \nge-0/0/1.0              up    up   inet4       10.1.1.1          \n                                      inet6       fe80::2     \nge-0/0/2.0              down  down\nge-0/0/3.0              up    down\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue ADMIN (up|down)\nValue LINK (up|down)\nValue PROTO (\\S+)\nValue LOCAL (\\S+)\n\nStart\n  ^\\s*Interface\\s+Admin\\s+Link\\s+Proto\\s+Local\\s+Remote\\s*$$\n  ^\\s*${INTERFACE}\\s+${ADMIN}\\s+${LINK}\\s+${PROTO}\\s+${LOCAL}\\s*$$ -> Record"
+}

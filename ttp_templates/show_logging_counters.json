@@ -1,0 +1,90 @@
+{
+  "command": "show logging counters",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 7,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"id_message_count\">\n{{ID | re(\"\\\\d+\")}} {{MESSAGE | ORPHRASE}} {{COUNT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ID": "1011",
+      "MESSAGE": "Link failure detected",
+      "COUNT": "35"
+    },
+    {
+      "ID": "1022",
+      "MESSAGE": "High CPU usage detected",
+      "COUNT": "27"
+    },
+    {
+      "ID": "1033",
+      "MESSAGE": "Memory usage high",
+      "COUNT": "18"
+    },
+    {
+      "ID": "1044",
+      "MESSAGE": "Power supply failure",
+      "COUNT": "3"
+    },
+    {
+      "ID": "1055",
+      "MESSAGE": "Module failure detected",
+      "COUNT": "11"
+    },
+    {
+      "ID": "1066",
+      "MESSAGE": "Configuration changed",
+      "COUNT": "22"
+    },
+    {
+      "ID": "1077",
+      "MESSAGE": "Software upgrade completed",
+      "COUNT": "1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "id_message_count": [
+        {
+          "ID": "1011",
+          "MESSAGE": "Link failure detected",
+          "COUNT": "35"
+        },
+        {
+          "ID": "1022",
+          "MESSAGE": "High CPU usage detected",
+          "COUNT": "27"
+        },
+        {
+          "ID": "1033",
+          "MESSAGE": "Memory usage high",
+          "COUNT": "18"
+        },
+        {
+          "ID": "1044",
+          "MESSAGE": "Power supply failure",
+          "COUNT": "3"
+        },
+        {
+          "ID": "1055",
+          "MESSAGE": "Module failure detected",
+          "COUNT": "11"
+        },
+        {
+          "ID": "1066",
+          "MESSAGE": "Configuration changed",
+          "COUNT": "22"
+        },
+        {
+          "ID": "1077",
+          "MESSAGE": "Software upgrade completed",
+          "COUNT": "1"
+        }
+      ]
+    }
+  ],
+  "cli_content": "ID     Alert Message                                  Count\n----   --------------------------------------------   -----\n1011   Link failure detected                           35\n1022   High CPU usage detected                         27\n1033   Memory usage high                               18\n1044   Power supply failure                             3\n1055   Module failure detected                         11\n1066   Configuration changed                           22\n1077   Software upgrade completed                       1\n",
+  "textfsm_template": "Value ID (\\d+)\nValue MESSAGE (.+?)\nValue COUNT (\\d+)\n\nStart\n  ^\\s*ID\\s+Alert Message\\s+Count\\s*$$\n  ^\\s*----\\s+--------------------------------------------\\s+-----\\s*$$\n  ^\\s*${ID}\\s+${MESSAGE}\\s+${COUNT}\\s*$$ -> Record\n"
+}

@@ -1,0 +1,321 @@
+{
+  "command": "cisco_wlc_ssh_show_tacacs_summary",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 3.0,
+  "textfsm_rows": 9,
+  "ttp_rows": 27,
+  "ttp_template": "<group name=\"index_authentication_addr_port_state_timeout_mgmt_timeout\">\n{{INDEX}} {{AUTHENTICATION_ADDR | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{PORT | re(\"\\\\d+\")}} {{STATE | ORPHRASE}} {{TIMEOUT}} {{MGMT_TIMEOUT}} \n</group>\n<group name=\"index_authorization_addr_port_state_timeout_mgmt_timeout\">\n{{INDEX}} {{AUTHORIZATION_ADDR | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{PORT | re(\"\\\\d+\")}} {{STATE | ORPHRASE}} {{TIMEOUT}} {{MGMT_TIMEOUT}} \n</group>\n<group name=\"index_accounting_addr_port_state_timeout_mgmt_timeout\">\n{{INDEX}} {{ACCOUNTING_ADDR | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{PORT | re(\"\\\\d+\")}} {{STATE | ORPHRASE}} {{TIMEOUT}} {{MGMT_TIMEOUT}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FALLBACK_TEST_INTERVAL": "0",
+      "INDEX": "1",
+      "AUTHENTICATION_ADDR": "10.255.255.24",
+      "PORT": "49",
+      "STATE": "Enabled",
+      "TIMEOUT": "5",
+      "MGMT_TIMEOUT": "5"
+    },
+    {
+      "FALLBACK_TEST_INTERVAL": "0",
+      "INDEX": "2",
+      "AUTHENTICATION_ADDR": "10.255.255.25",
+      "PORT": "49",
+      "STATE": "Enabled",
+      "TIMEOUT": "5",
+      "MGMT_TIMEOUT": "5"
+    },
+    {
+      "FALLBACK_TEST_INTERVAL": "0",
+      "INDEX": "3",
+      "AUTHENTICATION_ADDR": "10.255.255.124",
+      "PORT": "49",
+      "STATE": "Enabled",
+      "TIMEOUT": "5",
+      "MGMT_TIMEOUT": "5"
+    },
+    {
+      "FALLBACK_TEST_INTERVAL": "0",
+      "INDEX": "1",
+      "AUTHORIZATION_ADDR": "10.255.255.26",
+      "PORT": "49",
+      "STATE": "Enabled",
+      "TIMEOUT": "5",
+      "MGMT_TIMEOUT": "5"
+    },
+    {
+      "FALLBACK_TEST_INTERVAL": "0",
+      "INDEX": "2",
+      "AUTHORIZATION_ADDR": "10.255.255.27",
+      "PORT": "49",
+      "STATE": "Enabled",
+      "TIMEOUT": "5",
+      "MGMT_TIMEOUT": "5"
+    },
+    {
+      "FALLBACK_TEST_INTERVAL": "0",
+      "INDEX": "3",
+      "AUTHORIZATION_ADDR": "10.255.255.126",
+      "PORT": "49",
+      "STATE": "Enabled",
+      "TIMEOUT": "5",
+      "MGMT_TIMEOUT": "5"
+    },
+    {
+      "FALLBACK_TEST_INTERVAL": "0",
+      "INDEX": "1",
+      "ACCOUNTING_ADDR": "10.255.255.28",
+      "PORT": "49",
+      "STATE": "Enabled",
+      "TIMEOUT": "5",
+      "MGMT_TIMEOUT": "5"
+    },
+    {
+      "FALLBACK_TEST_INTERVAL": "0",
+      "INDEX": "2",
+      "ACCOUNTING_ADDR": "10.255.255.29",
+      "PORT": "49",
+      "STATE": "Enabled",
+      "TIMEOUT": "5",
+      "MGMT_TIMEOUT": "5"
+    },
+    {
+      "FALLBACK_TEST_INTERVAL": "0",
+      "INDEX": "3",
+      "ACCOUNTING_ADDR": "10.255.255.128",
+      "PORT": "49",
+      "STATE": "Enabled",
+      "TIMEOUT": "5",
+      "MGMT_TIMEOUT": "5"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "index_authentication_addr_port_state_timeout_mgmt_timeout": [
+        {
+          "INDEX": "1",
+          "AUTHENTICATION_ADDR": "10.255.255.24",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "2",
+          "AUTHENTICATION_ADDR": "10.255.255.25",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "3",
+          "AUTHENTICATION_ADDR": "10.255.255.124",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "1",
+          "AUTHENTICATION_ADDR": "10.255.255.26",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "2",
+          "AUTHENTICATION_ADDR": "10.255.255.27",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "3",
+          "AUTHENTICATION_ADDR": "10.255.255.126",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "1",
+          "AUTHENTICATION_ADDR": "10.255.255.28",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "2",
+          "AUTHENTICATION_ADDR": "10.255.255.29",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "3",
+          "AUTHENTICATION_ADDR": "10.255.255.128",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        }
+      ],
+      "index_authorization_addr_port_state_timeout_mgmt_timeout": [
+        {
+          "INDEX": "1",
+          "AUTHORIZATION_ADDR": "10.255.255.24",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "2",
+          "AUTHORIZATION_ADDR": "10.255.255.25",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "3",
+          "AUTHORIZATION_ADDR": "10.255.255.124",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "1",
+          "AUTHORIZATION_ADDR": "10.255.255.26",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "2",
+          "AUTHORIZATION_ADDR": "10.255.255.27",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "3",
+          "AUTHORIZATION_ADDR": "10.255.255.126",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "1",
+          "AUTHORIZATION_ADDR": "10.255.255.28",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "2",
+          "AUTHORIZATION_ADDR": "10.255.255.29",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "3",
+          "AUTHORIZATION_ADDR": "10.255.255.128",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        }
+      ],
+      "index_accounting_addr_port_state_timeout_mgmt_timeout": [
+        {
+          "INDEX": "1",
+          "ACCOUNTING_ADDR": "10.255.255.24",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "2",
+          "ACCOUNTING_ADDR": "10.255.255.25",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "3",
+          "ACCOUNTING_ADDR": "10.255.255.124",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "1",
+          "ACCOUNTING_ADDR": "10.255.255.26",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "2",
+          "ACCOUNTING_ADDR": "10.255.255.27",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "3",
+          "ACCOUNTING_ADDR": "10.255.255.126",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "1",
+          "ACCOUNTING_ADDR": "10.255.255.28",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "2",
+          "ACCOUNTING_ADDR": "10.255.255.29",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        },
+        {
+          "INDEX": "3",
+          "ACCOUNTING_ADDR": "10.255.255.128",
+          "PORT": "49",
+          "STATE": "Enabled",
+          "TIMEOUT": "5",
+          "MGMT_TIMEOUT": "5"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nFallback Test:\n    Interval (in seconds)........................ 0\nAuthentication Servers\n\nIdx      Server Address        Port    State   Tout   MgmtTout\n---  ----------------------   ------  -------  -----  --------\n1    10.255.255.24                  49      Enabled  5      5         \n2    10.255.255.25                  49      Enabled  5      5         \n3    10.255.255.124                 49      Enabled  5      5         \n\nAuthorization Servers\n\nIdx      Server Address        Port    State   Tout   MgmtTout\n---  ----------------------   ------  -------  -----  --------\n1    10.255.255.26              49      Enabled  5      5         \n2    10.255.255.27              49      Enabled  5      5         \n3    10.255.255.126             49      Enabled  5      5         \n\nAccounting Servers\n\nIdx      Server Address        Port    State   Tout   MgmtTout\n---  ----------------------   ------  -------  -----  --------\n1    10.255.255.28              49      Enabled  5      5       \n2    10.255.255.29              49      Enabled  5      5       \n3    10.255.255.128             49      Enabled  5      5       \n",
+  "textfsm_template": "Value Filldown FALLBACK_TEST_INTERVAL (\\d+)\nValue Required INDEX (\\d+)\nValue AUTHENTICATION_ADDR (\\S+)\nValue AUTHORIZATION_ADDR (\\S+)\nValue ACCOUNTING_ADDR (\\S+)\nValue PORT (\\d+)\nValue STATE (\\S+)\nValue TIMEOUT (\\d+)\nValue MGMT_TIMEOUT (\\d+)\n\nStart\n  ^\\s*Fallback Test:\\s*$$\n  ^\\s+Interval \\(in seconds\\)\\s*\\.+\\s+${FALLBACK_TEST_INTERVAL}\\s*$$\n  ^\\s*Authentication Servers\\s*$$ -> AuthC_Servers\n  ^\\s*Authorization Servers\\s*$$ -> AuthZ_Servers\n  ^\\s*Accounting Servers\\s*$$ -> Acct_Servers\n  ^\\s*$$\n  ^. -> Error\n\nAuthC_Servers\n  ^\\s*Idx\\s+Server Address\\s+Port\\s+State\\s+Tout\\s+MgmtTout\\s*$$\n  ^-+\n  ^\\s*${INDEX}\\s+${AUTHENTICATION_ADDR}\\s+${PORT}\\s+${STATE}\\s+${TIMEOUT}\\s+${MGMT_TIMEOUT}\\s*$$ -> Record\n  ^\\s*Authorization Servers\\s*$$ -> AuthZ_Servers\n  ^\\s*Accounting Servers\\s*$$ -> Acct_Servers\n  ^\\s*$$\n  ^. -> Error\n\nAuthZ_Servers\n  ^\\s*Idx\\s+Server Address\\s+Port\\s+State\\s+Tout\\s+MgmtTout\\s*$$\n  ^-+\n  ^\\s*${INDEX}\\s+${AUTHORIZATION_ADDR}\\s+${PORT}\\s+${STATE}\\s+${TIMEOUT}\\s+${MGMT_TIMEOUT}\\s*$$ -> Record\n  ^\\s*Authentication Servers\\s*$$ -> AuthC_Servers\n  ^\\s*Accounting Servers\\s*$$ -> Acct_Servers\n  ^\\s*$$\n  ^. -> Error\n\nAcct_Servers\n  ^\\s*Idx\\s+Server Address\\s+Port\\s+State\\s+Tout\\s+MgmtTout\\s*$$\n  ^-+\n  ^\\s*${INDEX}\\s+${ACCOUNTING_ADDR}\\s+${PORT}\\s+${STATE}\\s+${TIMEOUT}\\s+${MGMT_TIMEOUT}\\s*$$ -> Record\n  ^\\s*Authentication Servers\\s*$$ -> AuthC_Servers\n  ^\\s*Authorization Servers\\s*$$ -> AuthZ_Servers\n  ^\\s*$$\n  ^. -> Error\n"
+}

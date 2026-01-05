@@ -1,0 +1,12 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_mobility_sum
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="group_name_ip_address_mac_address_multicast_ip">
+Default Mobility Domain.......................... {{GROUP_NAME | ORPHRASE}}
+ 08:00:27:0a:04:25  192.168.1.12  data  {{MULTICAST_IP | ORPHRASE}}  Control and Data Path Down
+ {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}}  {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}  data  0.0.0.0  {{STATUS | ORPHRASE}}
+</group>

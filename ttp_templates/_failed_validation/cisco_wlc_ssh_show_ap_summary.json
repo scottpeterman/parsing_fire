@@ -1,0 +1,39 @@
+{
+  "command": "cisco_wlc_ssh_show_ap_summary",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 2,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"ap_name_slot_ap_model_mac_address_location_country_ip_address_dse_location\">\n{{AP_NAME}} {{SLOT | re(\"\\\\d+\")}} {{AP_MODEL}} {{MAC_ADDRESS | re(\"[{{CLIENTS}}-9a-fA-F:.-]+\")}} {{LOCATION | ORPHRASE}} {{COUNTRY}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} 0 {{DSE_LOCATION | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "AP_NAME": "2800-Default",
+      "SLOT": "3",
+      "AP_MODEL": "AIR-AP2802I-E-K9",
+      "MAC_ADDRESS": "c0:ff:ee:c0:ff:ee",
+      "LOCATION": "default location",
+      "COUNTRY": "IT",
+      "IP_ADDRESS": "172.25.81.216",
+      "CLIENTS": "0",
+      "DSE_LOCATION": "[0 ,0 ,0 ]"
+    },
+    {
+      "AP_NAME": "2700-Server",
+      "SLOT": "2",
+      "AP_MODEL": "AIR-CAP2702E-E-K9",
+      "MAC_ADDRESS": "ca:fe:ca:fe:ca:fe",
+      "LOCATION": "Server room",
+      "COUNTRY": "IT",
+      "IP_ADDRESS": "172.25.81.221",
+      "CLIENTS": "0",
+      "DSE_LOCATION": "[0 ,0 ,0 ]"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "\nNumber of APs.................................... 2\n \nGlobal AP User Name.............................. admin\nGlobal AP Dot1x User Name........................ Not Configured\nGlobal AP Dot1x EAP Method....................... EAP-FAST\n \nAP Name                         Slots  AP Model              Ethernet MAC       Location              Country     IP Address       Clients  DSE Location \n------------------------------  -----  --------------------  -----------------  --------------------  ----------  ---------------  -------  --------------\n2800-Default                    3      AIR-AP2802I-E-K9       c0:ff:ee:c0:ff:ee  default location      IT          172.25.81.216    0        [0 ,0 ,0 ]\n2700-Server                     2      AIR-CAP2702E-E-K9      ca:fe:ca:fe:ca:fe  Server room           IT          172.25.81.221    0        [0 ,0 ,0 ]\n",
+  "textfsm_template": "Value AP_NAME (\\S+)\nValue SLOT (\\d+)\nValue AP_MODEL (\\S+)\nValue MAC_ADDRESS ([a-fA-F0-9:\\.]+)\nValue LOCATION (.+?)\nValue COUNTRY (\\S+)\nValue IP_ADDRESS ([a-fA-F0-9:\\.]+)\nValue CLIENTS (\\d+)\nValue DSE_LOCATION (.+?)\n\n\nStart\n  ^${AP_NAME}\\s+${SLOT}\\s+${AP_MODEL}\\s+${MAC_ADDRESS}\\s+${LOCATION}\\s+${COUNTRY}\\s+${IP_ADDRESS}\\s+${CLIENTS}\\s+${DSE_LOCATION}\\s*$$ -> Record\n  ^.+\\.+\n  ^\\s*$$\n  ^AP\\s+Name\\s+Slots\\s+AP\\s+Model\\s+Ethernet\\s+MAC\\s+Location\\s+Country\\s+IP\\s+Address\\s+Clients\\s+DSE\\s+Location\\s*$$\n  ^-+\n  ^. -> Error\n"
+}

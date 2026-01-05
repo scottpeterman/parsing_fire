@@ -1,0 +1,32 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_ap_config_general
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="administrative_state_ap_group_country_country_code">
+Cisco AP Identifier.............................. {{IDENTIFIER | ORPHRASE}}
+Cisco AP Name.................................... {{NAME | ORPHRASE}}
+Country code..................................... {{COUNTRY_CODE}}  - {{COUNTRY | ORPHRASE}}
+MAC Address...................................... {{MAC_ADDRESS | ORPHRASE}}
+IP Address....................................... {{IP_ADDRESS | ORPHRASE}}
+IP NetMask....................................... {{NETMASK | ORPHRASE}}
+Gateway IP Addr.................................. {{GATEWAY | ORPHRASE}}
+Telnet State..................................... Globally {{FLEXCONNECT_VLAN_MODE | ORPHRASE}}
+Cisco AP Group Name.............................. {{AP_GROUP | ORPHRASE}}
+Primary Cisco Switch Name........................ {{PRIMARY_SWITCH_NAME | ORPHRASE}}
+Primary Cisco Switch IP Address.................. {{PRIMARY_SWITCH_IP | ORPHRASE}}
+Secondary Cisco Switch IP Address................ {{SECONDARY_SWITCH_IP | ORPHRASE}}
+Administrative State ............................ {{ADMINISTRATIVE_STATE | ORPHRASE}}
+Operation State ................................. {{OPERATION_STATE | ORPHRASE}}
+AP Mode ......................................... {{MODE | ORPHRASE}}
+AP Model......................................... {{MODEL | ORPHRASE}}
+AP Image......................................... {{IMAGE | ORPHRASE}}
+IOS Version...................................... {{VERSION | ORPHRASE}}
+AP Serial Number................................. {{SERIAL_NUMBER | ORPHRASE}}
+AP Up Time....................................... {{UPTIME | ORPHRASE}}
+AP LWAPP Up Time................................. {{LWAPP_UPTIME | ORPHRASE}}
+Join Date and Time............................... {{JOIN_DATE_TIME | ORPHRASE}}
+Join Taken Time.................................. {{JOIN_TAKEN_TIME | ORPHRASE}}
+</group>

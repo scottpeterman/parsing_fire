@@ -1,0 +1,59 @@
+{
+  "command": "aruba_aoscx_show_bgp_all-vrfs_all_summary",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 4,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"af_vrf\">\nVRF : {{VRF | ORPHRASE}}\n<group name=\"admin_status_neighbour_remote_as\">\n {{NEIGHBOUR}} {{REMOTE_AS}} 0 0 00h:00m:00s {{STATE | ORPHRASE}} {{ADMIN_STATUS | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VRF": "default",
+      "AF": "IPv4",
+      "NEIGHBOUR": "10.252.13.2",
+      "REMOTE_AS": "4290020685",
+      "STATE": "Idle",
+      "ADMIN_STATUS": "Up"
+    },
+    {
+      "VRF": "default",
+      "AF": "IPv4",
+      "NEIGHBOUR": "172.25.0.1",
+      "REMOTE_AS": "4290000000",
+      "STATE": "Established",
+      "ADMIN_STATUS": "Up"
+    },
+    {
+      "VRF": "default",
+      "AF": "L2VPN",
+      "NEIGHBOUR": "172.18.174.17",
+      "REMOTE_AS": "4290000000",
+      "STATE": "Established",
+      "ADMIN_STATUS": "Up"
+    },
+    {
+      "VRF": "default",
+      "AF": "L2VPN",
+      "NEIGHBOUR": "172.18.174.18",
+      "REMOTE_AS": "4290000000",
+      "STATE": "Established",
+      "ADMIN_STATUS": "Up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "af_vrf": {
+        "VRF": "default",
+        "admin_status_neighbour_remote_as": {
+          "NEIGHBOUR": "10.252.13.2",
+          "REMOTE_AS": "4290020685",
+          "STATE": "Idle",
+          "ADMIN_STATUS": "Up"
+        }
+      }
+    }
+  ],
+  "cli_content": "VRF : default\nBGP Summary\n-----------\n Local AS               : 4290020685   BGP Router Identifier  : 192.168.100.1\n Peers                  : 4            Log Neighbor Changes   : No\n Cfg. Hold Time         : 180          Cfg. Keep Alive        : 60\n\nAddress-family : IPv4 Unicast\n-----------------------------\n Neighbor        Remote-AS MsgRcvd MsgSent   Up/Down Time State        AdminStatus\n 10.252.13.2     4290020685  0       0       00h:00m:00s  Idle          Up\n 172.25.0.1      4290000000  116314  133774  02m:02w:06d  Established   Up\n\nAddress-family : IPv6 Unicast\n-----------------------------\n\nAddress-family : L2VPN EVPN\n-----------------------------\n Neighbor        Remote-AS MsgRcvd MsgSent   Up/Down Time State        AdminStatus\n 172.18.174.17   4290000000  116310  133770  02m:02w:06d  Established   Up\n 172.18.174.18   4290000000  116310  133742  02m:02w:06d  Established   Up",
+  "textfsm_template": "Value Filldown VRF (\\S+)\nValue Filldown AF (\\S+)\nValue NEIGHBOUR (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue REMOTE_AS (\\d+)\nValue STATE (\\w+)\nValue ADMIN_STATUS (\\w+)\n\nStart\n  ^VRF\\s+:\\s+${VRF}\n  ^BGP\\sSummary\n  ^-+\n  ^\\s*Local\\s*AS.*\n  ^\\s*Peers.*\n  ^\\s*Cfg.*\n  ^\\s*$$\n  ^Address-family\\s:\\s${AF} -> Af\n  ^. -> Error\n\nAf\n  ^-+\n  ^\\s+Neighbor\\s+Remote-AS\\s+MsgRcvd\\s+MsgSent\\s+Up/Down\\s+Time\\s+State\\s+AdminStatus\n  ^\\s+${NEIGHBOUR}\\s+${REMOTE_AS}\\s+\\d+\\s+\\d+\\s+\\S+\\s+${STATE}\\s+${ADMIN_STATUS} -> Record\n  ^\\s*$$ -> Clear Start\n  ^. -> Error\n\nEOF"
+}

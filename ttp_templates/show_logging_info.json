@@ -1,0 +1,122 @@
+{
+  "command": "show logging info",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.125,
+  "textfsm_rows": 8,
+  "ttp_rows": 9,
+  "ttp_template": "<group name=\"severity_facility_seq_msg_count\">\n{{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{FACILITY}} {{SEQ}} {{MSG_COUNT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SEVERITY": "emergency",
+      "FACILITY": "kernel",
+      "SEQ": "0",
+      "MSG_COUNT": "1"
+    },
+    {
+      "SEVERITY": "alert",
+      "FACILITY": "system",
+      "SEQ": "1",
+      "MSG_COUNT": "10"
+    },
+    {
+      "SEVERITY": "critical",
+      "FACILITY": "process",
+      "SEQ": "2",
+      "MSG_COUNT": "15"
+    },
+    {
+      "SEVERITY": "error",
+      "FACILITY": "user",
+      "SEQ": "3",
+      "MSG_COUNT": "5"
+    },
+    {
+      "SEVERITY": "warning",
+      "FACILITY": "security",
+      "SEQ": "4",
+      "MSG_COUNT": "20"
+    },
+    {
+      "SEVERITY": "notice",
+      "FACILITY": "daemon",
+      "SEQ": "5",
+      "MSG_COUNT": "25"
+    },
+    {
+      "SEVERITY": "info",
+      "FACILITY": "local0",
+      "SEQ": "6",
+      "MSG_COUNT": "30"
+    },
+    {
+      "SEVERITY": "debug",
+      "FACILITY": "local7",
+      "SEQ": "7",
+      "MSG_COUNT": "40"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "severity_facility_seq_msg_count": [
+        {
+          "SEVERITY": "Severity",
+          "FACILITY": "Facility",
+          "SEQ": "Seq#",
+          "MSG_COUNT": "Msg count"
+        },
+        {
+          "SEVERITY": "emergency",
+          "FACILITY": "kernel",
+          "SEQ": "0",
+          "MSG_COUNT": "1"
+        },
+        {
+          "SEVERITY": "alert",
+          "FACILITY": "system",
+          "SEQ": "1",
+          "MSG_COUNT": "10"
+        },
+        {
+          "SEVERITY": "critical",
+          "FACILITY": "process",
+          "SEQ": "2",
+          "MSG_COUNT": "15"
+        },
+        {
+          "SEVERITY": "error",
+          "FACILITY": "user",
+          "SEQ": "3",
+          "MSG_COUNT": "5"
+        },
+        {
+          "SEVERITY": "warning",
+          "FACILITY": "security",
+          "SEQ": "4",
+          "MSG_COUNT": "20"
+        },
+        {
+          "SEVERITY": "notice",
+          "FACILITY": "daemon",
+          "SEQ": "5",
+          "MSG_COUNT": "25"
+        },
+        {
+          "SEVERITY": "info",
+          "FACILITY": "local0",
+          "SEQ": "6",
+          "MSG_COUNT": "30"
+        },
+        {
+          "SEVERITY": "debug",
+          "FACILITY": "local7",
+          "SEQ": "7",
+          "MSG_COUNT": "40"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Severity    Facility     Seq#   Msg count\n---------   ----------   ----   --------\nemergency   kernel       0      1\nalert       system       1      10\ncritical    process      2      15\nerror       user         3      5\nwarning     security     4      20\nnotice      daemon       5      25\ninfo        local0       6      30\ndebug       local7       7      40\n",
+  "textfsm_template": "Value SEVERITY (\\S+)\nValue FACILITY (\\S+)\nValue SEQ (\\d+)\nValue MSG_COUNT (\\d+)\n\nStart\n  ^\\s*Severity\\s+Facility\\s+Seq#\\s+Msg\\s+count\\s*$$\n  ^\\s*${SEVERITY}\\s+${FACILITY}\\s+${SEQ}\\s+${MSG_COUNT}\\s*$$ -> Record"
+}

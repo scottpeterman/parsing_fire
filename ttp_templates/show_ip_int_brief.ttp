@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip int brief
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 3
+# Match ratio: 0.60
+
+<group name="interface_ip_addr_method_state_protocol">
+{{INTERFACE}} {{IP_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{METHOD}} {{STATE | ORPHRASE}} {{PROTOCOL}}
+</group>

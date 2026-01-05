@@ -1,0 +1,36 @@
+{
+  "command": "cisco_wlc_ssh_show_inventory",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"bia_description_max_ap_num_name\">\nBurned-in MAC Address............................ {{BIA | ORPHRASE}}\nMaximum number of APs supported.................. {{MAX_AP_NUM | ORPHRASE}}\nNAME: \"{{NAME}}\"  , DESCR: \"{{DESCRIPTION | ORPHRASE}}\"\nPID: {{PID}},  VID: {{VID}},  SN: {{SN | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "BIA": "18:B7:38:F4:CE:40",
+      "MAX_AP_NUM": "500",
+      "NAME": "Chassis",
+      "DESCRIPTION": "Cisco 5500 Series Wireless LAN Controller",
+      "PID": "AIR-CT5508-K9",
+      "VID": "V03",
+      "SN": "FCW1234L25Y"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "bia_description_max_ap_num_name": {
+        "PID": "AIR-CT5508-K9",
+        "VID": "V03",
+        "SN": "FCW1234L25Y",
+        "NAME": "Chassis",
+        "DESCRIPTION": "Cisco 5500 Series Wireless LAN Controller",
+        "MAX_AP_NUM": "500",
+        "BIA": "18:B7:38:F4:CE:40"
+      }
+    }
+  ],
+  "cli_content": "Burned-in MAC Address............................ 18:B7:38:F4:CE:40\nPower Supply 1................................... Present, OK\nPower Supply 2................................... Absent\nMaximum number of APs supported.................. 500\nNAME: \"Chassis\"    , DESCR: \"Cisco 5500 Series Wireless LAN Controller\"\nPID: AIR-CT5508-K9,  VID: V03,  SN: FCW1234L25Y\n",
+  "textfsm_template": "Value BIA ([\\da-zA-Z:]{17})\nValue MAX_AP_NUM (\\d+)\nValue NAME (.*)\nValue DESCRIPTION (.*)\nValue PID ([\\w\\-]+)\nValue VID (\\w+)\nValue SN (\\w+)\n\nStart\n  ^Burned-in\\s+MAC\\s+Address\\.+\\s+${BIA}\n  ^Power\\sSupply\\s\\d\\.*\\s(Present|Absent)\n  ^Maximum\\s+number\\s+of\\s+APs\\s+supported\\.+\\s+${MAX_AP_NUM}\n  ^NAME:\\s+\"${NAME}\"\\s+,\\s*DESCR:\\s+\"${DESCRIPTION}\"\n  ^PID:\\s+${PID},\\s*VID:\\s+${VID},\\s*SN:\\s+${SN} -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

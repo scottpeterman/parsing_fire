@@ -1,0 +1,80 @@
+{
+  "command": "show logical-interface brief",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"interface_ip_address_status_protocol\">\n{{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{STATUS | ORPHRASE}} {{PROTOCOL}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Vlan1000",
+      "IP_ADDRESS": "10.1.1.1",
+      "STATUS": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "INTERFACE": "Vlan1001",
+      "IP_ADDRESS": "10.2.2.1",
+      "STATUS": "down",
+      "PROTOCOL": "down"
+    },
+    {
+      "INTERFACE": "Vlan2000",
+      "IP_ADDRESS": "192.168.1.1",
+      "STATUS": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "INTERFACE": "Vlan3000",
+      "IP_ADDRESS": "172.16.0.1",
+      "STATUS": "administratively down",
+      "PROTOCOL": "admindown"
+    },
+    {
+      "INTERFACE": "Vlan4000",
+      "IP_ADDRESS": "192.0.2.1",
+      "STATUS": "up",
+      "PROTOCOL": "up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_status_protocol": [
+        {
+          "INTERFACE": "Vlan1000",
+          "IP_ADDRESS": "10.1.1.1",
+          "STATUS": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "INTERFACE": "Vlan1001",
+          "IP_ADDRESS": "10.2.2.1",
+          "STATUS": "down",
+          "PROTOCOL": "down"
+        },
+        {
+          "INTERFACE": "Vlan2000",
+          "IP_ADDRESS": "192.168.1.1",
+          "STATUS": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "INTERFACE": "Vlan3000",
+          "IP_ADDRESS": "172.16.0.1",
+          "STATUS": "administratively down",
+          "PROTOCOL": "admindown"
+        },
+        {
+          "INTERFACE": "Vlan4000",
+          "IP_ADDRESS": "192.0.2.1",
+          "STATUS": "up",
+          "PROTOCOL": "up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface               IP-Address        Status           Protocol\nVlan1000                10.1.1.1          up               up\nVlan1001                10.2.2.1          down             down\nVlan2000                192.168.1.1       up               up\nVlan3000                172.16.0.1        administratively down  admindown\nVlan4000                192.0.2.1         up               up\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue IP_ADDRESS (\\S+)\nValue STATUS (up|down|administratively down)\nValue PROTOCOL (\\S+)\n\nStart\n  ^\\s*Interface\\s+IP-Address\\s+Status\\s+Protocol\\s*$$\n  ^\\s*${INTERFACE}\\s+${IP_ADDRESS}\\s+${STATUS}\\s+${PROTOCOL}\\s*$$ -> Record"
+}

@@ -1,0 +1,68 @@
+{
+  "command": "show environment cooling-status",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"fan_name_status_speed_condition\">\n\t{{FAN_NAME}} {{STATUS | ORPHRASE}} {{SPEED}} {{CONDITION | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FAN_NAME": "XXXXX",
+      "STATUS": "Operational",
+      "SPEED": "12000",
+      "CONDITION": "Ok"
+    },
+    {
+      "FAN_NAME": "YYYYY",
+      "STATUS": "Operational",
+      "SPEED": "11000",
+      "CONDITION": "Ok"
+    },
+    {
+      "FAN_NAME": "ZZZZZ",
+      "STATUS": "Operational",
+      "SPEED": "11500",
+      "CONDITION": "Ok"
+    },
+    {
+      "FAN_NAME": "WWWWW",
+      "STATUS": "Operational",
+      "SPEED": "10500",
+      "CONDITION": "Ok"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "fan_name_status_speed_condition": [
+        {
+          "FAN_NAME": "XXXXX",
+          "STATUS": "Operational",
+          "SPEED": "12000",
+          "CONDITION": "Ok"
+        },
+        {
+          "FAN_NAME": "YYYYY",
+          "STATUS": "Operational",
+          "SPEED": "11000",
+          "CONDITION": "Ok"
+        },
+        {
+          "FAN_NAME": "ZZZZZ",
+          "STATUS": "Operational",
+          "SPEED": "11500",
+          "CONDITION": "Ok"
+        },
+        {
+          "FAN_NAME": "WWWWW",
+          "STATUS": "Operational",
+          "SPEED": "10500",
+          "CONDITION": "Ok"
+        }
+      ]
+    }
+  ],
+  "cli_content": "FanTray-1    \n\tXXXXX     Operational   12000  Ok         \n\tYYYYY     Operational   11000  Ok         \n\nFanTray-2    \n\tZZZZZ     Operational   11500  Ok         \n\tWWWWW     Operational   10500  Ok         \n",
+  "textfsm_template": "Value FANTARY_NAME (\\S+)\nValue FAN_NAME (\\S+)\nValue STATUS (\\S+)\nValue SPEED (\\d+)\nValue CONDITION (\\S+)\n\nStart\n  ^\\s*FanTray-\\d+\\s*$$\n  ^\\s*${FAN_NAME}\\s+${STATUS}\\s+${SPEED}\\s+${CONDITION}\\s*$$ -> Record\n  ^\\s*$$\n  ^\\s*FanTray[-_](?P<FANTRY>\\d+)\\s*$$ -> Start"
+}

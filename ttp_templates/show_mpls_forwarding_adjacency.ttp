@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show mpls forwarding adjacency
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 6
+# Match ratio: 1.20
+
+<group name="interface_label_nexthop_context_state">
+{{INTERFACE}} {{LABEL}} {{NEXTHOP}} {{CONTEXT}} {{STATE | ORPHRASE}}
+</group>

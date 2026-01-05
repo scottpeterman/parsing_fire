@@ -1,0 +1,137 @@
+{
+  "command": "brocade_fastiron_show_running-config_vlan",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.9090909090909091,
+  "textfsm_rows": 11,
+  "ttp_rows": 10,
+  "ttp_template": "<group name=\"vlanid_vlanname\">\nvlan {{vlanid | re(\"\\\\d+\")}} name {{vlanname | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "vlanid": "1",
+      "vlanname": "DEFAULT-VLAN by port",
+      "spanningtree": "no"
+    },
+    {
+      "vlanid": "10",
+      "vlanname": "CLMAMO-RING-1 by port",
+      "taggedports": "ethe 2 ethe 11",
+      "spanningtree": "no",
+      "metroid1": "10",
+      "metrointerfaces1": "ethernet 11  ethernet 2",
+      "metroconfenable1": "enable"
+    },
+    {
+      "vlanid": "13",
+      "vlanname": "SocketPublicWifi by port",
+      "taggedports": "ethe 1 to 2",
+      "spanningtree": "no"
+    },
+    {
+      "vlanid": "14",
+      "vlanname": "CLMAMOFW-Ring by port",
+      "taggedports": "ethe 1 to 2",
+      "spanningtree": "no",
+      "metroid1": "14",
+      "metrointerfaces1": "ethernet 1  ethernet 2",
+      "metroconfenable1": "enable"
+    },
+    {
+      "vlanid": "100",
+      "taggedports": "ethe 1 to 2",
+      "spanningtree": "no"
+    },
+    {
+      "vlanid": "146",
+      "vlanname": "LabSBC-External by port",
+      "taggedports": "ethe 2 ethe 11",
+      "spanningtree": "no"
+    },
+    {
+      "vlanid": "149",
+      "vlanname": "SBC-External by port",
+      "untaggedports": "ethe 16 ethe 21",
+      "taggedports": "ethe 2 ethe 11",
+      "spanningtree": "no"
+    },
+    {
+      "vlanid": "151",
+      "vlanname": "LabSBC-Internal by port",
+      "taggedports": "ethe 2 ethe 11",
+      "spanningtree": "no"
+    },
+    {
+      "vlanid": "152",
+      "vlanname": "SBC-Inside by port",
+      "untaggedports": "ethe 10 ethe 20",
+      "taggedports": "ethe 2 ethe 11",
+      "spanningtree": "no"
+    },
+    {
+      "vlanid": "154",
+      "vlanname": "SocketVoIP-Svr by port",
+      "untaggedports": "ethe 14",
+      "taggedports": "ethe 2 ethe 11 ethe 19",
+      "spanningtree": "no"
+    },
+    {
+      "vlanid": "175",
+      "vlanname": "CLMAMO10G-to-FW by port",
+      "taggedports": "ethe 1 to 2",
+      "spanningtree": "no",
+      "metroid1": "176",
+      "metrointerfaces1": "ethernet 1  ethernet 2",
+      "metroconfenable1": "enable",
+      "metroname1": "CLMAMOFW-to-CLMAMO10G"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlanid_vlanname": [
+        {
+          "vlanid": "1",
+          "vlanname": "DEFAULT-VLAN by port"
+        },
+        {
+          "vlanid": "10",
+          "vlanname": "CLMAMO-RING-1 by port"
+        },
+        {
+          "vlanid": "13",
+          "vlanname": "SocketPublicWifi by port"
+        },
+        {
+          "vlanid": "14",
+          "vlanname": "CLMAMOFW-Ring by port"
+        },
+        {
+          "vlanid": "146",
+          "vlanname": "LabSBC-External by port"
+        },
+        {
+          "vlanid": "149",
+          "vlanname": "SBC-External by port"
+        },
+        {
+          "vlanid": "151",
+          "vlanname": "LabSBC-Internal by port"
+        },
+        {
+          "vlanid": "152",
+          "vlanname": "SBC-Inside by port"
+        },
+        {
+          "vlanid": "154",
+          "vlanname": "SocketVoIP-Svr by port"
+        },
+        {
+          "vlanid": "175",
+          "vlanname": "CLMAMO10G-to-FW by port"
+        }
+      ]
+    }
+  ],
+  "cli_content": "vlan 1 name DEFAULT-VLAN by port\n no spanning-tree\n!\nvlan 10 name CLMAMO-RING-1 by port\n tagged ethe 2 ethe 11 \n no spanning-tree\n metro-ring 10\n  ring-interfaces  ethernet 11  ethernet 2\n  enable\n!\nvlan 13 name SocketPublicWifi by port\n tagged ethe 1 to 2 \n no spanning-tree\n!\nvlan 14 name CLMAMOFW-Ring by port\n tagged ethe 1 to 2 \n no spanning-tree\n metro-ring 14\n  ring-interfaces  ethernet 1  ethernet 2\n  enable\n!\nvlan 100 by port\n tagged ethe 1 to 2 \n no spanning-tree                                                 \n!\nvlan 146 name LabSBC-External by port\n tagged ethe 2 ethe 11 \n no spanning-tree\n!\nvlan 149 name SBC-External by port\n tagged ethe 2 ethe 11 \n untagged ethe 16 ethe 21 \n no spanning-tree\n!\nvlan 151 name LabSBC-Internal by port\n tagged ethe 2 ethe 11 \n no spanning-tree\n!\nvlan 152 name SBC-Inside by port\n tagged ethe 2 ethe 11 \n untagged ethe 10 ethe 20 \n no spanning-tree\n!\nvlan 154 name SocketVoIP-Svr by port\n tagged ethe 2 ethe 11 ethe 19 \n untagged ethe 14 \n no spanning-tree                                                 \n!\nvlan 175 name CLMAMO10G-to-FW by port\n tagged ethe 1 to 2 \n no spanning-tree\n metro-ring 176\n  ring-interfaces  ethernet 1  ethernet 2\n  enable\n  name CLMAMOFW-to-CLMAMO10G",
+  "textfsm_template": "Value vlanid (\\d+)\nValue vlanname ([a-zA-Z0-9\\-\\\"\\ ]+)\nValue untaggedports ([0-9\\/\\ etho]+)\nValue taggedports ([0-9\\/\\ etho]+)\nValue spanningtree (no)\nValue metroid1 (\\d+)\nValue metrointerfaces1 ([0-9\\/\\ ethrno]+)\nValue metroconfenable1 (enable)\nValue metroconfmaster1 (master)\nValue metroconfdiag1 (diagnostics)\nValue metroname1 ([a-zA-Z0-9\\-\\\"\\ ]+)\nValue metroid2 (\\d+)\nValue metrointerfaces2 ([0-9\\/\\ ethrno]+)\nValue metroconfenable2 (enable)\nValue metroconfmaster2 (master)\nValue metroconfdiag2 (diagnostics)\nValue metroname2 ([a-zA-Z0-9\\-\\\"\\ ]+)\nValue metroid3 (\\d+)\nValue metrointerfaces3 ([0-9\\/\\ ethrno]+)\nValue metroconfenable3 (enable)\nValue metroconfmaster3 (master)\nValue metroconfdiag3 (diagnostics)\nValue metroname3 ([a-zA-Z0-9\\-\\\"\\ ]+)\nValue metroid4 (\\d+)\nValue metrointerfaces4 ([0-9\\/\\ ethrno]+)\nValue metroconfenable4 (enable)\nValue metroconfmaster4 (master)\nValue metroconfdiag4 (diagnostics)\nValue metroname4 ([a-zA-Z0-9\\-\\\"\\ ]+)\n\nStart\n  ^\\w -> Continue.Record\n  ^vlan ${vlanid} -> Continue\n  ^vlan ${vlanid} name ${vlanname} -> Continue\n  ^\\s+tagged\\s+${taggedports} -> Continue\n  ^\\s+untagged\\s+${untaggedports} -> Continue\n  ^\\s+${spanningtree}\\s+spanning-tree -> Continue\n  ^! -> Start\n  ^\\s+metro-ring\\s+${metroid1} -> METRO1\n\nMETRO1\n  ^\\s+ring-interfaces\\s+${metrointerfaces1} -> Continue\n  ^\\s+${metroconfenable1} -> Continue\n  ^\\s+${metroconfmaster1} -> Continue\n  ^\\s+${metroconfdiag1} -> Continue\n  ^\\s+name\\s+${metroname1} -> Continue\n  ^! -> Start\n  ^\\s+metro-ring\\s+${metroid2} -> METRO2\n\nMETRO2\n  ^\\s+ring-interfaces\\s+${metrointerfaces2} -> Continue\n  ^\\s+${metroconfenable2} -> Continue\n  ^\\s+${metroconfmaster2} -> Continue\n  ^\\s+${metroconfdiag2} -> Continue\n  ^\\s+name\\s+${metroname2} -> Continue\n  ^! -> Start\n  ^\\s+metro-ring\\s+${metroid3} -> METRO3\n\nMETRO3\n  ^\\s+ring-interfaces\\s+${metrointerfaces3} -> Continue\n  ^\\s+${metroconfenable3} -> Continue\n  ^\\s+${metroconfmaster3} -> Continue\n  ^\\s+${metroconfdiag3} -> Continue\n  ^\\s+name\\s+${metroname3} -> Continue\n  ^! -> Start\n  ^\\s+metro-ring\\s+${metroid4} -> METRO4\n\nMETRO4\n  ^\\s+ring-interfaces\\s+${metrointerfaces4} -> Continue\n  ^\\s+${metroconfenable4} -> Continue\n  ^\\s+${metroconfmaster4} -> Continue\n  ^\\s+${metroconfdiag4} -> Continue\n  ^\\s+name\\s+${metroname4} -> Continue\n"
+}

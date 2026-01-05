@@ -1,0 +1,86 @@
+{
+  "command": "cisco_ios_show_ip_eigrp_neighbors",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"q_cnt_ip_address_interface_hold_uptime_srtt_rto_seq_num\">\n{{Q_CNT}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE}} {{HOLD}} {{UPTIME | ORPHRASE}} {{SRTT}} {{RTO}} 0 {{SEQ_NUM | ORPHRASE}}\n</group>\n<group name=\"as_ip_address_interface_hold_uptime_srtt_rto_q_cnt_seq_num\">\n{{AS}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE}} {{HOLD}} {{UPTIME | ORPHRASE}} {{SRTT}} {{RTO | ORPHRASE}} {{Q_CNT}} {{SEQ_NUM}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "AS": "1",
+      "IP_ADDRESS": "192.168.1.2",
+      "INTERFACE": "Gi0/0",
+      "HOLD": "10",
+      "UPTIME": "00:12:45",
+      "SRTT": "19",
+      "RTO": "100",
+      "Q_CNT": "0",
+      "SEQ_NUM": "11"
+    },
+    {
+      "AS": "1",
+      "IP_ADDRESS": "192.168.2.2",
+      "INTERFACE": "Gi0/1",
+      "HOLD": "12",
+      "UPTIME": "00:11:24",
+      "SRTT": "14",
+      "RTO": "100",
+      "Q_CNT": "0",
+      "SEQ_NUM": "10"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "q_cnt_ip_address_interface_hold_uptime_srtt_rto_seq_num": [
+        {
+          "Q_CNT": "0",
+          "IP_ADDRESS": "192.168.1.2",
+          "INTERFACE": "Gi0/0",
+          "HOLD": "10",
+          "UPTIME": "00:12:45",
+          "SRTT": "19",
+          "RTO": "100",
+          "SEQ_NUM": "11"
+        },
+        {
+          "Q_CNT": "1",
+          "IP_ADDRESS": "192.168.2.2",
+          "INTERFACE": "Gi0/1",
+          "HOLD": "12",
+          "UPTIME": "00:11:24",
+          "SRTT": "14",
+          "RTO": "100",
+          "SEQ_NUM": "10"
+        }
+      ],
+      "as_ip_address_interface_hold_uptime_srtt_rto_q_cnt_seq_num": [
+        {
+          "AS": "0",
+          "IP_ADDRESS": "192.168.1.2",
+          "INTERFACE": "Gi0/0",
+          "HOLD": "10",
+          "UPTIME": "00:12:45",
+          "SRTT": "19",
+          "RTO": "100",
+          "Q_CNT": "0",
+          "SEQ_NUM": "11"
+        },
+        {
+          "AS": "1",
+          "IP_ADDRESS": "192.168.2.2",
+          "INTERFACE": "Gi0/1",
+          "HOLD": "12",
+          "UPTIME": "00:11:24",
+          "SRTT": "14",
+          "RTO": "100",
+          "Q_CNT": "0",
+          "SEQ_NUM": "10"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IP-EIGRP neighbors for process 1\nH   Address                 Interface       Hold Uptime   SRTT   RTO  Q  Seq\n                                            (sec)         (ms)       Cnt Num\n0   192.168.1.2            Gi0/0             10 00:12:45   19   100  0  11\n1   192.168.2.2            Gi0/1             12 00:11:24   14   100  0  10\n",
+  "textfsm_template": "Value Filldown AS (\\d+)\nValue Required IP_ADDRESS ([0-9A-Fa-f:\\.]+)\nValue INTERFACE (\\S+)\nValue HOLD (\\d+)\nValue UPTIME (\\S+)\nValue SRTT (\\d+)\nValue RTO (\\d+)\nValue Q_CNT (\\d+)\nValue SEQ_NUM (\\d+)\n\nStart\n  ^.*\\s+${IP_ADDRESS}\\s+${INTERFACE}\\s+${HOLD}\\s+${UPTIME}\\s+${SRTT}\\s+${RTO}\\s+${Q_CNT}\\s+${SEQ_NUM}\\s*$$ -> Record\n  ^\\s*(IP-|)EIGRP(-IPv[46](:\\(\\d+\\))?|)\\s+[Nn]eighbors\\s+for\\s+(process\\s+|AS\\()${AS}(\\)|)\\s*$$\n  ^\\s*(IP-|)EIGRP(-IPv[46](:\\(\\d+\\))?|)\\s+[Nn]eighbors\\s+for\\s+(process\\s+|AS\\()${AS}(\\)|)\\s+VRF default\\s*$$\n  ^\\s*$$\n  ^\\s*H\\s+Address\\s+Interface\\s+Hold\\s+Uptime\\s+SRTT\\s+RTO\\s+Q\\s+Seq\\s*$$\n  ^\\s+\\(sec\\)\\s+\\(ms\\)\\s+Cnt\\s+Num\\s*$$\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^\\s*Load\\s+for\n  ^Time\\s+source\\s+is\n  ^. -> Error\n\nEOF\n"
+}

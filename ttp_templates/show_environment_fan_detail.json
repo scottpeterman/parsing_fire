@@ -1,0 +1,56 @@
+{
+  "command": "show environment fan detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"speed\">\n    Speed: {{SPEED | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FAN_TRAY": "1",
+      "FAN": "1",
+      "STATUS": "OK",
+      "SPEED": "1800 RPM"
+    },
+    {
+      "FAN_TRAY": "2",
+      "FAN": "1",
+      "STATUS": "OK",
+      "SPEED": "1700 RPM"
+    },
+    {
+      "FAN_TRAY": "3",
+      "FAN": "1",
+      "STATUS": "Failed",
+      "SPEED": "0 RPM"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "speed": [
+        {
+          "SPEED": "1800 RPM"
+        },
+        {
+          "SPEED": "1850 RPM"
+        },
+        {
+          "SPEED": "1700 RPM"
+        },
+        {
+          "SPEED": "1750 RPM"
+        },
+        {
+          "SPEED": "0 RPM"
+        },
+        {
+          "SPEED": "1800 RPM"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Fan Tray: 1\n  Fan: 1\n    Status: OK\n    Speed: 1800 RPM\n  Fan: 2\n    Status: OK\n    Speed: 1850 RPM\n\nFan Tray: 2\n  Fan: 1\n    Status: OK\n    Speed: 1700 RPM\n  Fan: 2\n    Status: OK\n    Speed: 1750 RPM\n\nFan Tray: 3\n  Fan: 1\n    Status: Failed\n    Speed: 0 RPM\n  Fan: 2\n    Status: OK\n    Speed: 1800 RPM\n",
+  "textfsm_template": "Value FAN_TRAY (\\d+)\nValue FAN (\\d+)\nValue STATUS (OK|Failed)\nValue SPEED (\\d+ RPM)\n\nStart\n  ^Fan Tray:\\s+${FAN_TRAY}\\s*$$ -> FanTray\n  ^Fan:\\s+${FAN}\\s*$$ -> Fan\n\nFanTray\n  ^\\s*Fan:\\s+${FAN}\\s*$$ -> Fan\n  ^\\s*$$ -> Start\n\nFan\n  ^\\s*Status:\\s+${STATUS}\\s*$$\n  ^\\s*Speed:\\s+${SPEED}\\s*$$ -> Record\n  ^\\s*$$ -> Start"
+}

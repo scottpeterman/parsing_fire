@@ -1,0 +1,64 @@
+{
+  "command": "show ip pim neighbor detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"neighbor\">\n  Neighbor {{NEIGHBOR | ORPHRASE}}\n</group>\n<group name=\"dr\">\n  DR: {{DR | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN": "10",
+      "NEIGHBOR": "10.0.0.1",
+      "UPTIME": "00:45:23",
+      "EXPIRE": "00:01:36",
+      "DR": "no",
+      "BIDIR": "no"
+    },
+    {
+      "VLAN": "20",
+      "NEIGHBOR": "10.0.0.2",
+      "UPTIME": "01:15:12",
+      "EXPIRE": "00:02:23",
+      "DR": "yes",
+      "BIDIR": "yes"
+    },
+    {
+      "VLAN": "30",
+      "NEIGHBOR": "10.0.0.3",
+      "UPTIME": "00:10:11",
+      "EXPIRE": "00:00:59",
+      "DR": "yes",
+      "BIDIR": "no"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neighbor": [
+        {
+          "NEIGHBOR": "10.0.0.1"
+        },
+        {
+          "NEIGHBOR": "10.0.0.2"
+        },
+        {
+          "NEIGHBOR": "10.0.0.3"
+        }
+      ],
+      "dr": [
+        {
+          "DR": "no"
+        },
+        {
+          "DR": "yes"
+        },
+        {
+          "DR": "yes"
+        }
+      ]
+    }
+  ],
+  "cli_content": "VLAN 10\n  Neighbor 10.0.0.1\n  Uptime: 00:45:23\n  Expire: 00:01:36\n  DR: no\n  Bidir: no\nVLAN 20\n  Neighbor 10.0.0.2\n  Uptime: 01:15:12\n  Expire: 00:02:23\n  DR: yes\n  Bidir: yes\nVLAN 30\n  Neighbor 10.0.0.3\n  Uptime: 00:10:11\n  Expire: 00:00:59\n  DR: yes\n  Bidir: no\n",
+  "textfsm_template": "Value VLAN (\\S+)\nValue NEIGHBOR (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue UPTIME (\\d+:\\d+:\\d+)\nValue EXPIRE (\\d+:\\d+:\\d+)\nValue DR (yes|no)\nValue BIDIR (yes|no)\n\nStart\n  ^VLAN\\s+${VLAN}\\s*$$\n  ^\\s*Neighbor\\s+${NEIGHBOR}\\s*$$\n  ^\\s*Uptime:\\s+${UPTIME}\\s*$$\n  ^\\s*Expire:\\s+${EXPIRE}\\s*$$\n  ^\\s*DR:\\s+${DR}\\s*$$\n  ^\\s*Bidir:\\s+${BIDIR}\\s*$$ -> Record"
+}

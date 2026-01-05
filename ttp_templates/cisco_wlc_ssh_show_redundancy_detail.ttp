@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_redundancy_detail
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="keep_alive_timeout_peer_redundancy_mgmt_addr_peer_redundancy_port_addr_peer_search_timeout">
+Redundancy Management IP Address................. {{REDUNDANCY_MGMT_ADDR | ORPHRASE}}
+Peer Redundancy Management IP Address............ {{PEER_REDUNDANCY_MGMT_ADDR | ORPHRASE}}
+Redundancy Port IP Address....................... {{REDUNDANCY_PORT_ADDR | ORPHRASE}}
+Peer Redundancy Port IP Address.................. {{PEER_REDUNDANCY_PORT_ADDR | ORPHRASE}}
+Peer Service Port IP Address..................... {{PEER_SERVICE_PORT_ADDR | ORPHRASE}}
+Keep Alive Timeout  : {{KEEP_ALIVE_TIMEOUT | ORPHRASE}} msecs
+Peer Search Timeout  : {{PEER_SEARCH_TIMEOUT | ORPHRASE}} secs
+</group>

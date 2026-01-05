@@ -1,0 +1,53 @@
+{
+  "command": "show firewall policy",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 4,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"policy_id_from_zone_to_zone_src_addr_dst_addr_action_status\">\n{{POLICY_ID | re(\"\\\\d+\")}} {{FROM_ZONE}} {{TO_ZONE}} {{SRC_ADDR | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{DST_ADDR}} {{ACTION}} {{STATUS | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "POLICY_ID": "1",
+      "FROM_ZONE": "trust",
+      "TO_ZONE": "untrust",
+      "SRC_ADDR": "192.168.1.0/24",
+      "DST_ADDR": "any",
+      "ACTION": "allow",
+      "STATUS": "enabled"
+    },
+    {
+      "POLICY_ID": "2",
+      "FROM_ZONE": "trust",
+      "TO_ZONE": "untrust",
+      "SRC_ADDR": "any",
+      "DST_ADDR": "10.0.0.0/24",
+      "ACTION": "deny",
+      "STATUS": "disabled"
+    },
+    {
+      "POLICY_ID": "3",
+      "FROM_ZONE": "dmz",
+      "TO_ZONE": "untrust",
+      "SRC_ADDR": "172.16.0.0/16",
+      "DST_ADDR": "any",
+      "ACTION": "allow",
+      "STATUS": "enabled"
+    },
+    {
+      "POLICY_ID": "4",
+      "FROM_ZONE": "trust",
+      "TO_ZONE": "dmz",
+      "SRC_ADDR": "any",
+      "DST_ADDR": "any",
+      "ACTION": "deny",
+      "STATUS": "enabled"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Policy ID  From Zone  To Zone    Source Address     Destination Address Action  Status\n1          trust      untrust    192.168.1.0/24     any                 allow   enabled\n2          trust      untrust    any                10.0.0.0/24         deny    disabled\n3          dmz        untrust    172.16.0.0/16      any                 allow   enabled\n4          trust      dmz        any                any                 deny    enabled\n",
+  "textfsm_template": "Value POLICY_ID (\\d+)\nValue FROM_ZONE (\\S+)\nValue TO_ZONE (\\S+)\nValue SRC_ADDR (\\S+)\nValue DST_ADDR (\\S+)\nValue ACTION (\\S+)\nValue STATUS (\\S+)\n\nStart\n  ^Policy ID\\s+From Zone\\s+To Zone\\s+Source Address\\s+Destination Address\\s+Action\\s+Status\\s*$$\n  ^${POLICY_ID}\\s+${FROM_ZONE}\\s+${TO_ZONE}\\s+${SRC_ADDR}\\s+${DST_ADDR}\\s+${ACTION}\\s+${STATUS}\\s*$$ -> Record"
+}

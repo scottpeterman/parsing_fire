@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: extreme_exos_show_sharing
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 2
+# Match ratio: 0.50
+
+<group name="config_master_agg_control">
+     {{CONFIG_MASTER}} {{AGG_CONTROL | ORPHRASE}} L3_L4 1 - R 0
+</group>
+<group name="config_master_current_master_agg_control">
+    {{CONFIG_MASTER}} {{CURRENT_MASTER}} {{AGG_CONTROL | ORPHRASE}} L2 33 Y A 2
+</group>

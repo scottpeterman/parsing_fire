@@ -1,0 +1,65 @@
+{
+  "command": "show ip route adjacencies",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"adjacency_type_interface_next_hop_route_entry\">\n  Adjacency Type: {{ADJACENCY_TYPE | ORPHRASE}}\nRoute Entry: {{ROUTE_ENTRY | ORPHRASE}}\n  Interface: {{INTERFACE | ORPHRASE}}\n  Next Hop: {{NEXT_HOP | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ROUTE_ENTRY": "192.168.1.0/24",
+      "INTERFACE": "GigabitEthernet1",
+      "NEXT_HOP": "10.0.0.2",
+      "ADJACENCY_TYPE": "ARP"
+    },
+    {
+      "ROUTE_ENTRY": "172.16.0.0/16",
+      "INTERFACE": "GigabitEthernet2",
+      "NEXT_HOP": "10.0.1.2",
+      "ADJACENCY_TYPE": "ARP"
+    },
+    {
+      "ROUTE_ENTRY": "10.0.0.0/8",
+      "INTERFACE": "GigabitEthernet3",
+      "NEXT_HOP": "10.0.2.2",
+      "ADJACENCY_TYPE": "L2"
+    },
+    {
+      "ROUTE_ENTRY": "192.168.2.0/24",
+      "INTERFACE": "GigabitEthernet4",
+      "NEXT_HOP": "10.0.3.2",
+      "ADJACENCY_TYPE": "ARP"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "adjacency_type_interface_next_hop_route_entry": [
+        {
+          "NEXT_HOP": "10.0.1.2",
+          "INTERFACE": "GigabitEthernet2",
+          "ROUTE_ENTRY": "172.16.0.0/16",
+          "ADJACENCY_TYPE": "ARP"
+        },
+        {
+          "NEXT_HOP": "10.0.2.2",
+          "INTERFACE": "GigabitEthernet3",
+          "ROUTE_ENTRY": "10.0.0.0/8",
+          "ADJACENCY_TYPE": "ARP"
+        },
+        {
+          "NEXT_HOP": "10.0.3.2",
+          "INTERFACE": "GigabitEthernet4",
+          "ROUTE_ENTRY": "192.168.2.0/24",
+          "ADJACENCY_TYPE": "L2"
+        },
+        {
+          "ADJACENCY_TYPE": "ARP"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Forwarding Components:\n  Adjacency Information\n\nRoute Entry: 192.168.1.0/24\n  Interface: GigabitEthernet1\n  Next Hop: 10.0.0.2\n  Adjacency Type: ARP\n\nRoute Entry: 172.16.0.0/16\n  Interface: GigabitEthernet2\n  Next Hop: 10.0.1.2\n  Adjacency Type: ARP\n\nRoute Entry: 10.0.0.0/8\n  Interface: GigabitEthernet3\n  Next Hop: 10.0.2.2\n  Adjacency Type: L2\n\nRoute Entry: 192.168.2.0/24\n  Interface: GigabitEthernet4\n  Next Hop: 10.0.3.2\n  Adjacency Type: ARP\n",
+  "textfsm_template": "Value ROUTE_ENTRY (\\d+\\.\\d+\\.\\d+\\.\\d+/\\d+)\nValue INTERFACE (\\S+)\nValue NEXT_HOP (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue ADJACENCY_TYPE (\\S+)\n\nStart\n  ^Route Entry: ${ROUTE_ENTRY}\\s*$$\n  ^\\s*Interface: ${INTERFACE}\\s*$$\n  ^\\s*Next Hop: ${NEXT_HOP}\\s*$$\n  ^\\s*Adjacency Type: ${ADJACENCY_TYPE}\\s*$$ -> Record"
+}

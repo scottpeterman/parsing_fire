@@ -1,0 +1,111 @@
+{
+  "command": "cisco_ios_show_crypto_session_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"peer_port_fvrf_ivrf\">\nPeer: {{PEER}} port {{PORT | re(\"\\\\d+\")}} fvrf: {{FVRF | ORPHRASE}} ivrf: {{IVRF}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Tunnel1201",
+      "SESSION_STATUS": "DOWN-NEGOTIATING",
+      "PEER": "10.161.255.14",
+      "PORT": "500",
+      "FVRF": "(none)",
+      "IVRF": "(none)",
+      "DESCRIPTION": "(none)",
+      "PHASE1_ID": "(none)",
+      "SESSION_ID": "0",
+      "LOCAL_IP": "10.175.200.116",
+      "LOCAL_PORT": "500",
+      "REMOTE_IP": "10.161.255.14",
+      "REMOTE_PORT": "500",
+      "IKEV1_STATUS": "Inactive",
+      "CAPABILITIES": "(none)",
+      "CONN_ID": "0",
+      "LIFETIME": "0",
+      "PERMIT": "47",
+      "SRC_HOST": "10.175.200.116",
+      "DST_HOST": "10.161.255.14",
+      "ACTIVE_SA": "0",
+      "ORIGIN": "crypto map"
+    },
+    {
+      "INTERFACE": "Tunnel1101",
+      "SESSION_STATUS": "UP-ACTIVE",
+      "UPTIME": "7w0d",
+      "PEER": "192.168.0.1",
+      "PORT": "4500",
+      "FVRF": "(none)",
+      "IVRF": "(none)",
+      "DESCRIPTION": "(none)",
+      "PHASE1_ID": "SOME_DEVICE1234.1pc.com",
+      "SESSION_ID": "0",
+      "LOCAL_IP": "169.0.1.1",
+      "LOCAL_PORT": "4500",
+      "REMOTE_IP": "192.168.0.1",
+      "REMOTE_PORT": "4500",
+      "IKEV1_STATUS": "Active",
+      "CAPABILITIES": "DN",
+      "CONN_ID": "2913",
+      "LIFETIME": "09:03:41",
+      "PERMIT": "47",
+      "SRC_HOST": "169.0.1.1",
+      "DST_HOST": "192.168.0.1",
+      "ACTIVE_SA": "2",
+      "ORIGIN": "crypto map"
+    },
+    {
+      "INTERFACE": "Tunnel2201",
+      "SESSION_STATUS": "DOWN-NEGOTIATING",
+      "PEER": "10.163.255.14",
+      "PORT": "500",
+      "FVRF": "(none)",
+      "IVRF": "(none)",
+      "DESCRIPTION": "(none)",
+      "PHASE1_ID": "(none)",
+      "SESSION_ID": "0",
+      "LOCAL_IP": "10.175.200.116",
+      "LOCAL_PORT": "500",
+      "REMOTE_IP": "10.163.255.14",
+      "REMOTE_PORT": "500",
+      "IKEV1_STATUS": "Inactive",
+      "CAPABILITIES": "(none)",
+      "CONN_ID": "0",
+      "LIFETIME": "0",
+      "PERMIT": "47",
+      "SRC_HOST": "10.175.200.116",
+      "DST_HOST": "10.163.255.14",
+      "ACTIVE_SA": "0",
+      "ORIGIN": "crypto map"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "peer_port_fvrf_ivrf": [
+        {
+          "PEER": "10.161.255.14",
+          "PORT": "500",
+          "FVRF": "(none)",
+          "IVRF": "(none)"
+        },
+        {
+          "PEER": "192.168.0.1",
+          "PORT": "4500",
+          "FVRF": "(none)",
+          "IVRF": "(none)"
+        },
+        {
+          "PEER": "10.163.255.14",
+          "PORT": "500",
+          "FVRF": "(none)",
+          "IVRF": "(none)"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Crypto session current status\n \nCode: C - IKE Configuration mode, D - Dead Peer Detection    \nK - Keepalives, N - NAT-traversal, T - cTCP encapsulation    \nX - IKE Extended Authentication, F - IKE Fragmentation\nR - IKE Auto Reconnect\n \nInterface: Tunnel1201\nSession status: DOWN-NEGOTIATING\nPeer: 10.161.255.14 port 500 fvrf: (none) ivrf: (none)\n      Desc: (none)\n      Phase1_id: (none)\n  Session ID: 0 \n  IKEv1 SA: local 10.175.200.116/500 remote 10.161.255.14/500 Inactive\n          Capabilities:(none) connid:0 lifetime:0\n  Session ID: 0 \n  IKEv1 SA: local 10.175.200.116/500 remote 10.161.255.14/500 Inactive\n          Capabilities:(none) connid:0 lifetime:0\n  IPSEC FLOW: permit 47 host 10.175.200.116 host 10.161.255.14\n        Active SAs: 0, origin: crypto map\n        Inbound:  #pkts dec'ed 0 drop 0 life (KB/Sec) 0/0\n        Outbound: #pkts enc'ed 0 drop 0 life (KB/Sec) 0/0\n \nInterface: Tunnel1101\nUptime: 7w0d\nSession status: UP-ACTIVE    \nPeer: 192.168.0.1 port 4500 fvrf: (none) ivrf: (none)\n      Phase1_id: SOME_DEVICE1234.1pc.com\n      Desc: (none)\n  Session ID: 0 \n  IKEv1 SA: local 169.0.1.1/4500 remote 192.168.0.1/4500 Active\n          Capabilities:DN connid:2913 lifetime:09:03:41\n  IPSEC FLOW: permit 47 host 169.0.1.1 host 192.168.0.1\n        Active SAs: 2, origin: crypto map\n        Inbound:  #pkts dec'ed 15344097 drop 0 life (KB/Sec) 4236992/615\n        Outbound: #pkts enc'ed 18074395 drop 0 life (KB/Sec) 4236962/615\n \nInterface: Tunnel2201\nSession status: DOWN-NEGOTIATING\nPeer: 10.163.255.14 port 500 fvrf: (none) ivrf: (none)\n      Desc: (none)\n      Phase1_id: (none)\n  Session ID: 0 \n  IKEv1 SA: local 10.175.200.116/500 remote 10.163.255.14/500 Inactive\n          Capabilities:(none) connid:0 lifetime:0\n  Session ID: 0 \n  IKEv1 SA: local 10.175.200.116/500 remote 10.163.255.14/500 Inactive\n          Capabilities:(none) connid:0 lifetime:0\n  IPSEC FLOW: permit 47 host 10.175.200.116 host 10.163.255.14\n        Active SAs: 0, origin: crypto map\n        Inbound:  #pkts dec'ed 0 drop 0 life (KB/Sec) 0/0\n        Outbound: #pkts enc'ed 0 drop 0 life (KB/Sec) 0/0\n",
+  "textfsm_template": "Value Required INTERFACE (\\S+)\nValue Required SESSION_STATUS (\\S+)\nValue PROFILE (\\S+)\nValue UPTIME (\\S+)\nValue Required PEER (\\S+)\nValue PORT (\\d+)\nValue FVRF (\\S+)\nValue IVRF (\\S+)\nValue DESCRIPTION (\\S+)\nValue PHASE1_ID (\\S+)\nValue SESSION_ID (\\d+)\nValue LOCAL_IP (\\S+)\nValue LOCAL_PORT (\\d+)\nValue REMOTE_IP (\\S+)\nValue REMOTE_PORT (\\S+)\nValue IKEV1_STATUS (\\S+)\nValue CAPABILITIES (\\S+)\nValue CONN_ID (\\d+)\nValue LIFETIME (\\S+)\nValue PERMIT (\\S+)\nValue SRC_HOST (\\S+)\nValue SRC_MASK (\\S+)\nValue DST_HOST (\\S+)\nValue DST_MASK (\\S+)\nValue ACTIVE_SA (\\d+)\nValue ORIGIN (.+)\n\nStart\n ^Crypto\\s+.*\n ^Code:\n ^K\\s+-\n ^X\\s+-\n ^R\\s+-\n ^S\\s+-\n ^Interface: -> Continue.Record\n ^Interface:\\s+${INTERFACE}\n ^Profile:\\s+${PROFILE}\n ^Session\\s+status:\\s+${SESSION_STATUS}\n ^Uptime:\\s+${UPTIME}\n ^Peer:\\s+${PEER}\\s+port\\s+${PORT}\\s+fvrf:\\s+${FVRF}\\s+ivrf:\\s+${IVRF}\n ^\\s+Desc:\\s+${DESCRIPTION}\n ^\\s+Phase1_id:\\s+${PHASE1_ID}\n ^\\s+Session\\s+ID:\\s+${SESSION_ID}\n ^\\s+IKEv[1|2]\\s+SA:\\s+local\\s+${LOCAL_IP}/${LOCAL_PORT}\\s+remote\\s+${REMOTE_IP}/${REMOTE_PORT}\\s+${IKEV1_STATUS}\n ^\\s+Capabilities:${CAPABILITIES}\\s+connid:${CONN_ID}\\s+lifetime:${LIFETIME}\n ^\\s+IPSEC\\s+FLOW:\\s+permit\\s+${PERMIT}\\s+host\\s+${SRC_HOST}\\s+host\\s+${DST_HOST}\n ^\\s+IPSEC\\s+FLOW:\\s+permit\\s+${PERMIT}\\s+${SRC_HOST}/${SRC_MASK}\\s+${DST_HOST}/${DST_MASK}\n ^\\s+Active\\s+SAs:\\s+${ACTIVE_SA},\\s+origin:\\s+${ORIGIN}\n ^\\s+Inbound:\\s+#.*\n ^\\s+Outbound:\\s+#.*\n ^\\s*$$\n ^. -> Error\n"
+}

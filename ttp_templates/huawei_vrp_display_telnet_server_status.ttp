@@ -1,0 +1,12 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_vrp_display_telnet_server_status
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 2
+# Match ratio: 2.00
+
+<group name="acl4_number_acl6_number_telnet_ipv4_server_telnet_ipv6_server">
+ TELNET IPv4 server  :{{TELNET_IPV4_SERVER | ORPHRASE}}
+ TELNET server port  :{{TELNET_SERVICE_PORT | ORPHRASE}}
+ TELNET server source address  :{{TELNET_SERVER_SOURCE_ADDRESS | ORPHRASE}}
+</group>

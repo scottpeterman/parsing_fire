@@ -1,0 +1,19 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nvfis_show_bridge-settings
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="dhcp_dpdk_interface_ipv6_address">
+ ip-info ipv4_address {{SECONDARY_IP_ADDRESS | ORPHRASE}}
+ ip-info link-local ipv6 address fe80{{IPV6_ADDRESS | ORPHRASE}}9474:baff:fe6b:904d
+ ip-info mac_address  {{MAC_ADDRESS | ORPHRASE}}
+ ip-info mtu  {{MTU | ORPHRASE}}
+ vlan tag {{VLAN_TAG | ORPHRASE}}
+ dhcp {{DHCP | ORPHRASE}}
+ dpdk-enabled {{DPDK | ORPHRASE}}
+bridge-settings {{NAME | ORPHRASE}}
+ ip-info ipv4_address {{IP_ADDRESS | ORPHRASE}}
+ ip-info netmask {{NETMASK | ORPHRASE}}
+</group>

@@ -1,0 +1,90 @@
+{
+  "command": "dir /all",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"position_type_size_date_name\">\n    {{POSITION}} {{TYPE}} {{SIZE}} {{DATE | ORPHRASE}} {{NAME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "POSITION": "10",
+      "TYPE": "-rw-",
+      "SIZE": "1243929",
+      "DATE": "Jan 24 2023 10:23:03",
+      "NAME": "config.text"
+    },
+    {
+      "POSITION": "25",
+      "TYPE": "-rw-",
+      "SIZE": "5692",
+      "DATE": "Jan 24 2023 10:37:54",
+      "NAME": "vlan.dat"
+    },
+    {
+      "POSITION": "7",
+      "TYPE": "drw-",
+      "SIZE": "0",
+      "DATE": "Jan 24 2023 10:42:19",
+      "NAME": "coredumpinfo"
+    },
+    {
+      "POSITION": "12",
+      "TYPE": "-rw-",
+      "SIZE": "349485016",
+      "DATE": "May 1 2023 18:42:11",
+      "NAME": "ios.bin"
+    },
+    {
+      "POSITION": "31",
+      "TYPE": "drw-",
+      "SIZE": "512",
+      "DATE": "May 2 2023 20:51:12",
+      "NAME": "crashinfo"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "position_type_size_date_name": [
+        {
+          "POSITION": "10",
+          "TYPE": "-rw-",
+          "SIZE": "1243929",
+          "DATE": "Jan 24 2023 10:23:03",
+          "NAME": "config.text"
+        },
+        {
+          "POSITION": "25",
+          "TYPE": "-rw-",
+          "SIZE": "5692",
+          "DATE": "Jan 24 2023 10:37:54",
+          "NAME": "vlan.dat"
+        },
+        {
+          "POSITION": "7",
+          "TYPE": "drw-",
+          "SIZE": "0",
+          "DATE": "Jan 24 2023 10:42:19",
+          "NAME": "coredumpinfo"
+        },
+        {
+          "POSITION": "12",
+          "TYPE": "-rw-",
+          "SIZE": "349485016",
+          "DATE": "May 1 2023 18:42:11",
+          "NAME": "ios.bin"
+        },
+        {
+          "POSITION": "31",
+          "TYPE": "drw-",
+          "SIZE": "512",
+          "DATE": "May 2 2023 20:51:12",
+          "NAME": "crashinfo"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Directory of flash:/\n\n    10     -rw-     1243929   Jan 24 2023 10:23:03  config.text\n    25     -rw-     5692      Jan 24 2023 10:37:54  vlan.dat\n    7      drw-     0         Jan 24 2023 10:42:19  coredumpinfo\n    12     -rw-     349485016 May 1 2023 18:42:11   ios.bin\n    31     drw-     512       May 2 2023 20:51:12   crashinfo\n\n153 MB total (31 MB free)\n",
+  "textfsm_template": "Value POSITION (\\d+)\nValue TYPE (\\S+)  \nValue SIZE (\\d+)\nValue DATE (\\w+ \\d+ \\d{4} \\d{2}:\\d{2}:\\d{2})\nValue NAME (.+?)\n\nStart\n  ^\\s*${POSITION}\\s+${TYPE}\\s+${SIZE}\\s+${DATE}\\s+${NAME}\\s*$$ -> Record\n\nEOF\n"
+}

@@ -1,0 +1,27 @@
+{
+  "command": "mikrotik_routeros_routing_bgp_peer_print_status",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"bgp_neighbor_neighbor_as\">\n 0 name=\"peer1\" instance=default remote-address={{BGP_NEIGHBOR}} remote-as={{NEIGHBOR_AS | ORPHRASE}} tcp-md5-key=\"\" nexthop-choice=default multihop=no route-reflect=no hold-time=3m\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "BGP_NEIGHBOR": "192.168.1.134",
+      "NEIGHBOR_AS": "65001",
+      "STATE": "opensent"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "bgp_neighbor_neighbor_as": {
+        "BGP_NEIGHBOR": "192.168.1.134",
+        "NEIGHBOR_AS": "65001"
+      }
+    }
+  ],
+  "cli_content": "Flags: X - disabled, E - established\n 0   name=\"peer1\" instance=default remote-address=192.168.1.134 remote-as=65001 tcp-md5-key=\"\" nexthop-choice=default multihop=no route-reflect=no hold-time=3m\n     ttl=255 in-filter=\"\" out-filter=\"\" address-families=ip,ipv6 default-originate=never remove-private-as=no as-override=no passive=no use-bfd=no state=opensent\n",
+  "textfsm_template": "Value BGP_NEIGHBOR (\\S+)\nValue NEIGHBOR_AS (\\d+)\nValue UP_DOWN (\\S+)\nValue STATE (\\S+)\n\nStart\n  ^\\s*Flags:\\s+X\\s+-\\s+disabled,\\s+E\\s+-\\s+established\\s*$$\n  ^.*remote-address=${BGP_NEIGHBOR}.*remote-as=${NEIGHBOR_AS}.*(?:uptime=${UP_DOWN})?.*$$\n  ^.*state=${STATE}.*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

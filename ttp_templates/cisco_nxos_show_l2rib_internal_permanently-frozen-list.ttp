@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_l2rib_internal_permanently-frozen-list
+# Source: ntc
+# TextFSM rows: 25
+# TTP rows: 26
+# Match ratio: 1.04
+
+<group name="topology_mac_address_frozen_time">
+{{TOPOLOGY}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{FROZEN_TIME | ORPHRASE}}
+</group>

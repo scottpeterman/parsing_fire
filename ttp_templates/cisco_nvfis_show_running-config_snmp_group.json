@@ -1,0 +1,46 @@
+{
+  "command": "cisco_nvfis_show_running-config_snmp_group",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"read_groupname_version_priviledge\">\n{{READ}} group {{GROUPNAME}} \"\" {{VERSION | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{PRIVILEDGE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "GROUPNAME": "Laurel",
+      "VERSION": "3",
+      "PRIVILEDGE": "authPriv",
+      "READ": "snmp",
+      "NOTIFY": "snmp"
+    },
+    {
+      "GROUPNAME": "Hardy",
+      "VERSION": "3",
+      "PRIVILEDGE": "authPriv",
+      "READ": "snmp",
+      "NOTIFY": "snmp"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "read_groupname_version_priviledge": [
+        {
+          "READ": "snmp",
+          "GROUPNAME": "Laurel",
+          "VERSION": "3",
+          "PRIVILEDGE": "authPriv"
+        },
+        {
+          "READ": "snmp",
+          "GROUPNAME": "Hardy",
+          "VERSION": "3",
+          "PRIVILEDGE": "authPriv"
+        }
+      ]
+    }
+  ],
+  "cli_content": "snmp group Laurel \"\" 3 authPriv\n read   snmp\n notify snmp\n!\nsnmp group Hardy \"\" 3 authPriv\n read   snmp\n notify snmp\n!",
+  "textfsm_template": "Value GROUPNAME ([-\\w]+)\nValue VERSION (\\d)\nValue PRIVILEDGE (\\w+)\nValue WRITE (\\w+)\nValue READ (\\w+)\nValue NOTIFY (\\w+)\n\n\nStart\n  ^snmp\\sgroup\\s${GROUPNAME}\\s\\S+\\s${VERSION}\\s${PRIVILEDGE}\n  ^\\swrite\\s+${WRITE}\n  ^\\sread\\s+${READ}\n  ^\\snotify\\s+${NOTIFY}\n  ^! -> Record\n  \nEOF"
+}

@@ -1,0 +1,68 @@
+{
+  "command": "show ip ospf",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"type_subnet_metric_nexthop_uptime_interface\">\n{{TYPE}} {{SUBNET}} [{{METRIC}}] via {{NEXTHOP}}, {{UPTIME | ORPHRASE}}, {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TYPE": "O",
+      "SUBNET": "10.1.0.0/16",
+      "METRIC": "110/2",
+      "NEXTHOP": "192.168.1.2",
+      "UPTIME": "00:12:35",
+      "INTERFACE": "GigabitEthernet0/1"
+    },
+    {
+      "TYPE": "O",
+      "SUBNET": "172.16.0.0/12",
+      "METRIC": "110/3",
+      "NEXTHOP": "192.168.1.3",
+      "UPTIME": "00:10:20",
+      "INTERFACE": "GigabitEthernet0/2"
+    },
+    {
+      "TYPE": "O",
+      "SUBNET": "192.168.10.0/24",
+      "METRIC": "110/5",
+      "NEXTHOP": "192.168.1.4",
+      "UPTIME": "00:08:45",
+      "INTERFACE": "TenGigabitEthernet1/1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "type_subnet_metric_nexthop_uptime_interface": [
+        {
+          "TYPE": "O",
+          "SUBNET": "10.1.0.0/16",
+          "METRIC": "110/2",
+          "NEXTHOP": "192.168.1.2",
+          "UPTIME": "00:12:35",
+          "INTERFACE": "GigabitEthernet0/1"
+        },
+        {
+          "TYPE": "O",
+          "SUBNET": "172.16.0.0/12",
+          "METRIC": "110/3",
+          "NEXTHOP": "192.168.1.3",
+          "UPTIME": "00:10:20",
+          "INTERFACE": "GigabitEthernet0/2"
+        },
+        {
+          "TYPE": "O",
+          "SUBNET": "192.168.10.0/24",
+          "METRIC": "110/5",
+          "NEXTHOP": "192.168.1.4",
+          "UPTIME": "00:08:45",
+          "INTERFACE": "TenGigabitEthernet1/1"
+        }
+      ]
+    }
+  ],
+  "cli_content": "OSPF Routing Table\n\nO    10.1.0.0/16 [110/2] via 192.168.1.2, 00:12:35, GigabitEthernet0/1\nO    172.16.0.0/12 [110/3] via 192.168.1.3, 00:10:20, GigabitEthernet0/2\nO    192.168.10.0/24 [110/5] via 192.168.1.4, 00:08:45, TenGigabitEthernet1/1\n",
+  "textfsm_template": "Value TYPE (\\S+)\nValue SUBNET (\\S+)\nValue METRIC (\\S+)\nValue NEXTHOP (\\S+)\nValue UPTIME (\\S+)\nValue INTERFACE (\\S+)\n\nStart\n  ^\\s*OSPF Routing Table\\s*$$\n  ^\\s*${TYPE}\\s+${SUBNET}\\s+\\[${METRIC}\\]\\s+via\\s+${NEXTHOP},\\s+${UPTIME},\\s+${INTERFACE}\\s*$$ -> Record"
+}

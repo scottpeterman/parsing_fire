@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: alcatel_sros_show_router_isis_interface
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="interface_level_circid_oper_state_metric_l1_metric_l2">
+{{INTERFACE}} {{LEVEL}} {{CIRCID | re("\\d+")}} {{OPER_STATE | ORPHRASE}} {{METRIC_L1 | ORPHRASE}}/{{METRIC_L2}}
+</group>

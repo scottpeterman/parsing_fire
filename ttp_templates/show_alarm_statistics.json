@@ -1,0 +1,60 @@
+{
+  "command": "show alarm statistics",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"alarm_id_severity_count\">\n{{ALARM_ID | re(\"\\\\d+\")}} {{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{COUNT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ALARM_ID": "1001",
+      "SEVERITY": "Critical",
+      "COUNT": "2"
+    },
+    {
+      "ALARM_ID": "1002",
+      "SEVERITY": "Major",
+      "COUNT": "1"
+    },
+    {
+      "ALARM_ID": "1003",
+      "SEVERITY": "Minor",
+      "COUNT": "1"
+    },
+    {
+      "ALARM_ID": "1004",
+      "SEVERITY": "Warning",
+      "COUNT": "1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "alarm_id_severity_count": [
+        {
+          "ALARM_ID": "1001",
+          "SEVERITY": "Critical",
+          "COUNT": "2"
+        },
+        {
+          "ALARM_ID": "1002",
+          "SEVERITY": "Major",
+          "COUNT": "1"
+        },
+        {
+          "ALARM_ID": "1003",
+          "SEVERITY": "Minor",
+          "COUNT": "1"
+        },
+        {
+          "ALARM_ID": "1004",
+          "SEVERITY": "Warning",
+          "COUNT": "1"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Total Alarms: 5\n\nAlarm ID   Severity   Count\n---------  --------   -----\n1001       Critical   2\n1002       Major      1\n1003       Minor      1\n1004       Warning    1\n",
+  "textfsm_template": "Value ALARM_ID (\\d+)\nValue SEVERITY (\\w+)\nValue COUNT (\\d+)\n\nStart\n  ^Total Alarms: \\d+\\s*$$\n  ^Alarm ID\\s+Severity\\s+Count\\s*$$\n  ^---------\\s+--------\\s+-----\\s*$$\n  ^${ALARM_ID}\\s+${SEVERITY}\\s+${COUNT}\\s*$$ -> Record"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip dhcp snooping binding
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="macaddr_ipaddr_lease_type_vlan_interface">
+{{MACADDR | re("[0-9a-fA-F:.-]+")}} {{IPADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{LEASE}} {{TYPE}} {{VLAN | re("\\d+")}} {{INTERFACE | ORPHRASE}}
+</group>

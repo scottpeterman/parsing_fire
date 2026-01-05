@@ -1,0 +1,56 @@
+{
+  "command": "show alarm traffic profile",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"traffic_profile_alerts_raised_alerts_cleared_active_alerts\">\n{{TRAFFIC_PROFILE}} {{ALERTS_RAISED}} {{ALERTS_CLEARED}} {{ACTIVE_ALERTS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TRAFFIC_PROFILE": "High",
+      "ALERTS_RAISED": "120",
+      "ALERTS_CLEARED": "90",
+      "ACTIVE_ALERTS": "30"
+    },
+    {
+      "TRAFFIC_PROFILE": "Medium",
+      "ALERTS_RAISED": "75",
+      "ALERTS_CLEARED": "50",
+      "ACTIVE_ALERTS": "25"
+    },
+    {
+      "TRAFFIC_PROFILE": "Low",
+      "ALERTS_RAISED": "25",
+      "ALERTS_CLEARED": "15",
+      "ACTIVE_ALERTS": "10"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "traffic_profile_alerts_raised_alerts_cleared_active_alerts": [
+        {
+          "TRAFFIC_PROFILE": "High",
+          "ALERTS_RAISED": "120",
+          "ALERTS_CLEARED": "90",
+          "ACTIVE_ALERTS": "30"
+        },
+        {
+          "TRAFFIC_PROFILE": "Medium",
+          "ALERTS_RAISED": "75",
+          "ALERTS_CLEARED": "50",
+          "ACTIVE_ALERTS": "25"
+        },
+        {
+          "TRAFFIC_PROFILE": "Low",
+          "ALERTS_RAISED": "25",
+          "ALERTS_CLEARED": "15",
+          "ACTIVE_ALERTS": "10"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Traffic Profile   Alerts Raised   Alerts Cleared   Active Alerts\nHigh              120             90               30\nMedium            75              50               25\nLow               25              15               10\n",
+  "textfsm_template": "Value TRAFFIC_PROFILE (\\S+)\nValue ALERTS_RAISED (\\d+)\nValue ALERTS_CLEARED (\\d+)\nValue ACTIVE_ALERTS (\\d+)\n\nStart\n  ^\\s*Traffic\\s+Profile\\s+Alerts\\s+Raised\\s+Alerts\\s+Cleared\\s+Active\\s+Alerts\\s*$$\n  ^\\s*${TRAFFIC_PROFILE}\\s+${ALERTS_RAISED}\\s+${ALERTS_CLEARED}\\s+${ACTIVE_ALERTS}\\s*$$ -> Record"
+}

@@ -1,0 +1,194 @@
+{
+  "command": "cisco_asa_show_object-group_network",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.5,
+  "textfsm_rows": 14,
+  "ttp_rows": 21,
+  "ttp_template": "<group name=\"description_name\">\nobject-group network {{NAME | ORPHRASE}}\n<group name=\"netmask_network_type\">\n {{TYPE}}-object {{NETWORK}} {{NETMASK | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "NETWORK-10.42.89.0_24",
+      "TYPE": "network",
+      "NETWORK": "10.142.89.0",
+      "NETMASK": "255.255.255.0"
+    },
+    {
+      "NAME": "network-10.0.0.0_8",
+      "TYPE": "network",
+      "NETWORK": "10.0.0.0",
+      "NETMASK": "255.0.0.0"
+    },
+    {
+      "NAME": "SITE-A",
+      "TYPE": "host",
+      "HOST": "10.1.1.22"
+    },
+    {
+      "NAME": "site-b",
+      "TYPE": "host",
+      "HOST": "10.1.1.33"
+    },
+    {
+      "NAME": "Lab",
+      "TYPE": "network",
+      "NETWORK": "10.143.185.10",
+      "NETMASK": "255.255.255.255"
+    },
+    {
+      "NAME": "Lab",
+      "TYPE": "network",
+      "NETWORK": "10.143.185.15",
+      "NETMASK": "255.255.255.255"
+    },
+    {
+      "NAME": "Dev",
+      "TYPE": "group",
+      "GRP_OBJECT": "dev_web-servers"
+    },
+    {
+      "NAME": "Dev",
+      "TYPE": "object",
+      "NET_OBJECT": "DEV_DB"
+    },
+    {
+      "NAME": "Prod",
+      "DESCRIPTION": "Prod Environment",
+      "TYPE": "network",
+      "NETWORK": "10.14.88.115",
+      "NETMASK": "255.255.255.255"
+    },
+    {
+      "NAME": "Prod",
+      "DESCRIPTION": "Prod Environment",
+      "TYPE": "host",
+      "HOST": "10.135.92.6"
+    },
+    {
+      "NAME": "Prod",
+      "DESCRIPTION": "Prod Environment",
+      "TYPE": "object",
+      "NET_OBJECT": "svr01"
+    },
+    {
+      "NAME": "Prod",
+      "DESCRIPTION": "Prod Environment",
+      "TYPE": "group",
+      "GRP_OBJECT": "prod_dc"
+    },
+    {
+      "NAME": "dr",
+      "DESCRIPTION": "dr-network",
+      "TYPE": "network",
+      "NETWORK": "10.210.0.0",
+      "NETMASK": "255.255.0.0"
+    },
+    {
+      "NAME": "dr2",
+      "DESCRIPTION": "dr2-network",
+      "TYPE": "network",
+      "NETWORK": "10.211.0.0",
+      "NETMASK": "255.255.0.0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "description_name": [
+        {
+          "NAME": "NETWORK-10.42.89.0_24",
+          "netmask_network_type": {
+            "TYPE": "network",
+            "NETWORK": "10.142.89.0",
+            "NETMASK": "255.255.255.0"
+          }
+        },
+        {
+          "NAME": "network-10.0.0.0_8",
+          "netmask_network_type": {
+            "TYPE": "network",
+            "NETWORK": "10.0.0.0",
+            "NETMASK": "255.0.0.0"
+          }
+        },
+        {
+          "NAME": "SITE-A",
+          "netmask_network_type": {
+            "TYPE": "network",
+            "NETWORK": "host",
+            "NETMASK": "10.1.1.22"
+          }
+        },
+        {
+          "NAME": "site-b",
+          "netmask_network_type": {
+            "TYPE": "network",
+            "NETWORK": "host",
+            "NETMASK": "10.1.1.33"
+          }
+        },
+        {
+          "NAME": "Lab",
+          "netmask_network_type": [
+            {
+              "TYPE": "network",
+              "NETWORK": "10.143.185.10",
+              "NETMASK": "255.255.255.255"
+            },
+            {
+              "TYPE": "network",
+              "NETWORK": "10.143.185.15",
+              "NETMASK": "255.255.255.255"
+            }
+          ]
+        },
+        {
+          "NAME": "Dev",
+          "netmask_network_type": {
+            "TYPE": "network",
+            "NETWORK": "object",
+            "NETMASK": "DEV_DB"
+          }
+        },
+        {
+          "NAME": "Prod",
+          "netmask_network_type": [
+            {
+              "TYPE": "network",
+              "NETWORK": "10.14.88.115",
+              "NETMASK": "255.255.255.255"
+            },
+            {
+              "TYPE": "network",
+              "NETWORK": "host",
+              "NETMASK": "10.135.92.6"
+            },
+            {
+              "TYPE": "network",
+              "NETWORK": "object",
+              "NETMASK": "svr01"
+            }
+          ]
+        },
+        {
+          "NAME": "dr",
+          "netmask_network_type": {
+            "TYPE": "network",
+            "NETWORK": "10.210.0.0",
+            "NETMASK": "255.255.0.0"
+          }
+        },
+        {
+          "NAME": "dr2",
+          "netmask_network_type": {
+            "TYPE": "network",
+            "NETWORK": "10.211.0.0",
+            "NETMASK": "255.255.0.0"
+          }
+        }
+      ]
+    }
+  ],
+  "cli_content": "object-group network NETWORK-10.42.89.0_24\n network-object 10.142.89.0 255.255.255.0\nobject-group network network-10.0.0.0_8\n network-object 10.0.0.0 255.0.0.0\nobject-group network SITE-A\n network-object host 10.1.1.22\nobject-group network site-b\n network-object host 10.1.1.33\nobject-group network Lab\n network-object 10.143.185.10 255.255.255.255\n network-object 10.143.185.15 255.255.255.255\nobject-group network Dev\n group-object dev_web-servers\n network-object object DEV_DB\nobject-group network Prod\n description: Prod Environment\n network-object 10.14.88.115 255.255.255.255\n network-object host 10.135.92.6\n network-object object svr01\n group-object prod_dc\nobject-group network dr\n description: dr-network\n network-object 10.210.0.0 255.255.0.0\nobject-group network dr2\n description dr2-network\n network-object 10.211.0.0 255.255.0.0\n",
+  "textfsm_template": "Value Filldown NAME (\\S+)\nValue Filldown DESCRIPTION (.+)\nValue TYPE ([newrkguphsobjct]+)\nValue HOST (\\d+.\\d+.\\d+.\\d+)\nValue NET_OBJECT (\\S+)\nValue NETWORK (\\d+.\\d+.\\d+.\\d+)\nValue NETMASK (\\d+.\\d+.\\d+.\\d+)\nValue GRP_OBJECT (\\S+)\n\nStart\n  ^object-group -> Continue.Clearall\n  ^object-group\\s+network\\s+${NAME}\\s*\n  ^\\s+description:?\\s+${DESCRIPTION}\\s*\n  ^\\s+network-object\\s+${TYPE}\\s+${HOST}\\s* -> Record\n  ^\\s+network-object\\s+${TYPE}\\s+${NET_OBJECT}\\s* -> Record\n  ^\\s+${TYPE}-object\\s+${NETWORK}\\s+${NETMASK}\\s* -> Record\n  ^\\s+${TYPE}-object\\s+${GRP_OBJECT}\\s* -> Record\n\nEOF\n"
+}

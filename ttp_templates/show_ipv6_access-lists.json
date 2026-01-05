@@ -1,0 +1,78 @@
+{
+  "command": "show ipv6 access-lists",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"action_protocol_source_destination_sequence\">\n    {{ACTION}} {{PROTOCOL}} {{SOURCE}} {{DESTINATION}} sequence {{SEQUENCE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ACL_NAME": "TEST-V6",
+      "ACTION": "permit",
+      "PROTOCOL": "ipv6",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "SEQUENCE": "10"
+    },
+    {
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "SEQUENCE": "40"
+    },
+    {
+      "ACL_NAME": "ANOTHER-V6",
+      "ACTION": "permit",
+      "PROTOCOL": "ipv6",
+      "SOURCE": "2001:db8::/32",
+      "DESTINATION": "any",
+      "SEQUENCE": "5"
+    },
+    {
+      "ACTION": "deny",
+      "PROTOCOL": "ipv6",
+      "SOURCE": "any",
+      "DESTINATION": "2001:db8:1::/64",
+      "SEQUENCE": "15"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "action_protocol_source_destination_sequence": [
+        {
+          "ACTION": "permit",
+          "PROTOCOL": "ipv6",
+          "SOURCE": "any",
+          "DESTINATION": "any",
+          "SEQUENCE": "10"
+        },
+        {
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SOURCE": "any",
+          "DESTINATION": "any",
+          "SEQUENCE": "40"
+        },
+        {
+          "ACTION": "permit",
+          "PROTOCOL": "ipv6",
+          "SOURCE": "2001:db8::/32",
+          "DESTINATION": "any",
+          "SEQUENCE": "5"
+        },
+        {
+          "ACTION": "deny",
+          "PROTOCOL": "ipv6",
+          "SOURCE": "any",
+          "DESTINATION": "2001:db8:1::/64",
+          "SEQUENCE": "15"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IPv6 access list TEST-V6\n    permit ipv6 any any sequence 10\n    deny tcp any any eq 80 sequence 20\n    permit udp any any eq 53 sequence 30\n    permit icmp any any sequence 40\n    deny ipv6 any any log sequence 50\n\nIPv6 access list ANOTHER-V6\n    permit ipv6 2001:db8::/32 any sequence 5\n    deny ipv6 any 2001:db8:1::/64 sequence 15\n    permit ipv6 host 2001:db8::1 any sequence 25\n    permit ipv6 any host 2001:db8::2 sequence 35\n",
+  "textfsm_template": "Value ACL_NAME (\\S+)\nValue ACTION (permit|deny)\nValue PROTOCOL (\\S+)\nValue SOURCE (\\S+)\nValue DESTINATION (\\S+)\nValue SEQUENCE (\\d+)\n\nStart\n  ^IPv6 access list ${ACL_NAME}\n  ^\\s{4}${ACTION}\\s+${PROTOCOL}\\s+${SOURCE}\\s+${DESTINATION}\\s+sequence\\s+${SEQUENCE}\\s*$$ -> Record"
+}

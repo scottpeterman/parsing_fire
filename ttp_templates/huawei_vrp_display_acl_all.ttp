@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_vrp_display_acl_all
+# Source: ntc
+# TextFSM rows: 13
+# TTP rows: 1
+# Match ratio: 0.08
+
+<group name="acl_name">
+Advanced ACL {{ACL_NAME | ORPHRASE}} 3998, 3 rules
+<group name="action_sn_source">
+ rule {{SN | re("\\w+")}} {{ACTION}} source {{SOURCE | ORPHRASE}} (94 matches)
+</group>
+</group>

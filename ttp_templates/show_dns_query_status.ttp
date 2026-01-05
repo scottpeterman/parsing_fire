@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show dns query status
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="dynamic_domain_dynamic_server_count">
+  - domain: {{DYNAMIC_DOMAIN}}, default DNS server count: {{DYNAMIC_SERVER_COUNT | ORPHRASE}}
+</group>

@@ -1,0 +1,136 @@
+{
+  "command": "brocade_netiron_show_topo",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 3.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 18,
+  "ttp_template": "<group name=\"membervlans\">\nMember VLAN : {{membervlans | ORPHRASE}} \n</group>\n<group name=\"topogroup\">\nTopology Group {{topogroup | ORPHRASE}}\n</group>\n<group name=\"controlports\">\nControl Ports : {{controlports | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "topogroup": "10",
+      "topohwindex": "2",
+      "mastervlan": "10",
+      "l2proto": "MRP",
+      "vplsvlanpresent": "FALSE",
+      "membervlans": "146 149 151 to 152 154 200 300 to 303 350 400 453 1280 to 1283 1295 1335 1395 2005 2022 2024 2030 2033 2035 2039 2049 to 2050 2054 2069 to 2070 2086 2091 to 2092 2096 to 2097 2099 to 2100 2129 2184 2188 to 2189 2204 2215 2226 2241 to 2242 2250 2253 2277 2325 to 2326 2340 2342 2349 to 2351 2360 2367 2414 to 2415 2442 2895 3008 3840 4001",
+      "membergroup": "None",
+      "controlports": "e 1/4 e 1/7 e 2/4 e 2/7"
+    },
+    {
+      "topogroup": "11",
+      "topohwindex": "65535",
+      "mastervlan": "11",
+      "vplsvlanpresent": "FALSE",
+      "membervlans": "201 501 1400",
+      "membergroup": "None"
+    },
+    {
+      "topogroup": "13",
+      "topohwindex": "8",
+      "mastervlan": "513",
+      "l2proto": "MRP",
+      "vplsvlanpresent": "FALSE",
+      "membervlans": "94 207 223 to 224 280 to 282 290 310 to 311 320 to 321 330 to 331 340 345 355 360 365 375 380 385 390 401 517 to 518 619 623 999 1290 1345 1355 to 1356 1380 1385 1390 2004 2006 2011 2018 2043 2045 to 2046 2058 to 2059 2063 to 2065 2072 2075 2102 2104 to 2107 2133 2137 2173 2180 to 2181 2190 2195 2197 2199 to 2200 2235 2257 2261 2265 2267 2270 to 2272 2274 2278 2282 2284 to 2287 2293 to 2296 2298 2301 to 2302 2305 to 2306 2314 to 2317 2320 2323 to 2324 2329 2332 2343 to 2345 2352 to 2353 2355 2357 2359 2362 to 2363 2366 2368 to 2369 2372 2374 to 2376 2379 2381 2384 2386 to 2387 2393 2395 2399 to 2401 2403 2408 2412 2416 2418 to 2420 2435 to 2440 2443 to 2446 2449 to 2451 2453 to 2456 2460 2466 to 2470 2472 2475 2483 2571 2575 to 2576 2718 2766 3004 3006 to 3007",
+      "membergroup": "None",
+      "controlports": "e 3/1 e 3/3 e 4/1 e 4/3"
+    },
+    {
+      "topogroup": "14",
+      "topohwindex": "3",
+      "mastervlan": "14",
+      "l2proto": "MRP",
+      "vplsvlanpresent": "FALSE",
+      "membervlans": "370 1370 2025 2031 2057 2134 2138 2210 2256 2263 2356 2404 2506 2896",
+      "membergroup": "None",
+      "controlports": "e 1/4 e 1/7 e 2/4 e 2/7"
+    },
+    {
+      "topogroup": "60",
+      "topohwindex": "7",
+      "mastervlan": "60",
+      "l2proto": "MRP",
+      "vplsvlanpresent": "FALSE",
+      "membervlans": "2371",
+      "membergroup": "None",
+      "controlports": "e 3/1 e 3/3 e 3/5 e 4/1 e 4/3"
+    },
+    {
+      "topogroup": "170",
+      "topohwindex": "4",
+      "mastervlan": "170",
+      "l2proto": "MRP",
+      "vplsvlanpresent": "FALSE",
+      "membervlans": "144 to 145 220 454 2040 2191 2422 2459",
+      "membergroup": "None",
+      "controlports": "e 3/1 e 3/3 e 4/1 e 4/3"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "membervlans": [
+        {
+          "membervlans": "146 149 151 to 152 154 200 300 to 303 350 400 453 1280 to 1283 1295 1335 1395 2005 2022 2024 2030 2033 2035 2039 2049 to 2050 2054 2069 to 2070 2086 2091 to 2092 2096 to 2097 2099 to 2100 2129 2184 2188 to 2189 2204 2215 2226 2241 to 2242 2250 2253 2277 2325 to 2326 2340 2342 2349 to 2351 2360 2367 2414 to 2415 2442 2895 3008 3840 4001"
+        },
+        {
+          "membervlans": "201 501 1400"
+        },
+        {
+          "membervlans": "94 207 223 to 224 280 to 282 290 310 to 311 320 to 321 330 to 331 340 345 355 360 365 375 380 385 390 401 517 to 518 619 623 999 1290 1345 1355 to 1356 1380 1385 1390 2004 2006 2011 2018 2043 2045 to 2046 2058 to 2059 2063 to 2065 2072 2075 2102 2104 to 2107 2133 2137 2173 2180 to 2181 2190 2195 2197 2199 to 2200 2235 2257 2261 2265 2267 2270 to 2272 2274 2278 2282 2284 to 2287 2293 to 2296 2298 2301 to 2302 2305 to 2306 2314 to 2317 2320 2323 to 2324 2329 2332 2343 to 2345 2352 to 2353 2355 2357 2359 2362 to 2363 2366 2368 to 2369 2372 2374 to 2376 2379 2381 2384 2386 to 2387 2393 2395 2399 to 2401 2403 2408 2412 2416 2418 to 2420 2435 to 2440 2443 to 2446 2449 to 2451 2453 to 2456 2460 2466 to 2470 2472 2475 2483 2571 2575 to 2576 2718 2766 3004 3006 to 3007"
+        },
+        {
+          "membervlans": "370 1370 2025 2031 2057 2134 2138 2210 2256 2263 2356 2404 2506 2896"
+        },
+        {
+          "membervlans": "2371"
+        },
+        {
+          "membervlans": "144 to 145 220 454 2040 2191 2422 2459"
+        }
+      ],
+      "topogroup": [
+        {
+          "topogroup": "10"
+        },
+        {
+          "topogroup": "11"
+        },
+        {
+          "topogroup": "13"
+        },
+        {
+          "topogroup": "14"
+        },
+        {
+          "topogroup": "60"
+        },
+        {
+          "topogroup": "170"
+        }
+      ],
+      "controlports": [
+        {
+          "controlports": "e 1/4 e 1/7 e 2/4 e 2/7"
+        },
+        {
+          "controlports": "None"
+        },
+        {
+          "controlports": "e 3/1 e 3/3 e 4/1 e 4/3"
+        },
+        {
+          "controlports": "e 1/4 e 1/7 e 2/4 e 2/7"
+        },
+        {
+          "controlports": "e 3/1 e 3/3 e 3/5 e 4/1 e 4/3"
+        },
+        {
+          "controlports": "e 3/1 e 3/3 e 4/1 e 4/3"
+        }
+      ]
+    }
+  ],
+  "cli_content": "VLAN 2 - STP instance 0\n--------------------------------------------------------------------\nSTP Bridge Parameters:\n\nBridge           Bridge Bridge Bridge Hold  LastTopology Topology\nIdentifier       MaxAge Hello  FwdDly Time  Change       Change\nhex              sec    sec    sec    sec   sec          cnt\n8000002438a51c00 20     2      15     1     2456092      8       \n\nRootBridge       RootPath  DesignatedBridge Root  Max Hel Fwd\nIdentifier       Cost      Identifier       Port  Age lo  Dly\nhex                        hex                    sec sec sec\n8000002438a51c00 0         8000002438a51c00 Root  20  2   15  \n\nSTP Port Parameters:\n\nPort  Prio Path      State      Designat- Designated       Designated\nNum   rity Cost                 ed Cost   Root             Bridge\n1/1   128  4         FORWARDING 0         8000002438a51c00 8000002438a51c00 \n1/6   128  4         FORWARDING 0         8000002438a51c00 8000002438a51c00 \n1/17  128  4         FORWARDING 0         8000002438a51c00 8000002438a51c00 \n2/1   128  4         FORWARDING 0         8000002438a51c00 8000002438a51c00 \n2/6   128  4         FORWARDING 0         8000002438a51c00 8000002438a51c00 \n2/17  128  4         FORWARDING 0         8000002438a51c00 8000002438a51c00 \ntelnet@mlx1.clmamoxa#  \ntelnet@mlx1.clmamoxa#show topo\nTopology Group 10\nTopo HW Index  2\n==================\nMaster VLAN   : 10\nL2 Protocol   : MRP\nVPLS VLAN exist : FALSE\nMember VLAN   : 146 149 151 to 152 154 200 300 to 303 350 400 453 1280 to 1283 1295 1335 1395 2005 2022 2024 2030 2033 2035 2039 2049 to 2050 2054 2069 to 2070 2086 2091 to 2092 2096 to 2097 2099 to 2100 2129 2184 2188 to 2189 2204 2215 2226 2241 to 2242 2250 2253 2277 2325 to 2326 2340 2342 2349 to 2351 2360 2367 2414 to 2415 2442 2895 3008 3840 4001 \nMember Group  : None\nControl Ports : e 1/4 e 1/7 e 2/4 e 2/7 \nFree Ports :\nVLAN: 10  - e 1/1 e 1/14 e 2/1 e 3/2 e 3/4 e 4/2 e 4/4 \nVLAN: 200  - e 1/6 e 1/17 e 2/1 e 2/6 e 2/17 \nVLAN: 300  - e 1/1 e 1/8 e 1/16 e 2/1 e 2/8 e 2/19 e 3/2 e 4/2 \nVLAN: 301  - e 1/1 e 1/8 e 2/1 e 2/8 \nVLAN: 302  - e 1/1 e 1/8 e 2/1 e 2/8 \nVLAN: 303  - e 1/1 e 1/8 e 2/1 e 2/8 \nVLAN: 350  - e 1/1 e 2/1 \nVLAN: 400  - e 1/8 e 2/8 e 3/2 e 4/2 \nVLAN: 453  - e 2/12 \nVLAN: 1282  - e 1/1 \nVLAN: 1335  - e 1/8 e 2/8 e 3/2 e 4/2 \nVLAN: 2022  - e 1/12 \nVLAN: 2024  - e 3/4 \nVLAN: 2030  - e 1/8 e 2/8 e 3/2 e 4/2                             \nVLAN: 2033  - e 3/4 \nVLAN: 2035  - e 3/4 \nVLAN: 2039  - e 3/4 \nVLAN: 2049  - e 3/4 \nVLAN: 2050  - e 2/12 e 3/4 \nVLAN: 2054  - e 1/8 e 2/8 \nVLAN: 2070  - e 3/4 \nVLAN: 2086  - e 2/12 e 2/15 \nVLAN: 2091  - e 1/8 e 1/12 e 2/8 \nVLAN: 2092  - e 2/12 e 2/15 \nVLAN: 2097  - e 3/4 \nVLAN: 2100  - e 2/12 \nVLAN: 2129  - e 1/8 e 2/8 e 2/12 e 2/15 e 3/2 e 4/2 \nVLAN: 2184  - e 1/12 \nVLAN: 2188  - e 2/12 e 2/15 \nVLAN: 2189  - e 3/4 \nVLAN: 2204  - e 3/4 \nVLAN: 2215  - e 3/4 \nVLAN: 2226  - e 1/1 e 3/4 \nVLAN: 2241  - e 3/4 \nVLAN: 2250  - e 3/4 \nVLAN: 2253  - e 1/12 \nVLAN: 2277  - e 3/4                                               \nVLAN: 2326  - e 3/4 \nVLAN: 2340  - e 1/12 e 2/12 e 2/16 \nVLAN: 2342  - e 1/1 e 1/8 e 2/8 e 2/12 e 2/16 e 3/2 e 3/4 e 4/2 \nVLAN: 2349  - e 3/4 \nVLAN: 2350  - e 1/12 \nVLAN: 2351  - e 2/12 e 2/15 \nVLAN: 2360  - e 2/12 e 2/16 \nVLAN: 2367  - e 1/8 e 1/12 e 2/8 e 2/12 e 2/16 e 3/2 e 4/2 \nVLAN: 2414  - e 2/12 \nVLAN: 2415  - e 2/12 e 2/15 \nVLAN: 2442  - e 2/15 \nVLAN: 2895  - e 3/4 \nVLAN: 3840  - e 1/8 e 2/8 \nVLAN: 4001  - e 1/6 e 1/17 e 2/6 e 2/17 \n\nTopology Group 11\nTopo HW Index  65535\n==================\nMaster VLAN   : 11\nL2 Protocol   : NONE\nVPLS VLAN exist : FALSE\nMember VLAN   : 201 501 1400 \nMember Group  : None                                              \nControl Ports : None\nFree Ports :\nVLAN: 11  - e 1/5 e 2/5 \nVLAN: 201  - e 1/5 to 1/6 e 1/17 e 2/5 to 2/6 e 2/17 \nVLAN: 501  - e 1/5 e 2/5 \nVLAN: 1400  - e 1/5 e 2/5 \nTopology Group 13\nTopo HW Index  8\n==================\nMaster VLAN   : 513\nL2 Protocol   : MRP\nVPLS VLAN exist : FALSE\nMember VLAN   : 94 207 223 to 224 280 to 282 290 310 to 311 320 to 321 330 to 331 340 345 355 360 365 375 380 385 390 401 517 to 518 619 623 999 1290 1345 1355 to 1356 1380 1385 1390 2004 2006 2011 2018 2043 2045 to 2046 2058 to 2059 2063 to 2065 2072 2075 2102 2104 to 2107 2133 2137 2173 2180 to 2181 2190 2195 2197 2199 to 2200 2235 2257 2261 2265 2267 2270 to 2272 2274 2278 2282 2284 to 2287 2293 to 2296 2298 2301 to 2302 2305 to 2306 2314 to 2317 2320 2323 to 2324 2329 2332 2343 to 2345 2352 to 2353 2355 2357 2359 2362 to 2363 2366 2368 to 2369 2372 2374 to 2376 2379 2381 2384 2386 to 2387 2393 2395 2399 to 2401 2403 2408 2412 2416 2418 to 2420 2435 to 2440 2443 to 2446 2449 to 2451 2453 to 2456 2460 2466 to 2470 2472 2475 2483 2571 2575 to 2576 2718 2766 3004 3006 to 3007 \nMember Group  : None\nControl Ports : e 3/1 e 3/3 e 4/1 e 4/3 \nFree Ports :\nVLAN: 94  - e 1/12 e 2/12 e 2/15 e 3/4 \nVLAN: 223  - e 1/6 e 1/17 e 2/6 e 2/17 \nVLAN: 224  - e 1/6 e 1/17 e 2/6 e 2/17 \nVLAN: 280  - e 1/1 \nVLAN: 281  - e 1/1 \nVLAN: 282  - e 1/1 \nVLAN: 290  - e 1/1 e 2/1                                          \nVLAN: 310  - e 1/1 e 2/1 \nVLAN: 311  - e 1/1 e 2/1 \nVLAN: 320  - e 1/1 e 2/1 \nVLAN: 321  - e 1/1 e 2/1 \nVLAN: 330  - e 1/1 e 2/1 \nVLAN: 331  - e 1/1 e 2/1 \nVLAN: 340  - e 1/1 e 2/1 \nVLAN: 345  - e 1/1 e 2/1 \nVLAN: 355  - e 1/1 e 2/1 \nVLAN: 360  - e 1/1 e 2/1 \nVLAN: 365  - e 1/1 e 2/1 \nVLAN: 375  - e 1/1 e 2/1 \nVLAN: 380  - e 1/1 e 2/1 \nVLAN: 385  - e 1/1 e 2/1 \nVLAN: 390  - e 1/1 e 2/1 \nVLAN: 1380  - e 1/1 e 2/1 \nVLAN: 1390  - e 1/1 e 2/1 \nVLAN: 2004  - e 1/8 e 2/8 e 3/4 \nVLAN: 2006  - e 2/12 \nVLAN: 2011  - e 1/8 e 1/12 e 2/8 e 2/15 e 3/4 \nVLAN: 2018  - e 1/12 \nVLAN: 2043  - e 1/8 e 2/8 e 3/4 \nVLAN: 2045  - e 2/12 e 3/4                                        \nVLAN: 2046  - e 1/12 e 3/4 \nVLAN: 2058  - e 1/12 \nVLAN: 2059  - e 3/4 \nVLAN: 2063  - e 3/4 \nVLAN: 2064  - e 3/4 \nVLAN: 2072  - e 3/4 \nVLAN: 2075  - e 1/12 e 2/12 \nVLAN: 2102  - e 1/12 \nVLAN: 2104  - e 1/12 e 2/12 \nVLAN: 2105  - e 1/12 \nVLAN: 2106  - e 1/12 \nVLAN: 2107  - e 1/12 e 2/12 \nVLAN: 2133  - e 1/12 \nVLAN: 2137  - e 3/4 \nVLAN: 2173  - e 2/12 \nVLAN: 2180  - e 1/12 \nVLAN: 2181  - e 3/4 \nVLAN: 2190  - e 3/4 \nVLAN: 2195  - e 3/4 \nVLAN: 2197  - e 1/12 \nVLAN: 2199  - e 1/8 e 2/8 e 3/4 \nVLAN: 2200  - e 1/4 e 1/7 e 2/4 e 2/7 \nVLAN: 2235  - e 2/12 e 2/15                                       \nVLAN: 2257  - e 3/4 \nVLAN: 2261  - e 1/12 e 2/12 e 2/15 \nVLAN: 2265  - e 3/4 \nVLAN: 2267  - e 3/4 \nVLAN: 2270  - e 1/12 \nVLAN: 2271  - e 1/12 \nVLAN: 2272  - e 1/12 \nVLAN: 2274  - e 1/12 \nVLAN: 2278  - e 3/4 \nVLAN: 2282  - e 2/12 e 2/15 to 2/16 \nVLAN: 2284  - e 2/16 \nVLAN: 2286  - e 3/4 \nVLAN: 2287  - e 1/12 \nVLAN: 2293  - e 3/4 \nVLAN: 2294  - e 3/4 \nVLAN: 2295  - e 2/12 e 2/16 \nVLAN: 2296  - e 3/4 \nVLAN: 2298  - e 3/4 \nVLAN: 2301  - e 2/12 e 2/16 \nVLAN: 2302  - e 1/12 \nVLAN: 2306  - e 3/4 \nVLAN: 2314  - e 1/12 e 2/12 e 2/16 \nVLAN: 2315  - e 1/12 e 2/15                                       \nVLAN: 2316  - e 1/12 \nVLAN: 2317  - e 1/12 \nVLAN: 2320  - e 3/4 \nVLAN: 2323  - e 1/12 \nVLAN: 2324  - e 1/12 \nVLAN: 2329  - e 1/12 \nVLAN: 2332  - e 3/4 \nVLAN: 2343  - e 1/12 \nVLAN: 2344  - e 1/1 e 2/12 e 2/16 e 3/2 e 3/4 e 4/2 \nVLAN: 2345  - e 3/4 \nVLAN: 2352  - e 2/12 e 2/16 \nVLAN: 2353  - e 1/12 \nVLAN: 2355  - e 3/4 \nVLAN: 2357  - e 1/12 \nVLAN: 2359  - e 1/4 e 1/7 e 1/12 e 2/4 e 2/7 \nVLAN: 2362  - e 1/12 e 2/15 \nVLAN: 2363  - e 1/4 e 1/7 e 2/4 e 2/7 \nVLAN: 2366  - e 1/4 e 1/7 e 2/4 e 2/7 e 3/4 \nVLAN: 2368  - e 2/12 e 2/16 \nVLAN: 2369  - e 1/4 e 1/7 e 2/4 e 2/7 e 2/12 e 2/16 e 3/4 \nVLAN: 2372  - e 2/12 e 2/16 \nVLAN: 2374  - e 1/8 e 2/8 e 2/12 e 2/16 e 3/2 e 4/2 \nVLAN: 2375  - e 2/12 e 2/15                                       \nVLAN: 2376  - e 1/12 \nVLAN: 2379  - e 1/12 \nVLAN: 2381  - e 1/12 \nVLAN: 2384  - e 1/12 e 2/12 e 2/16 \nVLAN: 2386  - e 1/12 e 2/12 \nVLAN: 2387  - e 2/12 e 2/15 e 3/4 \nVLAN: 2393  - e 2/12 e 2/16 \nVLAN: 2395  - e 2/12 e 2/16 \nVLAN: 2399  - e 2/12 \nVLAN: 2400  - e 2/12 e 2/16 \nVLAN: 2401  - e 2/12 e 2/16 \nVLAN: 2403  - e 2/12 \nVLAN: 2412  - e 2/12 \nVLAN: 2416  - e 2/12 \nVLAN: 2418  - e 2/12 \nVLAN: 2419  - e 2/12 \nVLAN: 2420  - e 2/12 \nVLAN: 2435  - e 1/12 e 2/12 \nVLAN: 2436  - e 1/12 \nVLAN: 2437  - e 2/12 \nVLAN: 2438  - e 1/12 e 2/12 \nVLAN: 2439  - e 1/12 e 2/12 \nVLAN: 2440  - e 1/12 e 2/12 e 3/4                                 \nVLAN: 2443  - e 2/15 \nVLAN: 2444  - e 2/15 e 3/4 \nVLAN: 2445  - e 2/12 e 2/15 \nVLAN: 2446  - e 2/16 e 3/4 \nVLAN: 2449  - e 2/12 e 3/4 \nVLAN: 2450  - e 2/15 \nVLAN: 2451  - e 2/15 \nVLAN: 2453  - e 2/16 \nVLAN: 2454  - e 2/15 \nVLAN: 2455  - e 2/16 \nVLAN: 2456  - e 2/15 \nVLAN: 2460  - e 2/15 \nVLAN: 2466  - e 1/12 \nVLAN: 2467  - e 1/12 \nVLAN: 2468  - e 2/16 \nVLAN: 2469  - e 3/4 \nVLAN: 2470  - e 3/4 \nVLAN: 2472  - e 3/4 \nVLAN: 2475  - e 3/4 \nVLAN: 2483  - e 3/4 \nVLAN: 2571  - e 3/4 \nVLAN: 2575  - e 1/12 \nVLAN: 2576  - e 3/4                                               \nVLAN: 2718  - e 1/12 \nVLAN: 2766  - e 3/4 \nVLAN: 3004  - e 1/8 e 2/8 e 2/16 e 3/4 \nVLAN: 3006  - e 3/4 \nVLAN: 3007  - e 1/12 e 2/12 e 3/4 \n\nTopology Group 14\nTopo HW Index  3\n==================\nMaster VLAN   : 14\nL2 Protocol   : MRP\nVPLS VLAN exist : FALSE\nMember VLAN   : 370 1370 2025 2031 2057 2134 2138 2210 2256 2263 2356 2404 2506 2896 \nMember Group  : None\nControl Ports : e 1/4 e 1/7 e 2/4 e 2/7 \nFree Ports :\nTopology Group 60\nTopo HW Index  7\n==================\nMaster VLAN   : 60\nL2 Protocol   : MRP\nVPLS VLAN exist : FALSE\nMember VLAN   : 2371                                              \nMember Group  : None\nControl Ports : e 3/1 e 3/3 e 3/5 e 4/1 e 4/3 \nFree Ports :\nVLAN: 2371  - e 1/4 e 1/7 e 2/4 e 2/7 \n\nTopology Group 170\nTopo HW Index  4\n==================\nMaster VLAN   : 170\nL2 Protocol   : MRP\nVPLS VLAN exist : FALSE\nMember VLAN   : 144 to 145 220 454 2040 2191 2422 2459 \nMember Group  : None\nControl Ports : e 3/1 e 3/3 e 4/1 e 4/3 \nFree Ports :\n",
+  "textfsm_template": "Value topogroup (\\d+)\nValue topohwindex (\\d+)\nValue mastervlan (\\d+)\nValue l2proto (MRP|STP|RSTP|VSRP|ERP)\nValue vplsvlanpresent (TRUE|FALSE)\nValue membervlans ([0-9\\ to]+)\nValue membergroup ([0-9a-zA-Z\\/\\ ]+)\nValue controlports ([0-9\\ \\/eto]+)\nValue freeports ([0-9\\ \\/eto]+)\n\nStart\n  ^Topology Group\\s+${topogroup}\n  ^Topo HW Index\\s+${topohwindex}\n  ^Master VLAN\\s+:\\s+${mastervlan}\n  ^L2 Protocol\\s+:\\s+${l2proto}\n  ^VPLS VLAN exist\\s+:\\s+${vplsvlanpresent}\n  ^Member VLAN\\s+:\\s+${membervlans}\n  ^Member Group\\s+:\\s+${membergroup}\n  ^Control Ports\\s+:\\s+${controlports}\n  ^Free -> Record"
+}

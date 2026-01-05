@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show cts interface all
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 3
+# Match ratio: 3.00
+
+<group name="cts_mode_device_id_encrypted_packets_interface">
+CTS Interface: GigabitEthernet{{ENCRYPTED_PACKETS | ORPHRASE}}/0
+  CTS is enabled, mode is {{CTS_MODE | ORPHRASE}}, default packet handling is disabled
+  Policy status is {{POLICY_STATUS | ORPHRASE}}, peer {{IP4_TRUSTS | ORPHRASE}} list empty
+CTS Interface: {{INTERFACE | ORPHRASE}}
+  IPv4 ingress access list: {{IP4_IN_ACL | ORPHRASE}}
+</group>

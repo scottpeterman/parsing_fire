@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_environment_power
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="power_supply_location_power_supply_pid_power_supply_watts_power_supply_input_power_supply_output_power_supply_watts_using_power_supply_status">
+{{POWER_SUPPLY_LOCATION}} {{POWER_SUPPLY_PID}} {{POWER_SUPPLY_WATTS}}W {{POWER_SUPPLY_INPUT}} {{POWER_SUPPLY_OUTPUT}} {{POWER_SUPPLY_WATTS_USING}}W {{POWER_SUPPLY_STATUS | ORPHRASE}}
+</group>

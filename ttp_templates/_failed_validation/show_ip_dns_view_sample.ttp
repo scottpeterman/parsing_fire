@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show ip dns view sample
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="type_class">
+Domain: {{DOM{{TYPE}}{{CLASS | ORPHRASE}}}}, Type: A, Class: IN
+</group>

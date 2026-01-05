@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: dell_powerconnect_show_interfaces_status
+# Source: ntc
+# TextFSM rows: 48
+# TTP rows: 50
+# Match ratio: 1.04
+
+<group name="port_type_duplex_speed_neg_flowctrl_linkstate_backpressure_mdixmode">
+{{PORT}} {{TYPE}} {{DUPLEX}} {{SPEED}} {{NEG}} {{FLOWCTRL}} {{LINKSTATE | ORPHRASE}} {{BACKPRESSURE}} {{MDIXMODE | ORPHRASE}}
+</group>

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show interfaces status all
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="port_status_vlan_duplex_speed_type">
+{{PORT}} {{STATUS | ORPHRASE}} {{VLAN | re("\\d+")}} {{DUPLEX}} {{SPEED}} {{TYPE | ORPHRASE}}
+</group>

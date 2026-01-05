@@ -1,0 +1,12 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_route-map
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="action_match_clauses_name_seq">
+route-map {{NAME}}, {{ACTION | ORPHRASE}}, sequence 10
+  length 150 {{SEQ | ORPHRASE}}0
+  {{SET_CLAUSES | ORPHRASE}}
+</group>

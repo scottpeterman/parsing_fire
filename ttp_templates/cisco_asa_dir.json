@@ -1,0 +1,217 @@
+{
+  "command": "cisco_asa_dir",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.3,
+  "textfsm_rows": 10,
+  "ttp_rows": 13,
+  "ttp_template": "<group name=\"file_system\">\nDirectory of {{FILE_SYSTEM | ORPHRASE}}\n<group name=\"date_time_id_name\">\n{{ID | re(\"\\\\d+\")}} {{PERMISSIONS}} {{SIZE}} {{DATE_TIME | ORPHRASE}} {{NAME | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FILE_SYSTEM": "disk0:/",
+      "ID": "97",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "108563072",
+      "TOTAL_SIZE": "7365472256",
+      "TOTAL_FREE": "3847725056",
+      "TOTAL_PERCENT_FREE": "52",
+      "DATE_TIME": "06:43:00 Jun 30 2018",
+      "NAME": "asa982-lfbff-k8.SPA"
+    },
+    {
+      "FILE_SYSTEM": "disk0:/",
+      "ID": "98",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "26970456",
+      "TOTAL_SIZE": "7365472256",
+      "TOTAL_FREE": "3847725056",
+      "TOTAL_PERCENT_FREE": "52",
+      "DATE_TIME": "06:43:22 Jun 30 2018",
+      "NAME": "asdm-782.bin"
+    },
+    {
+      "FILE_SYSTEM": "disk0:/",
+      "ID": "99",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "63",
+      "TOTAL_SIZE": "7365472256",
+      "TOTAL_FREE": "3847725056",
+      "TOTAL_PERCENT_FREE": "52",
+      "DATE_TIME": "16:06:56 Jun 04 2019",
+      "NAME": ".boot_string"
+    },
+    {
+      "FILE_SYSTEM": "disk0:/",
+      "ID": "11",
+      "PERMISSIONS": "drwx",
+      "SIZE": "4096",
+      "TOTAL_SIZE": "7365472256",
+      "TOTAL_FREE": "3847725056",
+      "TOTAL_PERCENT_FREE": "52",
+      "DATE_TIME": "06:46:42 Jun 30 2018",
+      "NAME": "log"
+    },
+    {
+      "FILE_SYSTEM": "disk0:/",
+      "ID": "22",
+      "PERMISSIONS": "drwx",
+      "SIZE": "4096",
+      "TOTAL_SIZE": "7365472256",
+      "TOTAL_FREE": "3847725056",
+      "TOTAL_PERCENT_FREE": "52",
+      "DATE_TIME": "06:47:34 Jun 30 2018",
+      "NAME": "crypto_archive"
+    },
+    {
+      "FILE_SYSTEM": "disk0:/",
+      "ID": "23",
+      "PERMISSIONS": "drwx",
+      "SIZE": "4096",
+      "TOTAL_SIZE": "7365472256",
+      "TOTAL_FREE": "3847725056",
+      "TOTAL_PERCENT_FREE": "52",
+      "DATE_TIME": "06:47:36 Jun 30 2018",
+      "NAME": "coredumpinfo"
+    },
+    {
+      "FILE_SYSTEM": "disk0:/",
+      "ID": "100",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "111505136",
+      "TOTAL_SIZE": "7365472256",
+      "TOTAL_FREE": "3847725056",
+      "TOTAL_PERCENT_FREE": "52",
+      "DATE_TIME": "02:58:32 May 17 2019",
+      "NAME": "asa992-32-lfbff-k8.SPA"
+    },
+    {
+      "FILE_SYSTEM": "disk0:/",
+      "ID": "101",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "29197128",
+      "TOTAL_SIZE": "7365472256",
+      "TOTAL_FREE": "3847725056",
+      "TOTAL_PERCENT_FREE": "52",
+      "DATE_TIME": "03:00:24 May 17 2019",
+      "NAME": "asdm-791-151.bin"
+    },
+    {
+      "FILE_SYSTEM": "disk0:/",
+      "ID": "105",
+      "PERMISSIONS": "drwx",
+      "SIZE": "4096",
+      "TOTAL_SIZE": "7365472256",
+      "TOTAL_FREE": "3847725056",
+      "TOTAL_PERCENT_FREE": "52",
+      "DATE_TIME": "03:13:54 May 17 2019",
+      "NAME": "snmp"
+    },
+    {
+      "FILE_SYSTEM": "disk0:/",
+      "ID": "109",
+      "PERMISSIONS": "-rwx",
+      "SIZE": "18124800",
+      "TOTAL_SIZE": "7365472256",
+      "TOTAL_FREE": "3847725056",
+      "TOTAL_PERCENT_FREE": "52",
+      "DATE_TIME": "16:43:50 Jun 04 2019",
+      "NAME": "testfile.spa"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "file_system": {
+        "FILE_SYSTEM": "disk0:/",
+        "date_time_id_name": [
+          {
+            "ID": "97",
+            "PERMISSIONS": "-rwx",
+            "SIZE": "108563072",
+            "DATE_TIME": "06:43:00 Jun 30 2018",
+            "NAME": "asa982-lfbff-k8.SPA"
+          },
+          {
+            "ID": "98",
+            "PERMISSIONS": "-rwx",
+            "SIZE": "26970456",
+            "DATE_TIME": "06:43:22 Jun 30 2018",
+            "NAME": "asdm-782.bin"
+          },
+          {
+            "ID": "99",
+            "PERMISSIONS": "-rwx",
+            "SIZE": "63",
+            "DATE_TIME": "16:06:56 Jun 04 2019",
+            "NAME": ".boot_string"
+          },
+          {
+            "ID": "11",
+            "PERMISSIONS": "drwx",
+            "SIZE": "4096",
+            "DATE_TIME": "06:46:42 Jun 30 2018",
+            "NAME": "log"
+          },
+          {
+            "ID": "22",
+            "PERMISSIONS": "drwx",
+            "SIZE": "4096",
+            "DATE_TIME": "06:47:34 Jun 30 2018",
+            "NAME": "crypto_archive"
+          },
+          {
+            "ID": "23",
+            "PERMISSIONS": "drwx",
+            "SIZE": "4096",
+            "DATE_TIME": "06:47:36 Jun 30 2018",
+            "NAME": "coredumpinfo"
+          },
+          {
+            "ID": "100",
+            "PERMISSIONS": "-rwx",
+            "SIZE": "111505136",
+            "DATE_TIME": "02:58:32 May 17 2019",
+            "NAME": "asa992-32-lfbff-k8.SPA"
+          },
+          {
+            "ID": "101",
+            "PERMISSIONS": "-rwx",
+            "SIZE": "29197128",
+            "DATE_TIME": "03:00:24 May 17 2019",
+            "NAME": "asdm-791-151.bin"
+          },
+          {
+            "ID": "105",
+            "PERMISSIONS": "drwx",
+            "SIZE": "4096",
+            "DATE_TIME": "03:13:54 May 17 2019",
+            "NAME": "snmp"
+          },
+          {
+            "ID": "109",
+            "PERMISSIONS": "-rwx",
+            "SIZE": "18124800",
+            "DATE_TIME": "16:43:50 Jun 04 2019",
+            "NAME": "testfile.spa"
+          },
+          {
+            "ID": "6",
+            "PERMISSIONS": "file(s)",
+            "SIZE": "total",
+            "DATE_TIME": "size:",
+            "NAME": "294360655 bytes"
+          },
+          {
+            "ID": "7365472256",
+            "PERMISSIONS": "bytes",
+            "SIZE": "total",
+            "DATE_TIME": "(3847725056",
+            "NAME": "bytes free/52% free)"
+          }
+        ]
+      }
+    }
+  ],
+  "cli_content": "Directory of disk0:/\n\n97     -rwx  108563072    06:43:00 Jun 30 2018  asa982-lfbff-k8.SPA\n98     -rwx  26970456     06:43:22 Jun 30 2018  asdm-782.bin\n99     -rwx  63           16:06:56 Jun 04 2019  .boot_string\n11     drwx  4096         06:46:42 Jun 30 2018  log\n22     drwx  4096         06:47:34 Jun 30 2018  crypto_archive\n23     drwx  4096         06:47:36 Jun 30 2018  coredumpinfo\n100    -rwx  111505136    02:58:32 May 17 2019  asa992-32-lfbff-k8.SPA\n101    -rwx  29197128     03:00:24 May 17 2019  asdm-791-151.bin\n105    drwx  4096         03:13:54 May 17 2019  snmp\n109    -rwx  18124800     16:43:50 Jun 04 2019  testfile.spa\n\n6 file(s) total size: 294360655 bytes\n7365472256 bytes total (3847725056 bytes free/52% free)\n",
+  "textfsm_template": "Value Filldown FILE_SYSTEM (\\S+)\nValue ID (\\d+)\nValue PERMISSIONS (\\S+)\nValue SIZE (\\d+)\nValue Fillup TOTAL_SIZE (\\d+)\nValue Fillup TOTAL_FREE (\\d+)\nValue Fillup TOTAL_PERCENT_FREE (\\d+)\nValue DATE_TIME ((<no date>)|(\\S+\\s\\w+\\s\\d+\\s\\d+))\nValue NAME (\\S+)\n\nStart\n  ^Directory of\\s+${FILE_SYSTEM} -> DIR\n  ^. -> Error\n\nDIR\n  ^Directory of\\s+${FILE_SYSTEM} -> DIR\n  ^((\\s+)*${ID})\\s+${PERMISSIONS}\\s+${SIZE}\\s+${DATE_TIME}\\s+${NAME} -> Record\n  ^${TOTAL_SIZE}\\s+\\S+\\s+\\S+\\s\\(${TOTAL_FREE} bytes free\\)\n  # Accounts for X files total size: X bytes\n  ^\\d+\\s+\\S+\\s+\\S+\\s+\\d+\\s+\\S+\n  ^${TOTAL_SIZE} bytes total \\(${TOTAL_FREE} bytes free/${TOTAL_PERCENT_FREE}\\% free\\)\n  ^.*$$\n  ^. -> Error DIR\n\n#\nEOF\n"
+}

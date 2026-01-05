@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_prefix-list
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 5
+# Match ratio: 1.67
+
+<group name="seq_action_network_netmask">
+   seq {{SEQ}} {{ACTION}} {{NETWORK}}/{{NETMASK | ORPHRASE}}
+</group>
+<group name="seq_action_network_netmask_le">
+   seq {{SEQ}} {{ACTION}} {{NETWORK}}/{{NETMASK}} le {{LE | ORPHRASE}}
+</group>
+<group name="seq_action_network_netmask_ge_le">
+   seq {{SEQ}} {{ACTION}} {{NETWORK}}/{{NETMASK}} ge {{GE}} le {{LE | ORPHRASE}}
+</group>

@@ -1,0 +1,275 @@
+{
+  "command": "cisco_nxos_show_l2rib_internal_permanently-frozen-list",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.04,
+  "textfsm_rows": 25,
+  "ttp_rows": 26,
+  "ttp_template": "<group name=\"topology_mac_address_frozen_time\">\n{{TOPOLOGY}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{FROZEN_TIME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TOPOLOGY": "190",
+      "MAC_ADDRESS": "0050.5699.7898",
+      "FROZEN_TIME": "Sat Jan 27 08:46:01.447 UTC"
+    },
+    {
+      "TOPOLOGY": "190",
+      "MAC_ADDRESS": "0050.5699.8ec0",
+      "FROZEN_TIME": "Sat Jan 27 08:47:39.818 UTC"
+    },
+    {
+      "TOPOLOGY": "190",
+      "MAC_ADDRESS": "0050.5699.d709",
+      "FROZEN_TIME": "Sat Jan 27 08:47:49.970 UTC"
+    },
+    {
+      "TOPOLOGY": "190",
+      "MAC_ADDRESS": "0050.56b5.1419",
+      "FROZEN_TIME": "Sat Jan 27 08:40:15.482 UTC"
+    },
+    {
+      "TOPOLOGY": "190",
+      "MAC_ADDRESS": "0050.56b5.1bca",
+      "FROZEN_TIME": "Sat Jan 27 08:48:00.545 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "000c.29d4.ee30",
+      "FROZEN_TIME": "Sat Jan 27 08:42:26.149 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0012.3fff.e687",
+      "FROZEN_TIME": "Sat Jan 27 08:57:48.481 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0050.5699.1684",
+      "FROZEN_TIME": "Sat Jan 27 08:53:13.686 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0050.5699.1b56",
+      "FROZEN_TIME": "Sat Jan 27 08:37:59.468 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0050.5699.2199",
+      "FROZEN_TIME": "Sat Jan 27 08:53:08.098 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0050.5699.249d",
+      "FROZEN_TIME": "Sat Jan 27 08:52:44.355 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0050.5699.25bf",
+      "FROZEN_TIME": "Sat Jan 27 08:45:45.772 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0050.5699.27b2",
+      "FROZEN_TIME": "Sat Jan 27 08:49:48.131 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0050.5699.3c5a",
+      "FROZEN_TIME": "Sat Jan 27 08:49:48.310 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0050.5699.410a",
+      "FROZEN_TIME": "Sat Jan 27 08:51:56.147 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0050.5699.4241",
+      "FROZEN_TIME": "Sat Jan 27 08:52:28.534 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0050.5699.449f",
+      "FROZEN_TIME": "Sat Jan 27 08:52:50.603 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0050.5699.4826",
+      "FROZEN_TIME": "Sat Jan 27 08:55:45.974 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0050.5699.4a94",
+      "FROZEN_TIME": "Sat Jan 27 08:56:50.314 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0050.5699.4dd2",
+      "FROZEN_TIME": "Sat Jan 27 08:48:56.964 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0050.5699.5044",
+      "FROZEN_TIME": "Sat Jan 27 08:55:23.553 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0050.5699.50ab",
+      "FROZEN_TIME": "Sat Jan 27 08:52:46.601 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0050.5699.5705",
+      "FROZEN_TIME": "Sat Jan 27 08:58:09.431 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0050.5699.57ec",
+      "FROZEN_TIME": "Sat Jan 27 08:51:55.528 UTC"
+    },
+    {
+      "TOPOLOGY": "192",
+      "MAC_ADDRESS": "0050.5699.6083",
+      "FROZEN_TIME": "Sat Jan 27 08:52:46.851 UTC"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "topology_mac_address_frozen_time": [
+        {
+          "TOPOLOGY": "-----------",
+          "MAC_ADDRESS": "--------------",
+          "FROZEN_TIME": "---------------------------"
+        },
+        {
+          "TOPOLOGY": "190",
+          "MAC_ADDRESS": "0050.5699.7898",
+          "FROZEN_TIME": "Sat Jan 27 08:46:01.447 UTC"
+        },
+        {
+          "TOPOLOGY": "190",
+          "MAC_ADDRESS": "0050.5699.8ec0",
+          "FROZEN_TIME": "Sat Jan 27 08:47:39.818 UTC"
+        },
+        {
+          "TOPOLOGY": "190",
+          "MAC_ADDRESS": "0050.5699.d709",
+          "FROZEN_TIME": "Sat Jan 27 08:47:49.970 UTC"
+        },
+        {
+          "TOPOLOGY": "190",
+          "MAC_ADDRESS": "0050.56b5.1419",
+          "FROZEN_TIME": "Sat Jan 27 08:40:15.482 UTC"
+        },
+        {
+          "TOPOLOGY": "190",
+          "MAC_ADDRESS": "0050.56b5.1bca",
+          "FROZEN_TIME": "Sat Jan 27 08:48:00.545 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "000c.29d4.ee30",
+          "FROZEN_TIME": "Sat Jan 27 08:42:26.149 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0012.3fff.e687",
+          "FROZEN_TIME": "Sat Jan 27 08:57:48.481 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0050.5699.1684",
+          "FROZEN_TIME": "Sat Jan 27 08:53:13.686 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0050.5699.1b56",
+          "FROZEN_TIME": "Sat Jan 27 08:37:59.468 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0050.5699.2199",
+          "FROZEN_TIME": "Sat Jan 27 08:53:08.098 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0050.5699.249d",
+          "FROZEN_TIME": "Sat Jan 27 08:52:44.355 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0050.5699.25bf",
+          "FROZEN_TIME": "Sat Jan 27 08:45:45.772 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0050.5699.27b2",
+          "FROZEN_TIME": "Sat Jan 27 08:49:48.131 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0050.5699.3c5a",
+          "FROZEN_TIME": "Sat Jan 27 08:49:48.310 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0050.5699.410a",
+          "FROZEN_TIME": "Sat Jan 27 08:51:56.147 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0050.5699.4241",
+          "FROZEN_TIME": "Sat Jan 27 08:52:28.534 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0050.5699.449f",
+          "FROZEN_TIME": "Sat Jan 27 08:52:50.603 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0050.5699.4826",
+          "FROZEN_TIME": "Sat Jan 27 08:55:45.974 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0050.5699.4a94",
+          "FROZEN_TIME": "Sat Jan 27 08:56:50.314 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0050.5699.4dd2",
+          "FROZEN_TIME": "Sat Jan 27 08:48:56.964 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0050.5699.5044",
+          "FROZEN_TIME": "Sat Jan 27 08:55:23.553 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0050.5699.50ab",
+          "FROZEN_TIME": "Sat Jan 27 08:52:46.601 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0050.5699.5705",
+          "FROZEN_TIME": "Sat Jan 27 08:58:09.431 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0050.5699.57ec",
+          "FROZEN_TIME": "Sat Jan 27 08:51:55.528 UTC"
+        },
+        {
+          "TOPOLOGY": "192",
+          "MAC_ADDRESS": "0050.5699.6083",
+          "FROZEN_TIME": "Sat Jan 27 08:52:46.851 UTC"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nTopology    Mac Address    Frozen time\n----------- -------------- ---------------------------\n190         0050.5699.7898 Sat Jan 27 08:46:01.447 UTC\n190         0050.5699.8ec0 Sat Jan 27 08:47:39.818 UTC\n190         0050.5699.d709 Sat Jan 27 08:47:49.970 UTC\n190         0050.56b5.1419 Sat Jan 27 08:40:15.482 UTC\n190         0050.56b5.1bca Sat Jan 27 08:48:00.545 UTC\n192         000c.29d4.ee30 Sat Jan 27 08:42:26.149 UTC\n192         0012.3fff.e687 Sat Jan 27 08:57:48.481 UTC\n192         0050.5699.1684 Sat Jan 27 08:53:13.686 UTC\n192         0050.5699.1b56 Sat Jan 27 08:37:59.468 UTC\n192         0050.5699.2199 Sat Jan 27 08:53:08.098 UTC\n192         0050.5699.249d Sat Jan 27 08:52:44.355 UTC\n192         0050.5699.25bf Sat Jan 27 08:45:45.772 UTC\n192         0050.5699.27b2 Sat Jan 27 08:49:48.131 UTC\n192         0050.5699.3c5a Sat Jan 27 08:49:48.310 UTC\n192         0050.5699.410a Sat Jan 27 08:51:56.147 UTC\n192         0050.5699.4241 Sat Jan 27 08:52:28.534 UTC\n192         0050.5699.449f Sat Jan 27 08:52:50.603 UTC\n192         0050.5699.4826 Sat Jan 27 08:55:45.974 UTC\n192         0050.5699.4a94 Sat Jan 27 08:56:50.314 UTC\n192         0050.5699.4dd2 Sat Jan 27 08:48:56.964 UTC\n192         0050.5699.5044 Sat Jan 27 08:55:23.553 UTC\n192         0050.5699.50ab Sat Jan 27 08:52:46.601 UTC\n192         0050.5699.5705 Sat Jan 27 08:58:09.431 UTC\n192         0050.5699.57ec Sat Jan 27 08:51:55.528 UTC\n192         0050.5699.6083 Sat Jan 27 08:52:46.851 UTC\n",
+  "textfsm_template": "Value Required TOPOLOGY (\\d+)\nValue Required MAC_ADDRESS (\\S+\\.\\S+\\.\\S+)\nValue Required FROZEN_TIME (.*\\S)\n\nStart\n  ^${TOPOLOGY}\\s+${MAC_ADDRESS}\\s+${FROZEN_TIME} -> Record\n  ^Topology\\s+Mac Address\\s+Frozen time\n  ^-+\n  ^\\s*$$\n  ^.* -> Error \"LINE NOT FOUND\"\n"
+}

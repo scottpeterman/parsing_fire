@@ -1,0 +1,108 @@
+{
+  "command": "show alarms count",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.75,
+  "textfsm_rows": 4,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"type_critical_major_minor_warning_info\">\n{{TYPE | ORPHRASE}} {{CRITICAL}} {{MAJOR}} {{MINOR}} {{WARNING}} {{INFO | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TYPE": "Interface Down",
+      "CRITICAL": "12",
+      "MAJOR": "8",
+      "MINOR": "5",
+      "WARNING": "2",
+      "INFO": "0"
+    },
+    {
+      "TYPE": "Temperature Alert",
+      "CRITICAL": "2",
+      "MAJOR": "4",
+      "MINOR": "3",
+      "WARNING": "9",
+      "INFO": "0"
+    },
+    {
+      "TYPE": "Unauthorized Access",
+      "CRITICAL": "3",
+      "MAJOR": "0",
+      "MINOR": "2",
+      "WARNING": "1",
+      "INFO": "5"
+    },
+    {
+      "TYPE": "Disk Usage",
+      "CRITICAL": "0",
+      "MAJOR": "0",
+      "MINOR": "0",
+      "WARNING": "1",
+      "INFO": "8"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "type_critical_major_minor_warning_info": [
+        {
+          "TYPE": "Alarm Type",
+          "CRITICAL": "Critical",
+          "MAJOR": "Major",
+          "MINOR": "Minor",
+          "WARNING": "Warning",
+          "INFO": "Info"
+        },
+        {
+          "TYPE": "--------------------",
+          "CRITICAL": "--------",
+          "MAJOR": "-------",
+          "MINOR": "------",
+          "WARNING": "--------",
+          "INFO": "------"
+        },
+        {
+          "TYPE": "Interface Down",
+          "CRITICAL": "12",
+          "MAJOR": "8",
+          "MINOR": "5",
+          "WARNING": "2",
+          "INFO": "0"
+        },
+        {
+          "TYPE": "High CPU Usage",
+          "CRITICAL": "5",
+          "MAJOR": "15",
+          "MINOR": "7",
+          "WARNING": "3",
+          "INFO": "1"
+        },
+        {
+          "TYPE": "Temperature Alert",
+          "CRITICAL": "2",
+          "MAJOR": "4",
+          "MINOR": "3",
+          "WARNING": "9",
+          "INFO": "0"
+        },
+        {
+          "TYPE": "Unauthorized Access",
+          "CRITICAL": "3",
+          "MAJOR": "0",
+          "MINOR": "2",
+          "WARNING": "1",
+          "INFO": "5"
+        },
+        {
+          "TYPE": "Disk Usage",
+          "CRITICAL": "0",
+          "MAJOR": "0",
+          "MINOR": "0",
+          "WARNING": "1",
+          "INFO": "8"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Alarm Type           Critical  Major  Minor  Warning  Info\n-------------------- -------- ------- ------ -------- ------\nInterface Down       12        8      5      2        0\nHigh CPU Usage       5         15     7      3        1\nTemperature Alert    2         4      3      9        0\nUnauthorized Access  3         0      2      1        5\nDisk Usage           0         0      0      1        8\n",
+  "textfsm_template": "Value TYPE (\\S+\\s\\S+|\\S+)\nValue CRITICAL (\\d+)\nValue MAJOR (\\d+)\nValue MINOR (\\d+)\nValue WARNING (\\d+)\nValue INFO (\\d+)\n\nStart\n  ^Alarm\\s+Type\\s+Critical\\s+Major\\s+Minor\\s+Warning\\s+Info\\s*$$\n  ^-+\\s+-+\\s+-+\\s+-+\\s+-+\\s+-+\\s*$$\n  ^${TYPE}\\s+${CRITICAL}\\s+${MAJOR}\\s+${MINOR}\\s+${WARNING}\\s+${INFO}\\s*$$ -> Record"
+}

@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_comware_display_link-aggregation_verbose
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 1
+# Match ratio: 0.33
+
+<group name="aggregation_mode_creation_mode_interface_loadsharing">
+Loadsharing Type: {{LOADSHARING | ORPHRASE}} -- Loadsharing, NonS -- Non-Loadsharing 
+Creation Mode: {{CREATION_MODE | ORPHRASE}}
+Aggregation Mode: {{AGGREGATION_MODE | ORPHRASE}}
+Aggregate Interface: {{INTERFACE | ORPHRASE}}
+</group>

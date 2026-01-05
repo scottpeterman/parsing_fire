@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_ip_route
+# Source: ntc
+# TextFSM rows: 37
+# TTP rows: 3
+# Match ratio: 0.08
+
+<group name="network_prefix_length_vrf">
+IP Route Table for VRF "{{VRF | ORPHRASE}}"
+<group name="distance_metric_nexthop_ip">
+    *via {{NEXTHOP_IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}%{{NEXTHOP_VRF}}, [{{DISTANCE}}/{{METRIC}}], {{UPTIME | ORPHRASE}}, {{PROTOCOL | ORPHRASE}}
+</group>
+</group>

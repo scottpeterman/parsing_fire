@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip igmp groups
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="group_address_interface_uptime_expires_last_reporter_group_accounted">
+{{GROUP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{INTERFACE}} {{UPTIME | ORPHRASE}} {{EXPIRES}} {{LAST_REPORTER}} {{GROUP_ACCOUNTED | ORPHRASE}}
+</group>

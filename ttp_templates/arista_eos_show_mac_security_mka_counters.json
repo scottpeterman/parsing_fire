@@ -1,0 +1,188 @@
+{
+  "command": "arista_eos_show_mac_security_mka_counters",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 12,
+  "ttp_rows": 12,
+  "ttp_template": "<group name=\"interface_rx_success_rx_failure_tx_success_tx_failure\">\n{{INTERFACE}} {{RX_SUCCESS | ORPHRASE}} {{RX_FAILURE}} {{TX_SUCCESS}} {{TX_FAILURE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Ethernet4/13/1",
+      "RX_SUCCESS": "0",
+      "RX_FAILURE": "0",
+      "TX_SUCCESS": "0",
+      "TX_FAILURE": "0"
+    },
+    {
+      "INTERFACE": "Ethernet4/14/1",
+      "RX_SUCCESS": "0",
+      "RX_FAILURE": "0",
+      "TX_SUCCESS": "0",
+      "TX_FAILURE": "0"
+    },
+    {
+      "INTERFACE": "Ethernet4/15/1",
+      "RX_SUCCESS": "79688",
+      "RX_FAILURE": "0",
+      "TX_SUCCESS": "79858",
+      "TX_FAILURE": "0"
+    },
+    {
+      "INTERFACE": "Ethernet4/16/1",
+      "RX_SUCCESS": "0",
+      "RX_FAILURE": "0",
+      "TX_SUCCESS": "0",
+      "TX_FAILURE": "0"
+    },
+    {
+      "INTERFACE": "Ethernet5/13/1",
+      "RX_SUCCESS": "79788",
+      "RX_FAILURE": "0",
+      "TX_SUCCESS": "79854",
+      "TX_FAILURE": "0"
+    },
+    {
+      "INTERFACE": "Ethernet5/14/1",
+      "RX_SUCCESS": "79878",
+      "RX_FAILURE": "0",
+      "TX_SUCCESS": "79853",
+      "TX_FAILURE": "0"
+    },
+    {
+      "INTERFACE": "Ethernet5/15/1",
+      "RX_SUCCESS": "0",
+      "RX_FAILURE": "0",
+      "TX_SUCCESS": "0",
+      "TX_FAILURE": "0"
+    },
+    {
+      "INTERFACE": "Ethernet5/16/1",
+      "RX_SUCCESS": "64246",
+      "RX_FAILURE": "0",
+      "TX_SUCCESS": "79850",
+      "TX_FAILURE": "0"
+    },
+    {
+      "INTERFACE": "Ethernet5/17/1",
+      "RX_SUCCESS": "79749",
+      "RX_FAILURE": "0",
+      "TX_SUCCESS": "79848",
+      "TX_FAILURE": "0"
+    },
+    {
+      "INTERFACE": "Ethernet5/18/1",
+      "RX_SUCCESS": "79756",
+      "RX_FAILURE": "0",
+      "TX_SUCCESS": "79846",
+      "TX_FAILURE": "0"
+    },
+    {
+      "INTERFACE": "Ethernet5/19/1",
+      "RX_SUCCESS": "79842",
+      "RX_FAILURE": "0",
+      "TX_SUCCESS": "79845",
+      "TX_FAILURE": "0"
+    },
+    {
+      "INTERFACE": "Ethernet5/20/1",
+      "RX_SUCCESS": "68225",
+      "RX_FAILURE": "0",
+      "TX_SUCCESS": "68188",
+      "TX_FAILURE": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_rx_success_rx_failure_tx_success_tx_failure": [
+        {
+          "INTERFACE": "Ethernet4/13/1",
+          "RX_SUCCESS": "0",
+          "RX_FAILURE": "0",
+          "TX_SUCCESS": "0",
+          "TX_FAILURE": "0"
+        },
+        {
+          "INTERFACE": "Ethernet4/14/1",
+          "RX_SUCCESS": "0",
+          "RX_FAILURE": "0",
+          "TX_SUCCESS": "0",
+          "TX_FAILURE": "0"
+        },
+        {
+          "INTERFACE": "Ethernet4/15/1",
+          "RX_SUCCESS": "79688",
+          "RX_FAILURE": "0",
+          "TX_SUCCESS": "79858",
+          "TX_FAILURE": "0"
+        },
+        {
+          "INTERFACE": "Ethernet4/16/1",
+          "RX_SUCCESS": "0",
+          "RX_FAILURE": "0",
+          "TX_SUCCESS": "0",
+          "TX_FAILURE": "0"
+        },
+        {
+          "INTERFACE": "Ethernet5/13/1",
+          "RX_SUCCESS": "79788",
+          "RX_FAILURE": "0",
+          "TX_SUCCESS": "79854",
+          "TX_FAILURE": "0"
+        },
+        {
+          "INTERFACE": "Ethernet5/14/1",
+          "RX_SUCCESS": "79878",
+          "RX_FAILURE": "0",
+          "TX_SUCCESS": "79853",
+          "TX_FAILURE": "0"
+        },
+        {
+          "INTERFACE": "Ethernet5/15/1",
+          "RX_SUCCESS": "0",
+          "RX_FAILURE": "0",
+          "TX_SUCCESS": "0",
+          "TX_FAILURE": "0"
+        },
+        {
+          "INTERFACE": "Ethernet5/16/1",
+          "RX_SUCCESS": "64246",
+          "RX_FAILURE": "0",
+          "TX_SUCCESS": "79850",
+          "TX_FAILURE": "0"
+        },
+        {
+          "INTERFACE": "Ethernet5/17/1",
+          "RX_SUCCESS": "79749",
+          "RX_FAILURE": "0",
+          "TX_SUCCESS": "79848",
+          "TX_FAILURE": "0"
+        },
+        {
+          "INTERFACE": "Ethernet5/18/1",
+          "RX_SUCCESS": "79756",
+          "RX_FAILURE": "0",
+          "TX_SUCCESS": "79846",
+          "TX_FAILURE": "0"
+        },
+        {
+          "INTERFACE": "Ethernet5/19/1",
+          "RX_SUCCESS": "79842",
+          "RX_FAILURE": "0",
+          "TX_SUCCESS": "79845",
+          "TX_FAILURE": "0"
+        },
+        {
+          "INTERFACE": "Ethernet5/20/1",
+          "RX_SUCCESS": "68225",
+          "RX_FAILURE": "0",
+          "TX_SUCCESS": "68188",
+          "TX_FAILURE": "0"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface       Rx Success      Rx Failure      Tx Success      Tx Failure     \nEthernet4/13/1  0               0               0               0              \nEthernet4/14/1  0               0               0               0              \nEthernet4/15/1  79688           0               79858           0              \nEthernet4/16/1  0               0               0               0              \nEthernet5/13/1  79788           0               79854           0              \nEthernet5/14/1  79878           0               79853           0              \nEthernet5/15/1  0               0               0               0              \nEthernet5/16/1  64246           0               79850           0              \nEthernet5/17/1  79749           0               79848           0              \nEthernet5/18/1  79756           0               79846           0              \nEthernet5/19/1  79842           0               79845           0              \nEthernet5/20/1  68225           0               68188           0",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue RX_SUCCESS (\\S+)\nValue RX_FAILURE (\\S+)\nValue TX_SUCCESS (\\S+)\nValue TX_FAILURE (\\S+)\n\nStart\n  ^Interface.*Failure -> Data\n\nData\n  ^${INTERFACE}\\s+${RX_SUCCESS}\\s+${RX_FAILURE}\\s+${TX_SUCCESS}\\s+${TX_FAILURE} -> Record\n  ^\\s+$$\n  ^$$\n  ^.* -> Error \"LINE NOT FOUND\"\n  \nEOF  \n"
+}

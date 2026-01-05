@@ -1,0 +1,39 @@
+{
+  "command": "arista_eos_show_isis_neighbors",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 2,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"instance_vrf_system_id_type_interface_snpa_state_hold_time_circuit_id\">\n{{INSTANCE}} {{VRF}} {{SYSTEM_ID}} {{TYPE}} {{INTERFACE}} {{SNPA | re(\"\\\\w+\")}} {{STATE | ORPHRASE}} {{HOLD_TIME}} {{CIRCUIT_ID | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "INSTANCE": "1",
+      "VRF": "default",
+      "SYSTEM_ID": "3333.3333.3333",
+      "TYPE": "L2",
+      "INTERFACE": "Ethernet2",
+      "SNPA": "50:0:0:3:0:3",
+      "STATE": "UP",
+      "HOLD_TIME": "30",
+      "CIRCUIT_ID": "4444.4444.4444.0e"
+    },
+    {
+      "INSTANCE": "1",
+      "VRF": "default",
+      "SYSTEM_ID": "2222.2222.2222",
+      "TYPE": "L2",
+      "INTERFACE": "Ethernet3",
+      "SNPA": "50:0:0:2:0:2",
+      "STATE": "UP",
+      "HOLD_TIME": "30",
+      "CIRCUIT_ID": "0F"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "\nInstance  VRF      System Id            Type Interface       SNPA              State Hold time   Circuit Id\n1         default  3333.3333.3333       L2   Ethernet2       50:0:0:3:0:3      UP    30          4444.4444.4444.0e\n1         default  2222.2222.2222       L2   Ethernet3       50:0:0:2:0:2      UP    30          0F                 \n",
+  "textfsm_template": "Value INSTANCE (\\S+)\nValue VRF (\\S+)\nValue SYSTEM_ID ((\\d+.\\d+.\\d+)|\\S+)\nValue TYPE ((L\\d)+)\nValue INTERFACE (\\S+)\nValue SNPA (\\S+)\nValue STATE (\\S+)\nValue HOLD_TIME (\\d+)\nValue CIRCUIT_ID ((\\d+.\\d+.\\d+.\\S+)|\\S+)\n\nStart\n  ^${INSTANCE}\\s+${VRF}\\s+${SYSTEM_ID}\\s+${TYPE}\\s+${INTERFACE}\\s+${SNPA}\\s+${STATE}\\s+${HOLD_TIME}\\s+${CIRCUIT_ID} -> Record\n"
+}

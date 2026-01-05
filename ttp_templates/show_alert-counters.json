@@ -1,0 +1,100 @@
+{
+  "command": "show alert-counters",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 8,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"alert_type_severity_count\">\n{{ALERT_TYPE}} {{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{COUNT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ALERT_TYPE": "Hardware",
+      "SEVERITY": "Critical",
+      "COUNT": "5"
+    },
+    {
+      "ALERT_TYPE": "Software",
+      "SEVERITY": "High",
+      "COUNT": "12"
+    },
+    {
+      "ALERT_TYPE": "Network",
+      "SEVERITY": "Medium",
+      "COUNT": "7"
+    },
+    {
+      "ALERT_TYPE": "Security",
+      "SEVERITY": "High",
+      "COUNT": "14"
+    },
+    {
+      "ALERT_TYPE": "Hardware",
+      "SEVERITY": "Low",
+      "COUNT": "1"
+    },
+    {
+      "ALERT_TYPE": "Network",
+      "SEVERITY": "Critical",
+      "COUNT": "3"
+    },
+    {
+      "ALERT_TYPE": "Security",
+      "SEVERITY": "Medium",
+      "COUNT": "8"
+    },
+    {
+      "ALERT_TYPE": "Software",
+      "SEVERITY": "Low",
+      "COUNT": "4"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "alert_type_severity_count": [
+        {
+          "ALERT_TYPE": "Hardware",
+          "SEVERITY": "Critical",
+          "COUNT": "5"
+        },
+        {
+          "ALERT_TYPE": "Software",
+          "SEVERITY": "High",
+          "COUNT": "12"
+        },
+        {
+          "ALERT_TYPE": "Network",
+          "SEVERITY": "Medium",
+          "COUNT": "7"
+        },
+        {
+          "ALERT_TYPE": "Security",
+          "SEVERITY": "High",
+          "COUNT": "14"
+        },
+        {
+          "ALERT_TYPE": "Hardware",
+          "SEVERITY": "Low",
+          "COUNT": "1"
+        },
+        {
+          "ALERT_TYPE": "Network",
+          "SEVERITY": "Critical",
+          "COUNT": "3"
+        },
+        {
+          "ALERT_TYPE": "Security",
+          "SEVERITY": "Medium",
+          "COUNT": "8"
+        },
+        {
+          "ALERT_TYPE": "Software",
+          "SEVERITY": "Low",
+          "COUNT": "4"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Alert Type      Severity    Count\n------------    --------    -----\nHardware        Critical    5\nSoftware        High        12\nNetwork         Medium      7\nSecurity        High        14\nHardware        Low         1\nNetwork         Critical    3\nSecurity        Medium      8\nSoftware        Low         4\n",
+  "textfsm_template": "Value ALERT_TYPE (\\S+)\nValue SEVERITY (\\S+)\nValue COUNT (\\d+)\n\nStart\n  ^Alert\\sType\\s+Severity\\s+Count\\s*$$\n  ^\\s*${ALERT_TYPE}\\s+${SEVERITY}\\s+${COUNT}\\s*$$ -> Record"
+}

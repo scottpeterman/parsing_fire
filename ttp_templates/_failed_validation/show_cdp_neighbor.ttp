@@ -1,0 +1,10 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show cdp neighbor
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="capability_device_id_holdtime_local_intf">
+  S - Switch, {{CAPABILITY | ORPHRASE}} - Host, I - IGMP, r - Repeater, P - Phone,
+Switch1  {{PORT_ID | ORPHRASE}}  155  S I  WS-C3750-24P Gig 1/0/1
+{{DEVICE_ID}}  {{LOCAL_INTF | ORPHRASE}}  {{HOLDTIME}}  H  {{PLATFORM | ORPHRASE}}  Gig 0/0
+</group>

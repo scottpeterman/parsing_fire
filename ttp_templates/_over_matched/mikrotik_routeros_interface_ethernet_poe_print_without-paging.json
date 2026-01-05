@@ -1,0 +1,92 @@
+{
+  "command": "mikrotik_routeros_interface_ethernet_poe_print_without-paging",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"index_interface_poe_out_poe_priority_power_cycle_ping_enabled_power_cycle_interval\">\n {{INDEX}} {{INTERFACE}} {{POE_OUT}} {{POE_PRIORITY}} {{POWER_CYCLE_PING_ENABLED}} {{POWER_CYCLE_INTERVAL | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INDEX": "0",
+      "INTERFACE": "ether2",
+      "POE_OUT": "auto-on",
+      "POE_PRIORITY": "10",
+      "POWER_CYCLE_PING_ENABLED": "no",
+      "POWER_CYCLE_INTERVAL": "none"
+    },
+    {
+      "INDEX": "1",
+      "INTERFACE": "ether3",
+      "POE_OUT": "auto-on",
+      "POE_PRIORITY": "10",
+      "POWER_CYCLE_PING_ENABLED": "no",
+      "POWER_CYCLE_INTERVAL": "none"
+    },
+    {
+      "INDEX": "2",
+      "INTERFACE": "ether4",
+      "POE_OUT": "auto-on",
+      "POE_PRIORITY": "10",
+      "POWER_CYCLE_PING_ENABLED": "no",
+      "POWER_CYCLE_INTERVAL": "none"
+    },
+    {
+      "INDEX": "3",
+      "INTERFACE": "ether5",
+      "POE_OUT": "auto-on",
+      "POE_PRIORITY": "10",
+      "POWER_CYCLE_PING_ENABLED": "no",
+      "POWER_CYCLE_INTERVAL": "none"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "index_interface_poe_out_poe_priority_power_cycle_ping_enabled_power_cycle_interval": [
+        {
+          "INDEX": "#",
+          "INTERFACE": "NAME",
+          "POE_OUT": "POE-OUT",
+          "POE_PRIORITY": "POE-VOLTAGE",
+          "POWER_CYCLE_PING_ENABLED": "POE-PRIORITY",
+          "POWER_CYCLE_INTERVAL": "POWER-CYCLE-PING-ENABLED POWER-CYCLE-INTERVAL"
+        },
+        {
+          "INDEX": "0",
+          "INTERFACE": "ether2",
+          "POE_OUT": "auto-on",
+          "POE_PRIORITY": "10",
+          "POWER_CYCLE_PING_ENABLED": "no",
+          "POWER_CYCLE_INTERVAL": "none"
+        },
+        {
+          "INDEX": "1",
+          "INTERFACE": "ether3",
+          "POE_OUT": "auto-on",
+          "POE_PRIORITY": "10",
+          "POWER_CYCLE_PING_ENABLED": "no",
+          "POWER_CYCLE_INTERVAL": "none"
+        },
+        {
+          "INDEX": "2",
+          "INTERFACE": "ether4",
+          "POE_OUT": "auto-on",
+          "POE_PRIORITY": "10",
+          "POWER_CYCLE_PING_ENABLED": "no",
+          "POWER_CYCLE_INTERVAL": "none"
+        },
+        {
+          "INDEX": "3",
+          "INTERFACE": "ether5",
+          "POE_OUT": "auto-on",
+          "POE_PRIORITY": "10",
+          "POWER_CYCLE_PING_ENABLED": "no",
+          "POWER_CYCLE_INTERVAL": "none"
+        }
+      ]
+    }
+  ],
+  "cli_content": " # NAME                                                                           POE-OUT   POE-VOLTAGE POE-PRIORITY POWER-CYCLE-PING-ENABLED POWER-CYCLE-INTERVAL\n 0 ether2                                                                         auto-on                         10 no                       none\n 1 ether3                                                                         auto-on                         10 no                       none\n 2 ether4                                                                         auto-on                         10 no                       none\n 3 ether5                                                                         auto-on                         10 no                       none\n",
+  "textfsm_template": "Value INDEX (\\d+)\nValue INTERFACE (\\S+)\nValue POE_OUT (\\S+)\nValue POE_VOLTAGE (\\S+)\nValue POE_PRIORITY (\\S+)\nValue POWER_CYCLE_PING_ENABLED (\\S+)\nValue POWER_CYCLE_INTERVAL (\\S+)\n\nStart\n  ^\\s*\\#\\s+NAME\\s+POE\\-OUT\\s+POE\\-PRIORITY\\s+POWER\\-CYCLE\\-PING\\-ENABLED\\s+POWER\\-CYCLE\\-INTERVAL\\s*$$\n  ^\\s*${INDEX}\\s+${INTERFACE}\\s+(${POE_OUT}\\s+)?(${POE_PRIORITY}\\s+)?(${POWER_CYCLE_PING_ENABLED}\\s+)?(${POWER_CYCLE_INTERVAL})?\\s*$$ -> Record\n  ^\\s*\\#\\s+NAME\\s+POE\\-OUT\\s+POE\\-VOLTAGE\\s+POE\\-PRIORITY\\s+POWER\\-CYCLE\\-PING\\-ENABLED\\s+POWER\\-CYCLE\\-INTERVAL\\s*$$\n  ^\\s*${INDEX}\\s+${INTERFACE}\\s+(${POE_OUT}\\s+)?(${POE_VOLTAGE}\\s+)?(${POE_PRIORITY}\\s+)?(${POWER_CYCLE_PING_ENABLED}\\s+)?(${POWER_CYCLE_INTERVAL})?\\s*$$ -> Record\n  ^\\s*bad\\s+command\\s+name\\s+po(e)?\\s+\\(line\\s+\\d+\\s+column\\s+\\d+\\)\\s*$$\n  ^\\s*$$\n  ^. -> Error"
+}

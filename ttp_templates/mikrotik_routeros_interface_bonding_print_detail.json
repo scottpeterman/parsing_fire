@@ -1,0 +1,30 @@
+{
+  "command": "mikrotik_routeros_interface_bonding_print_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"description_id_mode_name\">\nFlags: X - disabled; {{STATUS | ORPHRASE}} - running\n {{ID | ORPHRASE}}  R ;;; Link to Mikrotik\n  name=\"{{NAME}}\" mtu=1500 mac-address=48:A9:8A:5D:24:05 arp=enabled arp-timeout=auto slaves={{SLAVES}} mode={{MODE | ORPHRASE}} primary=none link-monitoring=mii arp-interval=100ms arp-ip-targets=\"\" mii-interval=100ms down-delay=0ms up-delay=0ms lacp-rate=30secs transmit-hash-policy=layer-2 min-links=0\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ID": "0",
+      "STATUS": "R",
+      "NAME": "bond1",
+      "SLAVES": "sfp-sfpplus9,sfp-sfpplus10",
+      "DESCRIPTION": "Link to Mikrotik, and other things",
+      "MODE": "802.3ad"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "description_id_mode_name": {
+        "ID": "0",
+        "STATUS": "R"
+      }
+    }
+  ],
+  "cli_content": "Flags: X - disabled; R - running\n 0  R ;;; Link to Mikrotik\nand other things\n      name=\"bond1\" mtu=1500 mac-address=48:A9:8A:5D:24:05 arp=enabled arp-timeout=auto slaves=sfp-sfpplus9,sfp-sfpplus10 mode=802.3ad primary=none link-monitoring=mii arp-interval=100ms arp-ip-targets=\"\" mii-interval=100ms down-delay=0ms up-delay=0ms lacp-rate=30secs transmit-hash-policy=layer-2 min-links=0\n",
+  "textfsm_template": "Value Required ID (\\d+)\nValue STATUS (X|R)\nValue NAME (\\S+)\nValue SLAVES (\\S+(?:,)?)\nValue List DESCRIPTION (.+?)\nValue MODE (\\S+)\n\nStart\n  ^\\s*Flags:\\s*X\\s*-\\s*disabled(?:;|,)\\s*R\\s*-\\s*running\\s*$$ -> Interface\n  ^\\s*$$\n  ^. -> Error\n\nInterface\n  ^\\s*\\d+\\s*(?:X|R)?\\s*$$ -> Continue.Record\n  ^\\s*${ID}\\s*${STATUS}\\s*name=\"${NAME}\"\\s*mtu=\\d+\\s*mac-address=([a-zA-Z0-9]{2}(?::[a-zA-Z0-9]{2}){5})\\s*arp=\\S+\\s*arp-timeout=\\S+\\s*slaves=${SLAVES}\\s*mode=${MODE}\\s*primary=\\S+\\s*link-monitoring=\\S+\\s*arp-interval=(?:\\d+ms)\\s*arp-ip-targets=\\S+\\s*mii-interval=(?:\\d+ms)\\s*down-delay=(?:\\d+ms)\\s*up-delay=(?:\\d+ms)\\s*lacp-rate=(?:\\d+sec(?:s)?)\\s*transmit-hash-policy=\\S+\\s*min-links=\\d+\\s*$$\n  ^\\s*name=\"${NAME}\"\\s*mtu=\\d+\\s*mac-address=([a-zA-Z0-9]{2}(?::[a-zA-Z0-9]{2}){5})\\s*arp=\\S+\\s*arp-timeout=\\S+\\s*slaves=${SLAVES}\\s*mode=${MODE}\\s*primary=\\S+\\s*link-monitoring=\\S+\\s*arp-interval=(?:\\d+ms)\\s*arp-ip-targets=\\S+\\s*mii-interval=(?:\\d+ms)\\s*down-delay=(?:\\d+ms)\\s*up-delay=(?:\\d+ms)\\s*lacp-rate=(?:\\d+sec(?:s)?)\\s*transmit-hash-policy=\\S+\\s*min-links=\\d+\\s*$$\n  ^\\s*${ID}\\s*${STATUS}\\s*;{3}\\s*${DESCRIPTION}\\s*$$\n  ^\\s*${DESCRIPTION}\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

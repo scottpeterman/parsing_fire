@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show firewall
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="rule_action_source_destination_service_state">
+{{RULE}} {{ACTION}} {{SOURCE}} {{DESTINATION}} {{SERVICE}} {{STATE | ORPHRASE}}
+</group>

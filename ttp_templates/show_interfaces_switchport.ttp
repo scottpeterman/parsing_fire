@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show interfaces switchport
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 9
+# Match ratio: 3.00
+
+<group name="name">
+Name: {{NAME | ORPHRASE}}
+</group>
+<group name="admin_mode">
+Administrative Mode: {{ADMIN_MODE | ORPHRASE}}
+</group>
+<group name="access_vlan">
+Access Mode VLAN: {{ACCESS_VLAN | ORPHRASE}}
+</group>

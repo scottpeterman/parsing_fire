@@ -1,0 +1,50 @@
+{
+  "command": "show environment",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"temp_sensor_temp_status_temp_value\">\nTEMPERATURE {{TEMP_SENSOR}}: {{TEMP_STATUS | ORPHRASE}}: {{TEMP_VALUE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TEMP_SENSOR": "Sensor1",
+      "TEMP_STATUS": "Normal",
+      "TEMP_VALUE": "35C"
+    },
+    {
+      "TEMP_SENSOR": "Sensor2",
+      "TEMP_STATUS": "Normal",
+      "TEMP_VALUE": "40C"
+    },
+    {
+      "TEMP_SENSOR": "Sensor3",
+      "TEMP_STATUS": "High",
+      "TEMP_VALUE": "75C"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "temp_sensor_temp_status_temp_value": [
+        {
+          "TEMP_SENSOR": "Sensor1",
+          "TEMP_STATUS": "Normal",
+          "TEMP_VALUE": "35C"
+        },
+        {
+          "TEMP_SENSOR": "Sensor2",
+          "TEMP_STATUS": "Normal",
+          "TEMP_VALUE": "40C"
+        },
+        {
+          "TEMP_SENSOR": "Sensor3",
+          "TEMP_STATUS": "High",
+          "TEMP_VALUE": "75C"
+        }
+      ]
+    }
+  ],
+  "cli_content": "FAN PS1 Fan 1 is OK\nFAN PS1 Fan 2 is OK\nFAN PS1 Fan 3 is OK\nFAN PS2 Fan 1 is OK\nFAN PS2 Fan 2 is OK\nFAN PS2 Fan 3 is OK\nTEMPERATURE Sensor1: Normal: 35C\nTEMPERATURE Sensor2: Normal: 40C\nTEMPERATURE Sensor3: High: 75C\nPSU Power Supply 1 is OK\nPSU Power Supply 2 is Fail\n",
+  "textfsm_template": "Value FAN_ID (\\S+ \\S+ \\d+)\nValue FAN_STATUS (\\S+)\nValue TEMP_SENSOR (\\S+)\nValue TEMP_STATUS (\\S+)\nValue TEMP_VALUE (\\d+C)\nValue PSU_ID (\\S+ \\S+ \\d+)\nValue PSU_STATUS (\\S+)\n\nStart\n  ^FAN\\s+${FAN_ID}\\s+is\\s+${FAN_STATUS}\\s*$$ -> Record\n  ^TEMPERATURE\\s+${TEMP_SENSOR}:\\s+${TEMP_STATUS}:\\s+${TEMP_VALUE}\\s*$$ -> Record\n  ^PSU\\s+${PSU_ID}\\s+is\\s+${PSU_STATUS}\\s*$$ -> Record"
+}

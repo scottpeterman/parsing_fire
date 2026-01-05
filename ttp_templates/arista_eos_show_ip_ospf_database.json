@@ -1,0 +1,122 @@
+{
+  "command": "arista_eos_show_ip_ospf_database",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.09090909090909091,
+  "textfsm_rows": 11,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"area_process_id_router_id\">\n                 Router Link States (Area {{AREA | ORPHRASE}})\n<group name=\"adv_router_link_count_link_id\">\n            OSPF Router with ID({{LINK_ID | ORPHRASE}}) (Process ID {{LINK_COUNT | re(\"\\\\d+\")}}) (VRF default)\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ROUTER_ID": "10.168.103.1",
+      "PROCESS_ID": "1",
+      "VRF": "default",
+      "AREA": "0.0.0.2",
+      "LINK_ID": "10.168.103.1",
+      "ADV_ROUTER": "10.168.103.1",
+      "AGE": "00:29:08",
+      "LINK_COUNT": "1"
+    },
+    {
+      "ROUTER_ID": "10.168.103.1",
+      "PROCESS_ID": "1",
+      "VRF": "default",
+      "AREA": "0.0.0.2",
+      "LINK_ID": "10.168.104.2",
+      "ADV_ROUTER": "10.168.104.2",
+      "AGE": "00:29:09",
+      "LINK_COUNT": "1"
+    },
+    {
+      "ROUTER_ID": "10.168.103.1",
+      "PROCESS_ID": "1",
+      "VRF": "default",
+      "AREA": "0.0.0.2",
+      "LINK_ID": "10.168.2.1",
+      "ADV_ROUTER": "10.168.103.1",
+      "AGE": "00:29:08"
+    },
+    {
+      "ROUTER_ID": "10.168.103.1",
+      "PROCESS_ID": "1",
+      "VRF": "default",
+      "AREA": "0.0.0.2",
+      "LINK_ID": "10.168.0.0",
+      "ADV_ROUTER": "10.168.103.1",
+      "AGE": "00:13:20"
+    },
+    {
+      "ROUTER_ID": "10.168.103.1",
+      "PROCESS_ID": "1",
+      "VRF": "default",
+      "AREA": "0.0.0.2",
+      "LINK_ID": "10.168.0.0",
+      "ADV_ROUTER": "10.168.104.2",
+      "AGE": "00:09:16"
+    },
+    {
+      "ROUTER_ID": "10.168.103.1",
+      "PROCESS_ID": "1",
+      "VRF": "default",
+      "AREA": "0.0.0.2",
+      "LINK_ID": "10.168.3.0",
+      "ADV_ROUTER": "10.168.104.2",
+      "AGE": "00:24:16"
+    },
+    {
+      "ROUTER_ID": "10.168.103.1",
+      "PROCESS_ID": "1",
+      "VRF": "default",
+      "AREA": "0.0.0.2",
+      "LINK_ID": "10.168.3.0",
+      "ADV_ROUTER": "10.168.103.1",
+      "AGE": "00:24:20"
+    },
+    {
+      "ROUTER_ID": "10.168.103.1",
+      "PROCESS_ID": "1",
+      "VRF": "default",
+      "AREA": "0.0.0.2",
+      "LINK_ID": "10.168.103.0",
+      "ADV_ROUTER": "10.168.103.1",
+      "AGE": "00:14:20"
+    },
+    {
+      "ROUTER_ID": "10.168.103.1",
+      "PROCESS_ID": "1",
+      "VRF": "default",
+      "AREA": "0.0.0.2",
+      "LINK_ID": "10.168.103.0",
+      "ADV_ROUTER": "10.168.104.2",
+      "AGE": "00:13:16"
+    },
+    {
+      "ROUTER_ID": "10.168.103.1",
+      "PROCESS_ID": "1",
+      "VRF": "default",
+      "AREA": "0.0.0.2",
+      "LINK_ID": "10.168.104.0",
+      "ADV_ROUTER": "10.168.104.2",
+      "AGE": "00:08:16"
+    },
+    {
+      "ROUTER_ID": "10.168.103.1",
+      "PROCESS_ID": "1",
+      "VRF": "default",
+      "AREA": "0.0.0.2",
+      "LINK_ID": "10.168.104.0",
+      "ADV_ROUTER": "10.168.103.1",
+      "AGE": "00:13:20"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "area_process_id_router_id": {
+        "AREA": "0.0.0.2"
+      }
+    }
+  ],
+  "cli_content": "            OSPF Router with ID(10.168.103.1) (Process ID 1) (VRF default)\n \n                 Router Link States (Area 0.0.0.2)\n \nLink ID         ADV Router      Age         Seq#       Checksum Link count\n10.168.103.1   10.168.103.1   00:29:08    0x80000031 0x001D5F 1\n10.168.104.2   10.168.104.2   00:29:09    0x80000066 0x00A49B 1\n \n                 Net Link States (Area 0.0.0.2)\n \nLink ID         ADV Router      Age         Seq#       Checksum\n10.168.2.1     10.168.103.1   00:29:08    0x80000001 0x00B89D\n \n                 Summary Net Link States (Area 0.0.0.2)\n \nLink ID         ADV Router      Age         Seq#       Checksum\n10.168.0.0     10.168.103.1   00:13:20    0x80000028 0x0008C8\n10.168.0.0     10.168.104.2   00:09:16    0x80000054 0x00A2FF\n10.168.3.0     10.168.104.2   00:24:16    0x80000004 0x00865F\n10.168.3.0     10.168.103.1   00:24:20    0x80000004 0x002FC2\n10.168.103.0   10.168.103.1   00:14:20    0x80000028 0x0096D2\n10.168.103.0   10.168.104.2   00:13:16    0x80000004 0x00364B\n10.168.104.0   10.168.104.2   00:08:16    0x80000055 0x002415\n10.168.104.0   10.168.103.1   00:13:20    0x80000028 0x00EF6E\n\n                 Type-5 AS External Link States\n \nLink ID         ADV Router      Age         Seq#         Checksum Tag\n10.24.238.238   10.26.0.31     678         0x800003d2   0x8acf   0\n10.24.238.244   10.26.0.31     678         0x800003d2   0x4e06   0\n10.24.238.224   10.26.0.31     678         0x800003d2   0x1751   0\n",
+  "textfsm_template": "Value Filldown ROUTER_ID (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue Filldown PROCESS_ID (\\d+)\nValue Filldown VRF (\\S+)\nValue Filldown AREA (\\d+\\.\\d+\\.\\d+\\.\\d+|\\d+)\nValue LINK_ID (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue ADV_ROUTER (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue AGE (\\d+:\\d+:\\d+|\\d+)\nValue LINK_COUNT (\\d+)\nValue TAG (\\d+)\n\nStart\n  ^.*\\(${ROUTER_ID}\\).*?${PROCESS_ID}.*VRF\\s+${VRF}\\)\n  ^.*\\(Area\\s+${AREA}\\)\n  ^${LINK_ID}\\s+${ADV_ROUTER}\\s+${AGE}\\s+\\S+\\s+\\S+\\s+${LINK_COUNT} -> Record\n  ^${LINK_ID}\\s+${ADV_ROUTER}\\s+${AGE}\\s+\\S+\\s+\\S+ -> Record\n  ^Link ID\\s+ADV Router\\s+Age\\s+Seq#\\s+Checksum\\s+Tag -> Tag\n\nTag\n  ^Link ID\\s+ADV Router\\s+Age\\s+Seq#\\s+Checksum\\s+Tag -> Next.Clearall\n  ^${LINK_ID}\\s+${ADV_ROUTER}\\s+${AGE}\\s+\\S+\\s+\\S+\\s+${TAG} -> Next\n  ^\\s -> Start\n\nEOF\n"
+}

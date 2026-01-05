@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_inventory
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="bia_description_max_ap_num_name">
+Burned-in MAC Address............................ {{BIA | ORPHRASE}}
+Maximum number of APs supported.................. {{MAX_AP_NUM | ORPHRASE}}
+NAME: "{{NAME}}"  , DESCR: "{{DESCRIPTION | ORPHRASE}}"
+PID: {{PID}},  VID: {{VID}},  SN: {{SN | ORPHRASE}}
+</group>

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip cef
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="prefix_next_hop_interface">
+{{PREFIX}} {{NEXT_HOP}} {{INTERFACE | ORPHRASE}}
+</group>

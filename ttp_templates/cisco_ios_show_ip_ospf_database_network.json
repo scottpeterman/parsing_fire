@@ -1,0 +1,123 @@
+{
+  "command": "cisco_ios_show_ip_ospf_database_network",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.6666666666666666,
+  "textfsm_rows": 6,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"router_id_process_id\">\n            OSPF Router with ID ({{ROUTER_ID | ORPHRASE}}) (Process ID {{PROCESS_ID | re(\"\\\\d+\")}})\n</group>\n<group name=\"lsa_adv_router\">\n  Advertising Router: {{LSA_ADV_ROUTER | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ROUTER_ID": "100.1.1.1",
+      "PROCESS_ID": "1",
+      "AREA": "0",
+      "LSA_AGE": "500",
+      "LSA_OPTIONS": "No TOS-capability, DC",
+      "LSA_TYPE": "Network Links",
+      "LSA_ID": "192.168.2.1",
+      "LSA_ADV_ROUTER": "100.1.1.1",
+      "LSA_SEQ_NUMBER": "80000224",
+      "LSA_CHECKSUM": "0x4B27",
+      "LSA_LENGTH": "32",
+      "LSA_NETWORK_MASK": "/30",
+      "LS_ATT_ROUTER": "100.1.1.1"
+    },
+    {
+      "ROUTER_ID": "100.1.1.1",
+      "PROCESS_ID": "1",
+      "AREA": "0",
+      "LSA_AGE": "500",
+      "LSA_OPTIONS": "No TOS-capability, DC",
+      "LSA_TYPE": "Network Links",
+      "LSA_ID": "192.168.2.1",
+      "LSA_ADV_ROUTER": "100.1.1.1",
+      "LSA_SEQ_NUMBER": "80000224",
+      "LSA_CHECKSUM": "0x4B27",
+      "LSA_LENGTH": "32",
+      "LSA_NETWORK_MASK": "/30",
+      "LS_ATT_ROUTER": "100.2.2.2"
+    },
+    {
+      "ROUTER_ID": "100.1.1.1",
+      "PROCESS_ID": "1",
+      "AREA": "0",
+      "LSA_AGE": "872",
+      "LSA_OPTIONS": "No TOS-capability, DC",
+      "LSA_TYPE": "Network Links",
+      "LSA_ID": "192.168.3.2",
+      "LSA_ADV_ROUTER": "100.4.4.4",
+      "LSA_SEQ_NUMBER": "80000224",
+      "LSA_CHECKSUM": "0x4816",
+      "LSA_LENGTH": "32",
+      "LSA_NETWORK_MASK": "/30",
+      "LS_ATT_ROUTER": "100.4.4.4"
+    },
+    {
+      "ROUTER_ID": "100.1.1.1",
+      "PROCESS_ID": "1",
+      "AREA": "0",
+      "LSA_AGE": "872",
+      "LSA_OPTIONS": "No TOS-capability, DC",
+      "LSA_TYPE": "Network Links",
+      "LSA_ID": "192.168.3.2",
+      "LSA_ADV_ROUTER": "100.4.4.4",
+      "LSA_SEQ_NUMBER": "80000224",
+      "LSA_CHECKSUM": "0x4816",
+      "LSA_LENGTH": "32",
+      "LSA_NETWORK_MASK": "/30",
+      "LS_ATT_ROUTER": "100.2.2.2"
+    },
+    {
+      "ROUTER_ID": "100.1.1.1",
+      "PROCESS_ID": "1",
+      "AREA": "0",
+      "LSA_AGE": "351",
+      "LSA_OPTIONS": "No TOS-capability, DC",
+      "LSA_TYPE": "Network Links",
+      "LSA_ID": "192.168.4.2",
+      "LSA_ADV_ROUTER": "100.4.4.4",
+      "LSA_SEQ_NUMBER": "80000226",
+      "LSA_CHECKSUM": "0x60F7",
+      "LSA_LENGTH": "32",
+      "LSA_NETWORK_MASK": "/30",
+      "LS_ATT_ROUTER": "100.4.4.4"
+    },
+    {
+      "ROUTER_ID": "100.1.1.1",
+      "PROCESS_ID": "1",
+      "AREA": "0",
+      "LSA_AGE": "351",
+      "LSA_OPTIONS": "No TOS-capability, DC",
+      "LSA_TYPE": "Network Links",
+      "LSA_ID": "192.168.4.2",
+      "LSA_ADV_ROUTER": "100.4.4.4",
+      "LSA_SEQ_NUMBER": "80000226",
+      "LSA_CHECKSUM": "0x60F7",
+      "LSA_LENGTH": "32",
+      "LSA_NETWORK_MASK": "/30",
+      "LS_ATT_ROUTER": "100.3.3.3"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "router_id_process_id": {
+        "ROUTER_ID": "100.1.1.1",
+        "PROCESS_ID": "1"
+      },
+      "lsa_adv_router": [
+        {
+          "LSA_ADV_ROUTER": "100.1.1.1"
+        },
+        {
+          "LSA_ADV_ROUTER": "100.4.4.4"
+        },
+        {
+          "LSA_ADV_ROUTER": "100.4.4.4"
+        }
+      ]
+    }
+  ],
+  "cli_content": "            OSPF Router with ID (100.1.1.1) (Process ID 1)\n\n                Net Link States (Area 0)\n\n  LS age: 500\n  Options: (No TOS-capability, DC)\n  LS Type: Network Links\n  Link State ID: 192.168.2.1 (address of Designated Router)\n  Advertising Router: 100.1.1.1\n  LS Seq Number: 80000224\n  Checksum: 0x4B27\n  Length: 32\n  Network Mask: /30\n        Attached Router: 100.1.1.1\n        Attached Router: 100.2.2.2\n\n  LS age: 872\n  Options: (No TOS-capability, DC)\n  LS Type: Network Links\n  Link State ID: 192.168.3.2 (address of Designated Router)\n  Advertising Router: 100.4.4.4\n  LS Seq Number: 80000224\n  Checksum: 0x4816\n  Length: 32\n  Network Mask: /30\n        Attached Router: 100.4.4.4\n        Attached Router: 100.2.2.2\n\n  LS age: 351\n  Options: (No TOS-capability, DC)\n  LS Type: Network Links\n  Link State ID: 192.168.4.2 (address of Designated Router)\n  Advertising Router: 100.4.4.4\n  LS Seq Number: 80000226\n  Checksum: 0x60F7\n  Length: 32\n  Network Mask: /30\n        Attached Router: 100.4.4.4\n        Attached Router: 100.3.3.3\n",
+  "textfsm_template": "Value Filldown ROUTER_ID (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue Filldown PROCESS_ID (\\d+)\nValue Filldown AREA (\\d+\\.\\d+\\.\\d+\\.\\d+|\\d+)\nValue Filldown LSA_AGE (\\d+)\nValue Filldown LSA_OPTIONS (.+)\nValue Filldown LSA_TYPE (.+)\nValue Filldown LSA_ID (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue Filldown LSA_ADV_ROUTER (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue Filldown LSA_SEQ_NUMBER (\\S+)\nValue Filldown LSA_CHECKSUM (\\S+)\nValue Filldown LSA_LENGTH (\\d+)\nValue Filldown LSA_NETWORK_MASK (\\S+)\nValue Filldown LSA_ABR (Area\\s+Border\\s+Router)\nValue Filldown LSA_ASBR (AS\\s+Boundary\\s+Router)\nValue LS_ATT_ROUTER (\\d+\\.\\d+\\.\\d+\\.\\d+)\n\nStart\n  ^\\s*OSPF\\s+Router\\s+with\\s+ID\\s+\\(${ROUTER_ID}\\)\\s+\\(Process\\s+ID\\s+${PROCESS_ID}\\)\n  ^\\s+Net\\s+Link\\s+States\\s+\\(Area ${AREA}\\) -> LSAInfo\n  ^\\s*$$\n  ^. -> Error\n\nLSAInfo\n  ^\\s+LS\\s+age:\\s+${LSA_AGE}\n  ^\\s+Options:\\s+\\(${LSA_OPTIONS}\\)\n  ^\\s+LS\\s+Type:\\s+${LSA_TYPE}\n  ^\\s+Link\\s+State\\s+ID:\\s+${LSA_ID}\n  ^\\s+Advertising\\s+Router:\\s+${LSA_ADV_ROUTER}\n  ^\\s+LS\\s+Seq\\s+Number:\\s+${LSA_SEQ_NUMBER}\n  ^\\s+Checksum:\\s+${LSA_CHECKSUM}\n  ^\\s+Length:\\s+${LSA_LENGTH}\n  ^\\s+${LSA_ABR}$$\n  ^\\s+${LSA_ASBR}$$\n  ^\\s+Network\\s+Mask:\\s+${LSA_NETWORK_MASK} -> LSAs\n  ^\\s*$$\n  ^. -> Error\n\nLSAs\n  ^\\s+Attached\\s+Router:\\s+${LS_ATT_ROUTER} -> Next.Record\n  ^\\s+LS\\s+age:\\s+${LSA_AGE} -> LSAInfo\n  ^\\s+Router\\s+Link\\s+States\\s+\\(Area ${AREA}\\) -> LSAInfo\n  ^\\s*$$\n  ^. -> Error\n\nEOF\n"
+}

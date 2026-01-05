@@ -1,0 +1,19 @@
+# TTP Template auto-generated from TextFSM
+# Original command: mikrotik_routeros_ip_dhcp-server_lease_print
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 1
+# Match ratio: 0.25
+
+<group name="number_address_server_status_last_seen">
+ {{NUMBER}} {{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{SERVER | re("[\\d\\.\\(\\)A-Za-z]+")}} {{STATUS | ORPHRASE}} {{LAST_SEEN | ORPHRASE}}
+</group>
+<group name="number_flags_address_host_name_server_status_last_seen">
+ {{NUMBER}} {{FLAGS}} {{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{HOST_NAME | re("\\S+")}} {{SERVER | re("[\\d\\.\\(\\)A-Za-z]+")}} {{STATUS | ORPHRASE}} {{LAST_SEEN | ORPHRASE}}
+</group>
+<group name="number_address_mac_address_server_status_last_seen">
+ {{NUMBER}} {{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{SERVER | re("[\\d\\.\\(\\)A-Za-z]+")}} {{STATUS | ORPHRASE}} {{LAST_SEEN | ORPHRASE}}
+</group>
+<group name="number_flags_address_mac_address_host_name_server_status_last_seen">
+ {{NUMBER}} {{FLAGS}} {{ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{HOST_NAME | re("\\S+")}} {{SERVER | re("[\\d\\.\\(\\)A-Za-z]+")}} {{STATUS | ORPHRASE}} {{LAST_SEEN | ORPHRASE}}
+</group>

@@ -1,0 +1,31 @@
+{
+  "command": "cisco_nvfis_show_running-config_system_time",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"backup_ntp_server_backup_ntp_server_type_preferred_ntp_server_preferred_ntp_server_type\">\nsystem time timezone {{TIMEZONE | ORPHRASE}}\nsystem time ntp preferred_server {{PREFERRED_NTP_SERVER | ORPHRASE}}\nsystem time ntp backup_server {{BACKUP_NTP_SERVER | ORPHRASE}}\nsystem time ntp preferred_server_type {{PREFERRED_NTP_SERVER_TYPE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TIMEZONE": "UTC",
+      "PREFERRED_NTP_SERVER": "11.22.33.44",
+      "PREFERRED_NTP_SERVER_TYPE": "ipv4",
+      "BACKUP_NTP_SERVER": "11.22.33.45",
+      "BACKUP_NTP_SERVER_TYPE": "ipv4"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "backup_ntp_server_backup_ntp_server_type_preferred_ntp_server_preferred_ntp_server_type": {
+        "PREFERRED_NTP_SERVER_TYPE": "ipv4",
+        "BACKUP_NTP_SERVER": "11.22.33.45",
+        "PREFERRED_NTP_SERVER": "11.22.33.44",
+        "TIMEZONE": "UTC"
+      }
+    }
+  ],
+  "cli_content": "system time timezone UTC\nsystem time ntp preferred_server 11.22.33.44\nsystem time ntp backup_server 11.22.33.45\nsystem time ntp preferred_server_type ipv4\nsystem time ntp backup_server_type ipv4",
+  "textfsm_template": "Value TIMEZONE (\\w+)\nValue PREFERRED_NTP_SERVER ([A-F0-9\\.\\:]+)\nValue PREFERRED_NTP_SERVER_TYPE (\\w+)\nValue BACKUP_NTP_SERVER ([A-F0-9\\.\\:]+)\nValue BACKUP_NTP_SERVER_TYPE (\\w+)\n\n\nStart\n  ^system\\stime\\stimezone\\s${TIMEZONE}\n  ^system\\stime\\sntp\\spreferred_server\\s${PREFERRED_NTP_SERVER}\n  ^system\\stime\\sntp\\sbackup_server\\s${BACKUP_NTP_SERVER}\n  ^system\\stime\\sntp\\spreferred_server_type\\s${PREFERRED_NTP_SERVER_TYPE}\n  ^system\\stime\\sntp\\sbackup_server_type\\s${BACKUP_NTP_SERVER_TYPE} -> Record\n\nEOF"
+}

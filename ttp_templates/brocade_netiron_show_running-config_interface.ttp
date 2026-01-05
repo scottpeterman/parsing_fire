@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: brocade_netiron_show_running-config_interface
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="interface_interface_type_ipredirect_ip_address">
+interface {{INTERFACE_TYPE}} {{INTERFACE | ORPHRASE}}
+ port-name {{PORTNAME | ORPHRASE}}
+ qos-tos trust {{QOSTOSTRUST | ORPHRASE}}
+ vrf forwarding {{VRF | ORPHRASE}}
+ {{IPREDIRECT | ORPHRASE}} ip redirect
+</group>

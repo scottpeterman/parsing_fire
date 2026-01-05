@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_policy-map
+# Source: ntc
+# TextFSM rows: 10
+# TTP rows: 10
+# Match ratio: 1.00
+
+<group name="class_bw_ratio_class_bw_account">
+      bandwidth remaining ratio {{CLASS_BW_RATIO}} account user-defined {{CLASS_BW_ACCOUNT | ORPHRASE}}
+</group>

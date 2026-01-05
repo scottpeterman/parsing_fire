@@ -1,0 +1,86 @@
+{
+  "command": "cisco_nxos_show_bfd_neighbors",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"our_address_neighbor_address_ld_rd_rh_rs_holddown_state_interface_vrf_type\">\n{{OUR_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{NEIGHBOR_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{LD_RD}} {{RH_RS}} {{HOLDDOWN}} {{STATE | ORPHRASE}} {{INTERFACE}} {{VRF}} {{TYPE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "OUR_ADDRESS": "172.23.0.18",
+      "NEIGHBOR_ADDRESS": "172.23.0.19",
+      "LD_RD": "1090540255/1090566886",
+      "RH_RS": "Up",
+      "HOLDDOWN": "862(3)",
+      "STATE": "Up",
+      "INTERFACE": "Eth1/10",
+      "VRF": "default",
+      "TYPE": "SH"
+    },
+    {
+      "OUR_ADDRESS": "172.23.0.22",
+      "NEIGHBOR_ADDRESS": "172.23.0.23",
+      "LD_RD": "1090540256/1090561429",
+      "RH_RS": "Up",
+      "HOLDDOWN": "647(3)",
+      "STATE": "Up",
+      "INTERFACE": "Eth1/12",
+      "VRF": "default",
+      "TYPE": "SH"
+    },
+    {
+      "OUR_ADDRESS": "172.23.0.20",
+      "NEIGHBOR_ADDRESS": "172.23.0.21",
+      "LD_RD": "1090540257/1090566968",
+      "RH_RS": "Up",
+      "HOLDDOWN": "729(3)",
+      "STATE": "Up",
+      "INTERFACE": "Eth1/11",
+      "VRF": "default",
+      "TYPE": "SH"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "our_address_neighbor_address_ld_rd_rh_rs_holddown_state_interface_vrf_type": [
+        {
+          "OUR_ADDRESS": "172.23.0.18",
+          "NEIGHBOR_ADDRESS": "172.23.0.19",
+          "LD_RD": "1090540255/1090566886",
+          "RH_RS": "Up",
+          "HOLDDOWN": "862(3)",
+          "STATE": "Up",
+          "INTERFACE": "Eth1/10",
+          "VRF": "default",
+          "TYPE": "SH"
+        },
+        {
+          "OUR_ADDRESS": "172.23.0.22",
+          "NEIGHBOR_ADDRESS": "172.23.0.23",
+          "LD_RD": "1090540256/1090561429",
+          "RH_RS": "Up",
+          "HOLDDOWN": "647(3)",
+          "STATE": "Up",
+          "INTERFACE": "Eth1/12",
+          "VRF": "default",
+          "TYPE": "SH"
+        },
+        {
+          "OUR_ADDRESS": "172.23.0.20",
+          "NEIGHBOR_ADDRESS": "172.23.0.21",
+          "LD_RD": "1090540257/1090566968",
+          "RH_RS": "Up",
+          "HOLDDOWN": "729(3)",
+          "STATE": "Up",
+          "INTERFACE": "Eth1/11",
+          "VRF": "default",
+          "TYPE": "SH"
+        }
+      ]
+    }
+  ],
+  "cli_content": "OurAddr         NeighAddr       LD/RD                 RH/RS           Holdown(mult)     State       Int                   Vrf                              Type\n172.23.0.18     172.23.0.19     1090540255/1090566886 Up              862(3)            Up          Eth1/10               default                          SH\n172.23.0.22     172.23.0.23     1090540256/1090561429 Up              647(3)            Up          Eth1/12               default                          SH\n172.23.0.20     172.23.0.21     1090540257/1090566968 Up              729(3)            Up          Eth1/11               default                          SH\n",
+  "textfsm_template": "Value OUR_ADDRESS (\\d+?\\.\\d+?\\.\\d+?\\.\\d+?)\nValue NEIGHBOR_ADDRESS (\\d+?\\.\\d+?\\.\\d+?\\.\\d+?)\nValue LD_RD (\\S+)\nValue RH_RS (\\S+)\nValue HOLDDOWN (\\S+)\nValue STATE (\\S+)\nValue INTERFACE (\\S+)\nValue VRF (\\S+)\nValue TYPE (\\S+)\n\nStart\n  ^OurAddr\\s+NeighAddr\\s+LD\\/RD\\s+RH\\/RS\\s+Holdown\\(mult\\)\\s+State\\s+Int\\s+Vrf\\s+Type\\s*$$ -> BFDNeigh\n  ^. -> Error\n\nBFDNeigh\n  ^${OUR_ADDRESS}\\s+${NEIGHBOR_ADDRESS}\\s+${LD_RD}\\s+${RH_RS}\\s+${HOLDDOWN}\\s+${STATE}\\s+${INTERFACE}\\s+${VRF}\\s+${TYPE}\\s*$$ -> Record\n  ^. -> Error\n"
+}

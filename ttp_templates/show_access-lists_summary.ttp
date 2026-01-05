@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show access-lists summary
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="list_name_rules_count_permit_count_deny_count">
+{{LIST_NAME}} {{RULES_COUNT | re("\\d+")}} {{PERMIT_COUNT | re("\\d+")}} {{DENY_COUNT | ORPHRASE}}
+</group>

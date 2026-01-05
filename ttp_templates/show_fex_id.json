@@ -1,0 +1,76 @@
+{
+  "command": "show fex id",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"fex_fex_id_fex_type_fex_description_state\">\n{{FEX}} {{FEX_ID | re(\"\\\\d+\")}} {{FEX_TYPE}} {{FEX_DESCRIPTION | ORPHRASE}} {{STATE | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FEX": "1",
+      "FEX_ID": "101",
+      "FEX_TYPE": "N2K-C2232PP-10GE",
+      "FEX_DESCRIPTION": "FEX connected to Switch1",
+      "STATE": "Online"
+    },
+    {
+      "FEX": "2",
+      "FEX_ID": "102",
+      "FEX_TYPE": "N2K-C2248TP-E-1GE",
+      "FEX_DESCRIPTION": "FEX connected to Switch2",
+      "STATE": "Online"
+    },
+    {
+      "FEX": "3",
+      "FEX_ID": "103",
+      "FEX_TYPE": "N2K-C2232TM-10GE",
+      "FEX_DESCRIPTION": "FEX connected to Switch3",
+      "STATE": "Online"
+    },
+    {
+      "FEX": "4",
+      "FEX_ID": "104",
+      "FEX_TYPE": "N2K-C2248PQ-10GE",
+      "FEX_DESCRIPTION": "FEX connected to Switch4",
+      "STATE": "Online"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "fex_fex_id_fex_type_fex_description_state": [
+        {
+          "FEX": "1",
+          "FEX_ID": "101",
+          "FEX_TYPE": "N2K-C2232PP-10GE",
+          "FEX_DESCRIPTION": "FEX connected to Switch1",
+          "STATE": "Online"
+        },
+        {
+          "FEX": "2",
+          "FEX_ID": "102",
+          "FEX_TYPE": "N2K-C2248TP-E-1GE",
+          "FEX_DESCRIPTION": "FEX connected to Switch2",
+          "STATE": "Online"
+        },
+        {
+          "FEX": "3",
+          "FEX_ID": "103",
+          "FEX_TYPE": "N2K-C2232TM-10GE",
+          "FEX_DESCRIPTION": "FEX connected to Switch3",
+          "STATE": "Online"
+        },
+        {
+          "FEX": "4",
+          "FEX_ID": "104",
+          "FEX_TYPE": "N2K-C2248PQ-10GE",
+          "FEX_DESCRIPTION": "FEX connected to Switch4",
+          "STATE": "Online"
+        }
+      ]
+    }
+  ],
+  "cli_content": "FEX   FEX_ID   FEX_TYPE          FEX_DESCRIPTION           STATE  \n1     101      N2K-C2232PP-10GE  FEX connected to Switch1  Online \n2     102      N2K-C2248TP-E-1GE FEX connected to Switch2  Online \n3     103      N2K-C2232TM-10GE  FEX connected to Switch3  Online \n4     104      N2K-C2248PQ-10GE  FEX connected to Switch4  Online \n",
+  "textfsm_template": "Value FEX (\\d+)\nValue FEX_ID (\\d+)\nValue FEX_TYPE (\\S+)\nValue FEX_DESCRIPTION (.*\\S)\nValue STATE (\\S+)\n\nStart\n  ^\\s*FEX\\s+FEX_ID\\s+FEX_TYPE\\s+FEX_DESCRIPTION\\s+STATE\\s*$$\n  ^\\s*${FEX}\\s+${FEX_ID}\\s+${FEX_TYPE}\\s+${FEX_DESCRIPTION}\\s+${STATE}\\s*$$ -> Record"
+}

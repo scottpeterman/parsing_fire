@@ -1,0 +1,11 @@
+# TTP Template - FAILED VALIDATION
+# Original command: cisco_ios_show_standby_brief
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="interface_preempt_priority_state_active_standby_virtual_ip_address">
+{{INTERFACE}} {{GROU{{PREEMPT}}}} {{PRIORITY}} P {{STATE | ORPHRASE}} {{ACTIVE}} {{STANDBY}} {{VIRTUAL_IP_ADDRESS | ORPHRASE}}
+</group>
+<group name="preempt_priority_state_active_standby_virtual_ip_address">
+     {{GROU{{PREEMPT}}}} {{PRIORITY}} P {{STATE | ORPHRASE}} {{ACTIVE}} {{STANDBY}} {{VIRTUAL_IP_ADDRESS | ORPHRASE}}
+</group>

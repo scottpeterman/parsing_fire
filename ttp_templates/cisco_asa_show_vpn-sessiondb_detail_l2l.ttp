@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_vpn-sessiondb_detail_l2l
+# Source: ntc
+# TextFSM rows: 15
+# TTP rows: 9
+# Match ratio: 0.60
+
+<group name="connection_duration_encryption">
+Connection   : {{CONNECTION | ORPHRASE}}
+<group name="authentication_mode_connection_type_negotiaion_mode">
+  {{CONNECTION_TYPE}} Neg Mode : {{NEGOTIAION_MODE}} Auth Mode : {{AUTHENTICATION_MODE | ORPHRASE}}
+</group>
+</group>

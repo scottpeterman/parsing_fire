@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_ip_ospf_neighbor
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="neighbor_id_vrf_priority_state_dead_time_ip_address_interface">
+{{NEIGHBOR_ID}} {{VRF}} {{PRIORITY}} {{STATE | ORPHRASE}} {{DEAD_TIME}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{INTERFACE | ORPHRASE}}
+</group>

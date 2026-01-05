@@ -1,0 +1,28 @@
+{
+  "command": "mikrotik_routeros_system_routerboard_print",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 1,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"board_name_current_firmware_factory_firmware_firmware_type\">\n  routerboard: {{ROUTERBOARD | ORPHRASE}}\n  board-name: {{BOARD_NAME | ORPHRASE}}\n  model: {{HARDWARE_MODEL | ORPHRASE}}\n  revision: {{REVISION | ORPHRASE}}\n  serial-number: {{SERIAL_NUMBER | ORPHRASE}}\n  firmware-type: {{FIRMWARE_TYPE | ORPHRASE}}\n  factory-firmware: {{FACTORY_FIRMWARE | ORPHRASE}}\n  current-firmware: {{CURRENT_FIRMWARE | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "ROUTERBOARD": "yes",
+      "BOARD_NAME": "hEX",
+      "HARDWARE_MODEL": "RB750Gr3",
+      "REVISION": "r4",
+      "SERIAL_NUMBER": "CC210E592C82",
+      "FIRMWARE_TYPE": "mt7621L",
+      "FACTORY_FIRMWARE": "6.48",
+      "CURRENT_FIRMWARE": "6.49",
+      "UPGRADE_FIRMWARE": "6.49"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "       routerboard: yes\n        board-name: hEX\n             model: RB750Gr3\n          revision: r4\n     serial-number: CC210E592C82\n     firmware-type: mt7621L\n  factory-firmware: 6.48\n  current-firmware: 6.49\n  upgrade-firmware: 6.49\n",
+  "textfsm_template": "Value ROUTERBOARD (\\S+)\nValue BOARD_NAME (.+)\nValue HARDWARE_MODEL (.+)\nValue REVISION (.+)\nValue SERIAL_NUMBER (\\S+)\nValue FIRMWARE_TYPE (\\S+)\nValue FACTORY_FIRMWARE ([\\d.]+)\nValue CURRENT_FIRMWARE ([\\d.]+)\nValue UPGRADE_FIRMWARE ([\\d.]+)\n\nStart\n  ^\\s*;;;.* -> Next\n  ^\\s*routerboard:\\s${ROUTERBOARD}\n  ^\\s*board-name:\\s${BOARD_NAME}\n  ^\\s*model:\\s${HARDWARE_MODEL}\n  ^\\s*revision:\\s${REVISION}\n  ^\\s*serial-number:\\s${SERIAL_NUMBER}\n  ^\\s*firmware-type:\\s${FIRMWARE_TYPE}\n  ^\\s*factory-firmware:\\s${FACTORY_FIRMWARE}\n  ^\\s*current-firmware:\\s${CURRENT_FIRMWARE}\n  ^\\s*upgrade-firmware:\\s${UPGRADE_FIRMWARE}\n  ^\\s*(?:\\d{2}:){2}\\d{2}\\s+echo:\\s*.*$$ -> Next\n  ^. -> Error\n"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show fex all
+# Source: chatgpt
+# TextFSM rows: 6
+# TTP rows: 8
+# Match ratio: 1.33
+
+<group name="fex_number_description_state_model">
+{{FEX_NUMBER}} {{DESCRIPTION | ORPHRASE}} {{STATE | ORPHRASE}} {{MODEL | ORPHRASE}} 
+</group>

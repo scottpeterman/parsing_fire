@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: cisco_nxos_show_mac_address-table
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="vlan_id_mac_address_secure_type_ntfy_ports">
+G {{VLAN_ID | re("\\d+")}} {{MAC_ADDRESS | re("[0{{AGE | re(".*\\w.*")}}9a-fA-{{SECURE}}:.-]+")}} {{TYPE}} - {{NTFY}} F {{PORTS | ORPHRASE}}
+</group>

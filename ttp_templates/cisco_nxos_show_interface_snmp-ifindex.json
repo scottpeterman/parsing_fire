@@ -1,0 +1,138 @@
+{
+  "command": "cisco_nxos_show_interface_snmp-ifindex",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.043478260869565216,
+  "textfsm_rows": 23,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"port_ifmib_ifindex_hex\">\n{{PORT}} {{IFMIB}} ({{IFINDEX_HEX | ORPHRASE}} )\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "mgmt0",
+      "IFMIB": "83886080",
+      "IFINDEX_HEX": "0x5000000"
+    },
+    {
+      "PORT": "Eth9/1",
+      "IFMIB": "440401920",
+      "IFINDEX_HEX": "0x1a400000"
+    },
+    {
+      "PORT": "Eth9/2",
+      "IFMIB": "440406016",
+      "IFINDEX_HEX": "0x1a401000"
+    },
+    {
+      "PORT": "Eth9/3",
+      "IFMIB": "440410112",
+      "IFINDEX_HEX": "0x1a402000"
+    },
+    {
+      "PORT": "Eth9/4",
+      "IFMIB": "440414208",
+      "IFINDEX_HEX": "0x1a403000"
+    },
+    {
+      "PORT": "Eth9/4.10",
+      "IFMIB": "440414218",
+      "IFINDEX_HEX": "0x1a40300a"
+    },
+    {
+      "PORT": "Eth9/5/1",
+      "IFMIB": "960659456",
+      "IFINDEX_HEX": "0x39428000"
+    },
+    {
+      "PORT": "Eth9/5/2",
+      "IFMIB": "960663552",
+      "IFINDEX_HEX": "0x39429000"
+    },
+    {
+      "PORT": "Eth9/5/3",
+      "IFMIB": "960667648",
+      "IFINDEX_HEX": "0x3942a000"
+    },
+    {
+      "PORT": "Eth9/5/4",
+      "IFMIB": "960671744",
+      "IFINDEX_HEX": "0x3942b000"
+    },
+    {
+      "PORT": "Eth9/6/1",
+      "IFMIB": "960700416",
+      "IFINDEX_HEX": "0x39432000"
+    },
+    {
+      "PORT": "Eth9/6/2",
+      "IFMIB": "960704512",
+      "IFINDEX_HEX": "0x39433000"
+    },
+    {
+      "PORT": "Eth9/6/3",
+      "IFMIB": "960708608",
+      "IFINDEX_HEX": "0x39434000"
+    },
+    {
+      "PORT": "Eth9/6/4",
+      "IFMIB": "960712704",
+      "IFINDEX_HEX": "0x39435000"
+    },
+    {
+      "PORT": "Eth9/7",
+      "IFMIB": "440426496",
+      "IFINDEX_HEX": "0x1a406000"
+    },
+    {
+      "PORT": "Eth9/8",
+      "IFMIB": "440430592",
+      "IFINDEX_HEX": "0x1a407000"
+    },
+    {
+      "PORT": "Eth9/9",
+      "IFMIB": "440434688",
+      "IFINDEX_HEX": "0x1a408000"
+    },
+    {
+      "PORT": "Eth9/10",
+      "IFMIB": "440438784",
+      "IFINDEX_HEX": "0x1a409000"
+    },
+    {
+      "PORT": "Eth9/11",
+      "IFMIB": "440442880",
+      "IFINDEX_HEX": "0x1a40a000"
+    },
+    {
+      "PORT": "Eth9/12",
+      "IFMIB": "440446976",
+      "IFINDEX_HEX": "0x1a40b000"
+    },
+    {
+      "PORT": "Po1",
+      "IFMIB": "369098752",
+      "IFINDEX_HEX": "0x16000000"
+    },
+    {
+      "PORT": "Lo0",
+      "IFMIB": "335544320",
+      "IFINDEX_HEX": "0x14000000"
+    },
+    {
+      "PORT": "Vlan1",
+      "IFMIB": "151126017",
+      "IFINDEX_HEX": "0x9020001"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_ifmib_ifindex_hex": {
+        "PORT": "mgmt0",
+        "IFMIB": "83886080",
+        "IFINDEX_HEX": "0x5000000"
+      }
+    }
+  ],
+  "cli_content": "\n--------------------------------------------------------------------------------\nPort             IFMIB Ifindex (hex)\n--------------------------------------------------------------------------------\nmgmt0           83886080   (0x5000000 )\nEth9/1          440401920  (0x1a400000)\nEth9/2          440406016  (0x1a401000)\nEth9/3          440410112  (0x1a402000)\nEth9/4          440414208  (0x1a403000)\nEth9/4.10       440414218  (0x1a40300a)\nEth9/5/1        960659456  (0x39428000)\nEth9/5/2        960663552  (0x39429000)\nEth9/5/3        960667648  (0x3942a000)\nEth9/5/4        960671744  (0x3942b000)\nEth9/6/1        960700416  (0x39432000)\nEth9/6/2        960704512  (0x39433000)\nEth9/6/3        960708608  (0x39434000)\nEth9/6/4        960712704  (0x39435000)\nEth9/7          440426496  (0x1a406000)\nEth9/8          440430592  (0x1a407000)\nEth9/9          440434688  (0x1a408000)\nEth9/10         440438784  (0x1a409000)\nEth9/11         440442880  (0x1a40a000)\nEth9/12         440446976  (0x1a40b000)\nPo1             369098752  (0x16000000)\nLo0             335544320  (0x14000000)\nVlan1           151126017  (0x9020001)",
+  "textfsm_template": "Value PORT (\\S+)\nValue IFMIB (\\S+)\nValue IFINDEX_HEX (\\S+)\n\nStart\n  ^Port\\s+IFMIB\\s+Ifindex\\s+\\(hex\\)\\s*$$\n  ^${PORT}\\s+${IFMIB}\\s+\\(${IFINDEX_HEX}\\s*\\)\\s*$$ -> Record\n  ^-*$$\n  ^\\s*$$\n  ^. -> Error\n\nEOF"
+}

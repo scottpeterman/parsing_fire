@@ -1,0 +1,205 @@
+{
+  "command": "arista_eos_show_mac_address-table",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.17391304347826086,
+  "textfsm_rows": 23,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"vlan_id_mac_address_type_destination_port\">\n   {{VLAN_ID | re(\"\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{TYPE}} {{DESTINATION_PORT | ORPHRASE}}\n</group>\n<group name=\"vlan_id_mac_address_type_destination_port_moves_last_move\">\n  {{VLAN_ID | re(\"\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{TYPE}} {{DESTINATION_PORT | ORPHRASE}} {{MOVES}} {{LAST_MOVE | ORPHRASE}} ago\n</group>\n<group name=\"vlan_id_mac_address_type\">\n   {{VLAN_ID | re(\"\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{TYPE | ORPHRASE}} Po10 Po123\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "MAC_ADDRESS": "0012.3694.03ec",
+      "TYPE": "STATIC",
+      "VLAN_ID": "3",
+      "DESTINATION_PORT": "Et7"
+    },
+    {
+      "MAC_ADDRESS": "001c.7313.a3de",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "55",
+      "DESTINATION_PORT": "Et32",
+      "MOVES": "1",
+      "LAST_MOVE": "0:08:16"
+    },
+    {
+      "MAC_ADDRESS": "001c.8224.36d7",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "101",
+      "DESTINATION_PORT": "Po2",
+      "MOVES": "1",
+      "LAST_MOVE": "9 days, 15:57:28"
+    },
+    {
+      "MAC_ADDRESS": "001c.8220.1319",
+      "TYPE": "STATIC",
+      "VLAN_ID": "102",
+      "DESTINATION_PORT": "Po1"
+    },
+    {
+      "MAC_ADDRESS": "001c.8229.a0f3",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "102",
+      "DESTINATION_PORT": "Po1",
+      "MOVES": "1",
+      "LAST_MOVE": "0:05:05"
+    },
+    {
+      "MAC_ADDRESS": "001c.8220.1319",
+      "TYPE": "STATIC",
+      "VLAN_ID": "661",
+      "DESTINATION_PORT": "Po1"
+    },
+    {
+      "MAC_ADDRESS": "001c.822f.6b22",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "661",
+      "DESTINATION_PORT": "Po7",
+      "MOVES": "1",
+      "LAST_MOVE": "0:20:10"
+    },
+    {
+      "MAC_ADDRESS": "001c.8220.1319",
+      "TYPE": "STATIC",
+      "VLAN_ID": "3000",
+      "DESTINATION_PORT": "Po1"
+    },
+    {
+      "MAC_ADDRESS": "0050.56a8.0016",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "3000",
+      "DESTINATION_PORT": "Po1",
+      "MOVES": "1",
+      "LAST_MOVE": "0:07:38"
+    },
+    {
+      "MAC_ADDRESS": "001c.8220.1319",
+      "TYPE": "STATIC",
+      "VLAN_ID": "3909",
+      "DESTINATION_PORT": "Po1"
+    },
+    {
+      "MAC_ADDRESS": "001c.822f.6a80",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "3909",
+      "DESTINATION_PORT": "Po1",
+      "MOVES": "1",
+      "LAST_MOVE": "0:07:08"
+    },
+    {
+      "MAC_ADDRESS": "001c.8220.1319",
+      "TYPE": "STATIC",
+      "VLAN_ID": "3911",
+      "DESTINATION_PORT": "Po1"
+    },
+    {
+      "MAC_ADDRESS": "001c.8220.40fa",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "3911",
+      "DESTINATION_PORT": "Po8",
+      "MOVES": "1",
+      "LAST_MOVE": "1:19:58"
+    },
+    {
+      "MAC_ADDRESS": "001c.822b.033e",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "3912",
+      "DESTINATION_PORT": "Et11",
+      "MOVES": "1",
+      "LAST_MOVE": "9 days, 15:57:23"
+    },
+    {
+      "MAC_ADDRESS": "001c.8220.1319",
+      "TYPE": "STATIC",
+      "VLAN_ID": "3913",
+      "DESTINATION_PORT": "Po1"
+    },
+    {
+      "MAC_ADDRESS": "001c.822b.033e",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "3913",
+      "DESTINATION_PORT": "Po1",
+      "MOVES": "1",
+      "LAST_MOVE": "0:04:35"
+    },
+    {
+      "MAC_ADDRESS": "001c.8220.178f",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "3984",
+      "DESTINATION_PORT": "Et8",
+      "MOVES": "1",
+      "LAST_MOVE": "4 days, 15:07:29"
+    },
+    {
+      "MAC_ADDRESS": "001c.8220.1319",
+      "TYPE": "STATIC",
+      "VLAN_ID": "3992",
+      "DESTINATION_PORT": "Po1"
+    },
+    {
+      "MAC_ADDRESS": "001c.8221.07b9",
+      "TYPE": "DYNAMIC",
+      "VLAN_ID": "3992",
+      "DESTINATION_PORT": "Po6",
+      "MOVES": "1",
+      "LAST_MOVE": "4 days, 15:13:15"
+    },
+    {
+      "MAC_ADDRESS": "c867.3057.8423",
+      "TYPE": "STATIC",
+      "VLAN_ID": "4",
+      "DESTINATION_PORT": "Po10, Po123"
+    },
+    {
+      "MAC_ADDRESS": "5309.3057.8423",
+      "TYPE": "STATIC",
+      "VLAN_ID": "42",
+      "DESTINATION_PORT": "Po135, Po12, po5"
+    },
+    {
+      "MAC_ADDRESS": "jenn.3057.8423",
+      "TYPE": "STATIC",
+      "VLAN_ID": "200",
+      "DESTINATION_PORT": "Po66"
+    },
+    {
+      "MAC_ADDRESS": "4242.3057.8423",
+      "TYPE": "STATIC",
+      "VLAN_ID": "47",
+      "DESTINATION_PORT": "Po135, Po12, po5, eth1/1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_id_mac_address_type_destination_port": [
+        {
+          "VLAN_ID": "3",
+          "MAC_ADDRESS": "0012.3694.03ec",
+          "TYPE": "STATIC",
+          "DESTINATION_PORT": "Et7"
+        },
+        {
+          "VLAN_ID": "4",
+          "MAC_ADDRESS": "c867.3057.8423",
+          "TYPE": "STATIC",
+          "DESTINATION_PORT": "Po10 Po123"
+        }
+      ],
+      "vlan_id_mac_address_type_destination_port_moves_last_move": {
+        "VLAN_ID": "55",
+        "MAC_ADDRESS": "001c.7313.a3de",
+        "TYPE": "DYNAMIC",
+        "DESTINATION_PORT": "Et32",
+        "MOVES": "1",
+        "LAST_MOVE": "0:08:16"
+      },
+      "vlan_id_mac_address_type": {
+        "VLAN_ID": "4",
+        "MAC_ADDRESS": "c867.3057.8423",
+        "TYPE": "STATIC"
+      }
+    }
+  ],
+  "cli_content": "          mac Address Table\n------------------------------------------------------------------\n \nVlan    mac Address       Type        Ports      Moves   Last Move\n----    -----------       ----        -----      -----   ---------\n   3    0012.3694.03ec    STATIC      Et7\n  55        001c.7313.a3de      DYNAMIC        Et32        1    0:08:16 ago\n101    001c.8224.36d7    DYNAMIC     Po2        1       9 days, 15:57:28 ago\n102    001c.8220.1319    STATIC      Po1\n102    001c.8229.a0f3    DYNAMIC     Po1        1       0:05:05 ago\n661    001c.8220.1319    STATIC      Po1\n661    001c.822f.6b22    DYNAMIC     Po7        1       0:20:10 ago\n3000    001c.8220.1319    STATIC      Po1\n3000    0050.56a8.0016    DYNAMIC     Po1        1       0:07:38 ago\n3909    001c.8220.1319    STATIC      Po1\n3909    001c.822f.6a80    DYNAMIC     Po1        1       0:07:08 ago\n3911    001c.8220.1319    STATIC      Po1\n3911    001c.8220.40fa    DYNAMIC     Po8        1       1:19:58 ago\n3912    001c.822b.033e    DYNAMIC     Et11       1       9 days, 15:57:23 ago\n3913    001c.8220.1319    STATIC      Po1\n3913    001c.822b.033e    DYNAMIC     Po1        1       0:04:35 ago\n3984    001c.8220.178f    DYNAMIC     Et8        1       4 days, 15:07:29 ago\n3992    001c.8220.1319    STATIC      Po1\n3992    001c.8221.07b9    DYNAMIC     Po6        1       4 days, 15:13:15 ago\nTotal mac Addresses for this criterion: 24\n \n          Multicast mac Address Table\n------------------------------------------------------------------\n \nVlan    mac Address       Type        Ports\n----    -----------       ----        -----\n   4    c867.3057.8423    STATIC      Po10 Po123\n  42    5309.3057.8423    STATIC      Po135 Po12 po5\n 200    jenn.3057.8423    STATIC      Po66\n  47    4242.3057.8423    STATIC      Po135 Po12 po5 eth1/1\nTotal mac Addresses for this criterion: 1",
+  "textfsm_template": "Value MAC_ADDRESS (\\w+\\.\\w+\\.\\w+|\\w+\\:\\w+\\:\\w+\\:\\w+\\:\\w+\\:\\w+)\nValue TYPE (\\w+)\nValue VLAN_ID (\\d+)\nValue List DESTINATION_PORT ((\\w+\\/\\w+)|\\w+)\nValue MOVES (\\d+)\nValue LAST_MOVE (.+)\n\nStart\n  ^\\s*Vlan\\s+(M|m)ac\\sAddress\\s+Type\\s+Ports\\s+Moves\\s+Last\\sMove\\s*$$ -> MAT\n  ^\\s*Vlan\\s+(M|m)ac\\sAddress\\s+Type\\s+Ports\\s*$$ -> MMAT\n  ^\\s*$$\n  ^\\s*(M|m)ac\\sAddress\\sTable\\s*$$\n  ^\\s*Multicast\\s(M|m)ac\\sAddress\\sTable\\s*$$\n  ^-*$$\n  # ^(-*\\s*)*$$\n  ^. -> Error\n\nMAT\n  # capture the mac address table\n  ^\\s*${VLAN_ID}\\s+${MAC_ADDRESS}\\s+${TYPE}\\s+${DESTINATION_PORT}\\s*$$ -> Record\n  ^\\s*${VLAN_ID}\\s+${MAC_ADDRESS}\\s+${TYPE}\\s+${DESTINATION_PORT}\\s+${MOVES}\\s+${LAST_MOVE}\\sago$$ -> Record\n  ^\\s*Total\\s+[M|m]ac -> Start\n  ^\\s*-+\\s+.*-*$$\n  ^\\s*$$\n  ^. -> Error\n\nMMAT\n  # capture the multicast mac address table\n  # key on the record\n  ^\\s*\\d+\\s+(\\w+\\.\\w+\\.\\w+|\\w+\\:\\w+\\:\\w+\\:\\w+\\:\\w+\\:\\w+)\\s+\\w+\\s*.*$$ -> Continue.Record\n  # match the record with one to five destination ports more.\n  ^\\s*${VLAN_ID}\\s+${MAC_ADDRESS}\\s+${TYPE}\\s+${DESTINATION_PORT}$$ -> Record\n  ^\\s*${VLAN_ID}\\s+${MAC_ADDRESS}\\s+${TYPE}\\s+${DESTINATION_PORT}\\s -> Continue\n  ^\\s*\\d+\\s+(\\w+\\.\\w+\\.\\w+|\\w+\\:\\w+\\:\\w+\\:\\w+\\:\\w+\\:\\w+)\\s+\\w+\\s+((\\w+\\/\\w+|\\w+)\\s){1}${DESTINATION_PORT}\\s* -> Continue\n  ^\\s*\\d+\\s+(\\w+\\.\\w+\\.\\w+|\\w+\\:\\w+\\:\\w+\\:\\w+\\:\\w+\\:\\w+)\\s+\\w+\\s+((\\w+\\/\\w+|\\w+)\\s){2}${DESTINATION_PORT}\\s* -> Continue\n  ^\\s*\\d+\\s+(\\w+\\.\\w+\\.\\w+|\\w+\\:\\w+\\:\\w+\\:\\w+\\:\\w+\\:\\w+)\\s+\\w+\\s+((\\w+\\/\\w+|\\w+)\\s){3}${DESTINATION_PORT}\\s* -> Continue\n  ^\\s*\\d+\\s+(\\w+\\.\\w+\\.\\w+|\\w+\\:\\w+\\:\\w+\\:\\w+\\:\\w+\\:\\w+)\\s+\\w+\\s+((\\w+\\/\\w+|\\w+)\\s){4}${DESTINATION_PORT}$$ -> Continue\n  ^\\s*Total\\s+[M|m]ac -> Start\n  ^\\s*-+\\s+.*-*$$\n  ^\\s*$$"
+}

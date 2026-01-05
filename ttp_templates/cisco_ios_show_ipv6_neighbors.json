@@ -1,0 +1,160 @@
+{
+  "command": "cisco_ios_show_ipv6_neighbors",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 10,
+  "ttp_rows": 10,
+  "ttp_template": "<group name=\"address_age_mac_address_type_interface\">\n{{ADDRESS}} {{AGE}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{TYPE}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ADDRESS": "2402:1234:106:100:793A:F08D:5B3A:EF89",
+      "AGE": "33",
+      "MAC_ADDRESS": "54e1.addb.200f",
+      "TYPE": "STALE",
+      "INTERFACE": "Vl6"
+    },
+    {
+      "ADDRESS": "2402:1234:106:100:A193:9153:7CAF:9802",
+      "AGE": "1",
+      "MAC_ADDRESS": "54e1.addb.200f",
+      "TYPE": "STALE",
+      "INTERFACE": "Vl6"
+    },
+    {
+      "ADDRESS": "2402:1234:106:100:B419:F5DF:B315:F3C5",
+      "AGE": "144",
+      "MAC_ADDRESS": "0800.2729.8bc1",
+      "TYPE": "STALE",
+      "INTERFACE": "Vl6"
+    },
+    {
+      "ADDRESS": "2402:1234:106:100:B8F1:D9D3:A5F1:C1C9",
+      "AGE": "4",
+      "MAC_ADDRESS": "507b.9dcd.c2ae",
+      "TYPE": "STALE",
+      "INTERFACE": "Vl6"
+    },
+    {
+      "ADDRESS": "2402:1234:106:100:CC71:364E:A3E7:62B8",
+      "AGE": "36",
+      "MAC_ADDRESS": "507b.9dcd.c2ae",
+      "TYPE": "STALE",
+      "INTERFACE": "Vl6"
+    },
+    {
+      "ADDRESS": "FE80::5AAC:78FF:FEF8:CCCC",
+      "AGE": "23",
+      "MAC_ADDRESS": "58ac.78f8.cccc",
+      "TYPE": "STALE",
+      "INTERFACE": "Vl6"
+    },
+    {
+      "ADDRESS": "FE80::7A0C:F0FF:FE8E:2FF4",
+      "AGE": "103",
+      "MAC_ADDRESS": "780c.f08e.2ff4",
+      "TYPE": "STALE",
+      "INTERFACE": "Vl6"
+    },
+    {
+      "ADDRESS": "FE80::7EAD:74FF:FE85:B86",
+      "AGE": "22",
+      "MAC_ADDRESS": "7cad.7485.0c16",
+      "TYPE": "STALE",
+      "INTERFACE": "Vl6"
+    },
+    {
+      "ADDRESS": "FE80::208:E3FF:FEFF:FC28",
+      "AGE": "0",
+      "MAC_ADDRESS": "0008.e3ff.fc28",
+      "TYPE": "REACH",
+      "INTERFACE": "Vl687"
+    },
+    {
+      "ADDRESS": "FE80::9277:EEFF:FE9B:4E00",
+      "AGE": "-",
+      "MAC_ADDRESS": "-",
+      "TYPE": "REACH",
+      "INTERFACE": "Di0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "address_age_mac_address_type_interface": [
+        {
+          "ADDRESS": "2402:1234:106:100:793A:F08D:5B3A:EF89",
+          "AGE": "33",
+          "MAC_ADDRESS": "54e1.addb.200f",
+          "TYPE": "STALE",
+          "INTERFACE": "Vl6"
+        },
+        {
+          "ADDRESS": "2402:1234:106:100:A193:9153:7CAF:9802",
+          "AGE": "1",
+          "MAC_ADDRESS": "54e1.addb.200f",
+          "TYPE": "STALE",
+          "INTERFACE": "Vl6"
+        },
+        {
+          "ADDRESS": "2402:1234:106:100:B419:F5DF:B315:F3C5",
+          "AGE": "144",
+          "MAC_ADDRESS": "0800.2729.8bc1",
+          "TYPE": "STALE",
+          "INTERFACE": "Vl6"
+        },
+        {
+          "ADDRESS": "2402:1234:106:100:B8F1:D9D3:A5F1:C1C9",
+          "AGE": "4",
+          "MAC_ADDRESS": "507b.9dcd.c2ae",
+          "TYPE": "STALE",
+          "INTERFACE": "Vl6"
+        },
+        {
+          "ADDRESS": "2402:1234:106:100:CC71:364E:A3E7:62B8",
+          "AGE": "36",
+          "MAC_ADDRESS": "507b.9dcd.c2ae",
+          "TYPE": "STALE",
+          "INTERFACE": "Vl6"
+        },
+        {
+          "ADDRESS": "FE80::5AAC:78FF:FEF8:CCCC",
+          "AGE": "23",
+          "MAC_ADDRESS": "58ac.78f8.cccc",
+          "TYPE": "STALE",
+          "INTERFACE": "Vl6"
+        },
+        {
+          "ADDRESS": "FE80::7A0C:F0FF:FE8E:2FF4",
+          "AGE": "103",
+          "MAC_ADDRESS": "780c.f08e.2ff4",
+          "TYPE": "STALE",
+          "INTERFACE": "Vl6"
+        },
+        {
+          "ADDRESS": "FE80::7EAD:74FF:FE85:B86",
+          "AGE": "22",
+          "MAC_ADDRESS": "7cad.7485.0c16",
+          "TYPE": "STALE",
+          "INTERFACE": "Vl6"
+        },
+        {
+          "ADDRESS": "FE80::208:E3FF:FEFF:FC28",
+          "AGE": "0",
+          "MAC_ADDRESS": "0008.e3ff.fc28",
+          "TYPE": "REACH",
+          "INTERFACE": "Vl687"
+        },
+        {
+          "ADDRESS": "FE80::9277:EEFF:FE9B:4E00",
+          "AGE": "-",
+          "MAC_ADDRESS": "-",
+          "TYPE": "REACH",
+          "INTERFACE": "Di0"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IPv6 Address                              Age Link-layer Addr State Interface\n2402:1234:106:100:793A:F08D:5B3A:EF89      33 54e1.addb.200f  STALE Vl6\n2402:1234:106:100:A193:9153:7CAF:9802       1 54e1.addb.200f  STALE Vl6\n2402:1234:106:100:B419:F5DF:B315:F3C5     144 0800.2729.8bc1  STALE Vl6\n2402:1234:106:100:B8F1:D9D3:A5F1:C1C9       4 507b.9dcd.c2ae  STALE Vl6\n2402:1234:106:100:CC71:364E:A3E7:62B8      36 507b.9dcd.c2ae  STALE Vl6\nFE80::5AAC:78FF:FEF8:CCCC                  23 58ac.78f8.cccc  STALE Vl6\nFE80::7A0C:F0FF:FE8E:2FF4                 103 780c.f08e.2ff4  STALE Vl6\nFE80::7EAD:74FF:FE85:B86                   22 7cad.7485.0c16  STALE Vl6\nFE80::208:E3FF:FEFF:FC28                    0 0008.e3ff.fc28  REACH Vl687\nFE80::9277:EEFF:FE9B:4E00                   - -               REACH Di0\n",
+  "textfsm_template": "Value ADDRESS (\\S+)\nValue AGE (\\d+|-)\nValue MAC_ADDRESS (\\S+|-)\nValue TYPE (\\S+)\nValue INTERFACE (\\S+)\n\nStart\n  ^IPv6\\s+Address\\s+Age\\s+Link-layer\\s+Addr\\s+State\\s+Interface\\s*$$\n  ^${ADDRESS}\\s+${AGE}\\s+${MAC_ADDRESS}\\s+${TYPE}\\s+${INTERFACE} -> Record\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^\\s*$$\n  ^. -> Error\n"
+}

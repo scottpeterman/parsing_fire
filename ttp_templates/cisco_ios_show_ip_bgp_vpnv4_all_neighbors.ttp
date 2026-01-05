@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_bgp_vpnv4_all_neighbors
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="bgp_state_inbound_routemap_localhost_ip_localhost_port">
+BGP neighbor is {{NEIGHBOR}},  vrf {{VRF}},  remote AS {{REMOTE_AS}},  local AS {{LOCAL_AS | ORPHRASE}}, external link
+  BGP version 4, remote router ID {{REMOTE_ROUTER_ID | ORPHRASE}}
+  BGP state = {{BGP_STATE | ORPHRASE}}, up for 2w6d
+  Route map for incoming advertisements is {{INBOUND_ROUTEMAP | ORPHRASE}}
+  Route map for outgoing advertisements is {{OUTBOUND_ROUTEMAP | ORPHRASE}}
+Local host: {{LOCALHOST_IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}, Local port: {{LOCALHOST_PORT | ORPHRASE}}
+Foreign host: 10.255.11.4, Foreign port: {{REMOTE_PORT | ORPHRASE}}
+</group>

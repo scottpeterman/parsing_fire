@@ -1,0 +1,33 @@
+{
+  "command": "show cdp neighbors details",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"capabilities_ip_local_interface_neighbor_id\">\nInterface: {{REMOTE_INTERFACE | ORPHRASE}}/1,  Port ID (outgoing port): FastEthernet0/0\nDevice ID: {{NEIGHBOR_ID | ORPHRASE}}\n  IP address: {{IP | ORPHRASE}}\nPlatform: {{PLATFORM | ORPHRASE}},  Capabilities: AP \nInterface: {{LOCAL_INTERFACE | ORPHRASE}},  Port ID (outgoing port): FastEthernet0\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR_ID": "AP1",
+      "IP": "192.168.1.2",
+      "PLATFORM": "cisco AIR-AP1230",
+      "CAPABILITIES": "AP",
+      "LOCAL_INTERFACE": "FastEthernet0/2",
+      "REMOTE_INTERFACE": "FastEthernet0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "capabilities_ip_local_interface_neighbor_id": {
+        "LOCAL_INTERFACE": "FastEthernet0/2",
+        "PLATFORM": "cisco AIR-AP1230",
+        "IP": "172.16.1.1",
+        "NEIGHBOR_ID": "SW1",
+        "REMOTE_INTERFACE": "FastEthernet0"
+      }
+    }
+  ],
+  "cli_content": "Device ID: R1\nEntry address(es):\n  IP address: 10.1.1.1\nPlatform: cisco 3725,  Capabilities: Router Switch\nInterface: FastEthernet0/1,  Port ID (outgoing port): FastEthernet0/0\nHoldtime : 153 sec\n\nDevice ID: SW1\nEntry address(es):\n  IP address: 172.16.1.1\nPlatform: cisco WS-C3560-24PS,  Capabilities: Switch IGMP \nInterface: GigabitEthernet1/0/1,  Port ID (outgoing port): GigabitEthernet0/1\nHoldtime : 120 sec\n\nDevice ID: AP1\nEntry address(es):\n  IP address: 192.168.1.2\nPlatform: cisco AIR-AP1230,  Capabilities: AP \nInterface: FastEthernet0/2,  Port ID (outgoing port): FastEthernet0\nHoldtime : 180 sec\n",
+  "textfsm_template": "Value NEIGHBOR_ID (\\S+)\nValue IP (\\S+)\nValue PLATFORM (.*?)\nValue CAPABILITIES (.+)\nValue LOCAL_INTERFACE (\\S+\\d+/\\d+/\\d+|\\S+\\d+/\\d+|\\S+\\d+)\nValue REMOTE_INTERFACE (\\S+\\d+/\\d+/\\d+|\\S+\\d+/\\d+|\\S+\\d+)\n\nStart\n  ^Device\\sID:\\s+${NEIGHBOR_ID}\\s*$$\n  ^\\s+IP\\saddress:\\s+${IP}\\s*$$\n  ^Platform:\\s+${PLATFORM}\\s*,\\s+Capabilities:\\s+${CAPABILITIES}\\s*$$\n  ^Interface:\\s+${LOCAL_INTERFACE},\\s+Port\\sID\\s\\(outgoing\\sport\\):\\s+${REMOTE_INTERFACE}\\s*$$\n  ^Holdtime \\s+:\\s+.*\n"
+}

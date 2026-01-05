@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip summary
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="route_source_networks_subnets_overhead_memory_bytes">
+{{ROUTE_SOURCE}} {{NETWORKS}} {{SUBNETS}} {{OVERHEAD | re("[\\d\\.\\(\\)A-Za-z]+")}} {{MEMORY_BYTES | ORPHRASE}}
+</group>

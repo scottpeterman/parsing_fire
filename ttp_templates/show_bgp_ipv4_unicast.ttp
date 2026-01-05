@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show bgp ipv4 unicast
+# Source: chatgpt
+# TextFSM rows: 6
+# TTP rows: 9
+# Match ratio: 1.50
+
+<group name="status_network_next_hop_metric_loc_prf_weight_path">
+{{STATUS | ORPHRASE}} {{NETWORK}} {{NEXT_HOP}} {{METRIC}} {{LOC_PRF}} {{WEIGHT}} {{PATH | ORPHRASE}}
+</group>

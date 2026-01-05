@@ -1,0 +1,108 @@
+{
+  "command": "show firewall rules detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.2,
+  "textfsm_rows": 5,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"name_action_source_destination_protocol_state\">\n{{NAME}} {{ACTION}} {{SOURCE}} {{DESTINATION}} {{PROTOCOL}} {{STATE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "Allow-Local-Subnet",
+      "ACTION": "allow",
+      "SOURCE": "192.168.10.0/24",
+      "DESTINATION": "any",
+      "PROTOCOL": "tcp",
+      "STATE": "enabled"
+    },
+    {
+      "NAME": "Block-External-HTTPS",
+      "ACTION": "deny",
+      "SOURCE": "any",
+      "DESTINATION": "172.16.0.0/16",
+      "PROTOCOL": "tcp",
+      "STATE": "enabled"
+    },
+    {
+      "NAME": "Allow-Web-Traffic",
+      "ACTION": "allow",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "PROTOCOL": "http",
+      "STATE": "disabled"
+    },
+    {
+      "NAME": "Limit-FTP",
+      "ACTION": "allow",
+      "SOURCE": "10.0.0.0/8",
+      "DESTINATION": "any",
+      "PROTOCOL": "ftp",
+      "STATE": "enabled"
+    },
+    {
+      "NAME": "Block-Telnet",
+      "ACTION": "deny",
+      "SOURCE": "any",
+      "DESTINATION": "any",
+      "PROTOCOL": "telnet",
+      "STATE": "enabled"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name_action_source_destination_protocol_state": [
+        {
+          "NAME": "Name",
+          "ACTION": "Action",
+          "SOURCE": "Source",
+          "DESTINATION": "Destination",
+          "PROTOCOL": "Protocol",
+          "STATE": "State"
+        },
+        {
+          "NAME": "Allow-Local-Subnet",
+          "ACTION": "allow",
+          "SOURCE": "192.168.10.0/24",
+          "DESTINATION": "any",
+          "PROTOCOL": "tcp",
+          "STATE": "enabled"
+        },
+        {
+          "NAME": "Block-External-HTTPS",
+          "ACTION": "deny",
+          "SOURCE": "any",
+          "DESTINATION": "172.16.0.0/16",
+          "PROTOCOL": "tcp",
+          "STATE": "enabled"
+        },
+        {
+          "NAME": "Allow-Web-Traffic",
+          "ACTION": "allow",
+          "SOURCE": "any",
+          "DESTINATION": "any",
+          "PROTOCOL": "http",
+          "STATE": "disabled"
+        },
+        {
+          "NAME": "Limit-FTP",
+          "ACTION": "allow",
+          "SOURCE": "10.0.0.0/8",
+          "DESTINATION": "any",
+          "PROTOCOL": "ftp",
+          "STATE": "enabled"
+        },
+        {
+          "NAME": "Block-Telnet",
+          "ACTION": "deny",
+          "SOURCE": "any",
+          "DESTINATION": "any",
+          "PROTOCOL": "telnet",
+          "STATE": "enabled"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Name                   Action    Source            Destination   Protocol   State\nAllow-Local-Subnet     allow     192.168.10.0/24   any           tcp        enabled\nBlock-External-HTTPS   deny      any               172.16.0.0/16 tcp        enabled\nAllow-Web-Traffic      allow     any               any           http       disabled\nLimit-FTP              allow     10.0.0.0/8        any           ftp        enabled\nBlock-Telnet           deny      any               any           telnet     enabled\n",
+  "textfsm_template": "Value NAME (\\S+)\nValue ACTION (\\S+)\nValue SOURCE (\\S+)\nValue DESTINATION (\\S+)\nValue PROTOCOL (\\S+)\nValue STATE (\\S+)\n\nStart\n  ^\\s*Name\\s+Action\\s+Source\\s+Destination\\s+Protocol\\s+State\\s*$$\n  ^\\s*${NAME}\\s+${ACTION}\\s+${SOURCE}\\s+${DESTINATION}\\s+${PROTOCOL}\\s+${STATE}\\s*$$ -> Record"
+}

@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_interface
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 4
+# Match ratio: 1.33
+
+<group name="interface_link_status_admin_state">
+{{INTERFACE}} is {{LINK_STATUS | ORPHRASE}}, line protocol is {{ADMIN_STATE | ORPHRASE}}
+</group>
+<group name="duplex_speed">
+  {{DUPLEX}}, {{SPEED | ORPHRASE}}
+</group>
+<group name="duplex_speed_input_errors">
+  {{DUPLEX}}, {{SPEED | ORPHRASE}}, media type is 1{{INPUT_ERRORS}}G
+</group>

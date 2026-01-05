@@ -1,0 +1,97 @@
+{
+  "command": "show interfaces transceiver",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"port_type_connector_wavelength_temp_voltage_current_tx_power_rx_power\">\n{{PORT}} {{TYPE}} {{CONNECTOR}} {{WAVELENGTH}} {{TEMP}} {{VOLTAGE}} {{CURRENT}} {{TX_POWER}} {{RX_POWER | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "Te0/1",
+      "TYPE": "SFP+",
+      "CONNECTOR": "LC",
+      "WAVELENGTH": "850nm",
+      "TEMP": "27.5C",
+      "VOLTAGE": "3.288V",
+      "CURRENT": "8.452mA",
+      "TX_POWER": "-1.0dBm",
+      "RX_POWER": "-3.9dBm"
+    },
+    {
+      "PORT": "Te0/2",
+      "TYPE": "SFP+",
+      "CONNECTOR": "LC",
+      "WAVELENGTH": "850nm",
+      "TEMP": "28.0C",
+      "VOLTAGE": "3.290V",
+      "CURRENT": "8.500mA",
+      "TX_POWER": "-1.2dBm",
+      "RX_POWER": "-4.1dBm"
+    },
+    {
+      "PORT": "Te0/3",
+      "TYPE": "SFP+",
+      "CONNECTOR": "LC",
+      "WAVELENGTH": "850nm",
+      "TEMP": "26.8C",
+      "VOLTAGE": "3.285V",
+      "CURRENT": "8.420mA",
+      "TX_POWER": "-1.1dBm",
+      "RX_POWER": "-4.0dBm"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_type_connector_wavelength_temp_voltage_current_tx_power_rx_power": [
+        {
+          "PORT": "-----",
+          "TYPE": "-----",
+          "CONNECTOR": "----------",
+          "WAVELENGTH": "-----------",
+          "TEMP": "-----",
+          "VOLTAGE": "---------",
+          "CURRENT": "--------",
+          "TX_POWER": "---------",
+          "RX_POWER": "---------"
+        },
+        {
+          "PORT": "Te0/1",
+          "TYPE": "SFP+",
+          "CONNECTOR": "LC",
+          "WAVELENGTH": "850nm",
+          "TEMP": "27.5C",
+          "VOLTAGE": "3.288V",
+          "CURRENT": "8.452mA",
+          "TX_POWER": "-1.0dBm",
+          "RX_POWER": "-3.9dBm"
+        },
+        {
+          "PORT": "Te0/2",
+          "TYPE": "SFP+",
+          "CONNECTOR": "LC",
+          "WAVELENGTH": "850nm",
+          "TEMP": "28.0C",
+          "VOLTAGE": "3.290V",
+          "CURRENT": "8.500mA",
+          "TX_POWER": "-1.2dBm",
+          "RX_POWER": "-4.1dBm"
+        },
+        {
+          "PORT": "Te0/3",
+          "TYPE": "SFP+",
+          "CONNECTOR": "LC",
+          "WAVELENGTH": "850nm",
+          "TEMP": "26.8C",
+          "VOLTAGE": "3.285V",
+          "CURRENT": "8.420mA",
+          "TX_POWER": "-1.1dBm",
+          "RX_POWER": "-4.0dBm"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Port  Type  Connector  Wavelength  Temp  Voltage  Current  TX Power  RX Power\n----- ----- ---------- ----------- ----- --------- -------- --------- ---------\nTe0/1 SFP+  LC         850nm       27.5C  3.288V   8.452mA  -1.0dBm   -3.9dBm  \nTe0/2 SFP+  LC         850nm       28.0C  3.290V   8.500mA  -1.2dBm   -4.1dBm  \nTe0/3 SFP+  LC         850nm       26.8C  3.285V   8.420mA  -1.1dBm   -4.0dBm  \n",
+  "textfsm_template": "Value PORT (\\S+)\nValue TYPE (\\S+)\nValue CONNECTOR (\\S+)\nValue WAVELENGTH (\\S+)\nValue TEMP (\\S+\\s*[CF])\nValue VOLTAGE (\\S+V)\nValue CURRENT (\\S+mA)\nValue TX_POWER (\\S+dBm)\nValue RX_POWER (\\S+dBm)\n\nStart\n  ^Port\\s+Type\\s+Connector\\s+Wavelength\\s+Temp\\s+Voltage\\s+Current\\s+TX Power\\s+RX Power\\s*$$\n  ^${PORT}\\s+${TYPE}\\s+${CONNECTOR}\\s+${WAVELENGTH}\\s+${TEMP}\\s+${VOLTAGE}\\s+${CURRENT}\\s+${TX_POWER}\\s+${RX_POWER}\\s*$$ -> Record"
+}

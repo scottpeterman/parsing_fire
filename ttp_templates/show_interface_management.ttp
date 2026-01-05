@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show interface management
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="hardware_address_rx_traffic_tx_traffic">
+  Hardware is {{HARDWARE}}, address is {{ADDRESS | ORPHRASE}} (bia {{RX_TRAFFIC}}{{TX_TRAFFIC}}a1.b2c3.d4e5)
+</group>

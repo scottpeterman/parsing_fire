@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_access-lists
+# Source: ntc
+# TextFSM rows: 29
+# TTP rows: 35
+# Match ratio: 1.21
+
+<group name="name">
+IP access list {{NAME | ORPHRASE}}
+<group name="action_destination_protocol">
+        {{SN | re("\\w+")}} {{ACTION}} {{PROTOCOL}} {{SOURCE | ORPHRASE}} {{DESTINATION | ORPHRASE}}
+</group>
+</group>

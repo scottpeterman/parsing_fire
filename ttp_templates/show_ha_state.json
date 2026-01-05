@@ -1,0 +1,38 @@
+{
+  "command": "show ha state",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"active_time_device_priority_failover_reason_failover_state\">\nHigh Availability Version: {{VERSION | ORPHRASE}}\nDevice Priority: {{DEVICE_PRIORITY | ORPHRASE}}\nFailover State: {{FAILOVER_STATE | ORPHRASE}}\nPeer Device Priority: {{PEER_DEVICE_PRIORITY | ORPHRASE}}\nActive Time: {{ACTIVE_TIME | ORPHRASE}}\nStandby Ready Time: {{STANDBY_READY_TIME | ORPHRASE}}\nLast Failover Event: {{LAST_FAILOVER_EVENT | ORPHRASE}}\nFailover Reason: {{FAILOVER_REASON | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VERSION": "1.8",
+      "DEVICE_PRIORITY": "Primary (100)",
+      "FAILOVER_STATE": "Active",
+      "PEER_DEVICE_PRIORITY": "Standby (90)",
+      "ACTIVE_TIME": "00:01:12",
+      "STANDBY_READY_TIME": "00:01:10",
+      "LAST_FAILOVER_EVENT": "2023-10-10 13:45:12",
+      "FAILOVER_REASON": "Primary device restarted"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "active_time_device_priority_failover_reason_failover_state": {
+        "FAILOVER_REASON": "Primary device restarted",
+        "LAST_FAILOVER_EVENT": "2023-10-10 13:45:12",
+        "STANDBY_READY_TIME": "00:01:10",
+        "ACTIVE_TIME": "00:01:12",
+        "PEER_DEVICE_PRIORITY": "Standby (90)",
+        "FAILOVER_STATE": "Active",
+        "DEVICE_PRIORITY": "Primary (100)",
+        "VERSION": "1.8"
+      }
+    }
+  ],
+  "cli_content": "High Availability Version: 1.8\nDevice Priority: Primary (100)\nFailover State: Active\nPeer Device Priority: Standby (90)\nPeer Failover State: Standby Ready\nActive Time: 00:01:12\nStandby Ready Time: 00:01:10\nLast Failover Event: 2023-10-10 13:45:12\nFailover Reason: Primary device restarted\n",
+  "textfsm_template": "Value VERSION (\\S+)\nValue DEVICE_PRIORITY (\\S+ \\(\\d+\\))\nValue FAILOVER_STATE (\\S+)\nValue PEER_DEVICE_PRIORITY (\\S+ \\(\\d+\\))\nValue PEER_FAILOVER_STATE (\\S+)\nValue ACTIVE_TIME (\\d+:\\d+:\\d+)\nValue STANDBY_READY_TIME (\\d+:\\d+:\\d+)\nValue LAST_FAILOVER_EVENT (\\d+-\\d+-\\d+ \\d+:\\d+:\\d+)\nValue FAILOVER_REASON (.*)\n\nStart\n  ^High\\sAvailability\\sVersion:\\s${VERSION}\\s*$$\n  ^Device\\sPriority:\\s${DEVICE_PRIORITY}\\s*$$\n  ^Failover\\sState:\\s${FAILOVER_STATE}\\s*$$\n  ^Peer\\sDevice\\sPriority:\\s${PEER_DEVICE_PRIORITY}\\s*$$\n  ^Peer\\sFailover\\sState:\\s${PEER_FAILOVER_STATE}\\s*$$\n  ^Active\\sTime:\\s${ACTIVE_TIME}\\s*$$\n  ^Standby\\sReady\\sTime:\\s${STANDBY_READY_TIME}\\s*$$\n  ^Last\\sFailover\\sEvent:\\s${LAST_FAILOVER_EVENT}\\s*$$\n  ^Failover\\sReason:\\s${FAILOVER_REASON}\\s*$$ -> Record"
+}

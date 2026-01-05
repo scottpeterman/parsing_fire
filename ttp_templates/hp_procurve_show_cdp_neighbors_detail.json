@@ -1,0 +1,68 @@
+{
+  "command": "hp_procurve_show_cdp_neighbors_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"platform\">\n  Platform : {{PLATFORM | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOCAL_INTERFACE": "1",
+      "CHASSIS_ID": "AP01-Site",
+      "MGMT_ADDRESS": "10.11.11.16",
+      "PLATFORM": "5.9.1.5-001RAP-6521-60020-WR",
+      "CAPABILITIES": "Router",
+      "NEIGHBOR_INTERFACE": "ge1",
+      "NEIGHBOR_DESCRIPTION": "5.9.1.5-001RAP-6521-60020-WR"
+    },
+    {
+      "LOCAL_INTERFACE": "1",
+      "CHASSIS_ID": "5c 0e 8b 11 11 11",
+      "MGMT_ADDRESS": "10.11.11.16",
+      "PLATFORM": "AP-6521-60020-WR, Version 5.9.1.5-001R",
+      "CAPABILITIES": "Router",
+      "NEIGHBOR_INTERFACE": "ge1",
+      "NEIGHBOR_DESCRIPTION": "AP-6521-60020-WR, Version 5.9.1.5-001R"
+    },
+    {
+      "LOCAL_INTERFACE": "2",
+      "CHASSIS_ID": "5c 0e 8b 12 22 22",
+      "MGMT_ADDRESS": "Unsupported format",
+      "PLATFORM": "AP-6521-60020-WR, Version 5.9.1.5-001R",
+      "CAPABILITIES": "Router",
+      "NEIGHBOR_INTERFACE": "ge1",
+      "NEIGHBOR_DESCRIPTION": "AP-6521-60020-WR, Version 5.9.1.5-001R"
+    },
+    {
+      "LOCAL_INTERFACE": "2",
+      "CHASSIS_ID": "AP02-Site",
+      "MGMT_ADDRESS": "10.11.11.17",
+      "PLATFORM": "5.9.1.5-001RAP-6521-60020-WR",
+      "CAPABILITIES": "Router",
+      "NEIGHBOR_INTERFACE": "ge1",
+      "NEIGHBOR_DESCRIPTION": "5.9.1.5-001RAP-6521-60020-WR"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "platform": [
+        {
+          "PLATFORM": "5.9.1.5-001RAP-6521-60020-WR"
+        },
+        {
+          "PLATFORM": "AP-6521-60020-WR, Version 5.9.1.5-001R"
+        },
+        {
+          "PLATFORM": "AP-6521-60020-WR, Version 5.9.1.5-001R"
+        },
+        {
+          "PLATFORM": "5.9.1.5-001RAP-6521-60020-WR"
+        }
+      ]
+    }
+  ],
+  "cli_content": " CDP neighbors information\n\n  Port : 1   \n  Device ID : AP01-Site\n  Address Type : IP          \n  Address      : 10.11.11.16                                                 \n  Platform     : 5.9.1.5-001RAP-6521-60020-WR                               \n  Capability   : Router                                                     \n  Device Port  : ge1                                                        \n  Version      : 5.9.1.5-001RAP-6521-60020-WR                               \n\n------------------------------------------------------------------------------\n\n  Port : 1   \n  Device ID : 5c 0e 8b 11 11 11                                             \n  Address Type : IP          \n  Address      : 10.11.11.16                                                 \n  Platform     : AP-6521-60020-WR, Version 5.9.1.5-001R                     \n  Capability   : Router                                                     \n  Device Port  : ge1                                                        \n  Version      : AP-6521-60020-WR, Version 5.9.1.5-001R                     \n\n------------------------------------------------------------------------------\n\n  Port : 2   \n  Device ID : 5c 0e 8b 12 22 22                                             \n  Address Type : IP          \n  Address      : Unsupported format                                          \n  Platform     : AP-6521-60020-WR, Version 5.9.1.5-001R                     \n  Capability   : Router                                                     \n  Device Port  : ge1                                                        \n  Version      : AP-6521-60020-WR, Version 5.9.1.5-001R                     \n\n------------------------------------------------------------------------------\n\n  Port : 2   \n  Device ID : AP02-Site\n  Address Type : IP          \n  Address      : 10.11.11.17                                                 \n  Platform     : 5.9.1.5-001RAP-6521-60020-WR                               \n  Capability   : Router                                                     \n  Device Port  : ge1                                                        \n  Version      : 5.9.1.5-001RAP-6521-60020-WR                               ",
+  "textfsm_template": "Value Required LOCAL_INTERFACE (.+?)\nValue CHASSIS_ID (.+?)\nValue MGMT_ADDRESS (.+?)\nValue PLATFORM (.+?)\nValue CAPABILITIES (.+?)\nValue NEIGHBOR_INTERFACE (.+?)\nValue NEIGHBOR_DESCRIPTION (.+?)\n\nStart\n  ^\\s*CDP\\s+neighbors\\s+information\n  ^\\s*Port\\s*:\\s*${LOCAL_INTERFACE}\\s*$$\n  ^\\s*Device\\s+ID\\s*:\\s*${CHASSIS_ID}\\s*$$\n  ^\\s*Address\\s+Type\n  ^\\s*Address\\s*:\\s*${MGMT_ADDRESS}\\s*$$\n  ^\\s*Platform\\s*:\\s*${PLATFORM}\\s*$$\n  ^\\s*Capability\\s*:\\s*${CAPABILITIES}\\s*$$\n  ^\\s*Device\\s+Port\\s*:\\s*${NEIGHBOR_INTERFACE}\\s*$$\n  ^\\s*Version\\s*:\\s*${NEIGHBOR_DESCRIPTION}\\s*$$ -> Record\n  ^\\s*$$\n  ^\\s*----\n  ^. -> Error\n"
+}

@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_route
+# Source: ntc
+# TextFSM rows: 31
+# TTP rows: 4
+# Match ratio: 0.13
+
+<group name="netmask_protocol_type">
+{{PROTOCOL}}        10.64.65.82 {{NETMASK | ORPHRASE}} [1/0] via 10.100.67.246, outside
+<group name="distance_metric_nexthopif">
+S Server{{DISTANCE}} 255.255.255.255 [1/{{METRIC}}] via {{NEXTHOPIP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}, {{NEXTHOPIF | ORPHRASE}}
+</group>
+</group>

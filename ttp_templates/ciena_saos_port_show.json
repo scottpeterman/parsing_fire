@@ -1,0 +1,558 @@
+{
+  "command": "ciena_saos_port_show",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.9629629629629629,
+  "textfsm_rows": 27,
+  "ttp_rows": 26,
+  "ttp_template": "<group name=\"name_type_link_duration_xcvr_stp_mode_autoneg_admin_link_admin_mode_admin_autoneg\">\n| {{NAME}} |{{TYPE}} | {{LINK}} | {{DURATION | ORPHRASE}}|{{XCVR}} |{{STP}}|{{MODE}}| {{AUTONEG}} |{{ADMIN_LINK}} |{{ADMIN_MODE | ORPHRASE}}| {{ADMIN_AUTONEG}} |\n</group>\n<group name=\"name_type_link_duration_xcvr_stp_admin_link_admin_mode_admin_autoneg\">\n| {{NAME}} |{{TYPE}} |{{LINK}}| {{DURATION | ORPHRASE}}|{{XCVR}}|{{STP}}| | |{{ADMIN_LINK}} |{{ADMIN_MODE}}| {{ADMIN_AUTONEG | ORPHRASE}} |\n</group>\n<group name=\"name_type_link_duration_stp_admin_link_admin_mode_admin_autoneg\">\n| {{NAME}} | {{TYPE}} |{{LINK}}| {{DURATION | ORPHRASE}}| |{{STP}}| | |{{ADMIN_LINK}} |{{ADMIN_MODE}}| {{ADMIN_AUTONEG | ORPHRASE}} |\n</group>\n<group name=\"name_type_link_duration_stp_admin_link\">\n| {{NAME}} | {{TYPE}} | {{LINK}} | {{DURATION | ORPHRASE}}| |{{STP}}| | |{{ADMIN_LINK | ORPHRASE}} | | |\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "1.11",
+      "TYPE": "100/G",
+      "LINK": "Up",
+      "DURATION": "30d 2h24m21s",
+      "XCVR": "Ena",
+      "STP": "Dis",
+      "MODE": "1000/FD",
+      "AUTONEG": "On",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "2.1",
+      "TYPE": "100G/Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "XCVR": "UCTF",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "3",
+      "TYPE": "10/100/G",
+      "LINK": "Up",
+      "DURATION": "30d 1h55m12s",
+      "XCVR": "Ena",
+      "STP": "Dis",
+      "MODE": "1000/FD",
+      "AUTONEG": "On",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "4",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "5",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "6",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "7",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "8",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "9",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "10",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "11",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "12",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "13",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "14",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "15",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "16",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "17",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "18",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "19",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "20",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "21",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "22",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "23",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "24",
+      "TYPE": "G/10Gig",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena",
+      "ADMIN_MODE": "Auto/FD",
+      "ADMIN_AUTONEG": "On"
+    },
+    {
+      "NAME": "LAG1",
+      "TYPE": "LAG",
+      "LINK": "Up",
+      "DURATION": "30d 2h24m21s",
+      "STP": "FWD",
+      "ADMIN_LINK": "Ena"
+    },
+    {
+      "NAME": "LAG2",
+      "TYPE": "LAG",
+      "LINK": "Up",
+      "DURATION": "30d 1h55m11s",
+      "STP": "FWD",
+      "ADMIN_LINK": "Ena"
+    },
+    {
+      "NAME": "LATERAL",
+      "TYPE": "LAG",
+      "LINK": "Down",
+      "DURATION": "0d 0h 0m 0s",
+      "STP": "Dis",
+      "ADMIN_LINK": "Ena"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "name_type_link_duration_xcvr_stp_mode_autoneg_admin_link_admin_mode_admin_autoneg": [
+        {
+          "NAME": "1.11",
+          "TYPE": "100/G",
+          "LINK": "Up",
+          "DURATION": "30d 2h24m21s",
+          "XCVR": "Ena",
+          "STP": "Dis",
+          "MODE": "1000/FD",
+          "AUTONEG": "On",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "3",
+          "TYPE": "10/100/G",
+          "LINK": "Up",
+          "DURATION": "30d 1h55m12s",
+          "XCVR": "Ena",
+          "STP": "Dis",
+          "MODE": "1000/FD",
+          "AUTONEG": "On",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        }
+      ],
+      "name_type_link_duration_xcvr_stp_admin_link_admin_mode_admin_autoneg": {
+        "NAME": "2.1",
+        "TYPE": "100G/Gig",
+        "LINK": "Down",
+        "DURATION": "0d 0h 0m 0s",
+        "XCVR": "UCTF",
+        "STP": "Dis",
+        "ADMIN_LINK": "Ena",
+        "ADMIN_MODE": "Auto/FD",
+        "ADMIN_AUTONEG": "On"
+      },
+      "name_type_link_duration_stp_admin_link_admin_mode_admin_autoneg": [
+        {
+          "NAME": "4",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "5",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "6",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "7",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "8",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "9",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "10",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "11",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "12",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "13",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "14",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "15",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "16",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "17",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "18",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "19",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "20",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "21",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "22",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "23",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        },
+        {
+          "NAME": "24",
+          "TYPE": "G/10Gig",
+          "LINK": "Down",
+          "DURATION": "0d 0h 0m 0s",
+          "STP": "Dis",
+          "ADMIN_LINK": "Ena",
+          "ADMIN_MODE": "Auto/FD",
+          "ADMIN_AUTONEG": "On"
+        }
+      ],
+      "name_type_link_duration_stp_admin_link": [
+        {
+          "NAME": "LAG1",
+          "TYPE": "LAG",
+          "LINK": "Up",
+          "DURATION": "30d 2h24m21s",
+          "STP": "FWD",
+          "ADMIN_LINK": "Ena"
+        },
+        {
+          "NAME": "LAG2",
+          "TYPE": "LAG",
+          "LINK": "Up",
+          "DURATION": "30d 1h55m11s",
+          "STP": "FWD",
+          "ADMIN_LINK": "Ena"
+        }
+      ]
+    }
+  ],
+  "cli_content": "+--------------- PORT GLOBAL CONFIGURATION ----------------+\n|            Parameter             |       Value           |\n+----------------------------------+-----------------------+\n| Rx Low Power Detect Admin State  | Disabled              |\n+----------------------------------+-----------------------+\n+-------------------------------------------------------------------------------+\n| Port Table        |           Operational Status            |  Admin Config   |\n|---------+---------+----+--------------+----+---+-------+----+----+-------+----|\n| Port    | Port    |    |  Link State  |    |   |       |Auto|    |       |Auto|\n| Name    | Type    |Link|   Duration   |XCVR|STP| Mode  |Neg |Link| Mode  |Neg |\n|---------+---------+----+--------------+----+---+-------+----+----+-------+----|\n| 1.11    |100/G    | Up |  30d 2h24m21s|Ena |Dis|1000/FD| On |Ena |Auto/FD| On |\n| 2.1     |100G/Gig |Down|   0d 0h 0m 0s|UCTF|Dis|       |    |Ena |Auto/FD| On |\n| 3       |10/100/G | Up |  30d 1h55m12s|Ena |Dis|1000/FD| On |Ena |Auto/FD| On |\n| 4       | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 5       | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 6       | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 7       | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 8       | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 9       | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 10      | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 11      | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 12      | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 13      | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 14      | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 15      | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 16      | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 17      | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 18      | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 19      | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 20      | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 21      | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 22      | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 23      | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| 24      | G/10Gig |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |Auto/FD| On |\n| LAG1    | LAG     | Up |  30d 2h24m21s|    |FWD|       |    |Ena |       |    |\n| LAG2    | LAG     | Up |  30d 1h55m11s|    |FWD|       |    |Ena |       |    |\n| LATERAL | LAG     |Down|   0d 0h 0m 0s|    |Dis|       |    |Ena |       |    |\n+---------+---------+----+--------------+----+---+-------+----+----+-------+----+",
+  "textfsm_template": "Value NAME ([0-9A-Za-z\\.]+)\nValue TYPE (\\S*)\nValue LINK (Up|Down)\nValue DURATION (\\w+\\s*\\wh\\s*\\w+m\\s*\\w+)\nValue XCVR ((\\s*)|(\\w+))\nValue STP (\\w+)\nValue MODE ((\\w+\\/\\w+)|(\\s*))\nValue AUTONEG ((\\w+)|(\\s*))\nValue ADMIN_LINK (\\w+)\nValue ADMIN_MODE ((\\w+\\/\\w+)|(\\s*))\nValue ADMIN_AUTONEG ((\\w+)|(\\s*))\n\n\nStart\n  ^\\+-+\\s*PORT\\s*GLOBAL\\s*CONFIGURATION\\s*-+\\+ \n  ^\\+-+\n  ^\\|\\s*P\\w+\\s*\\|\\s*V\\w+\\s*\\|\n  ^\\+-+\n  ^\\|\\s*Rx\\s*\\w+\\s*\\s*\\w+\\s*\\w+\\s*\\w+\\s*\\w+\\s*\\|\\s*\\w+\\s*\\|\n  ^\\+-+\n  ^\\+-+\n  ^\\|\\s*Por\\w+\\s*Table\\s*\\|\\s*Operational\\s*Status\\s*\\|\\s*Admin\\s*Config\\s*\\|\n  ^\\|-+\n  ^\\|\\s*Por\\w+\\s*\\|\\s*Port\\s*\\s*\\|\\s*\\|\\s*Link\\s*\\State\\s*\\|\\s*\\|\\s*\\|\\s*\\|Auto\\|\\s*\\|\\s*\\|Auto\\|\n  ^\\|\\s*Name\\s*\\|\\s*Type\\s*\\|Link\\|\\s*Duration\\s*\\|XCVR\\|STP\\|\\s*Mode\\s*\\|Neg\\s*\\|Link\\|\\s*Mode\\s*\\|Neg\\s*\\|\n  ^\\|-+\n  ^\\|\\s*${NAME}\\s*\\|\\s*${TYPE}\\s*\\|\\s*${LINK}\\s*\\|\\s*${DURATION}\\|\\s*${XCVR}\\s*\\|${STP}\\|\\s*${MODE}\\s*\\|\\s*${AUTONEG}\\s*\\|\\s*${ADMIN_LINK}\\s*\\|\\s*${ADMIN_MODE}\\s*\\|\\s*${ADMIN_AUTONEG}\\s*\\| -> Record\n  ^\\+-+\n  ^\\s*$$\n  ^. -> Error\n  \n"
+}

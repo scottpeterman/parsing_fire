@@ -1,0 +1,101 @@
+{
+  "command": "show interfaces transceiver detailed",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"port_type_serial_tx_power_rx_power_temp_voltage\">\n{{PORT}} {{TYPE | ORPHRASE}} {{SERIAL | re(\"\\\\w+\")}} {{TX_POWER | ORPHRASE}} {{RX_POWER | ORPHRASE}} {{TEMP}} {{VOLTAGE | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "Te1/1/1",
+      "TYPE": "SFP+ 10G",
+      "SERIAL": "ABC123456789",
+      "TX_POWER": "-1.2 dBm",
+      "RX_POWER": "-10.5 dBm",
+      "TEMP": "25C",
+      "VOLTAGE": "3.3V"
+    },
+    {
+      "PORT": "Te1/1/2",
+      "TYPE": "SFP+ 10G",
+      "SERIAL": "ABC987654321",
+      "TX_POWER": "-0.8 dBm",
+      "RX_POWER": "-9.0 dBm",
+      "TEMP": "26C",
+      "VOLTAGE": "3.3V"
+    },
+    {
+      "PORT": "Te1/1/3",
+      "TYPE": "SFP+ 10G",
+      "SERIAL": "XYZ123456789",
+      "TX_POWER": "-1.0 dBm",
+      "RX_POWER": "-11.2 dBm",
+      "TEMP": "27C",
+      "VOLTAGE": "3.4V"
+    },
+    {
+      "PORT": "Te1/1/4",
+      "TYPE": "SFP+ 10G",
+      "SERIAL": "XYZ987654321",
+      "TX_POWER": "-1.5 dBm",
+      "RX_POWER": "-8.9 dBm",
+      "TEMP": "24C",
+      "VOLTAGE": "3.2V"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_type_serial_tx_power_rx_power_temp_voltage": [
+        {
+          "PORT": "Port",
+          "TYPE": "Type",
+          "SERIAL": "Serial",
+          "TX_POWER": "Tx Power",
+          "RX_POWER": "Rx Power",
+          "TEMP": "Temp",
+          "VOLTAGE": "Voltage"
+        },
+        {
+          "PORT": "Te1/1/1",
+          "TYPE": "SFP+ 10G",
+          "SERIAL": "ABC123456789",
+          "TX_POWER": "-1.2 dBm",
+          "RX_POWER": "-10.5 dBm",
+          "TEMP": "25C",
+          "VOLTAGE": "3.3V"
+        },
+        {
+          "PORT": "Te1/1/2",
+          "TYPE": "SFP+ 10G",
+          "SERIAL": "ABC987654321",
+          "TX_POWER": "-0.8 dBm",
+          "RX_POWER": "-9.0 dBm",
+          "TEMP": "26C",
+          "VOLTAGE": "3.3V"
+        },
+        {
+          "PORT": "Te1/1/3",
+          "TYPE": "SFP+ 10G",
+          "SERIAL": "XYZ123456789",
+          "TX_POWER": "-1.0 dBm",
+          "RX_POWER": "-11.2 dBm",
+          "TEMP": "27C",
+          "VOLTAGE": "3.4V"
+        },
+        {
+          "PORT": "Te1/1/4",
+          "TYPE": "SFP+ 10G",
+          "SERIAL": "XYZ987654321",
+          "TX_POWER": "-1.5 dBm",
+          "RX_POWER": "-8.9 dBm",
+          "TEMP": "24C",
+          "VOLTAGE": "3.2V"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Port       Type        Serial           Tx Power   Rx Power    Temp    Voltage \n---------  ----------  ---------------  ---------  ----------  ------  -------\nTe1/1/1    SFP+ 10G    ABC123456789     -1.2 dBm   -10.5 dBm   25C     3.3V    \nTe1/1/2    SFP+ 10G    ABC987654321     -0.8 dBm   -9.0 dBm    26C     3.3V    \nTe1/1/3    SFP+ 10G    XYZ123456789     -1.0 dBm   -11.2 dBm   27C     3.4V    \nTe1/1/4    SFP+ 10G    XYZ987654321     -1.5 dBm   -8.9 dBm    24C     3.2V    \n",
+  "textfsm_template": "Value PORT (\\S+)\nValue TYPE (\\S+ \\S+)\nValue SERIAL (\\S+)\nValue TX_POWER (\\S+ dBm)\nValue RX_POWER (\\S+ dBm)\nValue TEMP (\\d+C)\nValue VOLTAGE (\\d+\\.\\d+V)\n\nStart\n  ^Port\\s+Type\\s+Serial\\s+Tx Power\\s+Rx Power\\s+Temp\\s+Voltage\\s*$$\n  ^${PORT}\\s+${TYPE}\\s+${SERIAL}\\s+${TX_POWER}\\s+${RX_POWER}\\s+${TEMP}\\s+${VOLTAGE}\\s*$$ -> Record"
+}

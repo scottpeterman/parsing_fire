@@ -1,0 +1,132 @@
+{
+  "command": "hp_comware_display_counters_bound_interface",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 8,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"interface_packets_total_packets_broadcast_packets_multicast_packets_error\">\n{{INTERFACE}} {{PACKETS_TOTAL}} {{PACKETS_BROADCAST}} {{PACKETS_MULTICAST | ORPHRASE}} {{PACKETS_ERROR}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "GE1/0/1",
+      "PACKETS_TOTAL": "573422",
+      "PACKETS_BROADCAST": "2580",
+      "PACKETS_MULTICAST": "8560",
+      "PACKETS_ERROR": "0"
+    },
+    {
+      "INTERFACE": "GE1/0/2",
+      "PACKETS_TOTAL": "975121",
+      "PACKETS_BROADCAST": "7513",
+      "PACKETS_MULTICAST": "34906",
+      "PACKETS_ERROR": "30"
+    },
+    {
+      "INTERFACE": "GE6/0/47",
+      "PACKETS_TOTAL": "0",
+      "PACKETS_BROADCAST": "0",
+      "PACKETS_MULTICAST": "0",
+      "PACKETS_ERROR": "0"
+    },
+    {
+      "INTERFACE": "GE6/0/48",
+      "PACKETS_TOTAL": "429854186",
+      "PACKETS_BROADCAST": "16658",
+      "PACKETS_MULTICAST": "86584",
+      "PACKETS_ERROR": "0"
+    },
+    {
+      "INTERFACE": "XGE1/0/49",
+      "PACKETS_TOTAL": "17495987683",
+      "PACKETS_BROADCAST": "12706052",
+      "PACKETS_MULTICAST": "16927885391",
+      "PACKETS_ERROR": "0"
+    },
+    {
+      "INTERFACE": "XGE1/0/50",
+      "PACKETS_TOTAL": "53840866263",
+      "PACKETS_BROADCAST": "13138308",
+      "PACKETS_MULTICAST": "21011041401",
+      "PACKETS_ERROR": "19"
+    },
+    {
+      "INTERFACE": "XGE6/0/51",
+      "PACKETS_TOTAL": "0",
+      "PACKETS_BROADCAST": "0",
+      "PACKETS_MULTICAST": "0",
+      "PACKETS_ERROR": "0"
+    },
+    {
+      "INTERFACE": "XGE6/0/52",
+      "PACKETS_TOTAL": "46490",
+      "PACKETS_BROADCAST": "16009",
+      "PACKETS_MULTICAST": "7582",
+      "PACKETS_ERROR": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_packets_total_packets_broadcast_packets_multicast_packets_error": [
+        {
+          "INTERFACE": "GE1/0/1",
+          "PACKETS_TOTAL": "573422",
+          "PACKETS_BROADCAST": "2580",
+          "PACKETS_MULTICAST": "8560",
+          "PACKETS_ERROR": "0"
+        },
+        {
+          "INTERFACE": "GE1/0/2",
+          "PACKETS_TOTAL": "975121",
+          "PACKETS_BROADCAST": "7513",
+          "PACKETS_MULTICAST": "34906",
+          "PACKETS_ERROR": "30"
+        },
+        {
+          "INTERFACE": "GE6/0/47",
+          "PACKETS_TOTAL": "0",
+          "PACKETS_BROADCAST": "0",
+          "PACKETS_MULTICAST": "0",
+          "PACKETS_ERROR": "0"
+        },
+        {
+          "INTERFACE": "GE6/0/48",
+          "PACKETS_TOTAL": "429854186",
+          "PACKETS_BROADCAST": "16658",
+          "PACKETS_MULTICAST": "86584",
+          "PACKETS_ERROR": "0"
+        },
+        {
+          "INTERFACE": "XGE1/0/49",
+          "PACKETS_TOTAL": "17495987683",
+          "PACKETS_BROADCAST": "12706052",
+          "PACKETS_MULTICAST": "16927885391",
+          "PACKETS_ERROR": "0"
+        },
+        {
+          "INTERFACE": "XGE1/0/50",
+          "PACKETS_TOTAL": "53840866263",
+          "PACKETS_BROADCAST": "13138308",
+          "PACKETS_MULTICAST": "21011041401",
+          "PACKETS_ERROR": "19"
+        },
+        {
+          "INTERFACE": "XGE6/0/51",
+          "PACKETS_TOTAL": "0",
+          "PACKETS_BROADCAST": "0",
+          "PACKETS_MULTICAST": "0",
+          "PACKETS_ERROR": "0"
+        },
+        {
+          "INTERFACE": "XGE6/0/52",
+          "PACKETS_TOTAL": "46490",
+          "PACKETS_BROADCAST": "16009",
+          "PACKETS_MULTICAST": "7582",
+          "PACKETS_ERROR": "0"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface         Total (pkts)   Broadcast (pkts)   Multicast (pkts)  Err (pkts)\nGE1/0/1                 573422               2580               8560           0\nGE1/0/2                 975121               7513              34906          30\nGE6/0/47                     0                  0                  0           0\nGE6/0/48             429854186              16658              86584           0\nXGE1/0/49          17495987683           12706052        16927885391           0\nXGE1/0/50          53840866263           13138308        21011041401          19\nXGE6/0/51                    0                  0                  0           0\nXGE6/0/52                46490              16009               7582           0\n\n Overflow: More than 14 digits (7 digits for column \"Err\").\n       --: Not supported.\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue PACKETS_TOTAL (\\d+)\nValue PACKETS_BROADCAST (\\d+)\nValue PACKETS_MULTICAST (\\d+)\nValue PACKETS_ERROR (\\d+)\n\nStart\n  ^\\s*$$\n  ^Interface\\s+Total\\s+\\(pkts\\)\\s+Broadcast\\s+\\(pkts\\)\\s+Multicast\\s+\\(pkts\\)\\s+Err\\s+\\(pkts\\) -> InterfaceTable\n  ^. -> Error\n\nInterfaceTable\n  ^${INTERFACE}\\s+${PACKETS_TOTAL}\\s+${PACKETS_BROADCAST}\\s+${PACKETS_MULTICAST}\\s+${PACKETS_ERROR} -> Record\n  ^\\s*$$\n  ^\\s*Overflow -> InterfaceTableFooter\n  ^. -> Error\n\nInterfaceTableFooter\n  # ignore the footer's content\n"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show bgp vrf all all
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="network_next_hop_metric_loc_pref_weight_path">
+*> {{NETWORK}} {{NEXT_HOP}} {{METRIC}} {{LOC_PREF}} {{WEIGHT}} {{PATH | ORPHRASE}}
+</group>

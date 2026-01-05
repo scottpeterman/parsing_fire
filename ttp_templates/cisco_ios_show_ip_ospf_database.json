@@ -1,0 +1,105 @@
+{
+  "command": "cisco_ios_show_ip_ospf_database",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.2,
+  "textfsm_rows": 10,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"area_process_id_router_id\">\nOSPF Router with id({{ROUTER_ID}}) (Process ID {{PROCESS_ID | ORPHRASE}})\n<group name=\"adv_router_age_link_count\">\n{{LINK_ID}} {{ADV_ROUTER}} {{AGE}} 0x{{LINK_COUNT | ORPHRASE}}0002CFB 0x69BC 8\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ROUTER_ID": "192.168.239.66",
+      "PROCESS_ID": "300",
+      "AREA": "0.0.0.0",
+      "LINK_ID": "172.16.21.6",
+      "ADV_ROUTER": "172.16.21.6",
+      "AGE": "1731",
+      "LINK_COUNT": "8"
+    },
+    {
+      "ROUTER_ID": "192.168.239.66",
+      "PROCESS_ID": "300",
+      "AREA": "0.0.0.0",
+      "LINK_ID": "172.16.21.5",
+      "ADV_ROUTER": "172.16.21.5",
+      "AGE": "1112",
+      "LINK_COUNT": "5"
+    },
+    {
+      "ROUTER_ID": "192.168.239.66",
+      "PROCESS_ID": "300",
+      "AREA": "0.0.0.0",
+      "LINK_ID": "172.16.1.2",
+      "ADV_ROUTER": "172.16.1.2",
+      "AGE": "1662",
+      "LINK_COUNT": "9"
+    },
+    {
+      "ROUTER_ID": "192.168.239.66",
+      "PROCESS_ID": "300",
+      "AREA": "0.0.0.0",
+      "LINK_ID": "172.16.1.3",
+      "ADV_ROUTER": "192.168.239.66",
+      "AGE": "1245"
+    },
+    {
+      "ROUTER_ID": "192.168.239.66",
+      "PROCESS_ID": "300",
+      "AREA": "0.0.0.0",
+      "LINK_ID": "172.16.240.0",
+      "ADV_ROUTER": "172.16.241.5",
+      "AGE": "1152"
+    },
+    {
+      "ROUTER_ID": "192.168.239.66",
+      "PROCESS_ID": "300",
+      "AREA": "1",
+      "LINK_ID": "172.16.240.0",
+      "ADV_ROUTER": "172.16.241.5",
+      "AGE": "1152"
+    },
+    {
+      "ROUTER_ID": "192.168.239.66",
+      "PROCESS_ID": "300",
+      "AREA": "1",
+      "LINK_ID": "172.16.241.0",
+      "ADV_ROUTER": "172.16.241.5",
+      "AGE": "1152"
+    },
+    {
+      "LINK_ID": "192.168.1.0",
+      "ADV_ROUTER": "0.0.0.3",
+      "AGE": "542",
+      "TAG": "0"
+    },
+    {
+      "LINK_ID": "192.168.1.128",
+      "ADV_ROUTER": "0.0.0.3",
+      "AGE": "565",
+      "TAG": "0"
+    },
+    {
+      "LINK_ID": "192.168.1.160",
+      "ADV_ROUTER": "0.0.0.3",
+      "AGE": "567",
+      "TAG": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "area_process_id_router_id": {
+        "ROUTER_ID": "192.168.239.66",
+        "PROCESS_ID": "300",
+        "adv_router_age_link_count": {
+          "LINK_ID": "172.16.21.6",
+          "ADV_ROUTER": "172.16.21.6",
+          "AGE": "1731",
+          "LINK_COUNT": "8000"
+        }
+      }
+    }
+  ],
+  "cli_content": "OSPF Router with id(192.168.239.66) (Process ID 300)\n                 Displaying Router Link States(Area 0.0.0.0)\n  Link ID       ADV Router    Age        Seq#     Checksum  Link count\n172.16.21.6   172.16.21.6    1731    0x80002CFB    0x69BC       8\n172.16.21.5   172.16.21.5    1112    0x800009D2    0xA2B8       5\n172.16.1.2    172.16.1.2     1662    0x80000A98    0x4CB6       9\n                Displaying Net Link States(Area 0.0.0.0)\n  Link ID       ADV Router      Age        Seq#        Checksum\n172.16.1.3  192.168.239.66     1245    0x800000EC      0x82E\n                Displaying Summary Net Link States(Area 0.0.0.0)\n  Link ID       ADV Router       Age        Seq#        Checksum\n172.16.240.0   172.16.241.5    1152      0x80000077      0x7A05\n                Displaying Summary Net Link States(Area 1)\n  Link ID       ADV Router       Age        Seq#        Checksum\n172.16.240.0   172.16.241.5    1152      0x80000077      0x7A05\n172.16.241.0   172.16.241.5    1152      0x80000070      0xAEB7\n\t\tType-5 AS External Link States\n\nLink ID         ADV Router      Age         Seq#       Checksum Tag\n192.168.1.0     0.0.0.3         542         0x80000001 0x003F23 0\n192.168.1.128   0.0.0.3         565         0x80000001 0x007C05 0\n192.168.1.160   0.0.0.3         567         0x80000001 0x003B26 0\n",
+  "textfsm_template": "Value Filldown ROUTER_ID (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue Filldown PROCESS_ID (\\d+)\nValue Filldown AREA (\\d+\\.\\d+\\.\\d+\\.\\d+|\\d+)\nValue LINK_ID (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue ADV_ROUTER (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue AGE (\\d+)\nValue LINK_COUNT (\\d+)\nValue TAG (\\d+)\n\nStart\n  ^.*\\(${ROUTER_ID}\\) \\(.* ${PROCESS_ID}\\)\n  ^.*\\(Area ${AREA}\\)\n  ^${LINK_ID}\\s+${ADV_ROUTER}\\s+${AGE}\\s+\\S+\\s+\\S+\\s+${LINK_COUNT} -> Record\n  ^${LINK_ID}\\s+${ADV_ROUTER}\\s+${AGE}\\s+\\S+\\s+\\S+ -> Record\n  ^\\s+Type-5 AS External Link States -> Tag\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n\nTag\n  ^Link ID\\s+ADV Router\\s+Age\\s+Seq#\\s+Checksum\\s+Tag -> Clearall\n  ^${LINK_ID}\\s+${ADV_ROUTER}\\s+${AGE}\\s+\\S+\\s+\\S+\\s+${TAG} -> Record\n  ^\\s -> Start\n\nEOF\n"
+}

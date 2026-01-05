@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show alarms counter
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 5
+# Match ratio: 1.00
+
+<group name="alarm_id_alarm_name_count">
+{{ALARM_ID | re("\\d+")}} {{ALARM_NAME | ORPHRASE}} {{COUNT | ORPHRASE}}
+</group>

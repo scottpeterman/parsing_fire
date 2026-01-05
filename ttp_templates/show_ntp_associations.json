@@ -1,0 +1,97 @@
+{
+  "command": "show ntp associations",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.75,
+  "textfsm_rows": 4,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"address_ref_clock_st_when_poll_reach_delay_offset_jitter\">\n{{ADDRESS}} {{REF_CLOCK}} {{ST}} {{WHEN}} {{POLL}} {{REACH}} {{DELAY}} {{OFFSET}} {{JITTER | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ADDRESS": "*192.0.2.1",
+      "REF_CLOCK": "192.0.2.53",
+      "ST": "2",
+      "WHEN": "34",
+      "POLL": "64",
+      "REACH": "377",
+      "DELAY": "0.678",
+      "OFFSET": "-0.134",
+      "JITTER": "0.049"
+    },
+    {
+      "ADDRESS": "+192.0.2.2",
+      "REF_CLOCK": "192.0.2.53",
+      "ST": "2",
+      "WHEN": "48",
+      "POLL": "64",
+      "REACH": "377",
+      "DELAY": "0.745",
+      "OFFSET": "-0.124",
+      "JITTER": "0.052"
+    },
+    {
+      "ADDRESS": "-203.0.113.1",
+      "REF_CLOCK": "192.0.2.53",
+      "ST": "2",
+      "WHEN": "36",
+      "POLL": "64",
+      "REACH": "377",
+      "DELAY": "1.234",
+      "OFFSET": "0.067",
+      "JITTER": "0.063"
+    },
+    {
+      "ADDRESS": "198.51.100.1",
+      "REF_CLOCK": ".LOCL.",
+      "ST": "5",
+      "WHEN": "74",
+      "POLL": "128",
+      "REACH": "377",
+      "DELAY": "3.456",
+      "OFFSET": "0.456",
+      "JITTER": "0.123"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "address_ref_clock_st_when_poll_reach_delay_offset_jitter": [
+        {
+          "ADDRESS": "*192.0.2.1",
+          "REF_CLOCK": "192.0.2.53",
+          "ST": "2",
+          "WHEN": "34",
+          "POLL": "64",
+          "REACH": "377",
+          "DELAY": "0.678",
+          "OFFSET": "-0.134",
+          "JITTER": "0.049"
+        },
+        {
+          "ADDRESS": "+192.0.2.2",
+          "REF_CLOCK": "192.0.2.53",
+          "ST": "2",
+          "WHEN": "48",
+          "POLL": "64",
+          "REACH": "377",
+          "DELAY": "0.745",
+          "OFFSET": "-0.124",
+          "JITTER": "0.052"
+        },
+        {
+          "ADDRESS": "-203.0.113.1",
+          "REF_CLOCK": "192.0.2.53",
+          "ST": "2",
+          "WHEN": "36",
+          "POLL": "64",
+          "REACH": "377",
+          "DELAY": "1.234",
+          "OFFSET": "0.067",
+          "JITTER": "0.063"
+        }
+      ]
+    }
+  ],
+  "cli_content": "      address         ref clock     st  when  poll reach  delay   offset  jitter\n===============================================================================\n*192.0.2.1        192.0.2.53        2    34    64  377   0.678   -0.134   0.049\n+192.0.2.2        192.0.2.53        2    48    64  377   0.745   -0.124   0.052\n-203.0.113.1      192.0.2.53        2    36    64  377   1.234    0.067   0.063\n 198.51.100.1     .LOCL.            5    74    128  377   3.456    0.456   0.123\n",
+  "textfsm_template": "Value ADDRESS (\\S+)\nValue REF_CLOCK (\\S+)\nValue ST (\\d+)\nValue WHEN (\\d+)\nValue POLL (\\d+)\nValue REACH (\\d+)\nValue DELAY (\\d+.\\d+)\nValue OFFSET (-?\\d+.\\d+)\nValue JITTER (\\d+.\\d+)\n\nStart\n  ^\\s*address\\s+ref clock\\s+st\\s+when\\s+poll\\s+reach\\s+delay\\s+offset\\s+jitter\\s*$$\n  ^\\s*={5,}\\s*$$\n  ^\\s*${ADDRESS}\\s+${REF_CLOCK}\\s+${ST}\\s+${WHEN}\\s+${POLL}\\s+${REACH}\\s+${DELAY}\\s+${OFFSET}\\s+${JITTER}\\s*$$ -> Record"
+}

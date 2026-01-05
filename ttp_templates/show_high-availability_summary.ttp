@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show high-availability summary
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="active_role_active_software_version_current_active_unit_current_standby_unit">
+  Switchovers:  {{SWITCHOVERS | ORPHRASE}}
+  Last switchover reason: {{LAST_SWITCHOVER_REASON | ORPHRASE}}
+  Current {{ACTIVE_ROLE}} Unit:  {{CURRENT_ACTIVE_UNIT | ORPHRASE}}
+  Current {{STANDBY_ROLE}} Unit:  {{CURRENT_STANDBY_UNIT | ORPHRASE}}
+  Uptime:  {{UPTIME | ORPHRASE}}
+  Software Version:  {{ACTIVE_SOFTWARE_VERSION | ORPHRASE}}
+</group>

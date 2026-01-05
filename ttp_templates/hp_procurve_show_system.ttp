@@ -1,0 +1,23 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_procurve_show_system
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="allow_mods_buffers_free_buffers_lowest_buffers_missed">
+  System Name  : {{HOSTNAME | ORPHRASE}}  
+  System Contact  : {{CONTACT | ORPHRASE}}
+  System Location  : {{LOCATION | ORPHRASE}}
+  MAC Age Time (sec) : {{MAC_AGE | ORPHRASE}}  
+  Time Zone  : {{TIMEZONE | ORPHRASE}} 
+  Daylight Time Rule : {{DAYLIGHT_RULE | ORPHRASE}} 
+  Software revision  : {{VERSION | re("[\\d\\.\\(\\)A-Za-z]+")}}  Base MAC Addr  : {{MAC_ADDRESS | ORPHRASE}}
+  ROM Version  : {{ROM_VERSION | re("[\\d\\.\\(\\)A-Za-z]+")}}  Serial Number  : {{SERIAL_NUMBER | ORPHRASE}}  
+  Allow V1 Modules  : {{ALLOW_MODS | ORPHRASE}}
+  Up Time  : {{UPTIME | ORPHRASE}}  Memory  - Total  : {{MEM_TOT | ORPHRASE}} 
+  CPU Util (%)  : {{CPU_UTIL}}  Free  : {{MEM_FREE | ORPHRASE}}  
+  IP Mgmt  - Pkts Rx : {{PACKETS_RX}}  Packet  - Total  : {{PACKETS_TOT | ORPHRASE}}  
+  Pkts Tx : {{PACKETS_TX}}  Buffers  Free  : {{BUFFERS_FREE | ORPHRASE}}  
+  Lowest  : {{BUFFERS_LOWEST | ORPHRASE}}  
+</group>

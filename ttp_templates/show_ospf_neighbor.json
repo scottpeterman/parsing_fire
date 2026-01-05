@@ -1,0 +1,84 @@
+{
+  "command": "show ospf neighbor",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"neighbor_id_pri_state_dead_time_address_interface\">\n{{NEIGHBOR_ID}} {{PRI}} {{STATE | ORPHRASE}} {{DEAD_TIME}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR_ID": "1.1.1.2",
+      "PRI": "1",
+      "STATE": "FULL/BDR",
+      "DEAD_TIME": "00:00:33",
+      "ADDRESS": "10.0.0.2",
+      "INTERFACE": "Ethernet1"
+    },
+    {
+      "NEIGHBOR_ID": "2.2.2.2",
+      "PRI": "1",
+      "STATE": "FULL/DR",
+      "DEAD_TIME": "00:00:38",
+      "ADDRESS": "10.0.1.2",
+      "INTERFACE": "Ethernet2"
+    },
+    {
+      "NEIGHBOR_ID": "3.3.3.3",
+      "PRI": "1",
+      "STATE": "FULL/DRother",
+      "DEAD_TIME": "00:00:37",
+      "ADDRESS": "10.0.2.2",
+      "INTERFACE": "Ethernet3"
+    },
+    {
+      "NEIGHBOR_ID": "4.4.4.4",
+      "PRI": "1",
+      "STATE": "FULL/DRother",
+      "DEAD_TIME": "00:00:31",
+      "ADDRESS": "10.0.3.2",
+      "INTERFACE": "Ethernet4"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neighbor_id_pri_state_dead_time_address_interface": [
+        {
+          "NEIGHBOR_ID": "1.1.1.2",
+          "PRI": "1",
+          "STATE": "FULL/BDR",
+          "DEAD_TIME": "00:00:33",
+          "ADDRESS": "10.0.0.2",
+          "INTERFACE": "Ethernet1"
+        },
+        {
+          "NEIGHBOR_ID": "2.2.2.2",
+          "PRI": "1",
+          "STATE": "FULL/DR",
+          "DEAD_TIME": "00:00:38",
+          "ADDRESS": "10.0.1.2",
+          "INTERFACE": "Ethernet2"
+        },
+        {
+          "NEIGHBOR_ID": "3.3.3.3",
+          "PRI": "1",
+          "STATE": "FULL/DRother",
+          "DEAD_TIME": "00:00:37",
+          "ADDRESS": "10.0.2.2",
+          "INTERFACE": "Ethernet3"
+        },
+        {
+          "NEIGHBOR_ID": "4.4.4.4",
+          "PRI": "1",
+          "STATE": "FULL/DRother",
+          "DEAD_TIME": "00:00:31",
+          "ADDRESS": "10.0.3.2",
+          "INTERFACE": "Ethernet4"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Neighbor ID     Pri   State         Dead Time   Address         Interface\n1.1.1.2         1     FULL/BDR      00:00:33    10.0.0.2        Ethernet1\n2.2.2.2         1     FULL/DR       00:00:38    10.0.1.2        Ethernet2\n3.3.3.3         1     FULL/DRother  00:00:37    10.0.2.2        Ethernet3\n4.4.4.4         1     FULL/DRother  00:00:31    10.0.3.2        Ethernet4\n",
+  "textfsm_template": "Value NEIGHBOR_ID (\\S+)\nValue PRI (\\d+)\nValue STATE (\\S+)\nValue DEAD_TIME (\\S+)\nValue ADDRESS (\\S+)\nValue INTERFACE (\\S+)\n\nStart\n  ^\\s*Neighbor ID\\s+Pri\\s+State\\s+Dead Time\\s+Address\\s+Interface\\s*$$\n  ^\\s*${NEIGHBOR_ID}\\s+${PRI}\\s+${STATE}\\s+${DEAD_TIME}\\s+${ADDRESS}\\s+${INTERFACE}\\s*$$ -> Record"
+}

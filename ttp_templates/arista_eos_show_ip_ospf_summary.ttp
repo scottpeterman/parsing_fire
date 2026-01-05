@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_ip_ospf_summary
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 4
+# Match ratio: 1.33
+
+<group name="instance_router_id_vrf">
+OSPF instance {{INSTANCE}} with ID {{ROUTER_ID}}, VRF {{VRF | ORPHRASE}}, ASBR
+<group name="area_asbr_lsas_interfaces">
+{{AREA}} {{TYPE}} {{INTERFACES}} {{NEIGHBORS}} ({{NEIGHBORS_FULL}} ) {{ROUTER_LSAS | ORPHRASE}} {{NETWORK_LSAS}} {{SUMMARY_LSAS}} {{ASBR_LSAS}} {{NSSA_LSAS}}
+</group>
+</group>

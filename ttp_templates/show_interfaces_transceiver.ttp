@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show interfaces transceiver
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 4
+# Match ratio: 1.33
+
+<group name="port_type_connector_wavelength_temp_voltage_current_tx_power_rx_power">
+{{PORT}} {{TYPE}} {{CONNECTOR}} {{WAVELENGTH}} {{TEMP}} {{VOLTAGE}} {{CURRENT}} {{TX_POWER}} {{RX_POWER | ORPHRASE}} 
+</group>

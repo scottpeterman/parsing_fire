@@ -1,0 +1,56 @@
+{
+  "command": "cisco_wlc_ssh_show_interface_group_summary",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"interface_group_name_total_interfaces_total_wlans_total_ap_groups\">\n{{INTERFACE_GROUP_NAME}} {{TOTAL_INTERFACES}} {{TOTAL_WLANS}} {{TOTAL_AP_GROUPS | ORPHRASE}} No\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE_GROUP_NAME": "intgrp_guest",
+      "TOTAL_INTERFACES": "1",
+      "TOTAL_WLANS": "1",
+      "TOTAL_AP_GROUPS": "2"
+    },
+    {
+      "INTERFACE_GROUP_NAME": "intgrp_prod",
+      "TOTAL_INTERFACES": "1",
+      "TOTAL_WLANS": "1",
+      "TOTAL_AP_GROUPS": "6"
+    },
+    {
+      "INTERFACE_GROUP_NAME": "intgrp_byod",
+      "TOTAL_INTERFACES": "1",
+      "TOTAL_WLANS": "2",
+      "TOTAL_AP_GROUPS": "11"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_group_name_total_interfaces_total_wlans_total_ap_groups": [
+        {
+          "INTERFACE_GROUP_NAME": "intgrp_guest",
+          "TOTAL_INTERFACES": "1",
+          "TOTAL_WLANS": "1",
+          "TOTAL_AP_GROUPS": "2"
+        },
+        {
+          "INTERFACE_GROUP_NAME": "intgrp_prod",
+          "TOTAL_INTERFACES": "1",
+          "TOTAL_WLANS": "1",
+          "TOTAL_AP_GROUPS": "6"
+        },
+        {
+          "INTERFACE_GROUP_NAME": "intgrp_byod",
+          "TOTAL_INTERFACES": "1",
+          "TOTAL_WLANS": "2",
+          "TOTAL_AP_GROUPS": "11"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface Group Name             Total Interfaces  Total Wlans  Total AP Groups  Quarantine\n-------------------------------- ----------------  -----------  ---------------  ----------\nintgrp_guest                             1              1              2              No\nintgrp_prod                              1              1              6              No\nintgrp_byod                              1              2              11             No\n",
+  "textfsm_template": "Value INTERFACE_GROUP_NAME (\\S+)\nValue TOTAL_INTERFACES (\\d+)\nValue TOTAL_WLANS (\\d+)\nValue TOTAL_AP_GROUPS (\\d+)\n\nStart\n  ^Interface\\s*Group\\s*Name\\s*Total\\s*Interfaces\\s*Total\\s*Wlans\\s*Total\\s*AP\\s*Groups\\s*Quarantine\n  ^-+\n  ^${INTERFACE_GROUP_NAME}\\s+${TOTAL_INTERFACES}\\s+${TOTAL_WLANS}\\s+${TOTAL_AP_GROUPS} -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

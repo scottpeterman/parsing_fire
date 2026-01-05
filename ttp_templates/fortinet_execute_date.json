@@ -1,0 +1,28 @@
+{
+  "command": "fortinet_execute_date",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"year_month_day\">\ncurrent date is: {{YEAR}}-{{MONTH}}-{{DAY | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "YEAR": "2023",
+      "MONTH": "08",
+      "DAY": "07"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "year_month_day": {
+        "YEAR": "2023",
+        "MONTH": "08",
+        "DAY": "07"
+      }
+    }
+  ],
+  "cli_content": "current date is: 2023-08-07\n",
+  "textfsm_template": "Value YEAR (\\d{4})\nValue MONTH (\\d{2})\nValue DAY (\\d{2})\n\nStart\n  ^\\s*current\\s+date\\s+is:\\s+${YEAR}-${MONTH}-${DAY}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

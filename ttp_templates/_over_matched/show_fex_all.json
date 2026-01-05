@@ -1,0 +1,104 @@
+{
+  "command": "show fex all",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 6,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"fex_number_description_state_model\">\n{{FEX_NUMBER}} {{DESCRIPTION | ORPHRASE}} {{STATE | ORPHRASE}} {{MODEL | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FEX_NUMBER": "100",
+      "DESCRIPTION": "Fabric Extender A",
+      "STATE": "Online",
+      "MODEL": "N2K-C2232PP-10GE"
+    },
+    {
+      "FEX_NUMBER": "101",
+      "DESCRIPTION": "Fabric Extender B",
+      "STATE": "Online",
+      "MODEL": "N2K-C2232PP-10GE"
+    },
+    {
+      "FEX_NUMBER": "102",
+      "DESCRIPTION": "Fabric Extender C",
+      "STATE": "Offline",
+      "MODEL": "N2K-C2232PP-10GE"
+    },
+    {
+      "FEX_NUMBER": "103",
+      "DESCRIPTION": "Fabric Extender D",
+      "STATE": "Online",
+      "MODEL": "N2K-C2232PP-10GE"
+    },
+    {
+      "FEX_NUMBER": "104",
+      "DESCRIPTION": "Fabric Extender E",
+      "STATE": "Offline",
+      "MODEL": "N2K-C2232PP-10GE"
+    },
+    {
+      "FEX_NUMBER": "105",
+      "DESCRIPTION": "Fabric Extender F",
+      "STATE": "Online",
+      "MODEL": "N2K-C2232PP-10GE"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "fex_number_description_state_model": [
+        {
+          "FEX_NUMBER": "FEX",
+          "DESCRIPTION": "FEX",
+          "STATE": "FEX",
+          "MODEL": "FEX"
+        },
+        {
+          "FEX_NUMBER": "Number",
+          "DESCRIPTION": "Description",
+          "STATE": "State",
+          "MODEL": "Model"
+        },
+        {
+          "FEX_NUMBER": "100",
+          "DESCRIPTION": "Fabric Extender A",
+          "STATE": "Online",
+          "MODEL": "N2K-C2232PP-10GE"
+        },
+        {
+          "FEX_NUMBER": "101",
+          "DESCRIPTION": "Fabric Extender B",
+          "STATE": "Online",
+          "MODEL": "N2K-C2232PP-10GE"
+        },
+        {
+          "FEX_NUMBER": "102",
+          "DESCRIPTION": "Fabric Extender C",
+          "STATE": "Offline",
+          "MODEL": "N2K-C2232PP-10GE"
+        },
+        {
+          "FEX_NUMBER": "103",
+          "DESCRIPTION": "Fabric Extender D",
+          "STATE": "Online",
+          "MODEL": "N2K-C2232PP-10GE"
+        },
+        {
+          "FEX_NUMBER": "104",
+          "DESCRIPTION": "Fabric Extender E",
+          "STATE": "Offline",
+          "MODEL": "N2K-C2232PP-10GE"
+        },
+        {
+          "FEX_NUMBER": "105",
+          "DESCRIPTION": "Fabric Extender F",
+          "STATE": "Online",
+          "MODEL": "N2K-C2232PP-10GE"
+        }
+      ]
+    }
+  ],
+  "cli_content": "FEX         FEX             FEX                 FEX\nNumber      Description     State               Model\n------------------------------------------------------------------------\n100         Fabric Extender A  Online             N2K-C2232PP-10GE         \n101         Fabric Extender B  Online             N2K-C2232PP-10GE         \n102         Fabric Extender C  Offline            N2K-C2232PP-10GE         \n103         Fabric Extender D  Online             N2K-C2232PP-10GE            \n104         Fabric Extender E  Offline            N2K-C2232PP-10GE         \n105         Fabric Extender F  Online             N2K-C2232PP-10GE         \n",
+  "textfsm_template": "Value FEX_NUMBER (\\d+)\nValue DESCRIPTION (.+)\nValue STATE (Online|Offline)\nValue MODEL (\\S+)\n\nStart\n  ^\\s*FEX\\s+FEX\\s+FEX\\s+FEX\\s*$$\n  ^\\s*${FEX_NUMBER}\\s+${DESCRIPTION}\\s+${STATE}\\s+${MODEL}\\s*$$ -> Record"
+}

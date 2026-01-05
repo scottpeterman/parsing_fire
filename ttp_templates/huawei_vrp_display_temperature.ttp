@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_vrp_display_temperature
+# Source: ntc
+# TextFSM rows: 9
+# TTP rows: 13
+# Match ratio: 1.44
+
+<group name="slotid">
+{{SLOTID | ORPHRASE}} :
+<group name="pcb_status_temperature">
+{{PCB}} 0 0 0 {{STATUS | ORPHRASE}} 68 76 83 55 65 {{TEMPERATURE | ORPHRASE}}
+</group>
+</group>

@@ -1,0 +1,30 @@
+{
+  "command": "checkpoint_gaia_show_version_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"architecture_build_kernel_version\">\nProduct version Check Point Gaia {{VERSION | ORPHRASE}}\nOS build {{BUILD | ORPHRASE}}\nOS kernel version {{KERNEL | ORPHRASE}}\nOS edition {{ARCHITECTURE | ORPHRASE}}-bit\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VERSION": "R77.30",
+      "BUILD": "204",
+      "KERNEL": "2.6.18-92cp",
+      "ARCHITECTURE": "32"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "architecture_build_kernel_version": {
+        "ARCHITECTURE": "32",
+        "KERNEL": "2.6.18-92cp",
+        "BUILD": "204",
+        "VERSION": "R77.30"
+      }
+    }
+  ],
+  "cli_content": "Product version Check Point Gaia R77.30\nOS build 204\nOS kernel version 2.6.18-92cp\nOS edition 32-bit\n",
+  "textfsm_template": "Value VERSION (\\S+)\nValue BUILD (\\S+)\nValue KERNEL (\\S+)\nValue ARCHITECTURE (\\S+)\n\nStart\n  ^Product version Check Point Gaia\\s${VERSION}\n  ^OS build\\s${BUILD}\n  ^OS kernel version\\s${KERNEL}\n  ^OS edition\\s${ARCHITECTURE}-bit -> Record\n"
+}

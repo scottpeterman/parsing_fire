@@ -1,0 +1,262 @@
+{
+  "command": "cisco_asa_show_running-config_object_network",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 3.1538461538461537,
+  "textfsm_rows": 13,
+  "ttp_rows": 41,
+  "ttp_template": "<group name=\"type_network_netmask\">\n {{TYPE}} {{NETWORK}} {{NETMASK | ORPHRASE}}\n</group>\n<group name=\"name\">\nobject network {{NAME | ORPHRASE}}\n</group>\n<group name=\"type_host\">\n {{TYPE}} {{HOST | ORPHRASE}}\n</group>\n<group name=\"description\">\n description {{DESCRIPTION | ORPHRASE}}\n</group>\n<group name=\"type_start_ip_end_ip\">\n {{TYPE}} {{START_IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{END_IP | ORPHRASE}}\n</group>\n<group name=\"type_network_prefix_length\">\n {{TYPE}} {{NETWORK}}/{{PREFIX_LENGTH | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "corp",
+      "TYPE": "subnet",
+      "NETWORK": "10.0.0.0",
+      "NETMASK": "255.0.0.0"
+    },
+    {
+      "NAME": "internal",
+      "TYPE": "subnet",
+      "NETWORK": "192.168.0.0",
+      "NETMASK": "255.255.255.0"
+    },
+    {
+      "NAME": "any",
+      "TYPE": "subnet",
+      "NETWORK": "0.0.0.0",
+      "NETMASK": "0.0.0.0"
+    },
+    {
+      "NAME": "host-10.10.11.1",
+      "TYPE": "host",
+      "HOST": "10.10.11.1"
+    },
+    {
+      "NAME": "block",
+      "TYPE": "host",
+      "HOST": "10.75.51.11"
+    },
+    {
+      "NAME": "dmz",
+      "DESCRIPTION": "dmz GW ip",
+      "TYPE": "host",
+      "HOST": "11.1.2.2"
+    },
+    {
+      "NAME": "server-vip",
+      "TYPE": "host",
+      "HOST": "10.1.11.8"
+    },
+    {
+      "NAME": "visitors",
+      "TYPE": "range",
+      "START_IP": "10.10.10.4",
+      "END_IP": "10.10.10.60"
+    },
+    {
+      "NAME": "contractor",
+      "TYPE": "range",
+      "START_IP": "10.75.51.15",
+      "END_IP": "10.75.51.100"
+    },
+    {
+      "NAME": "cloudflare-ipv6-dns-primary",
+      "TYPE": "host",
+      "HOST": "2606:4700:4700::1111"
+    },
+    {
+      "NAME": "google-ipv6-dns-primary",
+      "TYPE": "host",
+      "HOST": "2001:4860:4860::8888"
+    },
+    {
+      "NAME": "internal-ipv6-range",
+      "TYPE": "range",
+      "START_IP": "fd00::",
+      "END_IP": "fd00::ffff"
+    },
+    {
+      "NAME": "internal-ipv6-subnet",
+      "TYPE": "subnet",
+      "NETWORK": "fd00::",
+      "PREFIX_LENGTH": "8"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "type_network_netmask": [
+        {
+          "TYPE": "subnet",
+          "NETWORK": "10.0.0.0",
+          "NETMASK": "255.0.0.0"
+        },
+        {
+          "TYPE": "subnet",
+          "NETWORK": "192.168.0.0",
+          "NETMASK": "255.255.255.0"
+        },
+        {
+          "TYPE": "subnet",
+          "NETWORK": "0.0.0.0",
+          "NETMASK": "0.0.0.0"
+        },
+        {
+          "TYPE": "description",
+          "NETWORK": "dmz",
+          "NETMASK": "GW ip"
+        },
+        {
+          "TYPE": "range",
+          "NETWORK": "10.10.10.4",
+          "NETMASK": "10.10.10.60"
+        },
+        {
+          "TYPE": "range",
+          "NETWORK": "10.75.51.15",
+          "NETMASK": "10.75.51.100"
+        },
+        {
+          "TYPE": "range",
+          "NETWORK": "fd00::",
+          "NETMASK": "fd00::ffff"
+        }
+      ],
+      "name": [
+        {
+          "NAME": "corp"
+        },
+        {
+          "NAME": "internal"
+        },
+        {
+          "NAME": "any"
+        },
+        {
+          "NAME": "host-10.10.11.1"
+        },
+        {
+          "NAME": "block"
+        },
+        {
+          "NAME": "dmz"
+        },
+        {
+          "NAME": "server-vip"
+        },
+        {
+          "NAME": "visitors"
+        },
+        {
+          "NAME": "contractor"
+        },
+        {
+          "NAME": "cloudflare-ipv6-dns-primary"
+        },
+        {
+          "NAME": "google-ipv6-dns-primary"
+        },
+        {
+          "NAME": "internal-ipv6-range"
+        },
+        {
+          "NAME": "internal-ipv6-subnet"
+        }
+      ],
+      "type_host": [
+        {
+          "TYPE": "subnet",
+          "HOST": "10.0.0.0 255.0.0.0"
+        },
+        {
+          "TYPE": "subnet",
+          "HOST": "192.168.0.0 255.255.255.0"
+        },
+        {
+          "TYPE": "subnet",
+          "HOST": "0.0.0.0 0.0.0.0"
+        },
+        {
+          "TYPE": "host",
+          "HOST": "10.10.11.1"
+        },
+        {
+          "TYPE": "host",
+          "HOST": "10.75.51.11"
+        },
+        {
+          "TYPE": "description",
+          "HOST": "dmz GW ip"
+        },
+        {
+          "TYPE": "host",
+          "HOST": "11.1.2.2"
+        },
+        {
+          "TYPE": "host",
+          "HOST": "10.1.11.8"
+        },
+        {
+          "TYPE": "range",
+          "HOST": "10.10.10.4 10.10.10.60"
+        },
+        {
+          "TYPE": "range",
+          "HOST": "10.75.51.15 10.75.51.100"
+        },
+        {
+          "TYPE": "host",
+          "HOST": "2606:4700:4700::1111"
+        },
+        {
+          "TYPE": "host",
+          "HOST": "2001:4860:4860::8888"
+        },
+        {
+          "TYPE": "range",
+          "HOST": "fd00:: fd00::ffff"
+        },
+        {
+          "TYPE": "subnet",
+          "HOST": "fd00::/8"
+        }
+      ],
+      "description": {
+        "DESCRIPTION": "dmz GW ip"
+      },
+      "type_start_ip_end_ip": [
+        {
+          "TYPE": "subnet",
+          "START_IP": "10.0.0.0",
+          "END_IP": "255.0.0.0"
+        },
+        {
+          "TYPE": "subnet",
+          "START_IP": "192.168.0.0",
+          "END_IP": "255.255.255.0"
+        },
+        {
+          "TYPE": "subnet",
+          "START_IP": "0.0.0.0",
+          "END_IP": "0.0.0.0"
+        },
+        {
+          "TYPE": "range",
+          "START_IP": "10.10.10.4",
+          "END_IP": "10.10.10.60"
+        },
+        {
+          "TYPE": "range",
+          "START_IP": "10.75.51.15",
+          "END_IP": "10.75.51.100"
+        }
+      ],
+      "type_network_prefix_length": {
+        "TYPE": "subnet",
+        "NETWORK": "fd00::",
+        "PREFIX_LENGTH": "8"
+      }
+    }
+  ],
+  "cli_content": "object network corp\n subnet 10.0.0.0 255.0.0.0\nobject network internal\n subnet 192.168.0.0 255.255.255.0\nobject network any\n subnet 0.0.0.0 0.0.0.0\nobject network host-10.10.11.1\n host 10.10.11.1\nobject network block\n host 10.75.51.11\nobject network dmz\n description dmz GW ip\n host 11.1.2.2\nobject network server-vip\n host 10.1.11.8\nobject network visitors\n range 10.10.10.4 10.10.10.60\nobject network contractor\n range 10.75.51.15 10.75.51.100\nobject network cloudflare-ipv6-dns-primary\n host 2606:4700:4700::1111\nobject network google-ipv6-dns-primary\n host 2001:4860:4860::8888\nobject network internal-ipv6-range\n range fd00:: fd00::ffff\nobject network internal-ipv6-subnet\n subnet fd00::/8\n",
+  "textfsm_template": "Value Required NAME (\\S+)\nValue DESCRIPTION (.+)\nValue TYPE ([hostubnerag]+)\nValue HOST (\\S+)\nValue NETWORK (\\S+)\nValue NETMASK (\\S+)\nValue PREFIX_LENGTH (\\d+)\nValue START_IP (\\S+)\nValue END_IP (\\S+)\n\n\nStart\n  ^object\\s+network -> Continue.Record\n  ^object\\s+network\\s+${NAME}\\s*\n  ^\\s+description\\s+${DESCRIPTION}\\s*\n  ^\\s+${TYPE} -> Continue\n  ^\\s+subnet\\s+${NETWORK}\\s+${NETMASK}\\s*\n  ^\\s+subnet\\s+${NETWORK}\\/${PREFIX_LENGTH}\\s*\n  ^\\s+range\\s+${START_IP}\\s+${END_IP}\\s*\n  ^\\s+host\\s+${HOST}\\s*\n  ^. -> Error\n"
+}

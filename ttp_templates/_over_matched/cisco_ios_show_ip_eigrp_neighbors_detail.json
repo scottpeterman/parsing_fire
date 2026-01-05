@@ -1,0 +1,83 @@
+{
+  "command": "cisco_ios_show_ip_eigrp_neighbors_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"as\">\nEIGRP-IPv4 Neighbors for AS({{AS | ORPHRASE}})\n<group name=\"current_neighbors_h_hold\">\n{{H}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE}} {{HOLD}} {{UPTIME | ORPHRASE}} {{SRTT}} {{RTO}} {{Q_CNT}} {{SEQ_NUM | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "AS": "215",
+      "H": "1",
+      "IP_ADDRESS": "81.211.127.255",
+      "INTERFACE": "Tu5",
+      "HOLD": "13",
+      "UPTIME": "18:52:46",
+      "SRTT": "55",
+      "RTO": "330",
+      "Q_CNT": "0",
+      "SEQ_NUM": "1042408760",
+      "VERSION": "25.0/2.0",
+      "RETRANS": "1",
+      "RETRIES": "0",
+      "PREFIXES": "952",
+      "TOPOLOGY_IDS_FROM_PEER": "0",
+      "MAX_NEIGHBORS": "0",
+      "CURRENT_NEIGHBORS": "0"
+    },
+    {
+      "AS": "215",
+      "H": "0",
+      "IP_ADDRESS": "83.151.157.254",
+      "INTERFACE": "Tu5",
+      "HOLD": "12",
+      "UPTIME": "6d08h",
+      "SRTT": "50",
+      "RTO": "300",
+      "Q_CNT": "0",
+      "SEQ_NUM": "564418354",
+      "VERSION": "25.0/2.0",
+      "RETRANS": "6",
+      "RETRIES": "0",
+      "PREFIXES": "952",
+      "TOPOLOGY_IDS_FROM_PEER": "0",
+      "MAX_NEIGHBORS": "0",
+      "CURRENT_NEIGHBORS": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "as": {
+        "AS": "215",
+        "current_neighbors_h_hold": [
+          {
+            "H": "1",
+            "IP_ADDRESS": "81.211.127.255",
+            "INTERFACE": "Tu5",
+            "HOLD": "13",
+            "UPTIME": "18:52:46",
+            "SRTT": "55",
+            "RTO": "330",
+            "Q_CNT": "0",
+            "SEQ_NUM": "1042408760"
+          },
+          {
+            "H": "0",
+            "IP_ADDRESS": "83.151.157.254",
+            "INTERFACE": "Tu5",
+            "HOLD": "12",
+            "UPTIME": "6d08h",
+            "SRTT": "50",
+            "RTO": "300",
+            "Q_CNT": "0",
+            "SEQ_NUM": "564418354"
+          }
+        ]
+      }
+    }
+  ],
+  "cli_content": "EIGRP-IPv4 Neighbors for AS(215)\nH   Address                 Interface              Hold Uptime   SRTT   RTO  Q  Seq\n                                                   (sec)         (ms)       Cnt Num\n1   81.211.127.255          Tu5                      13 18:52:46   55   330  0  1042408760\n   Version 25.0/2.0, Retrans: 1, Retries: 0, Prefixes: 952\n   Topology-ids from peer - 0\n0   83.151.157.254          Tu5                      12 6d08h      50   300  0  564418354\n   Version 25.0/2.0, Retrans: 6, Retries: 0, Prefixes: 952\n   Topology-ids from peer - 0\nMax Nbrs: 0, Current Nbrs: 0\n",
+  "textfsm_template": "Value Filldown AS (\\d+)\nValue Required H (\\d+)\nValue Required IP_ADDRESS ([0-9A-Fa-f:\\.]+)\nValue INTERFACE (\\S+)\nValue HOLD (\\d+)\nValue UPTIME (\\S+)\nValue SRTT (\\d+)\nValue RTO (\\d+)\nValue Q_CNT (\\d+)\nValue SEQ_NUM (\\d+)\nValue VERSION (\\S+)\nValue RETRANS (\\d+)\nValue RETRIES (\\d+)\nValue PREFIXES (\\d+)\nValue TOPOLOGY_IDS_FROM_PEER (\\d+)\nValue Fillup MAX_NEIGHBORS (\\d+)\nValue Fillup CURRENT_NEIGHBORS (\\d+)\n\nStart\n  ^\\s*(IP-|)EIGRP(-IPv[46](:\\(\\d+\\))?|)\\s+[Nn]eighbors\\s+for\\s+(process\\s+|AS\\()${AS}(\\)|)\\s*$$\n  ^\\s*(IP-|)EIGRP(-IPv[46](:\\(\\d+\\))?|)\\s+[Nn]eighbors\\s+for\\s+(process\\s+|AS\\()${AS}(\\)|)\\s+VRF default\\s*$$\n  ^\\s*H\\s+Address\\s+Interface\\s+Hold\\s+Uptime\\s+SRTT\\s+RTO\\s+Q\\s+Seq\\s*$$\n  ^\\s+\\(sec\\)\\s+\\(ms\\)\\s+Cnt\\s+Num\\s*$$ -> Neighbors\n\nNeighbors\n  ^\\s*${H}\\s+${IP_ADDRESS}\\s+${INTERFACE}\\s+${HOLD}\\s+${UPTIME}\\s+${SRTT}\\s+${RTO}\\s+${Q_CNT}\\s+${SEQ_NUM}\\s*$$\n  ^\\s*Version\\s+${VERSION},\\s+Retrans:\\s+${RETRANS},\\s+Retries:\\s+${RETRIES},\\s+Prefixes:\\s+${PREFIXES}\\s*$$\n  ^\\s*Topology-ids\\s+from\\s+peer\\s+\\-\\s+${TOPOLOGY_IDS_FROM_PEER}\\s*$$ -> Record\n  ^\\s*Max\\s+Nbrs\\:\\s+${MAX_NEIGHBORS}\\,\\s+Current\\s+Nbrs\\:\\s+${CURRENT_NEIGHBORS}\\s*$$\n  ^\\s*$$\n  ^.* -> Error\n\nEOF\n"
+}

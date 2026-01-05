@@ -1,0 +1,38 @@
+{
+  "command": "huawei_vrp_display_lldp_neighbor",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"capabilities_chassis_id_local_interface_mgmt_address\">\n{{LOCAL_INTERFACE | ORPHRASE}} has 1 neighbor(s):\nChassis ID  :{{CHASSIS_ID | ORPHRASE}}\nPort ID  :{{NEIGHBOR_PORT_ID | ORPHRASE}}\nSystem name  :{{NEIGHBOR_NAME | ORPHRASE}}\nSystem capabilities supported  :{{CAPABILITIES | ORPHRASE}}\nManagement address value :{{MGMT_ADDRESS | ORPHRASE}}\nPort VLAN ID(PVID)  :{{VLAN_ID | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOCAL_INTERFACE": "XGigabitEthernet0/0/1",
+      "CHASSIS_ID": "b8d6-f6ff-7390",
+      "NEIGHBOR_PORT_ID": "XGigabitEthernet0/0/2",
+      "NEIGHBOR_INTERFACE": "XGigabitEthernet0/0/2",
+      "NEIGHBOR_NAME": "ROUTER2",
+      "NEIGHBOR_DESCRIPTION": "Huawei Switch S6730-S24X6Q, Huawei Versatile Routing Platform Software, VRP (R) software, Version 5.170 (S6730 V200R022C00SPC500), Copyright (C) 2000-2022 HUAWEI TECH Co., Ltd.",
+      "CAPABILITIES": "bridge router",
+      "MGMT_ADDRESS": "169.254.1.2",
+      "VLAN_ID": "10"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "capabilities_chassis_id_local_interface_mgmt_address": {
+        "VLAN_ID": "10",
+        "MGMT_ADDRESS": "169.254.1.2",
+        "CAPABILITIES": "bridge router",
+        "NEIGHBOR_NAME": "ROUTER2",
+        "NEIGHBOR_PORT_ID": "XGigabitEthernet0/0/2",
+        "CHASSIS_ID": "b8d6-f6ff-7390",
+        "LOCAL_INTERFACE": "XGigabitEthernet0/0/1"
+      }
+    }
+  ],
+  "cli_content": "XGigabitEthernet0/0/1 has 1 neighbor(s):\n\nNeighbor index :1\nChassis type   :MAC address\nChassis ID     :b8d6-f6ff-7390\nPort ID type   :Interface name\nPort ID        :XGigabitEthernet0/0/2\nPort description    :XGigabitEthernet0/0/2\nSystem name         :ROUTER2\nSystem description  :Huawei Switch S6730-S24X6Q\nHuawei Versatile Routing Platform Software\nVRP (R) software, Version 5.170 (S6730 V200R022C00SPC500)\nCopyright (C) 2000-2022 HUAWEI TECH Co., Ltd.\nSystem capabilities supported   :bridge router\nSystem capabilities enabled     :bridge router\nManagement address type  :ipv4\nManagement address value :169.254.1.2\nOID  :0.6.15.43.6.1.4.1.2011.5.25.41.1.2.1.1.1.\nExpired time   :95s\n\nPort VLAN ID(PVID)  :10\nVLAN name of VLAN  1:VLAN 0001\n\nAuto-negotiation supported    :Yes\nAuto-negotiation enabled      :Yes\nOperMau   :speed(1000)/duplex(Full)\n\nPower port class            :PD\nPSE power supported         :No\nPSE power enabled           :No\nPSE pairs control ability   :No\nPower pairs                 :Unknown\nPort power classification   :Unknown\n\nLink aggregation supported:Yes\nLink aggregation enabled :No\nAggregation port ID      :0\n\nMaximum frame Size       :9216\n",
+  "textfsm_template": "Value Required LOCAL_INTERFACE (\\S+)\nValue CHASSIS_ID (.+?)\nValue MANUFACTURER (.*?)\nValue PLATFORM (.*?)\nValue NEIGHBOR_PORT_ID (.*?)\nValue NEIGHBOR_INTERFACE (.*?)\nValue NEIGHBOR_NAME (.+?)\nValue List NEIGHBOR_DESCRIPTION (.*)\nValue CAPABILITIES (.*?)\nValue MGMT_ADDRESS (\\S+)\nValue VLAN_ID (\\d+)\nValue SERIAL (\\S+)\n\nStart\n  ^${LOCAL_INTERFACE}\\s+has\\s+\\d+\\s+neighbor(s|\\(s\\)):$$\n  ^\\S+\\s+has\\s+\\d+\\s+neighbors\n  ^Neighbor\\s+index\n  ^Chassis\\s+type\n  ^Chassis\\s+ID\\s+:${CHASSIS_ID}$$\n  ^Port\\s+ID\\s+type\n  ^Port\\s+ID\\s+:${NEIGHBOR_PORT_ID}\\s*$$\n  ^Port\\s+description\\s+:${NEIGHBOR_INTERFACE}\\s*$$\n  ^System\\s+name\\s+:${NEIGHBOR_NAME}\\s*$$\n  ^System\\s+description\\s+:${NEIGHBOR_DESCRIPTION} -> SystemDescription\n  ^System\\s+capabilities\\s+supported\n  ^System\\s+capabilities\\s+enabled\\s+:${CAPABILITIES}\\s*$$\n  ^Management\\s+address\\s+type\n  ^Management\\s+address\\s*(value\\s*)?:\\s*${MGMT_ADDRESS}\n  ^Expired\\s+time\n  ^Port\\s+VLAN\\s+ID\\(PVID\\)\\s+:${VLAN_ID}\n  ^VLAN\\s+name\\s+of\\s+VLAN\n  ^Protocol\\s+identity\n  ^Auto-negotiation\n  ^OperMau\n  ^Power\n  ^OID\n  ^PSE\n  ^Port\\s+power\n  ^Link\\s+aggregation\n  ^Aggregation\n  ^Maximum\\s+frame\\s+Size\n  ^MED\\s+Device\\s+information -> MED\n  ^\\s*$$\n  ^. -> Error\n\nSystemDescription\n  ^${NEIGHBOR_DESCRIPTION} -> IgnoreDescription\n\nIgnoreDescription\n  ^System\\s+capabilities\\s+supported -> Start\n  ^${NEIGHBOR_DESCRIPTION}\n  ^\\s*$$\n  ^.*$$ -> Error\n\nMED\n  ^Device\\s+class\n  ^HardwareRev\n  ^FirmwareRev\n  ^SoftwareRev\n  ^SerialNum\\s+:${SERIAL}\n  ^Manufacturer\\s+name\\s+:${MANUFACTURER}\\s*$$\n  ^Model\\s+name\\s+:${PLATFORM}\\s*$$\n  ^Asset\\s+tracking\n  ^Media\\s+policy\\s+type\n  ^Unknown\\s+Policy\n  ^VLAN\\s+tagged\n  ^Media\n  ^Power\n  ^PoE\n  ^Port\\s+PSE\\s+Priority\n  ^Port\\s+Available\\s+power\n  ^Location\\s+format\n  ^Location\\s+information\n  ^Ca\n  ^\\S+\\s+has\\s+\\d+\\s+neighbors -> Record Start\n  ^\\s*$$\n  ^. -> Error\n"
+}

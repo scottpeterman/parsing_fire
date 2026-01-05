@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_environment_cooling
+# Source: ntc
+# TextFSM rows: 38
+# TTP rows: 40
+# Match ratio: 1.05
+
+<group name="airflow_ambient_temp_sys_cooling_status">
+System cooling status is: {{SYS_COOLING_STATUS | ORPHRASE}}
+<group name="actual_speed_config_speed_fan">
+{{FAN}} {{STATUS | ORPHRASE}} {{CONFIG_SPEED}} {{ACTUAL_SPEED | ORPHRASE}}
+</group>
+</group>

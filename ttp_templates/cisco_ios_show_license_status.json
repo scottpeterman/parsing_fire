@@ -1,0 +1,45 @@
+{
+  "command": "cisco_ios_show_license_status",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"last_ack_received_last_rpt_file_write_last_rpt_push_next_ack_deadline\">\n  Status: {{SL_ENABLED | ORPHRASE}}\n  Smart Account: {{VIRT_ACCT | ORPHRASE}}\n  Type: {{TRANSPORT_TYPE | ORPHRASE}}\n  Last ACK received: {{LAST_ACK_RECEIVED | ORPHRASE}}\n  Next ACK deadline: {{NEXT_ACK_DEADLINE | ORPHRASE}}\n  Reporting push interval: {{RPT_PUSH_INTERVAL | ORPHRASE}}\n  Next report push: {{NEXT_RPT_PUSH | ORPHRASE}}\n  Last report push: {{LAST_RPT_PUSH | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SL_ENABLED": "ENABLED",
+      "TRANSPORT_TYPE": "Transport Off",
+      "VIRT_ACCT": "<none>",
+      "SMART_ACCT": "<none>",
+      "LAST_ACK_RECEIVED": "Nov 08 10:31:23 2023 EDT",
+      "NEXT_ACK_DEADLINE": "Feb 06 10:31:23 2024 EDT",
+      "RPT_PUSH_INTERVAL": "30  days",
+      "NEXT_ACK_PUSH_CHECK": "<none>",
+      "NEXT_RPT_PUSH": "Jun 12 11:09:56 2024 EDT",
+      "LAST_RPT_PUSH": "Nov 09 11:18:00 2023 EDT",
+      "LAST_RPT_FILE_WRITE": "<none>"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "last_ack_received_last_rpt_file_write_last_rpt_push_next_ack_deadline": [
+        {
+          "SL_ENABLED": "DISABLED"
+        },
+        {
+          "LAST_RPT_PUSH": "Nov 09 11:18:00 2023 EDT",
+          "NEXT_RPT_PUSH": "Jun 12 11:09:56 2024 EDT",
+          "NEXT_ACK_DEADLINE": "Feb 06 10:31:23 2024 EDT",
+          "LAST_ACK_RECEIVED": "Nov 08 10:31:23 2023 EDT",
+          "TRANSPORT_TYPE": "Transport Off",
+          "VIRT_ACCT": "<none>",
+          "SL_ENABLED": "ENABLED"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Utility:\n  Status: DISABLED\n\nSmart Licensing Using Policy:\n  Status: ENABLED\n\nAccount Information:\n  Smart Account: <none>\n  Virtual Account: <none>\n\nData Privacy:\n  Sending Hostname: yes\n    Callhome hostname privacy: DISABLED\n    Smart Licensing hostname privacy: DISABLED\n  Version privacy: DISABLED\n\nTransport:\n  Type: Transport Off\n\nPolicy:\n  Policy in use: Merged from multiple sources.\n  Reporting ACK required: yes (CISCO default)\n  Unenforced/Non-Export Perpetual Attributes:\n    First report requirement (days): 365 (CISCO default)\n    Reporting frequency (days): 0 (CISCO default)\n    Report on change (days): 90 (CISCO default)\n  Unenforced/Non-Export Subscription Attributes:\n    First report requirement (days): 90 (CISCO default)\n    Reporting frequency (days): 90 (CISCO default)\n    Report on change (days): 90 (CISCO default)\n  Enforced (Perpetual/Subscription) License Attributes:\n    First report requirement (days): 0 (CISCO default)\n    Reporting frequency (days): 0 (CISCO default)\n    Report on change (days): 0 (CISCO default)\n  Export (Perpetual/Subscription) License Attributes:\n    First report requirement (days): 0 (CISCO default)\n    Reporting frequency (days): 0 (CISCO default)\n    Report on change (days): 0 (CISCO default)\n\nMiscellaneous:\n  Custom Id: <empty>\n\nUsage Reporting:\n  Last ACK received: Nov 08 10:31:23 2023 EDT\n  Next ACK deadline: Feb 06 10:31:23 2024 EDT\n  Reporting push interval: 30  days\n  Next ACK push check: <none>\n  Next report push: Jun 12 11:09:56 2024 EDT\n  Last report push: Nov 09 11:18:00 2023 EDT\n  Last report file write: <none>\n\nTrust Code Installed: <none>\n\n\n",
+  "textfsm_template": "Value SL_ENABLED (\\S+)\nValue TRANSPORT_TYPE (.*)\nValue URL (\\S+)\nValue PROXY_ADDRESS (\\S+)\nValue PROXY_PORT (\\d+)\nValue PROXY_USERNAME (\\S+)\nValue PROXY_PASSWORD (\\S+)\nValue VRF (\\S+)\nValue REG_STATUS (\\S+)\nValue VIRT_ACCT (.*)\nValue SMART_ACCT (.*?)\nValue LICENSE_AUTH (.*)\nValue LAST_ACK_RECEIVED (.*)\nValue NEXT_ACK_DEADLINE (.*)\nValue RPT_PUSH_INTERVAL (.*)\nValue NEXT_ACK_PUSH_CHECK (.*)\nValue NEXT_RPT_PUSH (.*)\nValue LAST_RPT_PUSH (.*)\nValue LAST_RPT_FILE_WRITE (.*)\n\nStart\n  ^Smart\\s+Licensing\\s+is\\s+${SL_ENABLED}\\s*$$\n  ^Smart\\s+Licensing\\s+Using\\s+Policy:\\s*$$ -> UsingPolicy\n  ^Transport:\\s*$$ -> Transport\n  ^Registration:\\s*$$ -> Registration\n  ^Account\\s+Information:\\s*$$ -> Registration\n  ^License\\s+Authorization:\\s*$$ -> LicenseAuth\n  ^Usage\\s+Reporting:\\s*$$ -> UsageReporting\n  # match other sections\n  ^\\s*(\\S+\\s*)+$$\n  ^\\s*$$\n  ^. -> Error\n\nUsingPolicy\n  ^\\s+Status:\\s+${SL_ENABLED}\\s*$$\n  ^\\s*$$ -> Start\n  ^. -> Error\n\nTransport\n  ^\\s+Type:\\s+${TRANSPORT_TYPE}\\s*$$\n  ^\\s+URL:\\s+${URL}\\s*$$\n  ^\\s+Address:\\s+${PROXY_ADDRESS}\\s*$$\n  ^\\s+Port:\\s+${PROXY_PORT}\\s*$$\n  ^\\s+Username:\\s+${PROXY_USERNAME}\\s*$$\n  ^\\s+Password:\\s+${PROXY_PASSWORD}\\s*$$\n  ^\\s+VRF:\\s+${VRF}\\s*$$\n  ^\\s+(\\S+\\s*)+$$\n  ^\\s*$$ -> Start\n  ^. -> Error\n\nRegistration\n  ^\\s+Status:\\s+${REG_STATUS}\\s*$$\n  ^\\s+Smart\\s+Account:\\s+${SMART_ACCT}(\\s+As\\s+of(\\s+\\S+)+)?\\s*$$\n  ^\\s+Virtual\\s+Account:\\s+${VIRT_ACCT}\\s*$$\n  # match other lines\n  ^\\s+(\\S+\\s*)+$$\n  ^\\s*$$ -> Start\n  ^. -> Error\n\nLicenseAuth\n  ^\\s+Status:\\s+${LICENSE_AUTH}(\\s+\\S+){6}$$\n  # match other lines\n  ^\\s+(\\S+\\s*)+$$\n  ^\\s*$$ -> Start\n  ^. -> Error\n\nUsageReporting\n  ^\\s+Last\\s+ACK\\s+received:\\s+${LAST_ACK_RECEIVED}\\s*$$\n  ^\\s+Next\\s+ACK\\s+deadline:\\s+${NEXT_ACK_DEADLINE}\\s*$$\n  ^\\s+Reporting\\s+push\\s+interval:\\s+${RPT_PUSH_INTERVAL}\\s*$$\n  ^\\s+Next\\s+ACK\\s+push\\s+check:\\s+${NEXT_ACK_PUSH_CHECK}\\s*$$\n  ^\\s+Next\\s+report\\s+push:\\s+${NEXT_RPT_PUSH}\\s*$$\n  ^\\s+Last\\s+report\\s+push:\\s+${LAST_RPT_PUSH}\\s*$$\n  ^\\s+Last\\s+report\\s+file\\s+write:\\s+${LAST_RPT_FILE_WRITE}\\s*$$\n  ^\\s*$$ -> Start\n  ^. -> Error\n"
+}

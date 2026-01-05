@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_bgp_summary
+# Source: ntc
+# TextFSM rows: 10
+# TTP rows: 17
+# Match ratio: 1.70
+
+<group name="address_family_local_as">
+BGP router identifier 10.0.0.0, local AS number {{LOCAL_AS | ORPHRASE}}
+<group name="bgp_neighbor_bgp_version_input_queue">
+{{BGP_NEIGHBOR}} {{BGP_VERSION | re("[\\d\\.\\(\\)A-Za-z]+")}} {{NEIGHBOR_AS}} {{MESSAGES_RECEIVED}} {{MESSAGES_SENT}} {{TABLE_VERSION | re("[\\d\\.\\(\\)A-Za-z]+")}} {{INPUT_QUEUE}} {{OUTPUT_QUEUE}} {{UP_DOWN}} {{STATE_OR_PREFIXES_RECEIVED | ORPHRASE}}
+</group>
+</group>

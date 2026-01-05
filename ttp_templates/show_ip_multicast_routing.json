@@ -1,0 +1,76 @@
+{
+  "command": "show ip multicast routing",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"interface_ip_address_group_protocol_source\">\n{{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{GROUP}} {{PROTOCOL}} {{SOURCE | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "GigabitEthernet1",
+      "IP_ADDRESS": "192.168.1.1",
+      "GROUP": "239.0.0.1",
+      "PROTOCOL": "IGMP",
+      "SOURCE": "192.168.1.100"
+    },
+    {
+      "INTERFACE": "GigabitEthernet2",
+      "IP_ADDRESS": "192.168.2.1",
+      "GROUP": "239.0.0.2",
+      "PROTOCOL": "IGMP",
+      "SOURCE": "192.168.2.100"
+    },
+    {
+      "INTERFACE": "Vlan10",
+      "IP_ADDRESS": "172.16.10.1",
+      "GROUP": "239.0.0.3",
+      "PROTOCOL": "PIM",
+      "SOURCE": "172.16.10.50"
+    },
+    {
+      "INTERFACE": "Vlan20",
+      "IP_ADDRESS": "172.16.20.1",
+      "GROUP": "224.0.1.1",
+      "PROTOCOL": "PIM",
+      "SOURCE": "172.16.20.50"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_group_protocol_source": [
+        {
+          "INTERFACE": "GigabitEthernet1",
+          "IP_ADDRESS": "192.168.1.1",
+          "GROUP": "239.0.0.1",
+          "PROTOCOL": "IGMP",
+          "SOURCE": "192.168.1.100"
+        },
+        {
+          "INTERFACE": "GigabitEthernet2",
+          "IP_ADDRESS": "192.168.2.1",
+          "GROUP": "239.0.0.2",
+          "PROTOCOL": "IGMP",
+          "SOURCE": "192.168.2.100"
+        },
+        {
+          "INTERFACE": "Vlan10",
+          "IP_ADDRESS": "172.16.10.1",
+          "GROUP": "239.0.0.3",
+          "PROTOCOL": "PIM",
+          "SOURCE": "172.16.10.50"
+        },
+        {
+          "INTERFACE": "Vlan20",
+          "IP_ADDRESS": "172.16.20.1",
+          "GROUP": "224.0.1.1",
+          "PROTOCOL": "PIM",
+          "SOURCE": "172.16.20.50"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface              IP Address      Group            Protocol  Source         \nGigabitEthernet1       192.168.1.1     239.0.0.1        IGMP      192.168.1.100  \nGigabitEthernet2       192.168.2.1     239.0.0.2        IGMP      192.168.2.100  \nVlan10                 172.16.10.1     239.0.0.3        PIM       172.16.10.50  \nVlan20                 172.16.20.1     224.0.1.1        PIM       172.16.20.50\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue IP_ADDRESS (\\S+)\nValue GROUP (\\S+)\nValue PROTOCOL (\\S+)\nValue SOURCE (\\S+)\n\nStart\n  ^\\s*Interface\\s+IP Address\\s+Group\\s+Protocol\\s+Source\\s*$$\n  ^\\s*${INTERFACE}\\s+${IP_ADDRESS}\\s+${GROUP}\\s+${PROTOCOL}\\s+${SOURCE}\\s*$$ -> Record"
+}

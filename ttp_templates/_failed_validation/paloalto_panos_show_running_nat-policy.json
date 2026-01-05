@@ -1,0 +1,39 @@
+{
+  "command": "paloalto_panos_show_running_nat-policy",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 2,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"destination_from_name_nat_type\">\n  nat-type {{NAT_TYPE | ORPHRASE}};\n  to {{FROM | ORPHRASE}};\n  destination {{SOURCE | ORPHRASE}};\n  service  {{SERVICE | ORPHRASE}};\n  terminal {{TERMINAL | ORPHRASE}};\n{{NAME | ORPHRASE}} {\n  destination {{DESTINATION | ORPHRASE}};\n  translate-to \"{{TRANSLATE_TO | ORPHRASE}}\";\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "NAME": "\"NAT default\"",
+      "NAT_TYPE": "ipv4",
+      "FROM": "Trust",
+      "SOURCE": "10.1.1.0/24",
+      "TO": "Untrust",
+      "DESTINATION": "any",
+      "SERVICE": "any/any/any",
+      "TRANSLATE_TO": "src: ethernet1/1 200.10.10.1 (dynamic-ip-and-port) (pool idx: 2)",
+      "TERMINAL": "no"
+    },
+    {
+      "NAME": "Inbound-NAT-to-DMZ-Server1",
+      "NAT_TYPE": "ipv4",
+      "FROM": "Untrust",
+      "SOURCE": "any",
+      "TO": "Untrust",
+      "DESTINATION": "200.10.10.100",
+      "SERVICE": "any/any/any",
+      "TRANSLATE_TO": "dst: 10.1.2.10",
+      "TERMINAL": "no"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "\"NAT default\" {\n        nat-type ipv4;\n        from Trust;\n        source 10.1.1.0/24;\n        to Untrust;\n        to-interface  ;\n        destination any;\n        service  any/any/any;\n        translate-to \"src: ethernet1/1 200.10.10.1 (dynamic-ip-and-port) (pool idx: 2)\";\n        terminal no;\n}\n\nInbound-NAT-to-DMZ-Server1 {\n        nat-type ipv4;\n        from Untrust;\n        source any;\n        to Untrust;\n        to-interface  ;\n        destination 200.10.10.100;\n        service  any/any/any;\n        translate-to \"dst: 10.1.2.10\";\n        terminal no;\n}\n\n",
+  "textfsm_template": "Value Filldown NAME (.*?)\nValue Required NAT_TYPE (\\S+)\nValue FROM (\\S+|\\[(\\s\\S+)+\\s\\])\n# any  |  ip (optional mask)  |  [ multiIP ]\nValue SOURCE (any|([A-Fa-f0-9:\\.]+(\\/\\d+)?)|\\[(\\s[A-Fa-f0-9:\\.]+(\\/\\d+)?)+\\s\\])\nValue TO (\\S+|\\[(\\s\\S+)+\\s\\])\nValue TO_INTERFACE (\\S*)\nValue DESTINATION (\\S+|\\[(\\s\\S+)+\\s\\])\nValue SERVICE ([\\S+\\s+]+)\nValue TRANSLATE_TO ([\\S+\\s+]+)\nValue TERMINAL (\\S+)\n\nStart\n  ^${NAME}\\s+\\{$$\n  ^\\s+nat-type\\s+${NAT_TYPE};$$\n  ^\\s+from\\s+${FROM};$$\n  ^\\s+source\\s+${SOURCE};$$ \n  ^\\s+to\\s+${TO};$$\n  ^.+to-interface\\s${TO_INTERFACE}\\s?;$$\n  ^\\s+destination\\s+${DESTINATION};$$\n  ^\\s+service\\s+${SERVICE};$$\n  ^\\s+translate-to\\s+\"${TRANSLATE_TO}\";$$\n  ^\\s+terminal\\s+${TERMINAL};$$\n  ^}$$ -> Record\n  ^. -> Error\n"
+}

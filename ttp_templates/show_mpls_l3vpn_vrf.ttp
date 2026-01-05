@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show mpls l3vpn vrf
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="interfaces_next_hop_rd_route">
+VRF: {{VRF_NAME | ORPHRASE}}
+ Route Distinguisher: {{RD | ORPHRASE}}
+  - {{INTERFACES | ORPHRASE}}
+  {{ROUTE}} -> {{NEXT_HOP | ORPHRASE}}
+</group>

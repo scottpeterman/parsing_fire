@@ -1,0 +1,56 @@
+{
+  "command": "show forwarding-adjacency",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"destination_interface_next_hop_mac_outgoing_interface\">\n  Status: {{STATUS | ORPHRASE}}\n  Outgoing Interface: {{INTERFACE | ORPHRASE}}\n  Destination: {{DESTINATION | ORPHRASE}}\n  Next Hop MAC: {{NEXT_HOP_MAC | ORPHRASE}}\n  Outgoing Interface: {{OUTGOING_INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Ethernet1/1",
+      "DESTINATION": "10.0.0.2",
+      "NEXT_HOP_MAC": "00:1B:44:11:3A:B7",
+      "OUTGOING_INTERFACE": "Ethernet1/2",
+      "STATUS": "up"
+    },
+    {
+      "INTERFACE": "Ethernet1/2",
+      "DESTINATION": "192.168.1.1",
+      "NEXT_HOP_MAC": "00:1B:44:11:3A:C8",
+      "OUTGOING_INTERFACE": "Ethernet1/3",
+      "STATUS": "down"
+    },
+    {
+      "INTERFACE": "Ethernet1/3",
+      "DESTINATION": "172.16.0.5",
+      "NEXT_HOP_MAC": "00:1B:44:11:3A:D9",
+      "OUTGOING_INTERFACE": "Ethernet1/4",
+      "STATUS": "up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "destination_interface_next_hop_mac_outgoing_interface": [
+        {
+          "INTERFACE": "Ethernet1/3",
+          "NEXT_HOP_MAC": "00:1B:44:11:3A:C8",
+          "DESTINATION": "192.168.1.1",
+          "STATUS": "up"
+        },
+        {
+          "INTERFACE": "Ethernet1/4",
+          "NEXT_HOP_MAC": "00:1B:44:11:3A:D9",
+          "DESTINATION": "172.16.0.5",
+          "STATUS": "down"
+        },
+        {
+          "STATUS": "up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface: Ethernet1/1\n  Destination: 10.0.0.2\n  Next Hop MAC: 00:1B:44:11:3A:B7\n  Outgoing Interface: Ethernet1/2\n  Status: up\n\nInterface: Ethernet1/2\n  Destination: 192.168.1.1\n  Next Hop MAC: 00:1B:44:11:3A:C8\n  Outgoing Interface: Ethernet1/3\n  Status: down\n\nInterface: Ethernet1/3\n  Destination: 172.16.0.5\n  Next Hop MAC: 00:1B:44:11:3A:D9\n  Outgoing Interface: Ethernet1/4\n  Status: up\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue DESTINATION (\\d{1,3}(?:\\.\\d{1,3}){3})\nValue NEXT_HOP_MAC (\\S+)\nValue OUTGOING_INTERFACE (\\S+)\nValue STATUS (\\S+)\n\nStart\n  ^Interface:\\s+${INTERFACE}$$\n  ^\\s+Destination:\\s+${DESTINATION}$$\n  ^\\s+Next Hop MAC:\\s+${NEXT_HOP_MAC}$$\n  ^\\s+Outgoing Interface:\\s+${OUTGOING_INTERFACE}$$\n  ^\\s+Status:\\s+${STATUS}$$ -> Record"
+}

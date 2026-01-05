@@ -1,0 +1,56 @@
+{
+  "command": "arista_eos_show_ip_ospf_neighbor",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"neighbor_id_vrf_priority_state_dead_time_ip_address_interface\">\n{{NEIGHBOR_ID}} {{VRF}} {{PRIORITY}} {{STATE | ORPHRASE}} {{DEAD_TIME}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHBOR_ID": "3.3.3.3",
+      "VRF": "default",
+      "PRIORITY": "1",
+      "STATE": "FULL/BDR",
+      "DEAD_TIME": "00:00:34",
+      "IP_ADDRESS": "10.3.4.3",
+      "INTERFACE": "Ethernet2"
+    },
+    {
+      "NEIGHBOR_ID": "2.2.2.2",
+      "VRF": "default",
+      "PRIORITY": "1",
+      "STATE": "FULL",
+      "DEAD_TIME": "00:00:38",
+      "IP_ADDRESS": "10.2.4.2",
+      "INTERFACE": "Ethernet3"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neighbor_id_vrf_priority_state_dead_time_ip_address_interface": [
+        {
+          "NEIGHBOR_ID": "3.3.3.3",
+          "VRF": "default",
+          "PRIORITY": "1",
+          "STATE": "FULL/BDR",
+          "DEAD_TIME": "00:00:34",
+          "IP_ADDRESS": "10.3.4.3",
+          "INTERFACE": "Ethernet2"
+        },
+        {
+          "NEIGHBOR_ID": "2.2.2.2",
+          "VRF": "default",
+          "PRIORITY": "1",
+          "STATE": "FULL",
+          "DEAD_TIME": "00:00:38",
+          "IP_ADDRESS": "10.2.4.2",
+          "INTERFACE": "Ethernet3"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Neighbor ID     VRF    Pri   State            Dead Time   Address         Interface\n3.3.3.3         default    1   FULL/BDR         00:00:34    10.3.4.3        Ethernet2\n2.2.2.2         default    1   FULL             00:00:38    10.2.4.2        Ethernet3\n",
+  "textfsm_template": "Value Required NEIGHBOR_ID (\\d+.\\d+.\\d+.\\d+)\nValue INSTANCE (\\d+)\nValue VRF (\\S+)\nValue PRIORITY (\\d+)\nValue STATE (\\S+)\nValue DEAD_TIME (\\d+:\\d+:\\d+)\nValue IP_ADDRESS (\\d+.\\d+.\\d+.\\d+)\nValue INTERFACE ([\\w\\./-]+)\n\nStart\n  ^${NEIGHBOR_ID}\\s+${VRF}\\s+${PRIORITY}\\s+${STATE}\\s+${DEAD_TIME}\\s+${IP_ADDRESS}\\s+${INTERFACE} -> Record\n  ^\\s*${NEIGHBOR_ID}\\s+${INSTANCE}\\s+${VRF}\\s+${PRIORITY}\\s+${STATE}\\s+${DEAD_TIME}\\s+${IP_ADDRESS}\\s+${INTERFACE}\\s*$$ -> Record\n"
+}

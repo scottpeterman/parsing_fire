@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_vrp_display_ip_vpn-instance_interface
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="name_id">
+ VPN-Instance Name and ID : {{NAME}}, {{ID | ORPHRASE}}
+</group>

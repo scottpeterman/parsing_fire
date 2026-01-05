@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show environment all
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 6
+# Match ratio: 1.50
+
+<group name="location_direction_status_rpms_part_num">
+{{LOCATION | ORPHRASE}} {{DIRECTION}} {{STATUS | ORPHRASE}} {{RPMS}} {{PART_NUM | ORPHRASE}}
+</group>

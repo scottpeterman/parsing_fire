@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ospf database
+# Source: chatgpt
+# TextFSM rows: 7
+# TTP rows: 7
+# Match ratio: 1.00
+
+<group name="link_id_adv_router_age_seq_checksum_link_count">
+  {{LINK_ID}} {{ADV_ROUTER}} {{AGE}} {{SEQ}} {{CHECKSUM | ORPHRASE}} {{LINK_COUNT | re("\\d+")}}
+</group>
+<group name="link_id_adv_router_age_seq_checksum">
+  {{LINK_ID}} {{ADV_ROUTER}} {{AGE}} {{SEQ}} {{CHECKSUM | ORPHRASE}}
+</group>

@@ -1,0 +1,196 @@
+{
+  "command": "arista_eos_show_interfaces",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.2857142857142856,
+  "textfsm_rows": 7,
+  "ttp_rows": 16,
+  "ttp_template": "<group name=\"interface_link_status_protocol_status\">\n{{INTERFACE}} is {{LINK_STATUS | ORPHRASE}}, line protocol is {{PROTOCOL_STATUS | ORPHRASE}}\n</group>\n<group name=\"hardware_type_link_status_change_link_status_protocol_status\">\n{{HARDWARE_TYPE}}{{LINK_STATUS_CHANGE | ORPHRASE}} is {{LINK_STATUS | ORPHRASE}}, line protocol is {{PROTOCOL_STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Ethernet1",
+      "LINK_STATUS": "up",
+      "PROTOCOL_STATUS": "up (connected)",
+      "HARDWARE_TYPE": "Ethernet",
+      "MAC_ADDRESS": "aac1.ab3b.1c7a",
+      "BIA": "aac1.ab3b.1c7a",
+      "DESCRIPTION": "Test interface Et1",
+      "IP_ADDRESS": "10.0.0.1/30",
+      "MTU": "1500",
+      "BANDWIDTH": "1000000 kbit",
+      "INTERFACE_UP_TIME": "21 minutes, 40 seconds",
+      "LINK_STATUS_CHANGE": "2"
+    },
+    {
+      "INTERFACE": "Ethernet2",
+      "LINK_STATUS": "up",
+      "PROTOCOL_STATUS": "up (connected)",
+      "HARDWARE_TYPE": "Ethernet",
+      "MAC_ADDRESS": "aac1.ab31.e593",
+      "BIA": "aac1.ab31.e593",
+      "DESCRIPTION": "Test int Et2",
+      "IP_ADDRESS": "192.168.1.1/30",
+      "MTU": "1500",
+      "BANDWIDTH": "1000000 kbit",
+      "INTERFACE_UP_TIME": "21 minutes, 40 seconds",
+      "LINK_STATUS_CHANGE": "2"
+    },
+    {
+      "INTERFACE": "Ethernet3",
+      "LINK_STATUS": "up",
+      "PROTOCOL_STATUS": "up (connected)",
+      "HARDWARE_TYPE": "Ethernet",
+      "MAC_ADDRESS": "aac1.ab23.bb13",
+      "BIA": "aac1.ab23.bb13",
+      "MTU": "9214",
+      "BANDWIDTH": "1000000 kbit",
+      "INTERFACE_UP_TIME": "21 minutes, 40 seconds",
+      "LINK_STATUS_CHANGE": "2"
+    },
+    {
+      "INTERFACE": "Ethernet4",
+      "LINK_STATUS": "up",
+      "PROTOCOL_STATUS": "up (connected)",
+      "HARDWARE_TYPE": "Ethernet",
+      "MAC_ADDRESS": "aac1.abb1.4f2c",
+      "BIA": "aac1.abb1.4f2c",
+      "MTU": "9214",
+      "BANDWIDTH": "1000000 kbit",
+      "INTERFACE_UP_TIME": "21 minutes, 40 seconds",
+      "LINK_STATUS_CHANGE": "2"
+    },
+    {
+      "INTERFACE": "Loopback0",
+      "LINK_STATUS": "up",
+      "PROTOCOL_STATUS": "up (connected)",
+      "HARDWARE_TYPE": "Loopback",
+      "IP_ADDRESS": "1.1.1.1/32",
+      "MTU": "65535",
+      "INTERFACE_UP_TIME": "21 minutes, 51 seconds"
+    },
+    {
+      "INTERFACE": "Management0",
+      "LINK_STATUS": "up",
+      "PROTOCOL_STATUS": "up (connected)",
+      "HARDWARE_TYPE": "Ethernet",
+      "MAC_ADDRESS": "001c.7338.71c6",
+      "BIA": "001c.7338.71c6",
+      "IP_ADDRESS": "172.20.20.2/24",
+      "MTU": "1500",
+      "BANDWIDTH": "1000000 kbit",
+      "INTERFACE_UP_TIME": "21 minutes, 53 seconds",
+      "LINK_STATUS_CHANGE": "3"
+    },
+    {
+      "INTERFACE": "Vlan100",
+      "LINK_STATUS": "up",
+      "PROTOCOL_STATUS": "up (connected)",
+      "HARDWARE_TYPE": "Vlan",
+      "MAC_ADDRESS": "001c.7338.71c7",
+      "BIA": "001c.7338.71c7",
+      "DESCRIPTION": "VLAN100",
+      "IP_ADDRESS": "10.100.0.1/24",
+      "MTU": "1500",
+      "INTERFACE_UP_TIME": "21 minutes, 56 seconds"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_link_status_protocol_status": [
+        {
+          "INTERFACE": "Ethernet1",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up (connected)"
+        },
+        {
+          "INTERFACE": "Ethernet2",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up (connected)"
+        },
+        {
+          "INTERFACE": "Ethernet3",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up (connected)"
+        },
+        {
+          "INTERFACE": "Ethernet4",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up (connected)"
+        },
+        {
+          "INTERFACE": "Loopback0",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up (connected)"
+        },
+        {
+          "INTERFACE": "Management0",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up (connected)"
+        },
+        {
+          "INTERFACE": "Vlan100",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up (connected)"
+        },
+        {
+          "INTERFACE": "Vlan500",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up (connected)"
+        }
+      ],
+      "hardware_type_link_status_change_link_status_protocol_status": [
+        {
+          "HARDWARE_TYPE": "Ethernet",
+          "LINK_STATUS_CHANGE": "1",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up (connected)"
+        },
+        {
+          "HARDWARE_TYPE": "Ethernet",
+          "LINK_STATUS_CHANGE": "2",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up (connected)"
+        },
+        {
+          "HARDWARE_TYPE": "Ethernet",
+          "LINK_STATUS_CHANGE": "3",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up (connected)"
+        },
+        {
+          "HARDWARE_TYPE": "Ethernet",
+          "LINK_STATUS_CHANGE": "4",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up (connected)"
+        },
+        {
+          "HARDWARE_TYPE": "Loopback",
+          "LINK_STATUS_CHANGE": "0",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up (connected)"
+        },
+        {
+          "HARDWARE_TYPE": "Management",
+          "LINK_STATUS_CHANGE": "0",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up (connected)"
+        },
+        {
+          "HARDWARE_TYPE": "Vlan10",
+          "LINK_STATUS_CHANGE": "0",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up (connected)"
+        },
+        {
+          "HARDWARE_TYPE": "Vlan50",
+          "LINK_STATUS_CHANGE": "0",
+          "LINK_STATUS": "up",
+          "PROTOCOL_STATUS": "up (connected)"
+        }
+      ]
+    }
+  ],
+  "cli_content": "ceos1#show  interface\n\nEthernet1 is up, line protocol is up (connected)\n  Hardware is Ethernet, address is aac1.ab3b.1c7a (bia aac1.ab3b.1c7a)\n  Description: \"Test interface Et1\"\n  Internet address is 10.0.0.1/30\n  Broadcast address is 255.255.255.255\n  IPv6 link-local address is fe80::a8c1:abff:fe3b:1c7a/64\n  No IPv6 global unicast address is assigned\n  IP MTU 1500 bytes (default), BW 1000000 kbit\n  Full-duplex, 1Gb/s, auto negotiation: off, uni-link: n/a\n  Up 21 minutes, 40 seconds\n  Loopback Mode : None\n  2 link status changes since last clear\n  Last clearing of \"show interface\" counters never\n  5 minutes input rate 0 bps (0.0% with framing overhead), 0 packets/sec\n  5 minutes output rate 0 bps (0.0% with framing overhead), 0 packets/sec\n     5280 packets input, 381190 bytes\n     Received 1 broadcasts, 273 multicast\n     0 runts, 0 giants\n     0 input errors, 0 CRC, 0 alignment, 0 symbol, 0 input discards\n     0 PAUSE input\n     0 packets output, 0 bytes\n     Sent 0 broadcasts, 0 multicast\n     0 output errors, 0 collisions\n     0 late collision, 0 deferred, 0 output discards\n     0 PAUSE output\nEthernet2 is up, line protocol is up (connected)\n  Hardware is Ethernet, address is aac1.ab31.e593 (bia aac1.ab31.e593)\n  Description: \"Test int Et2\"\n  Internet address is 192.168.1.1/30\n  Broadcast address is 255.255.255.255\n  IPv6 link-local address is fe80::a8c1:abff:fe31:e593/64\n  No IPv6 global unicast address is assigned\n  IP MTU 1500 bytes (default), BW 1000000 kbit\n  Full-duplex, 1Gb/s, auto negotiation: off, uni-link: n/a\n  Up 21 minutes, 40 seconds\n  Loopback Mode : None\n  2 link status changes since last clear\n  Last clearing of \"show interface\" counters never\n  5 minutes input rate 0 bps (0.0% with framing overhead), 0 packets/sec\n  5 minutes output rate 0 bps (0.0% with framing overhead), 0 packets/sec\n     5061 packets input, 362112 bytes\n     Received 1 broadcasts, 61 multicast\n     0 runts, 0 giants\n     0 input errors, 0 CRC, 0 alignment, 0 symbol, 0 input discards\n     0 PAUSE input\n     0 packets output, 0 bytes\n     Sent 0 broadcasts, 0 multicast\n     0 output errors, 0 collisions\n     0 late collision, 0 deferred, 0 output discards\n     0 PAUSE output\nEthernet3 is up, line protocol is up (connected)\n  Hardware is Ethernet, address is aac1.ab23.bb13 (bia aac1.ab23.bb13)\n  Ethernet MTU 9214 bytes, BW 1000000 kbit\n  Full-duplex, 1Gb/s, auto negotiation: off, uni-link: n/a\n  Up 21 minutes, 40 seconds\n  Loopback Mode : None\n  2 link status changes since last clear\n  Last clearing of \"show interface\" counters never\n  5 minutes input rate 0 bps (0.0% with framing overhead), 0 packets/sec\n  5 minutes output rate 0 bps (0.0% with framing overhead), 0 packets/sec\n     900 packets input, 106797 bytes\n     Received 0 broadcasts, 900 multicast\n     0 runts, 0 giants\n     0 input errors, 0 CRC, 0 alignment, 0 symbol, 0 input discards\n     0 PAUSE input\n     187 packets output, 16634 bytes\n     Sent 0 broadcasts, 187 multicast\n     0 output errors, 0 collisions\n     0 late collision, 0 deferred, 0 output discards\n     0 PAUSE output\nEthernet4 is up, line protocol is up (connected)\n  Hardware is Ethernet, address is aac1.abb1.4f2c (bia aac1.abb1.4f2c)\n  Ethernet MTU 9214 bytes, BW 1000000 kbit\n  Full-duplex, 1Gb/s, auto negotiation: off, uni-link: n/a\n  Up 21 minutes, 40 seconds\n  Loopback Mode : None\n  2 link status changes since last clear\n  Last clearing of \"show interface\" counters never\n  5 minutes input rate 0 bps (0.0% with framing overhead), 0 packets/sec\n  5 minutes output rate 0 bps (0.0% with framing overhead), 0 packets/sec\n     705 packets input, 90157 bytes\n     Received 0 broadcasts, 705 multicast\n     0 runts, 0 giants\n     0 input errors, 0 CRC, 0 alignment, 0 symbol, 0 input discards\n     0 PAUSE input\n     0 packets output, 0 bytes\n     Sent 0 broadcasts, 0 multicast\n     0 output errors, 0 collisions\n     0 late collision, 0 deferred, 0 output discards\n     0 PAUSE output\nLoopback0 is up, line protocol is up (connected)\n  Hardware is Loopback\n  Internet address is 1.1.1.1/32\n  Broadcast address is 255.255.255.255\n  IP MTU 65535 bytes (default)\n  Up 21 minutes, 51 seconds\nManagement0 is up, line protocol is up (connected)\n  Hardware is Ethernet, address is 001c.7338.71c6 (bia 001c.7338.71c6)\n  Internet address is 172.20.20.2/24\n  Broadcast address is 255.255.255.255\n  IP MTU 1500 bytes (default), BW 1000000 kbit\n  Full-duplex, 1Gb/s, auto negotiation: on, uni-link: n/a\n  Up 21 minutes, 53 seconds\n  Loopback Mode : None\n  3 link status changes since last clear\n  Last clearing of \"show interface\" counters never\n  5 minutes input rate 426 bps (0.0% with framing overhead), 0 packets/sec\n  5 minutes output rate 424 bps (0.0% with framing overhead), 0 packets/sec\n     884 packets input, 108713 bytes\n     Received 0 broadcasts, 0 multicast\n     0 runts, 0 giants\n     0 input errors, 0 CRC, 0 alignment, 0 symbol, 47 input discards\n     0 PAUSE input\n     878 packets output, 127164 bytes\n     Sent 0 broadcasts, 0 multicast\n     0 output errors, 0 collisions\n     0 late collision, 0 deferred, 0 output discards\n     0 PAUSE output\nVlan100 is up, line protocol is up (connected)\n  Hardware is Vlan, address is 001c.7338.71c7 (bia 001c.7338.71c7)\n  Description: VLAN100\n  Internet address is 10.100.0.1/24\n  Broadcast address is 255.255.255.255\n  IPv6 link-local address is fe80::21c:73ff:fe38:71c7/64\n  No IPv6 global unicast address is assigned\n  IP MTU 1500 bytes (default)\n  Up 21 minutes, 56 seconds\nVlan500 is up, line protocol is up (connected)\n  Hardware is Vlan, address is 001c.7338.71c7 (bia 001c.7338.71c7)\n  Description: VLAN500\n  Internet address is 192.168.5.1/24\n  Broadcast address is 255.255.255.255\n  IPv6 link-local address is fe80::21c:73ff:fe38:71c7/64\n  IPv6 global unicast address(es):\n    2001:192:168:5::1, subnet is 2001:192:168:5::/64\n  IP MTU 1500 bytes (default)\n  Up 21 minutes, 56 seconds\n",
+  "textfsm_template": "Value Required INTERFACE (\\S+)\nValue LINK_STATUS (.*)\nValue PROTOCOL_STATUS (.*)\nValue HARDWARE_TYPE ([\\w+-]+)\nValue MAC_ADDRESS ([a-zA-Z0-9]+.[a-zA-Z0-9]+.[a-zA-Z0-9]+)\nValue BIA ([a-zA-Z0-9]+.[a-zA-Z0-9]+.[a-zA-Z0-9]+)\nValue DESCRIPTION ([^\\\"]*)\nValue IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+\\/\\d+)\nValue MTU (\\d+)\nValue BANDWIDTH (\\d+\\s+\\w+)\nValue INTERFACE_UP_TIME (.*)\nValue LINK_STATUS_CHANGE (\\d+)\n\nStart\n  ^\\S+\\s+is\\s+\\S+,\\s+line\\s+protocol\\s+is\\s+\\S+\\s+\\S+ -> Continue.Record\n  ^${INTERFACE}\\s+is\\s+${LINK_STATUS},\\s+line\\s+protocol\\s+is\\s+${PROTOCOL_STATUS}\n  ^\\s+Hardware\\s+is\\s+${HARDWARE_TYPE}(.*address\\s+is\\s+${MAC_ADDRESS})*(.*bia\\s+${BIA})*\n  ^\\s+Description:\\s+\"?${DESCRIPTION}\"?$$\n  ^\\s+Internet\\s+address\\s+is\\s+${IP_ADDRESS}\n  ^\\s+(Up|Down)\\s+${INTERFACE_UP_TIME}\n  ^\\s+${LINK_STATUS_CHANGE}\\s+link\\s+status\\s+changes.*\n  ^.*MTU\\s+${MTU}(.*BW\\s+${BANDWIDTH})*\n  ^\\s*\n  ^. -> Error\n\nEOF\n"
+}

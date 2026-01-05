@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show logging status
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="buffer_size_facility_host_severity">
+Logging console:  {{STATUS | ORPHRASE}} (severity: debugging)
+Logging buffer size:  {{BUFFER_SIZE | ORPHRASE}}
+Logging host:  {{HOST | re("\\S+")}} {{SEVERITY | ORPHRASE}}
+Logging source-interface:  {{SOURCE_INTERFACE | ORPHRASE}}
+Logging facility:  {{FACILITY | ORPHRASE}}
+Suppress logging:  {{SUPPRESS_LOGGING | ORPHRASE}}
+</group>

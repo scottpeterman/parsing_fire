@@ -1,0 +1,128 @@
+{
+  "command": "cisco_nxos_show_nve_vni",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 8,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"interface_vni_mcast_group_state_mode_type_bd_vrf\">\n{{INTERFACE}} {{VNI}} {{MCAST_GROUP}} {{STATE | ORPHRASE}} {{MODE}} {{TYPE | ORPHRASE}} [{{BD_VRF}}] SA \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "nve1",
+      "VNI": "1006",
+      "MCAST_GROUP": "UnicastBGP",
+      "STATE": "Up",
+      "MODE": "CP",
+      "TYPE": "L2",
+      "BD_VRF": "6"
+    },
+    {
+      "INTERFACE": "nve1",
+      "VNI": "1105",
+      "MCAST_GROUP": "UnicastBGP",
+      "STATE": "Up",
+      "MODE": "CP",
+      "TYPE": "L2",
+      "BD_VRF": "1105"
+    },
+    {
+      "INTERFACE": "nve1",
+      "VNI": "2111",
+      "MCAST_GROUP": "UnicastBGP",
+      "STATE": "Up",
+      "MODE": "CP",
+      "TYPE": "L2",
+      "BD_VRF": "111"
+    },
+    {
+      "INTERFACE": "nve1",
+      "VNI": "3098",
+      "MCAST_GROUP": "UnicastBGP",
+      "STATE": "Up",
+      "MODE": "CP",
+      "TYPE": "L2",
+      "BD_VRF": "98"
+    },
+    {
+      "INTERFACE": "nve1",
+      "VNI": "10301",
+      "MCAST_GROUP": "n/a",
+      "STATE": "Up",
+      "MODE": "CP",
+      "TYPE": "L3",
+      "BD_VRF": "BLU"
+    },
+    {
+      "INTERFACE": "nve1",
+      "VNI": "10302",
+      "MCAST_GROUP": "n/a",
+      "STATE": "Up",
+      "MODE": "CP",
+      "TYPE": "L3",
+      "BD_VRF": "GRN"
+    },
+    {
+      "INTERFACE": "nve1",
+      "VNI": "10303",
+      "MCAST_GROUP": "n/a",
+      "STATE": "Up",
+      "MODE": "CP",
+      "TYPE": "L3",
+      "BD_VRF": "AMB"
+    },
+    {
+      "INTERFACE": "nve1",
+      "VNI": "10306",
+      "MCAST_GROUP": "n/a",
+      "STATE": "Up",
+      "MODE": "CP",
+      "TYPE": "L3",
+      "BD_VRF": "GRY"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_vni_mcast_group_state_mode_type_bd_vrf": [
+        {
+          "INTERFACE": "nve1",
+          "VNI": "1006",
+          "MCAST_GROUP": "UnicastBGP",
+          "STATE": "Up",
+          "MODE": "CP",
+          "TYPE": "L2",
+          "BD_VRF": "6"
+        },
+        {
+          "INTERFACE": "nve1",
+          "VNI": "1105",
+          "MCAST_GROUP": "UnicastBGP",
+          "STATE": "Up",
+          "MODE": "CP",
+          "TYPE": "L2",
+          "BD_VRF": "1105"
+        },
+        {
+          "INTERFACE": "nve1",
+          "VNI": "2111",
+          "MCAST_GROUP": "UnicastBGP",
+          "STATE": "Up",
+          "MODE": "CP",
+          "TYPE": "L2",
+          "BD_VRF": "111"
+        },
+        {
+          "INTERFACE": "nve1",
+          "VNI": "3098",
+          "MCAST_GROUP": "UnicastBGP",
+          "STATE": "Up",
+          "MODE": "CP",
+          "TYPE": "L2",
+          "BD_VRF": "98"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Codes: CP - Control Plane        DP - Data Plane         \n       UC - Unconfigured         SA - Suppress ARP       \n       SU - Suppress Unknown Unicast\n       Xconn - Crossconnect     \n       MS-IR - Multisite Ingress Replication\nInterface VNI      Multicast-group   State Mode Type [BD/VRF]      Flags\n--------- -------- ----------------- ----- ---- ------------------ -----\nnve1      1006    UnicastBGP          Up    CP   L2 [6]             SA   \nnve1      1105    UnicastBGP          Up    CP   L2 [1105]          SA  \nnve1      2111    UnicastBGP          Up    CP   L2 [111]           SA  \nnve1      3098    UnicastBGP          Up    CP   L2 [98]            SA  \nnve1      10301 n/a                   Up    CP   L3 [BLU]               \nnve1      10302 n/a                   Up    CP   L3 [GRN]               \nnve1      10303 n/a                   Up    CP   L3 [AMB]                              \nnve1      10306 n/a                   Up    CP   L3 [GRY]               \n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue VNI (\\d+)\nValue MCAST_GROUP (\\S+)\nValue STATE (Up|Down)\nValue MODE (\\S+)\nValue TYPE (L2|L3)\nValue BD_VRF (\\S+)\n\nStart\n  ^Codes:\\s+CP.*\n  ^\\s+UC\\s+-\\s+Unconfigured.*\n  ^\\s+SU\\s+-\\s+Suppress.*\n  ^\\s+Xconn\\s+-\\s+Crossconnect.*\n  ^\\s+MS-IR\\s+-\\s+Multisite.*\n  ^Interface\\s+VNI\\s+Multicast-group\\s+State\\s+Mode\\s+Type\\s+\\[BD/VRF\\]\\s+Flags\\s*$$\n  ^-+\n  ^${INTERFACE}\\s+${VNI}\\s+${MCAST_GROUP}\\s+${STATE}\\s+${MODE}\\s+${TYPE}\\s+\\[${BD_VRF}\\] -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

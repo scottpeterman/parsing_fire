@@ -1,0 +1,72 @@
+{
+  "command": "show pim neighbors",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.125,
+  "textfsm_rows": 8,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"interface_neighbor_timeout_mode\">\n{{INTERFACE}} {{NEIGHBOR}} {{TIMEOUT | ORPHRASE}}{{MODE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "PIM",
+      "NEIGHBOR": "Neighbor",
+      "TIMEOUT": "Tabl",
+      "MODE": "e"
+    },
+    {
+      "INTERFACE": "---------------------------------------------",
+      "NEIGHBOR": "-",
+      "TIMEOUT": "-",
+      "MODE": "-"
+    },
+    {
+      "INTERFACE": "---------------------------------------------",
+      "NEIGHBOR": "-",
+      "TIMEOUT": "-",
+      "MODE": "-"
+    },
+    {
+      "INTERFACE": "Ethernet0/1",
+      "NEIGHBOR": "10.0.0.2",
+      "TIMEOUT": "00:01:59",
+      "MODE": "dense"
+    },
+    {
+      "INTERFACE": "Ethernet0/2",
+      "NEIGHBOR": "10.0.0.3",
+      "TIMEOUT": "00:03:29",
+      "MODE": "sparse"
+    },
+    {
+      "INTERFACE": "Ethernet1/0",
+      "NEIGHBOR": "10.0.0.4",
+      "TIMEOUT": "00:00:59",
+      "MODE": "dense"
+    },
+    {
+      "INTERFACE": "Ethernet1/1",
+      "NEIGHBOR": "10.0.0.5",
+      "TIMEOUT": "00:02:19",
+      "MODE": "sparse"
+    },
+    {
+      "INTERFACE": "---------------------------------------------",
+      "NEIGHBOR": "-",
+      "TIMEOUT": "-",
+      "MODE": "-"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_neighbor_timeout_mode": {
+        "INTERFACE": "PIM",
+        "NEIGHBOR": "Neighbor",
+        "TIMEOUT": "Tabl",
+        "MODE": "e"
+      }
+    }
+  ],
+  "cli_content": "PIM Neighbor Table\n------------------------------------------------\nInterface        Neighbor          Timeout    Mode\n------------------------------------------------\nEthernet0/1      10.0.0.2          00:01:59   dense\nEthernet0/2      10.0.0.3          00:03:29   sparse\nEthernet1/0      10.0.0.4          00:00:59   dense\nEthernet1/1      10.0.0.5          00:02:19   sparse\n------------------------------------------------\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue NEIGHBOR (\\S+)\nValue TIMEOUT (\\S+)\nValue MODE (\\S+)\n\nStart\n  ^\\s*Interface\\s*Neighbor\\s*Timeout\\s*Mode\\s*$$\n  ^\\s*${INTERFACE}\\s*${NEIGHBOR}\\s*${TIMEOUT}\\s*${MODE}\\s*$$ -> Record"
+}

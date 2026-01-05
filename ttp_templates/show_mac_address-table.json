@@ -1,0 +1,92 @@
+{
+  "command": "show mac address-table",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 6,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"vlan_mac_address_type_ports\">\n   {{VLAN | re(\"\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{TYPE}} {{PORTS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN": "1",
+      "MAC_ADDRESS": "0001.6380.0810",
+      "TYPE": "DYNAMIC",
+      "PORTS": "Gi0/1"
+    },
+    {
+      "VLAN": "1",
+      "MAC_ADDRESS": "0001.6380.0820",
+      "TYPE": "DYNAMIC",
+      "PORTS": "Gi0/2"
+    },
+    {
+      "VLAN": "2",
+      "MAC_ADDRESS": "0002.1650.1c01",
+      "TYPE": "DYNAMIC",
+      "PORTS": "Gi0/3"
+    },
+    {
+      "VLAN": "2",
+      "MAC_ADDRESS": "0002.1650.1c02",
+      "TYPE": "DYNAMIC",
+      "PORTS": "Gi0/4"
+    },
+    {
+      "VLAN": "3",
+      "MAC_ADDRESS": "0003.bbff.5e01",
+      "TYPE": "STATIC",
+      "PORTS": "Gi1/1"
+    },
+    {
+      "VLAN": "3",
+      "MAC_ADDRESS": "0003.bbff.5e02",
+      "TYPE": "STATIC",
+      "PORTS": "Gi1/2"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_mac_address_type_ports": [
+        {
+          "VLAN": "1",
+          "MAC_ADDRESS": "0001.6380.0810",
+          "TYPE": "DYNAMIC",
+          "PORTS": "Gi0/1"
+        },
+        {
+          "VLAN": "1",
+          "MAC_ADDRESS": "0001.6380.0820",
+          "TYPE": "DYNAMIC",
+          "PORTS": "Gi0/2"
+        },
+        {
+          "VLAN": "2",
+          "MAC_ADDRESS": "0002.1650.1c01",
+          "TYPE": "DYNAMIC",
+          "PORTS": "Gi0/3"
+        },
+        {
+          "VLAN": "2",
+          "MAC_ADDRESS": "0002.1650.1c02",
+          "TYPE": "DYNAMIC",
+          "PORTS": "Gi0/4"
+        },
+        {
+          "VLAN": "3",
+          "MAC_ADDRESS": "0003.bbff.5e01",
+          "TYPE": "STATIC",
+          "PORTS": "Gi1/1"
+        },
+        {
+          "VLAN": "3",
+          "MAC_ADDRESS": "0003.bbff.5e02",
+          "TYPE": "STATIC",
+          "PORTS": "Gi1/2"
+        }
+      ]
+    }
+  ],
+  "cli_content": "          Mac Address Table\n-------------------------------------------\n\nVLAN    Mac Address       Type        Ports\n----    -----------       --------    -----\n   1    0001.6380.0810    DYNAMIC     Gi0/1\n   1    0001.6380.0820    DYNAMIC     Gi0/2\n   2    0002.1650.1c01    DYNAMIC     Gi0/3\n   2    0002.1650.1c02    DYNAMIC     Gi0/4\n   3    0003.bbff.5e01    STATIC      Gi1/1\n   3    0003.bbff.5e02    STATIC      Gi1/2\n",
+  "textfsm_template": "Value VLAN (\\d+)\nValue MAC_ADDRESS ([0-9A-Fa-f.]+)\nValue TYPE (\\S+)\nValue PORTS (\\S+)\n\nStart\n  ^\\s*VLAN\\s+Mac Address\\s+Type\\s+Ports\\s*$$\n  ^\\s*${VLAN}\\s+${MAC_ADDRESS}\\s+${TYPE}\\s+${PORTS}\\s*$$ -> Record"
+}

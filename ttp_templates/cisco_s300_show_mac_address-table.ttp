@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_s300_show_mac_address-table
+# Source: ntc
+# TextFSM rows: 13
+# TTP rows: 1
+# Match ratio: 0.08
+
+<group name="vlan_id_destination_address_destination_port_type">
+     {{VLAN_ID | re("\\d+")}} {{DESTINATION_ADDRESS}} {{DESTINATION_PORT | re("\\d+")}} {{TYPE | ORPHRASE}}
+</group>

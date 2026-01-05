@@ -1,0 +1,100 @@
+{
+  "command": "show firewall policies",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"policy_action_source_destination_service_status\">\n{{POLICY}} {{ACTION}} {{SOURCE}} {{DESTINATION}} {{SERVICE}} {{STATUS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "POLICY": "Policy1",
+      "ACTION": "Allow",
+      "SOURCE": "192.168.1.0/24",
+      "DESTINATION": "10.0.0.0/24",
+      "SERVICE": "HTTP",
+      "STATUS": "Active"
+    },
+    {
+      "POLICY": "Policy2",
+      "ACTION": "Deny",
+      "SOURCE": "172.16.0.0/16",
+      "DESTINATION": "192.168.2.0/24",
+      "SERVICE": "HTTPS",
+      "STATUS": "Active"
+    },
+    {
+      "POLICY": "Policy3",
+      "ACTION": "Allow",
+      "SOURCE": "10.10.10.0/24",
+      "DESTINATION": "172.16.1.0/24",
+      "SERVICE": "FTP",
+      "STATUS": "Inactive"
+    },
+    {
+      "POLICY": "Policy4",
+      "ACTION": "Deny",
+      "SOURCE": "any",
+      "DESTINATION": "192.168.3.0/24",
+      "SERVICE": "SSH",
+      "STATUS": "Active"
+    },
+    {
+      "POLICY": "Policy5",
+      "ACTION": "Allow",
+      "SOURCE": "192.0.2.0/24",
+      "DESTINATION": "198.51.100.0/24",
+      "SERVICE": "SMTP",
+      "STATUS": "Inactive"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "policy_action_source_destination_service_status": [
+        {
+          "POLICY": "Policy1",
+          "ACTION": "Allow",
+          "SOURCE": "192.168.1.0/24",
+          "DESTINATION": "10.0.0.0/24",
+          "SERVICE": "HTTP",
+          "STATUS": "Active"
+        },
+        {
+          "POLICY": "Policy2",
+          "ACTION": "Deny",
+          "SOURCE": "172.16.0.0/16",
+          "DESTINATION": "192.168.2.0/24",
+          "SERVICE": "HTTPS",
+          "STATUS": "Active"
+        },
+        {
+          "POLICY": "Policy3",
+          "ACTION": "Allow",
+          "SOURCE": "10.10.10.0/24",
+          "DESTINATION": "172.16.1.0/24",
+          "SERVICE": "FTP",
+          "STATUS": "Inactive"
+        },
+        {
+          "POLICY": "Policy4",
+          "ACTION": "Deny",
+          "SOURCE": "any",
+          "DESTINATION": "192.168.3.0/24",
+          "SERVICE": "SSH",
+          "STATUS": "Active"
+        },
+        {
+          "POLICY": "Policy5",
+          "ACTION": "Allow",
+          "SOURCE": "192.0.2.0/24",
+          "DESTINATION": "198.51.100.0/24",
+          "SERVICE": "SMTP",
+          "STATUS": "Inactive"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Policy Name     Action    Source Address   Destination Address   Service     Status\n-------------------------------------------------------------------------------------------------\nPolicy1         Allow     192.168.1.0/24   10.0.0.0/24           HTTP        Active\nPolicy2         Deny      172.16.0.0/16    192.168.2.0/24        HTTPS       Active\nPolicy3         Allow     10.10.10.0/24    172.16.1.0/24         FTP         Inactive\nPolicy4         Deny      any              192.168.3.0/24        SSH         Active\nPolicy5         Allow     192.0.2.0/24     198.51.100.0/24       SMTP        Inactive\n",
+  "textfsm_template": "Value POLICY (\\S+)\nValue ACTION (\\S+)\nValue SOURCE (\\S+)\nValue DESTINATION (\\S+)\nValue SERVICE (\\S+)\nValue STATUS (\\S+)\n\nStart\n  ^Policy\\s+Name\\s+Action\\s+Source\\s+Address\\s+Destination\\s+Address\\s+Service\\s+Status\\s*$$\n  ^-+\\s*$$\n  ^${POLICY}\\s+${ACTION}\\s+${SOURCE}\\s+${DESTINATION}\\s+${SERVICE}\\s+${STATUS}\\s*$$ -> Record"
+}

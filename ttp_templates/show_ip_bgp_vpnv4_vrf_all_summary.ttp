@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip bgp vpnv4 vrf all summary
+# Source: chatgpt
+# TextFSM rows: 3
+# TTP rows: 9
+# Match ratio: 3.00
+
+<group name="neighbor_version_as_number_msg_rcv_msg_sent_table_version_inq_outq_up_down_state_pfxrcvd">
+{{NEIGHBOR}} {{VERSION | re("[\\d\\.\\(\\)A-Za-z]+")}} {{AS_NUMBER}} {{MSG_RCV}} {{MSG_SENT}} {{TABLE_VERSION | re("[\\d\\.\\(\\)A-Za-z]+")}} {{INQ}} {{OUTQ}} {{UP_DOWN | ORPHRASE}} {{STATE_PFXRCVD | ORPHRASE}}
+</group>

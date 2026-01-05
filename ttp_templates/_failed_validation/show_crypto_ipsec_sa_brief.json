@@ -1,0 +1,37 @@
+{
+  "command": "show crypto ipsec sa brief",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 2,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"cryptomap_encryption_hash_interface\">\n  Crypto Map: {{CRYPTOMAP | ORPHRASE}}\n  Local  Addr: {{SABUNDLE | ORPHRASE}}92.168.0.1\n  Security Protocol: {{PROTOCOL | ORPHRASE}}\nInterface: {{INTERFACE | ORPHRASE}}\n  Local  Addr: {{LOCAL_ADDR | ORPHRASE}}\n  Remote Addr: {{REMOTE_ADDR | ORPHRASE}}\n  Encryption: {{ENCRYPTION}}, Hash: {{HASH | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Tunnel0",
+      "CRYPTOMAP": "CMAP",
+      "LOCAL_ADDR": "192.168.0.1",
+      "REMOTE_ADDR": "192.168.0.2",
+      "SABUNDLE": "2",
+      "PROTOCOL": "ESP",
+      "ENCRYPTION": "AES-256",
+      "HASH": "SHA-256"
+    },
+    {
+      "INTERFACE": "Tunnel1",
+      "CRYPTOMAP": "CMAP",
+      "LOCAL_ADDR": "10.1.1.1",
+      "REMOTE_ADDR": "10.1.1.2",
+      "SABUNDLE": "1",
+      "PROTOCOL": "ESP",
+      "ENCRYPTION": "AES-128",
+      "HASH": "SHA-1"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Interface: Tunnel0\n    Crypto Map: CMAP\n    Local  Addr: 192.168.0.1\n    Remote Addr: 192.168.0.2\n    SABundle: 2 active IPsec SAs\n    Security Protocol: ESP\n    Encryption: AES-256, Hash: SHA-256\n\nInterface: Tunnel1\n    Crypto Map: CMAP\n    Local  Addr: 10.1.1.1\n    Remote Addr: 10.1.1.2\n    SABundle: 1 active IPsec SA\n    Security Protocol: ESP\n    Encryption: AES-128, Hash: SHA-1\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue CRYPTOMAP (\\S+)\nValue LOCAL_ADDR (\\S+)\nValue REMOTE_ADDR (\\S+)\nValue SABUNDLE (\\d+)\nValue PROTOCOL (\\S+)\nValue ENCRYPTION ([\\S\\s]+)\nValue HASH (\\S+)\n\nStart\n  ^Interface:\\s+${INTERFACE}\\s*$$\n  ^\\s+Crypto\\s+Map:\\s+${CRYPTOMAP}\\s*$$\n  ^\\s+Local\\s+Addr:\\s+${LOCAL_ADDR}\\s*$$\n  ^\\s+Remote\\s+Addr:\\s+${REMOTE_ADDR}\\s*$$\n  ^\\s+SABundle:\\s+${SABUNDLE}\\s+active\\s+IPsec\\s+SAs*\\s*$$\n  ^\\s+Security\\s+Protocol:\\s+${PROTOCOL}\\s*$$\n  ^\\s+Encryption:\\s+${ENCRYPTION},\\s+Hash:\\s+${HASH}\\s*$$ -> Record"
+}

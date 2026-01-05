@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_pim_ipv4_interface
+# Source: ntc
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="ip_address_interface_mode_neighbors_hello_interval_dr_priority_dr_address_packets_queued_packets_dropped">
+{{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{INTERFACE}} {{MODE}} {{NEIGHBORS}} {{HELLO_INTERVAL}} {{DR_PRIORITY}} {{DR_ADDRESS | ORPHRASE}} {{PACKETS_QUEUED}} {{PACKETS_DROPPED}}
+</group>

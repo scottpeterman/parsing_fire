@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: brocade_fastiron_show_running-config_vlan
+# Source: ntc
+# TextFSM rows: 11
+# TTP rows: 10
+# Match ratio: 0.91
+
+<group name="vlanid_vlanname">
+vlan {{vlanid | re("\\d+")}} name {{vlanname | ORPHRASE}}
+</group>

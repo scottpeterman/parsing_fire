@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show mpls interfaces brief
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 3
+# Match ratio: 0.60
+
+<group name="interface_ip_address_id_status_tunnel_state">
+{{INTERFACE}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{ID | re("\\d+")}} {{STATUS | ORPHRASE}} {{TUNNEL_STATE | ORPHRASE}}
+</group>

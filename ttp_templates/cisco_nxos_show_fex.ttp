@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_fex
+# Source: ntc
+# TextFSM rows: 9
+# TTP rows: 8
+# Match ratio: 0.89
+
+<group name="number_descr_state_model_serial">
+{{NUMBER}} {{DESCR | ORPHRASE}} {{STATE | ORPHRASE}} {{MODEL}} {{SERIAL | ORPHRASE}}
+</group>

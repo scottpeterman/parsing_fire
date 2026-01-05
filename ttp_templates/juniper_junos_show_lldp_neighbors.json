@@ -1,0 +1,39 @@
+{
+  "command": "juniper_junos_show_lldp_neighbors",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"local_interface_parent_interface_chassis_id_neighbor_interface_neighbor_name\">\n{{LOCAL_INTERFACE}} {{PARENT_INTERFACE | re(\".*\\\\w.*\")}} {{CHASSIS_ID}} {{NEIGHBOR_INTERFACE}} {{NEIGHBOR_NAME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOCAL_INTERFACE": "ge-0/0/1",
+      "PARENT_INTERFACE": "-",
+      "CHASSIS_ID": "2c:6b:f5:a1:c2:c0",
+      "NEIGHBOR_INTERFACE": "ge-0/0/1",
+      "NEIGHBOR_NAME": "vmx2"
+    },
+    {
+      "LOCAL_INTERFACE": "ge-0/0/0",
+      "PARENT_INTERFACE": "-",
+      "CHASSIS_ID": "2c:6b:f5:a2:08:c0",
+      "NEIGHBOR_INTERFACE": "ge-0/0/0",
+      "NEIGHBOR_NAME": "vmx3"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "local_interface_parent_interface_chassis_id_neighbor_interface_neighbor_name": {
+        "LOCAL_INTERFACE": "Local",
+        "PARENT_INTERFACE": "Interface    Parent Interface    Chassis Id          Port",
+        "CHASSIS_ID": "info",
+        "NEIGHBOR_INTERFACE": "System",
+        "NEIGHBOR_NAME": "Name"
+      }
+    }
+  ],
+  "cli_content": "Local Interface    Parent Interface    Chassis Id          Port info          System Name\nge-0/0/1           -                   2c:6b:f5:a1:c2:c0   ge-0/0/1           vmx2\nge-0/0/0           -                   2c:6b:f5:a2:08:c0   ge-0/0/0           vmx3",
+  "textfsm_template": "Value Required LOCAL_INTERFACE (\\S+)\nValue Required PARENT_INTERFACE (\\S+)\nValue Required CHASSIS_ID (\\S+)\nValue Required NEIGHBOR_INTERFACE (\\S+)\nValue Required NEIGHBOR_NAME (\\S+)\n\nStart\n  ^Local\\s+Interface\\s+Parent\\s+Interface\\s+Chassis\\s+Id\\s+Port\\s+info\\s+System\\s+Name\n  ^${LOCAL_INTERFACE}\\s*${PARENT_INTERFACE}\\s+${CHASSIS_ID}\\s+${NEIGHBOR_INTERFACE}\\s+${NEIGHBOR_NAME} -> Record\n  ^\\s*$$\n  ^. -> Error"
+}

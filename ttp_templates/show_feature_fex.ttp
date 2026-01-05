@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show feature fex
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 5
+# Match ratio: 1.25
+
+<group name="fex_interface_state_model_serial_fex_serial">
+{{FEX}} {{INTERFACE}} {{STATE | ORPHRASE}} {{MODEL}} {{SERIAL | re("\\w+")}} {{FEX_SERIAL | ORPHRASE}}
+</group>

@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_ip_ospf_interface_brief
+# Source: ntc
+# TextFSM rows: 7
+# TTP rows: 7
+# Match ratio: 1.00
+
+<group name="interface_instance_vrf_area_state_prefix_length_cost_neighbors">
+   {{INTERFACE}} {{INSTANCE}} {{VRF}} {{AREA}} {{IP_AD{{STATE | ORPHRASE}}ESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{PREFIX_LENGTH}} {{COST}} DR {{NEIGHBORS}}
+</group>
+<group name="interface_instance_vrf_area_ip_address_prefix_length_cost_state_neighbors">
+   {{INTERFACE}} {{INSTANCE}} {{VRF}} {{AREA}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}/{{PREFIX_LENGTH}} {{COST}} {{STATE | ORPHRASE}} {{NEIGHBORS}}
+</group>

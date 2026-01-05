@@ -1,0 +1,105 @@
+{
+  "command": "mikrotik_routeros_ip_firewall_nat_print_all_without-paging",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.8,
+  "textfsm_rows": 5,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"chain_action_src_address_out_interface_list_ipsec_policy\">\n      chain={{CHAIN}} action={{ACTION}} src-address={{SRC_ADDRESS}} out-interface-list={{OUT_INTERFACE_LIST}} ipsec-policy={{IPSEC_POLICY | ORPHRASE}} \n</group>\n<group name=\"index_chain_action_protocol_src_address_dst_address_in_interface_list_log\">\n {{INDEX}} chain={{CHAIN}} action={{ACTION}} protocol={{PROTOCOL}} src-address={{SRC_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} dst-address={{DST_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} in-interface-list={{IN_INTERFACE_LIST}} log={{LOG | ORPHRASE}} log-prefix=\"\" \n</group>\n<group name=\"chain_action_protocol_in_interface_out_interface_log\">\n      chain={{CHAIN}} action={{ACTION}} protocol={{PROTOCOL}} in-interface={{IN_INTERFACE}} out-interface={{OUT_INTERFACE}} log={{LOG | ORPHRASE}} log-prefix=\"\" \n</group>\n<group name=\"flags_chain_action_protocol_src_address_list_dst_address_list_src_port_dst_port_log\">\n {{INDE{{FLAGS}}}} X chain={{CHAIN}} action={{ACTION}} protocol={{PROTOCOL}} src-address-list={{SRC_ADDRESS_LIST}} dst-address-list={{DST_ADDRESS_LIST}} src-port={{SRC_PORT | re(\"\\\\d+\")}} dst-port={{DST_PORT | ORPHRASE}} log={{LOG}} log-prefix=\"\" \n</group>\n<group name=\"index_chain_action_protocol_src_address_out_interface_list_log_ipsec_policy\">\n {{INDEX}} chain={{CHAIN}} action={{ACTION}} protocol={{PROTOCOL}} src-address={{SRC_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} out-interface-list={{OUT_INTERFACE_LIST}} log={{LOG}} log-prefix=\"\" ipsec-policy={{IPSEC_POLICY | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INDEX": "0",
+      "COMMENT": "dmz-1: masquerade",
+      "CHAIN": "srcnat",
+      "ACTION": "masquerade",
+      "SRC_ADDRESS": "!185.163.212.156/30",
+      "OUT_INTERFACE_LIST": "WAN",
+      "IPSEC_POLICY": "out,none"
+    },
+    {
+      "INDEX": "1",
+      "CHAIN": "dstnat",
+      "ACTION": "redirect",
+      "PROTOCOL": "icmp",
+      "SRC_ADDRESS": "192.168.1.16",
+      "IN_INTERFACE_LIST": "dmz-1",
+      "DST_ADDRESS": "31.31.31.31",
+      "LOG": "no"
+    },
+    {
+      "INDEX": "2",
+      "FLAGS": "X",
+      "COMMENT": "qsdqsdqsd",
+      "CHAIN": "srcnat",
+      "ACTION": "accept",
+      "PROTOCOL": "vmtp",
+      "IN_INTERFACE": "all-ethernet",
+      "OUT_INTERFACE": "ether4",
+      "LOG": "no"
+    },
+    {
+      "INDEX": "3",
+      "FLAGS": "X",
+      "CHAIN": "srcnat",
+      "ACTION": "accept",
+      "PROTOCOL": "tcp",
+      "SRC_ADDRESS_LIST": "Supervision",
+      "SRC_PORT": "80",
+      "DST_ADDRESS_LIST": "Eqinoxe",
+      "DST_PORT": "8080",
+      "LOG": "no"
+    },
+    {
+      "INDEX": "4",
+      "CHAIN": "srcnat",
+      "ACTION": "masquerade",
+      "PROTOCOL": "icmp",
+      "SRC_ADDRESS": "0.0.0.0",
+      "OUT_INTERFACE_LIST": "DMZ",
+      "IPSEC_POLICY": "out,ipsec",
+      "LOG": "no"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "chain_action_src_address_out_interface_list_ipsec_policy": {
+        "CHAIN": "srcnat",
+        "ACTION": "masquerade",
+        "SRC_ADDRESS": "!185.163.212.156/30",
+        "OUT_INTERFACE_LIST": "WAN",
+        "IPSEC_POLICY": "out,none"
+      },
+      "index_chain_action_protocol_src_address_dst_address_in_interface_list_log": {
+        "INDEX": "1",
+        "CHAIN": "dstnat",
+        "ACTION": "redirect",
+        "PROTOCOL": "icmp",
+        "SRC_ADDRESS": "192.168.1.16",
+        "DST_ADDRESS": "31.31.31.31",
+        "IN_INTERFACE_LIST": "dmz-1",
+        "LOG": "no"
+      },
+      "chain_action_protocol_in_interface_out_interface_log": {
+        "CHAIN": "srcnat",
+        "ACTION": "accept",
+        "PROTOCOL": "vmtp",
+        "IN_INTERFACE": "all-ethernet",
+        "OUT_INTERFACE": "ether4",
+        "LOG": "no"
+      },
+      "index_chain_action_protocol_src_address_out_interface_list_log_ipsec_policy": {
+        "INDEX": "4",
+        "CHAIN": "srcnat",
+        "ACTION": "masquerade",
+        "PROTOCOL": "icmp",
+        "SRC_ADDRESS": "0.0.0.0",
+        "OUT_INTERFACE_LIST": "DMZ",
+        "LOG": "no",
+        "IPSEC_POLICY": "out,ipsec"
+      }
+    }
+  ],
+  "cli_content": "Flags: X - disabled, I - invalid, D - dynamic \n17:20:06 echo: system,error,critical login failure for user admin from 65.160.140.13 via ssh\n 0    ;;; dmz-1: masquerade\n      chain=srcnat action=masquerade src-address=!185.163.212.156/30 out-interface-list=WAN ipsec-policy=out,none \n\n 1    chain=dstnat action=redirect protocol=icmp src-address=192.168.1.16 dst-address=31.31.31.31 in-interface-list=dmz-1 log=no log-prefix=\"\" \n\n 2 X  ;;; qsdqsdqsd\n17:20:06 echo: system,error,critical login failure for user admin from 65.160.140.13 via ssh\n      chain=srcnat action=accept protocol=vmtp in-interface=all-ethernet out-interface=ether4 log=no log-prefix=\"\" \n\n 3 X  chain=srcnat action=accept protocol=tcp src-address-list=Supervision dst-address-list=Eqinoxe src-port=80 dst-port=8080 log=no log-prefix=\"\" \n\n 4    chain=srcnat action=masquerade protocol=icmp src-address=0.0.0.0 out-interface-list=DMZ log=no log-prefix=\"\" ipsec-policy=out,ipsec \n",
+  "textfsm_template": "Value Key INDEX (\\d+)\nValue FLAGS ([XID]+)\nValue COMMENT (\\S+[\\S ]*\\S)\nValue CHAIN (dstnat|srcnat)\nValue ACTION (accept|add-dst-to-address-list|add-src-to-address-list|dst-nat|jump|log|masquerade|netmap|passthrough|redirect|return|same|src-nat)\nValue TO_ADDRESSES ([\\w!,./:\\d]+)\nValue TO_PORTS ([\\d,-]+)\nValue PROTOCOL (!?(dccp|egp|etherip|gre|icmp|idpr-cmtp|ipencap|ipsec-ah|ipv6-encap|ipv6-nonxt|ipv6-route|l2tp|pim|rdp|rsvp|st|udp|vmtp|xns-idp|ddp|encap|ggp|hmp|icmpv6|igmp|ipip|ipsec-esp|ipv6-frag|ipv6-opts|iso-tp4|ospf|pup|rspf|sctp|tcp|udp-lite|vrrp|xtp))\nValue SRC_ADDRESS ([\\w!.:/\\d]+)\nValue SRC_ADDRESS_LIST (\\S+)\nValue SRC_PORT (\\S+)\nValue IN_INTERFACE (\\S+)\nValue OUT_INTERFACE (\\S+)\nValue IN_INTERFACE_LIST (\\S+)\nValue OUT_INTERFACE_LIST (\\S+)\nValue IPSEC_POLICY (\\S+)\nValue DST_ADDRESS ([\\w!.:/\\d]+)\nValue DST_ADDRESS_LIST (\\S+)\nValue DST_PORT (\\S+)\nValue LOG (yes|no)\nValue LOG_PREFIX (\\S+[\\S ]*\\S)\n\nStart\n  ^Flags:.*$$ -> NATTable\n\nNATTable\n  ^\\s?${INDEX}\\s+(${FLAGS})?\\s+;;;\\s${COMMENT}\n  ^\\s+chain=${CHAIN}\\saction=${ACTION}(\\sto-addresses=${TO_ADDRESSES})?(\\sto-ports=${TO_PORTS})?(\\sprotocol=${PROTOCOL})?(\\ssrc-address=${SRC_ADDRESS})?(\\sdst-address=${DST_ADDRESS})?(\\ssrc-address-list=${SRC_ADDRESS_LIST})?(\\sdst-address-list=${DST_ADDRESS_LIST})?(\\sin-interface=${IN_INTERFACE})?(\\sin-interface-list=${IN_INTERFACE_LIST})?(\\sout-interface=${OUT_INTERFACE})?(\\sout-interface-list=${OUT_INTERFACE_LIST})?(\\ssrc-port=${SRC_PORT})?(\\sdst-port=${DST_PORT})?(\\slog=${LOG})?(\\slog-prefix=\"(${LOG_PREFIX})?\")?(\\sipsec-policy=${IPSEC_POLICY})?\\s*$$ -> Record\n  ^\\s?${INDEX}\\s+(${FLAGS})?\\s+chain=${CHAIN}\\saction=${ACTION}(\\sto-addresses=${TO_ADDRESSES})?(\\sto-ports=${TO_PORTS})?(\\sprotocol=${PROTOCOL})?(\\ssrc-address=${SRC_ADDRESS})?(\\sdst-address=${DST_ADDRESS})?(\\ssrc-address-list=${SRC_ADDRESS_LIST})?(\\sdst-address-list=${DST_ADDRESS_LIST})?(\\sin-interface=${IN_INTERFACE})?(\\sin-interface-list=${IN_INTERFACE_LIST})?(\\sout-interface=${OUT_INTERFACE})?(\\sout-interface-list=${OUT_INTERFACE_LIST})?(\\ssrc-port=${SRC_PORT})?(\\sdst-port=${DST_PORT})?(\\slog=${LOG})?(\\slog-prefix=\"(${LOG_PREFIX})?\")?(\\sipsec-policy=${IPSEC_POLICY})?\\s*$$ -> Record\n  ^\\s*(?:\\d{2}:){2}\\d{2}\\s+echo:\\s*.*$$ -> Next\n  ^. -> Error\n"
+}

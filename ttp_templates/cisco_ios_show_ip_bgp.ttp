@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_bgp
+# Source: ntc
+# TextFSM rows: 8
+# TTP rows: 4
+# Match ratio: 0.50
+
+<group name="status_path_selection_network_next_hop_metric_weight_origin">
+ {{STATUS | ORPHRASE}}{{PATH_SELECTION | re(".*\\w.*")}} {{NETWORK}} {{NEXT_HOP}} {{METRIC}} {{WEIGHT}} {{ORIGIN | ORPHRASE}}
+</group>
+<group name="status_path_selection_network_next_hop_metric_weight_as_path_origin">
+ {{STATUS | ORPHRASE}}{{PATH_SELECTION | re(".*\\w.*")}} {{NETWORK}} {{NEXT_HOP}} {{METRIC}} {{WEIGHT}} {{AS_PATH}} {{ORIGIN | ORPHRASE}}
+</group>

@@ -1,0 +1,16 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_mac_address-table
+# Source: ntc
+# TextFSM rows: 23
+# TTP rows: 4
+# Match ratio: 0.17
+
+<group name="vlan_id_mac_address_type_destination_port">
+   {{VLAN_ID | re("\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{TYPE}} {{DESTINATION_PORT | ORPHRASE}}
+</group>
+<group name="vlan_id_mac_address_type_destination_port_moves_last_move">
+  {{VLAN_ID | re("\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{TYPE}} {{DESTINATION_PORT | ORPHRASE}} {{MOVES}} {{LAST_MOVE | ORPHRASE}} ago
+</group>
+<group name="vlan_id_mac_address_type">
+   {{VLAN_ID | re("\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{TYPE | ORPHRASE}} Po10 Po123
+</group>

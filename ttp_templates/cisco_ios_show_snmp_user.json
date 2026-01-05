@@ -1,0 +1,54 @@
+{
+  "command": "cisco_ios_show_snmp_user",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"engine_id\">\nEngine ID: {{ENGINE_ID | ORPHRASE}}\n</group>\n<group name=\"privacy_protocol_storage_type\">\nstorage{{PRIVACY_PROTOCOL | re(\".*\\\\w.*\")}}type: {{STORAGE_TYPE | ORPHRASE}} active\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "USER_NAME": "user_snmp1",
+      "ENGINE_ID": "80000009030000451DEC1085",
+      "STORAGE_TYPE": "nonvolatile",
+      "AUTHENTICATION_PROTOCOL": "SHA",
+      "PRIVACY_PROTOCOL": "AES128",
+      "GROUP_NAME": "managerpriv"
+    },
+    {
+      "USER_NAME": "user_snmp2",
+      "ENGINE_ID": "80000009030000451DEC1085",
+      "STORAGE_TYPE": "nonvolatile",
+      "ACCESS_LIST": "10",
+      "AUTHENTICATION_PROTOCOL": "SHA",
+      "PRIVACY_PROTOCOL": "AES128",
+      "GROUP_NAME": "managerpriv"
+    },
+    {
+      "USER_NAME": "test-user",
+      "ENGINE_ID": "8000000903005E0000010000",
+      "STORAGE_TYPE": "nonvolatile",
+      "AUTHENTICATION_PROTOCOL": "None",
+      "PRIVACY_PROTOCOL": "-",
+      "GROUP_NAME": "test-group"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "engine_id": [
+        {
+          "ENGINE_ID": "80000009030000451DEC1085"
+        },
+        {
+          "ENGINE_ID": "80000009030000451DEC1085"
+        },
+        {
+          "ENGINE_ID": "8000000903005E0000010000"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\nUser name: user_snmp1\nEngine ID: 80000009030000451DEC1085\nstorage-type: nonvolatile        active\nAuthentication Protocol: SHA\nPrivacy Protocol: AES128\nGroup-name: managerpriv\n\nUser name: user_snmp2\nEngine ID: 80000009030000451DEC1085\nstorage-type: nonvolatile       active access-list: 10\nAuthentication Protocol: SHA\nPrivacy Protocol: AES128\nGroup-name: managerpriv\n\nUser name: test-user\nEngine ID: 8000000903005E0000010000\nstorage-type: nonvolatile        active\nAuthentication Protocol: None\nPrivacy Protocol: -\nGroup-name: test-group\n",
+  "textfsm_template": "Value Required USER_NAME (\\S+)\nValue ENGINE_ID (\\S+)\nValue STORAGE_TYPE (\\S+)\nValue ACCESS_LIST (.*)\nValue AUTHENTICATION_PROTOCOL (\\S+)\nValue PRIVACY_PROTOCOL (\\S+)\nValue GROUP_NAME (\\S+)\n\nStart\n  ^User\\s+name:\\s+${USER_NAME}$$\n  ^Engine\\s+ID:\\s+${ENGINE_ID}$$\n  ^storage-type:\\s${STORAGE_TYPE}\\s+active\\s+access-list:\\s+${ACCESS_LIST}$$\n  ^storage-type:\\s${STORAGE_TYPE}\\s+active$$\n  ^Authentication\\s+Protocol:\\s+${AUTHENTICATION_PROTOCOL}$$\n  ^Privacy\\s+Protocol:\\s+${PRIVACY_PROTOCOL}$$\n  ^Group-name:\\s+${GROUP_NAME}$$ -> Record\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^\\s*$$\n  ^. -> Error\n"
+}

@@ -1,0 +1,23 @@
+{
+  "command": "mikrotik_routeros_interface_ethernet_monitor_name_once",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 1,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"advertising_auto_negotiation_name_status\">\n  name: {{NAME | ORPHRASE}}\n  status: {{STATUS | ORPHRASE}}\n  auto-negotiation: {{AUTO_NEGOTIATION | ORPHRASE}}\n  advertising: {{ADVERTISING | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "NAME": "ether30",
+      "STATUS": "no-link",
+      "AUTO_NEGOTIATION": "done",
+      "ADVERTISING": "10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "                     name: ether30\n                    status: no-link\n          auto-negotiation: done\n               advertising: 10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full\n  link-partner-advertising:\n",
+  "textfsm_template": "Value NAME (\\S+)\nValue STATUS (\\S+)\nValue AUTO_NEGOTIATION (\\S+)\nValue RATE (\\S+)\nValue FULL_DUPLEX (\\S+)\nValue TX_FLOW_CONTROL (\\S+)\nValue RX_FLOW_CONTROL (\\S+)\nValue ADVERTISING (\\S+)\nValue LINK_PARTNER_ADVERTISING (\\S+)\n\nStart\n  ^\\s*name:\\s${NAME}\n  ^\\s*status:\\s${STATUS}\n  ^\\s*auto-negotiation:\\s${AUTO_NEGOTIATION}\n  ^\\s*rate:\\s${RATE}\n  ^\\s*full-duplex:\\s${FULL_DUPLEX}\n  ^\\s*tx-flow-control:\\s${TX_FLOW_CONTROL}\n  ^\\s*rx-flow-control:\\s${RX_FLOW_CONTROL}\n  ^\\s*advertising:\\s${ADVERTISING}\n  ^\\s*link-partner-advertising:\\s*$$\n  ^\\s*link-partner-advertising:\\s${LINK_PARTNER_ADVERTISING}$$\n  ^\\s*(?:\\d{2}:){2}\\d{2}\\s+echo:\\s*.*$$ -> Next\n  ^. -> Error\n"
+}

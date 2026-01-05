@@ -1,0 +1,24 @@
+{
+  "command": "show ip dns view sample",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 1,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"type_class\">\nDomain: {{DOM{{TYPE}}{{CLASS | ORPHRASE}}}}, Type: A, Class: IN\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "DOMAIN": "example.com",
+      "TYPE": "A",
+      "CLASS": "IN",
+      "NAME": "www.example.com",
+      "RECORD": "192.0.2.1"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Domain: example.com, Type: A, Class: IN\n\tName: www.example.com\n\tRecord: 192.0.2.1\n\tName: mail.example.com\n\tRecord: 192.0.2.2\n\tName: ftp.example.com\n\tRecord: 192.0.2.3\n",
+  "textfsm_template": "Value DOMAIN (\\S+)\nValue TYPE (\\S+)\nValue CLASS (\\S+)\nValue NAME (\\S+)\nValue RECORD (\\S+)\n\nStart\n  ^Domain:\\s+${DOMAIN},\\s+Type:\\s+${TYPE},\\s+Class:\\s+${CLASS}$$\n  ^\\s+Name:\\s+${NAME}$$\n  ^\\s+Record:\\s+${RECORD}$$ -> Record"
+}

@@ -1,0 +1,50 @@
+{
+  "command": "show environment temp",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"temperature_status\">\n    Temperature: {{TEMPERATURE}} C ({{STATUS | ORPHRASE}})\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SENSOR_ID": "0",
+      "DESCRIPTION": "inlet temperature",
+      "TEMPERATURE": "25",
+      "STATUS": "normal"
+    },
+    {
+      "SENSOR_ID": "1",
+      "DESCRIPTION": "outlet temperature",
+      "TEMPERATURE": "30",
+      "STATUS": "normal"
+    },
+    {
+      "SENSOR_ID": "2",
+      "DESCRIPTION": "CPU temperature",
+      "TEMPERATURE": "40",
+      "STATUS": "high"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "temperature_status": [
+        {
+          "TEMPERATURE": "25",
+          "STATUS": "normal"
+        },
+        {
+          "TEMPERATURE": "30",
+          "STATUS": "normal"
+        },
+        {
+          "TEMPERATURE": "40",
+          "STATUS": "high"
+        }
+      ]
+    }
+  ],
+  "cli_content": "System temperature for sensor-1:\n    Sensor Id: 0\n    Description: inlet temperature\n    Temperature: 25 C      (normal)\nSystem temperature for sensor-2:\n    Sensor Id: 1\n    Description: outlet temperature\n    Temperature: 30 C      (normal)\nSystem temperature for sensor-3:\n    Sensor Id: 2\n    Description: CPU temperature\n    Temperature: 40 C      (high)\n",
+  "textfsm_template": "Value SENSOR_ID (\\d+)\nValue DESCRIPTION (.*)\nValue TEMPERATURE (\\d+)\nValue STATUS (normal|high)\n\nStart\n  ^System\\s+temperature\\s+for\\s+sensor-\\d+:$$\n  ^\\s+Sensor\\s+Id:\\s+${SENSOR_ID}$$\n  ^\\s+Description:\\s+${DESCRIPTION}$$\n  ^\\s+Temperature:\\s+${TEMPERATURE}\\s+C\\s+\\(${STATUS}\\)$$ -> Record"
+}

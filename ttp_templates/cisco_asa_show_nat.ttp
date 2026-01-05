@@ -1,0 +1,55 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_nat
+# Source: ntc
+# TextFSM rows: 58
+# TTP rows: 408
+# Match ratio: 7.03
+
+<group name="nat_section_number_source_interface_destination_interface_source_type_source_real_source_mapped_description">
+{{NAT_SECTION_NUMBER}} ({{SOURCE_INTERFACE}}) to ({{DESTINATION_INTERFACE}}) source {{SOURCE_TYPE}} {{SOURCE_REAL}} {{SOURCE_MAPPED | ORPHRASE}} description {{DESCRIPTION | ORPHRASE}}
+</group>
+<group name="line_number_source_interface_destination_interface_source_type_source_real_source_mapped_destination_real_destination_mapped_net_to_net_inactive_description">
+{{LINE_NUMBER}} ({{SOURCE_INTERFACE}}) to ({{DESTINATION_INTERFACE}}) source {{SOURCE_TYPE}} {{SOURCE_REAL}} {{SOURCE_MAPPED | ORPHRASE}} destination static {{DESTINATION_REAL}} {{DESTINATION_MAPPED}} {{NET_TO_NET}} {{INACTIVE | ORPHRASE}} description {{DESCRIPTION | ORPHRASE}}
+</group>
+<group name="line_number_source_interface_destination_interface_source_type_source_real_source_mapped_destination_real_destination_mapped_service_real_service_mapped">
+{{LINE_NUMBER}} ({{SOURCE_INTERFACE}}) to ({{DESTINATION_INTERFACE}}) source {{SOURCE_TYPE}} {{SOURCE_REAL}} {{SOURCE_MAPPED | ORPHRASE}} destination static {{DESTINATION_REAL}} {{DESTINATION_MAPPED}} service {{SERVICE_REAL}} {{SERVICE_MAPPED | ORPHRASE}}
+</group>
+<group name="line_number_source_interface_destination_interface_source_type_source_real_source_mapped_destination_real_destination_mapped">
+{{LINE_NUMBER}} ({{SOURCE_INTERFACE}}) to ({{DESTINATION_INTERFACE}}) source {{SOURCE_TYPE}} {{SOURCE_REAL}} {{SOURCE_MAPPED | ORPHRASE}} destination static {{DESTINATION_REAL}} {{DESTINATION_MAPPED | ORPHRASE}}
+</group>
+<group name="line_number_source_interface_destination_interface_source_type_source_real_source_mapped_destination_real_destination_mapped_description">
+{{LINE_NUMBER}} ({{SOURCE_INTERFACE}}) to ({{DESTINATION_INTERFACE}}) source {{SOURCE_TYPE}} {{SOURCE_REAL}} {{SOURCE_MAPPED | ORPHRASE}} destination static {{DESTINATION_REAL}} {{DESTINATION_MAPPED}} description {{DESCRIPTION | ORPHRASE}}
+</group>
+<group name="line_number_source_interface_destination_interface_source_type_source_real_source_mapped_destination_real_destination_mapped_unidirectional_no_proxy_arp">
+{{LINE_NUMBER}} ({{SOURCE_INTERFACE}}) to ({{DESTINATION_INTERFACE}}) source {{SOURCE_TYPE}} {{SOURCE_REAL}} {{SOURCE_MAPPED | ORPHRASE}} destination static {{DESTINATION_REAL}} {{DESTINATION_MAPPED}} {{UNIDIRECTIONAL}} {{NO_PROXY_ARP | ORPHRASE}}
+</group>
+<group name="line_number_source_interface_destination_interface_source_type_source_real_source_mapped_destination_real_destination_mapped_no_proxy_arp_route_lookup">
+{{LINE_NUMBER}} ({{SOURCE_INTERFACE}}) to ({{DESTINATION_INTERFACE}}) source {{SOURCE_TYPE}} {{SOURCE_REAL}} {{SOURCE_MAPPED | ORPHRASE}} destination static {{DESTINATION_REAL}} {{DESTINATION_MAPPED}} {{NO_PROXY_ARP}} {{ROUTE_LOOKUP | ORPHRASE}}
+</group>
+<group name="line_number_source_interface_destination_interface_source_type_source_real_source_mapped_destination_real_destination_mapped_route_lookup">
+{{LINE_NUMBER}} ({{SOURCE_INTERFACE}}) to ({{DESTINATION_INTERFACE}}) source {{SOURCE_TYPE}} {{SOURCE_REAL}} {{SOURCE_MAPPED | ORPHRASE}} destination static {{DESTINATION_REAL}} {{DESTINATION_MAPPED}} {{ROUTE_LOOKUP | ORPHRASE}}
+</group>
+<group name="line_number_source_interface_destination_interface_source_type_source_real_source_mapped_destination_real_destination_mapped_net_to_net">
+{{LINE_NUMBER}} ({{SOURCE_INTERFACE}}) to ({{DESTINATION_INTERFACE}}) source {{SOURCE_TYPE}} {{SOURCE_REAL}} {{SOURCE_MAPPED | ORPHRASE}} destination static {{DESTINATION_REAL}} {{DESTINATION_MAPPED}} {{NET_TO_NET | ORPHRASE}}
+</group>
+<group name="line_number_source_interface_destination_interface_source_type_source_real_source_mapped_dns_unidirectional_no_proxy_arp">
+{{LINE_NUMBER}} ({{SOURCE_INTERFACE}}) to ({{DESTINATION_INTERFACE}}) source {{SOURCE_TYPE}} {{SOURCE_REAL}} {{SOURCE_MAPPED | ORPHRASE}} {{DNS}} {{UNIDIRECTIONAL}} {{NO_PROXY_ARP | ORPHRASE}}
+</group>
+<group name="line_number_source_interface_destination_interface_source_type_source_real_source_mapped_no_proxy_arp_route_lookup">
+{{LINE_NUMBER}} ({{SOURCE_INTERFACE}}) to ({{DESTINATION_INTERFACE}}) source {{SOURCE_TYPE}} {{SOURCE_REAL}} {{SOURCE_MAPPED | ORPHRASE}} {{NO_PROXY_ARP}} {{ROUTE_LOOKUP | ORPHRASE}}
+</group>
+<group name="nat_section_number_source_interface_destination_interface_source_type_source_real_source_mapped_net_to_net_no_proxy_arp">
+{{NAT_SECTION_NUMBER}} ({{SOURCE_INTERFACE}}) to ({{DESTINATION_INTERFACE}}) source {{SOURCE_TYPE}} {{SOURCE_REAL}} {{SOURCE_MAPPED | ORPHRASE}} {{NET_TO_NET}} {{NO_PROXY_ARP | ORPHRASE}}
+</group>
+<group name="line_number_source_interface_destination_interface_source_type_source_real_source_mapped_service_protocol_service_real_service_mapped">
+{{LINE_NUMBER}} ({{SOURCE_INTERFACE}}) to ({{DESTINATION_INTERFACE}}) source {{SOURCE_TYPE}} {{SOURCE_REAL}} {{SOURCE_MAPPED | ORPHRASE}} service {{SERVICE_PROTOCOL}} {{SERVICE_REAL}} {{SERVICE_MAPPED | ORPHRASE}}
+</group>
+<group name="line_number_source_interface_destination_interface_source_type_source_real_source_mapped">
+{{LINE_NUMBER}} ({{SOURCE_INTERFACE}}) to ({{DESTINATION_INTERFACE}}) source {{SOURCE_TYPE}} {{SOURCE_REAL}} {{SOURCE_MAPPED | ORPHRASE}}
+</group>
+<group name="line_number_source_interface_destination_interface_source_type_source_real_source_mapped_dns">
+{{LINE_NUMBER}} ({{SOURCE_INTERFACE}}) to ({{DESTINATION_INTERFACE}}) source {{SOURCE_TYPE}} {{SOURCE_REAL}} {{SOURCE_MAPPED | ORPHRASE}} {{DNS | ORPHRASE}}
+</group>
+<group name="line_number_source_interface_destination_interface_source_type_source_real_source_mapped_extended_flat_include_reserve_round_robin_dns">
+{{LINE_NUMBER}} ({{SOURCE_INTERFACE}}) to ({{DESTINATION_INTERFACE}}) source {{SOURCE_TYPE}} {{SOURCE_REAL}} {{SOURCE_MAPPED | ORPHRASE}} {{EXTENDED}} {{FLAT}} {{INCLUDE_RESERVE}} {{ROUND_ROBIN}} {{DNS | ORPHRASE}}
+</group>

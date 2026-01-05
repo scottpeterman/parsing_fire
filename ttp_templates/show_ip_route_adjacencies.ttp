@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip route adjacencies
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="adjacency_type_interface_next_hop_route_entry">
+  Adjacency Type: {{ADJACENCY_TYPE | ORPHRASE}}
+Route Entry: {{ROUTE_ENTRY | ORPHRASE}}
+  Interface: {{INTERFACE | ORPHRASE}}
+  Next Hop: {{NEXT_HOP | ORPHRASE}}
+</group>

@@ -1,0 +1,45 @@
+{
+  "command": "hp_comware_display_vlan_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"description_route_interface_type_vlan_id\">\n VLAN Type: {{TYPE | ORPHRASE}}\n Route Interface: {{ROUTE_INTERFACE | ORPHRASE}}\n VLAN ID: {{VLAN_ID | ORPHRASE}}\n Description: {{VLAN_NAME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN_ID": "1",
+      "VLAN_NAME": "VLAN 0001",
+      "DESCRIPTION": "VLAN 0001",
+      "TYPE": "static",
+      "ROUTE_INTERFACE": "not configured"
+    },
+    {
+      "VLAN_ID": "1002",
+      "VLAN_NAME": "VLAN 1002",
+      "DESCRIPTION": "VLAN 1002",
+      "TYPE": "static",
+      "ROUTE_INTERFACE": "not configured"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "description_route_interface_type_vlan_id": [
+        {
+          "VLAN_ID": "1002",
+          "VLAN_NAME": "VLAN 0001",
+          "ROUTE_INTERFACE": "not configured",
+          "TYPE": "static"
+        },
+        {
+          "VLAN_NAME": "VLAN 1002",
+          "ROUTE_INTERFACE": "not configured",
+          "TYPE": "static"
+        }
+      ]
+    }
+  ],
+  "cli_content": " VLAN ID: 1\n VLAN Type: static\n Route Interface: not configured\n Description: VLAN 0001\n Name: VLAN 0001\n Tagged   Ports: none\n Untagged Ports:\n    Bridge-Aggregation1\n    GigabitEthernet1/0/25    GigabitEthernet1/0/26    GigabitEthernet1/0/27\n    GigabitEthernet1/0/28\n\n VLAN ID: 1002\n VLAN Type: static\n Route Interface: not configured\n Description: VLAN 1002\n Name: VLAN 1002\n Tagged   Ports:\n    Bridge-Aggregation1\n    Ten-GigabitEthernet1/0/29\n    Ten-GigabitEthernet1/0/30\n Untagged Ports:\n    GigabitEthernet1/0/1     GigabitEthernet1/0/2     GigabitEthernet1/0/3\n    GigabitEthernet1/0/4     GigabitEthernet1/0/5     GigabitEthernet1/0/6\n",
+  "textfsm_template": "Value Required VLAN_ID (\\d+)\nValue Required VLAN_NAME (.*)\nValue DESCRIPTION (.*)\nValue TYPE (.*)\nValue ROUTE_INTERFACE (.*)\nValue IPV4_ADDRESS (\\S+)\nValue IPV4_SUBNET (\\S+)\n\nStart\n  ^\\s*VLAN\\s+ID\\s*: -> Continue.Record\n  ^\\s*VLAN\\s+ID\\s*:\\s*${VLAN_ID}\n  ^\\s*VLAN\\s+[Tt]ype\\s*:\\s*${TYPE}\n  ^\\s*Route\\s+[Ii]nterface\\s*:\\s*${ROUTE_INTERFACE}\n  ^\\s*IPv4\\s+[Aa]ddress\\s*:\\s*${IPV4_ADDRESS}\n  ^\\s*IPv4\\s+[Ss]ubnet\\s+mask\\s*:\\s*${IPV4_SUBNET}\n  ^\\s*Description\\s*:\\s*${DESCRIPTION}\n  ^\\s*Name\\s*:\\s*${VLAN_NAME}\n  ^\\s*Tagged\\s+[Pp]orts\n  ^\\s*Untagged\\s+[Pp]orts\n  ^\\s{3,}\\S+\\s*$$\n  ^\\s{3,}\\S+\\s+\\S+\\s*$$\n  ^\\s{3,}\\S+\\s+\\S+\\s+\\S+\\s*$$\n  ^. -> Error\n"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_device_tracking_all
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="ip_address_mac_address_vlan_id_interface_probe_timeout_state_source">
+{{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{VLAN_ID | re("\\d+")}} {{INTERFACE}} {{PROBE_TIMEOUT}} {{STATE | ORPHRASE}} {{SOURCE | ORPHRASE}}
+</group>

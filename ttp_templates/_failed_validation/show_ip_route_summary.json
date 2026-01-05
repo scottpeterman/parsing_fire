@@ -1,0 +1,24 @@
+{
+  "command": "show ip route summary",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 1,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"connected_routes_num_ospf_routes_num\">\nNumber of IPv{{CONNECTED_ROUTES_NUM}} routes: {{IPV{{OSPF_ROUTES_NUM}}_ROUTES_NUM | ORPHRASE}}\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "ROULTES_NUM": "12",
+      "IPV6_ROUTES_NUM": "3",
+      "CONNECTED_ROUTES_NUM": "6",
+      "STATIC_ROUTES_NUM": "4",
+      "OSPF_ROUTES_NUM": "6"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "IP Route Table for VRF \"default\":\nMaximum parallel paths: 1 (vrf default 2)\nNumber of IPv4 routes: 12\nNumber of IPv6 routes: 3\n  Route Source    Networks\n  connected       6\n  static          4\n  OSPF-100        6\n",
+  "textfsm_template": "Value ROULTES_NUM (\\d+)\nValue IPV6_ROUTES_NUM (\\d+)\nValue CONNECTED_ROUTES_NUM (\\d+)\nValue STATIC_ROUTES_NUM (\\d+)\nValue OSPF_ROUTES_NUM (\\d+)\n\nStart\n  ^Number\\s+of\\s+IPv4\\s+routes:\\s+${ROULTES_NUM}$$\n  ^Number\\s+of\\s+IPv6\\s+routes:\\s+${IPV6_ROUTES_NUM}$$\n  ^\\s+connected\\s+${CONNECTED_ROUTES_NUM}$$\n  ^\\s+static\\s+${STATIC_ROUTES_NUM}$$\n  ^\\s+OSPF\\-\\d+\\s+${OSPF_ROUTES_NUM}$$\n"
+}

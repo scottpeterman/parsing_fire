@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_smartax_display_sysman_service_state
+# Source: ntc
+# TextFSM rows: 17
+# TTP rows: 17
+# Match ratio: 1.00
+
+<group name="network_service_port_state">
+  {{NETWORK_SERVICE}} {{PORT | re("\\d+")}} {{STATE | ORPHRASE}}
+</group>

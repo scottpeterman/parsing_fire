@@ -1,0 +1,36 @@
+{
+  "command": "cisco_wlc_ssh_show_interface_detailed_id",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"gateway_interface_name_ip_address_mac_address\">\nInterface Name................................... {{INTERFACE_NAME | ORPHRASE}}\nMAC Address...................................... {{MAC_ADDRESS | ORPHRASE}}\nIP Address....................................... {{IP_ADDRESS | ORPHRASE}}\nIP Netmask....................................... {{NETMASK | ORPHRASE}}\nIP Gateway....................................... {{GATEWAY | ORPHRASE}}\nPrimary DHCP Server.............................. {{PRIMARY_DHCP_SERVER | ORPHRASE}}\nSecondary DHCP Server............................ {{SECONDARY_DHCP_SERVER | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE_NAME": "my-interface",
+      "MAC_ADDRESS": "c0:12:43:56:78:90",
+      "IP_ADDRESS": "8.8.8.8",
+      "NETMASK": "255.255.254.0",
+      "GATEWAY": "8.8.8.1",
+      "PRIMARY_DHCP_SERVER": "1.1.1.1",
+      "SECONDARY_DHCP_SERVER": "1.1.1.2"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "gateway_interface_name_ip_address_mac_address": {
+        "SECONDARY_DHCP_SERVER": "1.1.1.2",
+        "PRIMARY_DHCP_SERVER": "1.1.1.1",
+        "GATEWAY": "8.8.8.1",
+        "NETMASK": "255.255.254.0",
+        "IP_ADDRESS": "8.8.8.8",
+        "MAC_ADDRESS": "c0:12:43:56:78:90",
+        "INTERFACE_NAME": "my-interface"
+      }
+    }
+  ],
+  "cli_content": "\n\nInterface Name................................... my-interface\nMAC Address...................................... c0:12:43:56:78:90\nIP Address....................................... 8.8.8.8\nIP Netmask....................................... 255.255.254.0\nIP Gateway....................................... 8.8.8.1\nExternal NAT IP State............................ Disabled\nExternal NAT IP Address.......................... 0.0.0.0\nLink Local IPv6 Address.......................... fe80::c012:4356:7890:5643/64\nSTATE ........................................... NONE\nIPv6 Address..................................... ::/128\nSTATE ........................................... NONE\nIPv6 Gateway..................................... ::\nIPv6 Gateway Mac Address......................... 00:00:00:00:00:00\nSTATE ........................................... NONE\nVLAN............................................. 300\nQuarantine-vlan.................................. 0\nNAS-Identifier................................... none\nActive Physical Port............................. LAG (13)\nPrimary Physical Port............................ LAG (13)\nBackup Physical Port............................. Unconfigured\nDHCP Proxy Mode.................................. Global\nPrimary DHCP Server.............................. 1.1.1.1\nSecondary DHCP Server............................ 1.1.1.2\nDHCP Option 82................................... Disabled\nDHCP Option 82 bridge mode insertion............. Disabled\nDHCP Option 6 Opendns Override................... Disabled\nIPv4 ACL......................................... Unconfigured\nmDNS Profile Name................................ Unconfigured\nAP Manager....................................... No\nGuest Interface.................................. No\n3G VLAN.......................................... Disabled\nL2 Multicast..................................... Enabled\n\n",
+  "textfsm_template": "Value INTERFACE_NAME (\\S+)\nValue MAC_ADDRESS (\\w+\\.\\w+\\.\\w+|\\w+\\:\\w+\\:\\w+\\:\\w+\\:\\w+\\:\\w+)\nValue IP_ADDRESS (\\d+.\\d+.\\d+.\\d+)\nValue NETMASK (\\d+.\\d+.\\d+.\\d+)\nValue GATEWAY (\\d+.\\d+.\\d+.\\d+)\nValue PRIMARY_DHCP_SERVER (\\d+.\\d+.\\d+.\\d+|Unconfigured)\nValue SECONDARY_DHCP_SERVER (\\d+.\\d+.\\d+.\\d+|Unconfigured)\n\nStart\n  ^\\s*Interface\\s+Name\\.+\\s+${INTERFACE_NAME}\\s*$$\n  ^\\s*MAC\\s+Address\\.+\\s+${MAC_ADDRESS}\\s*$$\n  ^\\s*IP\\s+Address\\.+\\s+${IP_ADDRESS}\\s*$$\n  ^\\s*IP\\s+Netmask\\.+\\s+${NETMASK}\\s*$$\n  ^\\s*IP\\s+Gateway\\.+\\s+${GATEWAY}\\s*$$\n  ^\\s*Primary\\s+DHCP\\s+Server\\.+\\s+${PRIMARY_DHCP_SERVER}\\s*$$\n  ^\\s*Secondary\\s+DHCP\\s+Server\\.+\\s+${SECONDARY_DHCP_SERVER}\\s*$$ -> Record\n  ^\\s*External\\s+NAT\\s+IP\\s+State.*$$\n  ^\\s*External\\s+NAT\\s+IP\\s+Address.*$$\n  ^\\s*Link\\s+Local\\s+IPv6\\s+Address.*$$\n  ^\\s*STATE.*$$\n  ^\\s*Primary\\s+IPv6\\s+Address.*$$\n  ^\\s*IPv6\\s+Address.*$$\n  ^\\s*Primary\\s+IPv6\\s+Gateway.*$$\n  ^\\s*IPv6\\s+Gateway.*$$\n  ^\\s*Primary\\s+IPv6\\s+Gateway\\s+Mac\\s+Address.*$$\n  ^\\s*IPv6\\s+Gateway\\s+Mac\\s+Address.*$$\n  ^\\s*VLAN.*$$\n  ^\\s*Quarantine-vlan.*$$\n  ^\\s*NAS-Identifier.*$$\n  ^\\s*Active\\s+Physical\\s+Port.*$$\n  ^\\s*Primary\\s+Physical\\s+Port.*$$\n  ^\\s*Backup\\s+Physical\\s+Port.*$$\n  ^\\s*DHCP\\s+Proxy\\s+Mode.*$$\n  ^\\s*DHCP\\s+Option\\s+82.*$$\n  ^\\s*DHCP\\s+Option\\s+82\\s+bridge.*$$\n  ^\\s*DHCP\\s+Option\\s+6\\s+Opendns\\s+Override.*$$\n  ^\\s*IPv4\\s+ACL.*$$\n  ^\\s*URL\\s+ACL.*$$\n  ^\\s*mDNS\\s+Profile\\s+Name.*$$\n  ^\\s*AP\\s+Manager.*$$\n  ^\\s*Guest\\s+Interface.*$$\n  ^\\s*3G\\s+VLAN.*$$\n  ^\\s*L2\\s+Multicast.*$$\n  ^\\s*IPv6\\s+ACL.*$$\n  ^\\s*$$\n  ^.* -> Error\n"
+}

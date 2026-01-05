@@ -1,0 +1,69 @@
+{
+  "command": "dell_force10_show_arp",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.4,
+  "textfsm_rows": 5,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"ip_address_age_mac_address_port\">\nInternet {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{AGE}} {{MAC_ADDRESS | re(\"[0{{VLAN_ID | ORPHRASE}}9a-fA-F:.-]+\")}} {{PORT | ORPHRASE}} - CP\n</group>\n<group name=\"ip_address_age_mac_address_port_vlan_id\">\nInternet {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{AGE}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{PORT | ORPHRASE}} Vl {{VLAN_ID | ORPHRASE}} CP\n</group>\n<group name=\"ip_address_port_mac_address_vlan_id\">\nInternet {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{PORT | ORPHRASE}} {{MAC_ADDRESS | re(\"[0{{AGE | re(\".*\\\\w.*\")}}9a-fA-F:.-]+\")}} - Vl {{VLAN_ID | ORPHRASE}} CP\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP_ADDRESS": "192.168.168.5",
+      "MAC_ADDRESS": "fc:93:ee:c6:73:b2",
+      "PORT": "Ma 0/0",
+      "AGE": "34",
+      "VLAN_ID": "-"
+    },
+    {
+      "IP_ADDRESS": "192.168.168.11",
+      "MAC_ADDRESS": "e5:97:c1:0e:cb:b7",
+      "PORT": "Ma 0/0",
+      "AGE": "0",
+      "VLAN_ID": "-"
+    },
+    {
+      "IP_ADDRESS": "192.168.168.130",
+      "MAC_ADDRESS": "8a:72:f4:ef:fe:e3",
+      "PORT": "Ma 0/0",
+      "AGE": "0",
+      "VLAN_ID": "-"
+    },
+    {
+      "IP_ADDRESS": "192.168.186.99",
+      "MAC_ADDRESS": "5d:7c:2f:d5:62:57",
+      "PORT": "Te 0/22",
+      "AGE": "6",
+      "VLAN_ID": "10"
+    },
+    {
+      "IP_ADDRESS": "192.168.186.254",
+      "MAC_ADDRESS": "5d:7c:2f:d5:62:58",
+      "PORT": "-",
+      "AGE": "-",
+      "VLAN_ID": "10"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_address_age_mac_address_port_vlan_id": [
+        {
+          "IP_ADDRESS": "192.168.186.99",
+          "AGE": "6",
+          "MAC_ADDRESS": "5d:7c:2f:d5:62:57",
+          "PORT": "Te 0/22",
+          "VLAN_ID": "10"
+        },
+        {
+          "IP_ADDRESS": "192.168.186.254",
+          "AGE": "-",
+          "MAC_ADDRESS": "5d:7c:2f:d5:62:58",
+          "PORT": "-",
+          "VLAN_ID": "10"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Protocol    Address         Age(min)  Hardware Address    Interface  VLAN             CPU\n-----------------------------------------------------------------------------------------\nInternet    192.168.168.5        34   fc:93:ee:c6:73:b2   Ma 0/0      -               CP\nInternet    192.168.168.11        0   e5:97:c1:0e:cb:b7   Ma 0/0      -               CP\nInternet    192.168.168.130       0   8a:72:f4:ef:fe:e3   Ma 0/0      -               CP\nInternet    192.168.186.99        6   5d:7c:2f:d5:62:57   Te 0/22    Vl 10            CP\nInternet    192.168.186.254       -   5d:7c:2f:d5:62:58      -       Vl 10            CP\n",
+  "textfsm_template": "Value IP_ADDRESS ((?:[0-9]{1,3}\\.){3}[0-9]{1,3})\nValue MAC_ADDRESS ((?:[0-9a-fA-F]{2}\\:){5}[0-9a-fA-F]{2})\nValue PORT (\\w{2} \\d{1,2}\\/\\d{1,2}|\\-)\nValue AGE (\\d+|\\-)\nValue VLAN_ID (\\d+|\\-)\n\nStart\n  ^Protocol\\s+Address -> ARP\n\nARP\n  ^Internet\\s+${IP_ADDRESS}\\s+${AGE}\\s+${MAC_ADDRESS}\\s+${PORT}\\s+(Vl )?${VLAN_ID} -> Record\n"
+}

@@ -1,0 +1,527 @@
+{
+  "command": "cisco_ios_show_interface_link",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.4047619047619047,
+  "textfsm_rows": 42,
+  "ttp_rows": 59,
+  "ttp_template": "<group name=\"port_name_uptime\">\n{{PORT}} {{NAME | ORPHRASE}} 00:00:00 {{UPTIME | ORPHRASE}}\n</group>\n<group name=\"port_name_downtime\">\n{{PORT}} {{NAME | ORPHRASE}} {{DOWNTIME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PORT": "Gi1/0/3",
+      "NAME": "0308-ab15mgm0007-d",
+      "UPTIME": "30w5d"
+    },
+    {
+      "PORT": "Gi1/0/5",
+      "NAME": "23PD-PDU-a",
+      "UPTIME": "30w5d"
+    },
+    {
+      "PORT": "Gi1/0/11",
+      "NAME": "1001-HP3parStorage",
+      "DOWNTIME": "30w6d"
+    },
+    {
+      "PORT": "Gi1/0/15",
+      "NAME": "3201-ab15erp0006-d 00:00:00",
+      "DOWNTIME": "5d01h"
+    },
+    {
+      "PORT": "Gi1/0/20",
+      "NAME": "6502-ab15adc0001-d",
+      "DOWNTIME": "30w5d"
+    },
+    {
+      "PORT": "Gi1/0/21",
+      "NAME": "4512-ab15fil0001-s",
+      "UPTIME": "30w5d"
+    },
+    {
+      "PORT": "Te1/0/26",
+      "NAME": "5803-gh01erp8003-d",
+      "UPTIME": "2w1d"
+    },
+    {
+      "PORT": "Te1/0/29",
+      "NAME": "53609-ab15sql0001-d 00:00:00",
+      "DOWNTIME": "4d08h"
+    },
+    {
+      "PORT": "Te1/0/30",
+      "NAME": "54024-ab15san009-s",
+      "UPTIME": "3w0d"
+    },
+    {
+      "PORT": "Te1/0/31",
+      "NAME": "53PD-PDU-b",
+      "UPTIME": "30w5d"
+    },
+    {
+      "PORT": "Te1/0/32",
+      "NAME": "5504-ab15bac0004-d",
+      "DOWNTIME": "14w0d"
+    },
+    {
+      "PORT": "Te1/0/33",
+      "NAME": "56602-ab15mgm0005-d",
+      "DOWNTIME": "10w3d"
+    },
+    {
+      "PORT": "Te1/0/34",
+      "NAME": "5654-ab15msx0005-d",
+      "UPTIME": "30w5d"
+    },
+    {
+      "PORT": "Te1/0/35",
+      "NAME": "5665-ghsrv181-d",
+      "UPTIME": "30w5d"
+    },
+    {
+      "PORT": "Te1/0/37",
+      "NAME": "5781-ab15srv0006-d",
+      "DOWNTIME": "22w3d"
+    },
+    {
+      "PORT": "Te1/0/38",
+      "NAME": "5902-ab15srv0009-d",
+      "UPTIME": "6w5d"
+    },
+    {
+      "PORT": "Te1/0/39",
+      "NAME": "5106-ghsrv548-d",
+      "DOWNTIME": "30w6d"
+    },
+    {
+      "PORT": "Te1/0/41",
+      "NAME": "5835-maintenance-d",
+      "UPTIME": "4w0d"
+    },
+    {
+      "PORT": "Te1/0/43",
+      "NAME": "58029-maintenance-d",
+      "UPTIME": "4w0d"
+    },
+    {
+      "PORT": "Te1/0/44",
+      "NAME": "Access Port",
+      "UPTIME": "01:59:13"
+    },
+    {
+      "PORT": "Te1/0/45",
+      "NAME": "Access Port",
+      "UPTIME": "10w3d"
+    },
+    {
+      "PORT": "Gi2/0/22",
+      "NAME": "Access Port",
+      "DOWNTIME": "00:17:18"
+    },
+    {
+      "PORT": "Te2/0/25",
+      "NAME": "Access Port",
+      "DOWNTIME": "2d06h"
+    },
+    {
+      "PORT": "Te2/0/26",
+      "NAME": "Access Port",
+      "DOWNTIME": "30w6d"
+    },
+    {
+      "PORT": "Te2/0/27",
+      "NAME": "Access Port",
+      "DOWNTIME": "3w4d"
+    },
+    {
+      "PORT": "Te2/0/29",
+      "NAME": "CRXNLLE1051AP51",
+      "UPTIME": "6w5d"
+    },
+    {
+      "PORT": "Gi1/0/13",
+      "NAME": "DI01-ab15ups002-s",
+      "DOWNTIME": "30w6d"
+    },
+    {
+      "PORT": "Gi1/0/19",
+      "NAME": "DPYghZW1234WI001 L",
+      "UPTIME": "30w5d"
+    },
+    {
+      "PORT": "Gi1/0/24",
+      "NAME": "GFS-MGMT1",
+      "UPTIME": "30w5d"
+    },
+    {
+      "PORT": "Te1/0/31",
+      "NAME": "ICE Port",
+      "UPTIME": "7w2d"
+    },
+    {
+      "PORT": "Te1/0/32",
+      "NAME": "ICE Port",
+      "DOWNTIME": "46w5d"
+    },
+    {
+      "PORT": "Te1/0/33",
+      "NAME": "ITSghZW1561FW015-F",
+      "UPTIME": "30w5d"
+    },
+    {
+      "PORT": "Te1/0/34",
+      "NAME": "ITSghZWNB10",
+      "UPTIME": "30w5d"
+    },
+    {
+      "PORT": "Te1/0/36",
+      "NAME": "ITSghZWTL01.tld.co",
+      "UPTIME": "4w0d"
+    },
+    {
+      "PORT": "Te1/0/37",
+      "NAME": "NO POLL 4507-ab15f",
+      "UPTIME": "14w0d"
+    },
+    {
+      "PORT": "Te1/0/40",
+      "NAME": "Space Port",
+      "UPTIME": "2w3d"
+    },
+    {
+      "PORT": "Te1/0/42",
+      "NAME": "gh20mgm0002-d",
+      "DOWNTIME": "5w0d"
+    },
+    {
+      "PORT": "Te1/0/43",
+      "NAME": "dpyghzwnasc01n1r-i",
+      "UPTIME": "30w5d"
+    },
+    {
+      "PORT": "Te1/0/44",
+      "NAME": "itsghzwdd03m",
+      "UPTIME": "13w1d"
+    },
+    {
+      "PORT": "Te1/0/45",
+      "NAME": "jnjghllnas02n1.hos",
+      "UPTIME": "14w0d"
+    },
+    {
+      "PORT": "Gi2/0/2",
+      "NAME": "to DGYghGF1234BV00",
+      "UPTIME": "30w5d"
+    },
+    {
+      "PORT": "Gi2/0/3",
+      "NAME": "wlc-service-port-t",
+      "UPTIME": "30w5d"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "port_name_uptime": [
+        {
+          "PORT": "Gi1/0/3",
+          "NAME": "0308-ab15mgm0007-d",
+          "UPTIME": "30w5d"
+        },
+        {
+          "PORT": "Gi1/0/5",
+          "NAME": "23PD-PDU-a",
+          "UPTIME": "30w5d"
+        },
+        {
+          "PORT": "Gi1/0/15",
+          "NAME": "3201-ab15erp0006-d",
+          "UPTIME": "5d01h"
+        },
+        {
+          "PORT": "Gi1/0/21",
+          "NAME": "4512-ab15fil0001-s",
+          "UPTIME": "30w5d"
+        },
+        {
+          "PORT": "Te1/0/26",
+          "NAME": "5803-gh01erp8003-d",
+          "UPTIME": "2w1d"
+        },
+        {
+          "PORT": "Te1/0/29",
+          "NAME": "53609-ab15sql0001-d",
+          "UPTIME": "4d08h"
+        },
+        {
+          "PORT": "Te1/0/30",
+          "NAME": "54024-ab15san009-s",
+          "UPTIME": "3w0d"
+        },
+        {
+          "PORT": "Te1/0/31",
+          "NAME": "53PD-PDU-b",
+          "UPTIME": "30w5d"
+        },
+        {
+          "PORT": "Te1/0/34",
+          "NAME": "5654-ab15msx0005-d",
+          "UPTIME": "30w5d"
+        },
+        {
+          "PORT": "Te1/0/35",
+          "NAME": "5665-ghsrv181-d",
+          "UPTIME": "30w5d"
+        },
+        {
+          "PORT": "Te1/0/38",
+          "NAME": "5902-ab15srv0009-d",
+          "UPTIME": "6w5d"
+        },
+        {
+          "PORT": "Te1/0/41",
+          "NAME": "5835-maintenance-d",
+          "UPTIME": "4w0d"
+        },
+        {
+          "PORT": "Te1/0/43",
+          "NAME": "58029-maintenance-d",
+          "UPTIME": "4w0d"
+        },
+        {
+          "PORT": "Te1/0/44",
+          "NAME": "Access Port",
+          "UPTIME": "01:59:13"
+        },
+        {
+          "PORT": "Te1/0/45",
+          "NAME": "Access Port",
+          "UPTIME": "10w3d"
+        },
+        {
+          "PORT": "Te2/0/29",
+          "NAME": "CRXNLLE1051AP51",
+          "UPTIME": "6w5d"
+        },
+        {
+          "PORT": "Gi1/0/19",
+          "NAME": "DPYghZW1234WI001 L",
+          "UPTIME": "30w5d"
+        },
+        {
+          "PORT": "Gi1/0/24",
+          "NAME": "GFS-MGMT1",
+          "UPTIME": "30w5d"
+        },
+        {
+          "PORT": "Te1/0/31",
+          "NAME": "ICE Port",
+          "UPTIME": "7w2d"
+        },
+        {
+          "PORT": "Te1/0/33",
+          "NAME": "ITSghZW1561FW015-F",
+          "UPTIME": "30w5d"
+        },
+        {
+          "PORT": "Te1/0/34",
+          "NAME": "ITSghZWNB10",
+          "UPTIME": "30w5d"
+        },
+        {
+          "PORT": "Te1/0/36",
+          "NAME": "ITSghZWTL01.tld.co",
+          "UPTIME": "4w0d"
+        },
+        {
+          "PORT": "Te1/0/37",
+          "NAME": "NO POLL 4507-ab15f",
+          "UPTIME": "14w0d"
+        },
+        {
+          "PORT": "Te1/0/40",
+          "NAME": "Space Port",
+          "UPTIME": "2w3d"
+        },
+        {
+          "PORT": "Te1/0/43",
+          "NAME": "dpyghzwnasc01n1r-i",
+          "UPTIME": "30w5d"
+        },
+        {
+          "PORT": "Te1/0/44",
+          "NAME": "itsghzwdd03m",
+          "UPTIME": "13w1d"
+        },
+        {
+          "PORT": "Te1/0/45",
+          "NAME": "jnjghllnas02n1.hos",
+          "UPTIME": "14w0d"
+        },
+        {
+          "PORT": "Gi2/0/2",
+          "NAME": "to DGYghGF1234BV00",
+          "UPTIME": "30w5d"
+        },
+        {
+          "PORT": "Gi2/0/3",
+          "NAME": "wlc-service-port-t",
+          "UPTIME": "30w5d"
+        }
+      ],
+      "port_name_downtime": [
+        {
+          "PORT": "Gi1/0/3",
+          "NAME": "0308-ab15mgm0007-d 00:00:00",
+          "DOWNTIME": "30w5d"
+        },
+        {
+          "PORT": "Gi1/0/11",
+          "NAME": "1001-HP3parStorage",
+          "DOWNTIME": "30w6d"
+        },
+        {
+          "PORT": "Gi1/0/15",
+          "NAME": "3201-ab15erp0006-d 00:00:00",
+          "DOWNTIME": "5d01h"
+        },
+        {
+          "PORT": "Gi1/0/20",
+          "NAME": "6502-ab15adc0001-d",
+          "DOWNTIME": "30w5d"
+        },
+        {
+          "PORT": "Gi1/0/21",
+          "NAME": "4512-ab15fil0001-s 00:00:00",
+          "DOWNTIME": "30w5d"
+        },
+        {
+          "PORT": "Te1/0/26",
+          "NAME": "5803-gh01erp8003-d 00:00:00",
+          "DOWNTIME": "2w1d"
+        },
+        {
+          "PORT": "Te1/0/29",
+          "NAME": "53609-ab15sql0001-d 00:00:00",
+          "DOWNTIME": "4d08h"
+        },
+        {
+          "PORT": "Te1/0/32",
+          "NAME": "5504-ab15bac0004-d",
+          "DOWNTIME": "14w0d"
+        },
+        {
+          "PORT": "Te1/0/33",
+          "NAME": "56602-ab15mgm0005-d",
+          "DOWNTIME": "10w3d"
+        },
+        {
+          "PORT": "Te1/0/34",
+          "NAME": "5654-ab15msx0005-d 00:00:00",
+          "DOWNTIME": "30w5d"
+        },
+        {
+          "PORT": "Te1/0/37",
+          "NAME": "5781-ab15srv0006-d",
+          "DOWNTIME": "22w3d"
+        },
+        {
+          "PORT": "Te1/0/38",
+          "NAME": "5902-ab15srv0009-d 00:00:00",
+          "DOWNTIME": "6w5d"
+        },
+        {
+          "PORT": "Te1/0/39",
+          "NAME": "5106-ghsrv548-d",
+          "DOWNTIME": "30w6d"
+        },
+        {
+          "PORT": "Te1/0/41",
+          "NAME": "5835-maintenance-d 00:00:00",
+          "DOWNTIME": "4w0d"
+        },
+        {
+          "PORT": "Te1/0/43",
+          "NAME": "58029-maintenance-d 00:00:00",
+          "DOWNTIME": "4w0d"
+        },
+        {
+          "PORT": "Gi2/0/22",
+          "NAME": "Access Port",
+          "DOWNTIME": "00:17:18"
+        },
+        {
+          "PORT": "Te2/0/25",
+          "NAME": "Access Port",
+          "DOWNTIME": "2d06h"
+        },
+        {
+          "PORT": "Te2/0/26",
+          "NAME": "Access Port",
+          "DOWNTIME": "30w6d"
+        },
+        {
+          "PORT": "Te2/0/27",
+          "NAME": "Access Port",
+          "DOWNTIME": "3w4d"
+        },
+        {
+          "PORT": "Gi1/0/13",
+          "NAME": "DI01-ab15ups002-s",
+          "DOWNTIME": "30w6d"
+        },
+        {
+          "PORT": "Gi1/0/19",
+          "NAME": "DPYghZW1234WI001 L 00:00:00",
+          "DOWNTIME": "30w5d"
+        },
+        {
+          "PORT": "Te1/0/32",
+          "NAME": "ICE Port",
+          "DOWNTIME": "46w5d"
+        },
+        {
+          "PORT": "Te1/0/33",
+          "NAME": "ITSghZW1561FW015-F 00:00:00",
+          "DOWNTIME": "30w5d"
+        },
+        {
+          "PORT": "Te1/0/36",
+          "NAME": "ITSghZWTL01.tld.co 00:00:00",
+          "DOWNTIME": "4w0d"
+        },
+        {
+          "PORT": "Te1/0/37",
+          "NAME": "NO POLL 4507-ab15f 00:00:00",
+          "DOWNTIME": "14w0d"
+        },
+        {
+          "PORT": "Te1/0/42",
+          "NAME": "gh20mgm0002-d",
+          "DOWNTIME": "5w0d"
+        },
+        {
+          "PORT": "Te1/0/43",
+          "NAME": "dpyghzwnasc01n1r-i 00:00:00",
+          "DOWNTIME": "30w5d"
+        },
+        {
+          "PORT": "Te1/0/45",
+          "NAME": "jnjghllnas02n1.hos 00:00:00",
+          "DOWNTIME": "14w0d"
+        },
+        {
+          "PORT": "Gi2/0/2",
+          "NAME": "to DGYghGF1234BV00 00:00:00",
+          "DOWNTIME": "30w5d"
+        },
+        {
+          "PORT": "Gi2/0/3",
+          "NAME": "wlc-service-port-t 00:00:00",
+          "DOWNTIME": "30w5d"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Port           Name               Down Time      Up Time\nGi1/0/1                           30w6d\nGi1/0/3        0308-ab15mgm0007-d 00:00:00       30w5d\nGi1/0/5        23PD-PDU-a         00:00:00       30w5d\nGi1/0/11       1001-HP3parStorage 30w6d\nGi1/0/15       3201-ab15erp0006-d 00:00:00       5d01h\nGi1/0/20       6502-ab15adc0001-d 30w5d\nGi1/0/21       4512-ab15fil0001-s 00:00:00       30w5d\nTe1/0/26       5803-gh01erp8003-d 00:00:00       2w1d\nTe1/0/29       53609-ab15sql0001-d 00:00:00       4d08h\nTe1/0/30       54024-ab15san009-s  00:00:00       3w0d\nTe1/0/31       53PD-PDU-b         00:00:00       30w5d\nTe1/0/32       5504-ab15bac0004-d 14w0d\nTe1/0/33       56602-ab15mgm0005-d 10w3d\nTe1/0/34       5654-ab15msx0005-d 00:00:00       30w5d\nTe1/0/35       5665-ghsrv181-d    00:00:00       30w5d\nTe1/0/37       5781-ab15srv0006-d 22w3d\nTe1/0/38       5902-ab15srv0009-d 00:00:00       6w5d\nTe1/0/39       5106-ghsrv548-d    30w6d\nTe1/0/41       5835-maintenance-d 00:00:00       4w0d\nTe1/0/43       58029-maintenance-d 00:00:00       4w0d\nTe1/0/44       Access Port        00:00:00       01:59:13\nTe1/0/45       Access Port        00:00:00       10w3d\nGi2/0/22       Access Port        00:17:18\nTe2/0/25       Access Port        2d06h\nTe2/0/26       Access Port        30w6d\nTe2/0/27       Access Port        3w4d\nTe2/0/29       CRXNLLE1051AP51    00:00:00       6w5d\nGi1/0/13       DI01-ab15ups002-s  30w6d\nGi1/0/19       DPYghZW1234WI001 L 00:00:00       30w5d\nGi1/0/24       GFS-MGMT1          00:00:00       30w5d\nTe1/0/31       ICE Port           00:00:00       7w2d\nTe1/0/32       ICE Port           46w5d\nTe1/0/33       ITSghZW1561FW015-F 00:00:00       30w5d\nTe1/0/34       ITSghZWNB10        00:00:00       30w5d\nTe1/0/36       ITSghZWTL01.tld.co 00:00:00       4w0d\nTe1/0/37       NO POLL 4507-ab15f 00:00:00       14w0d\nTe1/0/40       Space Port         00:00:00       2w3d\nTe1/0/42       gh20mgm0002-d      5w0d\nTe1/0/43       dpyghzwnasc01n1r-i 00:00:00       30w5d\nTe1/0/44       itsghzwdd03m       00:00:00       13w1d\nTe1/0/45       jnjghllnas02n1.hos 00:00:00       14w0d\nGi2/0/2        to DGYghGF1234BV00 00:00:00       30w5d\nGi2/0/3        wlc-service-port-t 00:00:00       30w5d",
+  "textfsm_template": "Value PORT (\\S+)\nValue NAME (.*?)\nValue DOWNTIME ((00:00:00)|(([0-9]{1,2} year[s]? , )?([0-9]{1,2} week[s]?, )?([0-9]{1,2} day[s]?, )?([0-9]{1,2} hour[s]?, )?([0-9]{1,2} minute[s]? )?([0-9]{1,2} secs))|((([0-9]{1,2}y)?([0-9]{1,2}w)?([0-9]{1,2}d)([0-9]{1,2}h)?|[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2})))\nValue SINCE (.+?)\nValue UPTIME ((([0-9]{1,2}m)?([0-9]{1,2}w)?([0-9]{1,2}d)|[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}))\n\nStart\n  ^\\s*\\^\\s* -> EOF\n  ^.*Invalid input detected.* -> EOF\n  ^Load\\s+for\\s+\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Time\\s+source\\s+is\n  ^-+\\s*$$\n  ^\\s*Port\\s+Name\\s+Down Time\\s+Down Since\\s*$$ -> DownSince\n  ^\\s*Port\\s+Name\\s+Down Time\\s+Up Time\\s*$$ -> UpTime\n  ^\\s*$$\n  ^. -> Error\n\nDownSince\n  ^\\s*${PORT}\\s+${DOWNTIME}\\s*$$ -> Record\n  ^\\s*${PORT}\\s+${DOWNTIME}\\s*${SINCE}\\s*$$ -> Record\n  ^\\s*${PORT}\\s+${NAME}\\s*${DOWNTIME}\\s*$$ -> Record\n  ^\\s*${PORT}\\s+${NAME}\\s*${DOWNTIME}\\s+${SINCE}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n\nUpTime\n  ^\\s*${PORT}\\s+${NAME}\\s+00:00:00\\s+${UPTIME}?\\s*$$ -> Record\n  ^\\s*${PORT}\\s+${DOWNTIME}\\s+${UPTIME}?\\s*$$ -> Record\n  ^\\s*${PORT}\\s+${NAME}\\s+${DOWNTIME}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

@@ -1,0 +1,129 @@
+{
+  "command": "cisco_ios_show_standby",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"active_router_active_router_priority_hold_time_group\">\n  Active router is {{ACTIVE_ROUTER}}, priority {{ACTIVE_ROUTER_PRIORITY}} (expires in {{HOLD_TIME | ORPHRASE}}.4{{GROUP}}6 sec)\n</group>\n<group name=\"standby_router_standby_router_priority_hold_time_priority\">\n  Standby router is {{STANDBY_ROUTER}}, priority {{STANDBY_ROUTER_PRIORITY}} (expires in {{HOLD_TIME}}.{{PRIORITY | ORPHRASE}} sec)\n</group>\n<group name=\"track_type_track_item_track_state_hold_time\">\n    Track {{TRACK_TYPE}} {{TRACK_ITEM}} state {{TRACK_STATE | ORPHRASE}} decrement {{HOLD_TIME | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Vlan111",
+      "GROUP": "1",
+      "STATE": "Standby",
+      "STATE_CHANGES": "1",
+      "STATE_LAST_CHANGE": "26w2d",
+      "VIRTUAL_IP": "192.168.77.62",
+      "ACTIVE_VIRTUAL_MAC": "0000.0c07.ac01",
+      "LOCAL_VIRTUAL_MAC": "0000.0c07.ac01",
+      "HELLO_TIME": "3",
+      "HOLD_TIME": "10",
+      "PREEMPTION": "enabled",
+      "ACTIVE_ROUTER": "192.168.77.60",
+      "ACTIVE_ROUTER_PRIORITY": "255",
+      "STANDBY_ROUTER": "local",
+      "PRIORITY": "255",
+      "GROUP_NAME": "hsrp-Vl111-1",
+      "TRACK_ITEM": "1",
+      "TRACK_TYPE": "object",
+      "TRACK_STATE": "Up",
+      "TRACK_DECREMENT_TIME": "60"
+    },
+    {
+      "INTERFACE": "BDI10",
+      "GROUP": "1",
+      "STATE": "Active",
+      "STATE_CHANGES": "4",
+      "STATE_LAST_CHANGE": "17w6d",
+      "VIRTUAL_IP": "203.57.147.1",
+      "ACTIVE_VIRTUAL_MAC": "0000.0c07.ac01",
+      "LOCAL_VIRTUAL_MAC": "0000.0c07.ac01",
+      "HELLO_TIME": "3",
+      "HOLD_TIME": "10",
+      "PREEMPTION": "enabled",
+      "ACTIVE_ROUTER": "local",
+      "STANDBY_ROUTER": "203.57.147.3",
+      "STANDBY_ROUTER_PRIORITY": "230",
+      "PRIORITY": "240",
+      "GROUP_NAME": "hsrp-BD10-1",
+      "FLAGS": "1/1",
+      "TRACK_ITEM": "1",
+      "TRACK_TYPE": "object",
+      "TRACK_STATE": "Up"
+    },
+    {
+      "INTERFACE": "Vlan703",
+      "GROUP": "4",
+      "STATE": "Active",
+      "STATE_CHANGES": "1",
+      "STATE_LAST_CHANGE": "5d14h",
+      "VIRTUAL_IP": "172.23.40.9",
+      "ACTIVE_VIRTUAL_MAC": "0000.0c07.ac04",
+      "LOCAL_VIRTUAL_MAC": "0000.0c07.ac04",
+      "HELLO_TIME": "3",
+      "HOLD_TIME": "10",
+      "PREEMPTION": "enabled",
+      "ACTIVE_ROUTER": "local",
+      "STANDBY_ROUTER": "unknown",
+      "PRIORITY": "200",
+      "GROUP_NAME": "hsrp-Vl703-4",
+      "TRACK_ITEM": "Dialer0",
+      "TRACK_TYPE": "interface",
+      "TRACK_STATE": "Up",
+      "TRACK_DECREMENT_TIME": "10"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/1.2951",
+      "GROUP": "1",
+      "VERSION": "2",
+      "STATE": "Active",
+      "STATE_CHANGES": "2",
+      "STATE_LAST_CHANGE": "3y37w",
+      "VIRTUAL_IP": "111.222.230.17",
+      "ACTIVE_VIRTUAL_MAC": "0000.0c9f.f001",
+      "LOCAL_VIRTUAL_MAC": "0000.0c9f.f001",
+      "HELLO_TIME": "3",
+      "HOLD_TIME": "10",
+      "PREEMPTION": "enabled",
+      "ACTIVE_ROUTER": "local",
+      "STANDBY_ROUTER": "unknown",
+      "PRIORITY": "255",
+      "GROUP_NAME": "hsrp-Gi0/1.2951-1",
+      "TRACK_ITEM": "1",
+      "TRACK_TYPE": "object"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "active_router_active_router_priority_hold_time_group": {
+        "ACTIVE_ROUTER": "192.168.77.60",
+        "ACTIVE_ROUTER_PRIORITY": "255",
+        "HOLD_TIME": "10",
+        "GROUP": "1"
+      },
+      "standby_router_standby_router_priority_hold_time_priority": {
+        "STANDBY_ROUTER": "203.57.147.3",
+        "STANDBY_ROUTER_PRIORITY": "230",
+        "HOLD_TIME": "10",
+        "PRIORITY": "240"
+      },
+      "track_type_track_item_track_state_hold_time": [
+        {
+          "TRACK_TYPE": "object",
+          "TRACK_ITEM": "1",
+          "TRACK_STATE": "Up",
+          "HOLD_TIME": "60"
+        },
+        {
+          "TRACK_TYPE": "interface",
+          "TRACK_ITEM": "Dialer0",
+          "TRACK_STATE": "Up",
+          "HOLD_TIME": "10"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Vlan111 - Group 1\n  State is Standby\n    1 state change, last state change 26w2d\n  Virtual IP address is 192.168.77.62\n  Active virtual MAC address is 0000.0c07.ac01\n    Local virtual MAC address is 0000.0c07.ac01 (v1 default)\n  Hello time 3 sec, hold time 10 sec\n    Next hello sent in 0.704 secs\n  Preemption enabled, delay min 180 secs\n  Active router is 192.168.77.60, priority 255 (expires in 10.416 sec)\n  Standby router is local\n  Priority 255 (configured 255)\n    Track object 1 state Up decrement 60\n  Group name is \"hsrp-Vl111-1\" (default)\nBDI10 - Group 1\n  State is Active\n    14 state changes, last state change 17w6d\n    Track object 1 state Up\n  Virtual IP address is 203.57.147.1\n  Active virtual MAC address is 0000.0c07.ac01 (MAC In Use)\n    Local virtual MAC address is 0000.0c07.ac01 (v1 default)\n  Hello time 3 sec, hold time 10 sec\n    Next hello sent in 1.040 secs\n  Preemption enabled, delay min 180 secs\n  Active router is local\n  Standby router is 203.57.147.3, priority 230 (expires in 10.240 sec)\n  Priority 240 (configured 240)\n  Group name is \"hsrp-BD10-1\" (default)\n  FLAGS: 1/1\nVlan703 - Group 4\n  State is Active\n    11 state changes, last state change 5d14h\n  Virtual IP address is 172.23.40.9\n  Active virtual MAC address is 0000.0c07.ac04\n    Local virtual MAC address is 0000.0c07.ac04 (v1 default)\n  Hello time 3 sec, hold time 10 sec\n    Next hello sent in 0.340 secs\n  Preemption enabled, delay min 180 secs\n  Active router is local\n  Standby router is unknown\n  Priority 200 (configured 200)\n    Track interface Dialer0 state Up decrement 10\n  IP redundancy name is \"hsrp-Vl703-4\" (default)\nGigabitEthernet0/1.2951 - Group 1 (version 2)\n  State is Active\n    2 state changes, last state change 3y37w\n  Virtual IP address is 111.222.230.17\n  Active virtual MAC address is 0000.0c9f.f001\n    Local virtual MAC address is 0000.0c9f.f001 (v2 default)\n  Hello time 3 sec, hold time 10 sec\n    Next hello sent in 2.720 secs\n  Preemption enabled, delay min 180 secs, reload 300 secs\n  Active router is local\n  Standby router is unknown\n  Priority 255 (configured 255)\n    Track object 1 (unknown)\n  Group name is \"hsrp-Gi0/1.2951-1\" (default)",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue GROUP (\\d+)\nValue VERSION (\\d+)\nValue STATE (\\w+)\nValue STATE_CHANGES (\\d+)\nValue STATE_LAST_CHANGE (\\S+)\nValue VIRTUAL_IP (\\S+)\nValue List SECONDARY_IPS (\\S+)\nValue ACTIVE_VIRTUAL_MAC (\\S+)\nValue LOCAL_VIRTUAL_MAC (\\S+)\nValue HELLO_TIME (\\d+)\nValue HOLD_TIME (\\d+)\nValue AUTHENTICATION (\\w+)\nValue PREEMPTION (\\w+)\nValue ACTIVE_ROUTER (\\d+\\.\\d+\\.\\d+\\.\\d+|local|unknown)\nValue ACTIVE_ROUTER_PRIORITY (\\d+)\nValue ACTIVE_ROUTER_MAC (\\S+)\nValue STANDBY_ROUTER (\\d+\\.\\d+\\.\\d+\\.\\d+|local|unknown)\nValue STANDBY_ROUTER_PRIORITY (\\d+)\nValue PRIORITY (\\d+)\nValue GROUP_NAME (\\S+)\nValue FLAGS (\\S+)\nValue TRACK_ITEM (\\S+)\nValue TRACK_TYPE (object|interface)\nValue TRACK_STATE (\\S+)\nValue TRACK_DECREMENT_TIME (\\d+)\n\nStart\n  ^\\S+ -> Continue.Record\n  ^\\s*${INTERFACE}\\s+-\\s+Group\\s+${GROUP}\\s*(\\(version\\s+${VERSION}\\))?$$\n  ^.*State\\s+is\\s+${STATE}\n  ^.*Virtual\\s+IP\\s+address\\s+is\\s+${VIRTUAL_IP}\n  ^.*Secondary\\s+virtual\\s+IP\\s+address\\s+${SECONDARY_IPS}\n  ^.*Active\\s+virtual\\s+MAC\\s+address\\s+is\\s+${ACTIVE_VIRTUAL_MAC}\n  ^.*Local\\s+virtual\\s+MAC\\s+address\\s+is\\s+${LOCAL_VIRTUAL_MAC}\n  ^.*Hello\\s+time\\s+${HELLO_TIME}.*hold\\s+time\\s+${HOLD_TIME}\n  ^.*Next\\s+hello\\s+sent\\s+in.*secs\n  ^.*Authentication\\s+${AUTHENTICATION}\n  ^.*Preemption\\s+${PREEMPTION}\n  ^.*Active\\s+router\\s+is\\s+${ACTIVE_ROUTER}(,\\s+priority\\s+${ACTIVE_ROUTER_PRIORITY})?\n  ^\\s+MAC\\s+address\\s+is\\s+${ACTIVE_ROUTER_MAC}\n  ^.*Standby\\s+router\\s+is\\s+${STANDBY_ROUTER}(,\\s+priority\\s+${STANDBY_ROUTER_PRIORITY})?\n  ^.*Priority\\s+${PRIORITY}\n  ^\\s*Track\\s+${TRACK_TYPE}(\\s+${TRACK_ITEM})?(\\(unknown\\))?(\\s+state\\s+${TRACK_STATE}(\\s+decrement\\s+${TRACK_DECREMENT_TIME})?)?\n  ^.*${STATE_CHANGES}\\s+state\\s+(change|changes),\\s+last\\s+state\\s+change\\s+${STATE_LAST_CHANGE}\n  ^.*Group\\s+name\\s+is\\s+\"${GROUP_NAME}\"\n  ^.*FLAGS:\\s+${FLAGS}\n  ^.*IP\\s+redundancy\\s+name\\s+is\\s+\\\"${GROUP_NAME}\\\"(\\s+\\(default\\))?\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^. -> Error\n"
+}

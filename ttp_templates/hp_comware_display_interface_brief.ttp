@@ -1,0 +1,19 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_comware_display_interface_brief
+# Source: ntc
+# TextFSM rows: 11
+# TTP rows: 13
+# Match ratio: 1.18
+
+<group name="interface_link_protocol_main_ip">
+{{INTERFACE}} {{LINK}} {{PROTOCOL}} {{MAIN_IP | ORPHRASE}}
+</group>
+<group name="interface_link_protocol_main_ip_description">
+{{INTERFACE}} {{LINK}} {{PROTOCOL}} {{MAIN_IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{DESCRIPTION | ORPHRASE}}
+</group>
+<group name="duplex_link_speed_pvid">
+{{INTERF{{DUPLEX | ORPHR{{TYPE}}SE}}CE}} {{LINK}} {{SPEED}} A A {{PVID | re("\\d+")}}
+</group>
+<group name="duplex_link_speed_type_pvid">
+{{INTERF{{DUPLEX}}CE}} {{LINK}} {{SPEED}} {{TYPE}} A {{PVID | ORPHRASE}}
+</group>

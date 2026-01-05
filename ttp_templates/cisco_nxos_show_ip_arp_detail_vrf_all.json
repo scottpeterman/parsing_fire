@@ -1,0 +1,630 @@
+{
+  "command": "cisco_nxos_show_ip_arp_detail_vrf_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.9,
+  "textfsm_rows": 40,
+  "ttp_rows": 36,
+  "ttp_template": "<group name=\"ip_address_age_mac_address_interface_physical_interface_vrf\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{AGE}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{INTERFACE}} {{PHYSICAL_INTERFACE}} {{VRF | ORPHRASE}}\n</group>\n<group name=\"ip_address_age_mac_address_interface\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{AGE | re(\".*\\\\w.*\")}} {{MAC_ADDRESS | re(\"[0{{PHYSICAL_INTERFACE | re(\".*\\\\w.*\")}}9a-fA-F:.-]+\")}} {{INTERFACE | ORPHRASE}} -\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP_ADDRESS": "10.255.0.2",
+      "AGE": "00:09:24",
+      "MAC_ADDRESS": "14a2.a070.52a7",
+      "INTERFACE": "Vlan666",
+      "PHYSICAL_INTERFACE": "port-channel1000",
+      "VRF": "default"
+    },
+    {
+      "IP_ADDRESS": "10.255.0.1",
+      "AGE": "00:17:20",
+      "MAC_ADDRESS": "14a2.a070.52a0",
+      "INTERFACE": "mgmt0",
+      "PHYSICAL_INTERFACE": "mgmt0",
+      "VRF": "management"
+    },
+    {
+      "IP_ADDRESS": "172.23.5.8",
+      "AGE": "00:06:48",
+      "MAC_ADDRESS": "b8a3.771c.255b",
+      "INTERFACE": "Ethernet1/49",
+      "PHYSICAL_INTERFACE": "Ethernet1/49",
+      "VRF": "default"
+    },
+    {
+      "IP_ADDRESS": "172.23.5.10",
+      "AGE": "00:06:50",
+      "MAC_ADDRESS": "d477.98e9.c6bf",
+      "INTERFACE": "Ethernet1/50",
+      "PHYSICAL_INTERFACE": "Ethernet1/50",
+      "VRF": "default"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.3",
+      "AGE": "00:14:55",
+      "MAC_ADDRESS": "14a2.a070.52a7",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "port-channel1000",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.5",
+      "AGE": "00:11:24",
+      "MAC_ADDRESS": "c8e7.f0fb.d6a7",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/8",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.6",
+      "AGE": "00:14:04",
+      "MAC_ADDRESS": "d0d0.fd61.ecc1",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/9",
+      "FLAGS": "+",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.7",
+      "AGE": "00:12:05",
+      "MAC_ADDRESS": "44aa.502f.c150",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/13",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.8",
+      "AGE": "00:07:12",
+      "MAC_ADDRESS": "8418.88ac.9741",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "port-channel12",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.9",
+      "AGE": "00:13:41",
+      "MAC_ADDRESS": "8418.88aa.c641",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "port-channel13",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.10",
+      "AGE": "00:05:29",
+      "MAC_ADDRESS": "0881.f4ae.4841",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "port-channel14",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.11",
+      "AGE": "00:10:51",
+      "MAC_ADDRESS": "b0a8.6e03.ce81",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "port-channel11",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.12",
+      "AGE": "00:04:35",
+      "MAC_ADDRESS": "2c21.7299.8ac1",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/6",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.13",
+      "AGE": "00:13:25",
+      "MAC_ADDRESS": "78fe.3d35.7b41",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/21",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.14",
+      "AGE": "00:09:43",
+      "MAC_ADDRESS": "8071.1fe7.f041",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/29",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.15",
+      "AGE": "00:06:38",
+      "MAC_ADDRESS": "8071.1fe7.ef41",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/28",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.16",
+      "AGE": "00:17:54",
+      "MAC_ADDRESS": "3c61.04f9.6bc1",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/12",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.18",
+      "AGE": "00:13:17",
+      "MAC_ADDRESS": "2c21.7298.8b41",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/10",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.19",
+      "AGE": "00:11:53",
+      "MAC_ADDRESS": "2c21.7299.8e81",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/11",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.20",
+      "AGE": "00:00:01",
+      "MAC_ADDRESS": "28c0.da35.dc01",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/16",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.21",
+      "AGE": "00:01:08",
+      "MAC_ADDRESS": "c8e7.f0fb.c487",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "port-channel10",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.30",
+      "AGE": "00:09:24",
+      "MAC_ADDRESS": "7819.f79a.82c1",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/2",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.31",
+      "AGE": "00:01:54",
+      "MAC_ADDRESS": "2c21.728a.0581",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/22",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.32",
+      "AGE": "00:02:05",
+      "MAC_ADDRESS": "78fe.3d35.a101",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/1",
+      "FLAGS": "+",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.33",
+      "AGE": "00:05:25",
+      "MAC_ADDRESS": "2c21.7296.b501",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/3",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.34",
+      "AGE": "00:16:36",
+      "MAC_ADDRESS": "2c21.7296.8c81",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/23",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.35",
+      "AGE": "00:08:06",
+      "MAC_ADDRESS": "2c21.7293.a401",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/24",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.36",
+      "AGE": "00:14:56",
+      "MAC_ADDRESS": "2c21.7296.9081",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/4",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.37",
+      "AGE": "00:12:56",
+      "MAC_ADDRESS": "7819.f79b.8801",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/25",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.38",
+      "AGE": "00:14:49",
+      "MAC_ADDRESS": "2c21.7296.a401",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/26",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.39",
+      "AGE": "00:17:42",
+      "MAC_ADDRESS": "2c21.3111.0701",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "port-channel18",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.48",
+      "AGE": "00:08:50",
+      "MAC_ADDRESS": "7c25.8629.ab83",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/15",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.50",
+      "AGE": "00:13:21",
+      "MAC_ADDRESS": "f8c0.01c9.e501",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "port-channel15",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.60",
+      "AGE": "00:05:02",
+      "MAC_ADDRESS": "8418.88ac.9ec1",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "port-channel16",
+      "FLAGS": "+",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.70",
+      "AGE": "00:12:04",
+      "MAC_ADDRESS": "8418.88ac.a0c1",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "port-channel17",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.193",
+      "AGE": "00:03:29",
+      "MAC_ADDRESS": "2829.862b.0dfc",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "port-channel13",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.194",
+      "AGE": "00:02:38",
+      "MAC_ADDRESS": "2829.863f.5708",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/2",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.196",
+      "AGE": "00:02:15",
+      "MAC_ADDRESS": "2829.8615.4bd3",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/4",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.197",
+      "AGE": "00:08:54",
+      "MAC_ADDRESS": "2829.8617.5b14",
+      "INTERFACE": "Vlan3",
+      "PHYSICAL_INTERFACE": "Ethernet1/21",
+      "VRF": "PRIMARY"
+    },
+    {
+      "IP_ADDRESS": "10.233.6.1",
+      "AGE": "-",
+      "MAC_ADDRESS": "0000.5e00.0101",
+      "INTERFACE": "Vlan9",
+      "PHYSICAL_INTERFACE": "-"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_address_age_mac_address_interface_physical_interface_vrf": [
+        {
+          "IP_ADDRESS": "10.255.0.2",
+          "AGE": "00:09:24",
+          "MAC_ADDRESS": "14a2.a070.52a7",
+          "INTERFACE": "Vlan666",
+          "PHYSICAL_INTERFACE": "port-channel1000",
+          "VRF": "default"
+        },
+        {
+          "IP_ADDRESS": "10.255.0.1",
+          "AGE": "00:17:20",
+          "MAC_ADDRESS": "14a2.a070.52a0",
+          "INTERFACE": "mgmt0",
+          "PHYSICAL_INTERFACE": "mgmt0",
+          "VRF": "management"
+        },
+        {
+          "IP_ADDRESS": "172.23.5.8",
+          "AGE": "00:06:48",
+          "MAC_ADDRESS": "b8a3.771c.255b",
+          "INTERFACE": "Ethernet1/49",
+          "PHYSICAL_INTERFACE": "Ethernet1/49",
+          "VRF": "default"
+        },
+        {
+          "IP_ADDRESS": "172.23.5.10",
+          "AGE": "00:06:50",
+          "MAC_ADDRESS": "d477.98e9.c6bf",
+          "INTERFACE": "Ethernet1/50",
+          "PHYSICAL_INTERFACE": "Ethernet1/50",
+          "VRF": "default"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.3",
+          "AGE": "00:14:55",
+          "MAC_ADDRESS": "14a2.a070.52a7",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "port-channel1000",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.5",
+          "AGE": "00:11:24",
+          "MAC_ADDRESS": "c8e7.f0fb.d6a7",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/8",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.7",
+          "AGE": "00:12:05",
+          "MAC_ADDRESS": "44aa.502f.c150",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/13",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.8",
+          "AGE": "00:07:12",
+          "MAC_ADDRESS": "8418.88ac.9741",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "port-channel12",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.9",
+          "AGE": "00:13:41",
+          "MAC_ADDRESS": "8418.88aa.c641",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "port-channel13",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.10",
+          "AGE": "00:05:29",
+          "MAC_ADDRESS": "0881.f4ae.4841",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "port-channel14",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.11",
+          "AGE": "00:10:51",
+          "MAC_ADDRESS": "b0a8.6e03.ce81",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "port-channel11",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.12",
+          "AGE": "00:04:35",
+          "MAC_ADDRESS": "2c21.7299.8ac1",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/6",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.13",
+          "AGE": "00:13:25",
+          "MAC_ADDRESS": "78fe.3d35.7b41",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/21",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.14",
+          "AGE": "00:09:43",
+          "MAC_ADDRESS": "8071.1fe7.f041",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/29",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.15",
+          "AGE": "00:06:38",
+          "MAC_ADDRESS": "8071.1fe7.ef41",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/28",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.16",
+          "AGE": "00:17:54",
+          "MAC_ADDRESS": "3c61.04f9.6bc1",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/12",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.18",
+          "AGE": "00:13:17",
+          "MAC_ADDRESS": "2c21.7298.8b41",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/10",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.19",
+          "AGE": "00:11:53",
+          "MAC_ADDRESS": "2c21.7299.8e81",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/11",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.20",
+          "AGE": "00:00:01",
+          "MAC_ADDRESS": "28c0.da35.dc01",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/16",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.21",
+          "AGE": "00:01:08",
+          "MAC_ADDRESS": "c8e7.f0fb.c487",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "port-channel10",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.30",
+          "AGE": "00:09:24",
+          "MAC_ADDRESS": "7819.f79a.82c1",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/2",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.31",
+          "AGE": "00:01:54",
+          "MAC_ADDRESS": "2c21.728a.0581",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/22",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.33",
+          "AGE": "00:05:25",
+          "MAC_ADDRESS": "2c21.7296.b501",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/3",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.34",
+          "AGE": "00:16:36",
+          "MAC_ADDRESS": "2c21.7296.8c81",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/23",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.35",
+          "AGE": "00:08:06",
+          "MAC_ADDRESS": "2c21.7293.a401",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/24",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.36",
+          "AGE": "00:14:56",
+          "MAC_ADDRESS": "2c21.7296.9081",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/4",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.37",
+          "AGE": "00:12:56",
+          "MAC_ADDRESS": "7819.f79b.8801",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/25",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.38",
+          "AGE": "00:14:49",
+          "MAC_ADDRESS": "2c21.7296.a401",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/26",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.39",
+          "AGE": "00:17:42",
+          "MAC_ADDRESS": "2c21.3111.0701",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "port-channel18",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.48",
+          "AGE": "00:08:50",
+          "MAC_ADDRESS": "7c25.8629.ab83",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/15",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.50",
+          "AGE": "00:13:21",
+          "MAC_ADDRESS": "f8c0.01c9.e501",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "port-channel15",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.70",
+          "AGE": "00:12:04",
+          "MAC_ADDRESS": "8418.88ac.a0c1",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "port-channel17",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.193",
+          "AGE": "00:03:29",
+          "MAC_ADDRESS": "2829.862b.0dfc",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "port-channel13",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.194",
+          "AGE": "00:02:38",
+          "MAC_ADDRESS": "2829.863f.5708",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/2",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.196",
+          "AGE": "00:02:15",
+          "MAC_ADDRESS": "2829.8615.4bd3",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/4",
+          "VRF": "PRIMARY"
+        },
+        {
+          "IP_ADDRESS": "10.233.6.197",
+          "AGE": "00:08:54",
+          "MAC_ADDRESS": "2829.8617.5b14",
+          "INTERFACE": "Vlan3",
+          "PHYSICAL_INTERFACE": "Ethernet1/21",
+          "VRF": "PRIMARY"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Flags: * - Adjacencies learnt on non-active FHRP router\n       + - Adjacencies synced via CFSoE\n       # - Adjacencies Throttled for Glean\n       CP - Added via L2RIB, Control plane Adjacencies\n       PS - Added via L2RIB, Peer Sync\n       RO - Re-Originated Peer Sync Entry\n\nIP ARP Table for all contexts\nTotal number of entries: 350\nAddress         Age       MAC Address     Interface        Physical Interface  Flags    VRF Name\n10.255.0.2      00:09:24  14a2.a070.52a7  Vlan666          port-channel1000             default\n10.255.0.1      00:17:20  14a2.a070.52a0  mgmt0            mgmt0                        management\n172.23.5.8      00:06:48  b8a3.771c.255b  Ethernet1/49     Ethernet1/49                 default\n172.23.5.10     00:06:50  d477.98e9.c6bf  Ethernet1/50     Ethernet1/50                 default\n10.233.6.3      00:14:55  14a2.a070.52a7  Vlan3            port-channel1000             PRIMARY\n10.233.6.5      00:11:24  c8e7.f0fb.d6a7  Vlan3            Ethernet1/8                  PRIMARY\n10.233.6.6      00:14:04  d0d0.fd61.ecc1  Vlan3            Ethernet1/9         +        PRIMARY\n10.233.6.7      00:12:05  44aa.502f.c150  Vlan3            Ethernet1/13                 PRIMARY\n10.233.6.8      00:07:12  8418.88ac.9741  Vlan3            port-channel12               PRIMARY\n10.233.6.9      00:13:41  8418.88aa.c641  Vlan3            port-channel13               PRIMARY\n10.233.6.10     00:05:29  0881.f4ae.4841  Vlan3            port-channel14               PRIMARY\n10.233.6.11     00:10:51  b0a8.6e03.ce81  Vlan3            port-channel11               PRIMARY\n10.233.6.12     00:04:35  2c21.7299.8ac1  Vlan3            Ethernet1/6                  PRIMARY\n10.233.6.13     00:13:25  78fe.3d35.7b41  Vlan3            Ethernet1/21                 PRIMARY\n10.233.6.14     00:09:43  8071.1fe7.f041  Vlan3            Ethernet1/29                 PRIMARY\n10.233.6.15     00:06:38  8071.1fe7.ef41  Vlan3            Ethernet1/28                 PRIMARY\n10.233.6.16     00:17:54  3c61.04f9.6bc1  Vlan3            Ethernet1/12                 PRIMARY\n10.233.6.18     00:13:17  2c21.7298.8b41  Vlan3            Ethernet1/10                 PRIMARY\n10.233.6.19     00:11:53  2c21.7299.8e81  Vlan3            Ethernet1/11                 PRIMARY\n10.233.6.20     00:00:01  28c0.da35.dc01  Vlan3            Ethernet1/16                 PRIMARY\n10.233.6.21     00:01:08  c8e7.f0fb.c487  Vlan3            port-channel10               PRIMARY\n10.233.6.30     00:09:24  7819.f79a.82c1  Vlan3            Ethernet1/2                  PRIMARY\n10.233.6.31     00:01:54  2c21.728a.0581  Vlan3            Ethernet1/22                 PRIMARY\n10.233.6.32     00:02:05  78fe.3d35.a101  Vlan3            Ethernet1/1         +        PRIMARY\n10.233.6.33     00:05:25  2c21.7296.b501  Vlan3            Ethernet1/3                  PRIMARY\n10.233.6.34     00:16:36  2c21.7296.8c81  Vlan3            Ethernet1/23                 PRIMARY\n10.233.6.35     00:08:06  2c21.7293.a401  Vlan3            Ethernet1/24                 PRIMARY\n10.233.6.36     00:14:56  2c21.7296.9081  Vlan3            Ethernet1/4                  PRIMARY\n10.233.6.37     00:12:56  7819.f79b.8801  Vlan3            Ethernet1/25                 PRIMARY\n10.233.6.38     00:14:49  2c21.7296.a401  Vlan3            Ethernet1/26                 PRIMARY\n10.233.6.39     00:17:42  2c21.3111.0701  Vlan3            port-channel18               PRIMARY\n10.233.6.48     00:08:50  7c25.8629.ab83  Vlan3            Ethernet1/15                 PRIMARY\n10.233.6.50     00:13:21  f8c0.01c9.e501  Vlan3            port-channel15               PRIMARY\n10.233.6.60     00:05:02  8418.88ac.9ec1  Vlan3            port-channel16      +        PRIMARY\n10.233.6.70     00:12:04  8418.88ac.a0c1  Vlan3            port-channel17               PRIMARY\n10.233.6.193    00:03:29  2829.862b.0dfc  Vlan3            port-channel13               PRIMARY\n10.233.6.194    00:02:38  2829.863f.5708  Vlan3            Ethernet1/2                  PRIMARY\n10.233.6.196    00:02:15  2829.8615.4bd3  Vlan3            Ethernet1/4                  PRIMARY\n10.233.6.197    00:08:54  2829.8617.5b14  Vlan3            Ethernet1/21                 PRIMARY\n10.233.6.1         -      0000.5e00.0101  Vlan9            -\n",
+  "textfsm_template": "Value IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue AGE (\\S+)\nValue MAC_ADDRESS (\\S+)\nValue INTERFACE (\\S+)\nValue PHYSICAL_INTERFACE (\\S+)\nValue FLAGS (\\*|\\+|#|CP|PS|RO)\nValue VRF (\\S*)\n\nStart\n  #Ignore junk\n  ^.+\\s-\\sAdjacencies\\s\n  ^.+\\sCP\\s-\\s\n  ^.+\\sPS\\s-\\s\n  ^.+\\sRO\\s-\\s\n  ^\\s*IP\\sARP\\sTable\\s\n  ^\\s*Total\\snumber\\sof\\sentries:\n  ^\\s*Address\\s+Age\\s+MAC\\s+Address\\s+Interface\\s+Physical\\sInterface\\s+Flags\\s*(VRF\\sName)*\\s*$$ -> Data\n  ^. -> Error\n\nData\n  ^${IP_ADDRESS}\\s+${AGE}\\s+${MAC_ADDRESS}\\s+${INTERFACE}\\s+${PHYSICAL_INTERFACE}\\s*${FLAGS}?\\s*${VRF}\\s*$$ -> Record\n  ^. -> Error\n"
+}

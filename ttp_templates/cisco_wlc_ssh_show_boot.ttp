@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_boot
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="image_type_image_version_image_status">
+{{IMAGE_TYPE | ORPHRASE}}............................... {{IMAGE_VERSION | re("[\\d\\.\\(\\)A-Za-z]+")}} {{IMAGE_STATUS | ORPHRASE}}
+</group>

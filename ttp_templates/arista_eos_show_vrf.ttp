@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_vrf
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="vrf_rd">
+   {{VRF}} {{RD | ORPHRASE}} ipv4,ipv6 v4:routing; multicast, Ethernet10, Ethernet20/1,
+</group>

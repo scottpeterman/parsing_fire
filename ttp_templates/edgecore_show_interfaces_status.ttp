@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: edgecore_show_interfaces_status
+# Source: ntc
+# TextFSM rows: 10
+# TTP rows: 10
+# Match ratio: 1.00
+
+<group name="multicast_storm">
+  Multicast Storm: {{MULTICAST_STORM | ORPHRASE}}
+</group>

@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: fortinet_get_router_info_ospf_status
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="attached_area_attached_areas_number_attached_area_fully_adjacent_neighbors_attached_area_interfaces">
+ Routing Process "{{PROCESS_NAME | ORPHRASE}}" with ID {{PROCESS_ID | ORPHRASE}}
+ Process is {{PROCESS_STATUS | ORPHRASE}}
+  Area {{ATTACHED_AREA | ORPHRASE}}
+  Number of interfaces in this area is {{ATTACHED_AREA_INTERFACES | ORPHRASE}}
+</group>

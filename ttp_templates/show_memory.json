@@ -1,0 +1,83 @@
+{
+  "command": "show memory",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"component_used_free_total_utilization\">\n{{COMPONENT | ORPHRASE}} {{USED | ORPHRASE}} {{FREE | ORPHRASE}} {{TOTAL | ORPHRASE}} {{UTILIZATION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "COMPONENT": "System information",
+      "USED": "3059808 Kb",
+      "FREE": "9459136 Kb",
+      "TOTAL": "12518944 Kb",
+      "UTILIZATION": "24%"
+    },
+    {
+      "COMPONENT": "Kernel code",
+      "USED": "5795872 Kb",
+      "FREE": "6723072 Kb",
+      "TOTAL": "12518944 Kb",
+      "UTILIZATION": "46%"
+    },
+    {
+      "COMPONENT": "Application data",
+      "USED": "6316032 Kb",
+      "FREE": "6202912 Kb",
+      "TOTAL": "12518944 Kb",
+      "UTILIZATION": "50%"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "component_used_free_total_utilization": [
+        {
+          "COMPONENT": "Memory component",
+          "USED": "Used",
+          "FREE": "Free",
+          "TOTAL": "Total",
+          "UTILIZATION": "Utilization"
+        },
+        {
+          "COMPONENT": "System information",
+          "USED": "3059808 Kb",
+          "FREE": "9459136 Kb",
+          "TOTAL": "12518944 Kb",
+          "UTILIZATION": "24%"
+        },
+        {
+          "COMPONENT": "Kernel code",
+          "USED": "5795872 Kb",
+          "FREE": "6723072 Kb",
+          "TOTAL": "12518944 Kb",
+          "UTILIZATION": "46%"
+        },
+        {
+          "COMPONENT": "Boot loader code",
+          "USED": "102400 Kb",
+          "FREE": "12416544 Kb",
+          "TOTAL": "12518944 Kb",
+          "UTILIZATION": "0%"
+        },
+        {
+          "COMPONENT": "Application data",
+          "USED": "6316032 Kb",
+          "FREE": "6202912 Kb",
+          "TOTAL": "12518944 Kb",
+          "UTILIZATION": "50%"
+        },
+        {
+          "COMPONENT": "Other",
+          "USED": "0 Kb",
+          "FREE": "12518944 Kb",
+          "TOTAL": "12518944 Kb",
+          "UTILIZATION": "0%"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Memory component       Used          Free       Total      Utilization\nSystem information  3059808 Kb  9459136 Kb  12518944 Kb         24%\nKernel code          5795872 Kb  6723072 Kb  12518944 Kb         46%\nBoot loader code      102400 Kb  12416544 Kb  12518944 Kb         0%\nApplication data     6316032 Kb  6202912 Kb  12518944 Kb         50%\nOther                    0 Kb  12518944 Kb  12518944 Kb         0%\n",
+  "textfsm_template": "Value COMPONENT (\\S+\\s\\S+)\nValue USED (\\d+\\s\\w+)\nValue FREE (\\d+\\s\\w+)\nValue TOTAL (\\d+\\s\\w+)\nValue UTILIZATION (\\d+\\%)\n\nStart\n  ^\\s*Memory\\scomponent\\s+Used\\s+Free\\s+Total\\s+Utilization\\s*$$\n  ^\\s*${COMPONENT}\\s+${USED}\\s+${FREE}\\s+${TOTAL}\\s+${UTILIZATION}\\s*$$ -> Record"
+}

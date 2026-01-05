@@ -1,0 +1,73 @@
+{
+  "command": "show ip cef adjacency detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"nexthop_interface\">\n  nexthop {{NEXTHOP}} {{INTERFACE | ORPHRASE}}\n</group>\n<group name=\"prefix_epoch_sharing\">\n{{PREFIX}}, epoch {{EPOCH}}, per-{{SHARING | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ADJACENCY": "0.0.0.0",
+      "NEXTHOP": "192.168.1.1",
+      "INTERFACE": "GigabitEthernet0/1",
+      "PACKETS": "123",
+      "BYTES": "45678"
+    },
+    {
+      "ADJACENCY": "192.168.1.0",
+      "NEXTHOP": "10.0.0.1",
+      "INTERFACE": "GigabitEthernet0/2",
+      "PACKETS": "78",
+      "BYTES": "12345"
+    },
+    {
+      "PREFIX": "2001:db8::/32",
+      "EPOCH": "2",
+      "SHARING": "flow",
+      "ADJACENCY": "2001:db8::/32",
+      "NEXTHOP": "2001:db8::1",
+      "INTERFACE": "GigabitEthernet0/3",
+      "PACKETS": "90",
+      "BYTES": "56789"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "nexthop_interface": [
+        {
+          "NEXTHOP": "192.168.1.1",
+          "INTERFACE": "GigabitEthernet0/1"
+        },
+        {
+          "NEXTHOP": "10.0.0.1",
+          "INTERFACE": "GigabitEthernet0/2"
+        },
+        {
+          "NEXTHOP": "2001:db8::1",
+          "INTERFACE": "GigabitEthernet0/3"
+        }
+      ],
+      "prefix_epoch_sharing": [
+        {
+          "PREFIX": "0.0.0.0/0",
+          "EPOCH": "2",
+          "SHARING": "destination sharing"
+        },
+        {
+          "PREFIX": "192.168.1.0/24",
+          "EPOCH": "2",
+          "SHARING": "destination sharing"
+        },
+        {
+          "PREFIX": "2001:db8::/32",
+          "EPOCH": "2",
+          "SHARING": "flow"
+        }
+      ]
+    }
+  ],
+  "cli_content": "0.0.0.0/0, epoch 2, per-destination sharing\n  adjacency: 0.0.0.0\n  nexthop 192.168.1.1 GigabitEthernet0/1\n  packets 123, bytes 45678\n\n192.168.1.0/24, epoch 2, per-destination sharing\n  adjacency: 192.168.1.0\n  nexthop 10.0.0.1 GigabitEthernet0/2\n  packets 78, bytes 12345\n  \n2001:db8::/32, epoch 2, per-flow\n  adjacency: 2001:db8::/32\n  nexthop 2001:db8::1 GigabitEthernet0/3\n  packets 90, bytes 56789\n",
+  "textfsm_template": "Value PREFIX (\\S+)\nValue EPOCH (\\d+)\nValue SHARING (\\S+)\nValue ADJACENCY (\\S+)\nValue NEXTHOP (\\S+)\nValue INTERFACE (\\S+)\nValue PACKETS (\\d+)\nValue BYTES (\\d+)\n\nStart\n  ^\\s*${PREFIX},\\s*epoch\\s*${EPOCH},\\s*per-${SHARING}\\s*$$\n  ^\\s*adjacency:\\s*${ADJACENCY}\\s*$$\n  ^\\s*nexthop\\s*${NEXTHOP}\\s*${INTERFACE}\\s*$$\n  ^\\s*packets\\s*${PACKETS},\\s*bytes\\s*${BYTES}\\s*$$ -> Record"
+}

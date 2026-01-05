@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show isis neighbors
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="system_id_interface_level_state_uptime_hold_time_circuit_id">
+{{SYSTEM_ID}} {{INTERFACE}} {{LEVEL}} {{STATE | ORPHRASE}} {{UPTIME | ORPHRASE}} {{HOLD_TIME}} Up {{CIRCUIT_ID | ORPHRASE}}
+</group>

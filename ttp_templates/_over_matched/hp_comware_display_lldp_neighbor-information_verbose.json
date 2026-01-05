@@ -1,0 +1,76 @@
+{
+  "command": "hp_comware_display_lldp_neighbor-information_verbose",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.75,
+  "textfsm_rows": 4,
+  "ttp_rows": 7,
+  "ttp_template": "<group name=\"mgmt_address\">\n Management address : {{MGMT_ADDRESS | ORPHRASE}}\n</group>\n<group name=\"neighbor_interface_description\">\n Port description : {{NEIGHBOR_INTERFACE_DESCRIPTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOCAL_INTERFACE": "Ten-GigabitEthernet1/0/0/1",
+      "CHASSIS_ID": "70f9-6d6b-1234",
+      "NEIGHBOR_INTERFACE": "GigabitEthernet0/0/1",
+      "NEIGHBOR_INTERFACE_DESCRIPTION": "TO_CORE_1",
+      "NEIGHBOR_NAME": "SW1"
+    },
+    {
+      "LOCAL_INTERFACE": "Ten-GigabitEthernet1/0/0/2",
+      "CHASSIS_ID": "70f9-6d17-1235",
+      "NEIGHBOR_INTERFACE": "Ten-GigabitEthernet1/0/0/5",
+      "NEIGHBOR_INTERFACE_DESCRIPTION": "TO_CORE_2",
+      "NEIGHBOR_NAME": "SW2",
+      "MGMT_ADDRESS": "10.6.5.4",
+      "VLAN_ID": "10"
+    },
+    {
+      "LOCAL_INTERFACE": "Ten-GigabitEthernet1/0/0/3",
+      "CHASSIS_ID": "70f9-6d17-1236",
+      "NEIGHBOR_INTERFACE": "Ten-GigabitEthernet2/0/0/5",
+      "NEIGHBOR_INTERFACE_DESCRIPTION": "TO_SPINE",
+      "NEIGHBOR_NAME": "SW3",
+      "MGMT_ADDRESS": "10.6.5.3",
+      "VLAN_ID": "10"
+    },
+    {
+      "LOCAL_INTERFACE": "GigabitEthernet0/0",
+      "CHASSIS_ID": "4c1c-503a-1234",
+      "NEIGHBOR_INTERFACE": "GigabitEthernet0/0",
+      "NEIGHBOR_INTERFACE_DESCRIPTION": "GigabitEthernet0/0 Interface",
+      "NEIGHBOR_NAME": "Test-Router",
+      "MGMT_ADDRESS": "10.1.1.2"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "mgmt_address": [
+        {
+          "MGMT_ADDRESS": "10.6.5.4"
+        },
+        {
+          "MGMT_ADDRESS": "10.6.5.3"
+        },
+        {
+          "MGMT_ADDRESS": "10.1.1.2"
+        }
+      ],
+      "neighbor_interface_description": [
+        {
+          "NEIGHBOR_INTERFACE_DESCRIPTION": "TO_CORE_1"
+        },
+        {
+          "NEIGHBOR_INTERFACE_DESCRIPTION": "TO_CORE_2"
+        },
+        {
+          "NEIGHBOR_INTERFACE_DESCRIPTION": "TO_SPINE"
+        },
+        {
+          "NEIGHBOR_INTERFACE_DESCRIPTION": "GigabitEthernet0/0 Interface"
+        }
+      ]
+    }
+  ],
+  "cli_content": "LLDP neighbor-information of port 1[Ten-GigabitEthernet1/0/0/1]:\nLLDP agent nearest-bridge:\n LLDP neighbor index : 1\n Update time         : 457 days, 22 hours, 1 minutes, 46 seconds\n Chassis type        : MAC address\n Chassis ID          : 70f9-6d6b-1234\n Port ID type        : Interface name\n Port ID             : GigabitEthernet0/0/1\n Time to live        : 120\n Port description    : TO_CORE_1\n System name         : SW1\n System description  : H3C Comware software. H3C SR8800 Product Version SR8800-C\n                       MW520-R3725P01. Copyright (c) 2004-2014 Hangzhou H3C Tech\n                       . Co., Ltd. All rights reserved.\n System capabilities supported : Bridge, Router\n System capabilities enabled   : Bridge, Router\n Link aggregation supported : Yes\n Link aggregation enabled   : Yes\n Aggregation port ID        : 71\n Auto-negotiation supported : No\n Auto-negotiation enabled   : Yes\n OperMau                    : Speed(1000)/Duplex(Full)\n Power port class           : PD\n PSE power supported        : No\n PSE power enabled          : No\n PSE pairs control ability  : No\n Power pairs                : Signal\n Port power classification  : Class 0\n Maximum frame size         : 9216\n\nLLDP neighbor-information of port 2[Ten-GigabitEthernet1/0/0/2]:\nLLDP agent nearest-bridge:\n LLDP neighbor index : 1\n Update time         : 457 days, 22 hours, 1 minutes, 38 seconds\n Chassis type        : MAC address\n Chassis ID          : 70f9-6d17-1235\n Port ID type        : Interface name\n Port ID             : Ten-GigabitEthernet1/0/0/5\n Time to live        : 120\n Port description    : TO_CORE_2\n System name         : SW2\n System description  : H3C Comware Platform Software, Software Version 7.1.045, \n                       Release 1005P09\n                       H3C S12510-X\n                       Copyright (c) 2004-2014 Hangzhou H3C Tech. Co., Ltd. All \n                       rights reserved.\n System capabilities supported : Bridge, Router, Customer Bridge, Service Bridge\n System capabilities enabled   : Bridge, Router, Customer Bridge\n Management address type           : IPv4\n Management address                : 10.6.5.4\n Management address interface type : IfIndex\n Management address interface ID   : 6576\n Management address OID            : 0\n Port VLAN ID(PVID)  : 10\n Link aggregation supported : Yes\n Link aggregation enabled   : Yes\n Aggregation port ID        : 5\n Auto-negotiation supported : Yes\n Auto-negotiation enabled   : Yes\n OperMau                    : Speed(10000)/Duplex(Full)\n Power port class           : PSE\n PSE power supported        : No\n PSE power enabled          : No\n PSE pairs control ability  : No\n Power pairs                : Signal\n Port power classification  : Class 0\n Maximum frame size         : 9216\n\nLLDP neighbor-information of port 3[Ten-GigabitEthernet1/0/0/3]:\nLLDP agent nearest-bridge:\n LLDP neighbor index : 1\n Update time         : 457 days, 22 hours, 1 minutes, 31 seconds\n Chassis type        : MAC address\n Chassis ID          : 70f9-6d17-1236\n Port ID type        : Interface name\n Port ID             : Ten-GigabitEthernet2/0/0/5\n Time to live        : 120\n Port description    : TO_SPINE\n System name         : SW3\n System description  : H3C Comware Platform Software, Software Version 7.1.045, \n                       Release 1005P09\n                       H3C S12510-X\n                       Copyright (c) 2004-2014 Hangzhou H3C Tech. Co., Ltd. All \n                       rights reserved.\n System capabilities supported : Bridge, Router, Customer Bridge, Service Bridge\n System capabilities enabled   : Bridge, Router, Customer Bridge\n Management address type           : IPv4\n Management address                : 10.6.5.3\n Management address interface type : IfIndex\n Management address interface ID   : 6576\n Management address OID            : 0\n Port VLAN ID(PVID)  : 10\n Link aggregation supported : Yes\n Link aggregation enabled   : Yes\n Aggregation port ID        : 1565\n Auto-negotiation supported : Yes\n Auto-negotiation enabled   : Yes\n OperMau                    : Speed(10000)/Duplex(Full)\n Power port class           : PSE\n PSE power supported        : No\n PSE power enabled          : No\n PSE pairs control ability  : No\n Power pairs                : Signal\n Port power classification  : Class 0\n Maximum frame size         : 9216\n\n [H3C-GigabitEthernet0/0]dis lldp neighbor-information verbose\nLLDP neighbor-information of port 1[GigabitEthernet0/0]:\nLLDP agent nearest-bridge:\n LLDP neighbor index : 1\n Update time         : 0 days, 0 hours, 3 minutes, 9 seconds\n Chassis type        : MAC address\n Chassis ID          : 4c1c-503a-1234\n Port ID type        : Interface name\n Port ID             : GigabitEthernet0/0\n Time to live        : 121\n Port description    : GigabitEthernet0/0 Interface\n System name         : Test-Router\n System description  : H3C Comware Platform Software, Software Version 7.1.075,\n                       Alpha 7571\n                       H3C MSR36-20\n                       Copyright (c) 2004-2017 New H3C Technologies Co., Ltd. Al\n                       l rights reserved.\n System capabilities supported : Bridge, Router, Customer Bridge, Service Bridge\n System capabilities enabled   : Bridge, Router, Customer Bridge\n Management address type           : IPv4\n Management address                : 10.1.1.2\n Management address interface type : IfIndex\n Management address interface ID   : 1\n Management address OID            : 0\n Link aggregation supported : Yes\n Link aggregation enabled   : No\n Aggregation port ID        : 0\n Auto-negotiation supported : No\n Auto-negotiation enabled   : No\n OperMau                    : Speed(0)/Duplex(Unknown)\n Power port class           : PSE\n PSE power supported        : Yes\n PSE power enabled          : No\n PSE pairs control ability  : Yes\n Power pairs                : Signal\n Port power classification  : Class 0\n Maximum frame size         : 9216",
+  "textfsm_template": "Value Required LOCAL_INTERFACE (\\S+)\nValue CHASSIS_ID (\\S+)\nValue NEIGHBOR_INTERFACE (.*)\nValue NEIGHBOR_INTERFACE_DESCRIPTION (.*)\nValue NEIGHBOR_NAME (\\S+)\nValue MGMT_ADDRESS (\\S+)\nValue VLAN_ID (\\d+)\n\nStart\n  ^The\\s+LLDP\\s+service\\s+is\\s+not\\s+running -> EOF\n  ^LLDP\\s+neighbor-information\\s+of\\s+port\\s+\\d+\\[${LOCAL_INTERFACE}\\]\n  ^LLDP\\s+agent\\s+nearest-bridge:\n  ^\\s+LLDP\\s+neighbor index\\s+:.*\n  ^\\s+Update\\s+time\\s+:.*\n  ^\\s+Chassis\\s+type\\s+:.*\n  ^\\s+Chassis\\s+ID\\s+:\\s+${CHASSIS_ID}\n  ^\\s+Port\\s+ID\\s+type\\s+:.*\n  ^\\s+Port\\s+ID\\s+:\\s+${NEIGHBOR_INTERFACE}\n  ^\\s+Time\\s+to\\s+live\\d+:.*\n  ^\\s+Port\\s+description\\s+:\\s+${NEIGHBOR_INTERFACE_DESCRIPTION}\n  ^\\s+System\\s+name\\s+:\\s+${NEIGHBOR_NAME}\n  ^\\s+Management\\s+address\\s+:\\s+${MGMT_ADDRESS}\n  ^\\s+Management\\s+address\\s+interface\\s+type\n  ^\\s+Management\\s+address\\s+interface\\s+ID\n  ^\\s+Management\\s+address\\s+OID\n  ^\\s+Port\\s+VLAN\\s+ID\\(PVID\\)\\s+:\\s+${VLAN_ID}\n  ^\\s+Maximum\\s+frame\\s+size -> Record Start\n"
+}

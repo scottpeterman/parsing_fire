@@ -1,0 +1,34 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_ip_dhcp_snooping_statistics
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="dhcp_ack_drops_dhcp_ack_rx_dhcp_ack_tx_dhcp_decline_drops">
+Discover  {{DHCP_DISCOVER_RX | ORPHRASE}}  {{DHCP_DISCOVER_TX | re("[\\d\\.\\(\\)A-Za-z]+")}}  {{DHCP_DISCOVER_DROPS | re("[\\d\\.\\(\\)A-Za-z]+")}}
+Offer  {{DHCP_OFFER_RX | ORPHRASE}}  {{DHCP_OFFER_TX}}  {{DHCP_OFFER_DROPS}}
+Request  {{DHCP_REQUEST_RX | ORPHRASE}}  {{DHCP_REQUEST_TX}}  {{DHCP_REQUEST_DROPS}}
+Ack  {{DHCP_ACK_RX | ORPHRASE}}  {{DHCP_ACK_TX}}  {{DHCP_ACK_DROPS}}
+Release  {{DHCP_RELEASE_RX | ORPHRASE}}  {{DHCP_RELEASE_TX}}  {{DHCP_RELEASE_DROPS}}
+Decline  {{DHCP_DECLINE_RX | ORPHRASE}}  {{DHCP_DECLINE_TX}}  {{DHCP_DECLINE_DROPS}}
+Inform  {{DHCP_INFORM_RX | ORPHRASE}}  {{DHCP_INFORM_TX}}  {{DHCP_INFORM_DROPS}}
+Nack  {{DHCP_NACK_RX | ORPHRASE}}  {{DHCP_NACK_TX}}  {{DHCP_NACK_DROPS}}
+Total  {{DHCP_TOTAL_MESSAGES_RX | ORPHRASE}}  {{DHCP_TOTAL_MESSAGES_TX}}  {{DHCP_TOTAL_MESSAGES_DROPS}}
+Total Packets Forwarded  :  {{DHCP_L2_FORWARDING_TOTAL_PACKETS_TX | ORPHRASE}}
+Total Packets Received  :  {{DHCP_L2_FORWARDING_TOTAL_PACKETS_RX | ORPHRASE}}
+Total Packets Dropped  :  {{DHCP_L2_FORWARDING_TOTAL_PACKETS_DROPPED | ORPHRASE}}
+Total Packets Received  :  {{NON_DHCP_TOTAL_PACKETS_TX | ORPHRASE}}
+Total Packets Dropped  :  {{NON_DHCP_TOTAL_PACKETS_DROPPED | ORPHRASE}}
+Received on untrusted port  :  {{DHCP_DROP_RECEIVED_ON_UNTRUSTED_PORT | ORPHRASE}}
+Unknown Failure  :  {{DHCP_DROP_UNKNOWN_FAILURE | ORPHRASE}}
+Source mac validation failed  :  {{DHCP_DROP_SOURCE_MAC_VALIDATION_FAILED | ORPHRASE}}
+Binding entry validation Failed  :  {{DHCP_DROP_BINDING_ENTRY_VALIDATION_FAILED | ORPHRASE}}
+Invalid DHCP message type  :  {{DHCP_DROP_INVALID_DHCP_MESSAGE_TYPE | ORPHRASE}}
+Interface error  :  {{DHCP_DROP_INTERFACE_ERROR | ORPHRASE}}
+Tx over trusted port failed  :  {{DHCP_DROP_TX_OVER_TRUSTED_PORT_FAILED | ORPHRASE}}
+Trust port not configured  :  {{DHCP_DROP_TRUST_PORT_NOT_CONFIGURED | ORPHRASE}}
+Vlan validation failure  :  {{DHCP_DROP_VLAN_VALIDATION_FAILURE | ORPHRASE}}
+Insertion of option 82 failed  :  {{DHCP_DROP_INSERTION_OF_OPTION_82_FAILED | ORPHRASE}}
+Packet Malformed  :  {{DHCP_DROP_PACKET_MALFORMED | ORPHRASE}}
+</group>

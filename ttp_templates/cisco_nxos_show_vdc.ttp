@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_vdc
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="vdc_id_vdc_name_state_mac_address_type_lc">
+{{VDC_ID | re("\\d+")}} {{VDC_NAME}} {{STATE | ORPHRASE}} {{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{TYPE}} {{LC | ORPHRASE}}
+</group>

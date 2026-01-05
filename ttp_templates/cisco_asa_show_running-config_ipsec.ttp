@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_running-config_ipsec
+# Source: ntc
+# TextFSM rows: 14
+# TTP rows: 14
+# Match ratio: 1.00
+
+<group name="ike_version_name_encryption_auth">
+crypto ipsec ikev{{IKE_VERSION | re("[\\d\\.\\(\\)A-Za-z]+")}} transform-set {{NAME}} {{ENCRYPTION | ORPHRASE}} {{AUTH | ORPHRASE}} 
+</group>
+<group name="ike_version_name">
+crypto ipsec ikev{{IKE_VERSION | re("[\\d\\.\\(\\)A-Za-z]+")}} ipsec-proposal {{NAME | ORPHRASE}}
+</group>

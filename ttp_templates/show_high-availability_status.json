@@ -1,0 +1,33 @@
+{
+  "command": "show high-availability status",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"configuration_failover_mode_interface_last_failover_reason\">\nHigh Availability Configuration: {{CONFIGURATION | ORPHRASE}}\nFailover Mode: {{FAILOVER_MODE | ORPHRASE}}\nLast Failover Reason: {{LAST_FAILOVER_REASON | ORPHRASE}}\nLast Failover Time: {{LAST_FAILOVER_TIME | ORPHRASE}}\nPO1  {{STATE | ORPHRASE}}\n{{INTERFACE | ORPHRASE}}  Up\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "CONFIGURATION": "Enabled",
+      "FAILOVER_MODE": "Stateful",
+      "LAST_FAILOVER_REASON": "Admin initiated",
+      "LAST_FAILOVER_TIME": "2023-10-01 12:54:23",
+      "INTERFACE": "PO1",
+      "STATE": "Up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "configuration_failover_mode_interface_last_failover_reason": {
+        "STATE": "Up",
+        "LAST_FAILOVER_TIME": "2023-10-01 12:54:23",
+        "LAST_FAILOVER_REASON": "Admin initiated",
+        "FAILOVER_MODE": "Stateful",
+        "CONFIGURATION": "Enabled"
+      }
+    }
+  ],
+  "cli_content": "High Availability Module (Active)\n================================================\nPrimary Control Processor : Active\nSecondary Control Processor: Standby\nHigh Availability Configuration: Enabled\nFailover Mode: Stateful\nLast Failover Reason: Admin initiated\nLast Failover Time: 2023-10-01 12:54:23\n\nHigh Availability Interfaces:\nInterface       State\n----------------------\nPO1             Up\nPO2             Up\n",
+  "textfsm_template": "Value PRIMARY_CONTROL (\\S+\\s\\S+)\nValue SECONDARY_CONTROL (\\S+\\s\\S+)\nValue CONFIGURATION (\\S+)\nValue FAILOVER_MODE (\\S+)\nValue LAST_FAILOVER_REASON (.+)\nValue LAST_FAILOVER_TIME (\\S+\\s+\\S+)\nValue INTERFACE (\\S+)\nValue STATE (\\S+)\n\nStart\n  ^\\s*Primary Control Processor\\s*:\\s*${PRIMARY_CONTROL}\\s*$$\n  ^\\s*Secondary Control Processor\\s*:\\s*${SECONDARY_CONTROL}\\s*$$\n  ^\\s*High Availability Configuration\\s*:\\s*${CONFIGURATION}\\s*$$\n  ^\\s*Failover Mode\\s*:\\s*${FAILOVER_MODE}\\s*$$\n  ^\\s*Last Failover Reason\\s*:\\s*${LAST_FAILOVER_REASON}\\s*$$\n  ^\\s*Last Failover Time\\s*:\\s*${LAST_FAILOVER_TIME}\\s*$$\n  ^\\s*High Availability Interfaces:\\s*$$\n  ^\\s*Interface\\s+State\\s*$$\n  ^\\s*${INTERFACE}\\s+${STATE}\\s*$$ -> Record"
+}

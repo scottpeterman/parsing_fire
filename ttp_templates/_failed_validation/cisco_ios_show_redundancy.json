@@ -1,0 +1,41 @@
+{
+  "command": "cisco_ios_show_redundancy",
+  "source": "ntc",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 1,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"active_boot_directory_active_boot_file_active_config_register_active_slot\">\n  Available system uptime = {{SYSTEM_UPTIME_WEEKS | ORPHRASE}} weeks, {{SYSTEM_UPTIME_DAYS | ORPHRASE}} days, {{SYSTEM_UPTIME_HOURS | ORPHRASE}} hours, {{SYSTEM_UPTIME_MINUTES | ORPHRASE}} minutes\nSwitchovers system experienced = {{SWITCHOVERS | ORPHRASE}}\n  Last switchover reason = {{LAST_SWITCHOVER_REASON | ORPHRASE}}\n  Hardware Mode = {{HARDWARE_MODE | ORPHRASE}}\n  Configured Redundancy Mode = {{CONFIGURED_REDUNDANCY_MODE | ORPHRASE}}\n  Maintenance Mode = {{MAINTENANCE_MODE | ORPHRASE}}\n  Communications = {{COMMUNICATION_STATUS | ORPHRASE}}\n  Active Location = slot {{ACTIVE_SLOT | ORPHRASE}}\n  Current Software state = {{ACTIVE_SOFTWARE_STATE | ORPHRASE}}\n  BOOT = {{ACTIVE_BOOT_DIRECTORY}}:{{ACTIVE_BOOT_FILE | ORPHRASE}}\n  Configuration register = {{ACTIVE_CONFIG_REGISTER | ORPHRASE}}\nPeer (slot: unavailable) information is not available because it is in '{{STANDBY_STATUS | ORPHRASE}}' state\n</group>",
+  "error": "TTP template produced 0 rows",
+  "textfsm_parsed": [
+    {
+      "SYSTEM_UPTIME_WEEKS": "46",
+      "SYSTEM_UPTIME_DAYS": "4",
+      "SYSTEM_UPTIME_HOURS": "22",
+      "SYSTEM_UPTIME_MINUTES": "52",
+      "SWITCHOVERS": "0",
+      "STANDBY_FAILURES": "0",
+      "LAST_SWITCHOVER_REASON": "none",
+      "HARDWARE_MODE": "Simplex",
+      "CONFIGURED_REDUNDANCY_MODE": "sso",
+      "OPERATING_REDUNDANCY_MODE": "sso",
+      "MAINTENANCE_MODE": "Disabled",
+      "COMMUNICATION_STATUS": "Down      Reason: Failure",
+      "ACTIVE_SLOT": "1",
+      "ACTIVE_SOFTWARE_STATE": "ACTIVE",
+      "ACTIVE_UPTIME_WEEKS": "46",
+      "ACTIVE_UPTIME_DAYS": "4",
+      "ACTIVE_UPTIME_HOURS": "22",
+      "ACTIVE_UPTIME_MINUTES": "52",
+      "ACTIVE_BOOT_DIRECTORY": "bootdisk",
+      "ACTIVE_BOOT_FILE": "/c6848x-adventerprisek9-mz.SPA.154-1.SY4.bin,12;",
+      "ACTIVE_CONFIG_REGISTER": "0x2102",
+      "STANDBY_STATUS": "DISABLED"
+    }
+  ],
+  "ttp_parsed": [
+    {}
+  ],
+  "cli_content": "Redundant System Information :\n------------------------------\n       Available system uptime = 46 weeks, 4 days, 22 hours, 52 minutes\nSwitchovers system experienced = 0\n              Standby failures = 0\n        Last switchover reason = none\n\n                 Hardware Mode = Simplex\n    Configured Redundancy Mode = sso\n     Operating Redundancy Mode = sso\n              Maintenance Mode = Disabled\n                Communications = Down      Reason: Failure\n\nCurrent Processor Information :\n-------------------------------\n               Active Location = slot 1\n        Current Software state = ACTIVE\n       Uptime in current state = 46 weeks, 4 days, 22 hours, 52 minutes\n                 Image Version = Cisco IOS Software, c6848x Software (c6848x-ADVENTERPRISEK9-M), Version 15.4(1)SY4, RELEASE SOFTWARE (fc3)\nTechnical Support: http://www.cisco.com/techsupport\nCopyright (c) 1986-2018 by Cisco Systems, Inc.\nCompiled Fri 02-Feb-18 02:00 by prod_rel_team\n                          BOOT = bootdisk:/c6848x-adventerprisek9-mz.SPA.154-1.SY4.bin,12;\n        Configuration register = 0x2102\n\nPeer (slot: unavailable) information is not available because it is in 'DISABLED' state",
+  "textfsm_template": "Value SYSTEM_UPTIME_YEARS (\\d+)\nValue SYSTEM_UPTIME_WEEKS (\\d+)\nValue SYSTEM_UPTIME_DAYS (\\d+)\nValue SYSTEM_UPTIME_HOURS (\\d+)\nValue SYSTEM_UPTIME_MINUTES (\\d+)\nValue SWITCHOVERS (\\d+)\nValue STANDBY_FAILURES (\\d+)\nValue LAST_SWITCHOVER_REASON (.+?)\nValue HARDWARE_MODE (.+?)\nValue CONFIGURED_REDUNDANCY_MODE (.+?)\nValue OPERATING_REDUNDANCY_MODE (.+?)\nValue MAINTENANCE_MODE (.+?)\nValue COMMUNICATION_STATUS (.+?)\nValue ACTIVE_SLOT (\\S+)\nValue ACTIVE_SOFTWARE_STATE (.+?)\nValue ACTIVE_UPTIME_YEARS (\\d+)\nValue ACTIVE_UPTIME_WEEKS (\\d+)\nValue ACTIVE_UPTIME_DAYS (\\d+)\nValue ACTIVE_UPTIME_HOURS (\\d+)\nValue ACTIVE_UPTIME_MINUTES (\\d+)\nValue ACTIVE_MAJOR_RELEASE (\\d+)\nValue ACTIVE_MINOR_RELEASE (\\d+)\nValue ACTIVE_MAINTENANCE_RELEASE (\\S+)\nValue ACTIVE_BOOT_DIRECTORY (\\S+)\nValue ACTIVE_BOOT_FILE (\\S+)\nValue ACTIVE_CONFIG_REGISTER (\\S+)\nValue STANDBY_SLOT (\\S+)\nValue STANDBY_SOFTWARE_STATE (.+?)\nValue STANDBY_UPTIME_YEARS (\\d+)\nValue STANDBY_UPTIME_WEEKS (\\d+)\nValue STANDBY_UPTIME_DAYS (\\d+)\nValue STANDBY_UPTIME_HOURS (\\d+)\nValue STANDBY_UPTIME_MINUTES (\\d+)\nValue STANDBY_MAJOR_RELEASE (\\d+)\nValue STANDBY_MINOR_RELEASE (\\d+)\nValue STANDBY_MAINTENANCE_RELEASE (\\S+)\nValue STANDBY_BOOT_DIRECTORY (\\S+)\nValue STANDBY_BOOT_FILE (\\S+)\nValue STANDBY_CONFIG_REGISTER (\\S+)\nValue STANDBY_STATUS (.+?)\n\n\nStart\n  ^Redundant\\s+System\\s+Information\n  ^\\s*-+\\s*$$\n  ^\\s*Available\\s+system\\s+uptime\\s*=\\s*(${SYSTEM_UPTIME_YEARS}\\s*year(s)?,)?\\s*(${SYSTEM_UPTIME_WEEKS}\\s*week(s)?,)?\\s*(${SYSTEM_UPTIME_DAYS}\\s*day(s)?,)?\\s*(${SYSTEM_UPTIME_HOURS}\\s*hour(s)?,)?\\s*${SYSTEM_UPTIME_MINUTES}\\s*minute(s)?\\s*$$\n  ^\\s*Switchovers\\s+system\\s+experienced\\s*=\\s*${SWITCHOVERS}\\s*$$\n  ^\\s*Standby\\s+failures\\s*=\\s*${STANDBY_FAILURES}\\s*$$\n  ^\\s*Last\\s+switchover\\s+reason\\s*=\\s*${LAST_SWITCHOVER_REASON}\\s*$$\n  ^\\s*Hardware\\s+Mode\\s*=\\s*${HARDWARE_MODE}\\s*$$\n  ^\\s*Configured\\s+Redundancy\\s+Mode\\s*=\\s*${CONFIGURED_REDUNDANCY_MODE}\\s*$$\n  ^\\s*Operating\\s+Redundancy\\s+Mode\\s*=\\s*${OPERATING_REDUNDANCY_MODE}\\s*$$\n  ^\\s*Maintenance\\s+Mode\\s*=\\s*${MAINTENANCE_MODE}\\s*$$\n  ^\\s*Communications\\s*=\\s*${COMMUNICATION_STATUS}\\s*$$\n  ^\\s*Current\\s+Processor -> Current\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^\\s*$$\n  ^. -> Error\n\nCurrent\n  ^\\s*-+\\s*$$\n  ^\\s*Active\\s+Location\\s*=\\s*slot\\s+${ACTIVE_SLOT}\\s*$$\n  ^\\s*Current\\s+Software\\s+state\\s*=\\s*${ACTIVE_SOFTWARE_STATE}\\s*$$\n  ^\\s*Uptime\\s+in\\s+current\\s+state\\s*=\\s*(${ACTIVE_UPTIME_YEARS}\\s*year(s)?,)?\\s*(${ACTIVE_UPTIME_WEEKS}\\s*week(s)?,)?\\s*(${ACTIVE_UPTIME_DAYS}\\s*day(s)?,)?\\s*(${ACTIVE_UPTIME_HOURS}\\s*hour(s)?,)?\\s*${ACTIVE_UPTIME_MINUTES}\\s*minute(s)?\\s*$$\n  ^\\s*Image\\s+Version\n  ^.+Version\\s+${ACTIVE_MAJOR_RELEASE}\\.${ACTIVE_MINOR_RELEASE}\\(${ACTIVE_MAINTENANCE_RELEASE}\\)\n  ^.+[Cc][Ii][Ss][Cc][Oo]\n  ^.*(?:Copyright|Compiled|CONFIG_FILE|BOOTLDR)\n  ^\\s*BOOT\\s*=\\s*${ACTIVE_BOOT_DIRECTORY}:${ACTIVE_BOOT_FILE}\\s*$$\n  ^\\s*Configuration\\s+register\\s*=\\s*${ACTIVE_CONFIG_REGISTER}\\s*$$\n  ^Peer\\s*\\(slot:\\s*unavailable\\)\\s*\\w*\\s*\\w*\\s*\\w*\\s*\\w*\\s*\\w\\s*\\w*\\s*\\w*\\s*\\w*\\s*\\w*\\s*\\'${STANDBY_STATUS}\\'\\s*state$$ -> EOF\n  ^\\s*Peer\\s+Processor -> Peer\n  ^\\s*$$\n  ^. -> Error\n\nPeer\n  ^\\s*-+\\s*$$\n  ^\\s*Standby\\s+Location\\s*=\\s*slot\\s+${STANDBY_SLOT}\\s*$$\n  ^\\s*Current\\s+Software\\s+state\\s*=\\s*${STANDBY_SOFTWARE_STATE}\\s*$$\n  ^\\s*Uptime\\s+in\\s+current\\s+state\\s*=\\s*(${STANDBY_UPTIME_YEARS}\\s*year(s)?,)?\\s*(${STANDBY_UPTIME_WEEKS}\\s*week(s)?,)?\\s*(${STANDBY_UPTIME_DAYS}\\s*day(s)?,)?\\s*(${STANDBY_UPTIME_HOURS}\\s*hour(s)?,)?\\s*${STANDBY_UPTIME_MINUTES}\\s*minute(s)?\\s*$$\n  ^\\s*Image\\s+Version\n  ^.+Version\\s+${STANDBY_MAJOR_RELEASE}\\.${STANDBY_MINOR_RELEASE}\\(${STANDBY_MAINTENANCE_RELEASE}\\)\n  ^.+[Cc][Ii][Ss][Cc][Oo]\n  ^.*(?:Copyright|Compiled|CONFIG_FILE|BOOTLDR)\n  ^\\s*BOOT\\s*=\\s*${STANDBY_BOOT_DIRECTORY}:${STANDBY_BOOT_FILE}\\s*$$\n  ^\\s*Configuration\\s+register\\s*=\\s*${STANDBY_CONFIG_REGISTER}\\s*$$\n  ^\\s*$$\n  ^\\s*Compiled\\s*\n  ^. -> Error\n"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show interface description
+# Source: chatgpt
+# TextFSM rows: 5
+# TTP rows: 6
+# Match ratio: 1.20
+
+<group name="interface_description_status_protocol">
+{{INTERFACE}} {{DESCRIPTION | ORPHRASE}} {{STATUS | ORPHRASE}} {{PROTOCOL}}
+</group>

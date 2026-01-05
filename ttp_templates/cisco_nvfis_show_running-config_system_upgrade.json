@@ -1,0 +1,29 @@
+{
+  "command": "cisco_nvfis_show_running-config_system_upgrade",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"apply_image_image_location_image_name_schedule_time\">\nsystem upgrade apply-image {{APPLY_IMAGE}} scheduled-time {{SCHEDULE_TIME | ORPHRASE}}\n location {{IMAGE_LOCATION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "APPLY_IMAGE": "Cisco_NFVIS-4.9.1-FC3.iso",
+      "SCHEDULE_TIME": "0",
+      "IMAGE_NAME": "Cisco_NFVIS-4.9.1-FC3.iso",
+      "IMAGE_LOCATION": "/data/intdatastore/uploads/Cisco_NFVIS-4.9.1-FC3.iso"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "apply_image_image_location_image_name_schedule_time": {
+        "IMAGE_LOCATION": "/data/intdatastore/uploads/Cisco_NFVIS-4.9.1-FC3.iso",
+        "APPLY_IMAGE": "Cisco_NFVIS-4.9.1-FC3.iso",
+        "SCHEDULE_TIME": "0"
+      }
+    }
+  ],
+  "cli_content": "system upgrade apply-image Cisco_NFVIS-4.9.1-FC3.iso scheduled-time 0\nsystem upgrade image-name Cisco_NFVIS-4.9.1-FC3.iso\n location /data/intdatastore/uploads/Cisco_NFVIS-4.9.1-FC3.iso\n!",
+  "textfsm_template": "Value APPLY_IMAGE (\\S+iso)\nValue SCHEDULE_TIME (\\d+)\nValue IMAGE_NAME (\\S+iso)\nValue IMAGE_LOCATION (\\S+iso)\n\n\nStart\n  ^system\\supgrade\\sapply-image\\s${APPLY_IMAGE}\\sscheduled-time\\s${SCHEDULE_TIME}\n  ^system\\supgrade\\simage-name\\s${IMAGE_NAME}\n  ^\\slocation\\s${IMAGE_LOCATION}\n  ^! -> Record\n\nEOF"
+}

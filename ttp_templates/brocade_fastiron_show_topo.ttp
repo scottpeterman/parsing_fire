@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: brocade_fastiron_show_topo
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 4
+# Match ratio: 1.33
+
+<group name="topogroup">
+Topology Group {{topogroup | ORPHRASE}}
+</group>
+<group name="topogroup_mastervlan">
+ member-vlan {{topogroup | ORPHRASE}}6 {{mastervlan | re("\\d+")}}9 151 to 152 154 200 300 to 303 350 400 453 1280 to 1283
+</group>

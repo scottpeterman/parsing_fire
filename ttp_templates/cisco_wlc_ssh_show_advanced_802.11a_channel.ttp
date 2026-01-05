@@ -1,0 +1,19 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_wlc_ssh_show_advanced_802.11a_channel
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="anchor_time_assign_mode_cleanair_driven_dca_channels">
+  Channel Assignment Mode........................ {{ASSIGN_MODE | ORPHRASE}}
+  Channel Update Interval........................ {{UPDATE_TIME | ORPHRASE}}
+  Noise........................................ {{NOISE | ORPHRASE}}
+  Load......................................... {{LOAD | ORPHRASE}}
+  CleanAir Event-driven RRM option............... {{CLEANAIR_DRIVEN | ORPHRASE}}
+  Channel Assignment Leader...................... {{LEADER | ORPHRASE}} (192.168.1.11) (::)
+  DCA Sensitivity Level.......................... {{DCA_SENSITIVITY | ORPHRASE}}
+  DCA 802.11n/ac Channel Width................... {{DCA_WIDTH | ORPHRASE}}
+  DCA Minimum Energy Limit....................... {{DCA_MIN | ORPHRASE}}
+  Unused Channel List.......................... {{UNUSED_DCA_CHANNELS | ORPHRASE}}
+</group>

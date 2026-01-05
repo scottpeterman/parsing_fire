@@ -1,0 +1,10 @@
+# TTP Template - FAILED VALIDATION
+# Original command: cisco_asa_show_port-channel_summary
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="bundle_name_bundle_protocol_bundle_status_group">
+  H - Hot-standby ({{BUNDLE_PROTOCOL | ORPHRASE}} only)
+  {{BUNDLE_STATUS | ORPHRASE}} - in use  N - not in use, no aggregation/nameif
+{{GROUP}}  {{BUNDLE_NAME | ORPHRASE}}(U)  LACP  No  Gi0/2(P)  Gi0/3(P)
+</group>

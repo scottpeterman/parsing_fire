@@ -1,0 +1,56 @@
+{
+  "command": "show ip multicast",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 4,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"group_address_interface_source_address_timeout\">\n{{GROUP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{INTERFACE}} {{SOURCE_ADDRESS | re(\".*\\\\w.*\")}} {{TIMEOUT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "GROUP_ADDRESS": "239.255.255.250",
+      "INTERFACE": "GigabitEthernet0/0",
+      "SOURCE_ADDRESS": "*",
+      "TIMEOUT": "00:02:30"
+    },
+    {
+      "GROUP_ADDRESS": "224.0.0.1",
+      "INTERFACE": "GigabitEthernet0/1",
+      "SOURCE_ADDRESS": "*",
+      "TIMEOUT": "00:01:45"
+    },
+    {
+      "GROUP_ADDRESS": "226.0.0.1",
+      "INTERFACE": "GigabitEthernet0/2",
+      "SOURCE_ADDRESS": "192.168.1.1",
+      "TIMEOUT": "00:03:20"
+    },
+    {
+      "GROUP_ADDRESS": "235.0.0.1",
+      "INTERFACE": "GigabitEthernet0/3",
+      "SOURCE_ADDRESS": "10.0.0.1",
+      "TIMEOUT": "00:04:15"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "group_address_interface_source_address_timeout": [
+        {
+          "GROUP_ADDRESS": "226.0.0.1",
+          "INTERFACE": "GigabitEthernet0/2",
+          "SOURCE_ADDRESS": "192.168.1.1    ",
+          "TIMEOUT": "00:03:20"
+        },
+        {
+          "GROUP_ADDRESS": "235.0.0.1",
+          "INTERFACE": "GigabitEthernet0/3",
+          "SOURCE_ADDRESS": "10.0.0.1       ",
+          "TIMEOUT": "00:04:15"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Group Address    Interface        Source Address    Timeout\n239.255.255.250  GigabitEthernet0/0  *               00:02:30\n224.0.0.1        GigabitEthernet0/1  *               00:01:45\n226.0.0.1        GigabitEthernet0/2  192.168.1.1     00:03:20\n235.0.0.1        GigabitEthernet0/3  10.0.0.1        00:04:15\n",
+  "textfsm_template": "Value GROUP_ADDRESS (\\S+)\nValue INTERFACE (\\S+)\nValue SOURCE_ADDRESS (\\S+)\nValue TIMEOUT (\\d{2}:\\d{2}:\\d{2})\n\nStart\n  ^\\s*Group\\s+Address\\s+Interface\\s+Source\\s+Address\\s+Timeout\\s*$$\n  ^\\s*${GROUP_ADDRESS}\\s+${INTERFACE}\\s+${SOURCE_ADDRESS}\\s+${TIMEOUT}\\s*$$ -> Record\n"
+}

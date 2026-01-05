@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show environment cooling-status
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 4
+# Match ratio: 1.00
+
+<group name="fan_name_status_speed_condition">
+	{{FAN_NAME}} {{STATUS | ORPHRASE}} {{SPEED}} {{CONDITION | ORPHRASE}} 
+</group>

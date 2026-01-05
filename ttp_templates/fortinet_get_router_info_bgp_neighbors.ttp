@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: fortinet_get_router_info_bgp_neighbors
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="neighbor_remote_asn_local_asn">
+BGP neighbor is {{NEIGHBOR}}, remote AS {{REMOTE_ASN | ORPHRASE}}, local AS {{LOCAL_ASN | re("\\w+")}}, internal link
+</group>

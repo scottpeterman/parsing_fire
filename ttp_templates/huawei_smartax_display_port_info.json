@@ -1,0 +1,52 @@
+{
+  "command": "huawei_smartax_display_port_info",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"admin_state_autofind_channel_type_fec_check\">\n  F/S/P  {{FSP | ORPHRASE}}\n  Max distance(km)  {{MAX_DISTANCE_KM | ORPHRASE}}\n  Left guaranteed bandwidth(kbps)  {{LEFT_GUARANTEED_BANDWIDTH_KBPS | ORPHRASE}}\n  Autofind  {{AUTOFIND | ORPHRASE}}\n  FEC check  {{FEC_CHECK | ORPHRASE}}\n  Admin State  {{ADMIN_STATE | ORPHRASE}}\n  ONT encryption key switching interval(m)  {{ONT_ENCRYPTION_KEY_SWITCHING_INTERVAL_M | ORPHRASE}}\n  Port MTU(bytes)  {{PORT_MTU_BYTES | ORPHRASE}}\n  Low-latency  {{LOW_LATENCY | ORPHRASE}}\n  Optical module work mode  {{OPTICAL_MODULE_WORK_MODE | ORPHRASE}}\n  Channel Type  {{CHANNEL_TYPE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "FSP": "0/0/0",
+      "MIN_DISTANCE_KM": "0",
+      "MAX_DISTANCE_KM": "20",
+      "LEFT_GUARANTEED_BANDWIDTH_KBPS": "1000000",
+      "NUMBER_OF_T_CONTS": "0",
+      "AUTOFIND": "Enable",
+      "FEC_CHECK": "Disable",
+      "ADMIN_STATE": "On",
+      "ONT_ENCRYPTION_KEY_SWITCHING_INTERVAL_M": "1440",
+      "PON_ID_SWITCH": "Disable",
+      "PON_ID_IDENTIFIER": "1",
+      "JUMBO_FRAME_SWITCH": "Disable",
+      "PORT_MTU_BYTES": "1024",
+      "SURPLUS_BANDWIDTH_ASSIGNMENT": "Disable",
+      "LOW_LATENCY": "no",
+      "MULTICHANNEL_LOW_LATENCY": "Disable",
+      "OPTICAL_MODULE_WORK_MODE": "Standard",
+      "CHANNEL_TYPE": "GPON",
+      "ONLINE_ONT_NUMBER_THRESHOLD": "Disable"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "admin_state_autofind_channel_type_fec_check": {
+        "CHANNEL_TYPE": "GPON",
+        "OPTICAL_MODULE_WORK_MODE": "Standard",
+        "LOW_LATENCY": "no",
+        "PORT_MTU_BYTES": "1024",
+        "ONT_ENCRYPTION_KEY_SWITCHING_INTERVAL_M": "1440",
+        "ADMIN_STATE": "On",
+        "FEC_CHECK": "Disable",
+        "AUTOFIND": "Enable",
+        "LEFT_GUARANTEED_BANDWIDTH_KBPS": "1000000",
+        "MAX_DISTANCE_KM": "20",
+        "FSP": "0/0/0"
+      }
+    }
+  ],
+  "cli_content": "  -----------------------------------------------------------\n  F/S/P                                      0/0/0\n  Min distance(km)                           0\n  Max distance(km)                           20\n  Max guaranteed bandwidth(kbps)             -\n  Left guaranteed bandwidth(kbps)            1000000\n  Number of T-CONTs                          0\n  Autofind                                   Enable\n  FEC check                                  Disable\n  Admin State                                On\n  ONT encryption key switching interval(m)   1440\n  PON-ID switch                              Disable\n  PON-ID identifier                          1\n  Jumbo frame switch                         Disable\n  Port MTU(bytes)                            1024\n  Surplus bandwidth assignment               Disable\n  Best-effort bandwidth assignment           -\n  Traffic alarm-profile ID                   -\n  ONT online power threshold(dBm)            -\n  Low-latency                                no\n  Multichannel low latency                   Disable\n  Optical module work mode                   Standard\n  -----------------------------------------------------------\n  Channel 0 Information              \n  -----------------------------------------------------------\n  Channel Type                               GPON\n  Online ONT number threshold                Disable\n  -----------------------------------------------------------",
+  "textfsm_template": "Value FSP (\\d+\\/\\d+\\/\\d+)\nValue MIN_DISTANCE_KM (\\d+)\nValue MAX_DISTANCE_KM (\\d+)\nValue MAX_GUARANTEED_BANDWIDTH_KBPS (\\d*)\nValue LEFT_GUARANTEED_BANDWIDTH_KBPS (\\d*)\nValue NUMBER_OF_T_CONTS (\\d+)\nValue AUTOFIND (Enable|Disable)\nValue FEC_CHECK (Enable|Disable)\nValue ADMIN_STATE (\\w+)\nValue ONT_ENCRYPTION_KEY_SWITCHING_INTERVAL_M (\\d+)\nValue PON_ID_SWITCH (Disable|Enable)\nValue PON_ID_IDENTIFIER (\\d+)\nValue JUMBO_FRAME_SWITCH (Disable|Enable)\nValue PORT_MTU_BYTES (\\d+)\nValue SURPLUS_BANDWIDTH_ASSIGNMENT (Enable|Disable)\nValue BEST_EFFORT_BANDWIDTH_ASSIGNMENT (\\w*)\nValue TRAFFIC_ALARM_PROFILE_ID (\\w*)\nValue ONT_ONLINE_POWER_THRESHOLD_DBM (\\w*)\nValue LOW_LATENCY (yes|no)\nValue MULTICHANNEL_LOW_LATENCY (Enable|Disable)\nValue OPTICAL_MODULE_WORK_MODE (\\w*)\nValue CHANNEL_TYPE (\\w*)\nValue ONLINE_ONT_NUMBER_THRESHOLD (Enable|Disable)\n\nStart\n  ^\\s*F\\/S\\/P\\s*${FSP}\n  ^\\s*Min\\s*distance\\(km\\)\\s*${MIN_DISTANCE_KM}\n  ^\\s*Max\\s*distance\\(km\\)\\s*${MAX_DISTANCE_KM}\n  ^\\s*Max\\s*guaranteed\\s*bandwidth\\(kbps\\)\\s*${MAX_GUARANTEED_BANDWIDTH_KBPS}\n  ^\\s*Left\\s*guaranteed\\s*bandwidth\\(kbps\\)\\s*${LEFT_GUARANTEED_BANDWIDTH_KBPS}\n  ^\\s*Number\\s*of\\s*T-CONTs\\s*${NUMBER_OF_T_CONTS}\n  ^\\s*Autofind\\s*${AUTOFIND}\n  ^\\s*FEC\\s*check\\s*${FEC_CHECK}\n  ^\\s*Admin\\s*State\\s*${ADMIN_STATE}\n  ^\\s*ONT\\s*encryption\\s*key\\s*switching\\s*interval\\(m\\)\\s*${ONT_ENCRYPTION_KEY_SWITCHING_INTERVAL_M}\n  ^\\s*PON-ID\\s*switch\\s*${PON_ID_SWITCH}\n  ^\\s*PON-ID\\s*identifier\\s*${PON_ID_IDENTIFIER}\n  ^\\s*Jumbo\\s*frame\\s*switch\\s*${JUMBO_FRAME_SWITCH}\n  ^\\s*Port\\s*MTU\\(bytes\\)\\s*${PORT_MTU_BYTES}\n  ^\\s*Surplus\\s*bandwidth\\s*assignment\\s*${SURPLUS_BANDWIDTH_ASSIGNMENT}\n  ^\\s*Best-effort\\s*bandwidth\\s*assignment\\s*${BEST_EFFORT_BANDWIDTH_ASSIGNMENT}\n  ^\\s*Traffic\\s*alarm-profile\\s*ID\\s*${TRAFFIC_ALARM_PROFILE_ID}\n  ^\\s*ONT\\s*online\\s*power\\s*threshold\\(dBm\\)\\s*${ONT_ONLINE_POWER_THRESHOLD_DBM}\n  ^\\s*Low-latency\\s*${LOW_LATENCY}\n  ^\\s*Multichannel\\s*low\\s*latency\\s*${MULTICHANNEL_LOW_LATENCY}\n  ^\\s*Optical\\s*module\\s*work\\s*mode\\s*${OPTICAL_MODULE_WORK_MODE}\n  ^\\s*Channel\\w*\\s*Information\\s*\n  ^\\s*Channel\\s*Type\\s*${CHANNEL_TYPE}\n  ^\\s*Online\\s*ONT\\s*number\\s*threshold\\s*${ONLINE_ONT_NUMBER_THRESHOLD}\n  ^\\s*\n  ^. -> Error"
+}

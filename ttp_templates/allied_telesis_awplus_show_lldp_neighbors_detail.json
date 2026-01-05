@@ -1,0 +1,56 @@
+{
+  "command": "allied_telesis_awplus_show_lldp_neighbors_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"neighbor_port_description\">\n  Port Description ................. {{NEIGHBOR_PORT_DESCRIPTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOCAL_INTERFACE": "port1.0.1",
+      "CHASSIS_ID": "0050.56a6.9a73",
+      "NEIGHBOR_PORT_DESCRIPTION": "[not advertised]",
+      "NEIGHBOR_PORT_TYPE": "MAC address",
+      "NEIGHBOR_PORT_ID": "0050.56a6.9a73",
+      "NEIGHBOR": "[not advertised]",
+      "MANAGEMENT_IP": "[not advertised]"
+    },
+    {
+      "LOCAL_INTERFACE": "port1.0.23",
+      "CHASSIS_ID": "001a.eb96.25f4",
+      "NEIGHBOR_PORT_DESCRIPTION": "===== 6F-SH210-5 port1.0.23/port1.0.24 ====",
+      "NEIGHBOR_PORT_TYPE": "Interface name",
+      "NEIGHBOR_PORT_ID": "port1.0.15",
+      "NEIGHBOR": "6F-SH210-1",
+      "MANAGEMENT_IP": "192.168.254.201"
+    },
+    {
+      "LOCAL_INTERFACE": "port1.0.24",
+      "CHASSIS_ID": "001a.eb96.25f4",
+      "NEIGHBOR_PORT_DESCRIPTION": "===== 6F-SH210-5 port1.0.23/port1.0.24 ====",
+      "NEIGHBOR_PORT_TYPE": "Interface name",
+      "NEIGHBOR_PORT_ID": "port1.0.16",
+      "NEIGHBOR": "6F-SH210-1",
+      "MANAGEMENT_IP": "192.168.254.201"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neighbor_port_description": [
+        {
+          "NEIGHBOR_PORT_DESCRIPTION": "[not advertised]"
+        },
+        {
+          "NEIGHBOR_PORT_DESCRIPTION": "===== 6F-SH210-5 port1.0.23/port1.0.24 ===="
+        },
+        {
+          "NEIGHBOR_PORT_DESCRIPTION": "===== 6F-SH210-5 port1.0.23/port1.0.24 ===="
+        }
+      ]
+    }
+  ],
+  "cli_content": "LLDP Detailed Neighbor Information:\n\nLocal port1.0.1:\n  Neighbors table last updated 1233 hrs 56 mins 19 secs ago\n\n  Chassis ID Type .................. MAC address\n  Chassis ID ....................... 0050.56a6.9a73\n  Port ID Type ..................... MAC address\n  Port ID .......................... 0050.56a6.9a73\n  TTL .............................. 3601 (secs)\n  Port Description ................. [not advertised]\n  System Name ...................... [not advertised]\n  System Description ............... [not advertised]\n  System Capabilities .............. [not advertised]\n  Management Addresses ............. [not advertised]\n  Port VLAN ID (PVID) .............. [not advertised]\n  Port & Protocol VLAN ............. [not advertised]\n  VLAN Names ....................... [not advertised]\n  Protocol IDs ..................... [not advertised]\n  MAC/PHY Auto-negotiation ......... Supported, Enabled\n       Advertised Capability ....... 1000BaseTFD\n       Operational MAU Type ........ Unknown (0)\n  Power Via MDI (PoE) .............. [not advertised]\n  Link Aggregation ................. [not advertised]\n  Maximum Frame Size ............... [not advertised]\n  LLDP-MED Device Type ............. Endpoint Class I\n  LLDP-MED Capabilities ............ LLDP-MED Capabilities\n  Network Policy ................... [not advertised]\n  Location Identification .......... [not advertised]\n  Extended Power Via MDI (PoE) ..... [not advertised]\n  Inventory Management:\n       Hardware Revision ........... [not advertised]\n       Firmware Revision ........... [not advertised]\n       Software Revision ........... [not advertised]\n       Serial Number ............... [not advertised]\n       Manufacturer Name ........... [not advertised]\n       Model Name .................. [not advertised]\n       Asset ID .................... [not advertised]\n\nLocal port1.0.23:\n  Neighbors table last updated 4393 hrs 26 mins 21 secs ago\n\n  Chassis ID Type .................. MAC address\n  Chassis ID ....................... 001a.eb96.25f4\n  Port ID Type ..................... Interface name\n  Port ID .......................... port1.0.15\n  TTL .............................. 120 (secs)\n  Port Description ................. ===== 6F-SH210-5 port1.0.23/port1.0.24 ====\n  System Name ...................... 6F-SH210-1\n  System Description ............... Allied Telesis router/switch, AW+\n                                     v5.4.5-1.3\n  System Capabilities - Supported .. Bridge, Router\n                      - Enabled .... Bridge\n  Management Addresses ............. 192.168.254.201\n  Port VLAN ID (PVID) .............. 0\n  Port & Protocol VLAN - Supported . Yes\n                       - Enabled ... No\n                       - VIDs ...... 0\n  VLAN Names ....................... KIT-NET, ISW-NET, StorageMGT, Storage-A,\n                                     Storage-B, CL-Osaka-Common, R10-4, BASE,\n                                     A-NET2, A-NET3, O-NET, O3-NET, V-NET,\n                                     B2-NET, SS, sw-base, MH-HONSHA, COMMON,\n                                     SV-common, BKUP\n  Protocol IDs ..................... 9000, 0026424203000000, 0027424203000002,\n                                     0069424203000003, 888e01, aaaa0300e02b00bb,\n                                     88090101, 00540000e302, 0800, 0806, 86dd\n  MAC/PHY Auto-negotiation ......... Supported, Enabled\n       Advertised Capability ....... 1000BaseTFD, 100BaseTXFD, 100BaseTX,\n                                     10BaseTFD, 10BaseT\n       Operational MAU Type ........ 1000BaseTFD (30)\n  Power Via MDI (PoE) .............. Not Supported\n       Port Class .................. PSE\n       Pair Control Ability ........ Disabled\n       Power Class ................. Unknown\n  Link Aggregation ................. Supported, Enabled\n       Aggregated Port-ID .......... 4502\n  Maximum Frame Size ............... 1500 (Octets)\n  LLDP-MED Capabilities ............ [not advertised]\n  Network Policy ................... [not advertised]\n  Location Identification .......... [not advertised]\n  Extended Power Via MDI (PoE) ..... [not advertised]\n  Inventory Management:\n       Hardware Revision ........... [not advertised]\n       Firmware Revision ........... [not advertised]\n       Software Revision ........... [not advertised]\n       Serial Number ............... [not advertised]\n       Manufacturer Name ........... [not advertised]\n       Model Name .................. [not advertised]\n       Asset ID .................... [not advertised]\n\nLocal port1.0.24:\n  Neighbors table last updated 4393 hrs 26 mins 21 secs ago\n\n  Chassis ID Type .................. MAC address\n  Chassis ID ....................... 001a.eb96.25f4\n  Port ID Type ..................... Interface name\n  Port ID .......................... port1.0.16\n  TTL .............................. 120 (secs)\n  Port Description ................. ===== 6F-SH210-5 port1.0.23/port1.0.24 ====\n  System Name ...................... 6F-SH210-1\n  System Description ............... Allied Telesis router/switch, AW+\n                                     v5.4.5-1.3\n  System Capabilities - Supported .. Bridge, Router\n                      - Enabled .... Bridge\n  Management Addresses ............. 192.168.254.201\n  Port VLAN ID (PVID) .............. 0\n  Port & Protocol VLAN - Supported . Yes\n                       - Enabled ... No\n                       - VIDs ...... 0\n  VLAN Names ....................... KIT-NET, ISW-NET, StorageMGT, Storage-A,\n                                     Storage-B, CL-Osaka-Common, R10-4, BASE,\n                                     A-NET2, A-NET3, O-NET, O3-NET, V-NET,\n                                     B2-NET, SS, sw-base, MH-HONSHA, COMMON,\n                                     SV-common, BKUP\n  Protocol IDs ..................... 9000, 0026424203000000, 0027424203000002,\n                                     0069424203000003, 888e01, aaaa0300e02b00bb,\n                                     88090101, 00540000e302, 0800, 0806, 86dd\n  MAC/PHY Auto-negotiation ......... Supported, Enabled\n       Advertised Capability ....... 1000BaseTFD, 100BaseTXFD, 100BaseTX,\n                                     10BaseTFD, 10BaseT\n       Operational MAU Type ........ 1000BaseTFD (30)\n  Power Via MDI (PoE) .............. Not Supported\n       Port Class .................. PSE\n       Pair Control Ability ........ Disabled\n       Power Class ................. Unknown\n  Link Aggregation ................. Supported, Enabled\n       Aggregated Port-ID .......... 4502\n  Maximum Frame Size ............... 1500 (Octets)\n  LLDP-MED Capabilities ............ [not advertised]\n  Network Policy ................... [not advertised]\n  Location Identification .......... [not advertised]\n  Extended Power Via MDI (PoE) ..... [not advertised]\n  Inventory Management:\n       Hardware Revision ........... [not advertised]\n       Firmware Revision ........... [not advertised]\n       Software Revision ........... [not advertised]\n       Serial Number ............... [not advertised]\n       Manufacturer Name ........... [not advertised]\n       Model Name .................. [not advertised]\n       Asset ID .................... [not advertised]",
+  "textfsm_template": "Value LOCAL_INTERFACE (\\w+\\.\\w+\\.\\w+)\nValue CHASSIS_ID (.+)\nValue NEIGHBOR_PORT_DESCRIPTION (.+)\nValue NEIGHBOR_PORT_TYPE (.+)\nValue NEIGHBOR_PORT_ID (.+)\nValue NEIGHBOR (.+)\nValue MANAGEMENT_IP (.+)\n\nStart\n  ^LLDP\\s+Detailed\\s+Neighbor\\s+Information -> Neighbor\n  ^. -> Error\n\nNeighbor\n  ^Local -> Continue.Record\n  ^Local\\s+${LOCAL_INTERFACE}:\n  ^\\s+Neighbors\\s+table\\s+last\\s+updated\n  ^\\s+TTL\n  ^\\s+System\\s+Description\n  ^\\s+System\\s+Capabilities\n  ^\\s+Port\\s+VLAN\\s+ID\n  ^\\s+Port\\s+&\\s+Protocol\\s+VLAN\n  ^\\s+Protocol\\s+IDs\n  ^\\s+MAC/PHY\\s+Auto-negotiation\n  ^\\s+Advertised\\s+Capability\n  ^\\s+Operational\\s+MAU\\s+Type\n  ^\\s+Power\\s+Via\\s+MDI\n  ^\\s+Link\\s+Aggregation\n  ^\\s+Maximum\\s+Frame\\s+Size\n  ^\\s+LLDP-MED\\s+Device\\s+Type\n  ^\\s+LLDP-MED\\s+Capabilities\n  ^\\s+Network\\s+Policy\n  ^\\s+Location\\s+Identification\n  ^\\s+Extended\\s+Power\\s+Via\\s+MDI\n  ^\\s+Firmware\\s+Revision\n  ^\\s+Software\\s+Revision\n  ^\\s+Serial\\s+Number\n  ^\\s+Manufacturer\\s+Name\n  ^\\s+Model\\s+Name\n  ^\\s+Asset\\s+ID\n  ^\\s+Port\\s+Class\n  ^\\s+Pair\\s+Control\\s+Ability\n  ^\\s+Power\\s+Class\n  ^\\s+Aggregated\\s+Port-ID\n  ^\\s+Chassis\\s+ID\\s+\\S+\\s+${CHASSIS_ID}\n  ^\\s+Port\\s+ID\\s+Type\\s+\\.*\\s+${NEIGHBOR_PORT_TYPE}\n  ^\\s+Port\\s+ID\\s+\\.*\\s+${NEIGHBOR_PORT_ID}\n  ^\\s+Port\\s+Description\\s+\\.*\\s+${NEIGHBOR_PORT_DESCRIPTION}\n  ^\\s+System\\s+Name\\s+\\S+\\s+${NEIGHBOR}\n  ^\\s+Management\\s+Addresses\\s+\\S+\\s+${MANAGEMENT_IP}\n  ^\\s+VLAN\\s+Names\n  ^\\s+Inventory\\s+Management\n  ^\\s+Power\\s+Source\n  ^\\s+Power\\s+Priority\n  ^\\s+Power\\s+Value\n  ^\\s+Hardware\\s+Revision\n  ^\\s*------\n  # Drop multi line options\n  ^\\s{8,}\n  ^. -> Error\n"
+}

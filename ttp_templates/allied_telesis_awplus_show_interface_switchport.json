@@ -1,0 +1,110 @@
+{
+  "command": "allied_telesis_awplus_show_interface_switchport",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.14285714285714285,
+  "textfsm_rows": 14,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"native_vlan\">\n                             {{NATIVE_VLAN | ORPHRASE}} 1111 2222\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "port1.0.1",
+      "MODE": "trunk",
+      "NATIVE_VLAN": "None",
+      "TRUNKING_VLANS": "767, 793, 794, 811, 900, 964, 973, 989, 1111, 2222"
+    },
+    {
+      "INTERFACE": "port1.0.2",
+      "MODE": "trunk",
+      "NATIVE_VLAN": "None",
+      "TRUNKING_VLANS": "767, 793, 794, 811, 900, 964, 973, 989, 1111, 2222"
+    },
+    {
+      "INTERFACE": "port1.0.3",
+      "MODE": "trunk",
+      "NATIVE_VLAN": "None",
+      "TRUNKING_VLANS": "795"
+    },
+    {
+      "INTERFACE": "port1.0.4",
+      "MODE": "trunk",
+      "NATIVE_VLAN": "None",
+      "TRUNKING_VLANS": "793"
+    },
+    {
+      "INTERFACE": "port1.0.5",
+      "MODE": "trunk",
+      "NATIVE_VLAN": "None",
+      "TRUNKING_VLANS": "794"
+    },
+    {
+      "INTERFACE": "port1.0.6",
+      "MODE": "trunk",
+      "NATIVE_VLAN": "None",
+      "TRUNKING_VLANS": "989"
+    },
+    {
+      "INTERFACE": "port1.0.7",
+      "MODE": "access",
+      "NATIVE_VLAN": "989",
+      "TRUNKING_VLANS": "989"
+    },
+    {
+      "INTERFACE": "port1.0.8",
+      "MODE": "access",
+      "NATIVE_VLAN": "989",
+      "TRUNKING_VLANS": "989"
+    },
+    {
+      "INTERFACE": "port1.0.9",
+      "MODE": "access",
+      "NATIVE_VLAN": "989",
+      "TRUNKING_VLANS": "989"
+    },
+    {
+      "INTERFACE": "port1.0.10",
+      "MODE": "access",
+      "NATIVE_VLAN": "900",
+      "TRUNKING_VLANS": "900"
+    },
+    {
+      "INTERFACE": "port1.0.11",
+      "MODE": "trunk",
+      "NATIVE_VLAN": "None",
+      "TRUNKING_VLANS": "989"
+    },
+    {
+      "INTERFACE": "port1.0.12",
+      "MODE": "trunk",
+      "NATIVE_VLAN": "None",
+      "TRUNKING_VLANS": "795"
+    },
+    {
+      "INTERFACE": "port1.0.13",
+      "MODE": "trunk",
+      "NATIVE_VLAN": "None",
+      "TRUNKING_VLANS": "479, 767, 793, 794, 811, 900, 964, 973, 989, 1111, 2222"
+    },
+    {
+      "INTERFACE": "port1.0.23",
+      "MODE": "trunk",
+      "NATIVE_VLAN": "None",
+      "TRUNKING_VLANS": "504, 508, 767, 793, 794, 811, 883, 900, 909, 910, 914, 915, 929, 931, 952, 954, 955, 964, 973, 989"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "native_vlan": [
+        {
+          "NATIVE_VLAN": "989"
+        },
+        {
+          "NATIVE_VLAN": "989"
+        }
+      ]
+    }
+  ],
+  "cli_content": " Interface name         : port1.0.1\n Switchport mode        : trunk\n Ingress filter          : enable\n Acceptable frame types  : vlan-tagged only\n Default Vlan            : None\n Configured Vlans        :   767  793  794  811  900  964  973\n                             989 1111 2222\n Dynamic Vlans           :\n Interface name         : port1.0.2\n Switchport mode        : trunk\n Ingress filter          : enable\n Acceptable frame types  : vlan-tagged only\n Default Vlan            : None\n Configured Vlans        :   767  793  794  811  900  964  973\n                             989 1111 2222\n Dynamic Vlans           :\n Interface name         : port1.0.3\n Switchport mode        : trunk\n Ingress filter          : enable\n Acceptable frame types  : vlan-tagged only\n Default Vlan            : None\n Configured Vlans        :   795\n Dynamic Vlans           :\n Interface name         : port1.0.4\n Switchport mode        : trunk\n Ingress filter          : enable\n Acceptable frame types  : vlan-tagged only\n Default Vlan            : None\n Configured Vlans        :   793\n Dynamic Vlans           :\n Interface name         : port1.0.5\n Switchport mode        : trunk\n Ingress filter          : enable\n Acceptable frame types  : vlan-tagged only\n Default Vlan            : None\n Configured Vlans        :   794\n Dynamic Vlans           :\n Interface name         : port1.0.6\n Switchport mode        : trunk\n Ingress filter          : enable\n Acceptable frame types  : vlan-tagged only\n Default Vlan            : None\n Configured Vlans        :   989\n Dynamic Vlans           :\n Interface name         : port1.0.7\n Switchport mode        : access\n Ingress filter          : enable\n Acceptable frame types  : all\n Default Vlan            : 989\n Configured Vlans        :   989\n Dynamic Vlans           :\n Interface name         : port1.0.8\n Switchport mode        : access\n Ingress filter          : enable\n Acceptable frame types  : all\n Default Vlan            : 989\n Configured Vlans        :   989\n Dynamic Vlans           :\n Interface name         : port1.0.9\n Switchport mode        : access\n Ingress filter          : enable\n Acceptable frame types  : all\n Default Vlan            : 989\n Configured Vlans        :   989\n Dynamic Vlans           :\n Interface name         : port1.0.10\n Switchport mode        : access\n Ingress filter          : enable\n Acceptable frame types  : all\n Default Vlan            : 900\n Configured Vlans        :   900\n Dynamic Vlans           :\n Interface name         : port1.0.11\n Switchport mode        : trunk\n Ingress filter          : enable\n Acceptable frame types  : vlan-tagged only\n Default Vlan            : None\n Configured Vlans        :   989\n Dynamic Vlans           :\n Interface name         : port1.0.12\n Switchport mode        : trunk\n Ingress filter          : enable\n Acceptable frame types  : vlan-tagged only\n Default Vlan            : None\n Configured Vlans        :   795\n Dynamic Vlans           :\n Interface name         : port1.0.13\n Switchport mode        : trunk\n Ingress filter          : enable\n Acceptable frame types  : vlan-tagged only\n Default Vlan            : None\n Configured Vlans        :   479  767  793  794  811  900  964\n                             973  989 1111 2222\n Dynamic Vlans           :\n Interface name         : port1.0.23\n Switchport mode        : trunk\n Ingress filter          : enable\n Acceptable frame types  : vlan-tagged only\n Default Vlan            : None\n Configured Vlans        :   504  508  767  793  794  811  883\n                             900  909  910  914  915  929  931\n                             952  954  955  964  973  989\n Dynamic Vlans           :",
+  "textfsm_template": "Value Required INTERFACE (\\S+)\nValue MODE (\\S+)\nValue NATIVE_VLAN (\\d+|None)\nValue List TRUNKING_VLANS (\\d+|\\d)\n\nStart\n  ^\\s*Interface\\s+name -> Continue.Record\n  ^\\s*Interface\\s+name\\s*:\\s*${INTERFACE}\n  ^\\s*Switchport\\s+mode\\s*:\\s*${MODE}\n  ^\\s*Ingress\\s+filter\n  ^\\s*Acceptable\\s+frame\\s+types\n  ^\\s*Default\\s+Vlan\\s*:\\s*${NATIVE_VLAN}\n  ^\\s*Configured\\s+Vlans\\s*:\\s*${TRUNKING_VLANS} -> Continue\n  ^\\s*Configured\\s+Vlans\\s*:\\s*(?:\\d+\\s+){1}${TRUNKING_VLANS} -> Continue\n  ^\\s*Configured\\s+Vlans\\s*:\\s*(?:\\d+\\s+){2}${TRUNKING_VLANS} -> Continue\n  ^\\s*Configured\\s+Vlans\\s*:\\s*(?:\\d+\\s+){3}${TRUNKING_VLANS} -> Continue\n  ^\\s*Configured\\s+Vlans\\s*:\\s*(?:\\d+\\s+){4}${TRUNKING_VLANS} -> Continue\n  ^\\s*Configured\\s+Vlans\\s*:\\s*(?:\\d+\\s+){5}${TRUNKING_VLANS} -> Continue\n  ^\\s*Configured\\s+Vlans\\s*:\\s*(?:\\d+\\s+){6}${TRUNKING_VLANS} -> Continue\n  ^\\s*Configured\\s+Vlans\\s*:\\s*(?:\\d+\\s+){7}${TRUNKING_VLANS} -> Continue\n  ^\\s*Configured\\s+Vlans\\s*:\\s*(?:\\d+\\s+){8}${TRUNKING_VLANS} -> Continue\n  ^\\s*Configured\\s+Vlans\\s*:\\s*(?:\\d+\\s+){9}${TRUNKING_VLANS} -> Continue\n  ^\\s*Configured\\s+Vlans\\s*:\\s*(?:\\d+\\s+){10}${TRUNKING_VLANS} -> Continue\n  ^\\s*Configured\\s+Vlans\n  ^\\s*Translated\\s+Vlans\n  ^\\s*Translated\\s+Default\n  ^\\s{8,}${TRUNKING_VLANS} -> Continue\n  ^\\s{8,}(?:\\d+\\s+){1}${TRUNKING_VLANS} -> Continue\n  ^\\s{8,}(?:\\d+\\s+){2}${TRUNKING_VLANS} -> Continue\n  ^\\s{8,}(?:\\d+\\s+){3}${TRUNKING_VLANS} -> Continue\n  ^\\s{8,}(?:\\d+\\s+){4}${TRUNKING_VLANS} -> Continue\n  ^\\s{8,}(?:\\d+\\s+){5}${TRUNKING_VLANS} -> Continue\n  ^\\s{8,}(?:\\d+\\s+){6}${TRUNKING_VLANS} -> Continue\n  ^\\s{8,}(?:\\d+\\s+){7}${TRUNKING_VLANS} -> Continue\n  ^\\s{8,}(?:\\d+\\s+){8}${TRUNKING_VLANS} -> Continue\n  ^\\s{8,}(?:\\d+\\s+){9}${TRUNKING_VLANS} -> Continue\n  ^\\s{8,}(?:\\d+\\s+){10}${TRUNKING_VLANS} -> Continue\n  ^\\s{8,}\n  ^\\s*Dynamic\\s+Vlans\n  ^. -> Error\n"
+}

@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_clock
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="time_timezone_dayweek_month_day_year">
+{{TIME}} {{TIMEZONE}} {{DAYWEEK}} {{MONTH}} {{DAY}} {{YEAR | ORPHRASE}}
+</group>

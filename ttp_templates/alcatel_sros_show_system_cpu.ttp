@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: alcatel_sros_show_system_cpu
+# Source: ntc
+# TextFSM rows: 50
+# TTP rows: 51
+# Match ratio: 1.02
+
+<group name="name_cpu_time_cpu_usage_capacity_usage">
+{{NAME | ORPHRASE}} {{CPU_TIME}} {{CPU_USAGE | ORPHRASE}} {{CAPACITY_USAGE}}
+</group>
+<group name="name_cpu_time_cpu_usage">
+{{NAME | ORPHRASE}} {{CPU_TIME}} {{CPU_USAGE | ORPHRASE}} 
+</group>

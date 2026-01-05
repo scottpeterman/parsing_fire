@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show hardware details
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="hardware_revision_model_platform_serial_number">
+Serial Number  : {{SERIAL_NUMBER | ORPHRASE}}
+Model  : {{MODEL | ORPHRASE}}
+Vendor  : {{VENDOR | ORPHRASE}}
+Hardware Revision  : {{HARDWARE_REVISION | ORPHRASE}}
+Software Version  : {{SOFTWARE_VERSION | ORPHRASE}}
+Platform  : {{PLATFORM | ORPHRASE}}
+</group>

@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_cdp_neighbors
+# Source: ntc
+# TextFSM rows: 6
+# TTP rows: 6
+# Match ratio: 1.00
+
+<group name="local_interface_holdtime_capabilities_platform_neighbor_interface">
+                   {{LOCAL_INTERFACE}} {{HOLDTIME}} {{CAPABILITIES | ORPHRASE}} {{PLATFORM}} {{NEIGHBOR_INTERFACE | ORPHRASE}} 
+</group>
+<group name="local_interface_capabilities_platform_neighbor_interface">
+                   {{LOCAL_INTERFACE}} {{{{CAPABILITIES | ORPHRASE}}OLDTIME}} H {{PLATFORM}} {{NEIGHBOR_INTERFACE | ORPHRASE}} 
+</group>

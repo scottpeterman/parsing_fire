@@ -1,0 +1,81 @@
+{
+  "command": "cisco_ios_show_power_status",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.6666666666666666,
+  "textfsm_rows": 6,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"fan_sensor_inline_status_model\">\nPS2-2                         220V   {{FAN_SENSOR | ORPHRASE}}         \n<group name=\"ps_status_type\">\n{{PS}} PWR-C45-4200ACV {{TYPE | ORPHRASE}} {{STATUS | ORPHRASE}} good good \n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PS": "PS1",
+      "MODEL": "PWR-C45-4200ACV",
+      "TYPE": "AC 4200W",
+      "STATUS": "good",
+      "FAN_SENSOR": "good",
+      "INLINE_STATUS": "good"
+    },
+    {
+      "PS": "PS1-1",
+      "INPUT_TYPE": "220V",
+      "INPUT_STATUS": "good",
+      "MODEL": "PWR-C45-4200ACV",
+      "FAN_SENSOR": "good",
+      "INLINE_STATUS": "good"
+    },
+    {
+      "PS": "PS1-2",
+      "INPUT_TYPE": "220V",
+      "INPUT_STATUS": "good",
+      "MODEL": "PWR-C45-4200ACV",
+      "FAN_SENSOR": "good",
+      "INLINE_STATUS": "good"
+    },
+    {
+      "PS": "PS2",
+      "MODEL": "PWR-C45-4200ACV",
+      "TYPE": "AC 4200W",
+      "STATUS": "err-disable",
+      "FAN_SENSOR": "good",
+      "INLINE_STATUS": "good"
+    },
+    {
+      "PS": "PS2-1",
+      "INPUT_STATUS": "off",
+      "MODEL": "PWR-C45-4200ACV",
+      "FAN_SENSOR": "good",
+      "INLINE_STATUS": "good"
+    },
+    {
+      "PS": "PS2-2",
+      "INPUT_TYPE": "220V",
+      "INPUT_STATUS": "good",
+      "MODEL": "PWR-C45-4200ACV",
+      "FAN_SENSOR": "good",
+      "INLINE_STATUS": "good"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "fan_sensor_inline_status_model": [
+        {
+          "FAN_SENSOR": "good"
+        },
+        {
+          "FAN_SENSOR": "good",
+          "ps_status_type": {
+            "PS": "PS2",
+            "TYPE": "AC 4200W",
+            "STATUS": "err-disable"
+          }
+        },
+        {
+          "FAN_SENSOR": "good"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Power                                             Fan      Inline\nSupply  Model No          Type       Status       Sensor   Status\n------  ----------------  ---------  -----------  -------  -------\nPS1     PWR-C45-4200ACV   AC 4200W   good         good     good   \nPS1-1                         220V   good         \nPS1-2                         220V   good         \nPS2     PWR-C45-4200ACV   AC 4200W   err-disable  good     good   \nPS2-1                                off          \nPS2-2                         220V   good         \n\n*** Power Supplies of different type have been detected***\n",
+  "textfsm_template": "####\n# For 4500 switches\n###\nValue Required PS (\\S+)\nValue INPUT_TYPE (\\S+)\nValue INPUT_STATUS (off|good|err-disable)\nValue Filldown MODEL (\\S+)\nValue TYPE (.+?)\nValue STATUS (off|good|err-disable)\nValue Filldown FAN_SENSOR (\\w+)\nValue Filldown INLINE_STATUS (good|n.a.)\n\nStart\n  ^Supply.*Model -> POWER\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n\n\nPOWER\n  ^${PS}\\s+${MODEL}\\s+${TYPE}\\s+${STATUS}\\s+${FAN_SENSOR}\\s+${INLINE_STATUS} -> Record\n  ^${PS}\\s{25}${INPUT_TYPE}\\s+${INPUT_STATUS} -> Record\n  # Capture just INPUT_STATUS when INPUT_TYPE field is blank\n  ^${PS}\\s{32}${INPUT_STATUS} -> Record\n  ^$$ -> Clearall\n"
+}

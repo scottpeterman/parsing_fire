@@ -1,0 +1,80 @@
+{
+  "command": "show inventory",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"pid_vid_sn\">\nPID: {{PID}}, VID: {{VID}}, SN: {{SN | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "Chassis",
+      "DESCR": "Cisco ASR 1002 Chassis",
+      "PID": "ASR1002",
+      "VID": "V02",
+      "SN": "FOC1234N1Z2"
+    },
+    {
+      "NAME": "module 0",
+      "DESCR": "ASR1000 SPA Interface Processor 10",
+      "PID": "ESP-10",
+      "VID": "V03",
+      "SN": "JAB06190831"
+    },
+    {
+      "NAME": "module 1",
+      "DESCR": "ASR1000 Embedded Services Processor",
+      "PID": "ASR1000-ESP10",
+      "VID": "V01",
+      "SN": "JAB062108B6"
+    },
+    {
+      "NAME": "power supply 0",
+      "DESCR": "AC Power Supply",
+      "PID": "PWR-AC-400",
+      "VID": "V02",
+      "SN": "ART0346Q1QY"
+    },
+    {
+      "NAME": "fan tray 0",
+      "DESCR": "Cisco ASR1000 Fan Module",
+      "PID": "ASR1000-FAN",
+      "VID": "V02",
+      "SN": "FOC1230N5YZ"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "pid_vid_sn": [
+        {
+          "PID": "ASR1002",
+          "VID": "V02",
+          "SN": "FOC1234N1Z2"
+        },
+        {
+          "PID": "ESP-10",
+          "VID": "V03",
+          "SN": "JAB06190831"
+        },
+        {
+          "PID": "ASR1000-ESP10",
+          "VID": "V01",
+          "SN": "JAB062108B6"
+        },
+        {
+          "PID": "PWR-AC-400",
+          "VID": "V02",
+          "SN": "ART0346Q1QY"
+        },
+        {
+          "PID": "ASR1000-FAN",
+          "VID": "V02",
+          "SN": "FOC1230N5YZ"
+        }
+      ]
+    }
+  ],
+  "cli_content": "NAME: \"Chassis\", DESCR: \"Cisco ASR 1002 Chassis\"\nPID: ASR1002, VID: V02, SN: FOC1234N1Z2\n\nNAME: \"module 0\", DESCR: \"ASR1000 SPA Interface Processor 10\"\nPID: ESP-10, VID: V03, SN: JAB06190831\n\nNAME: \"module 1\", DESCR: \"ASR1000 Embedded Services Processor\"\nPID: ASR1000-ESP10, VID: V01, SN: JAB062108B6\n\nNAME: \"power supply 0\", DESCR: \"AC Power Supply\"\nPID: PWR-AC-400, VID: V02, SN: ART0346Q1QY\n\nNAME: \"fan tray 0\", DESCR: \"Cisco ASR1000 Fan Module\"\nPID: ASR1000-FAN, VID: V02, SN: FOC1230N5YZ\n",
+  "textfsm_template": "Value NAME (.*)\nValue DESCR (.*)\nValue PID (\\S+)\nValue VID (\\S+)\nValue SN (\\S+)\n\nStart\n  ^NAME: \"${NAME}\",\\s+DESCR: \"${DESCR}\"\n  ^PID: ${PID},\\s+VID: ${VID},\\s+SN: ${SN} -> Record"
+}

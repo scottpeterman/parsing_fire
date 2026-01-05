@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_procurve_show_ip
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="vlan_name_config_ip_address_subnet_mask">
+  {{VLAN_NAME}} | {{CONFIG}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{SUBNET_MASK | ORPHRASE}} 
+</group>

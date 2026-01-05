@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: arista_eos_show_ip_route
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 3
+# Match ratio: 1.50
+
+<group name="vrf">
+VRF name: {{VRF | ORPHRASE}}
+<group name="distance_metric_network">
+ {{PROTOCOL | ORPHRASE}} {{NETWORK}}/{{PREFIX_LENGTH}} [{{DISTANCE}}/{{METRIC | ORPHRASE}}] via 172.83.43.48, Vlan55
+</group>
+</group>

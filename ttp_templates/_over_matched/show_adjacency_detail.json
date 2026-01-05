@@ -1,0 +1,35 @@
+{
+  "command": "show adjacency detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"protocol_interface_address\">\n{{PROTOCOL}} {{INTERFACE}} {{ADDRESS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "IP",
+      "INTERFACE": "GigabitEthernet0/0",
+      "ADDRESS": "192.168.1.254(3)"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "protocol_interface_address": [
+        {
+          "PROTOCOL": "Protocol",
+          "INTERFACE": "Interface",
+          "ADDRESS": "Address"
+        },
+        {
+          "PROTOCOL": "IP",
+          "INTERFACE": "GigabitEthernet0/0",
+          "ADDRESS": "192.168.1.254(3)"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Protocol Interface                 Address\nIP       GigabitEthernet0/0        192.168.1.254(3)\n         GigabitEthernet0/1        192.168.2.254(5)\n         GigabitEthernet0/2        192.168.3.254(7)\n         GigabitEthernet0/3        192.168.4.254(9)\n",
+  "textfsm_template": "Value PROTOCOL (\\S+)\nValue INTERFACE (\\S+)\nValue ADDRESS (\\S+\\(\\d+\\))\n\nStart\n  ^Protocol\\s+Interface\\s+Address\\s*$$\n  ^${PROTOCOL}\\s+${INTERFACE}\\s+${ADDRESS}\\s*$$ -> Record"
+}

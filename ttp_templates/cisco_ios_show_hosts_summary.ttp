@@ -1,0 +1,11 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_hosts_summary
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="default_domain_dynamic_cache_entries_local_cache_entries_name_servers">
+Default domain is {{DEFAULT_DOMAIN | ORPHRASE}}
+Name servers are {{NAME_SERVERS | ORPHRASE}}
+</group>

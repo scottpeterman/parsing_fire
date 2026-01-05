@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_eigrp_neighbors_detail
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 3
+# Match ratio: 1.50
+
+<group name="as">
+EIGRP-IPv4 Neighbors for AS({{AS | ORPHRASE}})
+<group name="current_neighbors_h_hold">
+{{H}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{INTERFACE}} {{HOLD}} {{UPTIME | ORPHRASE}} {{SRTT}} {{RTO}} {{Q_CNT}} {{SEQ_NUM | ORPHRASE}}
+</group>
+</group>

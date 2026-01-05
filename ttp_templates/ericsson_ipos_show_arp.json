@@ -1,0 +1,132 @@
+{
+  "command": "ericsson_ipos_show_arp",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 8,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"host_mac_address_ttl_type_circuit\">\n{{HOST | re(\"\\\\S+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{TTL}} {{TYPE}} {{CIRCUIT | ORPHRASE}}\n</group>\n<group name=\"host_mac_address_type_circuit\">\n{{HOST | re(\"\\\\S+\")}} {{MAC_ADDRESS | re(\"[0{{TTL | re(\".*\\\\w.*\")}}9a-fA-F:.-]+\")}} - {{TYPE}} {{CIRCUIT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "HOST": "10.10.10.49",
+      "MAC_ADDRESS": "98:a4:04:80:2d:1a",
+      "TTL": "2422",
+      "TYPE": "ARPA",
+      "CIRCUIT": "1/26"
+    },
+    {
+      "HOST": "10.10.10.50",
+      "MAC_ADDRESS": "98:a4:04:80:31:9a",
+      "TTL": "-",
+      "TYPE": "ARPA",
+      "CIRCUIT": "1/26"
+    },
+    {
+      "HOST": "10.10.10.65",
+      "MAC_ADDRESS": "40:ce:24:a3:1e:8d",
+      "TTL": "3582",
+      "TYPE": "ARPA",
+      "CIRCUIT": "1/11"
+    },
+    {
+      "HOST": "10.10.10.66",
+      "MAC_ADDRESS": "98:a4:04:80:31:8b",
+      "TTL": "-",
+      "TYPE": "ARPA",
+      "CIRCUIT": "1/11"
+    },
+    {
+      "HOST": "10.10.10.213",
+      "MAC_ADDRESS": "98:a4:04:80:31:8c",
+      "TTL": "-",
+      "TYPE": "ARPA",
+      "CIRCUIT": "1/12"
+    },
+    {
+      "HOST": "10.10.10.214",
+      "MAC_ADDRESS": "70:7d:b9:2a:67:0c",
+      "TTL": "1425",
+      "TYPE": "ARPA",
+      "CIRCUIT": "1/12"
+    },
+    {
+      "HOST": "10.10.10.70",
+      "MAC_ADDRESS": "98:a4:04:80:31:99",
+      "TTL": "-",
+      "TYPE": "ARPA",
+      "CIRCUIT": "1/25"
+    },
+    {
+      "HOST": "10.10.10.71",
+      "MAC_ADDRESS": "84:18:88:11:f1:a4",
+      "TTL": "1347",
+      "TYPE": "ARPA",
+      "CIRCUIT": "1/25"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "host_mac_address_ttl_type_circuit": [
+        {
+          "HOST": "10.10.10.49",
+          "MAC_ADDRESS": "98:a4:04:80:2d:1a",
+          "TTL": "2422",
+          "TYPE": "ARPA",
+          "CIRCUIT": "1/26"
+        },
+        {
+          "HOST": "10.10.10.50",
+          "MAC_ADDRESS": "98:a4:04:80:31:9a",
+          "TTL": "-",
+          "TYPE": "ARPA",
+          "CIRCUIT": "1/26"
+        },
+        {
+          "HOST": "10.10.10.65",
+          "MAC_ADDRESS": "40:ce:24:a3:1e:8d",
+          "TTL": "3582",
+          "TYPE": "ARPA",
+          "CIRCUIT": "1/11"
+        },
+        {
+          "HOST": "10.10.10.66",
+          "MAC_ADDRESS": "98:a4:04:80:31:8b",
+          "TTL": "-",
+          "TYPE": "ARPA",
+          "CIRCUIT": "1/11"
+        },
+        {
+          "HOST": "10.10.10.213",
+          "MAC_ADDRESS": "98:a4:04:80:31:8c",
+          "TTL": "-",
+          "TYPE": "ARPA",
+          "CIRCUIT": "1/12"
+        },
+        {
+          "HOST": "10.10.10.214",
+          "MAC_ADDRESS": "70:7d:b9:2a:67:0c",
+          "TTL": "1425",
+          "TYPE": "ARPA",
+          "CIRCUIT": "1/12"
+        },
+        {
+          "HOST": "10.10.10.70",
+          "MAC_ADDRESS": "98:a4:04:80:31:99",
+          "TTL": "-",
+          "TYPE": "ARPA",
+          "CIRCUIT": "1/25"
+        },
+        {
+          "HOST": "10.10.10.71",
+          "MAC_ADDRESS": "84:18:88:11:f1:a4",
+          "TTL": "1347",
+          "TYPE": "ARPA",
+          "CIRCUIT": "1/25"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Total number of arp entries in cache: 8\n  Resolved entry   : 8\n  Incomplete entry : 0\n\nHost              Hardware address    Ttl    Type  Circuit\n10.10.10.49       98:a4:04:80:2d:1a   2422   ARPA  1/26\n10.10.10.50       98:a4:04:80:31:9a   -      ARPA  1/26\n10.10.10.65       40:ce:24:a3:1e:8d   3582   ARPA  1/11\n10.10.10.66       98:a4:04:80:31:8b   -      ARPA  1/11\n10.10.10.213      98:a4:04:80:31:8c   -      ARPA  1/12\n10.10.10.214      70:7d:b9:2a:67:0c   1425   ARPA  1/12\n10.10.10.70       98:a4:04:80:31:99   -      ARPA  1/25\n10.10.10.71       84:18:88:11:f1:a4   1347   ARPA  1/25\n",
+  "textfsm_template": "Value Required HOST (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue Required MAC_ADDRESS (\\S+)\nValue Required TTL (\\S+)\nValue Required TYPE (\\S+)\nValue Required CIRCUIT (\\S+\\s+\\S+\\s+\\d+|\\S+)\nValue Filldown CONTEXT (\\S+)\nValue Filldown CONTEXT_ID (\\S+)\n\nStart\n  ^Context\\s+:${CONTEXT}\\s+Context\\s+id\\s+:\\s+${CONTEXT_ID}\n  ^-+\n  ^Total\\s+number\\s+of\\s+arp\\s+entries\\s+in\\s+cache:\\s+\\d+\n  ^\\s+Resolved\\s+entry\\s+:\\s+\\d+\n  ^\\s+Incomplete\\s+entry\\s+:\\s+\\d+\n  ^Host\\s+Hardware\\s+address\\s+Ttl\\s+Type\\s+Circuit\n  ^${HOST}\\s+${MAC_ADDRESS}\\s+${TTL}\\s+${TYPE}\\s+${CIRCUIT} -> Record\n  ^Showing\\s+ARP\\s+entries\\s+in\\s+RP\\s+OS\\s+kernel:\n  ^Host\\s+Hardware\\s+address\\s+Flags\\s+Type\n  ^. -> Error\n"
+}

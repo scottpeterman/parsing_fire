@@ -1,0 +1,26 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_license_all
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="auth_date_auth_deadline_auth_last_communication_auth_last_communication_date">
+Smart Licensing is {{SMART_STATUS | ORPHRASE}}
+  Status: {{REGISTRATION_STATUS | ORPHRASE}}
+  Smart Account: {{SMART_ACCOUNT | ORPHRASE}}
+  Virtual Account: {{VIRTUAL_ACCOUNT | ORPHRASE}}
+  Export-Controlled Functionality: {{EXPORT_CONTROLLED | ORPHRASE}}
+  Initial Registration: {{REGISTRATION_INITIAL_STATUS | ORPHRASE}} on {{REGISTRATION_INITIAL_DATE | ORPHRASE}}
+  Last Renewal Attempt: {{REGISTRATION_LAST_RENEWAL | ORPHRASE}}
+  Next Renewal Attempt: {{REGISTRATION_NEXT_RENEWAL_DATE | ORPHRASE}}
+  Registration Expires: {{REGISTRATION_EXPIRATION_DATE | ORPHRASE}}
+  Status: {{AUTH_STATUS | ORPHRASE}} on {{AUTH_DATE | ORPHRASE}}
+  Last Communication Attempt: {{AUTH_LAST_COMMUNICATION | ORPHRASE}} on Dec 03 16:43:56 2018 UTC
+  Next Communication Attempt: {{AUTH_NEXT_COMMUNICATION_DATE | ORPHRASE}}
+  Communication Deadline: {{AUTH_DEADLINE | ORPHRASE}}
+{{LICENSE | ORPHRASE}} ({{LICENSE_PID | ORPHRASE}}):
+  Version: {{LICENSE_VERSION | ORPHRASE}}
+UDI: PID:ASAv,SN:{{SN | ORPHRASE}}
+Smart Agent for Licensing: {{SMART_AGENT_VERSION | ORPHRASE}}
+</group>

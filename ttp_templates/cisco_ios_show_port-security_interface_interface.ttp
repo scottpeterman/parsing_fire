@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_port-security_interface_interface
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="aging_time_aging_type_config_mac_addrs_last_src_mac_addr_vlan">
+Port Security  : {{PORT_SECURITY | ORPHRASE}}
+Port Status  : {{PORT_STATUS | ORPHRASE}}
+Violation Mode  : {{VIOLATION_MODE | ORPHRASE}}
+Aging Time  : {{AGING_TIME | ORPHRASE}}
+Aging Type  : {{AGING_TYPE | ORPHRASE}}
+Last Source Address:Vlan  : {{LAST_SRC_MAC_ADDR_VLAN | ORPHRASE}}
+</group>

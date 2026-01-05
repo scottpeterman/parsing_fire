@@ -1,0 +1,17 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_license_status
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 2
+# Match ratio: 2.00
+
+<group name="last_ack_received_last_rpt_file_write_last_rpt_push_next_ack_deadline">
+  Status: {{SL_ENABLED | ORPHRASE}}
+  Smart Account: {{VIRT_ACCT | ORPHRASE}}
+  Type: {{TRANSPORT_TYPE | ORPHRASE}}
+  Last ACK received: {{LAST_ACK_RECEIVED | ORPHRASE}}
+  Next ACK deadline: {{NEXT_ACK_DEADLINE | ORPHRASE}}
+  Reporting push interval: {{RPT_PUSH_INTERVAL | ORPHRASE}}
+  Next report push: {{NEXT_RPT_PUSH | ORPHRASE}}
+  Last report push: {{LAST_RPT_PUSH | ORPHRASE}}
+</group>

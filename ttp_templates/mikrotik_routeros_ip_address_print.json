@@ -1,0 +1,78 @@
+{
+  "command": "mikrotik_routeros_ip_address_print",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"num_ip_subnet_network_interface\">\n {{NUM}} {{IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{SUBNET}} {{NETWORK}} {{INTERFACE | ORPHRASE}}\n</group>\n<group name=\"num_flags_ip_subnet_network_interface\">\n {{NUM}} {{FLAGS}} {{IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{SUBNET}} {{NETWORK}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NUM": "0",
+      "IP": "10.156.1.229",
+      "SUBNET": "30",
+      "NETWORK": "10.156.1.228",
+      "INTERFACE": "ether4_CiscoPhone3"
+    },
+    {
+      "NUM": "1",
+      "IP": "10.152.1.229",
+      "SUBNET": "30",
+      "NETWORK": "10.152.1.228",
+      "INTERFACE": "ether5_KFCcisco"
+    },
+    {
+      "NUM": "2",
+      "IP": "10.160.1.229",
+      "SUBNET": "30",
+      "NETWORK": "10.160.1.228",
+      "INTERFACE": "ether2_BOX"
+    },
+    {
+      "NUM": "3",
+      "FLAGS": "XI",
+      "IP": "10.100.3.200",
+      "SUBNET": "27",
+      "NETWORK": "10.100.3.192",
+      "INTERFACE": "bridge70"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "num_ip_subnet_network_interface": [
+        {
+          "NUM": "0",
+          "IP": "10.156.1.229",
+          "SUBNET": "30",
+          "NETWORK": "10.156.1.228",
+          "INTERFACE": "ether4_CiscoPhone3"
+        },
+        {
+          "NUM": "1",
+          "IP": "10.152.1.229",
+          "SUBNET": "30",
+          "NETWORK": "10.152.1.228",
+          "INTERFACE": "ether5_KFCcisco"
+        },
+        {
+          "NUM": "2",
+          "IP": "10.160.1.229",
+          "SUBNET": "30",
+          "NETWORK": "10.160.1.228",
+          "INTERFACE": "ether2_BOX"
+        }
+      ],
+      "num_flags_ip_subnet_network_interface": {
+        "NUM": "3",
+        "FLAGS": "XI",
+        "IP": "10.100.3.200",
+        "SUBNET": "27",
+        "NETWORK": "10.100.3.192",
+        "INTERFACE": "bridge70"
+      }
+    }
+  ],
+  "cli_content": "Flags: X - disabled, I - invalid, D - dynamic\n #   ADDRESS            NETWORK         INTERFACE\n 0   10.156.1.229/30    10.156.1.228    ether4_CiscoPhone3\n 1   10.152.1.229/30    10.152.1.228    ether5_KFCcisco\n 2   10.160.1.229/30    10.160.1.228    ether2_BOX\n 3 XI 10.100.3.200/27    10.100.3.192    bridge70\n",
+  "textfsm_template": "Value NUM (\\d+)\nValue FLAGS ((?:X|I|D)+)\nValue COMMENT (.*)\nValue IP (\\S+)\nValue SUBNET (\\d+)\nValue NETWORK (\\S+)\nValue INTERFACE (.*?)\n\nStart\n  ^\\s*Flags:\\s+X\\s+-\\s+disabled,\\s+I\\s+-\\s+invalid,\\s+D\\s+-\\s+dynamic\\s*$$\n  ^\\s*#\\s+ADDRESS\\s+NETWORK\\s+INTERFACE\\s*$$ -> IPsTable\n  ^\\s*$$\n  ^. -> Error\n\nIPsTable\n  ^\\s*${NUM}\\s+(?:${FLAGS}\\s+)?${IP}/${SUBNET}\\s+${NETWORK}\\s+${INTERFACE}\\s*$$ -> Record\n  ^\\s*${NUM}\\s+(?:${FLAGS}\\s+)?;;;\\s+${COMMENT}\\s*$$\n  ^\\s*${IP}/${SUBNET}\\s+${NETWORK}\\s+${INTERFACE}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

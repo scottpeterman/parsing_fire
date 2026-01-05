@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_asa_show_resource_usage
+# Source: ntc
+# TextFSM rows: 20
+# TTP rows: 22
+# Match ratio: 1.10
+
+<group name="resource_current_peak_limit_denied_context">
+{{RESOURCE | ORPHRASE}} {{CURRENT}} {{PEAK}} {{LIMIT}} {{DENIED}} {{CONTEXT | ORPHRASE}}
+</group>

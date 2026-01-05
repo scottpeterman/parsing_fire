@@ -1,0 +1,36 @@
+{
+  "command": "cisco_ios_show_ip_route",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"network_nexthop_if_prefix_length_protocol\">\nTue May 22 22:{{PREFIX_LENGTH | ORPHRASE}}:30.765 UTC\nCodes: {{PROTOCOL | ORPHRASE}} - local, C - connected, S - static, R - RIP, M - mobile, B - BGP\nC  192.168.1.0/24 is directly connected, {{NEXTHOP_IF | ORPHRASE}}\nL  {{NETWORK | ORPHRASE}}/32 is directly connected, vasileft1\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "C",
+      "NETWORK": "192.168.1.0",
+      "PREFIX_LENGTH": "24",
+      "NEXTHOP_IF": "vasileft1"
+    },
+    {
+      "PROTOCOL": "L",
+      "NETWORK": "192.168.1.1",
+      "PREFIX_LENGTH": "32",
+      "NEXTHOP_IF": "vasileft1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "network_nexthop_if_prefix_length_protocol": {
+        "NETWORK": "192.168.1.1",
+        "NEXTHOP_IF": "vasileft1",
+        "PROTOCOL": "L",
+        "PREFIX_LENGTH": "32"
+      }
+    }
+  ],
+  "cli_content": "Tue May 22 22:32:30.765 UTC\n\nCodes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP\n       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area \n       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2\n       E1 - OSPF external type 1, E2 - OSPF external type 2\n       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2\n       ia - IS-IS inter area, * - candidate default, U - per-user static route\n       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP\n       a - application route\n       + - replicated route, % - next hop override, p - overrides from PfR\n\nGateway of last resort is 192.168.1.2 to network 0.0.0.0\n\n      192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks\nC        192.168.1.0/24 is directly connected, vasileft1\nL        192.168.1.1/32 is directly connected, vasileft1\n",
+  "textfsm_template": "Value Filldown VRF (\\S+)\nValue Filldown PROTOCOL (\\w)\nValue Filldown TYPE (\\w{0,2})\nValue Required,Filldown NETWORK (\\d{1,3}.\\d{1,3}.\\d{1,3}.\\d{1,3})\nValue Filldown PREFIX_LENGTH (\\d{1,2})\nValue DISTANCE (\\d+)\nValue METRIC (\\d+)\nValue NEXTHOP_IP (\\d{1,3}.\\d{1,3}.\\d{1,3}.\\d{1,3})\nValue NEXTHOP_VRF (\\S+)\nValue NEXTHOP_IF ([A-Za-z][\\w\\-\\.:/]+)\nValue UPTIME (\\d[\\w:\\.]+)\nValue FLAG ([\\*%p])\n\nStart\n  ^Routing\\s+Table:\\s${VRF}\\s*$$\n  ^Gateway.* -> Routes\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n\nRoutes\n  ^Routing\\s+Table: -> Continue.Clearall\n  ^Routing\\s+Table:\\s+${VRF}\\s*$$\n  # For \"is (variably )subnetted\" line, capture mask, clear all values.\n  ^\\s+\\d{1,3}.\\d{1,3}.\\d{1,3}.\\d{1,3}\\/${PREFIX_LENGTH}\\sis -> Clear\n  #\n  # Match directly connected route with explicit mask\n  ^${PROTOCOL}(\\s|${FLAG})${TYPE}\\s+${NETWORK}\\/${PREFIX_LENGTH}\\sis\\sdirectly\\sconnected(,\\s${UPTIME})?(,\\s${NEXTHOP_IF})? -> Record\n  #\n  # Match directly connected route (mask is inherited from \"is subnetted\")\n  ^${PROTOCOL}(\\s|${FLAG})${TYPE}\\s+${NETWORK}\\sis\\sdirectly\\sconnected,\\s${NEXTHOP_IF} -> Record\n  #\n  # Match regular routes, with mask, where all data in same line\n  ^${PROTOCOL}(\\s|${FLAG})${TYPE}\\s+${NETWORK}\\/${PREFIX_LENGTH}\\s\\[${DISTANCE}/${METRIC}\\]\\svia\\s${NEXTHOP_IP}(\\s\\(${NEXTHOP_VRF}\\))?(,\\s${UPTIME})?(,\\s${NEXTHOP_IF})? -> Record\n  #\n  # Match regular route, all one line, where mask is learned from \"is subnetted\" line\n  ^${PROTOCOL}(\\s|${FLAG})${TYPE}\\s+${NETWORK}\\s\\[${DISTANCE}\\/${METRIC}\\]\\svia\\s${NEXTHOP_IP}(,\\s${UPTIME})?(,\\s${NEXTHOP_IF})? -> Record\n  #\n  # Match route with no via statement (Null via protocol)\n  ^${PROTOCOL}(\\s|${FLAG})${TYPE}\\s+${NETWORK}\\/${PREFIX_LENGTH}\\s\\[${DISTANCE}/${METRIC}\\],\\s${UPTIME},\\s${NEXTHOP_IF} -> Record\n  #\n  # Match \"is a summary\" routes (often Null0)\n  ^${PROTOCOL}(\\s|${FLAG})${TYPE}\\s+${NETWORK}\\/${PREFIX_LENGTH}\\sis\\sa\\ssummary,\\s${UPTIME},\\s${NEXTHOP_IF} -> Record\n  #\n  # Match regular routes where the network/mask is on the line above the rest of the route\n  ^${PROTOCOL}(\\s|${FLAG})${TYPE}\\s+${NETWORK}\\/${PREFIX_LENGTH}\n  #\n  # Match regular routes where the network only (mask from subnetted line) is on the line above the rest of the route\n  ^${PROTOCOL}(\\s|${FLAG})${TYPE}\\s+${NETWORK}\n  #\n  # Match the rest of the route information on line below network (and possibly mask)\n  ^\\s+\\[${DISTANCE}\\/${METRIC}\\]\\svia\\s${NEXTHOP_IP}(,\\s${UPTIME})?(,\\s${NEXTHOP_IF})? -> Record\n  #\n  # Match load-balanced routes\n  ^\\s+\\[${DISTANCE}\\/${METRIC}\\]\\svia\\s${NEXTHOP_IP} -> Record\n\nEOF\n"
+}

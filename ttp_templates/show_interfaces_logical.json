@@ -1,0 +1,80 @@
+{
+  "command": "show interfaces logical",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"logical_interface_interface_name_status_protocol\">\n{{LOGICAL_INTERFACE}} {{INTERFACE_NAME}} {{STATUS | ORPHRASE}} {{PROTOCOL}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "LOGICAL_INTERFACE": "lo0",
+      "INTERFACE_NAME": "Loopback",
+      "STATUS": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "LOGICAL_INTERFACE": "ge-0/0/0.0",
+      "INTERFACE_NAME": "ge-0/0/0",
+      "STATUS": "down",
+      "PROTOCOL": "down"
+    },
+    {
+      "LOGICAL_INTERFACE": "ae1",
+      "INTERFACE_NAME": "Aggregated",
+      "STATUS": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "LOGICAL_INTERFACE": "vlan.0",
+      "INTERFACE_NAME": "vlan",
+      "STATUS": "up",
+      "PROTOCOL": "up"
+    },
+    {
+      "LOGICAL_INTERFACE": "ge-0/0/1.0",
+      "INTERFACE_NAME": "ge-0/0/1",
+      "STATUS": "down",
+      "PROTOCOL": "down"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "logical_interface_interface_name_status_protocol": [
+        {
+          "LOGICAL_INTERFACE": "lo0",
+          "INTERFACE_NAME": "Loopback",
+          "STATUS": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "LOGICAL_INTERFACE": "ge-0/0/0.0",
+          "INTERFACE_NAME": "ge-0/0/0",
+          "STATUS": "down",
+          "PROTOCOL": "down"
+        },
+        {
+          "LOGICAL_INTERFACE": "ae1",
+          "INTERFACE_NAME": "Aggregated",
+          "STATUS": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "LOGICAL_INTERFACE": "vlan.0",
+          "INTERFACE_NAME": "vlan",
+          "STATUS": "up",
+          "PROTOCOL": "up"
+        },
+        {
+          "LOGICAL_INTERFACE": "ge-0/0/1.0",
+          "INTERFACE_NAME": "ge-0/0/1",
+          "STATUS": "down",
+          "PROTOCOL": "down"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Logical Interface  Interface Name    Status        Protocol\nlo0                Loopback          up            up\nge-0/0/0.0         ge-0/0/0          down          down\nae1                Aggregated        up            up\nvlan.0             vlan              up            up\nge-0/0/1.0         ge-0/0/1          down          down\n",
+  "textfsm_template": "Value LOGICAL_INTERFACE (\\S+)\nValue INTERFACE_NAME (\\S+)\nValue STATUS (up|down)\nValue PROTOCOL (up|down)\n\nStart\n  ^\\s*Logical Interface\\s+Interface Name\\s+Status\\s+Protocol\\s*$$\n  ^\\s*${LOGICAL_INTERFACE}\\s+${INTERFACE_NAME}\\s+${STATUS}\\s+${PROTOCOL}\\s*$$ -> Record\n"
+}

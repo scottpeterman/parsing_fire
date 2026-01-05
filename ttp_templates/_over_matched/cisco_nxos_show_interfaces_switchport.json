@@ -1,0 +1,79 @@
+{
+  "command": "cisco_nxos_show_interfaces_switchport",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 6,
+  "ttp_template": "<group name=\"interface\">\nName: {{INTERFACE | ORPHRASE}}\n</group>\n<group name=\"access_vlan_access_vlan_name\">\n  Trunking Native Mode VLAN: {{ACCESS_VLAN | re(\"\\\\d+\")}} ({{ACCESS_VLAN_NAME | ORPHRASE}})\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Ethernet1/1",
+      "SWITCHPORT": "Enabled",
+      "SWITCHPORT_MONITOR": "Not enabled",
+      "MODE": "access",
+      "ACCESS_VLAN": "3",
+      "ACCESS_VLAN_NAME": "Vlan not created",
+      "NATIVE_VLAN": "1",
+      "NATIVE_VLAN_NAME": "default",
+      "TRUNKING_VLANS": "1-4094",
+      "VOICE_VLAN": "none"
+    },
+    {
+      "INTERFACE": "Ethernet1/2",
+      "SWITCHPORT": "Enabled",
+      "SWITCHPORT_MONITOR": "Not enabled",
+      "MODE": "trunk",
+      "ACCESS_VLAN": "1",
+      "ACCESS_VLAN_NAME": "default",
+      "NATIVE_VLAN": "5",
+      "NATIVE_VLAN_NAME": "Vlan not created",
+      "TRUNKING_VLANS": "1-4094",
+      "VOICE_VLAN": "none"
+    },
+    {
+      "INTERFACE": "Ethernet1/3",
+      "SWITCHPORT": "Enabled",
+      "SWITCHPORT_MONITOR": "Not enabled",
+      "MODE": "trunk",
+      "ACCESS_VLAN": "1",
+      "ACCESS_VLAN_NAME": "default",
+      "NATIVE_VLAN": "1",
+      "NATIVE_VLAN_NAME": "default",
+      "TRUNKING_VLANS": "1-4094",
+      "VOICE_VLAN": "none"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface": [
+        {
+          "INTERFACE": "Ethernet1/1"
+        },
+        {
+          "INTERFACE": "Ethernet1/2"
+        },
+        {
+          "INTERFACE": "Ethernet1/3"
+        }
+      ],
+      "access_vlan_access_vlan_name": [
+        {
+          "ACCESS_VLAN": "1",
+          "ACCESS_VLAN_NAME": "default"
+        },
+        {
+          "ACCESS_VLAN": "5",
+          "ACCESS_VLAN_NAME": "Vlan not created"
+        },
+        {
+          "ACCESS_VLAN": "1",
+          "ACCESS_VLAN_NAME": "default"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Name: Ethernet1/1\n  Switchport: Enabled\n  Switchport Monitor: Not enabled\n  Switchport Isolated : Not enabled\n  Switchport Block Multicast: Not enabled\n  Switchport Block Unicast: Not enabled\n  Operational Mode: access\n  Access Mode VLAN: 3 (Vlan not created)\n  Trunking Native Mode VLAN: 1 (default)\n  Trunking VLANs Allowed: 1-4094\n  Voice VLAN: none\n  Extended Trust State : not trusted [COS = 0]\n  Administrative private-vlan primary host-association: none\n  Administrative private-vlan secondary host-association: none\n  Administrative private-vlan primary mapping: none\n  Administrative private-vlan secondary mapping: none\n  Administrative private-vlan trunk native VLAN: none\n  Administrative private-vlan trunk encapsulation: dot1q\n  Administrative private-vlan trunk normal VLANs: none\n  Administrative private-vlan trunk private VLANs: none\n  Operational private-vlan: none\nName: Ethernet1/2\n  Switchport: Enabled\n  Switchport Monitor: Not enabled\n  Switchport Isolated : Not enabled\n  Switchport Block Multicast: Not enabled\n  Switchport Block Unicast: Not enabled\n  Operational Mode: trunk\n  Access Mode VLAN: 1 (default)\n  Trunking Native Mode VLAN: 5 (Vlan not created)\n  Trunking VLANs Allowed: 1-4094\n  Voice VLAN: none\n  Extended Trust State : not trusted [COS = 0]\n  Administrative private-vlan primary host-association: none\n  Administrative private-vlan secondary host-association: none\n  Administrative private-vlan primary mapping: none\n  Administrative private-vlan secondary mapping: none\n  Administrative private-vlan trunk native VLAN: none\n  Administrative private-vlan trunk encapsulation: dot1q\n  Administrative private-vlan trunk normal VLANs: none\n  Administrative private-vlan trunk private VLANs: none\n  Operational private-vlan: none\nName: Ethernet1/3\n  Switchport: Enabled\n  Switchport Monitor: Not enabled\n  Switchport Isolated : Not enabled\n  Switchport Block Multicast: Not enabled\n  Switchport Block Unicast: Not enabled\n  Operational Mode: trunk\n  Access Mode VLAN: 1 (default)\n  Trunking Native Mode VLAN: 1 (default)\n  Trunking VLANs Allowed: 1-4094\n  Voice VLAN: none\n  Extended Trust State : not trusted [COS = 0]\n  Administrative private-vlan primary host-association: none\n  Administrative private-vlan secondary host-association: none\n  Administrative private-vlan primary mapping: none\n  Administrative private-vlan secondary mapping: none\n  Administrative private-vlan trunk native VLAN: none\n  Administrative private-vlan trunk encapsulation: dot1q\n  Administrative private-vlan trunk normal VLANs: none\n  Administrative private-vlan trunk private VLANs: none\n  Operational private-vlan: none\n",
+  "textfsm_template": "Value Required INTERFACE (\\S+)\nValue SWITCHPORT (.+)\nValue SWITCHPORT_MONITOR (\\S+(?:\\s+\\S+)?)\nValue MODE (.+)\nValue ACCESS_VLAN (\\d+)\nValue ACCESS_VLAN_NAME (.+)\nValue NATIVE_VLAN (\\d+)\nValue NATIVE_VLAN_NAME (.+)\nValue TRUNKING_VLANS (\\S+)\nValue VOICE_VLAN (\\S+)\n\nStart\n  ^Name: -> Continue.Record\n  ^Name:\\s+${INTERFACE}\n  ^\\s*Switchport:\\s+${SWITCHPORT}\n  ^\\s*Switchport\\s+Monitor:\\s+${SWITCHPORT_MONITOR}\n  ^\\s*Operational\\s+Mode:\\s+${MODE}\n  ^\\s*Access\\s+Mode\\s+VLAN:\\s+${ACCESS_VLAN}\\s+\\(${ACCESS_VLAN_NAME}\\)\n  ^\\s*Access\\s+Mode\\s+VLAN:\\s+${ACCESS_VLAN}\n  ^\\s*Trunking\\s+Native\\s+Mode\\s+VLAN:\\s+${NATIVE_VLAN}\\s+\\(${NATIVE_VLAN_NAME}\\)\n  ^\\s*Trunking\\s+Native\\s+Mode\\s+VLAN:\\s+${NATIVE_VLAN}\n  ^\\s*Trunking\\s+VLANs\\s+Allowed:\\s+${TRUNKING_VLANS}\n  ^\\s*Voice\\s+VLAN:\\s+${VOICE_VLAN}\n  ^.+$$\n  ^. -> Error\n"
+}

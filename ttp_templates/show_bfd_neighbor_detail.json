@@ -1,0 +1,68 @@
+{
+  "command": "show bfd neighbor detail",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"neighaddr_ld_rd_rh_rs_state_interval_multiplier\">\n   {{NEIGHADDR | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{LD_RD}} {{RH_RS}} {{STATE | ORPHRASE}} {{INTERVAL | ORPHRASE}} {{MULTIPLIER}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NEIGHADDR": "192.168.1.2",
+      "LD_RD": "100/100",
+      "RH_RS": "Up",
+      "STATE": "Up",
+      "INTERVAL": "300",
+      "MULTIPLIER": "3"
+    },
+    {
+      "NEIGHADDR": "10.1.1.1",
+      "LD_RD": "101/101",
+      "RH_RS": "Up",
+      "STATE": "Up",
+      "INTERVAL": "1000",
+      "MULTIPLIER": "5"
+    },
+    {
+      "NEIGHADDR": "172.16.0.2",
+      "LD_RD": "102/102",
+      "RH_RS": "neighborsdown",
+      "STATE": "Down",
+      "INTERVAL": "500",
+      "MULTIPLIER": "3"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "neighaddr_ld_rd_rh_rs_state_interval_multiplier": [
+        {
+          "NEIGHADDR": "192.168.1.2",
+          "LD_RD": "100/100",
+          "RH_RS": "Up",
+          "STATE": "Up",
+          "INTERVAL": "300",
+          "MULTIPLIER": "3"
+        },
+        {
+          "NEIGHADDR": "10.1.1.1",
+          "LD_RD": "101/101",
+          "RH_RS": "Up",
+          "STATE": "Up",
+          "INTERVAL": "1000",
+          "MULTIPLIER": "5"
+        },
+        {
+          "NEIGHADDR": "172.16.0.2",
+          "LD_RD": "102/102",
+          "RH_RS": "neighborsdown",
+          "STATE": "Down",
+          "INTERVAL": "500",
+          "MULTIPLIER": "3"
+        }
+      ]
+    }
+  ],
+  "cli_content": "BFD Neighbors for VRF default\n   NeighAddr           LD/RD         RH/RS    State     Interval  Multiplier    \n   192.168.1.2         100/100       Up       Up        300       3        \n   10.1.1.1            101/101       Up       Up        1000      5        \n   172.16.0.2          102/102       neighborsdown     Down      500       3        \n",
+  "textfsm_template": "Value NEIGHADDR (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue LD_RD (\\d+\\/\\d+)\nValue RH_RS (\\S+)\nValue STATE (\\S+)\nValue INTERVAL (\\d+)\nValue MULTIPLIER (\\d+)\n\nStart\n  ^\\s*NeighAddr\\s+LD/RD\\s+RH/RS\\s+State\\s+Interval\\s+Multiplier\\s*$$\n  ^\\s*${NEIGHADDR}\\s+${LD_RD}\\s+${RH_RS}\\s+${STATE}\\s+${INTERVAL}\\s+${MULTIPLIER}\\s*$$ -> Record"
+}

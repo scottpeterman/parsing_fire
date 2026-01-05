@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_vrf
+# Source: ntc
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="name_default_rd_protocols_interfaces">
+  {{NAME}} {{DEFAULT_RD}} {{PROTOCOLS}} {{INTERFACES | ORPHRASE}}
+</group>

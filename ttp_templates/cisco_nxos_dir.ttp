@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_dir
+# Source: ntc
+# TextFSM rows: 17
+# TTP rows: 9
+# Match ratio: 0.53
+
+<group name="size_date_time_item_name">
+       {{SIZE}} {{DATE_TIME | ORPHRASE}} {{ITEM_NAME | ORPHRASE}}
+</group>

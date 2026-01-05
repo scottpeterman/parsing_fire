@@ -1,0 +1,60 @@
+{
+  "command": "show environment temperature status",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"sensor_name_temperature_state\">\n{{SENSOR_NAME}} {{TEMPERATURE | ORPHRASE}} {{STATE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SENSOR_NAME": "Intake",
+      "TEMPERATURE": "30 C",
+      "STATE": "Normal"
+    },
+    {
+      "SENSOR_NAME": "Exhaust",
+      "TEMPERATURE": "35 C",
+      "STATE": "Normal"
+    },
+    {
+      "SENSOR_NAME": "PSU1",
+      "TEMPERATURE": "40 C",
+      "STATE": "Normal"
+    },
+    {
+      "SENSOR_NAME": "PSU2",
+      "TEMPERATURE": "42 C",
+      "STATE": "Warning"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "sensor_name_temperature_state": [
+        {
+          "SENSOR_NAME": "Intake",
+          "TEMPERATURE": "30 C",
+          "STATE": "Normal"
+        },
+        {
+          "SENSOR_NAME": "Exhaust",
+          "TEMPERATURE": "35 C",
+          "STATE": "Normal"
+        },
+        {
+          "SENSOR_NAME": "PSU1",
+          "TEMPERATURE": "40 C",
+          "STATE": "Normal"
+        },
+        {
+          "SENSOR_NAME": "PSU2",
+          "TEMPERATURE": "42 C",
+          "STATE": "Warning"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Sensor Name        Temperature        State\n---------------------------------------------------\nIntake             30 C               Normal\nExhaust            35 C               Normal\nPSU1               40 C               Normal\nPSU2               42 C               Warning\n",
+  "textfsm_template": "Value SENSOR_NAME (\\S+)\nValue TEMPERATURE (\\d+\\sC)\nValue STATE (\\S+)\n\nStart\n  ^\\s*Sensor\\sName\\s+Temperature\\s+State\\s*$$\n  ^\\s*${SENSOR_NAME}\\s+${TEMPERATURE}\\s+${STATE}\\s*$$ -> Record"
+}

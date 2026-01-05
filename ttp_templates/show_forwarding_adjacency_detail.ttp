@@ -1,0 +1,15 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show forwarding adjacency detail
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="byte_count_dest_addr_interface_last_transition">
+  Destination address: 1{{PACKETS | ORPHRASE}}.{{BYTE_COUNT | re("\\d+")}}.0.2
+  Destination address: {{DEST_ADDR | ORPHRASE}}
+  Tunnel-type: {{TUNNEL_TYPE | ORPHRASE}}
+  State: {{STATE | ORPHRASE}}
+  Last transition: {{LAST_TRANSITION | ORPHRASE}}
+  Interface: {{INTERFACE | ORPHRASE}}
+</group>

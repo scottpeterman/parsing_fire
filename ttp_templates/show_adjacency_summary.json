@@ -1,0 +1,83 @@
+{
+  "command": "show adjacency summary",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.75,
+  "textfsm_rows": 4,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"protocol_interface_address_ok_method_status_age\">\n{{PROTOCOL}} {{INTERFACE}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{OK}} {{METHOD}} {{STATUS | ORPHRASE}} {{AGE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "IPv4",
+      "INTERFACE": "Ethernet1",
+      "ADDRESS": "10.0.0.1",
+      "OK": "YES",
+      "METHOD": "ARPA",
+      "STATUS": "up",
+      "AGE": "00:00:10"
+    },
+    {
+      "PROTOCOL": "IPv4",
+      "INTERFACE": "Ethernet2",
+      "ADDRESS": "192.168.1.1",
+      "OK": "YES",
+      "METHOD": "ARPA",
+      "STATUS": "up",
+      "AGE": "00:01:30"
+    },
+    {
+      "PROTOCOL": "IPv6",
+      "INTERFACE": "Ethernet3",
+      "ADDRESS": "2001:db8::1",
+      "OK": "YES",
+      "METHOD": "ARPA",
+      "STATUS": "up",
+      "AGE": "00:00:45"
+    },
+    {
+      "PROTOCOL": "IPv4",
+      "INTERFACE": "Ethernet4",
+      "ADDRESS": "10.2.0.1",
+      "OK": "YES",
+      "METHOD": "ARPA",
+      "STATUS": "up",
+      "AGE": "00:00:50"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "protocol_interface_address_ok_method_status_age": [
+        {
+          "PROTOCOL": "IPv4",
+          "INTERFACE": "Ethernet1",
+          "ADDRESS": "10.0.0.1",
+          "OK": "YES",
+          "METHOD": "ARPA",
+          "STATUS": "up",
+          "AGE": "00:00:10"
+        },
+        {
+          "PROTOCOL": "IPv4",
+          "INTERFACE": "Ethernet2",
+          "ADDRESS": "192.168.1.1",
+          "OK": "YES",
+          "METHOD": "ARPA",
+          "STATUS": "up",
+          "AGE": "00:01:30"
+        },
+        {
+          "PROTOCOL": "IPv4",
+          "INTERFACE": "Ethernet4",
+          "ADDRESS": "10.2.0.1",
+          "OK": "YES",
+          "METHOD": "ARPA",
+          "STATUS": "up",
+          "AGE": "00:00:50"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Protocol         Interface        Address      OK?  Method Status                Age\n-------------------------------------------------------------------------------------\nIPv4             Ethernet1        10.0.0.1     YES  ARPA   up                   00:00:10\nIPv4             Ethernet2        192.168.1.1  YES  ARPA   up                   00:01:30\nIPv6             Ethernet3        2001:db8::1  YES  ARPA   up                   00:00:45\nIPv4             Ethernet4        10.2.0.1     YES  ARPA   up                   00:00:50\n",
+  "textfsm_template": "Value PROTOCOL (\\S+)\nValue INTERFACE (\\S+)\nValue ADDRESS (\\S+)\nValue OK (\\S+)\nValue METHOD (\\S+)\nValue STATUS (up|down|administratively down)\nValue AGE (\\S+)\n\nStart\n  ^\\s*Protocol\\s+Interface\\s+Address\\s+OK\\?\\s+Method\\s+Status\\s+Age\\s*$$\n  ^\\s*${PROTOCOL}\\s+${INTERFACE}\\s+${ADDRESS}\\s+${OK}\\s+${METHOD}\\s+${STATUS}\\s+${AGE}\\s*$$ -> Record"
+}

@@ -1,0 +1,50 @@
+{
+  "command": "show ip access-lists",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"seq_num_action_src_addr_src_wildcard\">\n    {{SEQ_NUM}} {{ACTION}} {{SRC_ADDR | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{SRC_WILDCARD | ORPHRASE}}\n</group>\n<group name=\"seq_num_action_protocol_src_addr_src_wildcard_dest_addr_dest_wildcard_port\">\n    {{SEQ_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ADDR | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{SRC_WILDCARD}} {{DEST_ADDR}} {{DEST_WILDCARD}} {{PORT | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SEQ_NUM": "10",
+      "ACTION": "permit",
+      "SRC_ADDR": "192.168.1.0",
+      "SRC_WILDCARD": "0.0.0.255"
+    },
+    {
+      "SEQ_NUM": "30",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_ADDR": "192.168.2.0",
+      "SRC_WILDCARD": "0.0.0.255",
+      "DEST_ADDR": "any",
+      "DEST_WILDCARD": "eq",
+      "PORT": "80"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "seq_num_action_src_addr_src_wildcard": {
+        "SEQ_NUM": "10",
+        "ACTION": "permit",
+        "SRC_ADDR": "192.168.1.0",
+        "SRC_WILDCARD": "0.0.0.255"
+      },
+      "seq_num_action_protocol_src_addr_src_wildcard_dest_addr_dest_wildcard_port": {
+        "SEQ_NUM": "30",
+        "ACTION": "permit",
+        "PROTOCOL": "tcp",
+        "SRC_ADDR": "192.168.2.0",
+        "SRC_WILDCARD": "0.0.0.255",
+        "DEST_ADDR": "any",
+        "DEST_WILDCARD": "eq",
+        "PORT": "80"
+      }
+    }
+  ],
+  "cli_content": "Standard IP access list 10\n    10 permit 192.168.1.0 0.0.0.255\n    20 deny any\nExtended IP access list 101\n    10 permit ip 192.168.1.0 0.0.0.255 10.0.0.0 0.0.0.255\n    20 deny icmp any any\n    30 permit tcp 192.168.2.0 0.0.0.255 any eq 80\n",
+  "textfsm_template": "Value LIST_NAME (\\S+ \\S+ \\S+ \\d+)\nValue SEQ_NUM (\\d+)\nValue ACTION (permit|deny)\nValue PROTOCOL (\\S+)\nValue SRC_ADDR (\\S+)\nValue SRC_WILDCARD (\\S+)\nValue DEST_ADDR (\\S+)\nValue DEST_WILDCARD (\\S+)\nValue PORT (\\S+)\n\nStart\n  ^${LIST_NAME}\n  ^\\s*${SEQ_NUM}\\s+${ACTION}\\s+${PROTOCOL}\\s+${SRC_ADDR}\\s+${SRC_WILDCARD}\\s+${DEST_ADDR}\\s+${DEST_WILDCARD}\\s+${PORT}\\s*$$ -> Record\n  ^\\s*${SEQ_NUM}\\s+${ACTION}\\s+${SRC_ADDR}\\s+${SRC_WILDCARD}\\s*$$ -> Record"
+}

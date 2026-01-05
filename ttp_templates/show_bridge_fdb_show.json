@@ -1,0 +1,80 @@
+{
+  "command": "show bridge fdb show",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"vlan_mac_address_type_ports\">\n{{VLAN | re(\"\\\\d+\")}} {{MAC_ADDRESS | re(\"[0-9a-fA-F:.-]+\")}} {{TYPE}} {{PORTS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN": "10",
+      "MAC_ADDRESS": "00:11:22:33:44:55",
+      "TYPE": "DYNAMIC",
+      "PORTS": "Ethernet1/1"
+    },
+    {
+      "VLAN": "10",
+      "MAC_ADDRESS": "00:22:33:44:55:66",
+      "TYPE": "DYNAMIC",
+      "PORTS": "Ethernet1/2"
+    },
+    {
+      "VLAN": "20",
+      "MAC_ADDRESS": "00:33:44:55:66:77",
+      "TYPE": "STATIC",
+      "PORTS": "Ethernet2/1"
+    },
+    {
+      "VLAN": "20",
+      "MAC_ADDRESS": "00:44:55:66:77:88",
+      "TYPE": "DYNAMIC",
+      "PORTS": "Ethernet2/2"
+    },
+    {
+      "VLAN": "30",
+      "MAC_ADDRESS": "00:55:66:77:88:99",
+      "TYPE": "STATIC",
+      "PORTS": "Ethernet3/1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_mac_address_type_ports": [
+        {
+          "VLAN": "10",
+          "MAC_ADDRESS": "00:11:22:33:44:55",
+          "TYPE": "DYNAMIC",
+          "PORTS": "Ethernet1/1"
+        },
+        {
+          "VLAN": "10",
+          "MAC_ADDRESS": "00:22:33:44:55:66",
+          "TYPE": "DYNAMIC",
+          "PORTS": "Ethernet1/2"
+        },
+        {
+          "VLAN": "20",
+          "MAC_ADDRESS": "00:33:44:55:66:77",
+          "TYPE": "STATIC",
+          "PORTS": "Ethernet2/1"
+        },
+        {
+          "VLAN": "20",
+          "MAC_ADDRESS": "00:44:55:66:77:88",
+          "TYPE": "DYNAMIC",
+          "PORTS": "Ethernet2/2"
+        },
+        {
+          "VLAN": "30",
+          "MAC_ADDRESS": "00:55:66:77:88:99",
+          "TYPE": "STATIC",
+          "PORTS": "Ethernet3/1"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Aging time is 300 seconds\n\nVlan   Mac Address       Type        Ports\n----   -----------       --------    -----\n10     00:11:22:33:44:55 DYNAMIC     Ethernet1/1\n10     00:22:33:44:55:66 DYNAMIC     Ethernet1/2\n20     00:33:44:55:66:77 STATIC      Ethernet2/1\n20     00:44:55:66:77:88 DYNAMIC     Ethernet2/2\n30     00:55:66:77:88:99 STATIC      Ethernet3/1\n",
+  "textfsm_template": "Value VLAN (\\d+)\nValue MAC_ADDRESS ([0-9A-Fa-f:]+)\nValue TYPE (\\w+)\nValue PORTS (\\S+)\n\nStart\n  ^Vlan\\s+Mac\\s+Address\\s+Type\\s+Ports\\s*$$\n  ^-+\\s+-+\\s+-+\\s+-+\\s*$$\n  ^\\s*${VLAN}\\s+${MAC_ADDRESS}\\s+${TYPE}\\s+${PORTS}\\s*$$ -> Record"
+}

@@ -1,0 +1,52 @@
+{
+  "command": "paloalto_panos_show_system_info",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"family_gateway_hostname_ip_address\">\nhostname: {{HOSTNAME | ORPHRASE}}\nip-address: {{IP_ADDRESS | ORPHRASE}}\nnetmask: {{NETMASK | ORPHRASE}}\ndefault-gateway: {{GATEWAY | ORPHRASE}}\nipv6-address: {{SERIAL | ORPHRASE}}\nmac-address: {{MAC_ADDRESS | ORPHRASE}}\nuptime: {{UPTIME | ORPHRASE}}\nfamily: {{FAMILY | ORPHRASE}}\nmodel: {{MODEL | ORPHRASE}}\nvm-license: {{VM_LICENSE | ORPHRASE}}\nvm-mode: {{VM_MODE | ORPHRASE}}\nsw-version: {{OS | ORPHRASE}}\nvpn-disable-mode: {{VPN_DISABLE_MODE | ORPHRASE}}\noperational-mode: {{OPERATIONAL_MODE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "HOSTNAME": "pa1",
+      "IP_ADDRESS": "10.0.0.90",
+      "NETMASK": "255.255.255.0",
+      "GATEWAY": "10.0.0.2",
+      "MAC_ADDRESS": "00:0c:29:6d:c6:7e",
+      "UPTIME": "2 days, 2:38:49",
+      "FAMILY": "vm",
+      "MODEL": "PA-VM",
+      "SERIAL": "unknown",
+      "VM_LICENSE": "none",
+      "VM_MODE": "VMWare ESXi",
+      "OS": "7.0.1",
+      "PLATFORM_FAMILY": "vm",
+      "VPN_DISABLE_MODE": "off",
+      "MULTI_VSYS": "off",
+      "OPERATIONAL_MODE": "normal"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "family_gateway_hostname_ip_address": {
+        "OPERATIONAL_MODE": "normal",
+        "VPN_DISABLE_MODE": "off",
+        "OS": "7.0.1",
+        "VM_MODE": "VMWare ESXi",
+        "VM_LICENSE": "none",
+        "MODEL": "PA-VM",
+        "FAMILY": "vm",
+        "UPTIME": "2 days, 2:38:49",
+        "MAC_ADDRESS": "00:0c:29:6d:c6:7e",
+        "SERIAL": "unknown",
+        "GATEWAY": "10.0.0.2",
+        "NETMASK": "255.255.255.0",
+        "IP_ADDRESS": "10.0.0.90",
+        "HOSTNAME": "pa1"
+      }
+    }
+  ],
+  "cli_content": "hostname: pa1\nip-address: 10.0.0.90\nnetmask: 255.255.255.0\ndefault-gateway: 10.0.0.2\nipv6-address: unknown\nipv6-link-local-address: fe80::20c:29ff:fe6d:c67e/64\nipv6-default-gateway: \nmac-address: 00:0c:29:6d:c6:7e\ntime: Thu Apr 28 06:33:12 2016\nuptime: 2 days, 2:38:49\nfamily: vm\nmodel: PA-VM\nserial: unknown\nvm-mac-base: BA:DB:EE:FB:AD:00\nvm-mac-count: 255\nvm-uuid: 564D8B6D-7BDB-75AF-400F-B062016DC67E\nvm-cpuid: FB060000FDFB8B07\nvm-license: none\nvm-mode: VMWare ESXi\nsw-version: 7.0.1\nglobal-protect-client-package-version: 0.0.0\napp-version: 497-2688\napp-release-date: unknown\nav-version: 0\nav-release-date: unknown\nthreat-version: 0\nthreat-release-date: unknown\nwf-private-version: 0\nwf-private-release-date: unknown\nurl-db: paloaltonetworks\nwildfire-version: 0\nwildfire-release-date: unknown\nurl-filtering-version: 0000.00.00.000\nglobal-protect-datafile-version: 0\nglobal-protect-datafile-release-date: unknown\nlogdb-version: 7.0.9\nplatform-family: vm\nvpn-disable-mode: off\nmulti-vsys: off\noperational-mode: normal\n\n",
+  "textfsm_template": "Value HOSTNAME (\\S+)\nValue IP_ADDRESS (\\S+)\nValue NETMASK (\\S+)\nValue GATEWAY (\\S+)\nValue MAC_ADDRESS (\\S+)\nValue UPTIME ([\\S+\\s+]+)\nValue FAMILY (\\S+)\nValue MODEL (\\S+)\nValue SERIAL (\\S+)\nValue VM_LICENSE (\\S+)\nValue VM_MODE ([\\S+\\s+]+)\nValue OS (\\S+)\nValue PLATFORM_FAMILY (\\S+)\nValue VPN_DISABLE_MODE (\\S+)\nValue MULTI_VSYS (\\S+)\nValue OPERATIONAL_MODE (\\S+)\n\nStart\n  ^hostname:\\s+${HOSTNAME}\n  ^ip-address:\\s+${IP_ADDRESS}\n  ^netmask:\\s+${NETMASK}\n  ^default-gateway:\\s+${GATEWAY}\n  ^mac-address:\\s+${MAC_ADDRESS}\n  ^uptime:\\s+${UPTIME}\n  ^family:\\s+${FAMILY}\n  ^model:\\s+${MODEL} \n  ^serial:\\s+${SERIAL}\n  ^vm-license:\\s+${VM_LICENSE}\n  ^vm-mode:\\s+${VM_MODE}\n  ^sw-version:\\s+${OS}\n  ^platform-family:\\s+${PLATFORM_FAMILY}\n  ^vpn-disable-mode:\\s+${VPN_DISABLE_MODE}\n  ^multi-vsys:\\s+${MULTI_VSYS}\n  ^operational-mode:\\s+${OPERATIONAL_MODE} -> Record\n"
+}

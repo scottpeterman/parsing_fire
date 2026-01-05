@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: paloalto_panos_show_interface_hardware
+# Source: ntc
+# TextFSM rows: 26
+# TTP rows: 26
+# Match ratio: 1.00
+
+<group name="interface_id_speed_duplex_state_mac_address">
+{{INTERFACE}} {{ID | re("\\d+")}} {{SPEED}}/{{DUPLEX}}/{{STATE | ORPHRASE}} {{MAC_ADDRESS | ORPHRASE}}
+</group>

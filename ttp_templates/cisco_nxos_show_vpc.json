@@ -1,0 +1,33 @@
+{
+  "command": "cisco_nxos_show_vpc",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 2,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"id_port_status\">\n{{ID | re(\"\\\\d+\")}} {{PORT}} {{STATUS | ORPHRASE}} -\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ID": "1",
+      "PORT": "Po12",
+      "STATUS": "down"
+    },
+    {
+      "ID": "2",
+      "PORT": "Po13",
+      "STATUS": "up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "id_port_status": {
+        "ID": "1",
+        "PORT": "Po12",
+        "STATUS": "down"
+      }
+    }
+  ],
+  "cli_content": "Legend:\n                (*) - local vPC is down, forwarding via vPC peer-link\n\nvPC domain id                     : 100\nPeer status                       : peer link is down\nvPC keep-alive status             : Suspended (Destination IP not reachable)\nConfiguration consistency status  : failed\nPer-vlan consistency status       : success\nConfiguration inconsistency reason: Consistency Check Not Performed\nType-2 inconsistency reason       : Consistency Check Not Performed\nvPC role                          : none established\nNumber of vPCs configured         : 0\nPeer Gateway                      : Disabled\nDual-active excluded VLANs        : -\nGraceful Consistency Check        : Disabled (due to peer configuration)\nAuto-recovery status              : Disabled\nDelay-restore status              : Timer is off.(timeout = 30s)\nDelay-restore SVI status          : Timer is off.(timeout = 10s)\n\nvPC Peer-link status\n---------------------------------------------------------------------\nid   Port   Status Active vlans\n--   ----   ------ --------------------------------------------------\n1    Po12   down   -\n2    Po13   up     10\n",
+  "textfsm_template": "Value ID (\\d+)\nValue PORT (\\S+)\nValue STATUS (\\S+)\n\nStart\n  ^${ID}\\s+${PORT}\\s+${STATUS} -> Record\n"
+}

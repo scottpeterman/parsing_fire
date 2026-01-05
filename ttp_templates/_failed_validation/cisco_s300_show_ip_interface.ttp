@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: cisco_s300_show_ip_interface
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="ip_interface_type_status">
+{{IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{INTERFACE | ORPHRASE}} {{TYPE}} {{STATUS | ORPHRASE}}
+</group>

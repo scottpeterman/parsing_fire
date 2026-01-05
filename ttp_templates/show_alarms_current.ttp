@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show alarms current
+# Source: chatgpt
+# TextFSM rows: 8
+# TTP rows: 8
+# Match ratio: 1.00
+
+<group name="alarm_id_type_status_description">
+{{ALARM_ID | re("\\d+")}} {{TYPE}} {{STATUS | ORPHRASE}} {{DESCRIPTION | ORPHRASE}}
+</group>

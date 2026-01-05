@@ -1,0 +1,14 @@
+{
+  "command": "show policy-map interface brief",
+  "source": "chatgpt",
+  "status": "failed_validation",
+  "match_ratio": null,
+  "textfsm_rows": 0,
+  "ttp_rows": 0,
+  "ttp_template": "<group name=\"interface_service_policy_direction_class_map_match_criteria_traffic_shaping\">\n{{INTERFACE | re(\".*\\\\w.*\")}} {{SERVICE_POLICY | re(\".*\\\\w.*\")}} {{DIRECTION | re(\".*\\\\w.*\")}} {{CLASS_MAP | re(\".*\\\\w.*\")}} {{MATCH_CRITERIA | re(\".*\\\\w.*\")}} {{TRAFFIC_SHAPING | ORPHRASE}}\n</group>",
+  "error": "TTP parsing timed out",
+  "textfsm_parsed": [],
+  "ttp_parsed": [],
+  "cli_content": "Interface   Service-policy          Direction    Class-map         Match          Traffic Shaping\n---------   --------------          ---------    ---------         -----          -----------------\nGig0/1      policy1                 Inbound      class-default     default        -\nGig0/1      policy1                 Outbound     class1            ip dscp cs1    shape average 8000\nGig0/2      policy2                 Inbound      class-default     default        -\nGig0/2      policy2                 Outbound     class2            access-group 101 shape average 10000\nGig0/3      <none>                  <none>       <none>            <none>         <none>\n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue SERVICE_POLICY (\\S+)\nValue DIRECTION (\\S+)\nValue CLASS_MAP (\\S+)\nValue MATCH_CRITERIA (.+?)\nValue TRAFFIC_SHAPING (.+)\n\nStart\n  ^Interface\\s+Service-policy\\s+Direction\\s+Class-map\\s+Match\\s+Traffic Shaping\\s*$$\n  ^${INTERFACE}\\s+${SERVICE_POLICY}\\s+${DIRECTION}\\s+${CLASS_MAP}\\s+${MATCH_CRITERIA}\\s+${TRAFFIC_SHAPING}\\s*$$ -> Record"
+}

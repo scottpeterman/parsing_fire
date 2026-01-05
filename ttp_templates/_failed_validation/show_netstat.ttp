@@ -1,0 +1,11 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show netstat
+# Source: chatgpt
+# Error: TTP template produced 0 rows
+
+<group name="proto_recv_q_send_q_local_address_foreign_address_state">
+{{PROTO}} {{RECV_Q}} {{SEND_Q}} {{LOCAL_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{FOREIGN_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{STATE | ORPHRASE}} 
+</group>
+<group name="proto_recv_q_send_q_local_address_foreign_address">
+{{PROTO}} {{RECV_Q}} {{SEND_Q}} {{LOCAL_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{FOREIGN_ADDRESS | ORPHRASE}} 
+</group>

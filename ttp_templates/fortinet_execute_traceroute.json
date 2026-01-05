@@ -1,0 +1,43 @@
+{
+  "command": "fortinet_execute_traceroute",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"destination_address_hops_max_packets_per_hop_packet_size\">\ntraceroute to {{DESTINATION_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} (8.8.8.8), {{HOPS_MAX}} hops max, {{PACKETS_PER_HOP}} probe packets per hop, {{PACKET_SIZE | ORPHRASE}} byte packets\n</group>\n<group name=\"hop_num_address_details\">\n {{HOP_NUM}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{DETAILS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "DESTINATION_ADDRESS": "8.8.8.8",
+      "HOPS_MAX": "32",
+      "PACKETS_PER_HOP": "3",
+      "PACKET_SIZE": "84",
+      "HOP_NUM": "1",
+      "ADDRESS": "1.2.3.4",
+      "DETAILS": "0.423 ms  2.123 ms  0.274 ms"
+    },
+    {
+      "HOP_NUM": "2",
+      "ADDRESS": "5.6.7.8",
+      "DETAILS": "0.389 ms  0.445 ms  0.178 ms"
+    },
+    {
+      "HOP_NUM": "6",
+      "ADDRESS": "8.8.8.8",
+      "DETAILS": "15.494 ms  15.488 ms  15.469 ms"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "destination_address_hops_max_packets_per_hop_packet_size": {
+        "DESTINATION_ADDRESS": "8.8.8.8",
+        "HOPS_MAX": "32",
+        "PACKETS_PER_HOP": "3",
+        "PACKET_SIZE": "84"
+      }
+    }
+  ],
+  "cli_content": "traceroute to 8.8.8.8 (8.8.8.8), 32 hops max, 3 probe packets per hop, 84 byte packets\n 1  1.2.3.4  0.423 ms  2.123 ms  0.274 ms\n 2  5.6.7.8  0.389 ms  0.445 ms  0.178 ms\n 3  * * *\n 4  * * *\n 5  * * *\n 6  8.8.8.8  15.494 ms  15.488 ms  15.469 ms\n",
+  "textfsm_template": "Value DESTINATION_ADDRESS (\\S+)\nValue HOPS_MAX (\\d+)\nValue PACKETS_PER_HOP (\\d+)\nValue PACKET_SIZE (\\d+)\nValue HOP_NUM (\\d+)\nValue ADDRESS ((?!\\*(?:\\s+\\*)*)\\S+)\nValue DETAILS (.*)\n\nStart\n  ^\\s*traceroute\\s+to\\s+${DESTINATION_ADDRESS}\\s+\\(.*?\\),\\s+${HOPS_MAX}\\s+hops\\s+max,\\s+${PACKETS_PER_HOP}\\s+probe\\s+packets\\s+per\\s+hop,\\s+${PACKET_SIZE}\\s+byte\\s+packets\\s*$$\n  ^\\s*${HOP_NUM}(?:\\s+${ADDRESS})?\\s+${DETAILS}\\s*$$ -> Record\n  ^\\s*\\*\\s*$$\n  ^\\s*$$\n  ^. -> Error\n"
+}

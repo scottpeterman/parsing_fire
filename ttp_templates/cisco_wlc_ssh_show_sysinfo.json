@@ -1,0 +1,48 @@
+{
+  "command": "cisco_wlc_ssh_show_sysinfo",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"bootloader_version_build_type_configured_country_field_recovery_image_version\">\nProduct Version.................................. {{PRODUCT_VERSION | ORPHRASE}}\nBootloader Version............................... {{BOOTLOADER_VERSION | ORPHRASE}}\nField Recovery Image Version..................... {{FIELD_RECOVERY_IMAGE_VERSION | ORPHRASE}}\nFirmware Version................................. {{FIRMWARE_VERSION | ORPHRASE}}\nBuild Type....................................... {{BUILD_TYPE | ORPHRASE}}\nSystem Name...................................... {{SYSTEM_NAME | ORPHRASE}}\nIP Address....................................... {{IP_ADDRESS | ORPHRASE}}\nLast Reset....................................... {{LAST_RESET | ORPHRASE}}\nSystem Up Time................................... {{SYSTEM_UP_TIME | ORPHRASE}}\nConfigured Country............................... {{CONFIGURED_COUNTRY | ORPHRASE}}\nNumber of Active Clients......................... {{NUMBER_ACTIVE_CLIENTS | ORPHRASE}}\nBurned-in MAC Address............................ {{MAC_ADDRESS | ORPHRASE}}\nMaximum number of APs supported.................. {{MAXIMUM_APS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PRODUCT_VERSION": "7.4.110.0",
+      "BOOTLOADER_VERSION": "1.0.16",
+      "FIELD_RECOVERY_IMAGE_VERSION": "1.0.0",
+      "FIRMWARE_VERSION": "PIC 15.0",
+      "BUILD_TYPE": "DATA + WPS",
+      "SYSTEM_NAME": "TEST-WLC",
+      "IP_ADDRESS": "192.0.2.5",
+      "LAST_RESET": "Power on reset",
+      "SYSTEM_UP_TIME": "109 days 16 hrs 33 mins 12 secs",
+      "CONFIGURED_COUNTRY": "AU  - Australia",
+      "NUMBER_WLANS": "6",
+      "NUMBER_ACTIVE_CLIENTS": "20",
+      "MAC_ADDRESS": "D0:C2:82:11:22:33",
+      "MAXIMUM_APS": "25"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "bootloader_version_build_type_configured_country_field_recovery_image_version": {
+        "MAXIMUM_APS": "25",
+        "MAC_ADDRESS": "D0:C2:82:11:22:33",
+        "NUMBER_ACTIVE_CLIENTS": "20",
+        "SYSTEM_UP_TIME": "109 days 16 hrs 33 mins 12 secs",
+        "LAST_RESET": "Power on reset",
+        "IP_ADDRESS": "192.0.2.5",
+        "SYSTEM_NAME": "TEST-WLC",
+        "BUILD_TYPE": "DATA + WPS",
+        "FIRMWARE_VERSION": "PIC 15.0",
+        "FIELD_RECOVERY_IMAGE_VERSION": "1.0.0",
+        "BOOTLOADER_VERSION": "1.0.16",
+        "PRODUCT_VERSION": "7.4.110.0"
+      }
+    }
+  ],
+  "cli_content": "\nManufacturer's Name.............................. Cisco Systems Inc.\nProduct Name..................................... Cisco Controller\nProduct Version.................................. 7.4.110.0\nBootloader Version............................... 1.0.16\nField Recovery Image Version..................... 1.0.0\nFirmware Version................................. PIC 15.0\n\n\nBuild Type....................................... DATA + WPS\n\nSystem Name...................................... TEST-WLC\nSystem Location..................................\nSystem Contact...................................\nSystem ObjectID.................................. 1.3.6.1.4.1.9.1.1279\nIP Address....................................... 192.0.2.5\nLast Reset....................................... Power on reset\nSystem Up Time................................... 109 days 16 hrs 33 mins 12 secs\nSystem Timezone Location.........................\nSystem Stats Realtime Interval................... 5\nSystem Stats Normal Interval..................... 180\n\n\nConfigured Country............................... AU  - Australia\nOperating Environment............................ Commercial (0 to 40 C)\nInternal Temp Alarm Limits....................... 0 to 65 C\nInternal Temperature............................. +31 C\nExternal Temperature............................. +35 C\nFan Status....................................... 3960 rpm\n\nState of 802.11b Network......................... Enabled\nState of 802.11a Network......................... Enabled\nNumber of WLANs.................................. 6\nNumber of Active Clients......................... 20\n\nMemory Current Usage............................. Unknown\nMemory Average Usage............................. Unknown\nCPU Current Usage................................ Unknown\nCPU Average Usage................................ Unknown\n\nBurned-in MAC Address............................ D0:C2:82:11:22:33\nMaximum number of APs supported.................. 25\n\n",
+  "textfsm_template": "Value PRODUCT_VERSION (.*)\nValue BOOTLOADER_VERSION (.*)\nValue FIELD_RECOVERY_IMAGE_VERSION (.*)\nValue FIRMWARE_VERSION (.*)\nValue BUILD_TYPE (.*)\nValue SYSTEM_NAME (.*)\nValue SYSTEM_LOCATION (.*)\nValue SYSTEM_CONTACT (.*)\nValue IP_ADDRESS (.*)\nValue LAST_RESET (.*)\nValue SYSTEM_UP_TIME (.*)\nValue SYSTEM_TIMEZONE_LOCATION (.*)\nValue CONFIGURED_COUNTRY (.*)\nValue NUMBER_WLANS (\\d+)\nValue NUMBER_ACTIVE_CLIENTS (\\d+)\nValue MAC_ADDRESS (.*)\nValue MAXIMUM_APS (\\d+)\n\nStart\n  ^Product Version\\.+\\s${PRODUCT_VERSION}\n  ^Bootloader Version\\.+\\s${BOOTLOADER_VERSION}\n  ^Field Recovery Image Version\\.+\\s${FIELD_RECOVERY_IMAGE_VERSION}\n  ^Firmware Version\\.+\\s${FIRMWARE_VERSION}\n  ^Build Type\\.+\\s${BUILD_TYPE}\n  ^System Name\\.+\\s${SYSTEM_NAME}\n  ^System Location\\.+\\s${SYSTEM_LOCATION}\n  ^System Contact\\.+\\s${SYSTEM_CONTACT}\n  ^IP Address\\.+\\s${IP_ADDRESS}\n  ^Last Reset\\.+\\s${LAST_RESET}\n  ^System Up Time\\.+\\s${SYSTEM_UP_TIME}\n  ^System Timezone Location\\.+\\s${SYSTEM_TIMEZONE_LOCATION}\n  ^Configured Country\\.+\\s${CONFIGURED_COUNTRY}\n  ^Number of WLANs\\.+\\s${NUMBER_WLANS}\n  ^Number of Active Clients\\.+\\s${NUMBER_ACTIVE_CLIENTS}\n  ^Burned-in MAC Address\\.+\\s${MAC_ADDRESS}\n  ^Maximum number of APs supported\\.+\\s${MAXIMUM_APS} -> Record\n"
+}

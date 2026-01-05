@@ -1,0 +1,8 @@
+# TTP Template - FAILED VALIDATION
+# Original command: show policy-map interface brief
+# Source: chatgpt
+# Error: TTP parsing timed out
+
+<group name="interface_service_policy_direction_class_map_match_criteria_traffic_shaping">
+{{INTERFACE | re(".*\\w.*")}} {{SERVICE_POLICY | re(".*\\w.*")}} {{DIRECTION | re(".*\\w.*")}} {{CLASS_MAP | re(".*\\w.*")}} {{MATCH_CRITERIA | re(".*\\w.*")}} {{TRAFFIC_SHAPING | ORPHRASE}}
+</group>

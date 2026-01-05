@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show logging configuration
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="host_protocol_port">
+Logging host {{HOST | re("\\S+")}} {{PROTOCOL}} port {{PORT | ORPHRASE}}
+</group>

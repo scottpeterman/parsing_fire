@@ -1,0 +1,9 @@
+# TTP Template - FAILED VALIDATION
+# Original command: cisco_ios_show_lldp_neighbors
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="capabilities_local_interface_neighbor_interface_neighbor_name">
+  ({{CAPABILITIES | ORPHRASE}}) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device
+{{NEIGHBOR_NAME}}{{LOCAL_INTERFACE}}  120  R  {{NEIGHBOR_INTERFACE | ORPHRASE}}
+</group>

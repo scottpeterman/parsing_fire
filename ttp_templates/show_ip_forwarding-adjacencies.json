@@ -1,0 +1,90 @@
+{
+  "command": "show ip forwarding-adjacencies",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 5,
+  "ttp_rows": 5,
+  "ttp_template": "<group name=\"ip_address_link_state_interface_age_owner\">\n{{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{LINK_STATE | ORPHRASE}} {{INTERFACE}} {{AGE}} {{OWNER | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "IP_ADDRESS": "10.1.1.1",
+      "LINK_STATE": "Up",
+      "INTERFACE": "GigabitEthernet0/1",
+      "AGE": "00:10",
+      "OWNER": "Dynamic"
+    },
+    {
+      "IP_ADDRESS": "192.168.1.2",
+      "LINK_STATE": "Down",
+      "INTERFACE": "GigabitEthernet0/2",
+      "AGE": "00:35",
+      "OWNER": "Static"
+    },
+    {
+      "IP_ADDRESS": "172.16.0.1",
+      "LINK_STATE": "Up",
+      "INTERFACE": "GigabitEthernet0/3",
+      "AGE": "00:05",
+      "OWNER": "Dynamic"
+    },
+    {
+      "IP_ADDRESS": "192.168.3.1",
+      "LINK_STATE": "Up",
+      "INTERFACE": "GigabitEthernet0/4",
+      "AGE": "23:58",
+      "OWNER": "Dynamic"
+    },
+    {
+      "IP_ADDRESS": "10.0.0.2",
+      "LINK_STATE": "Down",
+      "INTERFACE": "GigabitEthernet0/5",
+      "AGE": "01:02",
+      "OWNER": "Static"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "ip_address_link_state_interface_age_owner": [
+        {
+          "IP_ADDRESS": "10.1.1.1",
+          "LINK_STATE": "Up",
+          "INTERFACE": "GigabitEthernet0/1",
+          "AGE": "00:10",
+          "OWNER": "Dynamic"
+        },
+        {
+          "IP_ADDRESS": "192.168.1.2",
+          "LINK_STATE": "Down",
+          "INTERFACE": "GigabitEthernet0/2",
+          "AGE": "00:35",
+          "OWNER": "Static"
+        },
+        {
+          "IP_ADDRESS": "172.16.0.1",
+          "LINK_STATE": "Up",
+          "INTERFACE": "GigabitEthernet0/3",
+          "AGE": "00:05",
+          "OWNER": "Dynamic"
+        },
+        {
+          "IP_ADDRESS": "192.168.3.1",
+          "LINK_STATE": "Up",
+          "INTERFACE": "GigabitEthernet0/4",
+          "AGE": "23:58",
+          "OWNER": "Dynamic"
+        },
+        {
+          "IP_ADDRESS": "10.0.0.2",
+          "LINK_STATE": "Down",
+          "INTERFACE": "GigabitEthernet0/5",
+          "AGE": "01:02",
+          "OWNER": "Static"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IP Address       Link State  Interface                Age   Owner\n10.1.1.1         Up          GigabitEthernet0/1       00:10  Dynamic\n192.168.1.2      Down        GigabitEthernet0/2       00:35  Static\n172.16.0.1       Up          GigabitEthernet0/3       00:05  Dynamic\n192.168.3.1      Up          GigabitEthernet0/4       23:58  Dynamic\n10.0.0.2         Down        GigabitEthernet0/5       01:02  Static\n",
+  "textfsm_template": "Value IP_ADDRESS (\\S+)\nValue LINK_STATE (Up|Down)\nValue INTERFACE (\\S+)\nValue AGE (\\d{2}:\\d{2})\nValue OWNER (\\S+)\n\nStart\n  ^\\s*IP Address\\s+Link State\\s+Interface\\s+Age\\s+Owner\\s*$$\n  ^\\s*${IP_ADDRESS}\\s+${LINK_STATE}\\s+${INTERFACE}\\s+${AGE}\\s+${OWNER}\\s*$$ -> Record"
+}

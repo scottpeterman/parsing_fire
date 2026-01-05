@@ -1,0 +1,48 @@
+{
+  "command": "mikrotik_routeros_user_active_print",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"id_when_name_address_via\">\n {{ID | re(\"\\\\d+\")}} {{WHEN | ORPHRASE}} {{NAME}} {{ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{VIA | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ID": "0",
+      "WHEN": "jul/21/2023 09:38:39",
+      "NAME": "user1",
+      "ADDRESS": "1.2.3.4",
+      "VIA": "ssh"
+    },
+    {
+      "ID": "1",
+      "WHEN": "jul/21/2023 11:00:32",
+      "NAME": "user2",
+      "ADDRESS": "1.2.3.5",
+      "VIA": "telnet"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "id_when_name_address_via": [
+        {
+          "ID": "0",
+          "WHEN": "jul/21/2023 09:38:39",
+          "NAME": "user1",
+          "ADDRESS": "1.2.3.4",
+          "VIA": "ssh"
+        },
+        {
+          "ID": "1",
+          "WHEN": "jul/21/2023 11:00:32",
+          "NAME": "user2",
+          "ADDRESS": "1.2.3.5",
+          "VIA": "telnet"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Flags: R - radius, M - by-romon\n #    WHEN                 NAME       ADDRESS         VIA\n 0    jul/21/2023 09:38:39 user1      1.2.3.4         ssh\n 1    jul/21/2023 11:00:32 user2      1.2.3.5         telnet\n",
+  "textfsm_template": "Value ID (\\d+)\nValue WHEN ([a-z]{3}/\\d{1,2}/\\d{4}\\s+\\d{1,2}:\\d{1,2}:\\d{1,2})\nValue NAME ([a-zA-Z0-9*_.@]+)\nValue ADDRESS (\\S+)\nValue VIA (local|telnet|ssh|winbox|api|web|tikapp|ftp|dude)\n\nStart\n  ^\\s*Flags:\\s+R\\s+-\\s+radius,\\s+M\\s+-\\s+by-romon\\s*$$\n  ^\\s*#\\s+WHEN\\s+NAME\\s+ADDRESS\\s+VIA\\s*$$ -> ActiveUsersTable\n  ^\\s*$$\n  ^. -> Error\n\nActiveUsersTable\n  ^\\s*${ID}\\s+${WHEN}\\s+${NAME}\\s+${ADDRESS}\\s+${VIA}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

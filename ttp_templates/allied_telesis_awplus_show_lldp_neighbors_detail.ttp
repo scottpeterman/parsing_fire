@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: allied_telesis_awplus_show_lldp_neighbors_detail
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="neighbor_port_description">
+  Port Description ................. {{NEIGHBOR_PORT_DESCRIPTION | ORPHRASE}}
+</group>

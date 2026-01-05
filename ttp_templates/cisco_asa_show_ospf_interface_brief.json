@@ -1,0 +1,100 @@
+{
+  "command": "cisco_asa_show_ospf_interface_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"interface_process_area_ip_address_netmask_cost_state_neighbors_fc\">\n{{INTERFACE}} {{PROCESS}} {{AREA}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{NETMASK}} {{COST}} {{STATE | ORPHRASE}} {{NEIGHBORS_FC | ORPHRASE}}\n</group>\n<group name=\"interface_process_area_state_netmask_cost_neighbors_fc\">\n{{INTERFACE}} {{PROCESS}} {{AREA}} {{IP_AD{{STATE | ORPHRASE}}ESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}}/{{NETMASK}} {{COST}} DR {{NEIGHBORS_FC | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Outside",
+      "PROCESS": "101",
+      "AREA": "101",
+      "IP_ADDRESS": "10.10.100.10",
+      "NETMASK": "255.255.255.248",
+      "COST": "10",
+      "STATE": "P2P",
+      "NEIGHBORS_FC": "1/1"
+    },
+    {
+      "INTERFACE": "Transit",
+      "PROCESS": "100",
+      "AREA": "100",
+      "IP_ADDRESS": "10.255.111.1",
+      "NETMASK": "255.255.255.248",
+      "COST": "10",
+      "STATE": "BDR",
+      "NEIGHBORS_FC": "1/1"
+    },
+    {
+      "INTERFACE": "Inside",
+      "PROCESS": "100",
+      "AREA": "110",
+      "IP_ADDRESS": "10.25.1.17",
+      "NETMASK": "255.255.255.240",
+      "COST": "10",
+      "STATE": "DR",
+      "NEIGHBORS_FC": "2/2"
+    },
+    {
+      "INTERFACE": "CustA",
+      "PROCESS": "101",
+      "AREA": "0.0.1.1",
+      "IP_ADDRESS": "10.200.0.1",
+      "NETMASK": "255.255.255.240",
+      "COST": "10",
+      "STATE": "DR",
+      "NEIGHBORS_FC": "0/0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_process_area_ip_address_netmask_cost_state_neighbors_fc": [
+        {
+          "INTERFACE": "Outside",
+          "PROCESS": "101",
+          "AREA": "101",
+          "IP_ADDRESS": "10.10.100.10",
+          "NETMASK": "255.255.255.248",
+          "COST": "10",
+          "STATE": "P2P",
+          "NEIGHBORS_FC": "1/1"
+        },
+        {
+          "INTERFACE": "Transit",
+          "PROCESS": "100",
+          "AREA": "100",
+          "IP_ADDRESS": "10.255.111.1",
+          "NETMASK": "255.255.255.248",
+          "COST": "10",
+          "STATE": "BDR",
+          "NEIGHBORS_FC": "1/1"
+        },
+        {
+          "INTERFACE": "Inside",
+          "PROCESS": "100",
+          "AREA": "110",
+          "IP_ADDRESS": "10.25.1.17",
+          "NETMASK": "255.255.255.240",
+          "COST": "10",
+          "STATE": "DR",
+          "NEIGHBORS_FC": "2/2"
+        },
+        {
+          "INTERFACE": "CustA",
+          "PROCESS": "101",
+          "AREA": "0.0.1.1",
+          "IP_ADDRESS": "10.200.0.1",
+          "NETMASK": "255.255.255.240",
+          "COST": "10",
+          "STATE": "DR",
+          "NEIGHBORS_FC": "0/0"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface    PID   Area            IP Address/Mask    Cost  State Nbrs F/C\nOutside      101   101             10.10.100.10/255.255.255.248    10   P2P 1/1\nTransit      100   100             10.255.111.1/255.255.255.248    10   BDR 1/1\nInside       100   110             10.25.1.17/255.255.255.240    10    DR 2/2\nCustA        101   0.0.1.1         10.200.0.1/255.255.255.240    10    DR 0/0",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue PROCESS (\\d+)\nValue AREA (\\S+)\nValue IP_ADDRESS (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue NETMASK (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue COST (\\d+)\nValue STATE (\\S+)\nValue NEIGHBORS_FC (\\d+/\\d+)\n\nStart\n  ^Interface\\s+PID\\s+Area\\s+IP\\s+Address/Mask\\s+Cost\\s+State\\s+Nbrs\\s+F/C\\s*$$\n  ^${INTERFACE}\\s+${PROCESS}\\s+${AREA}\\s+${IP_ADDRESS}\\/${NETMASK}\\s+${COST}\\s+${STATE}\\s+${NEIGHBORS_FC} -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

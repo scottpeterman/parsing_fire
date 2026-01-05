@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: hp_comware_display_ip_routing-table
+# Source: ntc
+# TextFSM rows: 31
+# TTP rows: 27
+# Match ratio: 0.87
+
+<group name="network_prefix_length_protocal_distance_metric_nexthop_ip_nexthop_if">
+{{NETWORK}}/{{PREFIX_LENGTH}} {{PROTOCAL}} {{DISTANCE}} {{METRIC}} {{NEXTHOP_IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{NEXTHOP_IF | ORPHRASE}}
+</group>
+<group name="protocal_distance_metric_nexthop_ip_nexthop_if">
+                    {{PROTOCAL}} {{DISTANCE}} {{METRIC}} {{NEXTHOP_IP | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{NEXTHOP_IF | ORPHRASE}}
+</group>

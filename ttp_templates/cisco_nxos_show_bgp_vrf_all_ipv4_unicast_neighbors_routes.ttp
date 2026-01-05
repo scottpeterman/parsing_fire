@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_nxos_show_bgp_vrf_all_ipv4_unicast_neighbors_routes
+# Source: ntc
+# TextFSM rows: 11
+# TTP rows: 4
+# Match ratio: 0.36
+
+<group name="prefix_prefix_length">
+*>l100.100.100.100/30 0.0.0.0                           100      3{{PREFIX_LENGTH | ORPHRASE}}68 i
+<group name="as_path_local_pref_next_hop">
+*>e1{{WEIGHT}}.20.20.0/27 {{NEXT_HOP}} {{LOCAL_PREF}} 0 {{AS_PATH | ORPHRASE}} {{ORIGIN | ORPHRASE}}
+</group>
+</group>

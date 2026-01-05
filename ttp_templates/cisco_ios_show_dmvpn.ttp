@@ -1,0 +1,12 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_dmvpn
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="attribute_peer_nbma_peer_tunnel_state">
+Legend: Attrb --> {{ATTRIBUTE | ORPHRASE}} - Static, D - Dynamic, I - Incomplete
+  # Ent --> Number of {{STATE | ORPHRASE}} entries with same NBMA peer
+  1 {{PEER_NBMA}}  {{PEER_TUNNEL}}  NHRP  {{UPTIME | ORPHRASE}}  S
+</group>

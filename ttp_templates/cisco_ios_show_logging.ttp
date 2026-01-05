@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_logging
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="month_day_time_facility_severity_mnemonic_message">
+{{MONTH}} {{DAY}} {{TIME}}: %{{FACILITY}}-{{SEVERITY | re("[\\d\\.\\(\\)A-Za-z]+")}}-{{MNEMONIC}}: {{MESSAGE | ORPHRASE}}
+</group>

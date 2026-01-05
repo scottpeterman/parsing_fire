@@ -1,0 +1,33 @@
+{
+  "command": "crypto pki certificates",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"cert_usage_issuer_status_subject_name\">\n  Status: {{STATUS | ORPHRASE}}\n  Certificate Usage: {{CERT_USAGE | ORPHRASE}}\n  cn={{ISSUER | ORPHRASE}}\n  Name: {{SUBJECT_NAME | ORPHRASE}}\n  Org Unit: {{SUBJECT_ORG_UNIT | ORPHRASE}}\n  Began: {{VALIDITY_BEGIN | ORPHRASE}}\n  Expires: {{VALIDITY_EXPIRES | ORPHRASE}}\n  {{TRUSTPOINTS | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "STATUS": "Available",
+      "CERT_USAGE": "General Purpose",
+      "ISSUER": "issuer",
+      "SUBJECT_NAME": "Device Cert Name",
+      "SUBJECT_ORG_UNIT": "Network Devices",
+      "VALIDITY_BEGIN": "07:40:01 UTC Sep 1 2023",
+      "VALIDITY_EXPIRES": "07:40:01 UTC Sep 1 2024",
+      "TRUSTPOINTS": "TPM-trustpoint"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "cert_usage_issuer_status_subject_name": {
+        "TRUSTPOINTS": "Issuer:",
+        "CERT_USAGE": "General Purpose",
+        "STATUS": "Available"
+      }
+    }
+  ],
+  "cli_content": "Certificate\n  Status: Available\n  Certificate Usage: General Purpose\n  Issuer:\n    cn=issuer\n  Subject:\n    Name: Device Cert Name\n    Org Unit: Network Devices\n  Period of Validity:\n    Began: 07:40:01 UTC Sep 1 2023\n    Expires: 07:40:01 UTC Sep 1 2024\n  Associated Trustpoints:\n    TPM-trustpoint\n    RA-trustpoint\n",
+  "textfsm_template": "Value STATUS (Available|Unavailable)\nValue CERT_USAGE (.+)\nValue ISSUER (\\S+)\nValue CN (\\S+)\nValue SUBJECT_NAME (.+)\nValue SUBJECT_ORG_UNIT (.+)\nValue VALIDITY_BEGIN (.+)\nValue VALIDITY_EXPIRES (.+)\nValue TRUSTPOINTS (.+)\n\nStart\n  ^\\s*Certificate\\s*$$\n  ^\\s*Status: ${STATUS}\\s*$$\n  ^\\s*Certificate Usage: ${CERT_USAGE}\\s*$$\n  ^\\s*Issuer:\\s*$$\n  ^\\s*cn=${ISSUER}\\s*$$\n  ^\\s*Subject:\\s*$$\n  ^\\s*Name: ${SUBJECT_NAME}\\s*$$\n  ^\\s*Org Unit: ${SUBJECT_ORG_UNIT}\\s*$$\n  ^\\s*Period of Validity:\\s*$$\n  ^\\s*Began: ${VALIDITY_BEGIN}\\s*$$\n  ^\\s*Expires: ${VALIDITY_EXPIRES}\\s*$$\n  ^\\s*Associated Trustpoints:\\s*$$\n  ^\\s*${TRUSTPOINTS}\\s*$$ -> Record"
+}

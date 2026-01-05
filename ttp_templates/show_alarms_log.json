@@ -1,0 +1,62 @@
+{
+  "command": "show alarms log",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 3,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"id_severity_time_component_message\">\n{{ID | re(\"\\\\d+\")}} {{SEVERITY | re(\"[\\\\d\\\\.\\\\(\\\\)A-Za-z]+\")}} {{TIME | ORPHRASE}} {{COMPONENT}} {{MESSAGE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ID": "1001",
+      "SEVERITY": "Critical",
+      "TIME": "2023-10-01 12:34:56",
+      "COMPONENT": "PowerSupply",
+      "MESSAGE": "Power supply failure detected"
+    },
+    {
+      "ID": "1002",
+      "SEVERITY": "Major",
+      "TIME": "2023-10-02 08:20:10",
+      "COMPONENT": "Fan",
+      "MESSAGE": "Fan speed degraded"
+    },
+    {
+      "ID": "1003",
+      "SEVERITY": "Minor",
+      "TIME": "2023-10-03 09:15:24",
+      "COMPONENT": "EthernetInterface",
+      "MESSAGE": "Interface eth0 is down"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "id_severity_time_component_message": [
+        {
+          "ID": "1001",
+          "SEVERITY": "Critical",
+          "TIME": "2023-10-01 12:34:56",
+          "COMPONENT": "PowerSupply",
+          "MESSAGE": "Power supply failure detected"
+        },
+        {
+          "ID": "1002",
+          "SEVERITY": "Major",
+          "TIME": "2023-10-02 08:20:10",
+          "COMPONENT": "Fan",
+          "MESSAGE": "Fan speed degraded"
+        },
+        {
+          "ID": "1003",
+          "SEVERITY": "Minor",
+          "TIME": "2023-10-03 09:15:24",
+          "COMPONENT": "EthernetInterface",
+          "MESSAGE": "Interface eth0 is down"
+        }
+      ]
+    }
+  ],
+  "cli_content": "There are currently 3 alarms in the system:\n\nID       Severity     Time                      Component               Message\n--       --------     ----                      ---------               -------\n1001     Critical     2023-10-01 12:34:56       PowerSupply             Power supply failure detected\n1002     Major        2023-10-02 08:20:10       Fan                     Fan speed degraded\n1003     Minor        2023-10-03 09:15:24       EthernetInterface       Interface eth0 is down\n",
+  "textfsm_template": "Value ID (\\d+)\nValue SEVERITY (\\S+)\nValue TIME (\\d+-\\d+-\\d+ \\d+:\\d+:\\d+)\nValue COMPONENT (\\S+)\nValue MESSAGE (.*)\n\nStart\n  ^\\s*ID\\s+Severity\\s+Time\\s+Component\\s+Message\\s*$$\n  ^\\s*${ID}\\s+${SEVERITY}\\s+${TIME}\\s+${COMPONENT}\\s+${MESSAGE}\\s*$$ -> Record\n"
+}

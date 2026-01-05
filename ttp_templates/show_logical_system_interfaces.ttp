@@ -1,0 +1,14 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show logical system interfaces
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="enabled_link_status_log_index_log_interface">
+Physical interface: ge-0/0/0, {{ENABLED | ORPHRASE}}, Physical link is Up
+Physical interface: {{PHYS_INTERFACE}}, Enabled, Physical link is {{LINK_STATUS | ORPHRASE}}
+  Logical interface {{LOG_INTERFACE}} (Index {{LOG_INDEX}}) (SNMP ifIndex {{SNMP_IF_INDEX | ORPHRASE}})
+  Output bytes  : {{OUTPUT_BYTES | ORPHRASE}}
+  Output packets: {{OUTPUT_PACKETS | ORPHRASE}}
+</group>

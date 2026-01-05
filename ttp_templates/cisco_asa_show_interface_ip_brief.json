@@ -1,0 +1,140 @@
+{
+  "command": "cisco_asa_show_interface_ip_brief",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.1111111111111111,
+  "textfsm_rows": 18,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"interface_ip_address_status_proto\">\n{{INTERFACE}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} YES unset {{STATUS | ORPHRASE}} {{PROTO}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INTERFACE": "Virtual0",
+      "IP_ADDRESS": "127.1.0.1",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/1",
+      "IP_ADDRESS": "192.168.1.253",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/2",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/3",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/4",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "administratively down",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/5",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "administratively down",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/6",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "administratively down",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/7",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "administratively down",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "GigabitEthernet1/8",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "administratively down",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "Internal-Control1/1",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "up",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "Internal-Data1/1",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "Internal-Data1/2",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "down",
+      "PROTO": "down"
+    },
+    {
+      "INTERFACE": "Internal-Data1/3",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "Internal-Data1/4",
+      "IP_ADDRESS": "169.254.1.1",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "Management1/1",
+      "IP_ADDRESS": "10.10.12.2",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "Port-channel1",
+      "IP_ADDRESS": "unassigned",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "Port-channel1.144",
+      "IP_ADDRESS": "10.10.14.1",
+      "STATUS": "up",
+      "PROTO": "up"
+    },
+    {
+      "INTERFACE": "Port-channel1.3101",
+      "IP_ADDRESS": "10.10.54.2",
+      "STATUS": "up",
+      "PROTO": "up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_ip_address_status_proto": [
+        {
+          "INTERFACE": "Virtual0",
+          "IP_ADDRESS": "127.1.0.1",
+          "STATUS": "up",
+          "PROTO": "up"
+        },
+        {
+          "INTERFACE": "Internal-Data1/4",
+          "IP_ADDRESS": "169.254.1.1",
+          "STATUS": "up",
+          "PROTO": "up"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Interface                  IP-Address      OK? Method Status                Protocol\nVirtual0                   127.1.0.1       YES unset  up                    up  \nGigabitEthernet1/1         192.168.1.253   YES CONFIG up                    up  \nGigabitEthernet1/2         unassigned      YES unset  up                    up  \nGigabitEthernet1/3         unassigned      YES unset  up                    up  \nGigabitEthernet1/4         unassigned      YES unset  administratively down down\nGigabitEthernet1/5         unassigned      YES unset  administratively down down\nGigabitEthernet1/6         unassigned      YES unset  administratively down down\nGigabitEthernet1/7         unassigned      YES unset  administratively down down\nGigabitEthernet1/8         unassigned      YES unset  administratively down down\nInternal-Control1/1        unassigned      YES unset  up                    down\nInternal-Data1/1           unassigned      YES unset  up                    up  \nInternal-Data1/2           unassigned      YES unset  down                  down\nInternal-Data1/3           unassigned      YES unset  up                    up  \nInternal-Data1/4           169.254.1.1     YES unset  up                    up  \nManagement1/1              10.10.12.2      YES CONFIG up                    up  \nPort-channel1              unassigned      YES unset  up                    up  \nPort-channel1.144          10.10.14.1      YES CONFIG up                    up  \nPort-channel1.3101         10.10.54.2      YES CONFIG up                    up  \n",
+  "textfsm_template": "Value INTERFACE (\\S+)\nValue IP_ADDRESS (\\S+)\nValue STATUS (up|down|administratively down)\nValue PROTO (up|down)\n\nStart\n  ^Interface\\s+IP-Address\\s+OK\\?\\s+Method\\s+Status\\s+Protocol\\s*$$\n  ^${INTERFACE}\\s+${IP_ADDRESS}\\s+\\w+\\s+\\w+\\s+${STATUS}\\s+${PROTO} -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

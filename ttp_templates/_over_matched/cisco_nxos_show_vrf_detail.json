@@ -1,0 +1,99 @@
+{
+  "command": "cisco_nxos_show_vrf_detail",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 2.6666666666666665,
+  "textfsm_rows": 3,
+  "ttp_rows": 8,
+  "ttp_template": "<group name=\"max_routes_mid_threshold_id_state\">\n    Table-ID: {{MAX_ROUTES}}x8{{MID_THRESHOLD | re(\"\\\\d+\")}}00000{{ID | re(\"\\\\d+\")}}, AF: IPv6, Fwd-ID: 0x80000009, State: {{STATE | ORPHRASE}}\n</group>\n<group name=\"name_id_state\">\nVRF-Name: {{NAME}}, VRF-ID: {{ID | re(\"\\\\d+\")}}, State: {{STATE | ORPHRASE}}\n</group>\n<group name=\"default_rd\">\n    RD: {{DEFAULT_RD | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "HUB",
+      "ID": "9",
+      "VPN_ID": "123:456",
+      "STATE": "Up",
+      "DEFAULT_RD": "172.21.111.112:197",
+      "MAX_ROUTES": "0",
+      "MID_THRESHOLD": "0",
+      "TABLE_ID": "0x80000009, 0x00000009",
+      "ADDRESS_FAMILY": "IPv6, IPv4",
+      "FWD_ID": "0x80000009, 0x00000009",
+      "TABLE_STATUS": "Up, Up"
+    },
+    {
+      "NAME": "INSTRUMENTS",
+      "ID": "10",
+      "VPN_ID": "3211:65",
+      "STATE": "Up",
+      "DEFAULT_RD": "172.21.111.112:108",
+      "MAX_ROUTES": "0",
+      "MID_THRESHOLD": "0",
+      "TABLE_ID": "0x8000000a, 0x0000000a",
+      "ADDRESS_FAMILY": "IPv6, IPv4",
+      "FWD_ID": "0x8000000a, 0x0000000a",
+      "TABLE_STATUS": "Up, Up"
+    },
+    {
+      "NAME": "LAB",
+      "ID": "11",
+      "VPN_ID": "890:765",
+      "STATE": "Up",
+      "DEFAULT_RD": "172.21.123.111:107",
+      "MAX_ROUTES": "0",
+      "MID_THRESHOLD": "0",
+      "TABLE_ID": "0x8000000b, 0x0000000b",
+      "ADDRESS_FAMILY": "IPv6, IPv4",
+      "FWD_ID": "0x8000000b, 0x0000000b",
+      "TABLE_STATUS": "Up, Up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "max_routes_mid_threshold_id_state": [
+        {
+          "MAX_ROUTES": "0",
+          "MID_THRESHOLD": "0",
+          "ID": "9",
+          "STATE": "Up"
+        },
+        {
+          "MAX_ROUTES": "0",
+          "MID_THRESHOLD": "0",
+          "ID": "9",
+          "STATE": "Up"
+        }
+      ],
+      "name_id_state": [
+        {
+          "NAME": "HUB",
+          "ID": "9",
+          "STATE": "Up"
+        },
+        {
+          "NAME": "INSTRUMENTS",
+          "ID": "10",
+          "STATE": "Up"
+        },
+        {
+          "NAME": "LAB",
+          "ID": "11",
+          "STATE": "Up"
+        }
+      ],
+      "default_rd": [
+        {
+          "DEFAULT_RD": "172.21.111.112:197"
+        },
+        {
+          "DEFAULT_RD": "172.21.111.112:108"
+        },
+        {
+          "DEFAULT_RD": "172.21.123.111:107"
+        }
+      ]
+    }
+  ],
+  "cli_content": "VRF-Name: HUB, VRF-ID: 9, State: Up\n    VPNID: 123:456\n    RD: 172.21.111.112:197\n    Max Routes: 0  Mid-Threshold: 0\n    Table-ID: 0x80000009, AF: IPv6, Fwd-ID: 0x80000009, State: Up\n    Table-ID: 0x00000009, AF: IPv4, Fwd-ID: 0x00000009, State: Up\n\nVRF-Name: INSTRUMENTS, VRF-ID: 10, State: Up\n    VPNID: 3211:65\n    RD: 172.21.111.112:108\n    Max Routes: 0  Mid-Threshold: 0\n    Table-ID: 0x8000000a, AF: IPv6, Fwd-ID: 0x8000000a, State: Up\n    Table-ID: 0x0000000a, AF: IPv4, Fwd-ID: 0x0000000a, State: Up\n\nVRF-Name: LAB, VRF-ID: 11, State: Up\n    VPNID: 890:765\n    RD: 172.21.123.111:107\n    Max Routes: 0  Mid-Threshold: 0\n    Table-ID: 0x8000000b, AF: IPv6, Fwd-ID: 0x8000000b, State: Up\n    Table-ID: 0x0000000b, AF: IPv4, Fwd-ID: 0x0000000b, State: Up\n",
+  "textfsm_template": "Value Required NAME (\\S+)\nValue ID (\\S+)\nValue VPN_ID (\\S+)\nValue STATE (\\S+)\nValue DEFAULT_RD ((\\d+|\\d{1,3}.\\d{1,3}.\\d{1,3}.\\d{1,3}):\\d+|<not set>)\nValue MAX_ROUTES (\\S+)\nValue MID_THRESHOLD (\\S+)\nValue List TABLE_ID (\\S+)\nValue List ADDRESS_FAMILY (\\S+)\nValue List FWD_ID (\\S+)\nValue List TABLE_STATUS (\\S+)\n\nStart\n  ^VRF-Name:\\s+${NAME},\\s+VRF-ID:\\s+${ID},\\s+State:\\s+${STATE} -> VRF\n  ^. -> Error\n\nVRF\n  ^VRF-Name:\\s+${NAME},\\s+VRF-ID:\\s+${ID},\\s+State:\\s+${STATE}\n  ^\\s+VPNID:\\s+${VPN_ID}\n  ^\\s+RD:\\s+${DEFAULT_RD}\n  ^\\s+Max\\s+Routes:\\s+${MAX_ROUTES}\\s+Mid\\-Threshold:\\s+${MID_THRESHOLD}\n  ^\\s+Table\\-ID:\\s+${TABLE_ID},\\s+AF:\\s+${ADDRESS_FAMILY},\\s+Fwd-ID:\\s+${FWD_ID},\\s+State:\\s+${TABLE_STATUS}\n  ^\\s*$$ -> Record\n  ^$$ -> Record\n  ^. -> Error\n"
+}

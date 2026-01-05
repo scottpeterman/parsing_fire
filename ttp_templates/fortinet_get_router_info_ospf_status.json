@@ -1,0 +1,32 @@
+{
+  "command": "fortinet_get_router_info_ospf_status",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"attached_area_attached_areas_number_attached_area_fully_adjacent_neighbors_attached_area_interfaces\">\n Routing Process \"{{PROCESS_NAME | ORPHRASE}}\" with ID {{PROCESS_ID | ORPHRASE}}\n Process is {{PROCESS_STATUS | ORPHRASE}}\n  Area {{ATTACHED_AREA | ORPHRASE}}\n  Number of interfaces in this area is {{ATTACHED_AREA_INTERFACES | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROCESS_NAME": "ospf 0",
+      "PROCESS_ID": "10.123.105.1",
+      "PROCESS_STATUS": "not up",
+      "ATTACHED_AREAS_NUMBER": "1",
+      "ATTACHED_AREA": "0.0.0.0 (BACKBONE)",
+      "ATTACHED_AREA_INTERFACES": "9(11)",
+      "ATTACHED_AREA_FULLY_ADJACENT_NEIGHBORS": "2"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "attached_area_attached_areas_number_attached_area_fully_adjacent_neighbors_attached_area_interfaces": {
+        "PROCESS_STATUS": "not up",
+        "PROCESS_NAME": "ospf 0",
+        "PROCESS_ID": "10.123.105.1"
+      }
+    }
+  ],
+  "cli_content": " Routing Process \"ospf 0\" with ID 10.123.105.1\n Process is not up\n Process bound to VRF default\n Conforms to RFC2328, and RFC1583Compatibility flag is disabled\n Supports only single TOS(TOS0) routes\n Supports opaque LSA\n Do not support Restarting\n SPF schedule delay 5 secs, Hold time between two SPFs 10 secs\n Refresh timer 10 secs\n Number of incomming current DD exchange neighbors 0/5\n Number of outgoing current DD exchange neighbors 0/5\n Number of external LSA 485. Checksum 0xF53F64\n Number of opaque AS LSA 0. Checksum 0x000000\n Number of non-default external LSA 483\n External LSA database is unlimited.\n Number of LSA originated 1\n Number of LSA received 1026789\n Number of areas attached to this router: 1\n    Area 0.0.0.0 (BACKBONE)\n        Number of interfaces in this area is 9(11)\n        Number of fully adjacent neighbors in this area is 2\n        Area has no authentication\n        SPF algorithm last executed 00:00:22.990 ago\n        SPF algorithm executed 35480 times\n        Number of LSA 68. Checksum 0x207089\n\n",
+  "textfsm_template": "Value PROCESS_NAME (.*)\nValue PROCESS_ID (\\S+)\nValue PROCESS_STATUS (.+)\nValue ATTACHED_AREAS_NUMBER (\\d+)\nValue List ATTACHED_AREA (.*)\nValue List ATTACHED_AREA_INTERFACES (\\S+)\nValue List ATTACHED_AREA_FULLY_ADJACENT_NEIGHBORS (\\d+)\n\n\nStart\n  ^\\s*Routing\\s+Process\\s+\\\".*\\\".* -> Continue.Record\n  ^\\s*Routing\\s+Process\\s+\\\"${PROCESS_NAME}\\\"\\s+with\\s+ID\\s+${PROCESS_ID}\\s*$$\n  ^\\s*Process\\s+is\\s+${PROCESS_STATUS}\\s*$$\n  ^\\s*Process\\s+bound.*$$\n  ^\\s*Conforms\\s+to.*$$\n  ^\\s*Supports\\s+only.*$$\n  ^\\s*Supports\\s+opaque.*$$\n  ^\\s*Do\\s+not\\s+support\\s+Restarting.*$$\n  ^\\s*SPF\\s+schedule\\s+delay\\s+.*$$\n  ^\\s*Refresh\\s+timer.*$$\n  ^\\s*Number\\s+of\\s+incomming\\s+current\\s+DD\\s+exchange\\s+neighbors\\s+.*$$\n  ^\\s*Number\\s+of\\s+outgoing\\s+current\\s+DD\\s+exchange\\s+neighbors\\s+.*$$\n  ^\\s*Number\\s+of\\s+external\\s+LSA\\s+\\d+\\.\\s+Checksum\\s+.*$$\n  ^\\s*Number\\s+of\\s+opaque\\s+AS\\s+LSA\\s+\\d+\\.\\s+Checksum\\s+.*$$\n  ^\\s*Number\\s+of\\s+non\\-default\\s+external\\s+LSA\\s+.*$$\n  ^\\s*External\\s+LSA\\s+database\\s+.*$$\n  ^\\s*Number\\s+of\\s+LSA\\s+originated.*$$\n  ^\\s*Number\\s+of\\s+LSA\\s+received.*$$\n  ^\\s*Number\\s+of\\s+areas\\s+attached\\s+to\\s+this\\s+router\\:\\s+${ATTACHED_AREAS_NUMBER}\\s*$$ -> Areas\n  ^\\s*$$\n  ^. -> Error\n\nAreas\n  ^\\s*Routing\\s+Process\\s+\\\".*\\\".* -> Continue.Record\n  ^\\s*Area\\s+(?!has)${ATTACHED_AREA}\\s*$$\n  ^\\s*Number\\s+of\\s+interfaces\\s+in\\s+this\\s+area\\s+is\\s+${ATTACHED_AREA_INTERFACES}\\s*$$\n  ^\\s*Number\\s+of\\s+fully\\s+adjacent\\s+neighbors\\s+in\\s+this\\s+area\\s+is\\s+${ATTACHED_AREA_FULLY_ADJACENT_NEIGHBORS}\\s*$$\n  ^\\s*Area\\s+has\\s+.*$$\n  ^\\s*SPF\\s+algorithm\\s+last\\s+executed\\s+.*$$\n  ^\\s*SPF\\s+algorithm\\s+executed\\s+.*$$\n  ^\\s*Number\\s+of\\s+LSA\\s+.*$$ -> Areas\n"
+}

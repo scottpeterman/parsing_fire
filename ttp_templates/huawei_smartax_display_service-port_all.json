@@ -1,0 +1,42 @@
+{
+  "command": "huawei_smartax_display_service-port_all",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"index_vlan_id_vlan_attr_port_type_fsp_ont_id_gem_index_flow_type_vlan_access_state\">\n    {{INDEX}} {{VLAN_ID | re(\"\\\\d+\")}} {{VLAN_ATTR}} {{PORT_TYPE}} {{FSP | ORPHRASE}} {{ONT_ID | re(\"\\\\d+\")}} {{GEM_INDEX}} {{FLOW_TYPE}} {{VLAN_ACCESS | re(\"\\\\d+\")}} - - {{STATE | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "INDEX": "5827",
+      "VLAN_ID": "2",
+      "VLAN_ATTR": "common",
+      "PORT_TYPE": "gpon",
+      "FSP": "0/1 /0",
+      "ONT_ID": "0",
+      "GEM_INDEX": "1",
+      "FLOW_TYPE": "vlan",
+      "VLAN_ACCESS": "2",
+      "STATE": "up"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "index_vlan_id_vlan_attr_port_type_fsp_ont_id_gem_index_flow_type_vlan_access_state": {
+        "INDEX": "5827",
+        "VLAN_ID": "2",
+        "VLAN_ATTR": "common",
+        "PORT_TYPE": "gpon",
+        "FSP": "0/1 /0",
+        "ONT_ID": "0",
+        "GEM_INDEX": "1",
+        "FLOW_TYPE": "vlan",
+        "VLAN_ACCESS": "2",
+        "STATE": "up"
+      }
+    }
+  ],
+  "cli_content": "Switch-Oriented Flow List\n  -----------------------------------------------------------------------------\n   INDEX VLAN VLAN     PORT F/ S/ P VPI  VCI   FLOW  FLOW       RX   TX   STATE\n         ID   ATTR     TYPE                    TYPE  PARA\n  -----------------------------------------------------------------------------\n    5827 2    common   gpon 0/1 /0  0    1     vlan  2          -    -    up   \n  -----------------------------------------------------------------------------\n   Total : 1  (Up/Down :    1/0)\n   Note : F--Frame, S--Slot, P--Port,\n          VPI indicates ONT ID for PON, VCI indicates GEM index for GPON,\n          v/e--vlan/encap, pritag--priority-tagged,\n          ppp--pppoe, ip--ipoe, ip4--ipv4oe, ip6--ipv6oe, vxl--vxlan.\n          When FLOW TYPE is plist, the value of FLOW PARA is a byte in\n          hexadecimal format and indicates a priority list. Eight bits\n          of its binary value indicate priorities 0-7 from the least\n          significant bit to the most significant bit. Value 1 indicates\n          that the priority is used. For example, if FLOW PARA is 0x23 and\n          its binary format is 0010 0011, priorities 0, 1 and 5 are used",
+  "textfsm_template": "Value INDEX (\\d+)\nValue VLAN_ID (\\d+)\nValue VLAN_ATTR (\\S+)\nValue PORT_TYPE (\\S+)\nValue FSP (\\d+\\/\\d+\\s*\\/\\d+)\nValue ONT_ID (\\d+)\nValue GEM_INDEX (\\d+)\nValue FLOW_TYPE (\\S+)\nValue VLAN_ACCESS (\\d+)\nValue RX (\\S+)\nValue TX (\\S+)\nValue STATE (\\S+)\n\n\nStart\n  ^Switch-Oriented\\s*Flow\\s*List\n  ^\\s*-\n  ^\\s*INDEX\\s+VLAN\\s+VLAN\\s+PORT\\s+F\\/\\s*S\\/\\s*P\\s*VPI\\s*VCI\\s*FLOW\\s*FLOW\\s*RX\\s*TX\\s*STATE\\s*$$\n  ^\\s*ID\\s*ATTR\\s*TYPE\\s*TYPE\\s*PARA\\s*$$ -> ServicePorts\n  ^\\s*$$\n  ^. -> Error\n\nServicePorts\n  ^\\s*${INDEX}\\s*${VLAN_ID}\\s*${VLAN_ATTR}\\s*${PORT_TYPE}\\s*${FSP}\\s*${ONT_ID}\\s*${GEM_INDEX}\\s*${FLOW_TYPE}\\s*${VLAN_ACCESS}\\s*(-|${RX})\\s*(-|${TX})\\s*${STATE}\\s* -> Record\n  ^\\s*.\n  ^\\s*$$\n  ^. -> Error\n"
+}

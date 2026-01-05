@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: juniper_junos_show_ospf_neighbor
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="ip_address_interface_state_neighbor_id_priority_dead_time">
+{{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{INTERFACE}} {{STATE | ORPHRASE}} {{NEIGHBOR_ID}} {{PRIORITY}} {{DEAD_TIME | ORPHRASE}}
+</group>

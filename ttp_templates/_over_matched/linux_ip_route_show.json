@@ -1,0 +1,63 @@
+{
+  "command": "linux_ip_route_show",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"network_nexthop_ip_nexthop_if\">\n{{NETWORK}} via {{NEXTHOP_IP | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} dev {{NEXTHOP_IF | ORPHRASE}}\n</group>\n<group name=\"network_nexthop_if_protocol_scope_src\">\n{{NETWORK}} dev {{NEXTHOP_IF}} proto {{PROTOCOL}} scope {{SCOPE}} src {{SRC | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NETWORK": "default",
+      "NEXTHOP_IP": "10.0.0.4",
+      "NEXTHOP_IF": "brblue"
+    },
+    {
+      "PROTOCOL": "kernel",
+      "NETWORK": "10.0.0.0/24",
+      "NEXTHOP_IF": "brblue",
+      "SCOPE": "link",
+      "SRC": "10.0.0.1"
+    },
+    {
+      "NETWORK": "192.168.0.0/24",
+      "NEXTHOP_IP": "10.0.0.2",
+      "NEXTHOP_IF": "brblue"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "network_nexthop_ip_nexthop_if": [
+        {
+          "NETWORK": "default",
+          "NEXTHOP_IP": "10.0.0.4",
+          "NEXTHOP_IF": "brblue"
+        },
+        {
+          "NETWORK": "192.168.0.0/24",
+          "NEXTHOP_IP": "10.0.0.2",
+          "NEXTHOP_IF": "brblue"
+        }
+      ],
+      "network_nexthop_if_protocol_scope_src": [
+        {
+          "NETWORK": "10.0.0.0/24",
+          "NEXTHOP_IF": "brblue",
+          "PROTOCOL": "kernel",
+          "SCOPE": "link",
+          "SRC": "10.0.0.1"
+        },
+        {
+          "NETWORK": "192.168.131.2",
+          "NEXTHOP_IF": "ens32",
+          "PROTOCOL": "dhcp",
+          "SCOPE": "link",
+          "SRC": "192.168.131.128 metric 100"
+        }
+      ]
+    }
+  ],
+  "cli_content": "default via 10.0.0.4 dev brblue\nunreachable default metric 4278198272\nbroadcast 10.0.0.0 dev brblue proto kernel scope link src 10.0.0.1\n10.0.0.0/24 dev brblue proto kernel scope link src 10.0.0.1\nlocal 10.0.0.1 dev brblue proto kernel scope host src 10.0.0.1\nbroadcast 10.0.0.255 dev brblue proto kernel scope link src 10.0.0.1\n192.168.0.0/24 via 10.0.0.2 dev brblue\n192.168.131.2 dev ens32 proto dhcp scope link src 192.168.131.128 metric 100\n",
+  "textfsm_template": "Value PROTOCOL (\\S+)\nValue METRIC (\\d+)\nValue NETWORK (\\S+)\nValue NEXTHOP_IP (\\d{1,3}.\\d{1,3}.\\d{1,3}.\\d{1,3})\nValue NEXTHOP_IF (\\S+)\nValue SCOPE (\\S+)\nValue SRC (\\d{1,3}.\\d{1,3}.\\d{1,3}.\\d{1,3})\n\nStart\n  # dhcp (discarded)\n  ^.*proto dhcp.*\n  ^\\S+ dev \\S+ proto dhcp .*\n  # unreachable, broadcast, local (discarded)\n  ^unreachable\n  ^broadcast*\n  ^local\n  # default\n  ^${NETWORK} via ${NEXTHOP_IP} dev ${NEXTHOP_IF} -> Record\n  # local (network)\n  ^${NETWORK} dev ${NEXTHOP_IF} proto ${PROTOCOL} scope ${SCOPE} src ${SRC} -> Record\n  # static\n  ^${NETWORK} via ${NEXTHOP_IP} dev ${NEXTHOP_IF} -> Record\n  ^. -> Error\n"
+}

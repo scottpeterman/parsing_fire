@@ -1,0 +1,11 @@
+# TTP Template - FAILED VALIDATION
+# Original command: mikrotik_routeros_interface_ethernet_monitor_name_once
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="advertising_auto_negotiation_name_status">
+  name: {{NAME | ORPHRASE}}
+  status: {{STATUS | ORPHRASE}}
+  auto-negotiation: {{AUTO_NEGOTIATION | ORPHRASE}}
+  advertising: {{ADVERTISING | ORPHRASE}}
+</group>

@@ -1,0 +1,19 @@
+# TTP Template auto-generated from TextFSM
+# Original command: fortinet_fnsysctl_ifconfig
+# Source: ntc
+# TextFSM rows: 11
+# TTP rows: 26
+# Match ratio: 2.36
+
+<group name="multicast_mtu_metric">
+        {{MULTICAST | ORPHRASE}} MTU:{{MTU | ORPHRASE}} Metric:{{METRIC}}
+</group>
+<group name="nic_link_encap_hardware_address">
+{{NIC}} Link encap:{{LINK_ENCAP | ORPHRASE}} HWaddr {{HARDWARE_ADDRESS | ORPHRASE}}
+</group>
+<group name="ip_address_bcast_mask">
+        inet addr:{{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} Bcast:{{BCAST}} Mask:{{MASK | ORPHRASE}}
+</group>
+<group name="nic_link_encap">
+{{NIC}} Link encap:{{LINK_ENCAP | ORPHRASE}}
+</group>

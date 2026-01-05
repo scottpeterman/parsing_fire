@@ -1,0 +1,13 @@
+# TTP Template - FAILED VALIDATION
+# Original command: mikrotik_routeros_system_clock_print
+# Source: ntc
+# Error: TTP template produced 0 rows
+
+<group name="date_dst_active_gmt_offset_time">
+  time: {{TIME | ORPHRASE}}
+  date: {{DATE | ORPHRASE}}
+  time-zone-autodetect: {{TIME_ZONE_AUTODETECT | ORPHRASE}}
+  time-zone-name: {{TIME_ZONE_NAME | ORPHRASE}}
+  gmt-offset: {{GMT_OFFSET | ORPHRASE}}
+  dst-active: {{DST_ACTIVE | ORPHRASE}}
+</group>

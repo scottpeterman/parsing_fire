@@ -1,0 +1,30 @@
+{
+  "command": "hp_procurve_show_ip",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"vlan_name_config_ip_address_subnet_mask\">\n  {{VLAN_NAME}} | {{CONFIG}} {{IP_ADDRESS | re(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\\\\.\\\\d+\")}} {{SUBNET_MASK | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN_NAME": "MGMTVLAN",
+      "CONFIG": "Manual",
+      "IP_ADDRESS": "10.11.11.200",
+      "SUBNET_MASK": "255.255.255.0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_name_config_ip_address_subnet_mask": {
+        "VLAN_NAME": "MGMTVLAN",
+        "CONFIG": "Manual",
+        "IP_ADDRESS": "10.11.11.200",
+        "SUBNET_MASK": "255.255.255.0"
+      }
+    }
+  ],
+  "cli_content": " Internet (IP) Service\n\n\n  Default Gateway : 10.11.11.254   \n  Default TTL     : 64   \n  Arp Age         : 20  \n  Domain Suffix   :                               \n  DNS server      :                                         \n\n  VLAN                 | IP Config  IP Address      Subnet Mask    \n  -------------------- + ---------- --------------- ---------------\n  DEFAULT_VLAN         | Disabled \n  MGMTVLAN             | Manual     10.11.11.200    255.255.255.0  ",
+  "textfsm_template": "Value VLAN_NAME (.+?)\nValue CONFIG (\\S+)\nValue IP_ADDRESS (\\S+)\nValue SUBNET_MASK (\\S+)\nValue PROXY (\\S+)\nValue LOCAL (\\S+)\n\nStart\n  ^\\s*Internet\\s+\\(IP\\)\n  ^\\s*IP\\s+Routing\n  ^\\s*Default\\s+Gateway\n  ^\\s*Default\\s+TT\n  ^\\s*Arp\\s+Age\n  ^\\s*Domain\\s+Suffix\n  ^\\s*DNS\\s+server\n  ^\\s+\\|\\s+Proxy\n  ^\\s*VLAN\\s+ -> Interface\n  ^\\s*$$\n  ^. -> Error\n\nInterface\n  ^\\s*----\n  ^\\s*${VLAN_NAME}\\s+\\|\\s+${CONFIG}\\s+${IP_ADDRESS}\\s+${SUBNET_MASK}\\s+${PROXY}\\s+${LOCAL}\\s*$$ -> Record\n  ^\\s*${VLAN_NAME}\\s+\\|\\s+${CONFIG}\\s+${IP_ADDRESS}\\s+${SUBNET_MASK} -> Record\n  ^\\s*${VLAN_NAME}\\s+\\|\\s+${CONFIG}\\s*$$ -> Record\n  ^\\s*$$\n  ^. -> Error\n"
+}

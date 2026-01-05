@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_ip_source_binding
+# Source: ntc
+# TextFSM rows: 3
+# TTP rows: 3
+# Match ratio: 1.00
+
+<group name="mac_address_ip_address_lease_type_vlan_id_interface">
+{{MAC_ADDRESS | re("[0-9a-fA-F:.-]+")}} {{IP_ADDRESS | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}} {{LEASE}} {{TYPE}} {{VLAN_ID | re("\\d+")}} {{INTERFACE | ORPHRASE}}
+</group>

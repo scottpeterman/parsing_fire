@@ -1,0 +1,69 @@
+{
+  "command": "show ip route",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.75,
+  "textfsm_rows": 4,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"network_mask_interface\">\nC {{NETWORK}}/{{MASK}} is directly connected, {{INTERFACE | ORPHRASE}}\n</group>\n<group name=\"network_mask_ad_cost_nexthop\">\nS {{NETWORK}}/{{MASK}} [{{AD}}/{{COST}}] via {{NEXTHOP | ORPHRASE}}\n</group>\n<group name=\"network_mask_ad_cost_nexthop_time_interface\">\nO {{NETWORK}}/{{MASK}} [{{AD}}/{{COST}}] via {{NEXTHOP}}, {{TIME}}, {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NETWORK": "192.168.1.0",
+      "MASK": "24",
+      "INTERFACE": "Ethernet0"
+    },
+    {
+      "NETWORK": "10.10.10.0",
+      "MASK": "24",
+      "AD": "1",
+      "COST": "0",
+      "NEXTHOP": "10.10.20.2"
+    },
+    {
+      "NETWORK": "10.1.1.0",
+      "MASK": "24",
+      "AD": "110",
+      "COST": "2",
+      "NEXTHOP": "10.0.0.1",
+      "TIME": "00:00:21",
+      "INTERFACE": "FastEthernet0/1"
+    },
+    {
+      "NETWORK": "172.16.10.0",
+      "MASK": "24",
+      "AD": "170",
+      "COST": "3072",
+      "NEXTHOP": "10.10.10.2",
+      "TIME": "00:00:11",
+      "INTERFACE": "Ethernet0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "network_mask_interface": {
+        "NETWORK": "192.168.1.0",
+        "MASK": "24",
+        "INTERFACE": "Ethernet0"
+      },
+      "network_mask_ad_cost_nexthop": {
+        "NETWORK": "10.10.10.0",
+        "MASK": "24",
+        "AD": "1",
+        "COST": "0",
+        "NEXTHOP": "10.10.20.2"
+      },
+      "network_mask_ad_cost_nexthop_time_interface": {
+        "NETWORK": "10.1.1.0",
+        "MASK": "24",
+        "AD": "110",
+        "COST": "2",
+        "NEXTHOP": "10.0.0.1",
+        "TIME": "00:00:21",
+        "INTERFACE": "FastEthernet0/1"
+      }
+    }
+  ],
+  "cli_content": "Codes: K - kernel, C - connected, S - static, R - RIP, M - mobile, B - BGP\n       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area \n       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2\n       E1 - OSPF external type 1, E2 - OSPF external type 2\n       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area \n       * - candidate default, U - per-user static route, o - ODR\n       P - periodic downloaded static route\n\nGateway of last resort is not set\n\nC    192.168.1.0/24 is directly connected, Ethernet0\nS    10.10.10.0/24 [1/0] via 10.10.20.2\nO    10.1.1.0/24 [110/2] via 10.0.0.1, 00:00:21, FastEthernet0/1\n     [110/2] via 10.0.0.2, 00:00:21, FastEthernet0/2\nD EX 172.16.10.0/24 [170/3072] via 10.10.10.2, 00:00:11, Ethernet0\n",
+  "textfsm_template": "Value CODES (\\S+)\nValue NETWORK (\\S+)\nValue MASK (\\S+)\nValue AD (\\d+)\nValue COST (\\d+)\nValue NEXTHOP (\\S+)\nValue TIME (\\S+)\nValue INTERFACE (\\S+)\n\nStart\n  ^\\s*C\\s+${NETWORK}/${MASK}\\s+is directly connected, ${INTERFACE}\\s*$$ -> Record\n  ^\\s*S\\s+${NETWORK}/${MASK}\\s+\\[${AD}/${COST}\\] via ${NEXTHOP}\\s*$$ -> Record\n  ^\\s*O\\s+${NETWORK}/${MASK}\\s+\\[${AD}/${COST}\\] via ${NEXTHOP}, ${TIME}, ${INTERFACE}\\s*$$ -> Record\n  ^\\s*D\\s+EX\\s+${NETWORK}/${MASK}\\s+\\[${AD}/${COST}\\] via ${NEXTHOP}, ${TIME}, ${INTERFACE}\\s*$$ -> Record\n"
+}

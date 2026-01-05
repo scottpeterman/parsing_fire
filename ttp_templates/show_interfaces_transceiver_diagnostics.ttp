@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show interfaces transceiver diagnostics
+# Source: chatgpt
+# TextFSM rows: 6
+# TTP rows: 6
+# Match ratio: 1.00
+
+<group name="port_temperature_voltage_opticaltxpower_opticalrxpower">
+{{PORT | re(".*\\w.*")}} {{TEMPERATURE | re(".*\\w.*")}} {{VOLTAGE | re(".*\\w.*")}} {{OPTICALTXPOWER | ORPHRASE}} {{OPTICALRXPOWER | re(".*\\w.*")}}
+</group>

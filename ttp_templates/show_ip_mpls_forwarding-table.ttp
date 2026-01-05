@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip mpls forwarding-table
+# Source: chatgpt
+# TextFSM rows: 4
+# TTP rows: 6
+# Match ratio: 1.50
+
+<group name="local_outgoing_label_prefix_bytes_labels_outgoing_interface">
+{{LOCAL}} {{OUTGOING_LABEL}} {{PREFIX}} {{BYTES}} {{LABELS | ORPHRASE}} {{OUTGOING_INTERFACE | ORPHRASE}} 
+</group>

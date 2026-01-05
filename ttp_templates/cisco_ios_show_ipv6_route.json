@@ -1,0 +1,103 @@
+{
+  "command": "cisco_ios_show_ipv6_route",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.5,
+  "textfsm_rows": 8,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"protocol_network_distance_metric\">\n{{PROTOCOL}} {{NETWORK | ORPHRASE}} [{{DISTANCE}}/{{METRIC}}]\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "C",
+      "NETWORK": "2A05:C100:2A::/64",
+      "DISTANCE": "0",
+      "METRIC": "0",
+      "NEXTHOP_IF": "Vlan1"
+    },
+    {
+      "PROTOCOL": "B",
+      "NETWORK": "2001:DB8:4::2/48",
+      "DISTANCE": "20",
+      "METRIC": "0",
+      "NEXTHOP_IP": "FE80::A8BB:CCFF:FE02:8B00",
+      "NEXTHOP_IF": "Serial6/0"
+    },
+    {
+      "PROTOCOL": "B",
+      "NETWORK": "2001:DB8:4::2/48",
+      "DISTANCE": "20",
+      "METRIC": "0",
+      "NEXTHOP_IP": "A8BB::FE80:CCFF:FE02:8B00",
+      "NEXTHOP_IF": "Serial4/0"
+    },
+    {
+      "PROTOCOL": "L",
+      "NETWORK": "FF00::/8",
+      "DISTANCE": "0",
+      "METRIC": "0",
+      "NEXTHOP_IF": "Null0"
+    },
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "5555:4444::4/128",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOP_IP": "2A05:C100:2A::56"
+    },
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "5555:4444::4/128",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOP_IP": "2A05:C100:2A::5765"
+    },
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "5555:4444::4/128",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOP_IP": "2A05:C100:2A::3:344",
+      "NEXTHOP_IF": "Vlan1"
+    },
+    {
+      "PROTOCOL": "S",
+      "NETWORK": "5555:4444::4/128",
+      "DISTANCE": "1",
+      "METRIC": "0",
+      "NEXTHOP_IF": "Vlan1"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "protocol_network_distance_metric": [
+        {
+          "PROTOCOL": "C",
+          "NETWORK": "2A05:C100:2A::/64",
+          "DISTANCE": "0",
+          "METRIC": "0"
+        },
+        {
+          "PROTOCOL": "B",
+          "NETWORK": "2001:DB8:4::2/48",
+          "DISTANCE": "20",
+          "METRIC": "0"
+        },
+        {
+          "PROTOCOL": "L",
+          "NETWORK": "FF00::/8",
+          "DISTANCE": "0",
+          "METRIC": "0"
+        },
+        {
+          "PROTOCOL": "S",
+          "NETWORK": "5555:4444::4/128",
+          "DISTANCE": "1",
+          "METRIC": "0"
+        }
+      ]
+    }
+  ],
+  "cli_content": "IPv6 Routing Table - default - 6 entries\nCodes: C - Connected, L - Local, S - Static, U - Per-user Static route\n       B - BGP, HA - Home Agent, MR - Mobile Router, R - RIP\n       H - NHRP, D - EIGRP, EX - EIGRP external, ND - ND Default\n       NDp - ND Prefix, DCE - Destination, NDr - Redirect, O - OSPF Intra\n       OI - OSPF Inter, OE1 - OSPF ext 1, OE2 - OSPF ext 2, ON1 - OSPF NSSA ext 1\n       ON2 - OSPF NSSA ext 2, l - LISP\nC   2A05:C100:2A::/64 [0/0]\n     via Vlan1, directly connected\nB   2001:DB8:4::2/48 [20/0]\n     via FE80::A8BB:CCFF:FE02:8B00, Serial6/0\n     via A8BB::FE80:CCFF:FE02:8B00, Serial4/0\nL   FF00::/8 [0/0]\n     via Null0, receive\nS   5555:4444::4/128 [1/0]\n     via 2A05:C100:2A::56\n     via 2A05:C100:2A::5765\n     via 2A05:C100:2A::3:344, Vlan1\n     via Vlan1, directly connected\n",
+  "textfsm_template": "Value Filldown PROTOCOL (\\w{1,4})\nValue Filldown NETWORK ([A-Za-z0-9:]+/\\d{1,3}(?:/\\d{2})?)\nValue Filldown DISTANCE (\\d+)\nValue Filldown METRIC (\\d+)\nValue NEXTHOP_IP ([A-F0-9:]+)\nValue NEXTHOP_IF ([\\w\\d\\s/]+)\n\n\nStart\n  # Match regular ipv6 routes\n  ^IPv6[\\d\\w\\-\\s,:]\\s*\n  ^Codes:[\\d\\w\\-\\s,]\\s*\n  ^\\s{7}[\\d\\w\\-\\s,]\\s*\n  ^${PROTOCOL}\\s+${NETWORK}\\s+(\\[${DISTANCE}/${METRIC}])\\s*$$\n  ^\\s*via\\s+${NEXTHOP_IP}(,\\s+${NEXTHOP_IF}.*)?\\s*$$ -> Record\n  ^\\s*via\\s+${NEXTHOP_IF}.*$$ -> Record\n  ^\\s* -> Clearall\n  ^.*$$ -> Error\n\nEOF"
+}

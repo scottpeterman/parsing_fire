@@ -1,0 +1,84 @@
+{
+  "command": "show firewall rule",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 0.6,
+  "textfsm_rows": 5,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"rule_source_destination_protocol_port_action\">\n{{RULE}} {{SOURCE}} {{DESTINATION}} {{PROTOCOL}} {{PORT | re(\"\\\\d+\")}} {{ACTION | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "RULE": "1",
+      "SOURCE": "192.168.1.0/24",
+      "DESTINATION": "any",
+      "PROTOCOL": "tcp",
+      "PORT": "80",
+      "ACTION": "allow"
+    },
+    {
+      "RULE": "2",
+      "SOURCE": "192.168.2.0/24",
+      "DESTINATION": "172.16.0.0/16",
+      "PROTOCOL": "udp",
+      "PORT": "53",
+      "ACTION": "allow"
+    },
+    {
+      "RULE": "3",
+      "SOURCE": "any",
+      "DESTINATION": "10.10.10.0/24",
+      "PROTOCOL": "icmp",
+      "PORT": "any",
+      "ACTION": "deny"
+    },
+    {
+      "RULE": "4",
+      "SOURCE": "192.168.1.0/24",
+      "DESTINATION": "10.0.0.0/8",
+      "PROTOCOL": "tcp",
+      "PORT": "443",
+      "ACTION": "allow"
+    },
+    {
+      "RULE": "5",
+      "SOURCE": "any",
+      "DESTINATION": "172.16.0.0/16",
+      "PROTOCOL": "any",
+      "PORT": "any",
+      "ACTION": "deny"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "rule_source_destination_protocol_port_action": [
+        {
+          "RULE": "1",
+          "SOURCE": "192.168.1.0/24",
+          "DESTINATION": "any",
+          "PROTOCOL": "tcp",
+          "PORT": "80",
+          "ACTION": "allow"
+        },
+        {
+          "RULE": "2",
+          "SOURCE": "192.168.2.0/24",
+          "DESTINATION": "172.16.0.0/16",
+          "PROTOCOL": "udp",
+          "PORT": "53",
+          "ACTION": "allow"
+        },
+        {
+          "RULE": "4",
+          "SOURCE": "192.168.1.0/24",
+          "DESTINATION": "10.0.0.0/8",
+          "PROTOCOL": "tcp",
+          "PORT": "443",
+          "ACTION": "allow"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Rule    Source          Destination     Protocol Port   Action\n1       192.168.1.0/24  any             tcp      80     allow\n2       192.168.2.0/24  172.16.0.0/16   udp      53     allow\n3       any             10.10.10.0/24   icmp     any    deny\n4       192.168.1.0/24  10.0.0.0/8      tcp      443    allow\n5       any             172.16.0.0/16   any      any    deny\n",
+  "textfsm_template": "Value RULE (\\d+)\nValue SOURCE (\\S+)\nValue DESTINATION (\\S+)\nValue PROTOCOL (\\S+)\nValue PORT (\\S+)\nValue ACTION (\\S+)\n\nStart\n  ^\\s*Rule\\s+Source\\s+Destination\\s+Protocol\\s+Port\\s+Action\\s*$$\n  ^\\s*${RULE}\\s+${SOURCE}\\s+${DESTINATION}\\s+${PROTOCOL}\\s+${PORT}\\s+${ACTION}\\s*$$ -> Record"
+}

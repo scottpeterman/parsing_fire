@@ -1,0 +1,46 @@
+{
+  "command": "show mpls ldp neigbors",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"interface_msgs_rcvd_msgs_sent_peer_id\">\n  State: {{STATE | ORPHRASE}}; Msgs sent/rcvd: 100/100; Downstream-Up time: 00:10:00\nPeer LDP Identifier: {{PEER_ID | ORPHRASE}}\n  TCP Connection: {{TCP_CONNECTION | ORPHRASE}} - 192.168.1.4:53816\n  State: Oper; Msgs sent/rcvd: {{MSGS_SENT}}/{{MSGS_RCVD}}; Downstream-Up time: {{UPTIME | ORPHRASE}}\n  {{INTERFACE | ORPHRASE}}: xmit/recv\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PEER_ID": "192.168.1.1:0",
+      "TCP_CONNECTION": "192.168.1.1:646",
+      "STATE": "Oper",
+      "MSGS_SENT": "100",
+      "MSGS_RCVD": "100",
+      "UPTIME": "00:10:00",
+      "INTERFACE": "GigabitEthernet0/1"
+    },
+    {
+      "PEER_ID": "192.168.1.3:0",
+      "TCP_CONNECTION": "192.168.1.3:646",
+      "STATE": "Oper",
+      "MSGS_SENT": "200",
+      "MSGS_RCVD": "200",
+      "UPTIME": "00:20:00",
+      "INTERFACE": "GigabitEthernet0/2"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "interface_msgs_rcvd_msgs_sent_peer_id": [
+        {
+          "TCP_CONNECTION": "192.168.1.3:646",
+          "PEER_ID": "192.168.1.3:0",
+          "STATE": "Oper"
+        },
+        {
+          "STATE": "Oper"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Peer LDP Identifier: 192.168.1.1:0\n  TCP Connection: 192.168.1.1:646 - 192.168.1.2:39456\n  State: Oper; Msgs sent/rcvd: 100/100; Downstream-Up time: 00:10:00\n  LDP Discovery Sources:\n    GigabitEthernet0/1: xmit/recv\n\nPeer LDP Identifier: 192.168.1.3:0\n  TCP Connection: 192.168.1.3:646 - 192.168.1.4:53816\n  State: Oper; Msgs sent/rcvd: 200/200; Downstream-Up time: 00:20:00\n  LDP Discovery Sources:\n    GigabitEthernet0/2: xmit/recv\n",
+  "textfsm_template": "Value PEER_ID (\\S+)\nValue TCP_CONNECTION (\\S+)\nValue STATE (\\S+)\nValue MSGS_SENT (\\d+)\nValue MSGS_RCVD (\\d+)\nValue UPTIME (\\S+)\nValue INTERFACE (\\S+)\n\nStart\n  ^Peer LDP Identifier:\\s+${PEER_ID}\n  ^\\s*TCP Connection:\\s+${TCP_CONNECTION}\n  ^\\s*State:\\s+${STATE};\\s+Msgs sent/rcvd:\\s+${MSGS_SENT}/${MSGS_RCVD};\\s+Downstream-Up time:\\s+${UPTIME}\n  ^\\s*LDP Discovery Sources:\n  ^\\s*${INTERFACE}:\\s+xmit/recv -> Record"
+}

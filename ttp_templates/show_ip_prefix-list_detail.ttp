@@ -1,0 +1,13 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip prefix-list detail
+# Source: chatgpt
+# TextFSM rows: 1
+# TTP rows: 1
+# Match ratio: 1.00
+
+<group name="action_description_ge_le">
+Prefix-list: {{PREFIX_LIST | ORPHRASE}}
+Description: {{DESCRIPTION | ORPHRASE}}
+Seq: {{SEQUENCE}}, {{ACTION}}: {{PREFIX | ORPHRASE}}
+  ge {{GE}} le {{LE | ORPHRASE}}
+</group>

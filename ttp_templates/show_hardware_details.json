@@ -1,0 +1,33 @@
+{
+  "command": "show hardware details",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"hardware_revision_model_platform_serial_number\">\nSerial Number  : {{SERIAL_NUMBER | ORPHRASE}}\nModel  : {{MODEL | ORPHRASE}}\nVendor  : {{VENDOR | ORPHRASE}}\nHardware Revision  : {{HARDWARE_REVISION | ORPHRASE}}\nSoftware Version  : {{SOFTWARE_VERSION | ORPHRASE}}\nPlatform  : {{PLATFORM | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "MODEL": "N5678XL",
+      "VENDOR": "Cisco Systems",
+      "HARDWARE_REVISION": "A0",
+      "SOFTWARE_VERSION": "15.1(2)T4",
+      "PLATFORM": "ASR1001"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "hardware_revision_model_platform_serial_number": {
+        "PLATFORM": "ASR1001",
+        "SOFTWARE_VERSION": "15.1(2)T4",
+        "HARDWARE_REVISION": "A0",
+        "VENDOR": "Cisco Systems",
+        "MODEL": "N5678XL",
+        "SERIAL_NUMBER": "JPE1234567T"
+      }
+    }
+  ],
+  "cli_content": "Serial Number      : JPE1234567T\nModel              : N5678XL\nVendor             : Cisco Systems\nHardware Revision  : A0\nSoftware Version   : 15.1(2)T4\nPlatform           : ASR1001\n",
+  "textfsm_template": "Value SERIAL_NUMBER (\\S+)\nValue MODEL (\\S+)\nValue VENDOR (.+)\nValue HARDWARE_REVISION (\\S+)\nValue SOFTWARE_VERSION (\\S+)\nValue PLATFORM (\\S+)\n\nStart\n  ^Serial Number\\s+:\\s+${SERIAL_NUMBER} -> Record\n  ^Model\\s+:\\s+${MODEL}\n  ^Vendor\\s+:\\s+${VENDOR}\n  ^Hardware Revision\\s+:\\s+${HARDWARE_REVISION}\n  ^Software Version\\s+:\\s+${SOFTWARE_VERSION}\n  ^Platform\\s+:\\s+${PLATFORM}\n  "
+}

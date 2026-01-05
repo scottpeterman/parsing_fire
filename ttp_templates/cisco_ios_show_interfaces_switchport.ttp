@@ -1,0 +1,18 @@
+# TTP Template auto-generated from TextFSM
+# Original command: cisco_ios_show_interfaces_switchport
+# Source: ntc
+# TextFSM rows: 2
+# TTP rows: 1
+# Match ratio: 0.50
+
+<group name="access_vlan_admin_mode_interface_mode">
+Name: Gi0/{{NATIVE_VLAN | ORPHRASE}}/3
+Switchport: {{SWITCHPORT | ORPHRASE}}
+Administrative Mode: {{ADMIN_MODE | ORPHRASE}}
+Negotiation of Trunking: {{SWITCHPORT_NEGOTIATION | ORPHRASE}}
+Voice VLAN: {{VOICE_VLAN | ORPHRASE}}
+Trunking VLANs Enabled: {{TRUNKING_VLANS | ORPHRASE}}
+Name: {{INTERFACE | ORPHRASE}}
+Operational Mode: {{MODE | ORPHRASE}}
+Access Mode VLAN: {{ACCESS_VLAN | ORPHRASE}} (wirelessmgmt)
+</group>

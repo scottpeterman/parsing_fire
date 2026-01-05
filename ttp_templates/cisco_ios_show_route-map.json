@@ -1,0 +1,43 @@
+{
+  "command": "cisco_ios_show_route-map",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 2,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"action_match_clauses_name_seq\">\nroute-map {{NAME}}, {{ACTION | ORPHRASE}}, sequence 10\n  length 150 {{SEQ | ORPHRASE}}0\n  {{SET_CLAUSES | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "NAME": "equal",
+      "ACTION": "permit",
+      "SEQ": "10",
+      "MATCH_CLAUSES": "length 150 200",
+      "SET_CLAUSES": "ip next-hop 10.10.11.254"
+    },
+    {
+      "NAME": "equal",
+      "ACTION": "permit",
+      "SEQ": "20",
+      "MATCH_CLAUSES": "ip address prefix-lists: PFX, ip address (access-lists): 101",
+      "SET_CLAUSES": "ip next-hop 10.10.11.14"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "action_match_clauses_name_seq": [
+        {
+          "NAME": "equal",
+          "ACTION": "permit"
+        },
+        {
+          "SET_CLAUSES": "Match clauses:",
+          "NAME": "equal",
+          "ACTION": "permit"
+        }
+      ]
+    }
+  ],
+  "cli_content": "route-map equal, permit, sequence 10\n   Match clauses:\n     length 150 200\n   Set clauses:\n     ip next-hop 10.10.11.254\n   Policy routing matches: 0 packets, 0 bytes\nroute-map equal, permit, sequence 20\n  Match clauses:\n    ip address prefix-lists: PFX\n    ip address (access-lists): 101\n  Set clauses:\n    ip next-hop 10.10.11.14\n  Policy routing matches: 144 packets, 15190 bytes\n",
+  "textfsm_template": "Value Required NAME (\\S+)\nValue Required ACTION (\\S+)\nValue Required SEQ (\\d+)\nValue List MATCH_CLAUSES (.+?)\nValue List SET_CLAUSES (.+?)\n\nStart\n  ^route-map\\s+${NAME},\\s+${ACTION},\\s+sequence\\s+${SEQ}\\s*$$\n  ^\\s+Match\\s+clauses -> Match\n  ^\\s+Set\\s+clauses -> Set\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^.+ -> Error\n\nMatch\n  ^\\s*$$\n  ^\\s+Set\\s+clauses -> Set\n  ^\\s+Policy\\s+routing\n  ^\\s+${MATCH_CLAUSES}\\s*$$\n  ^route-map -> Continue.Record\n  ^route-map\\s+${NAME},\\s+${ACTION},\\s+sequence\\s+${SEQ}\\s*$$ -> Start\n  ^.+ -> Error\n\nSet\n  ^\\s*$$\n  ^\\s+Policy\\s+routing\n  ^\\s+${SET_CLAUSES}\\s*$$\n  ^route-map -> Continue.Record\n  ^route-map\\s+${NAME},\\s+${ACTION},\\s+sequence\\s+${SEQ}\\s*$$ -> Start\n  ^.+ -> Error\n"
+}

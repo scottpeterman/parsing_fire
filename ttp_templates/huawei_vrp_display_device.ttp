@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: huawei_vrp_display_device
+# Source: ntc
+# TextFSM rows: 23
+# TTP rows: 2
+# Match ratio: 0.09
+
+<group name="slot_card_pid_online_status_power_status_register_status_alarm_status_ha_status">
+{{SLOT | re("\\d+")}} {{CARD | re(".*\\w.*")}} {{PID | ORPHRASE}} {{ONLINE_STATUS | ORPHRASE}} {{POWER_STATUS | ORPHRASE}} {{REGISTER_STATUS | ORPHRASE}} {{ALARM_STATUS | ORPHRASE}} {{HA_STATUS | ORPHRASE}} 
+</group>

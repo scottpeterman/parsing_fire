@@ -1,0 +1,133 @@
+{
+  "command": "huawei_vrp_display_temperature",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.4444444444444444,
+  "textfsm_rows": 9,
+  "ttp_rows": 13,
+  "ttp_template": "<group name=\"slotid\">\n{{SLOTID | ORPHRASE}} :\n<group name=\"pcb_status_temperature\">\n{{PCB}} 0 0 0 {{STATUS | ORPHRASE}} 68 76 83 55 65 {{TEMPERATURE | ORPHRASE}}\n</group>\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "SLOTID": "SlotID2",
+      "PCB": "LPUF41A",
+      "STATUS": "NORMAL",
+      "TEMPERATURE": "38"
+    },
+    {
+      "SLOTID": "SlotID2",
+      "PCB": "LPUF41A",
+      "STATUS": "NORMAL",
+      "TEMPERATURE": "36"
+    },
+    {
+      "SLOTID": "SlotID2",
+      "PCB": "LPUF41A",
+      "STATUS": "NORMAL",
+      "TEMPERATURE": "28"
+    },
+    {
+      "SLOTID": "SlotID2",
+      "PCB": "LPUF41A",
+      "STATUS": "NORMAL",
+      "TEMPERATURE": "55"
+    },
+    {
+      "SLOTID": "SlotID2",
+      "PCB": "LPUF41A",
+      "STATUS": "NORMAL",
+      "TEMPERATURE": "37"
+    },
+    {
+      "SLOTID": "SlotID2",
+      "PCB": "LPUF41A",
+      "STATUS": "NORMAL",
+      "TEMPERATURE": "41"
+    },
+    {
+      "SLOTID": "SlotID2",
+      "PCB": "EFGF",
+      "STATUS": "NORMAL",
+      "TEMPERATURE": "30"
+    },
+    {
+      "SLOTID": "SlotID2",
+      "PCB": "EFGF",
+      "STATUS": "NORMAL",
+      "TEMPERATURE": "36"
+    },
+    {
+      "SLOTID": "SlotID27",
+      "PCB": "FAN",
+      "STATUS": "NORMAL",
+      "TEMPERATURE": "25"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "slotid": [
+        {
+          "SLOTID": "SlotID2",
+          "pcb_status_temperature": [
+            {
+              "PCB": "LPUF41A",
+              "STATUS": "NORMAL",
+              "TEMPERATURE": "38"
+            },
+            {
+              "PCB": "LPUF41A",
+              "STATUS": "NORMAL",
+              "TEMPERATURE": "36"
+            },
+            {
+              "PCB": "LPUF41A",
+              "STATUS": "NORMAL",
+              "TEMPERATURE": "28"
+            },
+            {
+              "PCB": "LPUF41A",
+              "STATUS": "NORMAL",
+              "TEMPERATURE": "55"
+            },
+            {
+              "PCB": "LPUF41A",
+              "STATUS": "NORMAL",
+              "TEMPERATURE": "37"
+            },
+            {
+              "PCB": "LPUF41A",
+              "STATUS": "NORMAL",
+              "TEMPERATURE": "41"
+            },
+            {
+              "PCB": "EFGF",
+              "STATUS": "NORMAL",
+              "TEMPERATURE": "30"
+            },
+            {
+              "PCB": "EFGF",
+              "STATUS": "NORMAL",
+              "TEMPERATURE": "36"
+            }
+          ]
+        },
+        {
+          "SLOTID": "SlotID25"
+        },
+        {
+          "SLOTID": "SlotID26"
+        },
+        {
+          "SLOTID": "SlotID27",
+          "pcb_status_temperature": {
+            "PCB": "FAN",
+            "STATUS": "NORMAL",
+            "TEMPERATURE": "25"
+          }
+        }
+      ]
+    }
+  ],
+  "cli_content": "SlotID2 :\n Base-Board, Unit:C, Slot2\nPCB       I2C Addr Chl  Status  Minor Major Fatal Adj_speed Temp\n                                               TMin Tmax (C)\n---------------------------------------------------------------\nLPUF41A   0   0    0    NORMAL  68    76    83    55   65   38\nLPUF41A   0   1    0    NORMAL  63    71    78    50   60   36\nLPUF41A   0   2    0    NORMAL  69    77    85    56   66   28\nLPUF41A   7   175  0    NORMAL  89    94    105   76   86   55\nLPUF41A   7   175  1    NORMAL  89    94    105   76   86   37\nLPUF41A   7   175  2    NORMAL  89    94    105   76   86   41\nEFGF      2   73   0    NORMAL  77    83    92    64   74   30\nEFGF      3   73   0    NORMAL  77    83    92    64   74   36\n\nSlotID25 :\n\nSlotID26 :\n\nSlotID27 :\n Base-Board, Unit:C, SlotID27\nPCB   I2C Addr Chl  Status  Minor Major Fatal Adj_speed Temp\n                                              TMin Tmax (C)\n-----------------------------------------------------------------\nFAN   1   0    0    NORMAL  70    80    95    32   45   25\n\n\n\nSlotID31 : No temp sensors.\n",
+  "textfsm_template": "Value Filldown SLOTID (\\S+)\nValue Required PCB (\\w+)\nValue Required STATUS (\\w+)\nValue TEMPERATURE (\\d+)\n\nStart\n  ^${SLOTID}\\s+: \n  ^${PCB}\\s+\\d+\\s+\\d+\\s+\\d+\\s+${STATUS}\\s+\\d+\\s+\\d+\\s+\\d+\\s+\\d+\\s+\\d+\\s+${TEMPERATURE} -> Record\n  ^\\s*Base-Board,\n  ^PCB\\s+I2C\\s+Addr\\s+Chl\\s+Status\\s+Minor\\s+Major\\s+Fatal\\s+Adj_speed\\s+Temp\\s*$$\n  ^\\s+TMin\\s+Tmax\\s+\\(\\S+\\)\\s*$$\n  ^-+\n  ^\\s*$$\n  ^. -> Error\n"
+}

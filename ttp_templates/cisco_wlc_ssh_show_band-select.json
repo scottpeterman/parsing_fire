@@ -1,0 +1,30 @@
+{
+  "command": "cisco_wlc_ssh_show_band-select",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"band_select_age_dual_band_band_select_age_suppress_band_select_client_mid_rssi_band_select_client_rssi\">\nBand Select Probe Response....................... {{BAND_SELECT_PROBE_RESPONSE | ORPHRASE}}\n  Cycle Count................................... {{BAND_SELECT_CYCLE_COUNT | ORPHRASE}}\n  Cycle Threshold............................... {{BAND_SELECT_CYCLE_THRESH | ORPHRASE}}\n  Age Out Suppression........................... {{BAND_SELECT_AGE_SUPPRESS | ORPHRASE}}\n  Age Out Dual Band............................. {{BAND_SELECT_AGE_DUAL_BAND | ORPHRASE}}\n  Client RSSI................................... {{BAND_SELECT_CLIENT_RSSI | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "BAND_SELECT_PROBE_RESPONSE": "per WLAN enabling",
+      "BAND_SELECT_CYCLE_COUNT": "2 cycles",
+      "BAND_SELECT_CYCLE_THRESH": "200 milliseconds",
+      "BAND_SELECT_AGE_SUPPRESS": "20 seconds",
+      "BAND_SELECT_AGE_DUAL_BAND": "60 seconds",
+      "BAND_SELECT_CLIENT_RSSI": "-80 dBm",
+      "BAND_SELECT_CLIENT_MID_RSSI": "-80 dBm"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "band_select_age_dual_band_band_select_age_suppress_band_select_client_mid_rssi_band_select_client_rssi": {
+        "BAND_SELECT_PROBE_RESPONSE": "per WLAN enabling"
+      }
+    }
+  ],
+  "cli_content": "Band Select Probe Response....................... per WLAN enabling\n   Cycle Count................................... 2 cycles\n   Cycle Threshold............................... 200 milliseconds\n   Age Out Suppression........................... 20 seconds\n   Age Out Dual Band............................. 60 seconds\n   Client RSSI................................... -80 dBm\n   Client Mid RSSI............................... -80 dBm\n",
+  "textfsm_template": "Value BAND_SELECT_PROBE_RESPONSE (.+?)\nValue BAND_SELECT_CYCLE_COUNT (\\d+\\s+\\w+)\nValue BAND_SELECT_CYCLE_THRESH (\\d+\\s+\\w+)\nValue BAND_SELECT_AGE_SUPPRESS (\\d+\\s+\\w+)\nValue BAND_SELECT_AGE_DUAL_BAND (\\d+\\s+\\w+)\nValue BAND_SELECT_CLIENT_RSSI (-\\d+\\s+dBm)\nValue BAND_SELECT_CLIENT_MID_RSSI (-\\d+\\s+dBm)\n\n\nStart\n  ^Band\\s+Select\\s+Probe\\s+Response\\.*\\s+${BAND_SELECT_PROBE_RESPONSE}s*$$\n  ^\\s+Cycle\\s+Count\\.*\\s+${BAND_SELECT_CYCLE_COUNT}s*$$\n  ^\\s+Cycle\\s+Threshold\\.*\\s+${BAND_SELECT_CYCLE_THRESH}s*$$\n  ^\\s+Age\\s+Out\\s+Suppression\\.*\\s+${BAND_SELECT_AGE_SUPPRESS}s*$$\n  ^\\s+Age\\s+Out\\s+Dual\\s+Band\\.*\\s+${BAND_SELECT_AGE_DUAL_BAND}s*$$\n  ^\\s+Client\\s+RSSI\\.*\\s+${BAND_SELECT_CLIENT_RSSI}s*$$\n  ^\\s+Client\\s+Mid\\s+RSSI\\.*\\s+${BAND_SELECT_CLIENT_MID_RSSI}s*$$\n  ^\\s*$$\n  ^. -> Error"
+}

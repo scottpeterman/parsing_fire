@@ -1,0 +1,77 @@
+{
+  "command": "cisco_nxos_show_ip_community-list",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.3333333333333333,
+  "textfsm_rows": 6,
+  "ttp_rows": 2,
+  "ttp_template": "<group name=\"seq_action_as_tag\">\n    {{SEQ}} {{ACTION}} \"{{AS | ORPHRASE}}:{{TAG | ORPHRASE}}\"\n</group>\n<group name=\"seq_action_community\">\n    {{SEQ}} {{ACTION}} 44444:10000 55555:10005 {{COMMUNITY | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "TYPE": "Expanded",
+      "NAME": "ROUTES_CL1",
+      "SEQ": "1",
+      "ACTION": "permit",
+      "AS": "11111",
+      "TAG": "10000"
+    },
+    {
+      "TYPE": "Standard",
+      "NAME": "ROUTES_CL2",
+      "SEQ": "1",
+      "ACTION": "permit",
+      "AS": "11111",
+      "TAG": "10000"
+    },
+    {
+      "TYPE": "Standard",
+      "NAME": "ROUTES_CL2",
+      "SEQ": "2",
+      "ACTION": "permit",
+      "AS": "22222",
+      "TAG": "10000"
+    },
+    {
+      "TYPE": "Standard",
+      "NAME": "ROUTES_CL2",
+      "SEQ": "3",
+      "ACTION": "permit",
+      "AS": "33333",
+      "TAG": "10000"
+    },
+    {
+      "TYPE": "Standard",
+      "NAME": "ROUTES_CL2",
+      "SEQ": "4",
+      "ACTION": "permit",
+      "AS": "44444, 55555",
+      "TAG": "10000, 10005",
+      "COMMUNITY": "no-export"
+    },
+    {
+      "TYPE": "Standard",
+      "NAME": "ROUTES_CL2",
+      "SEQ": "5",
+      "ACTION": "deny",
+      "COMMUNITY": "internet"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "seq_action_as_tag": {
+        "SEQ": "1",
+        "ACTION": "permit",
+        "AS": "11111",
+        "TAG": "10000"
+      },
+      "seq_action_community": {
+        "SEQ": "4",
+        "ACTION": "permit",
+        "COMMUNITY": "no-export"
+      }
+    }
+  ],
+  "cli_content": "Expanded Community List ROUTES_CL1\n    1 permit \"11111:10000\"\nStandard Community List ROUTES_CL2\n    1 permit 11111:10000\n    2 permit 22222:10000\n    3 permit 33333:10000\n    4 permit 44444:10000 55555:10005 no-export\n    5 deny internet\n",
+  "textfsm_template": "Value Required,Filldown TYPE (Standard|Expanded)\nValue Required,Filldown NAME (\\S+)\nValue Required SEQ (\\d+)\nValue Required ACTION (permit|deny)\nValue List AS (\\d+)\nValue List TAG (\\d+)\nValue COMMUNITY (\\D+)\n\nStart\n  ^${TYPE}\\s+Community\\s+List\\s+${NAME}\\s*$$\n  ^\\s+${SEQ}\\s+${ACTION}\\s+\\\"*${AS}:${TAG}\\\"* -> Continue\n  ^\\s+\\d+\\s+(?:permit|deny)\\s+\\\"*\\d+:\\d+\\\"*\\s+\\\"*${AS}:${TAG}\\\"* -> Continue\n  ^\\s+\\d+\\s+(?:permit|deny)\\s+(?:\\\"*\\d+:\\d+\\\"*\\s+){2}\\\"*${AS}:${TAG}\\\"* -> Continue\n  ^\\s+\\d+\\s+(?:permit|deny)\\s+(?:\\\"*\\d+:\\d+\\\"*\\s+){3}\\\"*${AS}:${TAG}\\\"* -> Continue\n  ^\\s+.+\\\"*\\d+:\\d+\\\"*\\s+${COMMUNITY}\\s*$$ -> Continue\n  ^\\s+${SEQ}\\s+${ACTION}\\s+${COMMUNITY}\\s*$$ -> Continue\n  ^\\s+ -> Record\n  ^$$\n  ^.*$$ -> Error\n"
+}

@@ -1,0 +1,52 @@
+{
+  "command": "hp_procurve_show_tech_buffers",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 3.0,
+  "textfsm_rows": 1,
+  "ttp_rows": 3,
+  "ttp_template": "<group name=\"build_cpu_date_name\">\nProduct:  {{PRODUCT | ORPHRASE}}\nName:  {{NAME | ORPHRASE}}\nDate:  {{DATE | ORPHRASE}}\nBuild:  {{BUILD | ORPHRASE}}\nVersion:  {{VERSION | ORPHRASE}}\nCPU:  {{CPU | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PRODUCT": "HP J9091A",
+      "NAME": "HP Switch E8212zl",
+      "DATE": "Apr 20 2012 12:34:21",
+      "BUILD": "13",
+      "VERSION": "K.15.06.0017",
+      "CPU": "PPC85XX"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "build_cpu_date_name": [
+        {
+          "CPU": "PPC85XX",
+          "VERSION": "K.15.06.0017",
+          "BUILD": "13",
+          "DATE": "Apr 20 2012 12:34:21",
+          "NAME": "HP Switch E8212zl",
+          "PRODUCT": "HP J9091A"
+        },
+        {
+          "CPU": "arm11",
+          "VERSION": "K.15.06.0017",
+          "BUILD": "288",
+          "DATE": "Apr 20 2012 12:18:16",
+          "NAME": "Procurve Switch card id:68",
+          "PRODUCT": "Procurve CA"
+        },
+        {
+          "CPU": "arm11",
+          "VERSION": "K.15.06.0017",
+          "BUILD": "288",
+          "DATE": "Apr 20 2012 12:18:16",
+          "NAME": "Procurve Switch card id:124",
+          "PRODUCT": "Procurve CA"
+        }
+      ]
+    }
+  ],
+  "cli_content": "\n\n\n\n\n\n\n\n\n\nCRASHLogfileshow\n\n\nActive Management Module 2 Crash Log\n\n...Crash Log File Header..........................\nProduct:   HP J9091A\nName:      HP Switch E8212zl\nDate:      Apr 20 2012 12:34:21\nBuild:     13\nVersion:   K.15.06.0017\nDirectory: /ws/swbuildm/ec_rel_eureka_qaoff/code/b\nCPU:       PPC85XX\n  crash rec index = 1\n   boot type    = Warm Boot\n   willBootType = UNKNOWN BOOT\n..................................................\n    CrashRecordPointer (ff419a8)  for Crash Record Index 1\n----- Crash Record:   1 at 0xff419a8 -----\ncrash id = 0x7f0c3993\ncrash info = 0xbaabface\nMgmt Module 2 went down in Active Mode\ntimestamp:  03/08/16 00:04:11\nCrash msg:  Operator warm reload.\n-----\n\n\nStandby Management Module 1 Crash Log\n\nCrash Log Uninitialized\n\n\nCRASHData\n\nSlot 1\n\nCRASHLogfileshow\n\nslot a:\n-------\n\n...Crash Log File Header..........................\nProduct:   Procurve CA\nName:      Procurve Switch card id:68\nDate:      Apr 20 2012 12:18:16\nBuild:     288\nVersion:   K.15.06.0017\nDirectory: /ws/swbuildm/ec_rel_eureka_qaoff/code/b\nCPU:       arm11\n  crash rec index = 0\n   boot type    = POWER ON\n   willBootType = UNKNOWN BOOT\n..................................................\n  No Saved Crash Information\n\n\nCRASHData\n\nslot a:\n-------\n\nMSGCOUNTERSshow\n\nslot a:\n-------\n txSeq        =      64295     rxSeq       =      42342 \n rxAcks       =    1209122     txAcks      =    2151500 \n retx         =          0     rxOutOfSeq  =          0 \n rtx_pktcnt   =          0     rxSeqQcnt   =          0 \n Max pktcnt   =         31     Max Qcnt    =          0 \n Bad CRCs     =          0     dupSeq      =          3 \n\n\nMSGpoolStatsShow\n\nslot a:\n-------\n             total   free  allocated  min-free  missed  corrupt\n             -----  -----  ---------  --------  ------  -------\n  MSG_BUF     4400   4168      232       4010        0       0\n\n\nChecking buffer pool structures... PASSED\n\nAllocation statistics for MSG buffer pool:\nCurrent system time: 01/16/90 15:16:02\n   OwnerName    OwnerID    #Owned        Oldest\n  -----------   --------   ------   -----------------\n       (null)   1b215600       3    01/01/90 00:00:00\n     muiCore1   1b1ed400       2    01/01/90 00:00:04\n      mSess11   1b1eda40       1    01/01/90 00:00:03\n    mSesInp11   1b1ea880       1    01/01/90 00:00:04\n   mChassAgnt   1b1f1500       8    01/01/90 00:00:04\n   mInstUpCtl   1b215740       2    01/16/90 15:14:59\n     mAsicUpd   1b1e78c0       1    01/16/90 15:16:01\n   mAdMUpCtrl   1b1e7e00       3    01/01/90 00:00:05\n    mHttpCtUp   1b1dfc00       1    01/16/90 15:16:01\n   mIpAdMUpCt   1b1e4c80       3    01/01/90 00:00:05\n   mPmSlvCtrl   1b1db500       3    01/01/90 00:00:05\n   mPoeMgrCtl   1b1f7e80       2    01/01/90 00:00:06\n   tagentConsole   1b1f7900       1    01/16/90 15:16:01\n     muiAgent   1b1f7640       1    01/16/90 15:16:01\n    INTERRUPT          0     199    01/16/90 15:15:13\n  Note: (null) indicates buffer allocated at init time (not used since).\n\n\nSlot 2\n\nCRASHLogfileshow\n\nslot b:\n-------\n\n...Crash Log File Header..........................\nProduct:   Procurve CA\nName:      Procurve Switch card id:124\nDate:      Apr 20 2012 12:18:16\nBuild:     288\nVersion:   K.15.06.0017\nDirectory: /ws/swbuildm/ec_rel_eureka_qaoff/code/b\nCPU:       arm11\n  crash rec index = 0\n   boot type    = POWER ON\n   willBootType = UNKNOWN BOOT\n..................................................\n  No Saved Crash Information\n\n\nCRASHData\n\nslot b:\n-------\n\nMSGCOUNTERSshow\n\nslot b:\n-------\n txSeq        =      12101     rxSeq       =      44667 \n rxAcks       =    1237277     txAcks      =    2131969 \n retx         =          0     rxOutOfSeq  =          0 \n rtx_pktcnt   =          0     rxSeqQcnt   =          0 \n Max pktcnt   =         31     Max Qcnt    =          0 \n Bad CRCs     =          0     dupSeq      =          1 \n\n\nMSGpoolStatsShow\n\nslot b:\n-------\n             total   free  allocated  min-free  missed  corrupt\n             -----  -----  ---------  --------  ------  -------\n  MSG_BUF     4400   4168      232       4062        0       0\n\n\nChecking buffer pool structures... PASSED\n\nAllocation statistics for MSG buffer pool:\nCurrent system time: 01/16/90 15:16:00\n   OwnerName    OwnerID    #Owned        Oldest\n  -----------   --------   ------   -----------------\n       (null)   1b215600       3    01/01/90 00:00:00\n     muiCore2   1b1f1bc0       2    01/01/90 00:00:04\n      mSess21   1b1ed000       1    01/01/90 00:00:04\n    mSesInp21   1b215740       1    01/01/90 00:00:04\n   mChassAgnt   1b1f1500       8    01/01/90 00:00:07\n     mAsicUpd   1b1e8d40       1    01/16/90 15:15:59\n   mAdMUpCtrl   1b1e5280       3    01/01/90 00:00:08\n    mHttpCtUp   1b1dc080       1    01/16/90 15:15:59\n   mIpAdMUpCt   1b1e1100       3    01/01/90 00:00:08\n   mPmSlvCtrl   1b1dc980       3    01/01/90 00:00:08\n   mInstUpCtl   1b1eaf40       2    01/16/90 15:14:59\n   mPoeMgrCtl   1b1f7f00       2    01/01/90 00:00:09\n   tagentConsole   1b1f7980       1    01/16/90 15:15:59\n     muiAgent   1b1f76c0       1    01/16/90 15:15:59\n    INTERRUPT          0     199    01/16/90 15:15:06\n  Note: (null) indicates buffer allocated at init time (not used since).\n\n",
+  "textfsm_template": "Value PRODUCT (.+)\nValue NAME (.+)\nValue DATE (.+)\nValue BUILD (.+)\nValue VERSION (.+)\nValue CPU (\\S+)\n\nStart\n  ^.*[cC]rash Log File Header -> HEADER\n\nHEADER\n  ^\\s*Product:\\s+${PRODUCT}\n  ^\\s*Name:\\s+${NAME}\n  ^\\s*Date:\\s+${DATE}\n  ^\\s*Build:\\s+${BUILD}\n  ^\\s*Version:\\s+${VERSION}\n  ^\\s*Directory:.+\n  ^\\s*CPU:\\s+${CPU} -> Record SLOTS\n\nSLOTS\n  ^.*[cC]rash Log File Header -> NoRecord"
+}

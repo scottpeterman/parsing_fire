@@ -1,0 +1,59 @@
+{
+  "command": "show high-availability",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.3333333333333333,
+  "textfsm_rows": 3,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"state\">\nState: {{STATE | ORPHRASE}}\n</group>\n<group name=\"interface\">\nInterface: {{INTERFACE | ORPHRASE}}\n</group>\n<group name=\"failures_missed_heartbeats_failovers\">\nLast Transition: 2{{FAILURES}}23-{{MISSED_HEARTBEATS}}9-25 {{FAILOVERS | ORPHRASE}}2:45:36\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ROLE": "Active",
+      "PEER": "Standby",
+      "STATE": "Active/Ready",
+      "LAST_TRANSITION": "2023-09-25 12:45:36",
+      "UPTIME": "10 days, 18:22:16",
+      "PEER_UPTIME": "10 days, 18:20:54",
+      "FAILOVER": "Enabled",
+      "PREEMPT": "Disabled",
+      "PRIORITY": "100",
+      "PEER_PRIORITY": "90",
+      "INTERFACE": "GigabitEthernet0/0",
+      "PEER_INTERFACE": "GigabitEthernet0/0",
+      "STATUS": "Up"
+    },
+    {
+      "INTERFACE": "GigabitEthernet0/1",
+      "PEER_INTERFACE": "GigabitEthernet0/1",
+      "STATUS": "Up"
+    },
+    {
+      "FAILOVERS": "1",
+      "FAILURES": "0",
+      "MISSED_HEARTBEATS": "0"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "state": {
+        "STATE": "Active/Ready"
+      },
+      "interface": [
+        {
+          "INTERFACE": "GigabitEthernet0/0"
+        },
+        {
+          "INTERFACE": "GigabitEthernet0/1"
+        }
+      ],
+      "failures_missed_heartbeats_failovers": {
+        "FAILURES": "2",
+        "MISSED_HEARTBEATS": "0",
+        "FAILOVERS": "1"
+      }
+    }
+  ],
+  "cli_content": "High Availability - Summary\n===========================\nRole: Active\nPeer: Standby\nState: Active/Ready\nLast Transition: 2023-09-25 12:45:36\nUptime: 10 days, 18:22:16\nPeer Uptime: 10 days, 18:20:54\nFailover: Enabled\nPreempt: Disabled\nPriority: 100\nPeer Priority: 90\n\nHigh Availability - Link Status\n===============================\nInterface: GigabitEthernet0/0\n  Peer Interface: GigabitEthernet0/0\n  Status: Up\n\nInterface: GigabitEthernet0/1\n  Peer Interface: GigabitEthernet0/1\n  Status: Up\n\nHigh Availability - Statistics\n==============================\nFailovers: 1\nFailures: 0\nMissed Heartbeats: 0\n",
+  "textfsm_template": "Value ROLE (\\S+)\nValue PEER (\\S+)\nValue STATE (\\S+)\nValue LAST_TRANSITION (\\d+-\\d+-\\d+\\s+\\d+:\\d+:\\d+)\nValue UPTIME (\\d+\\s+days,\\s+\\d+:\\d+:\\d+)\nValue PEER_UPTIME (\\d+\\s+days,\\s+\\d+:\\d+:\\d+)\nValue FAILOVER (\\S+)\nValue PREEMPT (\\S+)\nValue PRIORITY (\\d+)\nValue PEER_PRIORITY (\\d+)\nValue INTERFACE (\\S+)\nValue PEER_INTERFACE (\\S+)\nValue STATUS (Up|Down)\nValue FAILOVERS (\\d+)\nValue FAILURES (\\d+)\nValue MISSED_HEARTBEATS (\\d+)\n\nStart\n  ^Role:\\s+${ROLE}\\s*$$\n  ^Peer:\\s+${PEER}\\s*$$\n  ^State:\\s+${STATE}\\s*$$\n  ^Last\\s+Transition:\\s+${LAST_TRANSITION}\\s*$$\n  ^Uptime:\\s+${UPTIME}\\s*$$\n  ^Peer\\s+Uptime:\\s+${PEER_UPTIME}\\s*$$\n  ^Failover:\\s+${FAILOVER}\\s*$$\n  ^Preempt:\\s+${PREEMPT}\\s*$$\n  ^Priority:\\s+${PRIORITY}\\s*$$\n  ^Peer\\s+Priority:\\s+${PEER_PRIORITY}\\s*$$\n  ^Interface:\\s+${INTERFACE}\\s*$$\n  ^\\s+Peer\\s+Interface:\\s+${PEER_INTERFACE}\\s*$$\n  ^\\s+Status:\\s+${STATUS}\\s*$$ -> Record\n  ^Failovers:\\s+${FAILOVERS}\\s*$$\n  ^Failures:\\s+${FAILURES}\\s*$$\n  ^Missed\\s+Heartbeats:\\s+${MISSED_HEARTBEATS}\\s*$$"
+}

@@ -1,0 +1,5720 @@
+{
+  "command": "cisco_ios_show_ip_access-lists",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 6.777777777777778,
+  "textfsm_rows": 81,
+  "ttp_rows": 549,
+  "ttp_template": "<group name=\"line_num_action_src_host\">\n    {{LINE_NUM}} {{ACTION}} {{SRC_HOST | re(\"\\\\S+\")}}\n</group>\n<group name=\"line_num_action_src_any_log\">\n    {{LINE_NUM}} {{ACTION}} {{SRC_ANY}} {{LOG | ORPHRASE}}\n</group>\n<group name=\"line_num_action_src_network_src_wildcard_matches\">\n    {{LINE_NUM}} {{ACTION}} {{SRC_NETWORK}}, wildcard bits {{SRC_WILDCARD}} ({{MATCHES | ORPHRASE}} matches)\n</group>\n<group name=\"line_num_action_protocol_src_any_dst_host_dst_port_match_dst_port\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} host {{DST_HOST | re(\"\\\\S+\")}} {{DST_PORT_MATCH}} {{DST_PORT | ORPHRASE}}\n</group>\n<group name=\"line_num_action_protocol_src_any_dst_host_dst_port_match_dst_port_log\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} host {{DST_HOST | re(\"\\\\S+\")}} {{DST_PORT_MATCH}} {{DST_PORT | ORPHRASE}} {{LOG | ORPHRASE}}\n</group>\n<group name=\"line_num_action_protocol_src_any_dst_any_log\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} {{DST_ANY}} {{LOG | ORPHRASE}}\n</group>\n<group name=\"line_num_action_protocol_src_any_dst_any_log_time_state\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} {{DST_ANY}} {{LOG}} time-range {{TIME}} ({{STATE | ORPHRASE}})\n</group>\n<group name=\"line_num_action_protocol_src_any_dst_host_log_time_state\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} host {{DST_HOST | re(\"\\\\S+\")}} {{LOG}} time-range {{TIME}} ({{STATE | ORPHRASE}})\n</group>\n<group name=\"line_num_action_protocol_src_any_src_port_match_src_port_range_start_src_port_range_end_dst_network_dst_wildcard_dst_port_match_dst_port_range_start_dst_port_range_end\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} {{SRC_PORT_MATCH}} {{SRC_PORT_RANGE_START | re(\"\\\\d+\")}} {{SRC_PORT_RANGE_END | re(\"\\\\d+\")}} {{DST_NETWORK}} {{DST_WILDCARD | ORPHRASE}} {{DST_PORT_MATCH}} {{DST_PORT_RANGE_START | re(\"\\\\d+\")}} {{DST_PORT_RANGE_END | re(\"\\\\d+\")}}\n</group>\n<group name=\"line_num_action_protocol_src_any_src_port_match_src_port_dst_network_dst_wildcard\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} {{SRC_PORT_MATCH}} {{SRC_PORT | ORPHRASE}} {{DST_NETWORK}} {{DST_WILDCARD | ORPHRASE}}\n</group>\n<group name=\"line_num_action_protocol_src_network_src_wildcard_src_port_match_src_port_dst_host_dst_port_match_dst_port\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_NETWORK}} {{SRC_WILDCARD}} {{SRC_PORT_MATCH}} {{SRC_PORT | ORPHRASE}} host {{DST_HOST | re(\"\\\\S+\")}} {{DST_PORT_MATCH | ORPHRASE}} {{DST_PORT | ORPHRASE}}\n</group>\n<group name=\"line_num_action_protocol_src_any_dst_any_flags_match_tcp_flag_log\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} {{DST_ANY}} {{FLAGS_MATCH}} {{TCP_FLAG | ORPHRASE}} {{LOG | ORPHRASE}}\n</group>\n<group name=\"line_num_action_protocol_src_host_dst_any_tcp_flag\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} host {{SRC_HOST | re(\"\\\\S+\")}} {{DST_ANY}} {{TCP_FLAG | ORPHRASE}}\n</group>\n<group name=\"line_num_action_protocol_src_any_dst_network_dst_wildcard_tcp_flag\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_ANY}} {{DST_NETWORK}} {{DST_WILDCARD}} {{TCP_FLAG | ORPHRASE}}\n</group>\n<group name=\"line_num_action_protocol_src_host_dst_host_dst_port_match_dst_port\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} host {{SRC_HOST | re(\"\\\\S+\")}} host {{DST_HOST | re(\"\\\\S+\")}} {{DST_PORT_MATCH}} {{DST_PORT | ORPHRASE}}\n</group>\n<group name=\"line_num_action_protocol_src_host_src_port_match_src_port_dst_host\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} host {{SRC_HOST | re(\"\\\\S+\")}} {{SRC_PORT_MATCH}} {{SRC_PORT | ORPHRASE}} host {{DST_HOST | ORPHRASE}}\n</group>\n<group name=\"line_num_action_protocol_src_network_src_wildcard_dst_host\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_NETWORK}} {{SRC_WILDCARD}} host {{DST_HOST | ORPHRASE}}\n</group>\n<group name=\"line_num_action_protocol_src_network_src_wildcard_dst_network_dst_wildcard\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_NETWORK}} {{SRC_WILDCARD}} {{DST_NETWORK}} {{DST_WILDCARD | ORPHRASE}}\n</group>\n<group name=\"line_num_action_protocol_src_network_src_wildcard_dst_host_dst_port_match_dst_port\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_NETWORK}} {{SRC_WILDCARD}} host {{DST_HOST | re(\"\\\\S+\")}} {{DST_PORT_MATCH}} {{DST_PORT | ORPHRASE}}\n</group>\n<group name=\"line_num_action_protocol_src_network_src_wildcard_dst_network_dst_wildcard_dst_port_match_dst_port_log_time_state\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_NETWORK}} {{SRC_WILDCARD}} {{DST_NETWORK}} {{DST_WILDCARD}} {{DST_PORT_MATCH}} {{DST_PORT | ORPHRASE}} {{LOG}} time-range {{TIME}} ({{STATE | ORPHRASE}})\n</group>\n<group name=\"line_num_action_protocol_src_network_src_wildcard_dst_network_dst_wildcard_dst_port_match_dst_port_range_start_dst_port_range_end\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_NETWORK}} {{SRC_WILDCARD}} {{DST_NETWORK}} {{DST_WILDCARD}} {{DST_PORT_MATCH}} {{DST_PORT_RANGE_START | re(\"\\\\d+\")}} {{DST_PORT_RANGE_END | ORPHRASE}}\n</group>\n<group name=\"line_num_action_protocol_src_network_src_wildcard_dst_host_dst_port_match_dst_port_range_start_dst_port_range_end\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} {{SRC_NETWORK}} {{SRC_WILDCARD}} host {{DST_HOST | re(\"\\\\S+\")}} {{DST_PORT_MATCH}} {{DST_PORT_RANGE_START | re(\"\\\\d+\")}} {{DST_PORT_RANGE_END | ORPHRASE}}\n</group>\n<group name=\"line_num_action_protocol_src_host_dst_host_time_state\">\n    {{LINE_NUM}} {{ACTION}} {{PROTOCOL}} host {{SRC_HOST | re(\"\\\\S+\")}} host {{DST_HOST | re(\"\\\\S+\")}} time-range {{TIME}} ({{STATE | ORPHRASE}})\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "ACL_TYPE": "Standard",
+      "ACL_NAME": "99",
+      "LINE_NUM": "10",
+      "ACTION": "permit",
+      "SRC_HOST": "172.16.191.199"
+    },
+    {
+      "ACL_TYPE": "Standard",
+      "ACL_NAME": "99",
+      "LINE_NUM": "20",
+      "ACTION": "deny",
+      "SRC_ANY": "any",
+      "LOG": "log"
+    },
+    {
+      "ACL_TYPE": "Standard",
+      "ACL_NAME": "99",
+      "LINE_NUM": "30",
+      "ACTION": "permit",
+      "SRC_NETWORK": "10.0.10.0",
+      "SRC_WILDCARD": "0.255.0.255",
+      "MATCHES": "20"
+    },
+    {
+      "ACL_TYPE": "Standard",
+      "ACL_NAME": "stdacl",
+      "LINE_NUM": "10",
+      "ACTION": "permit",
+      "SRC_HOST": "10.1.1.1"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "101",
+      "LINE_NUM": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_ANY": "any",
+      "DST_HOST": "10.1.1.1",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "www"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "101",
+      "LINE_NUM": "20",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_ANY": "any",
+      "DST_HOST": "10.1.1.1",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "443",
+      "LOG": "log"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "101",
+      "LINE_NUM": "30",
+      "ACTION": "permit",
+      "PROTOCOL": "ahp",
+      "SRC_ANY": "any",
+      "DST_ANY": "any",
+      "LOG": "log-input"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "101",
+      "LINE_NUM": "40",
+      "ACTION": "permit",
+      "PROTOCOL": "ahp",
+      "SRC_ANY": "any",
+      "DST_ANY": "any",
+      "LOG": "log-input",
+      "TIME": "test",
+      "STATE": "active"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "101",
+      "LINE_NUM": "50",
+      "ACTION": "permit",
+      "PROTOCOL": "ip",
+      "SRC_ANY": "any",
+      "DST_HOST": "10.1.10.11",
+      "LOG": "log",
+      "TIME": "test2",
+      "STATE": "inactive"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "101",
+      "LINE_NUM": "60",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SRC_ANY": "any",
+      "SRC_PORT_MATCH": "range",
+      "SRC_PORT_RANGE_START": "16384",
+      "SRC_PORT_RANGE_END": "32767",
+      "DST_NETWORK": "10.1.1.0",
+      "DST_WILDCARD": "0.0.0.255",
+      "DST_PORT_MATCH": "range",
+      "DST_PORT_RANGE_START": "16384",
+      "DST_PORT_RANGE_END": "32767"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "101",
+      "LINE_NUM": "70",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SRC_ANY": "any",
+      "SRC_PORT_MATCH": "eq",
+      "SRC_PORT": "snmp bootpc",
+      "DST_NETWORK": "10.1.0.0",
+      "DST_WILDCARD": "0.0.0.255"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "101",
+      "LINE_NUM": "80",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.0.0.0",
+      "SRC_WILDCARD": "0.255.255.255",
+      "SRC_PORT_MATCH": "eq",
+      "SRC_PORT": "telnet ssh http 8080",
+      "DST_HOST": "10.1.0.0",
+      "DST_PORT_MATCH": "neq",
+      "DST_PORT": "telnet ssh"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "101",
+      "LINE_NUM": "90",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_ANY": "any",
+      "DST_ANY": "any",
+      "FLAGS_MATCH": "match-all",
+      "TCP_FLAG": "+ack -fin",
+      "LOG": "log"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "101",
+      "LINE_NUM": "100",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_HOST": "10.1.1.1",
+      "DST_ANY": "any",
+      "TCP_FLAG": "established"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "101",
+      "LINE_NUM": "110",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_ANY": "any",
+      "DST_NETWORK": "10.1.1.0",
+      "DST_WILDCARD": "0.0.255.255",
+      "TCP_FLAG": "established psh"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "10",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_HOST": "10.10.37.18",
+      "DST_HOST": "10.10.37.17",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "bgp"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "20",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_HOST": "10.10.37.18",
+      "SRC_PORT_MATCH": "eq",
+      "SRC_PORT": "bgp",
+      "DST_HOST": "10.10.37.17"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "30",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.10.37.17"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "40",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.37.17"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "50",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.10.5.20"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "60",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.5.20"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "70",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.10.6.144"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "80",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.144"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "90",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.10.6.146"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "100",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.146"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "110",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.10.6.148"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "120",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.148"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "130",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.10.6.152"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "140",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.152"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "150",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.10.8.26"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "160",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.8.26"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "170",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.10.8.152"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "180",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.8.152"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "190",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_NETWORK": "10.3.140.0",
+      "DST_WILDCARD": "0.0.0.127"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "200",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_NETWORK": "10.3.140.0",
+      "DST_WILDCARD": "0.0.0.127"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "210",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.3.139.248"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "220",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.3.139.248"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "230",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_NETWORK": "10.3.139.128",
+      "DST_WILDCARD": "0.0.0.7"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "240",
+      "ACTION": "permit",
+      "PROTOCOL": "icmp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_NETWORK": "10.3.139.128",
+      "DST_WILDCARD": "0.0.0.7"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "250",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.5.20",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4000"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "260",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.5.20",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4010"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "270",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.5.20",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4020"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "280",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.5.20",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4080"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "290",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.5.20",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4300"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "300",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.5.20",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4310"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "310",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.5.20",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4320"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "320",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.5.20",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4380"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "330",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.144",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4000"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "340",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.144",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4010"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "350",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.144",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4020"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "360",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.144",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4300"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "370",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.144",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4310"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "380",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.144",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4320"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "390",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.146",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4000"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "400",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.146",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4010"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "410",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.146",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4020"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "420",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.146",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4300"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "430",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.146",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4310"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "440",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.146",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4320"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "450",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.148",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4050"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "460",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.148",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4060"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "470",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.148",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4350"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "480",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.148",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4360"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "490",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.152",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4000"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "500",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.152",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4010"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "510",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.152",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4020"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "520",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.152",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4080"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "530",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.152",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4300"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "540",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.152",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4310"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "550",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.152",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4320"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "560",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.6.152",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4380"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "570",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.8.26",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4001"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "580",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.10.8.152",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "4001"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "590",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_NETWORK": "10.3.140.64",
+      "DST_WILDCARD": "0.0.0.31",
+      "DST_PORT_MATCH": "eq",
+      "DST_PORT": "9815",
+      "LOG": "log",
+      "TIME": "test",
+      "STATE": "active"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "600",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_NETWORK": "10.3.140.64",
+      "DST_WILDCARD": "0.0.0.31",
+      "DST_PORT_MATCH": "range",
+      "DST_PORT_RANGE_START": "9821",
+      "DST_PORT_RANGE_END": "9823"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "610",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_NETWORK": "10.3.140.96",
+      "DST_WILDCARD": "0.0.0.31",
+      "DST_PORT_MATCH": "range",
+      "DST_PORT_RANGE_START": "7400",
+      "DST_PORT_RANGE_END": "7407"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "620",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SRC_NETWORK": "10.10.37.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.3.139.133",
+      "DST_PORT_MATCH": "range",
+      "DST_PORT_RANGE_START": "13001",
+      "DST_PORT_RANGE_END": "13191"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "630",
+      "ACTION": "permit",
+      "PROTOCOL": "udp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.3.139.133",
+      "DST_PORT_MATCH": "range",
+      "DST_PORT_RANGE_START": "13001",
+      "DST_PORT_RANGE_END": "13191"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "640",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.16",
+      "SRC_WILDCARD": "0.0.0.3",
+      "DST_HOST": "10.3.139.134",
+      "DST_PORT_MATCH": "range",
+      "DST_PORT_RANGE_START": "13001",
+      "DST_PORT_RANGE_END": "13191"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "650",
+      "ACTION": "permit",
+      "PROTOCOL": "tcp",
+      "SRC_NETWORK": "10.10.37.24",
+      "SRC_WILDCARD": "0.0.0.7",
+      "DST_HOST": "10.3.139.134",
+      "DST_PORT_MATCH": "range",
+      "DST_PORT_RANGE_START": "13001",
+      "DST_PORT_RANGE_END": "13191"
+    },
+    {
+      "ACL_TYPE": "Extended",
+      "ACL_NAME": "sample",
+      "LINE_NUM": "660",
+      "ACTION": "permit",
+      "PROTOCOL": "pim",
+      "SRC_HOST": "10.10.37.18",
+      "DST_HOST": "224.0.0.1",
+      "TIME": "test2",
+      "STATE": "inactive"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "line_num_action_src_host": [
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "SRC_HOST": "172.16.191.199"
+        },
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "SRC_HOST": "10.1.1.1"
+        }
+      ],
+      "line_num_action_src_any_log": [
+        {
+          "LINE_NUM": "20",
+          "ACTION": "deny",
+          "SRC_ANY": "any",
+          "LOG": "log"
+        },
+        {
+          "LINE_NUM": "30",
+          "ACTION": "permit",
+          "SRC_ANY": "10.0.10.0,",
+          "LOG": "wildcard bits 0.255.0.255 (20 matches)"
+        },
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "any host 10.1.1.1 eq www"
+        },
+        {
+          "LINE_NUM": "20",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "any host 10.1.1.1 eq 443 log"
+        },
+        {
+          "LINE_NUM": "30",
+          "ACTION": "permit",
+          "SRC_ANY": "ahp",
+          "LOG": "any any log-input"
+        },
+        {
+          "LINE_NUM": "40",
+          "ACTION": "permit",
+          "SRC_ANY": "ahp",
+          "LOG": "any any log-input time-range test (active)"
+        },
+        {
+          "LINE_NUM": "50",
+          "ACTION": "permit",
+          "SRC_ANY": "ip",
+          "LOG": "any host 10.1.10.11 log time-range test2 (inactive)"
+        },
+        {
+          "LINE_NUM": "60",
+          "ACTION": "permit",
+          "SRC_ANY": "udp",
+          "LOG": "any range 16384 32767 10.1.1.0 0.0.0.255 range 16384 32767"
+        },
+        {
+          "LINE_NUM": "70",
+          "ACTION": "permit",
+          "SRC_ANY": "udp",
+          "LOG": "any eq snmp bootpc 10.1.0.0 0.0.0.255"
+        },
+        {
+          "LINE_NUM": "80",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.0.0.0 0.255.255.255 eq telnet ssh http 8080 host 10.1.0.0 neq telnet ssh"
+        },
+        {
+          "LINE_NUM": "90",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "any any match-all +ack -fin log"
+        },
+        {
+          "LINE_NUM": "100",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "host 10.1.1.1 any established"
+        },
+        {
+          "LINE_NUM": "110",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "any 10.1.1.0 0.0.255.255 established psh"
+        },
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "host 10.10.37.18 host 10.10.37.17 eq bgp"
+        },
+        {
+          "LINE_NUM": "20",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "host 10.10.37.18 eq bgp host 10.10.37.17"
+        },
+        {
+          "LINE_NUM": "30",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.16 0.0.0.3 host 10.10.37.17"
+        },
+        {
+          "LINE_NUM": "40",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.37.17"
+        },
+        {
+          "LINE_NUM": "50",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.16 0.0.0.3 host 10.10.5.20"
+        },
+        {
+          "LINE_NUM": "60",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.5.20"
+        },
+        {
+          "LINE_NUM": "70",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.16 0.0.0.3 host 10.10.6.144"
+        },
+        {
+          "LINE_NUM": "80",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.144"
+        },
+        {
+          "LINE_NUM": "90",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.16 0.0.0.3 host 10.10.6.146"
+        },
+        {
+          "LINE_NUM": "100",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.146"
+        },
+        {
+          "LINE_NUM": "110",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.16 0.0.0.3 host 10.10.6.148"
+        },
+        {
+          "LINE_NUM": "120",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.148"
+        },
+        {
+          "LINE_NUM": "130",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.16 0.0.0.3 host 10.10.6.152"
+        },
+        {
+          "LINE_NUM": "140",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.152"
+        },
+        {
+          "LINE_NUM": "150",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.16 0.0.0.3 host 10.10.8.26"
+        },
+        {
+          "LINE_NUM": "160",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.8.26"
+        },
+        {
+          "LINE_NUM": "170",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.16 0.0.0.3 host 10.10.8.152"
+        },
+        {
+          "LINE_NUM": "180",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.8.152"
+        },
+        {
+          "LINE_NUM": "190",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.16 0.0.0.3 10.3.140.0 0.0.0.127"
+        },
+        {
+          "LINE_NUM": "200",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.24 0.0.0.7 10.3.140.0 0.0.0.127"
+        },
+        {
+          "LINE_NUM": "210",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.16 0.0.0.3 host 10.3.139.248"
+        },
+        {
+          "LINE_NUM": "220",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.3.139.248"
+        },
+        {
+          "LINE_NUM": "230",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.16 0.0.0.3 10.3.139.128 0.0.0.7"
+        },
+        {
+          "LINE_NUM": "240",
+          "ACTION": "permit",
+          "SRC_ANY": "icmp",
+          "LOG": "10.10.37.24 0.0.0.7 10.3.139.128 0.0.0.7"
+        },
+        {
+          "LINE_NUM": "250",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.5.20 eq 4000"
+        },
+        {
+          "LINE_NUM": "260",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.5.20 eq 4010"
+        },
+        {
+          "LINE_NUM": "270",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.5.20 eq 4020"
+        },
+        {
+          "LINE_NUM": "280",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.5.20 eq 4080"
+        },
+        {
+          "LINE_NUM": "290",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.5.20 eq 4300"
+        },
+        {
+          "LINE_NUM": "300",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.5.20 eq 4310"
+        },
+        {
+          "LINE_NUM": "310",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.5.20 eq 4320"
+        },
+        {
+          "LINE_NUM": "320",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.5.20 eq 4380"
+        },
+        {
+          "LINE_NUM": "330",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.144 eq 4000"
+        },
+        {
+          "LINE_NUM": "340",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.144 eq 4010"
+        },
+        {
+          "LINE_NUM": "350",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.144 eq 4020"
+        },
+        {
+          "LINE_NUM": "360",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.144 eq 4300"
+        },
+        {
+          "LINE_NUM": "370",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.144 eq 4310"
+        },
+        {
+          "LINE_NUM": "380",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.144 eq 4320"
+        },
+        {
+          "LINE_NUM": "390",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.146 eq 4000"
+        },
+        {
+          "LINE_NUM": "400",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.146 eq 4010"
+        },
+        {
+          "LINE_NUM": "410",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.146 eq 4020"
+        },
+        {
+          "LINE_NUM": "420",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.146 eq 4300"
+        },
+        {
+          "LINE_NUM": "430",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.146 eq 4310"
+        },
+        {
+          "LINE_NUM": "440",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.146 eq 4320"
+        },
+        {
+          "LINE_NUM": "450",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.148 eq 4050"
+        },
+        {
+          "LINE_NUM": "460",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.148 eq 4060"
+        },
+        {
+          "LINE_NUM": "470",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.148 eq 4350"
+        },
+        {
+          "LINE_NUM": "480",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.148 eq 4360"
+        },
+        {
+          "LINE_NUM": "490",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.152 eq 4000"
+        },
+        {
+          "LINE_NUM": "500",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.152 eq 4010"
+        },
+        {
+          "LINE_NUM": "510",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.152 eq 4020"
+        },
+        {
+          "LINE_NUM": "520",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.152 eq 4080"
+        },
+        {
+          "LINE_NUM": "530",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.152 eq 4300"
+        },
+        {
+          "LINE_NUM": "540",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.152 eq 4310"
+        },
+        {
+          "LINE_NUM": "550",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.152 eq 4320"
+        },
+        {
+          "LINE_NUM": "560",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.6.152 eq 4380"
+        },
+        {
+          "LINE_NUM": "570",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.8.26 eq 4001"
+        },
+        {
+          "LINE_NUM": "580",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.10.8.152 eq 4001"
+        },
+        {
+          "LINE_NUM": "590",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 10.3.140.64 0.0.0.31 eq 9815 log time-range test (active)"
+        },
+        {
+          "LINE_NUM": "600",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 10.3.140.64 0.0.0.31 range 9821 9823"
+        },
+        {
+          "LINE_NUM": "610",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 10.3.140.96 0.0.0.31 range 7400 7407"
+        },
+        {
+          "LINE_NUM": "620",
+          "ACTION": "permit",
+          "SRC_ANY": "udp",
+          "LOG": "10.10.37.16 0.0.0.3 host 10.3.139.133 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "630",
+          "ACTION": "permit",
+          "SRC_ANY": "udp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.3.139.133 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "640",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.16 0.0.0.3 host 10.3.139.134 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "650",
+          "ACTION": "permit",
+          "SRC_ANY": "tcp",
+          "LOG": "10.10.37.24 0.0.0.7 host 10.3.139.134 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "660",
+          "ACTION": "permit",
+          "SRC_ANY": "pim",
+          "LOG": "host 10.10.37.18 host 224.0.0.1 time-range test2 (inactive)"
+        }
+      ],
+      "line_num_action_src_network_src_wildcard_matches": {
+        "LINE_NUM": "30",
+        "ACTION": "permit",
+        "SRC_NETWORK": "10.0.10.0",
+        "SRC_WILDCARD": "0.255.0.255",
+        "MATCHES": "20"
+      },
+      "line_num_action_protocol_src_any_dst_host_dst_port_match_dst_port": [
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "DST_HOST": "10.1.1.1",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "www"
+        },
+        {
+          "LINE_NUM": "20",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "DST_HOST": "10.1.1.1",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "443 log"
+        },
+        {
+          "LINE_NUM": "50",
+          "ACTION": "permit",
+          "PROTOCOL": "ip",
+          "SRC_ANY": "any",
+          "DST_HOST": "10.1.10.11",
+          "DST_PORT_MATCH": "log",
+          "DST_PORT": "time-range test2 (inactive)"
+        }
+      ],
+      "line_num_action_protocol_src_any_dst_host_dst_port_match_dst_port_log": [
+        {
+          "LINE_NUM": "20",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "DST_HOST": "10.1.1.1",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "443",
+          "LOG": "log"
+        },
+        {
+          "LINE_NUM": "50",
+          "ACTION": "permit",
+          "PROTOCOL": "ip",
+          "SRC_ANY": "any",
+          "DST_HOST": "10.1.10.11",
+          "DST_PORT_MATCH": "log",
+          "DST_PORT": "time-range",
+          "LOG": "test2 (inactive)"
+        }
+      ],
+      "line_num_action_protocol_src_any_dst_any_log": [
+        {
+          "LINE_NUM": "30",
+          "ACTION": "permit",
+          "PROTOCOL": "10.0.10.0,",
+          "SRC_ANY": "wildcard",
+          "DST_ANY": "bits",
+          "LOG": "0.255.0.255 (20 matches)"
+        },
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "DST_ANY": "host",
+          "LOG": "10.1.1.1 eq www"
+        },
+        {
+          "LINE_NUM": "20",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "DST_ANY": "host",
+          "LOG": "10.1.1.1 eq 443 log"
+        },
+        {
+          "LINE_NUM": "30",
+          "ACTION": "permit",
+          "PROTOCOL": "ahp",
+          "SRC_ANY": "any",
+          "DST_ANY": "any",
+          "LOG": "log-input"
+        },
+        {
+          "LINE_NUM": "40",
+          "ACTION": "permit",
+          "PROTOCOL": "ahp",
+          "SRC_ANY": "any",
+          "DST_ANY": "any",
+          "LOG": "log-input time-range test (active)"
+        },
+        {
+          "LINE_NUM": "50",
+          "ACTION": "permit",
+          "PROTOCOL": "ip",
+          "SRC_ANY": "any",
+          "DST_ANY": "host",
+          "LOG": "10.1.10.11 log time-range test2 (inactive)"
+        },
+        {
+          "LINE_NUM": "60",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_ANY": "any",
+          "DST_ANY": "range",
+          "LOG": "16384 32767 10.1.1.0 0.0.0.255 range 16384 32767"
+        },
+        {
+          "LINE_NUM": "70",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_ANY": "any",
+          "DST_ANY": "eq",
+          "LOG": "snmp bootpc 10.1.0.0 0.0.0.255"
+        },
+        {
+          "LINE_NUM": "80",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.0.0.0",
+          "DST_ANY": "0.255.255.255",
+          "LOG": "eq telnet ssh http 8080 host 10.1.0.0 neq telnet ssh"
+        },
+        {
+          "LINE_NUM": "90",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "DST_ANY": "any",
+          "LOG": "match-all +ack -fin log"
+        },
+        {
+          "LINE_NUM": "100",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "host",
+          "DST_ANY": "10.1.1.1",
+          "LOG": "any established"
+        },
+        {
+          "LINE_NUM": "110",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "DST_ANY": "10.1.1.0",
+          "LOG": "0.0.255.255 established psh"
+        },
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "host",
+          "DST_ANY": "10.10.37.18",
+          "LOG": "host 10.10.37.17 eq bgp"
+        },
+        {
+          "LINE_NUM": "20",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "host",
+          "DST_ANY": "10.10.37.18",
+          "LOG": "eq bgp host 10.10.37.17"
+        },
+        {
+          "LINE_NUM": "30",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_ANY": "0.0.0.3",
+          "LOG": "host 10.10.37.17"
+        },
+        {
+          "LINE_NUM": "40",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.37.17"
+        },
+        {
+          "LINE_NUM": "50",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_ANY": "0.0.0.3",
+          "LOG": "host 10.10.5.20"
+        },
+        {
+          "LINE_NUM": "60",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.5.20"
+        },
+        {
+          "LINE_NUM": "70",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_ANY": "0.0.0.3",
+          "LOG": "host 10.10.6.144"
+        },
+        {
+          "LINE_NUM": "80",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.144"
+        },
+        {
+          "LINE_NUM": "90",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_ANY": "0.0.0.3",
+          "LOG": "host 10.10.6.146"
+        },
+        {
+          "LINE_NUM": "100",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.146"
+        },
+        {
+          "LINE_NUM": "110",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_ANY": "0.0.0.3",
+          "LOG": "host 10.10.6.148"
+        },
+        {
+          "LINE_NUM": "120",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.148"
+        },
+        {
+          "LINE_NUM": "130",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_ANY": "0.0.0.3",
+          "LOG": "host 10.10.6.152"
+        },
+        {
+          "LINE_NUM": "140",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.152"
+        },
+        {
+          "LINE_NUM": "150",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_ANY": "0.0.0.3",
+          "LOG": "host 10.10.8.26"
+        },
+        {
+          "LINE_NUM": "160",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.8.26"
+        },
+        {
+          "LINE_NUM": "170",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_ANY": "0.0.0.3",
+          "LOG": "host 10.10.8.152"
+        },
+        {
+          "LINE_NUM": "180",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.8.152"
+        },
+        {
+          "LINE_NUM": "190",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_ANY": "0.0.0.3",
+          "LOG": "10.3.140.0 0.0.0.127"
+        },
+        {
+          "LINE_NUM": "200",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "10.3.140.0 0.0.0.127"
+        },
+        {
+          "LINE_NUM": "210",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_ANY": "0.0.0.3",
+          "LOG": "host 10.3.139.248"
+        },
+        {
+          "LINE_NUM": "220",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.3.139.248"
+        },
+        {
+          "LINE_NUM": "230",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_ANY": "0.0.0.3",
+          "LOG": "10.3.139.128 0.0.0.7"
+        },
+        {
+          "LINE_NUM": "240",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "10.3.139.128 0.0.0.7"
+        },
+        {
+          "LINE_NUM": "250",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.5.20 eq 4000"
+        },
+        {
+          "LINE_NUM": "260",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.5.20 eq 4010"
+        },
+        {
+          "LINE_NUM": "270",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.5.20 eq 4020"
+        },
+        {
+          "LINE_NUM": "280",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.5.20 eq 4080"
+        },
+        {
+          "LINE_NUM": "290",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.5.20 eq 4300"
+        },
+        {
+          "LINE_NUM": "300",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.5.20 eq 4310"
+        },
+        {
+          "LINE_NUM": "310",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.5.20 eq 4320"
+        },
+        {
+          "LINE_NUM": "320",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.5.20 eq 4380"
+        },
+        {
+          "LINE_NUM": "330",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.144 eq 4000"
+        },
+        {
+          "LINE_NUM": "340",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.144 eq 4010"
+        },
+        {
+          "LINE_NUM": "350",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.144 eq 4020"
+        },
+        {
+          "LINE_NUM": "360",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.144 eq 4300"
+        },
+        {
+          "LINE_NUM": "370",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.144 eq 4310"
+        },
+        {
+          "LINE_NUM": "380",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.144 eq 4320"
+        },
+        {
+          "LINE_NUM": "390",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.146 eq 4000"
+        },
+        {
+          "LINE_NUM": "400",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.146 eq 4010"
+        },
+        {
+          "LINE_NUM": "410",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.146 eq 4020"
+        },
+        {
+          "LINE_NUM": "420",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.146 eq 4300"
+        },
+        {
+          "LINE_NUM": "430",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.146 eq 4310"
+        },
+        {
+          "LINE_NUM": "440",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.146 eq 4320"
+        },
+        {
+          "LINE_NUM": "450",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.148 eq 4050"
+        },
+        {
+          "LINE_NUM": "460",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.148 eq 4060"
+        },
+        {
+          "LINE_NUM": "470",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.148 eq 4350"
+        },
+        {
+          "LINE_NUM": "480",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.148 eq 4360"
+        },
+        {
+          "LINE_NUM": "490",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.152 eq 4000"
+        },
+        {
+          "LINE_NUM": "500",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.152 eq 4010"
+        },
+        {
+          "LINE_NUM": "510",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.152 eq 4020"
+        },
+        {
+          "LINE_NUM": "520",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.152 eq 4080"
+        },
+        {
+          "LINE_NUM": "530",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.152 eq 4300"
+        },
+        {
+          "LINE_NUM": "540",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.152 eq 4310"
+        },
+        {
+          "LINE_NUM": "550",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.152 eq 4320"
+        },
+        {
+          "LINE_NUM": "560",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.6.152 eq 4380"
+        },
+        {
+          "LINE_NUM": "570",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.8.26 eq 4001"
+        },
+        {
+          "LINE_NUM": "580",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.10.8.152 eq 4001"
+        },
+        {
+          "LINE_NUM": "590",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "10.3.140.64 0.0.0.31 eq 9815 log time-range test (active)"
+        },
+        {
+          "LINE_NUM": "600",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "10.3.140.64 0.0.0.31 range 9821 9823"
+        },
+        {
+          "LINE_NUM": "610",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "10.3.140.96 0.0.0.31 range 7400 7407"
+        },
+        {
+          "LINE_NUM": "620",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_ANY": "0.0.0.3",
+          "LOG": "host 10.3.139.133 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "630",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.3.139.133 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "640",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_ANY": "0.0.0.3",
+          "LOG": "host 10.3.139.134 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "650",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "LOG": "host 10.3.139.134 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "660",
+          "ACTION": "permit",
+          "PROTOCOL": "pim",
+          "SRC_ANY": "host",
+          "DST_ANY": "10.10.37.18",
+          "LOG": "host 224.0.0.1 time-range test2 (inactive)"
+        }
+      ],
+      "line_num_action_protocol_src_any_dst_any_log_time_state": {
+        "LINE_NUM": "40",
+        "ACTION": "permit",
+        "PROTOCOL": "ahp",
+        "SRC_ANY": "any",
+        "DST_ANY": "any",
+        "LOG": "log-input",
+        "TIME": "test",
+        "STATE": "active"
+      },
+      "line_num_action_protocol_src_any_dst_host_log_time_state": {
+        "LINE_NUM": "50",
+        "ACTION": "permit",
+        "PROTOCOL": "ip",
+        "SRC_ANY": "any",
+        "DST_HOST": "10.1.10.11",
+        "LOG": "log",
+        "TIME": "test2",
+        "STATE": "inactive"
+      },
+      "line_num_action_protocol_src_any_src_port_match_src_port_range_start_src_port_range_end_dst_network_dst_wildcard_dst_port_match_dst_port_range_start_dst_port_range_end": {
+        "LINE_NUM": "60",
+        "ACTION": "permit",
+        "PROTOCOL": "udp",
+        "SRC_ANY": "any",
+        "SRC_PORT_MATCH": "range",
+        "SRC_PORT_RANGE_START": "16384",
+        "SRC_PORT_RANGE_END": "32767",
+        "DST_NETWORK": "10.1.1.0",
+        "DST_WILDCARD": "0.0.0.255",
+        "DST_PORT_MATCH": "range",
+        "DST_PORT_RANGE_START": "16384",
+        "DST_PORT_RANGE_END": "32767"
+      },
+      "line_num_action_protocol_src_any_src_port_match_src_port_dst_network_dst_wildcard": [
+        {
+          "LINE_NUM": "30",
+          "ACTION": "permit",
+          "PROTOCOL": "10.0.10.0,",
+          "SRC_ANY": "wildcard",
+          "SRC_PORT_MATCH": "bits",
+          "SRC_PORT": "0.255.0.255",
+          "DST_NETWORK": "(20",
+          "DST_WILDCARD": "matches)"
+        },
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "SRC_PORT_MATCH": "host",
+          "SRC_PORT": "10.1.1.1",
+          "DST_NETWORK": "eq",
+          "DST_WILDCARD": "www"
+        },
+        {
+          "LINE_NUM": "20",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "SRC_PORT_MATCH": "host",
+          "SRC_PORT": "10.1.1.1",
+          "DST_NETWORK": "eq",
+          "DST_WILDCARD": "443 log"
+        },
+        {
+          "LINE_NUM": "40",
+          "ACTION": "permit",
+          "PROTOCOL": "ahp",
+          "SRC_ANY": "any",
+          "SRC_PORT_MATCH": "any",
+          "SRC_PORT": "log-input",
+          "DST_NETWORK": "time-range",
+          "DST_WILDCARD": "test (active)"
+        },
+        {
+          "LINE_NUM": "50",
+          "ACTION": "permit",
+          "PROTOCOL": "ip",
+          "SRC_ANY": "any",
+          "SRC_PORT_MATCH": "host",
+          "SRC_PORT": "10.1.10.11",
+          "DST_NETWORK": "log",
+          "DST_WILDCARD": "time-range test2 (inactive)"
+        },
+        {
+          "LINE_NUM": "60",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_ANY": "any",
+          "SRC_PORT_MATCH": "range",
+          "SRC_PORT": "16384",
+          "DST_NETWORK": "32767",
+          "DST_WILDCARD": "10.1.1.0 0.0.0.255 range 16384 32767"
+        },
+        {
+          "LINE_NUM": "70",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_ANY": "any",
+          "SRC_PORT_MATCH": "eq",
+          "SRC_PORT": "snmp",
+          "DST_NETWORK": "bootpc",
+          "DST_WILDCARD": "10.1.0.0 0.0.0.255"
+        },
+        {
+          "LINE_NUM": "80",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.0.0.0",
+          "SRC_PORT_MATCH": "0.255.255.255",
+          "SRC_PORT": "eq",
+          "DST_NETWORK": "telnet",
+          "DST_WILDCARD": "ssh http 8080 host 10.1.0.0 neq telnet ssh"
+        },
+        {
+          "LINE_NUM": "90",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "SRC_PORT_MATCH": "any",
+          "SRC_PORT": "match-all",
+          "DST_NETWORK": "+ack",
+          "DST_WILDCARD": "-fin log"
+        },
+        {
+          "LINE_NUM": "110",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "SRC_PORT_MATCH": "10.1.1.0",
+          "SRC_PORT": "0.0.255.255",
+          "DST_NETWORK": "established",
+          "DST_WILDCARD": "psh"
+        },
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "host",
+          "SRC_PORT_MATCH": "10.10.37.18",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.37.17",
+          "DST_WILDCARD": "eq bgp"
+        },
+        {
+          "LINE_NUM": "20",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "host",
+          "SRC_PORT_MATCH": "10.10.37.18",
+          "SRC_PORT": "eq",
+          "DST_NETWORK": "bgp",
+          "DST_WILDCARD": "host 10.10.37.17"
+        },
+        {
+          "LINE_NUM": "250",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.5.20",
+          "DST_WILDCARD": "eq 4000"
+        },
+        {
+          "LINE_NUM": "260",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.5.20",
+          "DST_WILDCARD": "eq 4010"
+        },
+        {
+          "LINE_NUM": "270",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.5.20",
+          "DST_WILDCARD": "eq 4020"
+        },
+        {
+          "LINE_NUM": "280",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.5.20",
+          "DST_WILDCARD": "eq 4080"
+        },
+        {
+          "LINE_NUM": "290",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.5.20",
+          "DST_WILDCARD": "eq 4300"
+        },
+        {
+          "LINE_NUM": "300",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.5.20",
+          "DST_WILDCARD": "eq 4310"
+        },
+        {
+          "LINE_NUM": "310",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.5.20",
+          "DST_WILDCARD": "eq 4320"
+        },
+        {
+          "LINE_NUM": "320",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.5.20",
+          "DST_WILDCARD": "eq 4380"
+        },
+        {
+          "LINE_NUM": "330",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.144",
+          "DST_WILDCARD": "eq 4000"
+        },
+        {
+          "LINE_NUM": "340",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.144",
+          "DST_WILDCARD": "eq 4010"
+        },
+        {
+          "LINE_NUM": "350",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.144",
+          "DST_WILDCARD": "eq 4020"
+        },
+        {
+          "LINE_NUM": "360",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.144",
+          "DST_WILDCARD": "eq 4300"
+        },
+        {
+          "LINE_NUM": "370",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.144",
+          "DST_WILDCARD": "eq 4310"
+        },
+        {
+          "LINE_NUM": "380",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.144",
+          "DST_WILDCARD": "eq 4320"
+        },
+        {
+          "LINE_NUM": "390",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.146",
+          "DST_WILDCARD": "eq 4000"
+        },
+        {
+          "LINE_NUM": "400",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.146",
+          "DST_WILDCARD": "eq 4010"
+        },
+        {
+          "LINE_NUM": "410",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.146",
+          "DST_WILDCARD": "eq 4020"
+        },
+        {
+          "LINE_NUM": "420",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.146",
+          "DST_WILDCARD": "eq 4300"
+        },
+        {
+          "LINE_NUM": "430",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.146",
+          "DST_WILDCARD": "eq 4310"
+        },
+        {
+          "LINE_NUM": "440",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.146",
+          "DST_WILDCARD": "eq 4320"
+        },
+        {
+          "LINE_NUM": "450",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.148",
+          "DST_WILDCARD": "eq 4050"
+        },
+        {
+          "LINE_NUM": "460",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.148",
+          "DST_WILDCARD": "eq 4060"
+        },
+        {
+          "LINE_NUM": "470",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.148",
+          "DST_WILDCARD": "eq 4350"
+        },
+        {
+          "LINE_NUM": "480",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.148",
+          "DST_WILDCARD": "eq 4360"
+        },
+        {
+          "LINE_NUM": "490",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.152",
+          "DST_WILDCARD": "eq 4000"
+        },
+        {
+          "LINE_NUM": "500",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.152",
+          "DST_WILDCARD": "eq 4010"
+        },
+        {
+          "LINE_NUM": "510",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.152",
+          "DST_WILDCARD": "eq 4020"
+        },
+        {
+          "LINE_NUM": "520",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.152",
+          "DST_WILDCARD": "eq 4080"
+        },
+        {
+          "LINE_NUM": "530",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.152",
+          "DST_WILDCARD": "eq 4300"
+        },
+        {
+          "LINE_NUM": "540",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.152",
+          "DST_WILDCARD": "eq 4310"
+        },
+        {
+          "LINE_NUM": "550",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.152",
+          "DST_WILDCARD": "eq 4320"
+        },
+        {
+          "LINE_NUM": "560",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.6.152",
+          "DST_WILDCARD": "eq 4380"
+        },
+        {
+          "LINE_NUM": "570",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.8.26",
+          "DST_WILDCARD": "eq 4001"
+        },
+        {
+          "LINE_NUM": "580",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.10.8.152",
+          "DST_WILDCARD": "eq 4001"
+        },
+        {
+          "LINE_NUM": "590",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "10.3.140.64",
+          "DST_NETWORK": "0.0.0.31",
+          "DST_WILDCARD": "eq 9815 log time-range test (active)"
+        },
+        {
+          "LINE_NUM": "600",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "10.3.140.64",
+          "DST_NETWORK": "0.0.0.31",
+          "DST_WILDCARD": "range 9821 9823"
+        },
+        {
+          "LINE_NUM": "610",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "10.3.140.96",
+          "DST_NETWORK": "0.0.0.31",
+          "DST_WILDCARD": "range 7400 7407"
+        },
+        {
+          "LINE_NUM": "620",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_ANY": "10.10.37.16",
+          "SRC_PORT_MATCH": "0.0.0.3",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.3.139.133",
+          "DST_WILDCARD": "range 13001 13191"
+        },
+        {
+          "LINE_NUM": "630",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.3.139.133",
+          "DST_WILDCARD": "range 13001 13191"
+        },
+        {
+          "LINE_NUM": "640",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.16",
+          "SRC_PORT_MATCH": "0.0.0.3",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.3.139.134",
+          "DST_WILDCARD": "range 13001 13191"
+        },
+        {
+          "LINE_NUM": "650",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "SRC_PORT_MATCH": "0.0.0.7",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "10.3.139.134",
+          "DST_WILDCARD": "range 13001 13191"
+        },
+        {
+          "LINE_NUM": "660",
+          "ACTION": "permit",
+          "PROTOCOL": "pim",
+          "SRC_ANY": "host",
+          "SRC_PORT_MATCH": "10.10.37.18",
+          "SRC_PORT": "host",
+          "DST_NETWORK": "224.0.0.1",
+          "DST_WILDCARD": "time-range test2 (inactive)"
+        }
+      ],
+      "line_num_action_protocol_src_network_src_wildcard_src_port_match_src_port_dst_host_dst_port_match_dst_port": {
+        "LINE_NUM": "80",
+        "ACTION": "permit",
+        "PROTOCOL": "tcp",
+        "SRC_NETWORK": "10.0.0.0",
+        "SRC_WILDCARD": "0.255.255.255",
+        "SRC_PORT_MATCH": "eq",
+        "SRC_PORT": "telnet ssh http 8080",
+        "DST_HOST": "10.1.0.0",
+        "DST_PORT_MATCH": "neq",
+        "DST_PORT": "telnet ssh"
+      },
+      "line_num_action_protocol_src_any_dst_any_flags_match_tcp_flag_log": [
+        {
+          "LINE_NUM": "30",
+          "ACTION": "permit",
+          "PROTOCOL": "10.0.10.0,",
+          "SRC_ANY": "wildcard",
+          "DST_ANY": "bits",
+          "FLAGS_MATCH": "0.255.0.255",
+          "TCP_FLAG": "(20",
+          "LOG": "matches)"
+        },
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "DST_ANY": "host",
+          "FLAGS_MATCH": "10.1.1.1",
+          "TCP_FLAG": "eq",
+          "LOG": "www"
+        },
+        {
+          "LINE_NUM": "20",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "DST_ANY": "host",
+          "FLAGS_MATCH": "10.1.1.1",
+          "TCP_FLAG": "eq",
+          "LOG": "443 log"
+        },
+        {
+          "LINE_NUM": "40",
+          "ACTION": "permit",
+          "PROTOCOL": "ahp",
+          "SRC_ANY": "any",
+          "DST_ANY": "any",
+          "FLAGS_MATCH": "log-input",
+          "TCP_FLAG": "time-range",
+          "LOG": "test (active)"
+        },
+        {
+          "LINE_NUM": "50",
+          "ACTION": "permit",
+          "PROTOCOL": "ip",
+          "SRC_ANY": "any",
+          "DST_ANY": "host",
+          "FLAGS_MATCH": "10.1.10.11",
+          "TCP_FLAG": "log",
+          "LOG": "time-range test2 (inactive)"
+        },
+        {
+          "LINE_NUM": "60",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_ANY": "any",
+          "DST_ANY": "range",
+          "FLAGS_MATCH": "16384",
+          "TCP_FLAG": "32767",
+          "LOG": "10.1.1.0 0.0.0.255 range 16384 32767"
+        },
+        {
+          "LINE_NUM": "70",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_ANY": "any",
+          "DST_ANY": "eq",
+          "FLAGS_MATCH": "snmp",
+          "TCP_FLAG": "bootpc",
+          "LOG": "10.1.0.0 0.0.0.255"
+        },
+        {
+          "LINE_NUM": "80",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.0.0.0",
+          "DST_ANY": "0.255.255.255",
+          "FLAGS_MATCH": "eq",
+          "TCP_FLAG": "telnet",
+          "LOG": "ssh http 8080 host 10.1.0.0 neq telnet ssh"
+        },
+        {
+          "LINE_NUM": "90",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "DST_ANY": "any",
+          "FLAGS_MATCH": "match-all",
+          "TCP_FLAG": "+ack",
+          "LOG": "-fin log"
+        },
+        {
+          "LINE_NUM": "110",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "DST_ANY": "10.1.1.0",
+          "FLAGS_MATCH": "0.0.255.255",
+          "TCP_FLAG": "established",
+          "LOG": "psh"
+        },
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "host",
+          "DST_ANY": "10.10.37.18",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.37.17",
+          "LOG": "eq bgp"
+        },
+        {
+          "LINE_NUM": "20",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "host",
+          "DST_ANY": "10.10.37.18",
+          "FLAGS_MATCH": "eq",
+          "TCP_FLAG": "bgp",
+          "LOG": "host 10.10.37.17"
+        },
+        {
+          "LINE_NUM": "250",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.5.20",
+          "LOG": "eq 4000"
+        },
+        {
+          "LINE_NUM": "260",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.5.20",
+          "LOG": "eq 4010"
+        },
+        {
+          "LINE_NUM": "270",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.5.20",
+          "LOG": "eq 4020"
+        },
+        {
+          "LINE_NUM": "280",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.5.20",
+          "LOG": "eq 4080"
+        },
+        {
+          "LINE_NUM": "290",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.5.20",
+          "LOG": "eq 4300"
+        },
+        {
+          "LINE_NUM": "300",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.5.20",
+          "LOG": "eq 4310"
+        },
+        {
+          "LINE_NUM": "310",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.5.20",
+          "LOG": "eq 4320"
+        },
+        {
+          "LINE_NUM": "320",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.5.20",
+          "LOG": "eq 4380"
+        },
+        {
+          "LINE_NUM": "330",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.144",
+          "LOG": "eq 4000"
+        },
+        {
+          "LINE_NUM": "340",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.144",
+          "LOG": "eq 4010"
+        },
+        {
+          "LINE_NUM": "350",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.144",
+          "LOG": "eq 4020"
+        },
+        {
+          "LINE_NUM": "360",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.144",
+          "LOG": "eq 4300"
+        },
+        {
+          "LINE_NUM": "370",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.144",
+          "LOG": "eq 4310"
+        },
+        {
+          "LINE_NUM": "380",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.144",
+          "LOG": "eq 4320"
+        },
+        {
+          "LINE_NUM": "390",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.146",
+          "LOG": "eq 4000"
+        },
+        {
+          "LINE_NUM": "400",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.146",
+          "LOG": "eq 4010"
+        },
+        {
+          "LINE_NUM": "410",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.146",
+          "LOG": "eq 4020"
+        },
+        {
+          "LINE_NUM": "420",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.146",
+          "LOG": "eq 4300"
+        },
+        {
+          "LINE_NUM": "430",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.146",
+          "LOG": "eq 4310"
+        },
+        {
+          "LINE_NUM": "440",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.146",
+          "LOG": "eq 4320"
+        },
+        {
+          "LINE_NUM": "450",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.148",
+          "LOG": "eq 4050"
+        },
+        {
+          "LINE_NUM": "460",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.148",
+          "LOG": "eq 4060"
+        },
+        {
+          "LINE_NUM": "470",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.148",
+          "LOG": "eq 4350"
+        },
+        {
+          "LINE_NUM": "480",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.148",
+          "LOG": "eq 4360"
+        },
+        {
+          "LINE_NUM": "490",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.152",
+          "LOG": "eq 4000"
+        },
+        {
+          "LINE_NUM": "500",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.152",
+          "LOG": "eq 4010"
+        },
+        {
+          "LINE_NUM": "510",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.152",
+          "LOG": "eq 4020"
+        },
+        {
+          "LINE_NUM": "520",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.152",
+          "LOG": "eq 4080"
+        },
+        {
+          "LINE_NUM": "530",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.152",
+          "LOG": "eq 4300"
+        },
+        {
+          "LINE_NUM": "540",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.152",
+          "LOG": "eq 4310"
+        },
+        {
+          "LINE_NUM": "550",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.152",
+          "LOG": "eq 4320"
+        },
+        {
+          "LINE_NUM": "560",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.6.152",
+          "LOG": "eq 4380"
+        },
+        {
+          "LINE_NUM": "570",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.8.26",
+          "LOG": "eq 4001"
+        },
+        {
+          "LINE_NUM": "580",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.10.8.152",
+          "LOG": "eq 4001"
+        },
+        {
+          "LINE_NUM": "590",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "10.3.140.64",
+          "TCP_FLAG": "0.0.0.31",
+          "LOG": "eq 9815 log time-range test (active)"
+        },
+        {
+          "LINE_NUM": "600",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "10.3.140.64",
+          "TCP_FLAG": "0.0.0.31",
+          "LOG": "range 9821 9823"
+        },
+        {
+          "LINE_NUM": "610",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "10.3.140.96",
+          "TCP_FLAG": "0.0.0.31",
+          "LOG": "range 7400 7407"
+        },
+        {
+          "LINE_NUM": "620",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_ANY": "0.0.0.3",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.3.139.133",
+          "LOG": "range 13001 13191"
+        },
+        {
+          "LINE_NUM": "630",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.3.139.133",
+          "LOG": "range 13001 13191"
+        },
+        {
+          "LINE_NUM": "640",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_ANY": "0.0.0.3",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.3.139.134",
+          "LOG": "range 13001 13191"
+        },
+        {
+          "LINE_NUM": "650",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_ANY": "0.0.0.7",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "10.3.139.134",
+          "LOG": "range 13001 13191"
+        },
+        {
+          "LINE_NUM": "660",
+          "ACTION": "permit",
+          "PROTOCOL": "pim",
+          "SRC_ANY": "host",
+          "DST_ANY": "10.10.37.18",
+          "FLAGS_MATCH": "host",
+          "TCP_FLAG": "224.0.0.1",
+          "LOG": "time-range test2 (inactive)"
+        }
+      ],
+      "line_num_action_protocol_src_host_dst_any_tcp_flag": [
+        {
+          "LINE_NUM": "100",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_HOST": "10.1.1.1",
+          "DST_ANY": "any",
+          "TCP_FLAG": "established"
+        },
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_HOST": "10.10.37.18",
+          "DST_ANY": "host",
+          "TCP_FLAG": "10.10.37.17 eq bgp"
+        },
+        {
+          "LINE_NUM": "20",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_HOST": "10.10.37.18",
+          "DST_ANY": "eq",
+          "TCP_FLAG": "bgp host 10.10.37.17"
+        },
+        {
+          "LINE_NUM": "660",
+          "ACTION": "permit",
+          "PROTOCOL": "pim",
+          "SRC_HOST": "10.10.37.18",
+          "DST_ANY": "host",
+          "TCP_FLAG": "224.0.0.1 time-range test2 (inactive)"
+        }
+      ],
+      "line_num_action_protocol_src_any_dst_network_dst_wildcard_tcp_flag": [
+        {
+          "LINE_NUM": "30",
+          "ACTION": "permit",
+          "PROTOCOL": "10.0.10.0,",
+          "SRC_ANY": "wildcard",
+          "DST_NETWORK": "bits",
+          "DST_WILDCARD": "0.255.0.255",
+          "TCP_FLAG": "(20 matches)"
+        },
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.1.1.1",
+          "TCP_FLAG": "eq www"
+        },
+        {
+          "LINE_NUM": "20",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.1.1.1",
+          "TCP_FLAG": "eq 443 log"
+        },
+        {
+          "LINE_NUM": "40",
+          "ACTION": "permit",
+          "PROTOCOL": "ahp",
+          "SRC_ANY": "any",
+          "DST_NETWORK": "any",
+          "DST_WILDCARD": "log-input",
+          "TCP_FLAG": "time-range test (active)"
+        },
+        {
+          "LINE_NUM": "50",
+          "ACTION": "permit",
+          "PROTOCOL": "ip",
+          "SRC_ANY": "any",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.1.10.11",
+          "TCP_FLAG": "log time-range test2 (inactive)"
+        },
+        {
+          "LINE_NUM": "60",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_ANY": "any",
+          "DST_NETWORK": "range",
+          "DST_WILDCARD": "16384",
+          "TCP_FLAG": "32767 10.1.1.0 0.0.0.255 range 16384 32767"
+        },
+        {
+          "LINE_NUM": "70",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_ANY": "any",
+          "DST_NETWORK": "eq",
+          "DST_WILDCARD": "snmp",
+          "TCP_FLAG": "bootpc 10.1.0.0 0.0.0.255"
+        },
+        {
+          "LINE_NUM": "80",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.0.0.0",
+          "DST_NETWORK": "0.255.255.255",
+          "DST_WILDCARD": "eq",
+          "TCP_FLAG": "telnet ssh http 8080 host 10.1.0.0 neq telnet ssh"
+        },
+        {
+          "LINE_NUM": "90",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "DST_NETWORK": "any",
+          "DST_WILDCARD": "match-all",
+          "TCP_FLAG": "+ack -fin log"
+        },
+        {
+          "LINE_NUM": "100",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "host",
+          "DST_NETWORK": "10.1.1.1",
+          "DST_WILDCARD": "any",
+          "TCP_FLAG": "established"
+        },
+        {
+          "LINE_NUM": "110",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "any",
+          "DST_NETWORK": "10.1.1.0",
+          "DST_WILDCARD": "0.0.255.255",
+          "TCP_FLAG": "established psh"
+        },
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "host",
+          "DST_NETWORK": "10.10.37.18",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.37.17 eq bgp"
+        },
+        {
+          "LINE_NUM": "20",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "host",
+          "DST_NETWORK": "10.10.37.18",
+          "DST_WILDCARD": "eq",
+          "TCP_FLAG": "bgp host 10.10.37.17"
+        },
+        {
+          "LINE_NUM": "30",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_NETWORK": "0.0.0.3",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.37.17"
+        },
+        {
+          "LINE_NUM": "40",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.37.17"
+        },
+        {
+          "LINE_NUM": "50",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_NETWORK": "0.0.0.3",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.5.20"
+        },
+        {
+          "LINE_NUM": "60",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.5.20"
+        },
+        {
+          "LINE_NUM": "70",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_NETWORK": "0.0.0.3",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.144"
+        },
+        {
+          "LINE_NUM": "80",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.144"
+        },
+        {
+          "LINE_NUM": "90",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_NETWORK": "0.0.0.3",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.146"
+        },
+        {
+          "LINE_NUM": "100",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.146"
+        },
+        {
+          "LINE_NUM": "110",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_NETWORK": "0.0.0.3",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.148"
+        },
+        {
+          "LINE_NUM": "120",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.148"
+        },
+        {
+          "LINE_NUM": "130",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_NETWORK": "0.0.0.3",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.152"
+        },
+        {
+          "LINE_NUM": "140",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.152"
+        },
+        {
+          "LINE_NUM": "150",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_NETWORK": "0.0.0.3",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.8.26"
+        },
+        {
+          "LINE_NUM": "160",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.8.26"
+        },
+        {
+          "LINE_NUM": "170",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_NETWORK": "0.0.0.3",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.8.152"
+        },
+        {
+          "LINE_NUM": "180",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.8.152"
+        },
+        {
+          "LINE_NUM": "190",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_NETWORK": "0.0.0.3",
+          "DST_WILDCARD": "10.3.140.0",
+          "TCP_FLAG": "0.0.0.127"
+        },
+        {
+          "LINE_NUM": "200",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "10.3.140.0",
+          "TCP_FLAG": "0.0.0.127"
+        },
+        {
+          "LINE_NUM": "210",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_NETWORK": "0.0.0.3",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.3.139.248"
+        },
+        {
+          "LINE_NUM": "220",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.3.139.248"
+        },
+        {
+          "LINE_NUM": "230",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_NETWORK": "0.0.0.3",
+          "DST_WILDCARD": "10.3.139.128",
+          "TCP_FLAG": "0.0.0.7"
+        },
+        {
+          "LINE_NUM": "240",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "10.3.139.128",
+          "TCP_FLAG": "0.0.0.7"
+        },
+        {
+          "LINE_NUM": "250",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.5.20 eq 4000"
+        },
+        {
+          "LINE_NUM": "260",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.5.20 eq 4010"
+        },
+        {
+          "LINE_NUM": "270",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.5.20 eq 4020"
+        },
+        {
+          "LINE_NUM": "280",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.5.20 eq 4080"
+        },
+        {
+          "LINE_NUM": "290",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.5.20 eq 4300"
+        },
+        {
+          "LINE_NUM": "300",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.5.20 eq 4310"
+        },
+        {
+          "LINE_NUM": "310",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.5.20 eq 4320"
+        },
+        {
+          "LINE_NUM": "320",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.5.20 eq 4380"
+        },
+        {
+          "LINE_NUM": "330",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.144 eq 4000"
+        },
+        {
+          "LINE_NUM": "340",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.144 eq 4010"
+        },
+        {
+          "LINE_NUM": "350",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.144 eq 4020"
+        },
+        {
+          "LINE_NUM": "360",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.144 eq 4300"
+        },
+        {
+          "LINE_NUM": "370",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.144 eq 4310"
+        },
+        {
+          "LINE_NUM": "380",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.144 eq 4320"
+        },
+        {
+          "LINE_NUM": "390",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.146 eq 4000"
+        },
+        {
+          "LINE_NUM": "400",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.146 eq 4010"
+        },
+        {
+          "LINE_NUM": "410",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.146 eq 4020"
+        },
+        {
+          "LINE_NUM": "420",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.146 eq 4300"
+        },
+        {
+          "LINE_NUM": "430",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.146 eq 4310"
+        },
+        {
+          "LINE_NUM": "440",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.146 eq 4320"
+        },
+        {
+          "LINE_NUM": "450",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.148 eq 4050"
+        },
+        {
+          "LINE_NUM": "460",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.148 eq 4060"
+        },
+        {
+          "LINE_NUM": "470",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.148 eq 4350"
+        },
+        {
+          "LINE_NUM": "480",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.148 eq 4360"
+        },
+        {
+          "LINE_NUM": "490",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.152 eq 4000"
+        },
+        {
+          "LINE_NUM": "500",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.152 eq 4010"
+        },
+        {
+          "LINE_NUM": "510",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.152 eq 4020"
+        },
+        {
+          "LINE_NUM": "520",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.152 eq 4080"
+        },
+        {
+          "LINE_NUM": "530",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.152 eq 4300"
+        },
+        {
+          "LINE_NUM": "540",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.152 eq 4310"
+        },
+        {
+          "LINE_NUM": "550",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.152 eq 4320"
+        },
+        {
+          "LINE_NUM": "560",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.6.152 eq 4380"
+        },
+        {
+          "LINE_NUM": "570",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.8.26 eq 4001"
+        },
+        {
+          "LINE_NUM": "580",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.10.8.152 eq 4001"
+        },
+        {
+          "LINE_NUM": "590",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "10.3.140.64",
+          "TCP_FLAG": "0.0.0.31 eq 9815 log time-range test (active)"
+        },
+        {
+          "LINE_NUM": "600",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "10.3.140.64",
+          "TCP_FLAG": "0.0.0.31 range 9821 9823"
+        },
+        {
+          "LINE_NUM": "610",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "10.3.140.96",
+          "TCP_FLAG": "0.0.0.31 range 7400 7407"
+        },
+        {
+          "LINE_NUM": "620",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_NETWORK": "0.0.0.3",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.3.139.133 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "630",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.3.139.133 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "640",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.16",
+          "DST_NETWORK": "0.0.0.3",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.3.139.134 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "650",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_ANY": "10.10.37.24",
+          "DST_NETWORK": "0.0.0.7",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "10.3.139.134 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "660",
+          "ACTION": "permit",
+          "PROTOCOL": "pim",
+          "SRC_ANY": "host",
+          "DST_NETWORK": "10.10.37.18",
+          "DST_WILDCARD": "host",
+          "TCP_FLAG": "224.0.0.1 time-range test2 (inactive)"
+        }
+      ],
+      "line_num_action_protocol_src_host_dst_host_dst_port_match_dst_port": [
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_HOST": "10.10.37.18",
+          "DST_HOST": "10.10.37.17",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "bgp"
+        },
+        {
+          "LINE_NUM": "660",
+          "ACTION": "permit",
+          "PROTOCOL": "pim",
+          "SRC_HOST": "10.10.37.18",
+          "DST_HOST": "224.0.0.1",
+          "DST_PORT_MATCH": "time-range",
+          "DST_PORT": "test2 (inactive)"
+        }
+      ],
+      "line_num_action_protocol_src_host_src_port_match_src_port_dst_host": {
+        "LINE_NUM": "20",
+        "ACTION": "permit",
+        "PROTOCOL": "tcp",
+        "SRC_HOST": "10.10.37.18",
+        "SRC_PORT_MATCH": "eq",
+        "SRC_PORT": "bgp",
+        "DST_HOST": "10.10.37.17"
+      },
+      "line_num_action_protocol_src_network_src_wildcard_dst_host": [
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "host",
+          "SRC_WILDCARD": "10.10.37.18",
+          "DST_HOST": "10.10.37.17 eq bgp"
+        },
+        {
+          "LINE_NUM": "30",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_HOST": "10.10.37.17"
+        },
+        {
+          "LINE_NUM": "40",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.37.17"
+        },
+        {
+          "LINE_NUM": "50",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_HOST": "10.10.5.20"
+        },
+        {
+          "LINE_NUM": "60",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.5.20"
+        },
+        {
+          "LINE_NUM": "70",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_HOST": "10.10.6.144"
+        },
+        {
+          "LINE_NUM": "80",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.144"
+        },
+        {
+          "LINE_NUM": "90",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_HOST": "10.10.6.146"
+        },
+        {
+          "LINE_NUM": "100",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.146"
+        },
+        {
+          "LINE_NUM": "110",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_HOST": "10.10.6.148"
+        },
+        {
+          "LINE_NUM": "120",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.148"
+        },
+        {
+          "LINE_NUM": "130",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_HOST": "10.10.6.152"
+        },
+        {
+          "LINE_NUM": "140",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.152"
+        },
+        {
+          "LINE_NUM": "150",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_HOST": "10.10.8.26"
+        },
+        {
+          "LINE_NUM": "160",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.8.26"
+        },
+        {
+          "LINE_NUM": "170",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_HOST": "10.10.8.152"
+        },
+        {
+          "LINE_NUM": "180",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.8.152"
+        },
+        {
+          "LINE_NUM": "210",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_HOST": "10.3.139.248"
+        },
+        {
+          "LINE_NUM": "220",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.3.139.248"
+        },
+        {
+          "LINE_NUM": "250",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.5.20 eq 4000"
+        },
+        {
+          "LINE_NUM": "260",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.5.20 eq 4010"
+        },
+        {
+          "LINE_NUM": "270",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.5.20 eq 4020"
+        },
+        {
+          "LINE_NUM": "280",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.5.20 eq 4080"
+        },
+        {
+          "LINE_NUM": "290",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.5.20 eq 4300"
+        },
+        {
+          "LINE_NUM": "300",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.5.20 eq 4310"
+        },
+        {
+          "LINE_NUM": "310",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.5.20 eq 4320"
+        },
+        {
+          "LINE_NUM": "320",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.5.20 eq 4380"
+        },
+        {
+          "LINE_NUM": "330",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.144 eq 4000"
+        },
+        {
+          "LINE_NUM": "340",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.144 eq 4010"
+        },
+        {
+          "LINE_NUM": "350",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.144 eq 4020"
+        },
+        {
+          "LINE_NUM": "360",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.144 eq 4300"
+        },
+        {
+          "LINE_NUM": "370",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.144 eq 4310"
+        },
+        {
+          "LINE_NUM": "380",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.144 eq 4320"
+        },
+        {
+          "LINE_NUM": "390",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.146 eq 4000"
+        },
+        {
+          "LINE_NUM": "400",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.146 eq 4010"
+        },
+        {
+          "LINE_NUM": "410",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.146 eq 4020"
+        },
+        {
+          "LINE_NUM": "420",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.146 eq 4300"
+        },
+        {
+          "LINE_NUM": "430",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.146 eq 4310"
+        },
+        {
+          "LINE_NUM": "440",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.146 eq 4320"
+        },
+        {
+          "LINE_NUM": "450",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.148 eq 4050"
+        },
+        {
+          "LINE_NUM": "460",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.148 eq 4060"
+        },
+        {
+          "LINE_NUM": "470",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.148 eq 4350"
+        },
+        {
+          "LINE_NUM": "480",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.148 eq 4360"
+        },
+        {
+          "LINE_NUM": "490",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.152 eq 4000"
+        },
+        {
+          "LINE_NUM": "500",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.152 eq 4010"
+        },
+        {
+          "LINE_NUM": "510",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.152 eq 4020"
+        },
+        {
+          "LINE_NUM": "520",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.152 eq 4080"
+        },
+        {
+          "LINE_NUM": "530",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.152 eq 4300"
+        },
+        {
+          "LINE_NUM": "540",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.152 eq 4310"
+        },
+        {
+          "LINE_NUM": "550",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.152 eq 4320"
+        },
+        {
+          "LINE_NUM": "560",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.152 eq 4380"
+        },
+        {
+          "LINE_NUM": "570",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.8.26 eq 4001"
+        },
+        {
+          "LINE_NUM": "580",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.8.152 eq 4001"
+        },
+        {
+          "LINE_NUM": "620",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_HOST": "10.3.139.133 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "630",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.3.139.133 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "640",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_HOST": "10.3.139.134 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "650",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.3.139.134 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "660",
+          "ACTION": "permit",
+          "PROTOCOL": "pim",
+          "SRC_NETWORK": "host",
+          "SRC_WILDCARD": "10.10.37.18",
+          "DST_HOST": "224.0.0.1 time-range test2 (inactive)"
+        }
+      ],
+      "line_num_action_protocol_src_network_src_wildcard_dst_network_dst_wildcard": [
+        {
+          "LINE_NUM": "30",
+          "ACTION": "permit",
+          "PROTOCOL": "10.0.10.0,",
+          "SRC_NETWORK": "wildcard",
+          "SRC_WILDCARD": "bits",
+          "DST_NETWORK": "0.255.0.255",
+          "DST_WILDCARD": "(20 matches)"
+        },
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "any",
+          "SRC_WILDCARD": "host",
+          "DST_NETWORK": "10.1.1.1",
+          "DST_WILDCARD": "eq www"
+        },
+        {
+          "LINE_NUM": "20",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "any",
+          "SRC_WILDCARD": "host",
+          "DST_NETWORK": "10.1.1.1",
+          "DST_WILDCARD": "eq 443 log"
+        },
+        {
+          "LINE_NUM": "40",
+          "ACTION": "permit",
+          "PROTOCOL": "ahp",
+          "SRC_NETWORK": "any",
+          "SRC_WILDCARD": "any",
+          "DST_NETWORK": "log-input",
+          "DST_WILDCARD": "time-range test (active)"
+        },
+        {
+          "LINE_NUM": "50",
+          "ACTION": "permit",
+          "PROTOCOL": "ip",
+          "SRC_NETWORK": "any",
+          "SRC_WILDCARD": "host",
+          "DST_NETWORK": "10.1.10.11",
+          "DST_WILDCARD": "log time-range test2 (inactive)"
+        },
+        {
+          "LINE_NUM": "60",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_NETWORK": "any",
+          "SRC_WILDCARD": "range",
+          "DST_NETWORK": "16384",
+          "DST_WILDCARD": "32767 10.1.1.0 0.0.0.255 range 16384 32767"
+        },
+        {
+          "LINE_NUM": "70",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_NETWORK": "any",
+          "SRC_WILDCARD": "eq",
+          "DST_NETWORK": "snmp",
+          "DST_WILDCARD": "bootpc 10.1.0.0 0.0.0.255"
+        },
+        {
+          "LINE_NUM": "80",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.0.0.0",
+          "SRC_WILDCARD": "0.255.255.255",
+          "DST_NETWORK": "eq",
+          "DST_WILDCARD": "telnet ssh http 8080 host 10.1.0.0 neq telnet ssh"
+        },
+        {
+          "LINE_NUM": "90",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "any",
+          "SRC_WILDCARD": "any",
+          "DST_NETWORK": "match-all",
+          "DST_WILDCARD": "+ack -fin log"
+        },
+        {
+          "LINE_NUM": "100",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "host",
+          "SRC_WILDCARD": "10.1.1.1",
+          "DST_NETWORK": "any",
+          "DST_WILDCARD": "established"
+        },
+        {
+          "LINE_NUM": "110",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "any",
+          "SRC_WILDCARD": "10.1.1.0",
+          "DST_NETWORK": "0.0.255.255",
+          "DST_WILDCARD": "established psh"
+        },
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "host",
+          "SRC_WILDCARD": "10.10.37.18",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.37.17 eq bgp"
+        },
+        {
+          "LINE_NUM": "20",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "host",
+          "SRC_WILDCARD": "10.10.37.18",
+          "DST_NETWORK": "eq",
+          "DST_WILDCARD": "bgp host 10.10.37.17"
+        },
+        {
+          "LINE_NUM": "30",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.37.17"
+        },
+        {
+          "LINE_NUM": "40",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.37.17"
+        },
+        {
+          "LINE_NUM": "50",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.5.20"
+        },
+        {
+          "LINE_NUM": "60",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.5.20"
+        },
+        {
+          "LINE_NUM": "70",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.144"
+        },
+        {
+          "LINE_NUM": "80",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.144"
+        },
+        {
+          "LINE_NUM": "90",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.146"
+        },
+        {
+          "LINE_NUM": "100",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.146"
+        },
+        {
+          "LINE_NUM": "110",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.148"
+        },
+        {
+          "LINE_NUM": "120",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.148"
+        },
+        {
+          "LINE_NUM": "130",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.152"
+        },
+        {
+          "LINE_NUM": "140",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.152"
+        },
+        {
+          "LINE_NUM": "150",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.8.26"
+        },
+        {
+          "LINE_NUM": "160",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.8.26"
+        },
+        {
+          "LINE_NUM": "170",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.8.152"
+        },
+        {
+          "LINE_NUM": "180",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.8.152"
+        },
+        {
+          "LINE_NUM": "190",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_NETWORK": "10.3.140.0",
+          "DST_WILDCARD": "0.0.0.127"
+        },
+        {
+          "LINE_NUM": "200",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "10.3.140.0",
+          "DST_WILDCARD": "0.0.0.127"
+        },
+        {
+          "LINE_NUM": "210",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.3.139.248"
+        },
+        {
+          "LINE_NUM": "220",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.3.139.248"
+        },
+        {
+          "LINE_NUM": "230",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_NETWORK": "10.3.139.128",
+          "DST_WILDCARD": "0.0.0.7"
+        },
+        {
+          "LINE_NUM": "240",
+          "ACTION": "permit",
+          "PROTOCOL": "icmp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "10.3.139.128",
+          "DST_WILDCARD": "0.0.0.7"
+        },
+        {
+          "LINE_NUM": "250",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.5.20 eq 4000"
+        },
+        {
+          "LINE_NUM": "260",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.5.20 eq 4010"
+        },
+        {
+          "LINE_NUM": "270",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.5.20 eq 4020"
+        },
+        {
+          "LINE_NUM": "280",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.5.20 eq 4080"
+        },
+        {
+          "LINE_NUM": "290",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.5.20 eq 4300"
+        },
+        {
+          "LINE_NUM": "300",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.5.20 eq 4310"
+        },
+        {
+          "LINE_NUM": "310",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.5.20 eq 4320"
+        },
+        {
+          "LINE_NUM": "320",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.5.20 eq 4380"
+        },
+        {
+          "LINE_NUM": "330",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.144 eq 4000"
+        },
+        {
+          "LINE_NUM": "340",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.144 eq 4010"
+        },
+        {
+          "LINE_NUM": "350",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.144 eq 4020"
+        },
+        {
+          "LINE_NUM": "360",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.144 eq 4300"
+        },
+        {
+          "LINE_NUM": "370",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.144 eq 4310"
+        },
+        {
+          "LINE_NUM": "380",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.144 eq 4320"
+        },
+        {
+          "LINE_NUM": "390",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.146 eq 4000"
+        },
+        {
+          "LINE_NUM": "400",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.146 eq 4010"
+        },
+        {
+          "LINE_NUM": "410",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.146 eq 4020"
+        },
+        {
+          "LINE_NUM": "420",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.146 eq 4300"
+        },
+        {
+          "LINE_NUM": "430",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.146 eq 4310"
+        },
+        {
+          "LINE_NUM": "440",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.146 eq 4320"
+        },
+        {
+          "LINE_NUM": "450",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.148 eq 4050"
+        },
+        {
+          "LINE_NUM": "460",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.148 eq 4060"
+        },
+        {
+          "LINE_NUM": "470",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.148 eq 4350"
+        },
+        {
+          "LINE_NUM": "480",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.148 eq 4360"
+        },
+        {
+          "LINE_NUM": "490",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.152 eq 4000"
+        },
+        {
+          "LINE_NUM": "500",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.152 eq 4010"
+        },
+        {
+          "LINE_NUM": "510",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.152 eq 4020"
+        },
+        {
+          "LINE_NUM": "520",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.152 eq 4080"
+        },
+        {
+          "LINE_NUM": "530",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.152 eq 4300"
+        },
+        {
+          "LINE_NUM": "540",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.152 eq 4310"
+        },
+        {
+          "LINE_NUM": "550",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.152 eq 4320"
+        },
+        {
+          "LINE_NUM": "560",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.6.152 eq 4380"
+        },
+        {
+          "LINE_NUM": "570",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.8.26 eq 4001"
+        },
+        {
+          "LINE_NUM": "580",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.10.8.152 eq 4001"
+        },
+        {
+          "LINE_NUM": "590",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "10.3.140.64",
+          "DST_WILDCARD": "0.0.0.31 eq 9815 log time-range test (active)"
+        },
+        {
+          "LINE_NUM": "600",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "10.3.140.64",
+          "DST_WILDCARD": "0.0.0.31 range 9821 9823"
+        },
+        {
+          "LINE_NUM": "610",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "10.3.140.96",
+          "DST_WILDCARD": "0.0.0.31 range 7400 7407"
+        },
+        {
+          "LINE_NUM": "620",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.3.139.133 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "630",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.3.139.133 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "640",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.3.139.134 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "650",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.3.139.134 range 13001 13191"
+        },
+        {
+          "LINE_NUM": "660",
+          "ACTION": "permit",
+          "PROTOCOL": "pim",
+          "SRC_NETWORK": "host",
+          "SRC_WILDCARD": "10.10.37.18",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "224.0.0.1 time-range test2 (inactive)"
+        }
+      ],
+      "line_num_action_protocol_src_network_src_wildcard_dst_host_dst_port_match_dst_port": [
+        {
+          "LINE_NUM": "10",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "host",
+          "SRC_WILDCARD": "10.10.37.18",
+          "DST_HOST": "10.10.37.17",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "bgp"
+        },
+        {
+          "LINE_NUM": "250",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.5.20",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4000"
+        },
+        {
+          "LINE_NUM": "260",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.5.20",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4010"
+        },
+        {
+          "LINE_NUM": "270",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.5.20",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4020"
+        },
+        {
+          "LINE_NUM": "280",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.5.20",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4080"
+        },
+        {
+          "LINE_NUM": "290",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.5.20",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4300"
+        },
+        {
+          "LINE_NUM": "300",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.5.20",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4310"
+        },
+        {
+          "LINE_NUM": "310",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.5.20",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4320"
+        },
+        {
+          "LINE_NUM": "320",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.5.20",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4380"
+        },
+        {
+          "LINE_NUM": "330",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.144",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4000"
+        },
+        {
+          "LINE_NUM": "340",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.144",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4010"
+        },
+        {
+          "LINE_NUM": "350",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.144",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4020"
+        },
+        {
+          "LINE_NUM": "360",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.144",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4300"
+        },
+        {
+          "LINE_NUM": "370",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.144",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4310"
+        },
+        {
+          "LINE_NUM": "380",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.144",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4320"
+        },
+        {
+          "LINE_NUM": "390",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.146",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4000"
+        },
+        {
+          "LINE_NUM": "400",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.146",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4010"
+        },
+        {
+          "LINE_NUM": "410",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.146",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4020"
+        },
+        {
+          "LINE_NUM": "420",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.146",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4300"
+        },
+        {
+          "LINE_NUM": "430",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.146",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4310"
+        },
+        {
+          "LINE_NUM": "440",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.146",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4320"
+        },
+        {
+          "LINE_NUM": "450",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.148",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4050"
+        },
+        {
+          "LINE_NUM": "460",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.148",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4060"
+        },
+        {
+          "LINE_NUM": "470",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.148",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4350"
+        },
+        {
+          "LINE_NUM": "480",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.148",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4360"
+        },
+        {
+          "LINE_NUM": "490",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.152",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4000"
+        },
+        {
+          "LINE_NUM": "500",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.152",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4010"
+        },
+        {
+          "LINE_NUM": "510",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.152",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4020"
+        },
+        {
+          "LINE_NUM": "520",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.152",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4080"
+        },
+        {
+          "LINE_NUM": "530",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.152",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4300"
+        },
+        {
+          "LINE_NUM": "540",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.152",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4310"
+        },
+        {
+          "LINE_NUM": "550",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.152",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4320"
+        },
+        {
+          "LINE_NUM": "560",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.6.152",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4380"
+        },
+        {
+          "LINE_NUM": "570",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.8.26",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4001"
+        },
+        {
+          "LINE_NUM": "580",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.10.8.152",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT": "4001"
+        },
+        {
+          "LINE_NUM": "620",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_HOST": "10.3.139.133",
+          "DST_PORT_MATCH": "range",
+          "DST_PORT": "13001 13191"
+        },
+        {
+          "LINE_NUM": "630",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.3.139.133",
+          "DST_PORT_MATCH": "range",
+          "DST_PORT": "13001 13191"
+        },
+        {
+          "LINE_NUM": "640",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_HOST": "10.3.139.134",
+          "DST_PORT_MATCH": "range",
+          "DST_PORT": "13001 13191"
+        },
+        {
+          "LINE_NUM": "650",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.3.139.134",
+          "DST_PORT_MATCH": "range",
+          "DST_PORT": "13001 13191"
+        },
+        {
+          "LINE_NUM": "660",
+          "ACTION": "permit",
+          "PROTOCOL": "pim",
+          "SRC_NETWORK": "host",
+          "SRC_WILDCARD": "10.10.37.18",
+          "DST_HOST": "224.0.0.1",
+          "DST_PORT_MATCH": "time-range",
+          "DST_PORT": "test2 (inactive)"
+        }
+      ],
+      "line_num_action_protocol_src_network_src_wildcard_dst_network_dst_wildcard_dst_port_match_dst_port_log_time_state": {
+        "LINE_NUM": "590",
+        "ACTION": "permit",
+        "PROTOCOL": "tcp",
+        "SRC_NETWORK": "10.10.37.24",
+        "SRC_WILDCARD": "0.0.0.7",
+        "DST_NETWORK": "10.3.140.64",
+        "DST_WILDCARD": "0.0.0.31",
+        "DST_PORT_MATCH": "eq",
+        "DST_PORT": "9815",
+        "LOG": "log",
+        "TIME": "test",
+        "STATE": "active"
+      },
+      "line_num_action_protocol_src_network_src_wildcard_dst_network_dst_wildcard_dst_port_match_dst_port_range_start_dst_port_range_end": [
+        {
+          "LINE_NUM": "590",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "10.3.140.64",
+          "DST_WILDCARD": "0.0.0.31",
+          "DST_PORT_MATCH": "eq",
+          "DST_PORT_RANGE_START": "9815",
+          "DST_PORT_RANGE_END": "log time-range test (active)"
+        },
+        {
+          "LINE_NUM": "600",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "10.3.140.64",
+          "DST_WILDCARD": "0.0.0.31",
+          "DST_PORT_MATCH": "range",
+          "DST_PORT_RANGE_START": "9821",
+          "DST_PORT_RANGE_END": "9823"
+        },
+        {
+          "LINE_NUM": "610",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "10.3.140.96",
+          "DST_WILDCARD": "0.0.0.31",
+          "DST_PORT_MATCH": "range",
+          "DST_PORT_RANGE_START": "7400",
+          "DST_PORT_RANGE_END": "7407"
+        },
+        {
+          "LINE_NUM": "620",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.3.139.133",
+          "DST_PORT_MATCH": "range",
+          "DST_PORT_RANGE_START": "13001",
+          "DST_PORT_RANGE_END": "13191"
+        },
+        {
+          "LINE_NUM": "630",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.3.139.133",
+          "DST_PORT_MATCH": "range",
+          "DST_PORT_RANGE_START": "13001",
+          "DST_PORT_RANGE_END": "13191"
+        },
+        {
+          "LINE_NUM": "640",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.3.139.134",
+          "DST_PORT_MATCH": "range",
+          "DST_PORT_RANGE_START": "13001",
+          "DST_PORT_RANGE_END": "13191"
+        },
+        {
+          "LINE_NUM": "650",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_NETWORK": "host",
+          "DST_WILDCARD": "10.3.139.134",
+          "DST_PORT_MATCH": "range",
+          "DST_PORT_RANGE_START": "13001",
+          "DST_PORT_RANGE_END": "13191"
+        }
+      ],
+      "line_num_action_protocol_src_network_src_wildcard_dst_host_dst_port_match_dst_port_range_start_dst_port_range_end": [
+        {
+          "LINE_NUM": "620",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_HOST": "10.3.139.133",
+          "DST_PORT_MATCH": "range",
+          "DST_PORT_RANGE_START": "13001",
+          "DST_PORT_RANGE_END": "13191"
+        },
+        {
+          "LINE_NUM": "630",
+          "ACTION": "permit",
+          "PROTOCOL": "udp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.3.139.133",
+          "DST_PORT_MATCH": "range",
+          "DST_PORT_RANGE_START": "13001",
+          "DST_PORT_RANGE_END": "13191"
+        },
+        {
+          "LINE_NUM": "640",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.16",
+          "SRC_WILDCARD": "0.0.0.3",
+          "DST_HOST": "10.3.139.134",
+          "DST_PORT_MATCH": "range",
+          "DST_PORT_RANGE_START": "13001",
+          "DST_PORT_RANGE_END": "13191"
+        },
+        {
+          "LINE_NUM": "650",
+          "ACTION": "permit",
+          "PROTOCOL": "tcp",
+          "SRC_NETWORK": "10.10.37.24",
+          "SRC_WILDCARD": "0.0.0.7",
+          "DST_HOST": "10.3.139.134",
+          "DST_PORT_MATCH": "range",
+          "DST_PORT_RANGE_START": "13001",
+          "DST_PORT_RANGE_END": "13191"
+        }
+      ],
+      "line_num_action_protocol_src_host_dst_host_time_state": {
+        "LINE_NUM": "660",
+        "ACTION": "permit",
+        "PROTOCOL": "pim",
+        "SRC_HOST": "10.10.37.18",
+        "DST_HOST": "224.0.0.1",
+        "TIME": "test2",
+        "STATE": "inactive"
+      }
+    }
+  ],
+  "cli_content": "Standard IP access list 99\n    10 permit 172.16.191.199\n    20 deny   any log\n    30 permit 10.0.10.0, wildcard bits 0.255.0.255 (20 matches)\nStandard IP access list stdacl\n    10 permit 10.1.1.1\nExtended IP access list test\nExtended IP access list 101\n    10 permit tcp any host 10.1.1.1 eq www\n    20 permit tcp any host 10.1.1.1 eq 443 log\n    30 permit ahp any any log-input\n    40 permit ahp any any log-input time-range test (active)\n    50 permit ip any host 10.1.10.11 log time-range test2 (inactive)\n    60 permit udp any range 16384 32767 10.1.1.0 0.0.0.255 range 16384 32767\n    70 permit udp any eq snmp bootpc 10.1.0.0 0.0.0.255\n    80 permit tcp 10.0.0.0 0.255.255.255 eq telnet ssh http 8080 host 10.1.0.0 neq telnet ssh\n    90 permit tcp any any match-all +ack -fin log\n    100 permit tcp host 10.1.1.1 any established\n    110 permit tcp any 10.1.1.0 0.0.255.255 established psh\nExtended IP access list sample\n    10 permit tcp host 10.10.37.18 host 10.10.37.17 eq bgp\n    20 permit tcp host 10.10.37.18 eq bgp host 10.10.37.17\n    30 permit icmp 10.10.37.16 0.0.0.3 host 10.10.37.17\n    40 permit icmp 10.10.37.24 0.0.0.7 host 10.10.37.17\n    50 permit icmp 10.10.37.16 0.0.0.3 host 10.10.5.20\n    60 permit icmp 10.10.37.24 0.0.0.7 host 10.10.5.20\n    70 permit icmp 10.10.37.16 0.0.0.3 host 10.10.6.144\n    80 permit icmp 10.10.37.24 0.0.0.7 host 10.10.6.144\n    90 permit icmp 10.10.37.16 0.0.0.3 host 10.10.6.146\n    100 permit icmp 10.10.37.24 0.0.0.7 host 10.10.6.146\n    110 permit icmp 10.10.37.16 0.0.0.3 host 10.10.6.148\n    120 permit icmp 10.10.37.24 0.0.0.7 host 10.10.6.148\n    130 permit icmp 10.10.37.16 0.0.0.3 host 10.10.6.152\n    140 permit icmp 10.10.37.24 0.0.0.7 host 10.10.6.152\n    150 permit icmp 10.10.37.16 0.0.0.3 host 10.10.8.26\n    160 permit icmp 10.10.37.24 0.0.0.7 host 10.10.8.26\n    170 permit icmp 10.10.37.16 0.0.0.3 host 10.10.8.152\n    180 permit icmp 10.10.37.24 0.0.0.7 host 10.10.8.152\n    190 permit icmp 10.10.37.16 0.0.0.3 10.3.140.0 0.0.0.127\n    200 permit icmp 10.10.37.24 0.0.0.7 10.3.140.0 0.0.0.127\n    210 permit icmp 10.10.37.16 0.0.0.3 host 10.3.139.248\n    220 permit icmp 10.10.37.24 0.0.0.7 host 10.3.139.248\n    230 permit icmp 10.10.37.16 0.0.0.3 10.3.139.128 0.0.0.7\n    240 permit icmp 10.10.37.24 0.0.0.7 10.3.139.128 0.0.0.7\n    250 permit tcp 10.10.37.24 0.0.0.7 host 10.10.5.20 eq 4000\n    260 permit tcp 10.10.37.24 0.0.0.7 host 10.10.5.20 eq 4010\n    270 permit tcp 10.10.37.24 0.0.0.7 host 10.10.5.20 eq 4020\n    280 permit tcp 10.10.37.24 0.0.0.7 host 10.10.5.20 eq 4080\n    290 permit tcp 10.10.37.24 0.0.0.7 host 10.10.5.20 eq 4300\n    300 permit tcp 10.10.37.24 0.0.0.7 host 10.10.5.20 eq 4310\n    310 permit tcp 10.10.37.24 0.0.0.7 host 10.10.5.20 eq 4320\n    320 permit tcp 10.10.37.24 0.0.0.7 host 10.10.5.20 eq 4380\n    330 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.144 eq 4000\n    340 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.144 eq 4010\n    350 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.144 eq 4020\n    360 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.144 eq 4300\n    370 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.144 eq 4310\n    380 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.144 eq 4320\n    390 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.146 eq 4000\n    400 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.146 eq 4010\n    410 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.146 eq 4020\n    420 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.146 eq 4300\n    430 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.146 eq 4310\n    440 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.146 eq 4320\n    450 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.148 eq 4050\n    460 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.148 eq 4060\n    470 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.148 eq 4350\n    480 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.148 eq 4360\n    490 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.152 eq 4000\n    500 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.152 eq 4010\n    510 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.152 eq 4020\n    520 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.152 eq 4080\n    530 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.152 eq 4300\n    540 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.152 eq 4310\n    550 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.152 eq 4320\n    560 permit tcp 10.10.37.24 0.0.0.7 host 10.10.6.152 eq 4380\n    570 permit tcp 10.10.37.24 0.0.0.7 host 10.10.8.26 eq 4001\n    580 permit tcp 10.10.37.24 0.0.0.7 host 10.10.8.152 eq 4001\n    590 permit tcp 10.10.37.24 0.0.0.7 10.3.140.64 0.0.0.31 eq 9815 log time-range test (active)\n    600 permit tcp 10.10.37.24 0.0.0.7 10.3.140.64 0.0.0.31 range 9821 9823\n    610 permit tcp 10.10.37.24 0.0.0.7 10.3.140.96 0.0.0.31 range 7400 7407\n    620 permit udp 10.10.37.16 0.0.0.3 host 10.3.139.133 range 13001 13191\n    630 permit udp 10.10.37.24 0.0.0.7 host 10.3.139.133 range 13001 13191\n    640 permit tcp 10.10.37.16 0.0.0.3 host 10.3.139.134 range 13001 13191\n    650 permit tcp 10.10.37.24 0.0.0.7 host 10.3.139.134 range 13001 13191\n    660 permit pim host 10.10.37.18 host 224.0.0.1 time-range test2 (inactive)\nExtended IP access list test2\n",
+  "textfsm_template": "Value Required,Filldown ACL_TYPE (Standard|Extended)\nValue Required,Filldown ACL_NAME (\\S+)\nValue LINE_NUM (\\d+)\nValue ACTION (permit|deny)\nValue PROTOCOL (\\S+)\nValue SRC_HOST (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue SRC_ANY (any)\nValue SRC_NETWORK (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue SRC_WILDCARD (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue SRC_NETWORK_OBJECT_GROUP_NAME (\\S+)\nValue SRC_PORT_MATCH (eq|neq|precedence|range|tos|lt|gt)\nValue SRC_PORT ((?<!range\\s).+?)\nValue SRC_PORT_RANGE_START ((?<=range\\s)\\S+)\nValue SRC_PORT_RANGE_END (\\S+)\nValue DST_HOST (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue DST_ANY (any)\nValue DST_NETWORK (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue DST_WILDCARD (\\d+\\.\\d+\\.\\d+\\.\\d+)\nValue DST_NETWORK_OBJECT_GROUP_NAME (\\S+)\nValue DST_PORT_MATCH (eq|neq|precedence|range|tos|lt|gt)\nValue DST_PORT ((?<!range\\s).+?)\nValue DST_PORT_RANGE_START ((?<=range\\s)\\S+)\nValue DST_PORT_RANGE_END (\\S+)\nValue SERVICE_OBJECT_GROUP_NAME (\\S+)\nValue FLAGS_MATCH (match-all|match-any)\nValue TCP_FLAG (((\\+|-|)ack(\\s*?)|(\\+|-|)established(\\s*?)|(\\+|-|)fin(\\s*?)|(\\+|-|)fragments(\\s*?)|(\\+|-|)psh(\\s*?)|(\\+|-|)rst(\\s*?)|(\\+|-|)syn(\\s*?)|urg(\\s*?))+)\nValue LOG (log-input|log)\nValue LOG_TAG (\\S+)\nValue ICMP_TYPE (administratively-prohibited|echo|echo-reply|mask-request|packet-too-big|parameter-problem|port-unreachable|redirect|router-advertisement|router-solicitation|time-exceeded|ttl-exceeded|unreachable)\nValue TIME (\\S+)\nValue STATE (inactive|active)\nValue MATCHES (\\d+)\n\nStart\n  ^(Standard|Extended) -> Continue.Clearall\n  ^${ACL_TYPE}\\s+IP\\s+access\\s+list\\s+${ACL_NAME}\\s* -> Record\n  ^\\s+${LINE_NUM}\\s+${ACTION}\\s+(${PROTOCOL}|${SERVICE_OBJECT_GROUP_NAME})\\s+(host\\s+${SRC_HOST}|${SRC_ANY}|${SRC_NETWORK}\\s+${SRC_WILDCARD}|object-group\\s+${SRC_NETWORK_OBJECT_GROUP_NAME})(\\s+${SRC_PORT_MATCH}\\s+|)(${SRC_PORT_RANGE_START}\\s+${SRC_PORT_RANGE_END}|${SRC_PORT}|)\\s+(host\\s+${DST_HOST}|${DST_ANY}|${DST_NETWORK}\\s+${DST_WILDCARD}|object-group\\s+${DST_NETWORK_OBJECT_GROUP_NAME})(\\s+${DST_PORT_MATCH}\\s+(${DST_PORT_RANGE_START}\\s+${DST_PORT_RANGE_END}|${DST_PORT}|)|\\s+(${FLAGS_MATCH}\\s+|)${TCP_FLAG}|)(\\s+${ICMP_TYPE}|)(\\s+${LOG}|)(\\s+time-range\\s+${TIME}\\s+\\(${STATE}\\)|)(?:\\s+\\(${MATCHES}\\s+\\S+\\)|)(\\s+\\(tag\\s+=\\s+${LOG_TAG}\\)|)\\s*$$ -> Record\n  ^\\s+${LINE_NUM}\\s+${ACTION}\\s+(${SRC_NETWORK},\\s+wildcard\\s+bits\\s+${SRC_WILDCARD}|${SRC_HOST}|${SRC_ANY})(\\s+${LOG}|)(\\s+time-range\\s+${TIME}\\s+\\(${STATE}\\)|)(?:\\s+\\(${MATCHES}\\s+\\S+\\)|)(\\s+\\(tag\\s+=\\s+${LOG_TAG}\\)|)\\s*$$ -> Record\n  ^\\s*$$\n  # Capture time-stamp if vty line has command time-stamping turned on\n  ^Load\\s+for\\s+\n  ^Time\\s+source\\s+is\n  ^.* -> Error \"Could not parse line:\"\n\nEOF\n"
+}

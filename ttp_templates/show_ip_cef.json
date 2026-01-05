@@ -1,0 +1,60 @@
+{
+  "command": "show ip cef",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"prefix_next_hop_interface\">\n{{PREFIX}} {{NEXT_HOP}} {{INTERFACE | ORPHRASE}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PREFIX": "0.0.0.0/0",
+      "NEXT_HOP": "10.10.10.1",
+      "INTERFACE": "GigabitEthernet0/0"
+    },
+    {
+      "PREFIX": "10.10.10.0/24",
+      "NEXT_HOP": "attached",
+      "INTERFACE": "GigabitEthernet0/0"
+    },
+    {
+      "PREFIX": "192.168.1.0/24",
+      "NEXT_HOP": "10.10.10.2",
+      "INTERFACE": "GigabitEthernet0/1"
+    },
+    {
+      "PREFIX": "192.168.2.0/24",
+      "NEXT_HOP": "10.10.10.3",
+      "INTERFACE": "GigabitEthernet0/2"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "prefix_next_hop_interface": [
+        {
+          "PREFIX": "0.0.0.0/0",
+          "NEXT_HOP": "10.10.10.1",
+          "INTERFACE": "GigabitEthernet0/0"
+        },
+        {
+          "PREFIX": "10.10.10.0/24",
+          "NEXT_HOP": "attached",
+          "INTERFACE": "GigabitEthernet0/0"
+        },
+        {
+          "PREFIX": "192.168.1.0/24",
+          "NEXT_HOP": "10.10.10.2",
+          "INTERFACE": "GigabitEthernet0/1"
+        },
+        {
+          "PREFIX": "192.168.2.0/24",
+          "NEXT_HOP": "10.10.10.3",
+          "INTERFACE": "GigabitEthernet0/2"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Prefix              Next Hop             Interface\n0.0.0.0/0           10.10.10.1           GigabitEthernet0/0\n10.10.10.0/24       attached             GigabitEthernet0/0\n192.168.1.0/24      10.10.10.2           GigabitEthernet0/1\n192.168.2.0/24      10.10.10.3           GigabitEthernet0/2\n",
+  "textfsm_template": "Value PREFIX (\\S+)\nValue NEXT_HOP (\\S+)\nValue INTERFACE (\\S+)\n\nStart\n  ^\\s*Prefix\\s+Next\\s+Hop\\s+Interface\\s*$$\n  ^\\s*${PREFIX}\\s+${NEXT_HOP}\\s+${INTERFACE}\\s*$$ -> Record"
+}

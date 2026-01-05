@@ -1,0 +1,83 @@
+{
+  "command": "alcatel_aos_show_vlan",
+  "source": "ntc",
+  "status": "success",
+  "match_ratio": 0.25,
+  "textfsm_rows": 4,
+  "ttp_rows": 1,
+  "ttp_template": "<group name=\"vlan_id_type_admin_state_operational_state_spanning_tree_1x1_spanning_tree_flat_auth_ip_state_mbletag_source_learn_vlan_name\">\n   {{VLAN_ID | re(\"\\\\d+\")}} {{TYPE}} {{ADMIN_STATE | ORPHRASE}} {{OPERATIONAL_STATE | ORPHRASE}} {{SPANNING_TREE_1X1}} {{SPANNING_TREE_FLAT}} {{AUTH}} {{IP_STATE | ORPHRASE}} {{MBLETAG}} {{SOURCE_LEARN}} {{VLAN_NAME | ORPHRASE}} \n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "VLAN_ID": "1",
+      "TYPE": "std",
+      "ADMIN_STATE": "on",
+      "OPERATIONAL_STATE": "on",
+      "SPANNING_TREE_1X1": "on",
+      "SPANNING_TREE_FLAT": "on",
+      "AUTH": "off",
+      "IP_STATE": "off",
+      "MBLETAG": "off",
+      "SOURCE_LEARN": "on",
+      "VLAN_NAME": "VLAN 1"
+    },
+    {
+      "VLAN_ID": "10",
+      "TYPE": "std",
+      "ADMIN_STATE": "on",
+      "OPERATIONAL_STATE": "off",
+      "SPANNING_TREE_1X1": "on",
+      "SPANNING_TREE_FLAT": "on",
+      "AUTH": "off",
+      "IP_STATE": "off",
+      "MBLETAG": "off",
+      "SOURCE_LEARN": "on",
+      "VLAN_NAME": "name with spaces"
+    },
+    {
+      "VLAN_ID": "100",
+      "TYPE": "std",
+      "ADMIN_STATE": "on",
+      "OPERATIONAL_STATE": "on",
+      "SPANNING_TREE_1X1": "on",
+      "SPANNING_TREE_FLAT": "on",
+      "AUTH": "off",
+      "IP_STATE": "on",
+      "MBLETAG": "off",
+      "SOURCE_LEARN": "on",
+      "VLAN_NAME": "name-with-dashes"
+    },
+    {
+      "VLAN_ID": "1000",
+      "TYPE": "gvrp",
+      "ADMIN_STATE": "on",
+      "OPERATIONAL_STATE": "on",
+      "SPANNING_TREE_1X1": "on",
+      "SPANNING_TREE_FLAT": "on",
+      "AUTH": "off",
+      "IP_STATE": "on",
+      "MBLETAG": "off",
+      "SOURCE_LEARN": "on",
+      "VLAN_NAME": "namewithoutnothing"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "vlan_id_type_admin_state_operational_state_spanning_tree_1x1_spanning_tree_flat_auth_ip_state_mbletag_source_learn_vlan_name": {
+        "VLAN_ID": "1",
+        "TYPE": "std",
+        "ADMIN_STATE": "on",
+        "OPERATIONAL_STATE": "on",
+        "SPANNING_TREE_1X1": "on",
+        "SPANNING_TREE_FLAT": "on",
+        "AUTH": "off",
+        "IP_STATE": "off",
+        "MBLETAG": "off",
+        "SOURCE_LEARN": "on",
+        "VLAN_NAME": "VLAN 1"
+      }
+    }
+  ],
+  "cli_content": "                              stree                 mble   src        \n vlan  type  admin   oper   1x1   flat   auth   ip   tag   lrn   name\n-----+-----+------+------+------+------+----+-----+-----+------+----------\n   1    std   on     on     on    on     off   off   off     on   VLAN 1                          \n  10    std   on    off     on    on     off   off   off     on   name with spaces                \n 100    std   on     on     on    on     off    on   off     on   name-with-dashes                  \n1000   gvrp   on     on     on    on     off    on   off     on   namewithoutnothing                  \n",
+  "textfsm_template": "Value VLAN_ID (\\d+)\nValue TYPE (std|vstk|gvrp|ipmv)\nValue ADMIN_STATE (on|off)\nValue OPERATIONAL_STATE (on|off)\nValue SPANNING_TREE_1X1 (on|off)\nValue SPANNING_TREE_FLAT (on|off)\nValue AUTH (on|off)\nValue IP_STATE (on|off)\nValue MBLETAG (on|off)\nValue SOURCE_LEARN (on|off)\nValue VLAN_NAME ((\\S+\\s*)+\\S+)\n\nStart\n  ^\\s*${VLAN_ID}\\s+${TYPE}\\s+${ADMIN_STATE}\\s+${OPERATIONAL_STATE}\\s+${SPANNING_TREE_1X1}\\s+${SPANNING_TREE_FLAT}\\s+${AUTH}\\s+${IP_STATE}\\s+${MBLETAG}\\s+${SOURCE_LEARN}\\s+${VLAN_NAME}\\s*$$ -> Record\n  ^\\s*stree\\s+mble\\s+src\\s*$$\n  ^\\s*vlan\\s+type\\s+admin\\s+oper\\s+1x1\\s+flat\\s+auth\\s+ip\\s+tag\\s+lrn\\s+name\\s*$$\n  ^-----\\+-----\\+------\\+------\\+------\\+------\\+----\\+-----\\+-----\\+------\\+----------\n  ^.*$$ -> Error\n"
+}

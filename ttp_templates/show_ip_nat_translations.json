@@ -1,0 +1,76 @@
+{
+  "command": "show ip nat translations",
+  "source": "chatgpt",
+  "status": "success",
+  "match_ratio": 1.0,
+  "textfsm_rows": 4,
+  "ttp_rows": 4,
+  "ttp_template": "<group name=\"protocol_inside_global_inside_local_outside_local_outside_global\">\n{{PROTOCOL}} {{INSIDE_GLOBAL}} {{INSIDE_LOCAL}} {{OUTSIDE_LOCAL | ORPHRASE}} {{OUTSIDE_GLOBAL}}\n</group>",
+  "error": null,
+  "textfsm_parsed": [
+    {
+      "PROTOCOL": "tcp",
+      "INSIDE_GLOBAL": "203.0.113.5:85",
+      "INSIDE_LOCAL": "192.168.1.10:85",
+      "OUTSIDE_LOCAL": "198.51.100.2:8080",
+      "OUTSIDE_GLOBAL": "198.51.100.2:8080"
+    },
+    {
+      "PROTOCOL": "udp",
+      "INSIDE_GLOBAL": "203.0.113.5:12345",
+      "INSIDE_LOCAL": "192.168.1.11:12345",
+      "OUTSIDE_LOCAL": "203.0.113.100:12345",
+      "OUTSIDE_GLOBAL": "203.0.113.100:12345"
+    },
+    {
+      "PROTOCOL": "tcp",
+      "INSIDE_GLOBAL": "203.0.113.6:443",
+      "INSIDE_LOCAL": "192.168.1.12:443",
+      "OUTSIDE_LOCAL": "198.51.100.3:443",
+      "OUTSIDE_GLOBAL": "198.51.100.3:443"
+    },
+    {
+      "PROTOCOL": "udp",
+      "INSIDE_GLOBAL": "203.0.113.7:67",
+      "INSIDE_LOCAL": "192.168.1.13:67",
+      "OUTSIDE_LOCAL": "192.0.2.1:67",
+      "OUTSIDE_GLOBAL": "192.0.2.1:67"
+    }
+  ],
+  "ttp_parsed": [
+    {
+      "protocol_inside_global_inside_local_outside_local_outside_global": [
+        {
+          "PROTOCOL": "tcp",
+          "INSIDE_GLOBAL": "203.0.113.5:85",
+          "INSIDE_LOCAL": "192.168.1.10:85",
+          "OUTSIDE_LOCAL": "198.51.100.2:8080",
+          "OUTSIDE_GLOBAL": "198.51.100.2:8080"
+        },
+        {
+          "PROTOCOL": "udp",
+          "INSIDE_GLOBAL": "203.0.113.5:12345",
+          "INSIDE_LOCAL": "192.168.1.11:12345",
+          "OUTSIDE_LOCAL": "203.0.113.100:12345",
+          "OUTSIDE_GLOBAL": "203.0.113.100:12345"
+        },
+        {
+          "PROTOCOL": "tcp",
+          "INSIDE_GLOBAL": "203.0.113.6:443",
+          "INSIDE_LOCAL": "192.168.1.12:443",
+          "OUTSIDE_LOCAL": "198.51.100.3:443",
+          "OUTSIDE_GLOBAL": "198.51.100.3:443"
+        },
+        {
+          "PROTOCOL": "udp",
+          "INSIDE_GLOBAL": "203.0.113.7:67",
+          "INSIDE_LOCAL": "192.168.1.13:67",
+          "OUTSIDE_LOCAL": "192.0.2.1:67",
+          "OUTSIDE_GLOBAL": "192.0.2.1:67"
+        }
+      ]
+    }
+  ],
+  "cli_content": "Pro Inside global      Inside local       Outside local      Outside global\ntcp 203.0.113.5:85     192.168.1.10:85    198.51.100.2:8080   198.51.100.2:8080\nudp 203.0.113.5:12345  192.168.1.11:12345 203.0.113.100:12345 203.0.113.100:12345\ntcp 203.0.113.6:443    192.168.1.12:443   198.51.100.3:443    198.51.100.3:443\nudp 203.0.113.7:67     192.168.1.13:67    192.0.2.1:67        192.0.2.1:67\n",
+  "textfsm_template": "Value PROTOCOL (\\S+)\nValue INSIDE_GLOBAL (\\S+:\\d+)\nValue INSIDE_LOCAL (\\S+:\\d+)\nValue OUTSIDE_LOCAL (\\S+:\\d+)\nValue OUTSIDE_GLOBAL (\\S+:\\d+)\n\nStart\n  ^Pro\\s+Inside\\s+global\\s+Inside\\s+local\\s+Outside\\s+local\\s+Outside\\s+global\\s*$$\n  ^\\s*${PROTOCOL}\\s+${INSIDE_GLOBAL}\\s+${INSIDE_LOCAL}\\s+${OUTSIDE_LOCAL}\\s+${OUTSIDE_GLOBAL}\\s*$$ -> Record"
+}

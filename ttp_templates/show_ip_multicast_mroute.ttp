@@ -1,0 +1,10 @@
+# TTP Template auto-generated from TextFSM
+# Original command: show ip multicast mroute
+# Source: chatgpt
+# TextFSM rows: 2
+# TTP rows: 2
+# Match ratio: 1.00
+
+<group name="source_addr_multicast_group_rpf_nbr">
+({{SOURCE_ADDR | re("\\d+\\.\\d+\\.\\d+\\.\\d+")}}, {{MULTICAST_GROUP}}), RPF nbr: {{RPF_NBR | ORPHRASE}}
+</group>
